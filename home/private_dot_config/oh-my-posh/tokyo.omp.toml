@@ -1,0 +1,156 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'plain'
+    template = '┏[<#ffffff></> {{ .UserName }} from <#ffffff></> {{ .HostName }}]'
+    background = ''
+    foreground = '#7eb8da'
+    Text = ''
+    Duration = 0
+    NameLength = 0
+
+  [[blocks.segments]]
+    type = 'executiontime'
+    style = 'diamond'
+    template = '[<#ffffff></> {{ .FormattedMs }}s]'
+    background = ''
+    foreground = '#be9ddf'
+    Text = ''
+    Duration = 0
+    NameLength = 0
+
+    [blocks.segments.properties]
+      style = 'dallas'
+      threshold = 0.0
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'diamond'
+    template = ''
+    background = ''
+    foreground = ''
+    Text = ''
+    Duration = 0
+    NameLength = 0
+
+    [blocks.segments.properties]
+      root_icon = ''
+
+  [[blocks.segments]]
+    type = 'sysinfo'
+    style = 'diamond'
+    template = '[<#ffffff></> RAM: {{ (div ((sub .PhysicalTotalMemory .PhysicalFreeMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB]'
+    background = ''
+    foreground = '#be9ddf'
+    Text = ''
+    Duration = 0
+    NameLength = 0
+
+  [[blocks.segments]]
+    type = 'time'
+    style = 'diamond'
+    template = '[<#ffffff></> {{ .CurrentDate | date .Format }}]'
+    background = ''
+    foreground = '#7eb8da'
+    Text = ''
+    Duration = 0
+    NameLength = 0
+
+    [blocks.segments.properties]
+      time_format = 'Monday at 3:04:05 PM'
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    template = '[<#ffffff>{{ .UpstreamIcon }}</>{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <#ffffff></> {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} <#ffffff></> {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} <#ffffff></> {{ .StashCount }}{{ end }}]'
+    background = ''
+    foreground = '#ffa5d8'
+    Text = ''
+    Duration = 0
+    NameLength = 0
+
+    [blocks.segments.properties]
+      fetch_stash_count = true
+      fetch_status = true
+      fetch_upstream_icon = true
+
+  [[blocks.segments]]
+    type = 'aws'
+    style = 'plain'
+    template = '[{{ .Profile }}{{if .Region}}@{{ .Region }}{{ end }}]'
+    background = ''
+    foreground = '#ffa5d8'
+    Text = ''
+    Duration = 0
+    NameLength = 0
+
+  [[blocks.segments]]
+    type = 'kubectl'
+    style = 'plain'
+    template = '[{{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}]'
+    background = ''
+    foreground = '#ffa5d8'
+    Text = ''
+    Duration = 0
+    NameLength = 0
+
+  [[blocks.segments]]
+    type = 'root'
+    style = 'plain'
+    template = '[]'
+    background = ''
+    foreground = '#ffa5d8'
+    Text = ''
+    Duration = 0
+    NameLength = 0
+
+  [[blocks.segments]]
+    type = 'status'
+    style = 'powerline'
+    template = '[<#ffffff></> Error, check your command]'
+    background = ''
+    foreground = '#ffa5d8'
+    Text = ''
+    Duration = 0
+    NameLength = 0
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    template = '┖[<#98bfad>{{ .Path }}</>]'
+    background = ''
+    foreground = '#7eb8da'
+    Text = ''
+    Duration = 0
+    NameLength = 0
+
+    [blocks.segments.properties]
+      style = 'full'
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+  newline = true
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    template = '└─Δ'
+    background = ''
+    foreground = '#7eb8da'
+    Text = ''
+    Duration = 0
+    NameLength = 0

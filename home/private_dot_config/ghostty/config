@@ -1,0 +1,61 @@
+# ghostty +show-config --default --docs
+# ghostty +list-themes
+# ghostty +list-fonts
+
+###########################################################
+# Default shell
+# command = /home/linuxbrew/.linuxbrew/bin/zsh --login --interactive
+
+###########################################################
+# FONTS
+
+# first we clear the font list
+font-family                     = ""
+font-family                     = "MonaspiceAr NFM"
+font-family                     = "MonaspiceArNerdFontMono"
+font-family                     = "SauceCodePro NFM"
+font-family                     = "SauceCodeProNerdFontMono"
+font-family                     = "Symbols Nerd Font Mono"
+font-family                     = "SymbolsNerdFontMono"
+
+font-size                       = 14
+font-thicken                    = false
+freetype-load-flags             = no-hinting
+freetype-load-flags             = no-force-autohint
+window-inherit-font-size        = true
+# font-feature                    = calt
+# font-feature                    = dlig
+# font-feature                    = ss05
+
+###########################################################
+# LOOK & FEEL
+
+theme                           = dark:catppuccin-mocha,light:catppuccino-light
+
+adjust-cursor-thickness         = 3
+adjust-underline-position       = 3
+bold-is-bright                  = true
+link-url                        = true
+macos-titlebar-proxy-icon       = hidden
+macos-titlebar-style            = tabs
+mouse-hide-while-typing         = true
+# window-theme                    = ghostty
+window-vsync                    = true
+
+background-blur-radius = 2200
+shell-integration              = fish
+shell-integration-features     = no-cursor,sudo,title
+
+# Key bindings
+keybind                        = ctrl+h=goto_split:left
+keybind                        = ctrl+j=goto_split:bottom
+keybind                        = ctrl+k=goto_split:top
+keybind                        = ctrl+l=goto_split:right
+keybind                        = ctrl+shift+h=new_split:left
+keybind                        = ctrl+shift+j=new_split:down
+keybind                        = ctrl+shift+k=new_split:up
+keybind                        = ctrl+shift+l=new_split:right
+keybind                        = super+shift+enter=new_split:auto
+keybind                        = super+shift+i=inspector:toggle
+keybind                        = super+shift+r=reload_config
+keybind                        = super+t=new_tab

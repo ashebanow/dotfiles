@@ -1,0 +1,88 @@
+# A lot of this is directly from
+# https://github.com/twpayne/dotfiles/blob/436e4e9366667d84493d3504123bb16c89583605/home/.chezmoi.toml.tmpl
+
+{{/* boolean feature tags */}}
+{{- $ephemeral := false -}}{{/* true if this machine is ephemeral, e.g. a cloud or VM instance */}}
+{{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+{{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
+{{- $wsl := false -}}{{/* true if this machine is running WSL2 */}}
+{{- "" -}}
+
+{{- $osID := .chezmoi.os -}}
+{{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
+{{-   $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+{{/* detect GitHub codespaces, VSCode remote containers, Docker containers, Multipass VMs, and Vagrant boxes */}}
+{{- if or (env "CODESPACES") (env "REMOTE_CONTAINERS_IPC") (eq .chezmoi.username "root" "ubuntu" "vagrant" "vscode") -}}
+{{-   $ephemeral = true -}}
+{{-   $headless = true -}}
+{{- end -}}
+
+{{- $hostname := .chezmoi.hostname -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   $hostname = output "scutil" "--get" "ComputerName" | trim -}}
+{{- end -}}
+
+{{- if eq .chezmoi.os "windows" -}}
+{{-   $ephemeral = true -}}
+{{- end -}}
+
+{{- if not $ephemeral -}}
+{{-   if eq $hostname "bergamot" -}}
+{{-     $headless = true -}}
+{{-     $personal = false -}}
+{{-   else if eq $hostname "calamansi" -}}
+{{-     $headless = true -}}
+{{-     $personal = false -}}
+{{-   else if eq $hostname "kumquat" -}}
+{{-     $headless = true -}}
+{{-     $personal = false -}}
+{{-   else if eq $hostname "rangpur" -}}
+{{-     $headless = true -}}
+{{-     $personal = false -}}
+{{-   else if eq $hostname "tangelo" -}}
+{{-     $headless = true -}}
+{{-     $personal = false -}}
+{{-   else if eq $hostname "miraclemax" -}}
+{{-     $headless = false -}}
+{{-     $personal = true -}}
+{{-   else if eq $hostname "yuzu" -}}
+{{-     $headless = false -}}
+{{-     $personal = true -}}
+{{-   else if eq $hostname "liquidity-ubuntu-wsl" -}}
+{{-     $headless = false -}}
+{{-     $personal = true -}}
+{{-     $wsl = true -}}
+{{-   else if eq $hostname "limon" -}}
+{{-     $headless = false -}}
+{{-     $personal = true -}}
+{{-   else if stdinIsATTY -}}
+{{-     $headless = promptBoolOnce . "headless" "headless" -}}
+{{-     $ephemeral = promptBoolOnce . "ephemeral" "ephemeral" -}}
+{{-   else -}}
+{{-     $ephemeral = true -}}
+{{-     $headless = true -}}
+{{-     $personal = false -}}
+{{-   end -}}
+{{- end -}}
+
+{{- $email := "ashebanow@gmail.com" -}}
+
+[hooks.read-source-state.pre]
+    command = "{{- .chezmoi.config.sourceDir -}}/bin/install-prerequisites.sh"
+
+[data]
+    ephemeral = {{ $ephemeral }}
+    email = {{ $email | quote }}
+    headless = {{ $headless }}
+    hostname = {{ $hostname | quote }}
+    personal = {{ $personal }}
+    osid = {{ $osID | quote }}
+    zshPlugins = [
+      "vi-mode",
+      "zsh-syntax-highlighting",
+    ]
+
+[github]
+    refreshPeriod = "12h"

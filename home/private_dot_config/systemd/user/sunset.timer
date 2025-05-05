@@ -1,0 +1,10 @@
+[Unit]
+Description="Run sunset.service 2 minutes after boot and every morning and evening"
+
+[Timer]
+OnBootSec=5min
+OnCalendar=*-*-* 7,18:01:*
+Unit=sunset.service
+
+[Install]
+WantedBy=default.target

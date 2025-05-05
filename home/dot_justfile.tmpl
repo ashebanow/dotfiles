@@ -1,0 +1,18 @@
+{{- if (and (hasKey .chezmoi.osRelease "idLike") (eq .chezmoi.osRelease.idLike "fedora")) -}}
+import "/usr/share/ublue-os/justfile"
+{{- end }}
+
+# default recipe to display help information
+default:
+    @just --list
+
+# Update homebrew
+[group('Maintenance')]
+update-brew:
+    brew update
+    brew upgrade
+
+# Update dotfiles using chezmoi
+[group('Maintenance')]
+update-config:
+    chezmoi apply

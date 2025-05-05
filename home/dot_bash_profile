@@ -1,0 +1,10 @@
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
+fi
+
+if command -v zsh >/dev/null 2>&1; then
+  export SHELL=$(which zsh)
+fi

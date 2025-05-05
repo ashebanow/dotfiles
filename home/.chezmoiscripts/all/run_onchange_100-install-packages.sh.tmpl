@@ -1,0 +1,79 @@
+#!/bin/bash
+
+# install necessary packages.
+# on fedora, we use linuxbrew to be more friendly to atomic variants.
+
+{{- if eq .chezmoi.os "linux" -}}
+
+# TODO: new strategy for package management
+#
+# Use nix (not nixos) for most package management, on all linux platforms
+# only use system packages for essentials: window managers/desktop environments,
+# secret management, ssh, and hardware.
+#
+# only use brew when it can't be avoided.
+
+{{- if 0 -}}
+brew bundle --file=/dev/stdin <<EOF
+{{ range .packages.linux.nixpkgs -}}
+  brew "{{ . }}"
+{{ end -}}
+EOF
+{{ end -}}
+
+
+{{-   if (and (hasKey .chezmoi.osRelease "idLike") (eq .chezmoi.osRelease.idLike "arch")) -}}
+
+# make sure system is up to date
+yay -Syu
+
+# ideally, there would be a single yay command here, or even
+# a small number of role-themed sets of packages
+{{ range .packages.linux.arch -}}
+  yay -S --needed --noconfirm "{{ . }}"
+{{ end -}}
+
+{{-   else -}}
+
+set -eufo pipefail
+
+brew update
+brew bundle --file=/dev/stdin <<EOF
+{{ range .packages.linux.brews -}}
+  brew "{{ . }}"
+{{ end -}}
+EOF
+
+{{-   end }}
+
+# TODO: setup flathub and flatpaks: kitty, cavasik, zen, steam, lutris, vscode, ytmdesktop
+
+{{- else if eq .chezmoi.os "darwin" -}}
+
+brew update
+brew bundle --no-lock --file=/dev/stdin <<EOF
+{{ range .packages.darwin.brews -}}
+  brew "{{ . }}"
+{{ end -}}
+{{ range .packages.darwin.casks -}}
+  cask "{{ . }}"
+{{ end -}}
+EOF
+
+{{- else }}
+
+echo "unknown os: " + {{- .chezmoi.os  }}
+exit 1
+
+{{ end }}
+
+# TODO: setup tailscale and auth
+
+# setup/update github copilot extension
+if command -v gh; then
+  if $(gh extension list | grep -q gh-copilot); then
+    gh extension upgrade github/gh-copilot
+  else
+    gh extension install github/gh-copilot
+  fi
+fi

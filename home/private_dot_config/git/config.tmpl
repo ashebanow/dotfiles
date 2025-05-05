@@ -1,0 +1,87 @@
+[include]
+	path = {{- .chezmoi.homeDir -}}/.config/delta/themes/catppuccin.gitconfig
+
+# ALIASES
+# -----------
+[alias]
+	a = "add"
+	co = "checkout"
+	rb = "rebase --interactive origin/main"
+	rba = "rebase --abort"
+	rbc = "rebase --continue"
+	rbm = "rebase --interactive origin/master"
+    # use as ```git squash-all -m "a brand new start"```
+    # taken from https://stackoverflow.com/a/23486788/164655
+    squash-all = "!f(){ git reset $(git commit-tree \"HEAD^{tree}\" \"$@\");};f"
+
+# Tool setttings
+# --------------
+
+[core]
+	pager = "delta"
+
+[credential "https://gist.github.com"]
+	helper = !gh auth git-credential
+
+[credential "https://github.com"]
+	helper = !gh auth git-credential
+
+[init]
+	defaultBranch = "main"
+
+[branch]
+	autosetupmerge = true
+
+[pull]
+	rebase = true
+
+[push]
+	default = "simple"
+
+[rerere]
+	enabled = true
+
+[user]
+	email = "ashebanow@gmail.com"
+	name = "Andrew Shebanow"
+	signingkey = "{{ (bitwarden "item" "github_ssh_key").sshKey.publicKey }}"
+
+[gpg]
+	format = "ssh"
+
+[gpg "ssh"]
+	allowedSignersFile = "~/.ssh/allowed_signers"
+
+[commit]
+	# gpgsign = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[diff]
+	mnemonicprefix = true
+	tool = "delta"
+
+[interactive]
+	diffFilter = "delta --color-only"
+
+[merge]
+	tool = "delta"
+
+[delta]
+    features = decorations catppuccin-mocha
+
+[delta "interactive"]
+    keep-plus-minus-markers = false
+
+[delta "decorations"]
+    commit-decoration-style = blue ol
+    commit-style = raw
+    file-style = omit
+    hunk-header-decoration-style = blue box
+    hunk-header-file-style = red
+    hunk-header-line-number-style = "#067a00"
+    hunk-header-style = file line-number syntax

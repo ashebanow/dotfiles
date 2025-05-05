@@ -1,0 +1,16 @@
+[user]
+name = "Andrew Shebanow"
+email = "ashebanow@gmail.com"
+
+[ui]
+default-command = "log"
+
+[signing]
+behavior = "own"
+backend = "ssh"
+key = "~/.ssh/github_ed25519.pub"
+#backends.ssh.program = "/usr/bin/ssh-keygen"
+backends.ssh.allowed-signers = "~/.ssh/allowed_signers"
+
+[git]
+auto-local-bookmark = true

@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+#
+# Adapted from https://gist.github.com/seanh/d3d1a6dfa4b7d5d9f135984ae913cf0f
+#
+# Log in to and unlock Bitwarden CLI.
+#
+# If you save the returned session key in a BW_SESSION envvar that will unlock
+# your Bitwarden vault for the current shell session. Once BW_SESSION has been
+# set in one shell session it'll also be inherited by any commands or scripts
+# run from that shell session.
+#
+# Usage (sh/zsh/bash):
+#
+#     BW_SESSION=$(bw-open <EMAIL>)
+#     export BW_SESSION
+#
+# Usage (fish):
+#
+#     set -x BW_SESSION (bw-open <EMAIL>)
+
+if [ ! -z $BW_SESSION ]; then
+    # there is a chance that your session key is present but expired.
+    # 'bw' get commands will fail in that case.
+    echo "$BW_SESSION"
+    exit
+fi
+
+if ! bw login --check &> /dev/null
+then
+    IFS= read -rsp 'Bitwarden is locked, please enter your Bitwarden master password: ' BW_PASSWORD
+    export BW_SESSION="$(bw login --raw "$1" "$BW_PASSWORD")"
+fi
+
+if ! bw unlock --check &> /dev/null
+then
+    export BW_SESSION="$(bw unlock --raw "$BW_PASSWORD")"
+fi
+
+echo "$BW_SESSION"

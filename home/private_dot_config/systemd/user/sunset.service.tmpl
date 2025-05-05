@@ -1,0 +1,7 @@
+[Unit]
+Description=Adjust display color temperature by time of day.
+
+[Service]
+Type=simple
+StandardOutput=journal
+ExecStart={{- .chezmoi.homeDir -}}/.config/hypr/scripts/sunset.sh

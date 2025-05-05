@@ -1,0 +1,4 @@
+/* @import '../../.cache/wal/colors-waybar.css'; */
+@import "../waybar/colors.css";
+@import 'style/notifications.css';
+@import 'style/control-center.css';

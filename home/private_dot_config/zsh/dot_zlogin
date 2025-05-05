@@ -1,0 +1,5 @@
+
+# Added by OrbStack: command-line tools and integration
+if [[ $OSTYPE == 'darwin'* ]] && [[ -d ~/orbstack ]]; then
+    source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+fi

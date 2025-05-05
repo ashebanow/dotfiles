@@ -1,0 +1,43 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
+# User specific environment
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+  PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+fi
+export PATH
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+export EDITOR=vim
+
+# User specific aliases and functions
+if [ -d ~/.bashrc.d ]; then
+  for rc in ~/.bashrc.d/*; do
+    if [ -f "$rc" ]; then
+      . "$rc"
+    fi
+  done
+fi
+unset rc
+
+## NOTE: that the bling here is designed to be run from bash OR zsh.
+### bling.sh source start
+test -f /usr/share/ublue-os/bluefin-cli/bling.sh && source /usr/share/ublue-os/bluefin-cli/bling.sh
+### bling.sh source end
+
+# Only trigger if:
+# - 'zsh' is not the parent process of this shell
+# - We did not call: bash -c '...'
+# - Drop in to zsh only if the parent process is not zsh. This allows to quickly enter in to bash
+# by simply invoking `bash` command without losing ~/.bashrc configuration.
+# (Adapted from: https://wiki.archlinux.org/title/Fish#Setting_fish_as_interactive_shell_only)
+if [[ $(ps --no-header --pid=$PPID --format=comm) != "zsh" && -z ${BASH_EXECUTION_STRING} && ${SHLVL} == 1 ]]
+  shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=''
+  exec zsh $LOGIN_OPTION
+fi

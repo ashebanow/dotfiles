@@ -1,0 +1,50 @@
+{
+	// See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
+	// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+
+	// List of extensions which should be recommended for users of this workspace.
+    "recommendations": [
+        "1yib.rust-bundle",
+        "aaron-bond.better-comments",
+        "alefragnani.project-manager",
+        "bierner.github-markdown-preview",
+        "bradlc.vscode-tailwindcss",
+        "brandonkirbyson.vscode-animations",
+        "Catppuccin.catppuccin-vsc-pack",
+        "dbaeumer.vscode-eslint",
+        "drcika.apc-extension",
+        "ecmel.vscode-html-css",
+        "editorconfig.editorconfig",
+        "endverbraucher.pack-rails",
+        "esbenp.prettier-vscode",
+        "formulahendry.auto-rename-tag",
+        "github.copilot-chat",
+        "github.copilot",
+        "github.vscode-github-actions",
+        "github.vscode-pull-request-github",
+        "gydunhn.javascript-essentials",
+        "jorcelinojunior.chezmoi-tools",
+        "malmaud.tmux",
+        "mikestead.dotenv",
+        "mintlify.document",
+        "mousavian.ssh-config-syntax-highlighter",
+        "ms-vscode-remote.remote-containers",
+        "ms-vscode-remote.remote-ssh",
+        "ms-vscode.remote-explorer",
+        "quicktype.quicktype",
+        "redhat.java",
+        "redhat.vscode-yaml",
+        "ritwickdey.liveserver",
+        "shopify.ruby-extensions-pack",
+        "skellock.just",
+        "tamasfe.even-better-toml",
+        "usernamehw.errorlens",
+        "withfig.fig",
+        "yunduo.color-highlight-css-color-4"
+    ],
+
+    // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
+    "unwantedRecommendations": [
+
+    ]
+}

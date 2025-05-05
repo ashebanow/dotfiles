@@ -1,0 +1,12 @@
+syntax on
+
+set expandtab
+set ai
+set tabstop=2
+set shiftwidth=0
+
+" Wrap gitcommit file types at the appropriate length
+filetype indent plugin on
+
+let brew_prefix = system('brew --prefix fzf')
+set rtp+=$brew_prefix

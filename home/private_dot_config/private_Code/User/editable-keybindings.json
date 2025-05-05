@@ -1,0 +1,13 @@
+// Place your key bindings in this file to override the defaults
+[
+    {
+        "key": "f9",
+        "command": "sortLines.sortLinesCaseInsensitive",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+f9",
+        "command": "sortLines.sortLinesNatural",
+        "when": "editorTextFocus"
+    }
+]

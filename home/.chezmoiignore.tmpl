@@ -1,0 +1,28 @@
+{{ if ne .chezmoi.os "darwin" }}
+.chezmoiscripts/darwin/**
+.config/iterm2
+.config/karabiner
+{{ end }}
+
+{{ if ne .chezmoi.os "linux" }}
+.chezmoiscripts/linux/**
+.hushlogin
+.config/ags
+.config/gtk-3.0
+.config/gtk-4.0
+.config/hypr
+.config/nwg-look
+.config/qt5ct
+.config/qt6ct
+.config/rofi
+.config/swappy
+.config/swaync
+.config/Thunar
+.config/wallust
+.config/waybar
+.config/wlogout
+.config/xfce4
+.config/xsettingsd
+.config/yay
+.local/share/fonts
+{{ end }}

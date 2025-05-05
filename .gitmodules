@@ -1,0 +1,6 @@
+[submodule "home/dot_config/zsh/.antidote"]
+	path = home/private_dot_config/zsh/dot_antidote
+	url = https://github.com/mattmc3/antidote.git
+[submodule "home/private_dot_local/share/fonts"]
+	path = fonts
+	url = git@github.com:ashebanow/fonts.git

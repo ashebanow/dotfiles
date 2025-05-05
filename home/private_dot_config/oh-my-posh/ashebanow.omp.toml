@@ -1,0 +1,94 @@
+#:schema https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json
+
+version = 2
+final_space = true
+
+[[blocks]]
+  type = 'prompt'
+  alignment = 'left'
+
+  [[blocks.segments]]
+    type = 'os'
+    style = 'plain'
+    template = '{{.Icon}} '
+    background = ''
+    foreground = 'p:os'
+    Text = ''
+    Duration = 0
+    NameLength = 0
+
+  [[blocks.segments]]
+    type = 'session'
+    style = 'plain'
+    template = '{{ .HostName }} '
+    background = ''
+    foreground = 'p:blue'
+    Text = ''
+    Duration = 0
+    NameLength = 0
+
+  [[blocks.segments]]
+    type = 'path'
+    style = 'plain'
+    template = '{{ .Path }} '
+    background = ''
+    foreground = 'p:pink'
+    Text = ''
+    Duration = 0
+    NameLength = 0
+
+    [blocks.segments.properties]
+      folder_icon = " \uf07c .."
+      home_icon = '󰋜'
+      style = "agnoster_short"
+      folder_separator_icon = "/"
+      hide_root_location = true
+      max_depth = 3
+        [blocks.segments.properties.mapped_locations]
+          "~/Development" = "󰲋"
+          "~/Documents" = "󱔗"
+          "~/Downloads" = ""
+          "~/Movies" = ""
+          "~/Music" = "󰝚"
+          "~/Pictures"  = ""
+          "~/Videos" = ""
+          "~/.local/share/chezmoi" = "#!"
+
+  [[blocks.segments]]
+    type = 'git'
+    style = 'plain'
+    template = '{{ .HEAD }} '
+    background = ''
+    foreground = 'p:lavender'
+    Text = ''
+    Duration = 0
+    NameLength = 0
+
+    [blocks.segments.properties]
+      branch_icon = ' '
+      cherry_pick_icon = ' '
+      commit_icon = ' '
+      fetch_status = false
+      fetch_upstream_icon = false
+      merge_icon = ' '
+      no_commits_icon = ' '
+      rebase_icon = ' '
+      revert_icon = ' '
+      tag_icon = ' '
+
+  [[blocks.segments]]
+    type = 'text'
+    style = 'plain'
+    template = ''
+    background = ''
+    foreground = 'p:closer'
+    Text = ''
+    Duration = 0
+    NameLength = 0
+
+[palette]
+  blue = '#89B4FA'
+  closer = 'p:os'
+  lavender = '#B4BEFE'
+  os = '#ACB0BE'
+  pink = '#F5C2E7'

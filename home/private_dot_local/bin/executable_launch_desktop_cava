@@ -1,0 +1,6 @@
+#! env bash
+
+# open a kitty panel with cava in it, using a special config
+kitty +kitten panel --edge=bottom --lines=3 \
+    --config=$HOME/.config/kitty/kitty-cava.conf \
+    cava
