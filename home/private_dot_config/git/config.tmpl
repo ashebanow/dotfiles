@@ -4,12 +4,12 @@
 # ALIASES
 # -----------
 [alias]
-	a = "add"
-	co = "checkout"
-	rb = "rebase --interactive origin/main"
-	rba = "rebase --abort"
-	rbc = "rebase --continue"
-	rbm = "rebase --interactive origin/master"
+    a = "add"
+    co = "checkout"
+    rb = "rebase --interactive origin/main"
+    rba = "rebase --abort"
+    rbc = "rebase --continue"
+    rbm = "rebase --interactive origin/master"
     # use as ```git squash-all -m "a brand new start"```
     # taken from https://stackoverflow.com/a/23486788/164655
     squash-all = "!f(){ git reset $(git commit-tree \"HEAD^{tree}\" \"$@\");};f"
@@ -36,10 +36,14 @@
 	rebase = true
 
 [push]
-	default = "simple"
+    default = "simple"
+    recurseSubmodules = true
 
 [rerere]
 	enabled = true
+
+[submodule]
+    recurse = true
 
 [user]
 	email = "ashebanow@gmail.com"
