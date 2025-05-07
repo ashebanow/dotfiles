@@ -1,19 +1,142 @@
 #!/usr/bin/env bash
 
 # based on: https://hiphish.github.io/blog/2020/05/23/how-i-manage-ssh-connections/
+# Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
 
-# TODO: make previewing optional
-# TODO: script arguments to pick between just running ssh in current window,
-#       OR opening a new terminal window via kitten, ghostty, etc.,
-#       OR opening a new window/tab/pane in tmux/zellij
+# This script requires BASH 4.0+
+
+# TODO: support config file "$XDG_CONFIG_HOME/ssh_hosts/config.json"
+# TODO: support terminal targets (window, tab, pane, or none)
+# as allowed by terminal app: [--target|-w] [window|tab|pane|none]
+
 
 SHELL=sh
 
-export FZF_DEFAULT_OPTS='
---height=20%
---reverse
---prompt="SSH > "
---preview="awk -v HOST={} -f ~/.local/bin/ssh_conf_preview.awk ~/.ssh/config"'
+function usage {
+cat <<EOF
+Usage: $(basename $0) \\
+           [--help|-h] \\
+           [--preview|-p] \\
+           [--gui | -g] [fzf|wofi|rofi] \\
+           [--terminal | -t] [kitty|ghostty|tmux|zellij|none] \\
+           NOT YET IMPLEMENTED: [--target | -w] [window|tab|pane|none] \\
+           NOT YET IMPLEMENTED: [--config]
+
+Shows a list of ssh hosts in the specified GUI, read from ~/ssh/config, and
+let the user select one. The default GUI is 'fzf'.
+
+A connection to the selected host will be opened in the chosen terminal. The
+default terminal is 'none', which means we just use stdout.
+
+Note that all terminal apps support all targets, and not all GUIs
+support previews. Also note that rofi in particular has an SSH mode
+of its own, and so you may want to use that instead unless you need the
+more sophisticated terminal/target specification since it more fully
+understands the ssh config file structure.
+
+Options:
+  -h, --help        Show this help message. All other options ignored.
+  -p, --preview     Show preview in GUI, if supported
+  -g, --gui         GUI/TUI to choose ssh host.
+  -t, --terminal    Terminal app for ssh connection. 'none' means use current tty.
+NOT YET IMPLEMENTED OPTIONS:
+  --config          Write a sample config file to stdout.
+  -w, --target      Type of target for ssh connection. 'none' means just use the
+                    current focus.
+EOF
+}
+
+function config {
+  echo "--config option not yet implemented"
+cat << EOF
+{
+  "show_preview": false,
+
+  // should be one of: fzf, wofi, or rofi
+  "gui": "fzf",
+
+  // should be one of: kitty, ghostty, tmux, zellij, or none
+  "terminal": "none",
+
+  // should be one of: window, tab, pane, or none
+  "target": "none",
+}
+EOF
+exit 0
+}
+
+# Parse command line arguments
+SHOW_PREVIEW=0
+GUI="fzf"
+TERMINAL="none"
+TARGET="none"
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -h|--help)
+      usage
+      exit 0
+      ;;
+
+    -p|--preview)
+      SHOW_PREVIEW=1
+      shift
+      ;;
+
+    --config)
+      config
+      ;;
+
+    -g|--gui)
+      GUI="${2,,}"
+      shift
+      shift
+      case $GUI in
+        fzf|wofi|rofi)
+          ;;
+        *)
+          echo "Unknown terminal app: ${GUI}"
+          exit 1
+          ;;
+      esac
+      ;;
+
+    -t|--terminal)
+      TERMINAL="${2,,}"
+      shift
+      shift
+      case $TERMINAL in
+        kitty|ghostty|tmux|zellij|none)
+          ;;
+        *)
+          echo "Unknown terminal app: ${TERMINAL}"
+          exit 1
+          ;;
+      esac
+      ;;
+
+    -w|--target)
+      TARGET="${2,,}"
+      shift
+      shift
+      case $TARGET in
+        window|tab|pane|none)
+          ;;
+        *)
+          echo "Unknown target option: ${TARGET}"
+          exit 1
+          ;;
+      esac
+      ;;
+
+    *)
+      echo "Invalid option: $1"
+      usage
+      ;;
+
+  esac
+done
+
+PROMPT="Choose SSH Host: "
 
 # Get the list of hosts
 hosts=()
@@ -22,12 +145,71 @@ readarray -t hosts < <(grep '^[[:space:]]*Host[[:space:]]' ~/.ssh/config | cut -
 # filter the default host if present
 new_hosts=()
 for item in "${hosts[@]}"; do
-  if [[ "$item" != '*' ]]; then
-    new_hosts+=("$item")
+  if [[ "${item}" != '*' ]]; then
+    new_hosts+=("${item}")
   fi
 done
 hosts=("${new_hosts[@]}")
 
-host=$(printf "%s\n" ${hosts[@]} | fzf)
-echo "ssh $host"
-#[ $? -eq 0 ] && ssh "$host"
+# use GUI to pick a host from list
+case "${GUI}" in
+  fzf)
+      export FZF_DEFAULT_OPTS="--height=20% --reverse --prompt=\"${PROMPT}\""
+      FZF_PREVIEW_CMD='awk -v HOST={} -f ~/.local/bin/ssh_conf_preview.awk ~/.ssh/config'
+      if [ $SHOW_PREVIEW == 1 ]; then
+        export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --preview='${FZF_PREVIEW_CMD}'"
+      fi
+      host=$(printf "%s\n" ${hosts[@]} | fzf)
+      ;;
+  wofi)
+      # TODO: investigate previewing using --pre-display-cmd
+      if [ $SHOW_PREVIEW == 1 ]; then
+        echo "Preview mode not supported in wofi"
+        exit 1
+      fi
+      host=$(printf "%s\n" ${hosts[@]} | wofi -f --dmenu -p "${PROMPT}")
+      ;;
+  rofi)
+      if [ $SHOW_PREVIEW == 1 ]; then
+        echo "Preview mode not supported in rofi"
+        exit 1
+      fi
+      host=$(printf "%s\n" ${hosts[@]} | rofi -dmenu -p "${PROMPT}")
+      ;;
+  *)
+      echo "Unknown GUI app: ${GUI}"
+      exit 1
+      ;;
+esac
+
+# echo "Host: ${host}"
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+case "${TERMINAL}" in
+  ghostty)
+      echo "Ghostty not yet implemented"
+      exit 1
+      # TODO: process terminal target
+      ;;
+  kitty)
+      echo "Kitty not yet implemented"
+      exit 1
+      # TODO: process terminal target
+      ;;
+  none)
+      ssh "${host}"
+      ;;
+  tmux)
+      # TODO: process terminal target
+      ssh "${host}"
+      ;;
+  zellij)
+      # TODO: process terminal target
+      ssh "${host}"
+      ;;
+  *)
+      echo "Unknown terminal app: ${TERMINAL}"
+      exit 1
+      ;;
+esac
