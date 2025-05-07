@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# based on: https://hiphish.github.io/blog/2020/05/23/how-i-manage-ssh-connections/
+
+# TODO: make previewing optional
+# TODO: script arguments to pick between just running ssh in current window,
+#       OR opening a new terminal window via kitten, ghostty, etc.,
+#       OR opening a new window/tab/pane in tmux/zellij
+
+SHELL=sh
+
+export FZF_DEFAULT_OPTS='
+--height=20%
+--reverse
+--prompt="SSH > "
+--preview="awk -v HOST={} -f ~/.local/bin/ssh_conf_preview.awk ~/.ssh/config"'
+
+# Get the list of hosts
+hosts=()
+readarray -t hosts < <(grep '^[[:space:]]*Host[[:space:]]' ~/.ssh/config | cut -d ' ' -f 2)
+
+# filter the default host if present
+new_hosts=()
+for item in "${hosts[@]}"; do
+  if [[ "$item" != '*' ]]; then
+    new_hosts+=("$item")
+  fi
+done
+hosts=("${new_hosts[@]}")
+
+host=$(printf "%s\n" ${hosts[@]} | fzf)
+echo "ssh $host"
+#[ $? -eq 0 ] && ssh "$host"
