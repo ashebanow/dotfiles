@@ -28,7 +28,7 @@ let the user select one. The default GUI is 'fzf'.
 A connection to the selected host will be opened in the chosen terminal. The
 default terminal is 'none', which means we just use stdout.
 
-Note that all terminal apps support all targets, and not all GUIs
+Note that not all terminal apps support all targets, and not all GUIs
 support previews. Also note that rofi in particular has an SSH mode
 of its own, and so you may want to use that instead unless you need the
 more sophisticated terminal/target specification since it more fully
