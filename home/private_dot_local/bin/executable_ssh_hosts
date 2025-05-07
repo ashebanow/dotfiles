@@ -196,6 +196,9 @@ case "${TERMINAL}" in
       echo "Kitty not yet implemented"
       exit 1
       # TODO: process terminal target
+      # kitten @ launch --type [window|tab] --cwd current
+      # do we then follow with kitten ssh <hostname> or do we pass it as the command to @ launch?
+      # likely need allow_remote_control or --remote-control-password to make this work.
       ;;
   none)
       ssh "${host}"
