@@ -6,9 +6,8 @@
 # This script requires BASH 4.0+
 
 # TODO: support config file "$XDG_CONFIG_HOME/ssh_hosts/config.json"
-# TODO: support terminal targets (window, tab, pane, or none)
-# as allowed by terminal app: [--target|-w] [window|tab|pane|none]
 
+# I welcome contributions for other TERMINAL and GUI apps via pull request.
 
 SHELL=sh
 
@@ -17,37 +16,58 @@ cat <<EOF
 Usage: $(basename $0) \\
            [--help|-h] \\
            [--preview|-p] \\
-           [--gui | -g] [fzf|wofi|rofi] \\
-           [--terminal | -t] [kitty|ghostty|tmux|zellij|none] \\
-           NOT YET IMPLEMENTED: [--target | -w] [window|tab|pane|none] \\
+           [--gui | -g] [*fzf|wofi|rofi] \\
+           [--terminal | -t] [kitty|tmux|zellij|*none] \\
+           NOT YET IMPLEMENTED: [--target | -w] [window|tab|pane|*none] \\
            NOT YET IMPLEMENTED: [--config]
 
 Shows a list of ssh hosts in the specified GUI, read from ~/ssh/config, and
 let the user select one. The default GUI is 'fzf'.
 
+Note that the defaults are prefixed by '*' in the usage above.
+
 A connection to the selected host will be opened in the chosen terminal. The
 default terminal is 'none', which means we just use stdout.
 
-Note that not all terminal apps support all targets, and not all GUIs
-support previews. Also note that rofi in particular has an SSH mode
-of its own, and so you may want to use that instead unless you need the
-more sophisticated terminal/target specification since it more fully
-understands the ssh config file structure.
+Note: rofi has a native SSH mode of its own, and you may want to use that
+unless you need more sophisticated terminal/target integration kitty.
 
 Options:
   -h, --help        Show this help message. All other options ignored.
-  -p, --preview     Show preview in GUI, if supported
-  -g, --gui         GUI/TUI to choose ssh host.
+  --config          Write a sample config file to stdout. All other options ignored.
+  -p, --preview     Show preview in GUI app, if supported.
+  -g, --gui         Specify the GUI/TUI used to choose the ssh host.
   -t, --terminal    Terminal app for ssh connection. 'none' means use current tty.
-NOT YET IMPLEMENTED OPTIONS:
-  --config          Write a sample config file to stdout.
   -w, --target      Type of target for ssh connection. 'none' means just use the
                     current focus.
+
+Not all features are implemented on every combination of gui/terminal/target.
+See the tables below for what the current state of things is.
+
+Preview Support:
+
+| GUI  | Preview |
+|------|---------|
+| fzf  | Y       |
+| wofi | N       |
+| rofi | N       |
+
+Targeting Support:
+
+| Terminal   | Window | Tab | Pane | None |
+|------------|--------|-----|------|------|
+| kitty      | ?      | ?   | ?    | Y    |
+| tmux       | ?      | ?   | ?    | Y    |
+| zellij     | ?      | ?   | ?    | Y    |
+| none (tty) | N      | N   | N    | Y    |
+
+| Config File Reading | NOT YET IMPLEMENTED |
+|---------------------|---------------------|
+
 EOF
 }
 
 function config {
-  echo "--config option not yet implemented"
 cat << EOF
 {
   "show_preview": false,
@@ -55,7 +75,7 @@ cat << EOF
   // should be one of: fzf, wofi, or rofi
   "gui": "fzf",
 
-  // should be one of: kitty, ghostty, tmux, zellij, or none
+  // should be one of: kitty, tmux, zellij, or none
   "terminal": "none",
 
   // should be one of: window, tab, pane, or none
@@ -105,7 +125,7 @@ while [[ $# -gt 0 ]]; do
       shift
       shift
       case $TERMINAL in
-        kitty|ghostty|tmux|zellij|none)
+        kitty|tmux|zellij|none)
           ;;
         *)
           echo "Unknown terminal app: ${TERMINAL}"
@@ -187,11 +207,6 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 case "${TERMINAL}" in
-  ghostty)
-      echo "Ghostty not yet implemented"
-      exit 1
-      # TODO: process terminal target
-      ;;
   kitty)
       echo "Kitty not yet implemented"
       exit 1
