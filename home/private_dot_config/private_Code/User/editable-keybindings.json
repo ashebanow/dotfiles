@@ -9,5 +9,26 @@
         "key": "shift+f9",
         "command": "sortLines.sortLinesNatural",
         "when": "editorTextFocus"
+    },
+    {
+        "command": "editor.action.deleteLines",
+        "key": "ctrl+d",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "args": {
+            "text": "\t"
+        },
+        "command": "type",
+        "key": "ctrl+k tab",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "command": "-workbench.action.quickOpen",
+        "key": "ctrl+e"
+    },
+    {
+        "command": "workbench.files.action.focusFilesExplorer",
+        "key": "ctrl+e"
     }
 ]
