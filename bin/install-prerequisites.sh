@@ -32,25 +32,6 @@ if ! command -v bw >/dev/null 2>&1; then
 fi
 
 #--------------------------------------------------------------------
-# CHECK FOR DARWIN PREREQUISITES
-#--------------------------------------------------------------------
-
-is_darwin=false
-need_aerospace=false
-need_sketchybar=false
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  is_darwin=true
-
-  if ! command -v aerospace >/dev/null 2>&1; then
-    need_aerospace=true
-  fi
-
-  if ! command -v sketchybar >/dev/null 2>&1; then
-    need_sketchybar=true
-  fi
-fi
-
-#--------------------------------------------------------------------
 # CHECK FOR NIX
 #--------------------------------------------------------------------
 need_nix=false
@@ -76,6 +57,11 @@ function need_nix_conf_update {
 # INSTALL FUNCTIONS
 #--------------------------------------------------------------------
 
+is_darwin=false
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  is_darwin=true
+fi
+
 function install_homebrew_if_needed {
   if ! $need_brew; then
     return
@@ -95,22 +81,6 @@ function install_homebrew_if_needed {
   fi
 
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-}
-
-function install_sketchybar_if_needed {
-  if $need_sketchybar; then
-    brew tap FelixKratz/formulae
-    brew update
-    brew install sketchybar
-  fi
-}
-
-function install_aerospace_if_needed {
-  if $need_aerospace; then
-    brew tap FelixKratz/formulae
-    brew update
-    brew install aerospace
-  fi
 }
 
 function darwin_install_bitwarden {
@@ -183,7 +153,7 @@ function install_bitwarden_if_needed {
 #--------------------------------------------------------------------
 
 # exit immediately if all prerequisites are installed already
-if ! ($need_brew || $need_bitwarden || $need_nix || need_nix_conf_update || $need_aerospace || $need_sketchybar); then
+if ! ($need_brew || $need_bitwarden || $need_nix || need_nix_conf_update); then
   exit 0
 fi
 
@@ -215,8 +185,3 @@ fi
 # TODO: tweak bluefin settings and GNOME extensions
 # TODO: create ubunto container via distrobox
 # TODO: initialize bat cache
-
-if $is_darwin; then
-  install_aerospace_if_needed
-  install_sketchybar_if_needed
-fi
