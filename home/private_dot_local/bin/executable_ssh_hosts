@@ -9,6 +9,7 @@
 
 # I welcome contributions for other TERMINAL and GUI apps via pull request.
 
+set -euo pipefail
 SHELL=sh
 
 function usage {
@@ -85,6 +86,14 @@ EOF
 exit 0
 }
 
+function check_app_installed {
+  local app="${1}"
+  if ! command -v "${app}" &> /dev/null; then
+    echo "Error: ${app} could not be found"
+    exit 1
+  fi
+}
+
 # Parse command line arguments
 SHOW_PREVIEW=0
 GUI="fzf"
@@ -112,9 +121,10 @@ while [[ $# -gt 0 ]]; do
       shift
       case $GUI in
         fzf|wofi|rofi)
+          check_app_installed $GUI
           ;;
         *)
-          echo "Unknown terminal app: ${GUI}"
+          echo "Unknown GUI app: ${GUI}"
           exit 1
           ;;
       esac
@@ -156,7 +166,11 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-PROMPT="Choose SSH Host: "
+# Check if SSH config file exists
+if [ ! -f ~/.ssh/config ]; then
+  echo "Error: SSH config file not found at ~/.ssh/config"
+  exit 1
+fi
 
 # Get the list of hosts
 hosts=()
@@ -170,31 +184,36 @@ for item in "${hosts[@]}"; do
   fi
 done
 hosts=("${new_hosts[@]}")
+if [ "${#hosts[@]}" -eq 0 ]; then
+  echo "No hosts found in ~/.ssh/config"
+  exit 1
+fi
 
 # use GUI to pick a host from list
+PROMPT="Choose SSH Host: "
 case "${GUI}" in
   fzf)
       export FZF_DEFAULT_OPTS="--height=20% --reverse --prompt=\"${PROMPT}\""
       FZF_PREVIEW_CMD='awk -v HOST={} -f ~/.local/bin/ssh_conf_preview.awk ~/.ssh/config'
-      if [ $SHOW_PREVIEW == 1 ]; then
+      if [ $SHOW_PREVIEW -eq 1 ]; then
         export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --preview='${FZF_PREVIEW_CMD}'"
       fi
-      host=$(printf "%s\n" ${hosts[@]} | fzf)
+      host=$(printf "%s\n" "${hosts[@]}" | fzf)
       ;;
   wofi)
       # TODO: investigate previewing using --pre-display-cmd
-      if [ $SHOW_PREVIEW == 1 ]; then
+      if [ $SHOW_PREVIEW -eq 1 ]; then
         echo "Preview mode not supported in wofi"
         exit 1
       fi
-      host=$(printf "%s\n" ${hosts[@]} | wofi -f --dmenu -p "${PROMPT}")
+      host=$(printf "%s\n" "${hosts[@]}" | wofi -f --dmenu -p "${PROMPT}")
       ;;
   rofi)
-      if [ $SHOW_PREVIEW == 1 ]; then
+      if [ $SHOW_PREVIEW -eq 1 ]; then
         echo "Preview mode not supported in rofi"
         exit 1
       fi
-      host=$(printf "%s\n" ${hosts[@]} | rofi -dmenu -p "${PROMPT}")
+      host=$(printf "%s\n" "${hosts[@]}" | rofi -dmenu -p "${PROMPT}")
       ;;
   *)
       echo "Unknown GUI app: ${GUI}"
@@ -203,7 +222,7 @@ case "${GUI}" in
 esac
 
 # echo "Host: ${host}"
-if [ $? -ne 0 ]; then
+if [ $? -ne 0 || -z "${host}" ]; then
   exit 1
 fi
 case "${TERMINAL}" in
