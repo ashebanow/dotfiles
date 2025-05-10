@@ -4,8 +4,9 @@ return {
   version = "v0.14.0",
 
   dependencies = {
-    "giuxtaposition/blink-cmp-copilot",
-  },
+    -- "giuxtaposition/blink-cmp-copilot",
+    'Exafunction/codeium.nvim',
+},
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
@@ -53,7 +54,7 @@ return {
     signature = { enabled = true },
 
     sources = {
-      default = { "lsp", "path", "snippets", "buffer" },
+      default = { "lsp", "path", "snippets", "buffer", 'codeium' },
       providers = {
         copilot = {
           enabled = function()
@@ -64,6 +65,7 @@ return {
           score_offset = 100,
           should_show_items = true,
         },
+        codeium = { name = 'Codeium', module = 'codeium.blink', async = true },
       },
     },
   },

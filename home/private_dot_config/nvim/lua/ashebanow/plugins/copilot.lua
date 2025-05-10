@@ -1,6 +1,7 @@
 return {
   {
     "zbirenbaum/copilot.lua",
+    enabled = false,
     event = "InsertEnter",
     cmd = "Copilot",
     build = ":Copilot auth",
@@ -24,6 +25,7 @@ return {
   },
   {
     "giuxtaposition/blink-cmp-copilot",
+    enabled = false,
     dependencies = {
       "zbirenbaum/copilot.lua",
     },
