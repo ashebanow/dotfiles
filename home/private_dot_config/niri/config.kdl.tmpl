@@ -466,9 +466,7 @@ workspace "shell" {}
 
 workspace "browsing" {}
 
-workspace "coding" {
-    color "#332222"
-}
+workspace "coding" {}
 
 workspace "multimedia" {}
 
@@ -630,6 +628,6 @@ binds {
 }
 
 // Startup
-
 spawn-at-startup "firefox-nightly"
+spawn-at-startup "waybar"
 spawn-at-startup "niri" "msg" "action" "focus-workspace" "shell"
