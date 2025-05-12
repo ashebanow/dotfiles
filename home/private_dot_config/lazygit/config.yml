@@ -1,25 +1,30 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
-# cyberdream theme for lazygit
+
+# catppuccin-mocha-lavender (modified) from:
+#   https://github.com/catppuccin/lazygit/blob/main/themes/mocha/lavender.yml
 gui:
+  authorColors:
+    '*': '#b4befe'
+
   border: rounded
+
   theme:
     activeBorderColor:
-      - "#5ef1ff"
+      - '#b4befe'
       - bold
     inactiveBorderColor:
-      - "#7b8496"
-    searchingActiveBorderColor:
-      - "#ff5ef1"
+      - '#a6adc8'
     optionsTextColor:
-      - "#ffffff"
+      - '#89b4fa'
     selectedLineBgColor:
-      - "#3c4048"
+      - '#313244'
     cherryPickedCommitBgColor:
-      - "#3c4048"
+      - '#45475a'
     cherryPickedCommitFgColor:
-      - "#ff5ea0"
+      - '#b4befe'
     unstagedChangesColor:
-      - "#ffbd5e"
+      - '#f38ba8'
     defaultFgColor:
-      - "#ffffff"
-
+      - '#cdd6f4'
+    searchingActiveBorderColor:
+      - '#f9e2af'
