@@ -187,6 +187,7 @@ packages:
       - 'gum'
       - 'hyperfine'
       - 'hyprland'
+      - 'hyprshot'
       - 'hyprpanel'
       - 'jq'
       - 'jujutsu'
