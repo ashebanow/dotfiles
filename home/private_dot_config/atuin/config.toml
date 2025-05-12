@@ -127,5 +127,4 @@ enter_accept = true
 
 [theme]
 # builtins are "" (default), "autumn", or "marine"
-name = "autumn"
-
+name = "catppuccin-mocha-lavender"
