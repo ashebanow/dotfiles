@@ -31,11 +31,17 @@
   "menus.dashboard.directories.right.directory1.label": "󰕧 Videos",
   "menus.dashboard.directories.right.directory1.command": "bash -c \"xdg-open $HOME/Videos/\"",
   "menus.dashboard.powermenu.avatar.name": "Andrew Shebanow",
-  "bar.customModules.cpuTemp.sensor": "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon2/temp1_input",
+  "bar.customModules.cpuTemp.sensor": "/sys/devices/platform/asus-ec-sensors/hwmon/hwmon4/temp2_input",
   "bar.layouts": {
     "*": {
-      "left": ["dashboard", "workspaces", "notifications"],
-      "middle": ["windowtitle"],
+      "left": [
+        "dashboard",
+        "workspaces",
+        "notifications"
+      ],
+      "middle": [
+        "windowtitle"
+      ],
       "right": [
         "media",
         "volume",
@@ -50,7 +56,7 @@
   "bar.clock.format": "%a %m/%d %H:%M",
   "menus.clock.weather.location": "San Jose",
   "menus.clock.weather.key": "5733f311ad094aea959235757242707",
-  "wallpaper.pywal": true,
+  "wallpaper.pywal": false,
   "wallpaper.image": "/var/home/ashebanow/Pictures/wallpapers/rails.jpg",
   "theme.bar.menus.background": "#181926",
   "theme.bar.background": "#181926",
@@ -420,7 +426,16 @@
   "theme.bar.buttons.modules.microphone.text": "#a6da95",
   "theme.bar.buttons.modules.microphone.icon": "#24273a",
   "theme.bar.buttons.modules.microphone.icon_background": "#a6da95",
-  "theme.matugen": true,
+  "theme.matugen": false,
   "theme.matugen_settings.mode": "dark",
-  "theme.bar.transparent": true
+  "theme.bar.transparent": true,
+  "theme.matugen_settings.scheme_type": "expressive",
+  "theme.font.size": "1.3rem",
+  "theme.font.weight": 600,
+  "scalingPriority": "both",
+  "theme.bar.menus.menu.dashboard.scaling": 80,
+  "theme.bar.menus.menu.dashboard.profile.size": "9em",
+  "wallpaper.enable": false,
+  "bar.customModules.netstat.networkInterface": "enp5s0",
+  "menus.media.displayTimeTooltip": true
 }
