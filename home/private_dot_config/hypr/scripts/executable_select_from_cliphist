@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-# from https://github.com/SsubezZ/hyprland-dots/blob/main/rofi/scripts/cliphist-rofi.sh
+cliphist list | wofi -S dmenu | cliphist decode | wl-copy
 
+exit 0
+
+# TODO: adopt this preview image code here. Originally from
+#
+# https://github.com/SsubezZ/hyprland-dots/blob/main/rofi/scripts/cliphist-rofi.sh
 
 TMP_DIR="/tmp/cliphist"
 SELECTION=$(mkdir -p "$TMP_DIR" && rm -rf "${TMP_DIR:?}"/* &&
@@ -24,6 +29,8 @@ SELECTION=$(mkdir -p "$TMP_DIR" && rm -rf "${TMP_DIR:?}"/* &&
         split($0, parts, "\t")
         print parts[1] "\t" substr($0, index($0, "\t") + 1)
     }
+
+# TODO: use wofi, not rofi
 ' | rofi -dmenu -show-icons -display-columns 2 -mesg "Clipboard" -config ~/.config/rofi/theme-mesg.rasi -theme-str 'window {width: 600px;} listview {columns: 1;}' | cut -f1)
 
 if [ -n "$SELECTION" ]; then

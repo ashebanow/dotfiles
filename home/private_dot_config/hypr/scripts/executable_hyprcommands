@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+# Given a set of hyprland keybinding lines, output a json structure
+# that has the following fields:
+#
+#    * BIND KEYWORD
+#    * MODIFIER KEYS
+#    * KEY
+#    * DESCRIPTION (optional)
+#    * DISPATCH COMMAND(s)
+#    * ARGS
+#
+# keybindings in hyprland look like:
+#
+#   BIND KEYWORD = MODIFIER KEYS, KEY, DISPATCH CMD, ARGS
+#
+# The BIND KEYWORD consists of the word 'bind' followed by one or more
+# characters that determin the BINDING TYPE. The binding type is a
+# combination of the letters 'delm' in any order. BINDING TYPEs which include
+# 'd' have a special format with DESCRIPTION added:
+#
+#   bind[delm+] = MODIFIER KEYS, KEY, DESCRIPTION, DISPATCH CMD, ARGS
+
+set -euo pipefail
+SHELL=bash
+
+function usage {
+cat <<EOF
+Usage: $(basename $0) \\
+           [--help|-h] \\
+           [--preview|-p]
+
+Output the list of keybindings for a hyprland config.
+
+Options:
+  -h, --help        Show this help message. All other options ignored.
+  -p, --preview     Show preview in GUI app, if supported.
+EOF
+}
+
+# this finds everything but has a few issues:
+# 1) needs to strip leading and trailing whitespace
+# 2) needs to skip descriptions when $1 doesn't have a 'd' somewhere
+#    after the word 'bind', since that is the indicator for a
+#    description field being provided
+# rg -i '^bind' keybindings.conf |awk -F '[,=]' -e '{ print $4; }'
+
+# once we have the line divvied up
+
+
+
+# Parse command line arguments
+SHOW_PREVIEW=0
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -h|--help)
+      usage
+      exit 0
+      ;;
+
+    -p|--preview)
+      SHOW_PREVIEW=1
+      shift
+      ;;
+
+    *)
+      echo "Invalid option: $1"
+      usage
+      ;;
+
+  esac
+done

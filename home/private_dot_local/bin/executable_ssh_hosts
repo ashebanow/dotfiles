@@ -10,7 +10,7 @@
 # I welcome contributions for other TERMINAL and GUI apps via pull request.
 
 set -euo pipefail
-SHELL=sh
+SHELL=bash
 
 function usage {
 cat <<EOF

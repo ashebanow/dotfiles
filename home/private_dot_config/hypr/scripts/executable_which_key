@@ -2,7 +2,7 @@
 
 # rofi stuff from https://github.com/ChrisTitusTech/hyprland-titus/blob/main/dotconfig/hypr/keybind
 config_dir=$HOME/.config/hypr
-keybinds=$(grep -oP '(?<=bind = ).*' $config_dir/hyprland.conf $config_dir/configs/Keybinds.conf $config_dir/UserConfigs/UserKeybinds.conf)
+keybinds=$(grep -oP '(?<=bind = ).*' $config_dir/**/*.conf)
 keybinds=$(echo "$keybinds" | sed 's/,\([^,]*\)$/ = \1/' | sed 's/, exec//g' | sed 's/^,//g')
 rofi -dmenu -p "Keybinds" -theme ~/.config/rofi/themes/catppuccin-mocha.rasi <<< "$keybinds"
 
@@ -55,6 +55,8 @@ while getopts 'bh' OPTION; do
   esac
 done
 
+# $1: submap name
+# $2: number of columns to display
 openWidget() {
   binds=$(hyprctl binds -j | jq -c '[ .[] | select(.submap | . == "'"$1"'") ]')
   deleted=$(echo "$binds" | jq -c '[ .[] | select(.arg | contains("reset") | not ) ]')

@@ -1,0 +1,9 @@
+#!env bash
+
+set -euo pipefail
+SHELL=bash
+
+# TODO: also kill and restart our bar, wofi/rofi, etc.
+
+# For now, just reload hyprland.
+hyprctl reload
