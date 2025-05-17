@@ -22,7 +22,7 @@
   },
   "theme": {
     "mode": "system",
-    "light": "Catppuccin Latte (Blur)",
-    "dark": "Gruvbox Dark"
+    "light": "Gruvbox Light Hard",
+    "dark": "Gruvbox Dark Hard"
   }
 }
