@@ -56,8 +56,7 @@ test -f /usr/share/ublue-os/bluefin-cli/bling.sh && source /usr/share/ublue-os/b
 ### bling.sh source end
 
 if [[ -v WSL_DISTRO_NAME ]]; then
-  export WSL_VSCODE_BIN_DIR='/mnt/c/Users/A Shebanow/AppData/Local/Programs/Microsoft VS Code Insiders/bin'
-  alias code="$WSL_VSCODE_BIN_DIR/code-insiders"
+  alias code="/mnt/c/Users/A\ Shebanow/AppData/Local/Programs/Microsoft\ VS\ Code\ Insiders/bin/code-insiders"
 fi
 
 if command -v atuin &> /dev/null; then
