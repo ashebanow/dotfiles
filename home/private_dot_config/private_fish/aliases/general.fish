@@ -14,7 +14,7 @@ if status is-interactive
 
     if set -q WSL_DISTRO_NAME
         set -g WSL_VSCODE_BIN_DIR '/mnt/c/Users/A Shebanow/AppData/Local/Programs/Microsoft VS Code Insiders/bin'
-        alias code "$WSL_VSCODE_BIN_DIR/code-insiders"
+        alias code "/mnt/c/Users/A\ Shebanow/AppData/Local/Programs/Microsoft\ VS\ Code\ Insiders/bin/code-insiders"
     end
 
     if type -q jj
