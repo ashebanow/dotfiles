@@ -16,7 +16,7 @@
 {{- if 0 -}}
 brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.linux.nixpkgs -}}
-  brew "{{ . }}"
+  nix profile install "nixpkgs#{{ . }}"
 {{ end -}}
 EOF
 {{ end -}}
@@ -37,7 +37,12 @@ yay -Syu
 
 set -eufo pipefail
 
+{{ range .packages.linux.taps -}}
+  brew tap "{{ . }}"
+{{ end -}}
+
 brew update
+
 brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.linux.brews -}}
   brew "{{ . }}"
@@ -50,7 +55,12 @@ EOF
 
 {{- else if eq .chezmoi.os "darwin" -}}
 
+{{ range .packages.darwin.taps -}}
+  brew tap "{{ . }}"
+{{ end -}}
+
 brew update
+
 brew bundle --file=/dev/stdin <<EOF
 {{ range .packages.darwin.brews -}}
   brew "{{ . }}"

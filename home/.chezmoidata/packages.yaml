@@ -1,5 +1,8 @@
 packages:
   darwin:
+    taps:
+      - 'dhth/tap'
+      # - 'jesseduffield/lazydocker'
     brews:
       - 'act'
       - 'act3'
@@ -40,7 +43,7 @@ packages:
       - 'jj'
       - 'jq'
       - 'just'
-      - 'jesseduffield/lazydocker/lazydocker'
+      - 'lazydocker'
       - 'lazygit'
       - 'lazyjj'
       - 'lazysql'
@@ -104,6 +107,9 @@ packages:
       - 'slack'
 
   linux:
+    taps:
+      - 'dhth/tap'
+      # - 'jesseduffield/lazydocker'
     brews:
       - 'act'
       - 'act3'
@@ -142,7 +148,7 @@ packages:
       - 'jj'
       - 'jq'
       - 'just'
-      - 'jesseduffield/lazydocker/lazydocker'
+      - 'lazydocker'
       - 'lazygit'
       - 'lazyjj'
       - 'lazysql'
