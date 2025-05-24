@@ -22,7 +22,7 @@ EOF
 {{ end -}}
 
 
-{{-   if (and (hasKey .chezmoi.osRelease "idLike") (eq .chezmoi.osRelease.idLike "arch")) -}}
+{{-   if (or (and (hasKey .chezmoi.osRelease "idLike") (eq .chezmoi.osRelease.idLike "arch")) (eq .chezmoi.osRelease.id "arch")) -}}
 
 # make sure system is up to date
 yay -Syu
