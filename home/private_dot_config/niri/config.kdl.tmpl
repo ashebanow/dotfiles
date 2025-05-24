@@ -179,9 +179,11 @@ window-rule {
 // Key Bindings
 
 binds {
-    // Session
     Mod+Shift+Slash         { show-hotkey-overlay; }
+
+    // Session
     Mod+Ctrl+Q              { quit; }
+    Mod+Shift+Ctrl+Q        { spawn "killall" "-SIGUSR1" "waybar"; }
     Pause                   { spawn "~/.config/swaylock/lock-screen.fish"; }
     Mod+Pause               { spawn "reboot"; }
     Ctrl+Alt+Delete         { spawn "poweroff"; }
@@ -201,8 +203,8 @@ binds {
     XF86MonBrightnessDown   { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
 
     // App Launchers
-    Mod+Return              { spawn "fuzzel"; }
-    Mod+Space               { spawn "killall" "-SIGUSR1" "waybar"; }
+    Mod+Return              { spawn "kitty"; }
+    Mod+Space               { spawn "fuzzel"; }
     Mod+T                   { spawn "kitty"; }
     Mod+B                   { spawn "firefox-nightly"; }
     Mod+V                   { spawn "env" "DISPLAY=:0" "discord"; }
