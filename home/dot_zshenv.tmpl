@@ -29,9 +29,9 @@ fi
 
 NIX_PROFILE_FILE_SUFFIX="etc/profile.d/nix-daemon.sh"
 if [ -f "/nix/var/nix/profiles/default/${NIX_PROFILE_FILE_SUFFIX}" ]; then
-  . "/nix/var/nix/profiles/default/${NIX_PROFILE_FILE_SUFFIX}"
-else if [ -f "$HOME/.nix-profile/${NIX_PROFILE_FILE_SUFFIX}" ]; then
-  . "$HOME/.nix-profile/${NIX_PROFILE_FILE_SUFFIX}"
+  source "/nix/var/nix/profiles/default/${NIX_PROFILE_FILE_SUFFIX}"
+elif [ -f "$HOME/.nix-profile/${NIX_PROFILE_FILE_SUFFIX}" ]; then
+  source "$HOME/.nix-profile/${NIX_PROFILE_FILE_SUFFIX}"
 fi
 
 #############################################################################
