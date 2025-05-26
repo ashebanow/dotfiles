@@ -1,6 +1,9 @@
-
-#echo "Evaluating ~/.zshenv"
+---@type zsh
+#pri "Evaluating ~/.zshenv"
 #set -x
+
+warning_color=yellow
+error_color=red
 
 #############################################################################
 # environment variables
@@ -20,8 +23,7 @@ if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
 elif [[ -x /opt/homebrew/bin/brew ]]; then
   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
-  echo "Homebrew not installed, but chezmoi should have installed it!"
-  # exit
+  print -P "%F{$warning_color}Homebrew not installed, but chezmoi should have installed it!%f\n"
 fi
 
 #############################################################################
@@ -52,9 +54,9 @@ addToPathIfNeeded "$BUN_INSTALL/bin"
 
 # prefer installed version if available
 if [ -f {{ .chezmoi.homeDir -}}/.local/bin/bw-open ]; then
-    BW_OPEN="{{- .chezmoi.homeDir -}}/.local/bin/bw-open"
+  BW_OPEN="{{- .chezmoi.homeDir -}}/.local/bin/bw-open"
 else
-    BW_OPEN="{{- .chezmoi.config.sourceDir -}}/home/private_dot_local/bin/executable_bw-open"
+  BW_OPEN="{{- .chezmoi.config.sourceDir -}}/home/private_dot_local/bin/executable_bw-open"
 fi
 
 BITWARDEN_EMAIL=ashebanow@cattivi.com
@@ -66,7 +68,6 @@ export BWS_ACCESS_TOKEN="{{- (bitwarden "BW Limon BWS Access Token" "login").pas
 
 # set up env variable for ssh-agent
 export SSH_AUTH_SOCK="{{- .chezmoi.homeDir -}}/.bitwarden-ssh-agent.sock"
-if [ ! -f "${SSH_AUTH_SOCK}" ]; then
-    echo "WARNING: SSH Agent socket does not exist!"
-    echo "Path: ${SSH_AUTH_SOCK}"
+if [ ! -S "${SSH_AUTH_SOCK}" ]; then
+  print -P "%F{$warning_color}WARNING: No SSH Agent socket at: ${SSH_AUTH_SOCK}%f\n"
 fi
