@@ -61,12 +61,12 @@ BITWARDEN_EMAIL=ashebanow@cattivi.com
 
 {{ if .headless }}
 # we only define Bitwarden's service accounts on headless systems
-export BWS_ACCESS_TOKEN={{ (bitwarden "BW Limon BWS Access Token" "login").password }}
-{{- end -}}
+export BWS_ACCESS_TOKEN="{{- (bitwarden "BW Limon BWS Access Token" "login").password -}}"
+{{ end }}
 
 # set up env variable for ssh-agent
 export SSH_AUTH_SOCK="{{- .chezmoi.homeDir -}}/.bitwarden-ssh-agent.sock"
-if [ -f "{{- .chezmoi.homeDir -}}/.bitwarden-ssh-agent.sock" ]; then
+if [ ! -f "${SSH_AUTH_SOCK}" ]; then
     echo "WARNING: SSH Agent socket does not exist!"
-    echo "Path: {{- .chezmoi.homeDir -}}/.bitwarden-ssh-agent.sock"
+    echo "Path: ${SSH_AUTH_SOCK}"
 fi
