@@ -79,6 +79,10 @@ if status is-interactive
         alias lst   'eza --tree --level=2' # sort, descending, NAME && show directory tree
     end
 
+    if type -q flatpak
+        alias gearlever 'flatpak run it.mijorus.gearlever'
+    end
+
     if type -q fzf
         alias v "fd --type f --hidden --exclude .git | fzf --preview 'bat {1}' | xargs vi"
     end

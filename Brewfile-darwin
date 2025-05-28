@@ -1,0 +1,36 @@
+brew cask
+brew dockutil
+cask devtoys
+cask discord
+cask disk-diet
+cask firefox
+cask font-meslo-lg-nerd-font
+cask font-sauce-code-pro-nerd-font
+cask font-symbols-only-nerd-font
+cask google-chrome
+cask karabiner-elements
+cask orbstack
+cask parsec
+cask postico
+cask postman
+cask raycast
+cask retrobatch
+cask sf-symbols
+cask steam
+cask temurin
+cask tg-pro
+cask visual-studio-code
+cask ytmdesktop-youtube-music
+cask zed
+cask zen-browser
+# cask ableton-live-suite
+# cask android-studio
+# cask app-cleaner
+# cask betterdisplay
+# cask microsoft-auto-update
+# cask microsoft-office
+# cask monitorcontrol
+# cask native-access
+# cask obsidian
+# cask slack
+# cask soundsource

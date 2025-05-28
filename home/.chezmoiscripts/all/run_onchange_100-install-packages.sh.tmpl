@@ -1,7 +1,14 @@
 #!/bin/bash
 
-# install necessary packages.
-# on fedora, we use linuxbrew to be more friendly to atomic variants.
+# install necessary packages for all platforms
+if ! command -v brew ; then
+  echo "Brew must be preinstalled before initializing these dotfiles"
+  exit 1
+fi
+
+brew update-if-needed
+brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile"
+cat "{{- .chezmoi.config.sourceDir -}}/VSExtensionsFile" | xargs -L 1 echo code --install-extension --force
 
 {{- if eq .chezmoi.os "linux" -}}
 
@@ -13,16 +20,21 @@
 #
 # only use brew when it can't be avoided.
 
-{{- if 0 -}}
-brew bundle --file=/dev/stdin <<EOF
-{{ range .packages.linux.nixpkgs -}}
-  nix profile install "nixpkgs#{{ . }}"
-{{ end -}}
-EOF
-{{ end -}}
+# {{- if 0 -}}
+# brew bundle install --upgrade --file=/dev/stdin <<EOF
+# {{ range .packages.linux.nixpkgs -}}
+#   nix profile install "nixpkgs#{{ . }}"
+# {{ end -}}
+# EOF
+# {{ end -}}
 
+flatpak install -y -u "$(cat "{{- .chezmoi.config.sourceDir -}}/Flatfile")"
 
-{{-   if (or (and (hasKey .chezmoi.osRelease "idLike") (eq .chezmoi.osRelease.idLike "arch")) (eq .chezmoi.osRelease.id "arch")) -}}
+{{- if (or
+         (and
+           (hasKey .chezmoi.osRelease "idLike")
+           (eq .chezmoi.osRelease.idLike "arch"))
+         (eq .chezmoi.osRelease.id "arch")) -}}
 
 # make sure system is up to date
 yay -Syu
@@ -33,42 +45,12 @@ yay -Syu
   yay -S --needed --noconfirm "{{ . }}"
 {{ end -}}
 
-{{-   else -}}
-
-set -eufo pipefail
-
-{{ range .packages.linux.taps -}}
-  brew tap "{{ . }}"
-{{ end -}}
-
-brew update
-
-brew bundle --file=/dev/stdin <<EOF
-{{ range .packages.linux.brews -}}
-  brew "{{ . }}"
-{{ end -}}
-EOF
-
-{{-   end }}
-
-# TODO: setup flathub and flatpaks: kitty, cavasik, zen, steam, lutris, vscode, ytmdesktop
+{{- end }}
 
 {{- else if eq .chezmoi.os "darwin" -}}
 
-{{ range .packages.darwin.taps -}}
-  brew tap "{{ . }}"
-{{ end -}}
-
-brew update
-
-brew bundle --file=/dev/stdin <<EOF
-{{ range .packages.darwin.brews -}}
-  brew "{{ . }}"
-{{ end -}}
-{{ range .packages.darwin.casks -}}
-  cask "{{ . }}"
-{{ end -}}
-EOF
+# Load mac only brews and casks
+brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile-darwin"
 
 {{- else }}
 
