@@ -14,7 +14,7 @@
   // Set the buffer text's font fallbacks, this will be merged with
   // the platform's default fallbacks.
   "buffer_font_fallbacks": ["Symbols Nerd Font"],
-  "buffer_font_size": 18
+  "buffer_font_size": 18,
   "terminal": {
     "font_family": "SauceCodePro Nerd Font",
     "font_fallbacks": ["Symbols Nerd Font"],
