@@ -1,5 +1,6 @@
 brew cask
 brew dockutil
+cask bitwarden
 cask devtoys
 cask discord
 cask disk-diet

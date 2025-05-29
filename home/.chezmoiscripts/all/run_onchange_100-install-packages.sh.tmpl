@@ -6,8 +6,11 @@ if ! command -v brew ; then
   exit 1
 fi
 
+echo "Installing Brews..."
 brew update-if-needed
 brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile"
+
+echo "Installing VSCode Extensions..."
 cat "{{- .chezmoi.config.sourceDir -}}/VSExtensionsFile" | xargs -L 1 echo code --install-extension --force
 
 {{- if eq .chezmoi.os "linux" -}}
@@ -28,7 +31,10 @@ cat "{{- .chezmoi.config.sourceDir -}}/VSExtensionsFile" | xargs -L 1 echo code 
 # EOF
 # {{ end -}}
 
-flatpak install -y -u "$(cat "{{- .chezmoi.config.sourceDir -}}/Flatfile")"
+echo "Installing flatpaks..."
+readarray -t flatpaks_list < "{{- .chezmoi.config.sourceDir -}}/Flatfile"
+echo $flatpaks_list[@]
+flatpak install --user -y --noninteractive --or-update "${flatpaks_list[@]}"
 
 {{- if (or
          (and
@@ -37,10 +43,12 @@ flatpak install -y -u "$(cat "{{- .chezmoi.config.sourceDir -}}/Flatfile")"
          (eq .chezmoi.osRelease.id "arch")) -}}
 
 # make sure system is up to date
+echo "Updating Arch packages..."
 yay -Syu
 
 # ideally, there would be a single yay command here, or even
 # a small number of role-themed sets of packages
+echo "Installing Arch packages..."
 {{ range .packages.linux.arch -}}
   yay -S --needed --noconfirm "{{ . }}"
 {{ end -}}
@@ -50,6 +58,7 @@ yay -Syu
 {{- else if eq .chezmoi.os "darwin" -}}
 
 # Load mac only brews and casks
+echo "Installing Mac-specific Brews and Casks..."
 brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile-darwin"
 
 {{- else }}
@@ -63,6 +72,7 @@ exit 1
 
 # setup/update github copilot extension
 if command -v gh; then
+  echo "Installing GitHub CLI Copilot extensions..."
   if $(gh extension list | grep -q gh-copilot); then
     gh extension upgrade github/gh-copilot
   else
