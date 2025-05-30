@@ -24,5 +24,72 @@
     "mode": "system",
     "light": "Gruvbox Light Hard",
     "dark": "Gruvbox Dark Hard"
+  },
+  "agent": {
+    // Version of this setting.
+    "version": "2",
+    // Whether the agent is enabled.
+    "enabled": true,
+    /// What completion mode to start new threads in, if available. Can be 'normal' or 'max'.
+    "preferred_completion_mode": "normal",
+    // Whether to show the agent panel button in the status bar.
+    "button": true,
+    // Where to dock the agent panel. Can be 'left', 'right' or 'bottom'.
+    "dock": "right",
+    // Default width when the agent panel is docked to the left or right.
+    "default_width": 640,
+    // Default height when the agent panel is docked to the bottom.
+    "default_height": 320,
+    // The default model to use when creating new threads.
+    // "default_model": {
+    //   // The provider to use.
+    //   "provider": "zed.dev",
+    //   // The model to use.
+    //   "model": "claude-3-7-sonnet-latest"
+    // },
+    // // The model to use when applying edits from the agent.
+    // "editor_model": {
+    //   // The provider to use.
+    //   "provider": "zed.dev",
+    //   // The model to use.
+    //   "model": "claude-3-7-sonnet-latest"
+    // },
+    // Additional parameters for language model requests. When making a request to a model, parameters will be taken
+    // from the last entry in this list that matches the model's provider and name. In each entry, both provider
+    // and model are optional, so that you can specify parameters for either one.
+    // "model_parameters": [
+    // To set parameters for all requests to OpenAI models:
+    // {
+    //   "provider": "openai",
+    //   "temperature": 0.5
+    // }
+    //
+    // To set parameters for all requests in general:
+    // {
+    //   "temperature": 0
+    // }
+    //
+    // To set parameters for a specific provider and model:
+    // {
+    //   "provider": "zed.dev",
+    //   "model": "claude-3-7-sonnet-latest",
+    //   "temperature": 1.0
+    // }
+    // ],
+    // When enabled, the agent can run potentially destructive actions without asking for your confirmation.
+    "always_allow_tool_actions": false,
+    // When enabled, the agent will stream edits.
+    "stream_edits": false,
+    // When enabled, agent edits will be displayed in single-file editors for review
+    "single_file_review": true,
+    // When enabled, show voting thumbs for feedback on agent edits.
+    "enable_feedback": true,
+    // Where to show notifications when the agent has either completed
+    // its response, or else needs confirmation before it can run a
+    // tool action.
+    // "primary_screen" - Show the notification only on your primary screen (default)
+    // "all_screens" - Show these notifications on all screens
+    // "never" - Never show these notifications
+    "notify_when_agent_waiting": "primary_screen"
   }
 }
