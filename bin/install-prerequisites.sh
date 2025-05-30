@@ -154,7 +154,8 @@ function install_bitwarden_if_needed {
 
 # exit immediately if all prerequisites are installed already
 if ! ($need_brew || $need_bitwarden || $need_nix || need_nix_conf_update); then
-  exit 0
+    echo "No prerequisites needed."
+    exit 0
 fi
 
 # TODO: set hostname of machine

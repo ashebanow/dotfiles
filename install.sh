@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Copied from:
 #   https://github.com/twpayne/chezmoi

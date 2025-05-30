@@ -30,14 +30,3 @@ unset rc
 ### bling.sh source start
 test -f /usr/share/ublue-os/bluefin-cli/bling.sh && source /usr/share/ublue-os/bluefin-cli/bling.sh
 ### bling.sh source end
-
-# Only trigger if:
-# - 'zsh' is not the parent process of this shell
-# - We did not call: bash -c '...'
-# - Drop in to zsh only if the parent process is not zsh. This allows to quickly enter in to bash
-# by simply invoking `bash` command without losing ~/.bashrc configuration.
-# (Adapted from: https://wiki.archlinux.org/title/Fish#Setting_fish_as_interactive_shell_only)
-if [[ $(ps --no-header --pid=$PPID --format=comm) != "zsh" && -z ${BASH_EXECUTION_STRING} && ${SHLVL} == 1 ]]
-  shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=''
-  exec zsh $LOGIN_OPTION
-fi

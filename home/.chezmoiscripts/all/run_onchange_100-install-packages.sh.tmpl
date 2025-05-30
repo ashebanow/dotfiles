@@ -1,11 +1,29 @@
 #!/bin/bash
 
+# echo "Entering install-package.sh, shell: $SHELL"
+
+# Make sure the script gets run if any of our data files change.
+# Note that file refs are relative to the Chezmoi Home dir.
+# ../Brewfile hash: {{ include "../Brewfile" | sha256sum }}
+# ../Brewfile-darwin hash: {{ include "../Brewfile-darwin" | sha256sum }}
+# ../Flatfile hash: {{ include "../Flatfile" | sha256sum }}
+# ../Fontfile hash: {{ include "../Fontfile" | sha256sum }}
+# ../VSExtensionsFile hash: {{ include "../VSExtensionsFile" | sha256sum }}
+
 # install necessary packages for all platforms
 if ! command -v brew ; then
   echo "Brew must be preinstalled before initializing these dotfiles"
+  echo "See '{{- .chezmoi.config.sourceDir -}}/bin/install-prerequisites.sh' for more info"
   exit 1
 fi
 
+if ! command -v getnf ; then
+  echo "getnf must be preinstalled before initializing these dotfiles"
+  echo "See '{{- .chezmoi.config.sourceDir -}}/bin/install-prerequisites.sh' for more info"
+  exit 1
+fi
+
+# Install homebrew brews
 echo "Installing Brews..."
 brew update-if-needed
 brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile"
@@ -33,7 +51,6 @@ cat "{{- .chezmoi.config.sourceDir -}}/VSExtensionsFile" | xargs -L 1 echo code 
 
 echo "Installing flatpaks..."
 readarray -t flatpaks_list < "{{- .chezmoi.config.sourceDir -}}/Flatfile"
-echo $flatpaks_list[@]
 flatpak install --user -y --noninteractive --or-update "${flatpaks_list[@]}"
 
 {{- if (or
@@ -63,10 +80,83 @@ brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile
 
 {{- else }}
 
-echo "unknown os: " + {{- .chezmoi.os  }}
+echo "unknown os: {{- .chezmoi.os  }}"
 exit 1
 
 {{ end }}
+
+# setup fonts
+echo "Installing fonts..."
+# install getnf
+if ! command -v getnf; then
+  curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
+fi
+
+# Install everything in Fontfile, which has the format "source font-name".
+#
+# Valid examples:
+#   cask cask-name          # ignored if non-mac
+#   arch package_name       # ignored if non-arch derivative
+#   apt package_name        # ignored if non-debian derivative
+#   rpm package_name        # ignored if non-fedora derivative
+#   getnf font-name         # any platform, recommended.
+#
+# Other sources may be added later.
+readarray -t font_specs < "{{- .chezmoi.config.sourceDir -}}/Fontfile"
+for spec in "${font_specs[@]}"; do
+  # split the font_spec into <source,font> pairs separated by whitespace
+  IFS=' ' read -r source font <<< "$spec"
+
+  case "$source" in
+      cask)
+      brew install --cask -y "$font"
+      ;;
+
+      arch)
+      if command -v yay; then
+          yay -S --needed -y --noconfirm "$font"
+      elif command -v paru; then
+          paru -S --needed -y "$font"
+      elif command -v pacman; then
+          sudo pacman -S --needed -y "$font"
+      else
+          echo "no arch-compatible package manager available"
+          exit 1
+      fi
+      ;;
+
+     apt)
+      if command -v apt; then
+          sudo apt install -q -y "$font"
+      else
+          echo "no debian-compatible package manager available"
+          exit 1
+      fi
+      ;;
+
+      rpm)
+      if command -v dnf5; then
+          sudo dnf5 install -q -y "$font"
+      elif command -v dnf; then
+          sudo dnf install -q -y "$font"
+      else
+          echo "no rpm-compatible package manager available"
+          exit 1
+      fi
+      ;;
+
+      getnf)
+      # its possible to install a comma separated list of fonts.
+      echo "Installing font $font"
+      getnf -U -i "$font"
+      ;;
+
+      *)
+      echo "unknown source: $source"
+      exit 1
+      ;;
+  esac
+done
 
 # TODO: setup tailscale and auth
 
