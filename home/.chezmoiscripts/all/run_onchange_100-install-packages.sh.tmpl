@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# echo "Entering install-package.sh, shell: $SHELL"
-
 # Make sure the script gets run if any of our data files change.
 # Note that file refs are relative to the Chezmoi Home dir.
 # ../Brewfile hash: {{ include "../Brewfile" | sha256sum }}
@@ -10,7 +8,9 @@
 # ../Fontfile hash: {{ include "../Fontfile" | sha256sum }}
 # ../VSExtensionsFile hash: {{ include "../VSExtensionsFile" | sha256sum }}
 
-# install necessary packages for all platforms
+#######################################################################
+# Phase 1: install necessary packages for all platforms
+
 if ! command -v brew ; then
   echo "Brew must be preinstalled before initializing these dotfiles"
   echo "See '{{- .chezmoi.config.sourceDir -}}/bin/install-prerequisites.sh' for more info"
@@ -18,18 +18,93 @@ if ! command -v brew ; then
 fi
 
 if ! command -v getnf ; then
-  echo "getnf must be preinstalled before initializing these dotfiles"
-  echo "See '{{- .chezmoi.config.sourceDir -}}/bin/install-prerequisites.sh' for more info"
+  echo "getnf must be preinstalled before initializing these dotfiles" >&2
+  echo "See '{{- .chezmoi.config.sourceDir -}}/bin/install-prerequisites.sh' for more info" >&2
   exit 1
 fi
 
-# Install homebrew brews
 echo "Installing Brews..."
 brew update-if-needed
 brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile"
 
-echo "Installing VSCode Extensions..."
-cat "{{- .chezmoi.config.sourceDir -}}/VSExtensionsFile" | xargs -L 1 echo code --install-extension --force
+find_vscode_binary() {
+    # Check code-server first, to detect headless easily.
+    # We also prioritize insiders versions over regular releases.
+    local binary_names=(
+      "code-server-insiders"
+      "code-server"
+      "code-insiders"
+      "code"
+      "codium"
+    )
+
+    # Common installation paths
+    local paths=(
+      "$HOME/.vscode-server-insiders"
+      "$HOME/.vscode-server"
+      "$HOME/.vscode-insiders"
+      "$HOME/.vscode"
+      "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+      "/usr/bin"
+      "/snap/bin"
+      "/usr/share/bin"
+    )
+
+    # Check if binary is available in the PATH, return early if found
+    for binary in $binary_names; do
+      if command -v $binary >/dev/null 2>&1; then
+        echo "$(command -v $binary)"
+        return 0
+      fi
+    done
+
+    # Check common paths
+    for path in "${paths[@]}"; do
+      for binary in "${binary_names}"; do
+        local result=$(find "$path" -type f -name "$binary")
+        if [ $? -eq 0 ]; then
+          echo "$result"
+          return 0
+        fi
+      done
+    done
+
+    # If not found, return error
+    return 1
+}
+
+# Example usage
+vscode_binary_path="$(find_vscode_binary)"
+if [ $? -ne 0 ]; then
+  echo "You must have the VSCode 'code' or equivalent binary in your PATH." >&2
+  exit 1
+fi
+
+declare -a installed_vscode_extensions
+readarray -t installed_vscode_extensions < <($vscode_binary_path --list-extensions)
+
+is_vscode_extension_installed() {
+  local extension="$1"
+
+  for installed_extension in "${installed_vscode_extensions[@]}"; do
+    if [ "$installed_extension" == "$extension" ]; then
+      echo "$extension is already installed, skipping." >&2
+      return 1
+    fi
+  done
+  return 0
+}
+
+echo "Installing VSCode Extensions..." >&2
+readarray -t vscode_extensions_list < "{{- .chezmoi.config.sourceDir -}}/VSExtensionsFile"
+for vscode_extension in "${vscode_extensions_list[@]}"; do
+  if $(is_vscode_extension_installed "$vscode_extension"); then
+    "$vscode_binary_path" --install-extension "$vscode_extension" --force
+  fi
+done
+
+#######################################################################
+# Phase 2: install platform specific bits
 
 {{- if eq .chezmoi.os "linux" -}}
 
@@ -49,7 +124,7 @@ cat "{{- .chezmoi.config.sourceDir -}}/VSExtensionsFile" | xargs -L 1 echo code 
 # EOF
 # {{ end -}}
 
-echo "Installing flatpaks..."
+echo "Installing flatpaks..." >&2
 readarray -t flatpaks_list < "{{- .chezmoi.config.sourceDir -}}/Flatfile"
 flatpak install --user -y --noninteractive --or-update "${flatpaks_list[@]}"
 
@@ -60,12 +135,12 @@ flatpak install --user -y --noninteractive --or-update "${flatpaks_list[@]}"
          (eq .chezmoi.osRelease.id "arch")) -}}
 
 # make sure system is up to date
-echo "Updating Arch packages..."
+echo "Updating Arch..." >&2
 yay -Syu
 
 # ideally, there would be a single yay command here, or even
 # a small number of role-themed sets of packages
-echo "Installing Arch packages..."
+echo "Installing Arch packages..." >&2
 {{ range .packages.linux.arch -}}
   yay -S --needed --noconfirm "{{ . }}"
 {{ end -}}
@@ -74,95 +149,87 @@ echo "Installing Arch packages..."
 
 {{- else if eq .chezmoi.os "darwin" -}}
 
-# Load mac only brews and casks
-echo "Installing Mac-specific Brews and Casks..."
+echo "Installing Mac-specific Brews and Casks..." >&2
 brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile-darwin"
 
 {{- else }}
 
-echo "unknown os: {{- .chezmoi.os  }}"
+echo "unknown os: {{- .chezmoi.os  }}" >&2
 exit 1
 
 {{ end }}
 
+#######################################################################
+# Phase 3: more cross-platform bits get installed
+
 # setup fonts
-echo "Installing fonts..."
-# install getnf
+echo "Installing fonts..." >&2
 if ! command -v getnf; then
   curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
 fi
 
 # Install everything in Fontfile, which has the format "source font-name".
 #
-# Valid examples:
-#   cask cask-name          # ignored if non-mac
+# Valid examples of sources:
+#   cask cask-name          # homebrew cask, mac only
 #   arch package_name       # ignored if non-arch derivative
 #   apt package_name        # ignored if non-debian derivative
 #   rpm package_name        # ignored if non-fedora derivative
-#   getnf font-name         # any platform, recommended.
+#   getnf font-name         # use on any platform, recommended.
 #
-# Other sources may be added later.
+# Note that not all sources work on all platforms. If we get a request
+# for a source that isn't supported, we ignore that line and keep going,
+# SILENTLY.
+
 readarray -t font_specs < "{{- .chezmoi.config.sourceDir -}}/Fontfile"
 for spec in "${font_specs[@]}"; do
   # split the font_spec into <source,font> pairs separated by whitespace
   IFS=' ' read -r source font <<< "$spec"
 
   case "$source" in
-      cask)
+    cask)
+{{- if eq .chezmoi.os "darwin" -}}
       brew install --cask -y "$font"
+{{ end }}
       ;;
 
-      arch)
+    arch)
       if command -v yay; then
           yay -S --needed -y --noconfirm "$font"
       elif command -v paru; then
           paru -S --needed -y "$font"
       elif command -v pacman; then
           sudo pacman -S --needed -y "$font"
-      else
-          echo "no arch-compatible package manager available"
-          exit 1
       fi
       ;;
 
-     apt)
+    apt)
       if command -v apt; then
           sudo apt install -q -y "$font"
-      else
-          echo "no debian-compatible package manager available"
-          exit 1
       fi
       ;;
 
-      rpm)
+    rpm)
       if command -v dnf5; then
           sudo dnf5 install -q -y "$font"
       elif command -v dnf; then
           sudo dnf install -q -y "$font"
-      else
-          echo "no rpm-compatible package manager available"
-          exit 1
       fi
       ;;
 
-      getnf)
-      # its possible to install a comma separated list of fonts.
-      echo "Installing font $font"
+    getnf)
       getnf -U -i "$font"
       ;;
 
       *)
-      echo "unknown source: $source"
-      exit 1
+      echo "Unknown font source: $source" >&2
       ;;
   esac
 done
 
-# TODO: setup tailscale and auth
-
 # setup/update github copilot extension
 if command -v gh; then
-  echo "Installing GitHub CLI Copilot extensions..."
+  echo "Installing GitHub CLI Copilot extensions..." >&2
   if $(gh extension list | grep -q gh-copilot); then
     gh extension upgrade github/gh-copilot
   else
