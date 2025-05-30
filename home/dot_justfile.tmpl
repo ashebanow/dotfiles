@@ -16,3 +16,14 @@ update-brew:
 [group('Maintenance')]
 update-config:
     chezmoi apply
+
+# For testing, make chezmoi forget about script run state
+[group('Testing')]
+clear-chezmoi-script-state:
+    chezmoi state delete-bucket --bucket=scriptState
+
+# Run the install-packages script
+[group('Testing')]
+run-chezmoi-package-install:
+   chezmoi execute-template \
+        -f "{{- .chezmoi.sourceDir -}}/.chezmoiscripts/all/run_onchange_100-install-packages.sh.tmpl" |bash
