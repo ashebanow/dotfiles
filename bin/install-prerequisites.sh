@@ -180,9 +180,11 @@ fi
 
 # TODO: setup ssh
 
-# TODO: install devbox
+# TODO: install devenv.sh & distrobox
 # TODO: install flatpak (linux only)
 # TODO: adjust sudo permissions
 # TODO: tweak bluefin settings and GNOME extensions
 # TODO: create ubunto container via distrobox
-# TODO: initialize bat cache
+#
+# initialize bat cache
+bat cache --build
