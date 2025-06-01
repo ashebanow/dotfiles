@@ -1,3 +1,5 @@
+set shell := ["bash", "-uc"]
+
 {{- if (and (hasKey .chezmoi.osRelease "idLike") (eq .chezmoi.osRelease.idLike "fedora")) -}}
 import "/usr/share/ublue-os/justfile"
 {{- end }}
@@ -25,5 +27,11 @@ clear-chezmoi-script-state:
 # Run the install-packages script
 [group('Testing')]
 run-chezmoi-package-install:
-   chezmoi execute-template \
-        -f "{{- .chezmoi.sourceDir -}}/.chezmoiscripts/all/run_onchange_100-install-packages.sh.tmpl" |bash
+    #!/usr/bin/env bash
+    set -euo pipefail
+    sourceScriptFile="{{- .chezmoi.sourceDir -}}/.chezmoiscripts/all/run_onchange_100-install-packages.sh.tmpl"
+    installScriptFile=$(mktemp)
+    chezmoi execute-template -f "${sourceScriptFile}" > "${installScriptFile}"
+    chmod +x "${installScriptFile}"
+    "${installScriptFile}"
+    rm -f "${installScriptFile}"

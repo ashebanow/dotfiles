@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Make sure the script gets run if any of our data files change.
 # Note that file refs are relative to the Chezmoi Home dir.
@@ -27,55 +27,12 @@ echo "Installing Brews..."
 brew update-if-needed
 brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile"
 
-find_vscode_binary() {
-    # Check code-server first, to detect headless easily.
-    # We also prioritize insiders versions over regular releases.
-    local binary_names=(
-      "code-server-insiders"
-      "code-server"
-      "code-insiders"
-      "code"
-      "codium"
-    )
-
-    # Common installation paths
-    local paths=(
-      "$HOME/.vscode-server-insiders"
-      "$HOME/.vscode-server"
-      "$HOME/.vscode-insiders"
-      "$HOME/.vscode"
-      "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-      "/usr/bin"
-      "/snap/bin"
-      "/usr/share/bin"
-    )
-
-    # Check if binary is available in the PATH, return early if found
-    for binary in $binary_names; do
-      if command -v $binary >/dev/null 2>&1; then
-        echo "$(command -v $binary)"
-        return 0
-      fi
-    done
-
-    # Check common paths
-    for path in "${paths[@]}"; do
-      for binary in "${binary_names}"; do
-        local result=$(find "$path" -type f -name "$binary")
-        if [ $? -eq 0 ]; then
-          echo "$result"
-          return 0
-        fi
-      done
-    done
-
-    # If not found, return error
-    return 1
-}
+# Source the vscode utilities
+source "{{- .chezmoi.homeDir -}}/.local/bin/vscode_utils.sh"
 
 # Example usage
 vscode_binary_path="$(find_vscode_binary)"
-if [ $? -ne 0 ]; then
+if [ $? -ne 0 ] -or [ -z "$vscode_binary_path" ]; then
   echo "You must have the VSCode 'code' or equivalent binary in your PATH." >&2
   exit 1
 fi
