@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
+# for debugging
+# set -x
+export GUM_LOG_LEVEL=info
+
 # Make sure the script gets run if any of our data files change.
 # Note that file refs are relative to the Chezmoi Home dir.
 # ../Brewfile hash: {{ include "../Brewfile" | sha256sum }}
@@ -20,43 +26,64 @@ source "{{- .chezmoi.homeDir -}}/.local/bin/vscode_utils.sh"
 #######################################################################
 # Utility functions
 
-function is_vscode_extension_installed() {
+function log_debug() {
+  gum log --structured --level debug "$@"
+}
+
+function log_info() {
+  gum log --structured --level info "$@"
+}
+
+function log_warning() {
+  gum log --structured --level warning "$@"
+}
+
+function log_error() {
+  gum log --structured --level error "$@"
+}
+
+function internal_is_vscode_extension_installed() {
   local extension="$1"
 
   for installed_extension in "${installed_vscode_extensions[@]}"; do
     if [ "$installed_extension" == "$extension" ]; then
-      echo "$extension is already installed, skipping." >&2
+      log_debug "$extension is already installed, skipping."
       return 1
     fi
   done
   return 0
 }
 
-function install_vscode_extensions {
+function internal_install_vscde_extensions() {
   vscode_binary_path="$(find_vscode_binary)"
   if [ $? -ne 0 ] || [ -z "$vscode_binary_path" ]; then
-    echo "You must have the VSCode 'code' or equivalent binary in your PATH." >&2
+    log_error "You must have the VSCode 'code' or equivalent binary in your PATH."
     exit 1
   fi
 
   declare -a installed_vscode_extensions
   readarray -t installed_vscode_extensions < <($vscode_binary_path --list-extensions)
 
-  echo "Installing VSCode Extensions..." >&2
   readarray -t vscode_extensions_list < "{{- .chezmoi.config.sourceDir -}}/VSExtensionsFile"
   for vscode_extension in "${vscode_extensions_list[@]}"; do
-    if $(is_vscode_extension_installed "$vscode_extension"); then
-      "$vscode_binary_path" --install-extension "$vscode_extension" --force
-    fi
+      if internal_is_vscode_extension_installed "$vscode_extension"; then
+        "$vscode_binary_path" --install-extension "$vscode_extension" --force
+      fi
   done
+}
+
+function install_vscode_extensions() {
+  gum spin --title "Installing VSCode Extensions..." -- internal_install_vscde_extensions()
+  log_info "Installed VSCode Extensions."
 }
 
 function install_getnf_if_needed {
   if command -v getnf; then
     return;
   fi
-  echo "Installing getnf..." >&2
-  curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --silent
+  gum spin --title "Installing getnf..." -- \
+    curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --silent
+  log_info "Installed getnf."
 }
 
 # Install everything in Fontfile, which has the format "source font-name".
@@ -74,53 +101,58 @@ function install_getnf_if_needed {
 function install_fonts {
   install_getnf_if_needed
 
-  echo "Installing fonts..." >&2
-  readarray -t font_specs < "{{- .chezmoi.config.sourceDir -}}/Fontfile"
-  for spec in "${font_specs[@]}"; do
-  # split the font_spec into <source,font> pairs separated by whitespace
-  IFS=' ' read -r source font <<< "$spec"
+  function internal_install_fonts() {
+    readarray -t font_specs < "{{- .chezmoi.config.sourceDir -}}/Fontfile"
+    for spec in "${font_specs[@]}"; do
+      # split the font_spec into <source,font> pairs separated by whitespace
+      IFS=' ' read -r source font <<< "$spec"
 
-  case "$source" in
-      cask)
+      case "$source" in
+        cask)
+            # ignored if not a darwin system
 {{- if eq .chezmoi.os "darwin" -}}
-        brew install --cask -y "$font"
+            brew install --cask -y "$font"
 {{ end }}
-        ;;
+            ;;
 
-      arch)
-        if command -v yay; then
-            yay -S --needed -y --noconfirm "$font"
-        elif command -v paru; then
-            paru -S --needed -y "$font"
-        elif command -v pacman; then
-            sudo pacman -S --needed -y "$font"
-        fi
-        ;;
+        arch)
+            if command -v yay; then
+                yay -S --needed -y --noconfirm "$font"
+            elif command -v paru; then
+                paru -S --needed -y "$font"
+            elif command -v pacman; then
+                sudo pacman -S --needed -y "$font"
+            fi
+            ;;
 
-      apt)
-        if command -v apt; then
-            sudo apt install -q -y "$font"
-        fi
-        ;;
+        apt)
+            if command -v apt; then
+                sudo apt install -q -y "$font"
+            fi
+            ;;
 
       rpm)
-        if command -v dnf5; then
-            sudo dnf5 install -q -y "$font"
-        elif command -v dnf; then
-            sudo dnf install -q -y "$font"
-        fi
-        ;;
+            if command -v dnf5; then
+                sudo dnf5 install -q -y "$font"
+            elif command -v dnf; then
+                sudo dnf install -q -y "$font"
+            fi
+            ;;
 
-      getnf)
-        getnf -U -i "$font"
-        ;;
+        getnf)
+            # gum spin --title "Installing font $font..." -- getnf -U -i "$font"
+            getnf -U -i "$font"
+            ;;
 
         *)
-        echo "Unknown font source: $source" >&2
-        ;;
-    esac
-  done
+            log_error "Unknown font source: $source"
+            ;;
+      esac
+    done
+  }
 
+  gum spin --spinner dot --title "Installing fonts..." -- internal_install_fonts
+  log_info "Installed fonts..."
 }
 
 function install_flatpak_if_needed {
@@ -130,46 +162,55 @@ function install_flatpak_if_needed {
     return;
   fi
 
-  echo "Installing flatpak..." >&2
-  if [[ $ID == *"arch"* || $ID_LIKE == *"arch"* ]]; then
-    sudo pacman -S flatpak
-  elif [[ $ID == *"ubuntu"* || $ID == *"debian"* || $ID_LIKE == *"debian"* ]]; then
-    sudo apt install flatpak
-  elif [[ $ID == *"fedora"* || $ID_LIKE == *"fedora"* ]]; then
-      if command -v dnf5; then
-        sudo dnf5 install flatpak
+  function internal_install_flatpak() {
+      if [[ $ID == *"arch"* || $ID_LIKE == *"arch"* ]]; then
+        sudo pacman -S flatpak
+      elif [[ $ID == *"ubuntu"* || $ID == *"debian"* || $ID_LIKE == *"debian"* ]]; then
+        sudo apt install flatpak
+      elif [[ $ID == *"fedora"* || $ID_LIKE == *"fedora"* ]]; then
+          if command -v dnf5; then
+            sudo dnf5 install flatpak
+          else
+            sudo dnf install flatpak
+          fi
       else
-        sudo dnf install flatpak
+        # give up for now
+        log_error "Unsupported/unknown linux variant, cannot install flatpak"
+        exit 1
       fi
-  else
-    # give up for now
-    echo "Unsupported/unknown linux variant, cannot install flatpak"
-    exit 1
-  fi
 
-  flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-  flatpak update --appstream
+      flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+      flatpak update --appstream
+  }
+
+  gum spin --spinner dot --title "Installing Flatpak runtime..." -- internal_install_flatpak
+  log_info "Installed Flatpak runtime..."
 }
 
 function install_flatpak_apps {
-    echo "Installing flatpak applications..." >&2
     install_flatpak_if_needed
-    readarray -t flatpaks_list < "{{- .chezmoi.config.sourceDir -}}/Flatfile"
-    flatpak install --user -y --noninteractive --or-update "${flatpaks_list[@]}"
+
+    function internal_install_flatpak_apps() {
+        readarray -t flatpaks_list < "{{- .chezmoi.config.sourceDir -}}/Flatfile"
+        flatpak install --user -y --noninteractive --or-update "${flatpaks_list[@]}"
+    }
+
+    gum spin --spinner dot --title "Installing Flatpak apps..." -- internal_install_flatpak_apps
+    log_info "Installed Flatpak applications..."
 }
 
 #######################################################################
 # Phase 1: install necessary packages for all platforms
 
 if ! command -v brew ; then
-  echo "Brew must be preinstalled before initializing these dotfiles"
-  echo "See '{{- .chezmoi.config.sourceDir -}}/bin/install-prerequisites.sh' for more info"
+  log_error "Brew must be preinstalled before initializing these dotfiles"
+  log_error "See '{{- .chezmoi.config.sourceDir -}}/bin/install-prerequisites.sh' for more info"
   exit 1
 fi
 
-echo "Installing Brews..."
-brew update-if-needed
-brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile"
+gum spin --spinner dot --title "Installing brews..." -- \
+  brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile"
+log_info "Installed brews..."
 
 #######################################################################
 # Phase 2: install platform specific bits
@@ -183,12 +224,12 @@ brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile
          (eq .chezmoi.osRelease.id "arch")) -}}
 
 # make sure system is up to date
-echo "Updating Arch..." >&2
+log_info "Updating Arch..."
 yay -Syu
 
 # ideally, there would be a single yay command here, or even
 # a small number of role-themed sets of packages
-echo "Installing Arch packages..." >&2
+log_info "Installing Arch packages..."
 {{ range .packages.linux.arch -}}
   yay -S --needed --noconfirm "{{ . }}"
 {{ end -}}
@@ -199,12 +240,13 @@ install_flatpak_apps
 
 {{- else if eq .chezmoi.os "darwin" -}}
 
-echo "Installing Mac-specific Brews and Casks..." >&2
-brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile-darwin"
+gum spin --spinner dot --title "Installing mac-only brews and casks..." -- \
+  brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile-darwin"
+log_info "Installed Mac-specific Brews and Casks."
 
 {{- else }}
 
-echo "unknown os: {{- .chezmoi.os  }}" >&2
+log_error "unknown os: {{- .chezmoi.os  }}"
 exit 1
 
 {{ end }}
@@ -220,7 +262,7 @@ install_fonts
 # TODO: fix this setup so that it does `gh auth login` and
 # `gh auth status -a`.
 # if command -v gh; then
-  # echo "Installing GitHub CLI Copilot extensions..." >&2
+  # log_info "Installing GitHub CLI Copilot extensions..."
   # if $(gh extension list | grep -q gh-copilot); then
     # gh extension upgrade github/gh-copilot
   # else
