@@ -8,39 +8,19 @@
 # ../Fontfile hash: {{ include "../Fontfile" | sha256sum }}
 # ../VSExtensionsFile hash: {{ include "../VSExtensionsFile" | sha256sum }}
 
-#######################################################################
-# Phase 1: install necessary packages for all platforms
-
-if ! command -v brew ; then
-  echo "Brew must be preinstalled before initializing these dotfiles"
-  echo "See '{{- .chezmoi.config.sourceDir -}}/bin/install-prerequisites.sh' for more info"
-  exit 1
-fi
-
-if ! command -v getnf ; then
-  echo "getnf must be preinstalled before initializing these dotfiles" >&2
-  echo "See '{{- .chezmoi.config.sourceDir -}}/bin/install-prerequisites.sh' for more info" >&2
-  exit 1
-fi
-
-echo "Installing Brews..."
-brew update-if-needed
-brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile"
+# we source this on linux systems to get environment variables related to
+# this machine's distro, variants, etc.
+{{- if eq .chezmoi.os "linux" -}}
+source /etc/os-release
+{{ end -}}
 
 # Source the vscode utilities
 source "{{- .chezmoi.homeDir -}}/.local/bin/vscode_utils.sh"
 
-# Example usage
-vscode_binary_path="$(find_vscode_binary)"
-if [ $? -ne 0 ] -or [ -z "$vscode_binary_path" ]; then
-  echo "You must have the VSCode 'code' or equivalent binary in your PATH." >&2
-  exit 1
-fi
+#######################################################################
+# Utility functions
 
-declare -a installed_vscode_extensions
-readarray -t installed_vscode_extensions < <($vscode_binary_path --list-extensions)
-
-is_vscode_extension_installed() {
+function is_vscode_extension_installed() {
   local extension="$1"
 
   for installed_extension in "${installed_vscode_extensions[@]}"; do
@@ -52,38 +32,149 @@ is_vscode_extension_installed() {
   return 0
 }
 
-echo "Installing VSCode Extensions..." >&2
-readarray -t vscode_extensions_list < "{{- .chezmoi.config.sourceDir -}}/VSExtensionsFile"
-for vscode_extension in "${vscode_extensions_list[@]}"; do
-  if $(is_vscode_extension_installed "$vscode_extension"); then
-    "$vscode_binary_path" --install-extension "$vscode_extension" --force
+function install_vscode_extensions {
+  vscode_binary_path="$(find_vscode_binary)"
+  if [ $? -ne 0 ] || [ -z "$vscode_binary_path" ]; then
+    echo "You must have the VSCode 'code' or equivalent binary in your PATH." >&2
+    exit 1
   fi
-done
+
+  declare -a installed_vscode_extensions
+  readarray -t installed_vscode_extensions < <($vscode_binary_path --list-extensions)
+
+  echo "Installing VSCode Extensions..." >&2
+  readarray -t vscode_extensions_list < "{{- .chezmoi.config.sourceDir -}}/VSExtensionsFile"
+  for vscode_extension in "${vscode_extensions_list[@]}"; do
+    if $(is_vscode_extension_installed "$vscode_extension"); then
+      "$vscode_binary_path" --install-extension "$vscode_extension" --force
+    fi
+  done
+}
+
+function install_getnf_if_needed {
+  if command -v getnf; then
+    return;
+  fi
+  echo "Installing getnf..." >&2
+  curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --silent
+}
+
+# Install everything in Fontfile, which has the format "source font-name".
+#
+# Valid examples of sources:
+#   cask cask-name          # homebrew cask, mac only
+#   arch package_name       # ignored if non-arch derivative
+#   apt package_name        # ignored if non-debian derivative
+#   rpm package_name        # ignored if non-fedora derivative
+#   getnf font-name         # use on any platform, recommended.
+#
+# Note that not all sources work on all platforms. If we get a request
+# for a source that isn't supported, we ignore that line and keep going,
+# SILENTLY.
+function install_fonts {
+  install_getnf_if_needed
+
+  echo "Installing fonts..." >&2
+  readarray -t font_specs < "{{- .chezmoi.config.sourceDir -}}/Fontfile"
+  for spec in "${font_specs[@]}"; do
+  # split the font_spec into <source,font> pairs separated by whitespace
+  IFS=' ' read -r source font <<< "$spec"
+
+  case "$source" in
+      cask)
+{{- if eq .chezmoi.os "darwin" -}}
+        brew install --cask -y "$font"
+{{ end }}
+        ;;
+
+      arch)
+        if command -v yay; then
+            yay -S --needed -y --noconfirm "$font"
+        elif command -v paru; then
+            paru -S --needed -y "$font"
+        elif command -v pacman; then
+            sudo pacman -S --needed -y "$font"
+        fi
+        ;;
+
+      apt)
+        if command -v apt; then
+            sudo apt install -q -y "$font"
+        fi
+        ;;
+
+      rpm)
+        if command -v dnf5; then
+            sudo dnf5 install -q -y "$font"
+        elif command -v dnf; then
+            sudo dnf install -q -y "$font"
+        fi
+        ;;
+
+      getnf)
+        getnf -U -i "$font"
+        ;;
+
+        *)
+        echo "Unknown font source: $source" >&2
+        ;;
+    esac
+  done
+
+}
+
+function install_flatpak_if_needed {
+  if command -v flatpak; then
+    # make sure that flathub content is available
+    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    return;
+  fi
+
+  echo "Installing flatpak..." >&2
+  if [[ $ID == *"arch"* || $ID_LIKE == *"arch"* ]]; then
+    sudo pacman -S flatpak
+  elif [[ $ID == *"ubuntu"* || $ID == *"debian"* || $ID_LIKE == *"debian"* ]]; then
+    sudo apt install flatpak
+  elif [[ $ID == *"fedora"* || $ID_LIKE == *"fedora"* ]]; then
+      if command -v dnf5; then
+        sudo dnf5 install flatpak
+      else
+        sudo dnf install flatpak
+      fi
+  else
+    # give up for now
+    echo "Unsupported/unknown linux variant, cannot install flatpak"
+    exit 1
+  fi
+
+  flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+  flatpak update --appstream
+}
+
+function install_flatpak_apps {
+    echo "Installing flatpak applications..." >&2
+    install_flatpak_if_needed
+    readarray -t flatpaks_list < "{{- .chezmoi.config.sourceDir -}}/Flatfile"
+    flatpak install --user -y --noninteractive --or-update "${flatpaks_list[@]}"
+}
+
+#######################################################################
+# Phase 1: install necessary packages for all platforms
+
+if ! command -v brew ; then
+  echo "Brew must be preinstalled before initializing these dotfiles"
+  echo "See '{{- .chezmoi.config.sourceDir -}}/bin/install-prerequisites.sh' for more info"
+  exit 1
+fi
+
+echo "Installing Brews..."
+brew update-if-needed
+brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile"
 
 #######################################################################
 # Phase 2: install platform specific bits
 
 {{- if eq .chezmoi.os "linux" -}}
-
-# TODO: new strategy for package management
-#
-# Use nix (not nixos) for most package management, on all linux platforms
-# only use system packages for essentials: window managers/desktop environments,
-# secret management, ssh, and hardware.
-#
-# only use brew when it can't be avoided.
-
-# {{- if 0 -}}
-# brew bundle install --upgrade --file=/dev/stdin <<EOF
-# {{ range .packages.linux.nixpkgs -}}
-#   nix profile install "nixpkgs#{{ . }}"
-# {{ end -}}
-# EOF
-# {{ end -}}
-
-echo "Installing flatpaks..." >&2
-readarray -t flatpaks_list < "{{- .chezmoi.config.sourceDir -}}/Flatfile"
-flatpak install --user -y --noninteractive --or-update "${flatpaks_list[@]}"
 
 {{- if (or
          (and
@@ -102,6 +193,8 @@ echo "Installing Arch packages..." >&2
   yay -S --needed --noconfirm "{{ . }}"
 {{ end -}}
 
+install_flatpak_apps
+
 {{- end }}
 
 {{- else if eq .chezmoi.os "darwin" -}}
@@ -117,79 +210,29 @@ exit 1
 {{ end }}
 
 #######################################################################
-# Phase 3: more cross-platform bits get installed
+# Phase 3: more cross-platform bits get installed and initialized
 
-# setup fonts
-echo "Installing fonts..." >&2
-if ! command -v getnf; then
-  curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
-fi
+install_vscode_extensions
 
-# Install everything in Fontfile, which has the format "source font-name".
-#
-# Valid examples of sources:
-#   cask cask-name          # homebrew cask, mac only
-#   arch package_name       # ignored if non-arch derivative
-#   apt package_name        # ignored if non-debian derivative
-#   rpm package_name        # ignored if non-fedora derivative
-#   getnf font-name         # use on any platform, recommended.
-#
-# Note that not all sources work on all platforms. If we get a request
-# for a source that isn't supported, we ignore that line and keep going,
-# SILENTLY.
-
-readarray -t font_specs < "{{- .chezmoi.config.sourceDir -}}/Fontfile"
-for spec in "${font_specs[@]}"; do
-  # split the font_spec into <source,font> pairs separated by whitespace
-  IFS=' ' read -r source font <<< "$spec"
-
-  case "$source" in
-    cask)
-{{- if eq .chezmoi.os "darwin" -}}
-      brew install --cask -y "$font"
-{{ end }}
-      ;;
-
-    arch)
-      if command -v yay; then
-          yay -S --needed -y --noconfirm "$font"
-      elif command -v paru; then
-          paru -S --needed -y "$font"
-      elif command -v pacman; then
-          sudo pacman -S --needed -y "$font"
-      fi
-      ;;
-
-    apt)
-      if command -v apt; then
-          sudo apt install -q -y "$font"
-      fi
-      ;;
-
-    rpm)
-      if command -v dnf5; then
-          sudo dnf5 install -q -y "$font"
-      elif command -v dnf; then
-          sudo dnf install -q -y "$font"
-      fi
-      ;;
-
-    getnf)
-      getnf -U -i "$font"
-      ;;
-
-      *)
-      echo "Unknown font source: $source" >&2
-      ;;
-  esac
-done
+install_fonts
 
 # setup/update github copilot extension
-if command -v gh; then
-  echo "Installing GitHub CLI Copilot extensions..." >&2
-  if $(gh extension list | grep -q gh-copilot); then
-    gh extension upgrade github/gh-copilot
-  else
-    gh extension install github/gh-copilot
-  fi
-fi
+# TODO: fix this setup so that it does `gh auth login` and
+# `gh auth status -a`.
+# if command -v gh; then
+  # echo "Installing GitHub CLI Copilot extensions..." >&2
+  # if $(gh extension list | grep -q gh-copilot); then
+    # gh extension upgrade github/gh-copilot
+  # else
+    # gh extension install github/gh-copilot
+  # fi
+# fi
+
+# initialize bat cache, which is annoying to have to do on first install
+bat cache --build
+
+# TODO: install devenv.sh & distrobox
+# TODO: adjust sudo permissions
+# TODO: tweak bluefin settings and GNOME extensions
+# TODO: create ubunto container via distrobox
+# TODO: install zed on platforms where it isn't in pkg repository

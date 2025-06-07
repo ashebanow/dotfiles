@@ -9,6 +9,8 @@
 # NOTE: this script will run every time you run a `chezmoi apply` command,
 # so its important that it be fast in the common case and idempotent.
 
+set -euo pipefail
+
 # for debugging
 # set -x
 
@@ -39,19 +41,44 @@ need_nix=false
 # need_nix=true
 # fi
 
+need_nix_conf_update=false
 nix_conf_src=$(dirname "$(realpath "$0")")/../home/private_dot_local/share/nix/etc-nix-nix.conf
 nix_conf_dest=/etc/nix/nix.conf
 
 function need_nix_conf_update {
-  # if dest file doesn't exist, or is different from source file,
-  # then the dest needs updating
-  # if [[ ! -f "$nix_conf_dest" ]]; then
-  # return 0
-  # elif ! diff "$nix_conf_src" "$nix_conf_dest" >/dev/null 2>&1; then
-  # return 0
-  # fi
-  return 1
+    # NOTE: turned off for now because the bazzite/bluefin distros
+    # only support nix via distrobox. So the longer term solution
+    # is to setup a distrobox for our development needs, with nix,
+    # devenv and such installed there.
+    #
+    # if dest file doesn't exist, or is different from source file,
+    # then the dest needs updating
+    # if [[ ! -f "$nix_conf_dest" ]]; then
+      # return 0
+    # elif ! diff "$nix_conf_src" "$nix_conf_dest" >/dev/null 2>&1; then
+      # return 0
+    # fi
+    return 1
 }
+
+# set up /etc/nix/nix.conf from ~/.local/share/nix/etc-nix-nix.conf, but only if it
+# missing or different.
+function install_nix_conf_update_if_needed {
+  if ! need_nix_conf_update; then
+    return
+  fi
+  # TODO: we need to handle the /etc/nix/nix.conf.custom case
+  echo "Need sudo access to update $nix_conf_dest..."
+  sudo cp "$nix_conf_src" "$nix_conf_dest"
+}
+
+#--------------------------------------------------------------------
+# CHECK FOR gum
+#--------------------------------------------------------------------
+need_gum=false
+if ! command -v gum >/dev/null 2>&1; then
+  need_gum=true
+fi
 
 #--------------------------------------------------------------------
 # INSTALL FUNCTIONS
@@ -153,8 +180,7 @@ function install_bitwarden_if_needed {
 #--------------------------------------------------------------------
 
 # exit immediately if all prerequisites are installed already
-if ! ($need_brew || $need_bitwarden || $need_nix || need_nix_conf_update); then
-    echo "No prerequisites needed."
+if ! ($need_brew || $need_bitwarden || $need_nix || $need_gum || need_nix_conf_update); then
     exit 0
 fi
 
@@ -168,23 +194,10 @@ if $need_nix; then
   echo "Installing Nix..."
   curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --determinate
 fi
-# set up /etc/nix/nix.conf from ~/.local/share/nix/etc-nix-nix.conf, but only if it
-# missing or different.
-if need_nix_conf_update; then
-  echo "Need sudo access to update $nix_conf_dest..."
-  sudo cp "$nix_conf_src" "$nix_conf_dest"
+install_nix_conf_update_if_needed
+
+if $need_gum; then
+  brew install gum
 fi
 
-#--------------------------------------------------------------------
-# NOTE: reimplement everything below here as plain chezmoi scripts
-
 # TODO: setup ssh
-
-# TODO: install devenv.sh & distrobox
-# TODO: install flatpak (linux only)
-# TODO: adjust sudo permissions
-# TODO: tweak bluefin settings and GNOME extensions
-# TODO: create ubunto container via distrobox
-#
-# initialize bat cache
-bat cache --build

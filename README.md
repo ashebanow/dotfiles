@@ -30,21 +30,14 @@ more automation steps I'll make it all current and consistent.
 
     Reboot.
 
-5. Add the flatpak repos we need from fedora and flathub (preset on bazzite at least):
+6. Login to bitwarden-cli (`bw`) and github-cli ('gh')
 
    ```bash
-   flatpak remote-add --if-not-exists fedora oci+https://registry.fedoraproject.org
-   flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-   flatpak update --appstream
+    bw login        # enter account email and master password
    ```
 
-6. Install bitwarden flatpak and its CLI:
-
-   ```bash
-    sudo flatpak install bitwarden
-    brew install bitwarden-cli
-    bw login        # enter account email and password
-   ```
+   After the login succeeds, copy the "export BW_SESSION=" line and then
+   paste it into the terminal.
 
 7. To turn off password entry when using sudo, run the `sudo visudo` command, then search for the line that looks like:
 
@@ -55,15 +48,11 @@ more automation steps I'll make it all current and consistent.
    Uncoment that line, then comment the one above it that says `ALL` instead of `NOPASSWORD: ALL`. Save and exit the editor.
 
 8. Copy ssh folder to your home directory. Set the permissions properly:
+    * the .ssh directory and the hosts directory should be 700
     * all .pub files should be mode 644
-    * all other files should be 640
-    * the .ssh directory and the hosts directory should be 755
-
-    Alternatively, you can copy it from a machine on your network that already has your keys. This will only work if the other host is set up to allow password auth. Most hosts aren't setup this way. Note that the permissions above shoud already be set using this command, but double-check and fix if needed.
-
-    ```bash
-    scp -r ashebanow@HOSTAME.cattivi.internal:/var/home/ashebanow/.ssh ~/
-    ```
+    * the `allowed_signers`, `authorized_keys`, `config`, and `known_hosts`
+      files should be 600
+    * all other files should be 400
 
 9. Install dotfiles:
 
