@@ -54,7 +54,7 @@ function internal_is_vscode_extension_installed() {
   return 0
 }
 
-function internal_install_vscde_extensions() {
+function internal_install_vscode_extensions() {
   vscode_binary_path="$(find_vscode_binary)"
   if [ $? -ne 0 ] || [ -z "$vscode_binary_path" ]; then
     log_error "You must have the VSCode 'code' or equivalent binary in your PATH."
@@ -73,7 +73,7 @@ function internal_install_vscde_extensions() {
 }
 
 function install_vscode_extensions() {
-  gum spin --title "Installing VSCode Extensions..." -- internal_install_vscde_extensions()
+  gum spin --title "Installing VSCode Extensions..." -- internal_install_vscode_extensions
   log_info "Installed VSCode Extensions."
 }
 
@@ -151,7 +151,7 @@ function install_fonts {
     done
   }
 
-  gum spin --spinner dot --title "Installing fonts..." -- internal_install_fonts
+  gum spin --spinner meter --title "Installing fonts..." -- internal_install_fonts
   log_info "Installed fonts..."
 }
 
@@ -183,7 +183,7 @@ function install_flatpak_if_needed {
       flatpak update --appstream
   }
 
-  gum spin --spinner dot --title "Installing Flatpak runtime..." -- internal_install_flatpak
+  gum spin --spinner meter --title "Installing Flatpak runtime..." -- internal_install_flatpak
   log_info "Installed Flatpak runtime..."
 }
 
@@ -195,7 +195,7 @@ function install_flatpak_apps {
         flatpak install --user -y --noninteractive --or-update "${flatpaks_list[@]}"
     }
 
-    gum spin --spinner dot --title "Installing Flatpak apps..." -- internal_install_flatpak_apps
+    gum spin --spinner meter --title "Installing Flatpak apps..." -- internal_install_flatpak_apps
     log_info "Installed Flatpak applications..."
 }
 
@@ -208,7 +208,7 @@ if ! command -v brew ; then
   exit 1
 fi
 
-gum spin --spinner dot --title "Installing brews..." -- \
+gum spin --spinner meter --title "Installing brews..." -- \
   brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile"
 log_info "Installed brews..."
 
@@ -240,7 +240,7 @@ install_flatpak_apps
 
 {{- else if eq .chezmoi.os "darwin" -}}
 
-gum spin --spinner dot --title "Installing mac-only brews and casks..." -- \
+gum spin --spinner meter --title "Installing mac-only brews and casks..." -- \
   brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile-darwin"
 log_info "Installed Mac-specific Brews and Casks."
 
