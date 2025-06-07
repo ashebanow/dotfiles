@@ -27,6 +27,10 @@
   },
   "agent": {
     // Version of this setting.
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-3-7-sonnet-latest"
+    },
     "version": "2",
     // Whether the agent is enabled.
     "enabled": true,
