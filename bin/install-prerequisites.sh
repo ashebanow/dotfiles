@@ -1,10 +1,9 @@
 #!/bin/bash
 
-# This script installs bitwarden and bitwarden-cli on your system.
-# It is intended to be run via chezmoi's hooks.read-source-state.pre
-# mechanism, which is why it isn't a standard chezmoi template/script.
-# We do it this way because our chezmoi setup needs bitwarden to run
-# at all.
+# This script installs the apps and tools required for chezmoi setup
+# to function. # It is intended to be run via chezmoi's
+# hooks.read-source-state.pre # mechanism, which is why it isn't a
+# standard chezmoi template/script.
 #
 # NOTE: this script will run every time you run a `chezmoi apply` command,
 # so its important that it be fast in the common case and idempotent.
@@ -13,6 +12,17 @@ set -euo pipefail
 
 # for debugging
 # set -x
+
+is_darwin=false
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  is_darwin=true
+  # Fake the crucial variables from /etc/os-release
+  ID="darwin"
+  PRODUCT_VERSION="$(sw_vers --productVersion)"
+  BUILD_VERSION="$(sw_vers --buildVersion)"
+else
+  source /etc/os-release
+fi
 
 #--------------------------------------------------------------------
 # CHECK FOR HOMEBREW
@@ -84,28 +94,19 @@ fi
 # INSTALL FUNCTIONS
 #--------------------------------------------------------------------
 
-is_darwin=false
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  is_darwin=true
-fi
-
 function install_homebrew_if_needed {
   if ! $need_brew; then
     return
   fi
 
   if ! $is_darwin; then
-    # this has all sorts of handy OS-level variables, but doesn't
-    # exist on all systems
-    source /etc/os-release
-
     # commands to install password-manager-binary on Linux
     # but Arch doesn't need homebrew since AUR + nix is more than
     # sufficient
     if [[ $ID == *"arch"* || $ID_LIKE == *"arch"* ]]; then
       return
     fi
-  fi
+   fi
 
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
@@ -151,10 +152,6 @@ function install_bitwarden_if_needed {
   if $is_darwin; then
     darwin_install_bitwarden
   else
-    # this has all sorts of handy OS-level variables, but doesn't
-    # exist on all systems
-    source /etc/os-release
-
     # commands to install password-manager-binary on Linux
     if [[ $ID == *"arch"* || $ID_LIKE == *"arch"* ]]; then
       arch_install_bitwarden

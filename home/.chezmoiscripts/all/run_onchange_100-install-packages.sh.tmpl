@@ -254,9 +254,11 @@ exit 1
 #######################################################################
 # Phase 3: more cross-platform bits get installed and initialized
 
-install_vscode_extensions
+gum spin --title "Installing VSCode Extensions..." -- ../../../lib/install/install_vscode_extensions.sh
+log_info "Installed VSCode Extensions."
 
-install_fonts
+gum spin --spinner meter --title "Installing fonts..." -- ../../../lib/install/install_fonts.sh
+log_info "Installed fonts..."
 
 # setup/update github copilot extension
 # TODO: fix this setup so that it does `gh auth login` and
