@@ -227,9 +227,10 @@ yay -Syu
 # ideally, there would be a single yay command here, or even
 # a small number of role-themed sets of packages
 log_info "Installing Arch packages..."
-{{ range .packages.linux.arch -}}
-  yay -S --needed --noconfirm "{{ . }}"
-{{ end -}}
+readarray -t arch_package_list < "{{- .chezmoi.config.sourceDir -}}/Archfile"
+for arch_package in "${arch_package_list[@]}"; do
+  yay -S --needed --noconfirm "${arch_package}"
+done
 
 install_flatpak_apps
 
