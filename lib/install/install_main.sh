@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-set -euo pipefail
-
-# for debugging
-# set -x
-export GUM_LOG_LEVEL=info
-
 # Make sure the script gets run if any of our data files change.
 # Note that file refs are relative to the Chezmoi Home dir.
 # ../Brewfile hash: {{ include "../Brewfile" | sha256sum }}
@@ -20,8 +14,11 @@ export GUM_LOG_LEVEL=info
 source /etc/os-release
 {{ end -}}
 
-# Source the vscode utilities
-source "{{- .chezmoi.homeDir -}}/.local/bin/vscode_utils.sh"
+# setup common to all install scripts
+source "install_common.sh"
+
+# vscode utilities
+source "../vscode_utils.sh"
 
 #######################################################################
 # Utility functions
