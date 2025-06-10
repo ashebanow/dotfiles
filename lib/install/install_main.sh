@@ -8,12 +8,6 @@
 # ../Fontfile hash: {{ include "../Fontfile" | sha256sum }}
 # ../VSExtensionsFile hash: {{ include "../VSExtensionsFile" | sha256sum }}
 
-# we source this on linux systems to get environment variables related to
-# this machine's distro, variants, etc.
-{{- if eq .chezmoi.os "linux" -}}
-source /etc/os-release
-{{ end -}}
-
 # setup common to all install scripts
 source "install_common.sh"
 

@@ -12,3 +12,15 @@ fi
 # GUM_DEBUG_LEVEL to "debug".
 # set -x
 export GUM_LOG_LEVEL=info
+
+# platform identification
+is_darwin=false
+if [[ "$(uname -s)" == "Darwin" ]]; then
+  is_darwin=true
+  # Fake the crucial variables from /etc/os-release
+  ID="darwin"
+  PRODUCT_VERSION="$(sw_vers --productVersion)"
+  BUILD_VERSION="$(sw_vers --buildVersion)"
+else
+  source /etc/os-release
+fi

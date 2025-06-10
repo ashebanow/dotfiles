@@ -8,21 +8,8 @@
 # NOTE: this script will run every time you run a `chezmoi apply` command,
 # so its important that it be fast in the common case and idempotent.
 
-set -euo pipefail
-
-# for debugging
-# set -x
-
-is_darwin=false
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  is_darwin=true
-  # Fake the crucial variables from /etc/os-release
-  ID="darwin"
-  PRODUCT_VERSION="$(sw_vers --productVersion)"
-  BUILD_VERSION="$(sw_vers --buildVersion)"
-else
-  source /etc/os-release
-fi
+# setup common to all install scripts
+source "install_common.sh"
 
 #--------------------------------------------------------------------
 # CHECK FOR HOMEBREW
