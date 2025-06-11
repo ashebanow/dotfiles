@@ -7,12 +7,12 @@ source "$(dirname "${BASH_SOURCE[0]}")/install_common.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/../vscode_utils.sh"
 
 function install_distrobox_if_needed() {
-    if command -v distrobox; then
-        return 0
-    end
+	if command -v distrobox; then
+		return 0
+	fi
 
-    # TODO: install distrobox
-    return 0
+	# TODO: install distrobox
+	return 0
 }
 
 # Parameters:
@@ -39,6 +39,6 @@ function install_distrobox_if_needed() {
 # volume                  Default: N/A        Example: "/tmp/test:/run/a /tmp/test:/run/b"
 
 function create_distrobox() {
-    # TODO: validate arguments
-    # distrobox create -n $1 -i $2
+	# TODO: validate arguments
+	# distrobox create -n $1 -i $2
 }

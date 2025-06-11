@@ -11,154 +11,48 @@
 # setup common to all install scripts
 source "$(dirname "${BASH_SOURCE[0]}")/install_common.sh"
 
+# install libraries for various things
+source "$(dirname "${BASH_SOURCE[0]}")/install_chezmoi.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/install_distrobox.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/install_flatpak.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/install_fonts.sh"
+
 # vscode utilities
 source "$(dirname "${BASH_SOURCE[0]}")/../vscode_utils.sh"
 
-function install_getnf_if_needed {
-  if command -v getnf; then
-    return;
-  fi
-  gum spin --title "Installing getnf..." -- \
-    curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --silent
-  log_info "Installed getnf."
-}
+show_spinner -- \
+	"Installing Flatpak runtime..." \
+	internal_install_flatpak \
+	"Installed Flatpak runtime..."
 
-# Install everything in Fontfile, which has the format "source font-name".
-#
-# Valid examples of sources:
-#   cask cask-name          # homebrew cask, mac only
-#   arch package_name       # ignored if non-arch derivative
-#   apt package_name        # ignored if non-debian derivative
-#   rpm package_name        # ignored if non-fedora derivative
-#   getnf font-name         # use on any platform, recommended.
-#
-# Note that not all sources work on all platforms. If we get a request
-# for a source that isn't supported, we ignore that line and keep going,
-# SILENTLY.
-function install_fonts {
-  install_getnf_if_needed
-
-  function internal_install_fonts() {
-    readarray -t font_specs < "{{- .chezmoi.config.sourceDir -}}/Fontfile"
-    for spec in "${font_specs[@]}"; do
-      # split the font_spec into <source,font> pairs separated by whitespace
-      IFS=' ' read -r source font <<< "$spec"
-
-      case "$source" in
-        cask)
-            # ignored if not a darwin system
-{{- if eq .chezmoi.os "darwin" -}}
-            brew install --cask -y "$font"
-{{ end }}
-            ;;
-
-        arch)
-            if command -v yay; then
-                yay -S --needed -y --noconfirm "$font"
-            elif command -v paru; then
-                paru -S --needed -y "$font"
-            elif command -v pacman; then
-                sudo pacman -S --needed -y "$font"
-            fi
-            ;;
-
-        apt)
-            if command -v apt; then
-                sudo apt install -q -y "$font"
-            fi
-            ;;
-
-      rpm)
-            if command -v dnf5; then
-                sudo dnf5 install -q -y "$font"
-            elif command -v dnf; then
-                sudo dnf install -q -y "$font"
-            fi
-            ;;
-
-        getnf)
-            # gum spin --title "Installing font $font..." -- getnf -U -i "$font"
-            getnf -U -i "$font"
-            ;;
-
-        *)
-            log_error "Unknown font source: $source"
-            ;;
-      esac
-    done
-  }
-
-  gum spin --spinner meter --title "Installing fonts..." -- internal_install_fonts
-  log_info "Installed fonts..."
-}
-
-function install_flatpak_if_needed {
-  if command -v flatpak; then
-    # make sure that flathub content is available
-    flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-    return;
-  fi
-
-  function internal_install_flatpak() {
-      if [[ $ID == *"arch"* || $ID_LIKE == *"arch"* ]]; then
-        sudo pacman -S flatpak
-      elif [[ $ID == *"ubuntu"* || $ID == *"debian"* || $ID_LIKE == *"debian"* ]]; then
-        sudo apt install flatpak
-      elif [[ $ID == *"fedora"* || $ID_LIKE == *"fedora"* ]]; then
-          if command -v dnf5; then
-            sudo dnf5 install flatpak
-          else
-            sudo dnf install flatpak
-          fi
-      else
-        # give up for now
-        log_error "Unsupported/unknown linux variant, cannot install flatpak"
-        exit 1
-      fi
-
-      flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-      flatpak update --appstream
-  }
-
-  gum spin --spinner meter --title "Installing Flatpak runtime..." -- internal_install_flatpak
-  log_info "Installed Flatpak runtime..."
-}
-
-function install_flatpak_apps {
-    install_flatpak_if_needed
-
-    function internal_install_flatpak_apps() {
-        readarray -t flatpaks_list < "{{- .chezmoi.config.sourceDir -}}/Flatfile"
-        flatpak install --user -y --noninteractive --or-update "${flatpaks_list[@]}"
-    }
-
-    gum spin --spinner meter --title "Installing Flatpak apps..." -- internal_install_flatpak_apps
-    log_info "Installed Flatpak applications..."
-}
+show_spinner -- \
+	"Installing Flatpak apps..." \
+	internal_install_flatpak_apps \
+	"Installed Flatpak apps..."
 
 #######################################################################
 # Phase 1: install necessary packages for all platforms
 
-if ! command -v brew ; then
-  log_error "Brew must be preinstalled before initializing these dotfiles"
-  log_error "See '{{- .chezmoi.config.sourceDir -}}/bin/install-prerequisites.sh' for more info"
-  exit 1
+if ! command -v brew; then
+	log_error "Brew must be preinstalled before initializing these dotfiles"
+	log_error "See '{{- .chezmoi.config.sourceDir -}}/bin/install-prerequisites.sh' for more info"
+	exit 1
 fi
 
 gum spin --spinner meter --title "Installing brews..." -- \
-  brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile"
+	brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile"
 log_info "Installed brews..."
 
 #######################################################################
 # Phase 2: install platform specific bits
 
-{{- if eq .chezmoi.os "linux" -}}
+# {{- if eq .chezmoi.os "linux" -}}
 
-{{- if (or
-         (and
-           (hasKey .chezmoi.osRelease "idLike")
-           (eq .chezmoi.osRelease.idLike "arch"))
-         (eq .chezmoi.osRelease.id "arch")) -}}
+# {{- if (or
+#          (and
+#            (hasKey .chezmoi.osRelease "idLike")
+#            (eq .chezmoi.osRelease.idLike "arch"))
+#          (eq .chezmoi.osRelease.id "arch")) -}}
 
 # make sure system is up to date
 log_info "Updating Arch..."
@@ -167,27 +61,27 @@ yay -Syu
 # ideally, there would be a single yay command here, or even
 # a small number of role-themed sets of packages
 log_info "Installing Arch packages..."
-readarray -t arch_package_list < "{{- .chezmoi.config.sourceDir -}}/Archfile"
+readarray -t arch_package_list <"{{- .chezmoi.config.sourceDir -}}/Archfile"
 for arch_package in "${arch_package_list[@]}"; do
-  yay -S --needed --noconfirm "${arch_package}"
+	yay -S --needed --noconfirm "${arch_package}"
 done
 
 install_flatpak_apps
 
-{{- end }}
+# {{- end }}
 
-{{- else if eq .chezmoi.os "darwin" -}}
+# {{- else if eq .chezmoi.os "darwin" -}}
 
-gum spin --spinner meter --title "Installing Mac-only Brews and Casks..." -- \
-  brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile-darwin"
-log_info "Installed Mac-only Brews and Casks."
+# gum spin --spinner meter --title "Installing Mac-only Brews and Casks..." -- \
+# brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile-darwin"
+# log_info "Installed Mac-only Brews and Casks."
 
-{{- else }}
+# {{- else }}
 
-log_error "unknown os: {{- .chezmoi.os  }}"
-exit 1
+# log_error "unknown os: {{- .chezmoi.os  }}"
+# exit 1
 
-{{ end }}
+# {{ end }}
 
 #######################################################################
 # Phase 3: more cross-platform bits get installed and initialized
@@ -202,12 +96,12 @@ log_info "Installed fonts..."
 # TODO: fix this setup so that it does `gh auth login` and
 # `gh auth status -a`.
 # if command -v gh; then
-  # log_info "Installing GitHub CLI Copilot extensions..."
-  # if $(gh extension list | grep -q gh-copilot); then
-    # gh extension upgrade github/gh-copilot
-  # else
-    # gh extension install github/gh-copilot
-  # fi
+# log_info "Installing GitHub CLI Copilot extensions..."
+# if $(gh extension list | grep -q gh-copilot); then
+# gh extension upgrade github/gh-copilot
+# else
+# gh extension install github/gh-copilot
+# fi
 # fi
 
 # initialize bat cache, which is annoying to have to do on first install

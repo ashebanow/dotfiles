@@ -1,4 +1,3 @@
-
 # NOTE: this file is only meant to be sourced by other scripts.
 # It is not meant to be executed directly.
 
@@ -12,30 +11,42 @@ export GUM_LOG_LEVEL=info
 # platform identification
 is_darwin=false
 if [[ "$(uname -s)" == "Darwin" ]]; then
-  is_darwin=true
-  # Fake the crucial variables from /etc/os-release
-  ID="darwin"
-  PRODUCT_VERSION="$(sw_vers --productVersion)"
-  BUILD_VERSION="$(sw_vers --buildVersion)"
+	is_darwin=true
+	# Fake the crucial variables from /etc/os-release
+	ID="darwin"
+	PRODUCT_VERSION="$(sw_vers --productVersion)"
+	BUILD_VERSION="$(sw_vers --buildVersion)"
 else
-  source /etc/os-release
+	source /etc/os-release
 fi
+
+#######################################################################
+# gum functions
+
+# Parameters:
+# $1    pre_title
+# $2    command
+# $3    post_title      shown after gum returns
+function show_spinner() {
+	gum spin --spinner meter --title "$1" -- "$2"
+	log_info "$3"
+}
 
 #######################################################################
 # logging functions
 
 function log_debug() {
-  gum log --structured --level debug "$@"
+	gum log --structured --level debug "$@"
 }
 
 function log_info() {
-  gum log --structured --level info "$@"
+	gum log --structured --level info "$@"
 }
 
 function log_warning() {
-  gum log --structured --level warning "$@"
+	gum log --structured --level warning "$@"
 }
 
 function log_error() {
-  gum log --structured --level error "$@"
+	gum log --structured --level error "$@"
 }
