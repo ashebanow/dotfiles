@@ -83,6 +83,12 @@ gh extension upgrade gh-copilot
 
 ## Zed
 
+You can install Zed using the following command on Mac or Linux, but note that it installs for the current user, not in the system. Use a package manager for system-wide installs, but note that it installs for the current user, not in the system. Use a package manager for system-wide installs.
+
+```bash
+curl -f https://zed.dev/install.sh | sh
+```
+
 ### Installing via a package manager
 
 There are several third-party Zed packages for various Linux distributions and package managers, sometimes under zed-editor. You may be able to install Zed using these package names:
@@ -100,9 +106,3 @@ There are several third-party Zed packages for various Linux distributions and p
 * ALT Linux (Sisyphus): zed
 * AOSC OS: zed
 * openSUSE Tumbleweed: zed
-
-If those don't work for you, you can install Zed using the following command on Mac or Linux:
-
-```bash
-curl -f https://zed.dev/install.sh | sh
-```
