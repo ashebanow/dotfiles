@@ -43,19 +43,19 @@ nix_conf_src=$(dirname "$(realpath "$0")")/../home/private_dot_local/share/nix/e
 nix_conf_dest=/etc/nix/nix.conf
 
 function need_nix_conf_update {
-    # NOTE: turned off for now because the bazzite/bluefin distros
-    # only support nix via distrobox. So the longer term solution
-    # is to setup a distrobox for our development needs, with nix,
-    # devenv and such installed there.
-    #
-    # if dest file doesn't exist, or is different from source file,
-    # then the dest needs updating
-    # if [[ ! -f "$nix_conf_dest" ]]; then
-      # return 0
-    # elif ! diff "$nix_conf_src" "$nix_conf_dest" >/dev/null 2>&1; then
-      # return 0
-    # fi
-    return 1
+  # NOTE: turned off for now because the bazzite/bluefin distros
+  # only support nix via distrobox. So the longer term solution
+  # is to setup a distrobox for our development needs, with nix,
+  # devenv and such installed there.
+  #
+  # if dest file doesn't exist, or is different from source file,
+  # then the dest needs updating
+  # if [[ ! -f "$nix_conf_dest" ]]; then
+  # return 0
+  # elif ! diff "$nix_conf_src" "$nix_conf_dest" >/dev/null 2>&1; then
+  # return 0
+  # fi
+  return 1
 }
 
 # set up /etc/nix/nix.conf from ~/.local/share/nix/etc-nix-nix.conf, but only if it
@@ -165,7 +165,7 @@ function install_bitwarden_if_needed {
 
 # exit immediately if all prerequisites are installed already
 if ! ($need_brew || $need_bitwarden || $need_nix || $need_gum || need_nix_conf_update); then
-    exit 0
+  exit 0
 fi
 
 # TODO: set hostname of machine
