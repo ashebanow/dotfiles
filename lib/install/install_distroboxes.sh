@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
 # setup common to all install scripts
-source "install_common.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/install_common.sh"
 
 # vscode utilities
-source "../vscode_utils.sh"
+source "$(dirname "${BASH_SOURCE[0]}")/../vscode_utils.sh"
 
 function install_distrobox_if_needed() {
     if command -v distrobox; then

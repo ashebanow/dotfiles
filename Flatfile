@@ -8,7 +8,7 @@ com.logseq.Logseq
 com.obsproject.Studio
 com.parsecgaming.parsec
 com.slack.Slack
-dev.zed.Zed
+# dev.zed.Zed
 it.mijorus.gearlever
 net.davidotek.pupgui2
 org.gnome.DejaDup
