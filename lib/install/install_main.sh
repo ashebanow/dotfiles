@@ -14,60 +14,6 @@ source "install_common.sh"
 # vscode utilities
 source "../vscode_utils.sh"
 
-#######################################################################
-# Utility functions
-
-function log_debug() {
-  gum log --structured --level debug "$@"
-}
-
-function log_info() {
-  gum log --structured --level info "$@"
-}
-
-function log_warning() {
-  gum log --structured --level warning "$@"
-}
-
-function log_error() {
-  gum log --structured --level error "$@"
-}
-
-function internal_is_vscode_extension_installed() {
-  local extension="$1"
-
-  for installed_extension in "${installed_vscode_extensions[@]}"; do
-    if [ "$installed_extension" == "$extension" ]; then
-      log_debug "$extension is already installed, skipping."
-      return 1
-    fi
-  done
-  return 0
-}
-
-function internal_install_vscode_extensions() {
-  vscode_binary_path="$(find_vscode_binary)"
-  if [ $? -ne 0 ] || [ -z "$vscode_binary_path" ]; then
-    log_error "You must have the VSCode 'code' or equivalent binary in your PATH."
-    exit 1
-  fi
-
-  declare -a installed_vscode_extensions
-  readarray -t installed_vscode_extensions < <($vscode_binary_path --list-extensions)
-
-  readarray -t vscode_extensions_list < "{{- .chezmoi.config.sourceDir -}}/VSExtensionsFile"
-  for vscode_extension in "${vscode_extensions_list[@]}"; do
-      if internal_is_vscode_extension_installed "$vscode_extension"; then
-        "$vscode_binary_path" --install-extension "$vscode_extension" --force
-      fi
-  done
-}
-
-function install_vscode_extensions() {
-  gum spin --title "Installing VSCode Extensions..." -- internal_install_vscode_extensions
-  log_info "Installed VSCode Extensions."
-}
-
 function install_getnf_if_needed {
   if command -v getnf; then
     return;
@@ -232,9 +178,9 @@ install_flatpak_apps
 
 {{- else if eq .chezmoi.os "darwin" -}}
 
-gum spin --spinner meter --title "Installing mac-only brews and casks..." -- \
+gum spin --spinner meter --title "Installing Mac-only Brews and Casks..." -- \
   brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile-darwin"
-log_info "Installed Mac-specific Brews and Casks."
+log_info "Installed Mac-only Brews and Casks."
 
 {{- else }}
 

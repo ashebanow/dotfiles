@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-source "$(dirname "${BASH_SOURCE[0]}")/install_common.sh"
+source "install_common.sh"
 
 function internal_is_vscode_extension_installed() {
   local extension="$1"

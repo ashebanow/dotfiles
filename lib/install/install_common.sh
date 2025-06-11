@@ -4,10 +4,6 @@
 
 set -euo pipefail
 
-if [ -n "$BUILD_VERSION" ]; then
-  echo "BUILD_VERSION: $BUILD_VERSION"
-fi
-
 # for debugging, uncomment the following line and set the
 # GUM_DEBUG_LEVEL to "debug".
 # set -x
@@ -24,3 +20,22 @@ if [[ "$(uname -s)" == "Darwin" ]]; then
 else
   source /etc/os-release
 fi
+
+#######################################################################
+# logging functions
+
+function log_debug() {
+  gum log --structured --level debug "$@"
+}
+
+function log_info() {
+  gum log --structured --level info "$@"
+}
+
+function log_warning() {
+  gum log --structured --level warning "$@"
+}
+
+function log_error() {
+  gum log --structured --level error "$@"
+}
