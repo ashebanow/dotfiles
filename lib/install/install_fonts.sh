@@ -1,8 +1,12 @@
-#!/usr/bin/env bash
+# this bash file is intended to be sourced as a library.
+# It assumes you have already included the install_common.sh
+# file.
 
-set -euo pipefail
-
-source "$(dirname "${BASH_SOURCE[0]}")/install_common.sh"
+# make sure we only source this once.
+if [ -n $sourced_install_fonts ]; then
+  return;
+fi
+sourced_install_fonts=true
 
 function install_getnf_if_needed {
 	if command -v getnf; then

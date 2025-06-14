@@ -1,7 +1,12 @@
-#!/usr/bin/env bash
+# this bash file is intended to be sourced as a library.
+# It assumes you have already included the install_common.sh
+# file.
 
-# setup common to all install scripts
-source "$(dirname "${BASH_SOURCE[0]}")/install_common.sh"
+# make sure we only source this once.
+if [ -n $sourced_install_chezmoi ]; then
+  return;
+fi
+sourced_install_chezmoi=true
 
 # variables
 repo="git@github.com:ashebanow/dotfiles.git"

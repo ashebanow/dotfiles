@@ -9,79 +9,65 @@
 # ../VSExtensionsFile hash: {{ include "../VSExtensionsFile" | sha256sum }}
 
 # setup common to all install scripts
-source "$(dirname "${BASH_SOURCE[0]}")/install_common.sh"
+source "${DOTFILES}/lib/install/install_common.sh"
 
 # install libraries for various things
-source "$(dirname "${BASH_SOURCE[0]}")/install_chezmoi.sh"
-source "$(dirname "${BASH_SOURCE[0]}")/install_distrobox.sh"
-source "$(dirname "${BASH_SOURCE[0]}")/install_flatpak.sh"
-source "$(dirname "${BASH_SOURCE[0]}")/install_fonts.sh"
+source "${DOTFILES}/lib/install/install_chezmoi.sh"
+source "${DOTFILES}/lib/install/install_distrobox.sh"
+source "${DOTFILES}/lib/install/install_flatpak.sh"
+source "${DOTFILES}/lib/install/install_fonts.sh"
+source "${DOTFILES}/lib/install/install_homebrew.sh"
 
 # vscode utilities
-source "$(dirname "${BASH_SOURCE[0]}")/../vscode_utils.sh"
+source "${DOTFILES}/lib/vscode_utils.sh"
+
+#######################################################################
+# Phase 1: install universal packages and apps
+
+show_spinner -- \
+    "Installing homebrew..." -- \
+	install_homebrew_if_needed \
+	"Installed homebrew..."
+
+show_spinner -- \
+    "Installing homebrew packages..." -- \
+	install_homebrew_packages \
+	"Installed homebrew packages..."
 
 show_spinner -- \
 	"Installing Flatpak runtime..." \
-	internal_install_flatpak \
+	install_flatpak_if_needed \
 	"Installed Flatpak runtime..."
 
 show_spinner -- \
 	"Installing Flatpak apps..." \
-	internal_install_flatpak_apps \
+	install_flatpak_apps \
 	"Installed Flatpak apps..."
-
-#######################################################################
-# Phase 1: install necessary packages for all platforms
-
-if ! command -v brew; then
-	log_error "Brew must be preinstalled before initializing these dotfiles"
-	log_error "See '{{- .chezmoi.config.sourceDir -}}/bin/install-prerequisites.sh' for more info"
-	exit 1
-fi
-
-gum spin --spinner meter --title "Installing brews..." -- \
-	brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile"
-log_info "Installed brews..."
 
 #######################################################################
 # Phase 2: install platform specific bits
 
-# {{- if eq .chezmoi.os "linux" -}}
+if [[ $ID == "arch" || (-n $ID_LIKE && $ID_LIKE == "arch") ]]; then
+  # TODO: split this out into its own file, and put a spinner on it!
 
-# {{- if (or
-#          (and
-#            (hasKey .chezmoi.osRelease "idLike")
-#            (eq .chezmoi.osRelease.idLike "arch"))
-#          (eq .chezmoi.osRelease.id "arch")) -}}
+  # make sure system is up to date
+  log_info "Updating Arch..."
+  yay -Syu
 
-# make sure system is up to date
-log_info "Updating Arch..."
-yay -Syu
-
-# ideally, there would be a single yay command here, or even
-# a small number of role-themed sets of packages
-log_info "Installing Arch packages..."
-readarray -t arch_package_list <"{{- .chezmoi.config.sourceDir -}}/Archfile"
-for arch_package in "${arch_package_list[@]}"; do
+  # ideally, there would be a single yay command here, or even
+  # a small number of role-themed sets of packages
+  log_info "Installing Arch packages..."
+  readarray -t arch_package_list <"{{- .chezmoi.config.sourceDir -}}/Archfile"
+  for arch_package in "${arch_package_list[@]}"; do
 	yay -S --needed --noconfirm "${arch_package}"
-done
+  done
+fi
 
-install_flatpak_apps
-
-# {{- end }}
-
-# {{- else if eq .chezmoi.os "darwin" -}}
-
-# gum spin --spinner meter --title "Installing Mac-only Brews and Casks..." -- \
-# brew bundle install --upgrade --file="{{- .chezmoi.config.sourceDir -}}/Brewfile-darwin"
-# log_info "Installed Mac-only Brews and Casks."
-
-# {{- else }}
-
-# log_error "unknown os: {{- .chezmoi.os  }}"
-# exit 1
-
-# {{ end }}
+if [[ $ID == "darwin" ]]; then
+  show_spinner -- "Installing Mac-only Brews and Casks..." \
+    install_mac_only_homebrew_packages \
+    "Installed Mac-only Brews and Casks."
+fi
 
 #######################################################################
 # Phase 3: more cross-platform bits get installed and initialized
