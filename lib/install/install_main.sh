@@ -1,82 +1,102 @@
 #!/usr/bin/env bash
 
+# make sure we only source this once.
+if [ -n $sourced_install_main ]; then
+  return;
+fi
+sourced_install_main=true
+
 # Make sure the script gets run if any of our data files change.
 # Note that file refs are relative to the Chezmoi Home dir.
 # ../Brewfile hash: {{ include "../Brewfile" | sha256sum }}
 # ../Brewfile-darwin hash: {{ include "../Brewfile-darwin" | sha256sum }}
 # ../Flatfile hash: {{ include "../Flatfile" | sha256sum }}
+# ../Flatfile hash: {{ include "../Flatfile-gaming" | sha256sum }}
 # ../Fontfile hash: {{ include "../Fontfile" | sha256sum }}
 # ../VSExtensionsFile hash: {{ include "../VSExtensionsFile" | sha256sum }}
 
 # setup common to all install scripts
 source "${DOTFILES}/lib/install/install_common.sh"
 
-# install libraries for various things
+# source our library of install modules.
+source "${DOTFILES}/lib/install/install_arch.sh"
+source "${DOTFILES}/lib/install/install_bitwarden.sh"
 source "${DOTFILES}/lib/install/install_chezmoi.sh"
-source "${DOTFILES}/lib/install/install_distrobox.sh"
-source "${DOTFILES}/lib/install/install_flatpak.sh"
+source "${DOTFILES}/lib/install/install_claude_code.sh"
+source "${DOTFILES}/lib/install/install_distroboxes.sh"
+source "${DOTFILES}/lib/install/install_flatpaks.sh"
 source "${DOTFILES}/lib/install/install_fonts.sh"
+source "${DOTFILES}/lib/install/install_github.sh"
+source "${DOTFILES}/lib/install/install_gum.sh"
 source "${DOTFILES}/lib/install/install_homebrew.sh"
-
-# vscode utilities
-source "${DOTFILES}/lib/vscode_utils.sh"
+source "${DOTFILES}/lib/install/install_nix.sh"
+source "${DOTFILES}/lib/install/install_vscode.sh"
+source "${DOTFILES}/lib/install/install_zed.sh"
 
 #######################################################################
 # Phase 1: install universal packages and apps
 
-show_spinner -- \
-    "Installing homebrew..." -- \
-	install_homebrew_if_needed \
-	"Installed homebrew..."
+# NOTE: we can't use spinner here because gum may not be installed yet...
+if ! command -v gum; then
+  echo -n "Installing gum..."
+  install_gum_if_needed
+  echo "\rInstalled gum."
+fi
 
 show_spinner -- \
-    "Installing homebrew packages..." -- \
+    "Installing homebrew..." \
+	install_homebrew_if_needed \
+	"Installed homebrew."
+
+show_spinner -- \
+    "Installing homebrew packages..." \
 	install_homebrew_packages \
-	"Installed homebrew packages..."
+	"Installed homebrew packages."
+
+show_spinner -- \
+	"Installing bitwarden..." \
+	install_bitwarden_if_needed \
+	"Installed bitwarden."
+
+show_spinner -- \
+	"Installing nix..." \
+	install_nix_if_needed \
+	"Installed nix."
 
 show_spinner -- \
 	"Installing Flatpak runtime..." \
 	install_flatpak_if_needed \
-	"Installed Flatpak runtime..."
+	"Installed Flatpak runtime."
 
 show_spinner -- \
 	"Installing Flatpak apps..." \
 	install_flatpak_apps \
-	"Installed Flatpak apps..."
+	"Installed Flatpak apps."
 
 #######################################################################
 # Phase 2: install platform specific bits
 
-if [[ $ID == "arch" || (-n $ID_LIKE && $ID_LIKE == "arch") ]]; then
-  # TODO: split this out into its own file, and put a spinner on it!
-
-  # make sure system is up to date
-  log_info "Updating Arch..."
-  yay -Syu
-
-  # ideally, there would be a single yay command here, or even
-  # a small number of role-themed sets of packages
-  log_info "Installing Arch packages..."
-  readarray -t arch_package_list <"{{- .chezmoi.config.sourceDir -}}/Archfile"
-  for arch_package in "${arch_package_list[@]}"; do
-	yay -S --needed --noconfirm "${arch_package}"
-  done
+if is_arch_like; then
+  update_arch_if_needed
+  install_arch_packages
 fi
 
-if [[ $ID == "darwin" ]]; then
+if is_darwin; then
   show_spinner -- "Installing Mac-only Brews and Casks..." \
     install_mac_only_homebrew_packages \
     "Installed Mac-only Brews and Casks."
 fi
 
+show_spinner -- "Installing VSCode Extensions..." \
+    "${DOTFILES}/lib/install/install_vscode.sh" \
+    "Installed VSCode Extensions."
+
+show_spinner -- "Installing fonts..." \
+    "${DOTFILES}/lib/install/install_fonts.sh" \
+    "Installed fonts..."
+
 #######################################################################
-# Phase 3: more cross-platform bits get installed and initialized
-
-gum spin --title "Installing VSCode Extensions..." -- ../../../lib/install/install_vscode_extensions.sh
-log_info "Installed VSCode Extensions."
-
-gum spin --spinner meter --title "Installing fonts..." -- ../../../lib/install/install_fonts.sh
-log_info "Installed fonts..."
+# Phase 3: configuration and initialization
 
 # setup/update github copilot extension
 # TODO: fix this setup so that it does `gh auth login` and

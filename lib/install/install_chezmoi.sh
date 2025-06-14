@@ -1,6 +1,7 @@
-# this bash file is intended to be sourced as a library.
-# It assumes you have already included the install_common.sh
-# file.
+#!/usr/bin/env bash
+
+# setup common to all install scripts
+source "${DOTFILES}/lib/install/install_common.sh"
 
 # make sure we only source this once.
 if [ -n $sourced_install_chezmoi ]; then

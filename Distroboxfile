@@ -1,0 +1,11 @@
+[dev]
+########## SETTINGS
+image=quay.io/toolbx/arch-toolbox:latest
+pull=true
+replace=true
+init=true
+nvidia=false
+root=false
+start_now=false
+########## PRE-INIT HOOKS
+pre_init_hooks=curl -fsSL https://github.com/ashebanow/dotfiles/install.sh | bash;

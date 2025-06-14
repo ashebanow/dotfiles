@@ -66,6 +66,9 @@ BITWARDEN_EMAIL=ashebanow@cattivi.com
 export BWS_ACCESS_TOKEN="{{- (bitwarden "BW Limon BWS Access Token" "login").password -}}"
 {{ end }}
 
+# some secrets need access from elsewhere
+export ZED_GITHUB_PERSONAL_ACCESS_TOKEN="$(bw get password zed_github_access_token)"
+
 # set up env variable for ssh-agent
 export SSH_AUTH_SOCK="{{- .chezmoi.homeDir -}}/.bitwarden-ssh-agent.sock"
 if [ ! -S "${SSH_AUTH_SOCK}" ]; then

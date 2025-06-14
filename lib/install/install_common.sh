@@ -1,6 +1,12 @@
 # NOTE: this file is only meant to be sourced by other scripts.
 # It is not meant to be executed directly.
 
+# make sure we only source this once.
+if [ -n $sourced_install_common ]; then
+  return;
+fi
+sourced_install_common=true
+
 set -euo pipefail
 
 # for debugging, uncomment the following line and set the
@@ -13,6 +19,7 @@ is_darwin=false
 is_arch_like=false
 is_debian_like=false
 is_fedora_like=false
+package_manager=brew
 if [[ "$(uname -s)" == "Darwin" ]]; then
   is_darwin=true
   # Fake the crucial variables from /etc/os-release
@@ -24,18 +31,35 @@ else
 
   if [[ $ID == "arch" || (-n $ID_LIKE && $ID_LIKE == "arch") ]]; then
     is_arch_like=true
+    if command -v yay; then
+      package_manager=yay
+    else
+      package_manager=pacman
+    fi
   fi
 
   if [[ $ID == "debian" || (-n $ID_LIKE && $ID_LIKE == "debian") ]]; then
     is_debian_like=true
+    package_manager=apt
   fi
 
   if [[ $ID == "fedora" || (-n $ID_LIKE && $ID_LIKE == "fedora") ]]; then
     is_fedora_like=true
+    if command -v dnf5; then
+      package_manager=dnf5
+    else
+      package_manager=dnf
+    fi
   fi
 fi
 
+#######################################################################
+# miscellaneous utility functions
+
 function fn_exists() { declare -F "$1" > /dev/null; }
+
+function is_sourced() { [[ "${BASH_SOURCE[1]}" != "" ]] }
+
 
 #######################################################################
 # gum functions
