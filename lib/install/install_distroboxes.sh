@@ -4,10 +4,12 @@
 source "${DOTFILES}/lib/install/install_common.sh"
 
 # make sure we only source this once.
-if [ -n $sourced_install_distroboxes ]; then
-  return;
+if is_sourced; then
+  if [ -n $sourced_install_distroboxes ]; then
+    return;
+  fi
+  sourced_install_distroboxes=true
 fi
-sourced_install_distroboxes=true
 
 function install_distrobox_if_needed() {
 	if command -v distrobox; then

@@ -4,10 +4,12 @@
 source "${DOTFILES}/lib/install/install_common.sh"
 
 # make sure we only source this once.
-if [ -n $sourced_install_fonts ]; then
-  return;
+if is_sourced; then
+  if [ -n $sourced_install_fonts ]; then
+    return;
+  fi
+  sourced_install_fonts=true
 fi
-sourced_install_fonts=true
 
 function install_getnf_if_needed {
 	if command -v getnf; then
@@ -83,3 +85,7 @@ function install_fonts {
 		done
 	}
 }
+
+if ! is_sourced; then
+  install_fonts
+fi

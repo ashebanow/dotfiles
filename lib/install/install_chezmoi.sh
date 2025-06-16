@@ -4,10 +4,12 @@
 source "${DOTFILES}/lib/install/install_common.sh"
 
 # make sure we only source this once.
-if [ -n $sourced_install_chezmoi ]; then
-  return;
+if is_sourced; then
+  if [ -n $sourced_install_chezmoi ]; then
+    return;
+  fi
+  sourced_install_chezmoi=true
 fi
-sourced_install_chezmoi=true
 
 # variables
 repo="git@github.com:ashebanow/dotfiles.git"
@@ -32,3 +34,7 @@ function install_chezmoi_if_needed {
 		fi
 	fi
 }
+
+if ! is_sourced; then
+  install_chezmoi_if_needed
+fi

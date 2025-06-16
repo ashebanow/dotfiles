@@ -9,6 +9,10 @@ fi
 sourced_install_zed=true
 
 function install_zed() {
+  if command -v zed; then
+    return;
+  fi
+
   if [ "$ID" == "darwin" ]; then
 	brew install --cask zed
   else

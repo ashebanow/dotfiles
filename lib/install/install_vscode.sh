@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
+# make sure we only source this once.
+if is_sourced; then
+  if [ -n $sourced_install_vscode ]; then
+    return;
+  fi
+  sourced_install_vscode=true
+fi
+
 # setup common to all install scripts
 source "${DOTFILES}/lib/install/install_common.sh"
-
-# make sure we only source this once.
-if [ -n $sourced_install_vscode ]; then
-  return;
-fi
-sourced_install_vscode=true
 
 find_vscode_binary() {
     # Check code-server* first, to detect headless easily.
@@ -94,6 +96,6 @@ function install_vscode_extensions() {
 	log_info "Installed VSCode Extensions."
 }
 
-if is_sourced; then
+if ! is_sourced; then
   install_vscode_extensions
 fi

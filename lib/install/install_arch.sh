@@ -4,10 +4,12 @@
 source "${DOTFILES}/lib/install/install_common.sh"
 
 # make sure we only source this once.
-if [ -n $sourced_install_arch ]; then
-  return;
+if is_sourced; then
+  if [ -n $sourced_install_arch ]; then
+    return;
+  fi
+  sourced_install_arch=true
 fi
-sourced_install_arch=true
 
 function install_yay_if_needed() {
   sudo pacman -S --needed --noconfirm --noprogressbar git base-devel
@@ -39,7 +41,7 @@ function install_arch_packages() {
   yay -S --needed --noconfirm --noprogressbar -q "${arch_package_list[@]}"
 }
 
-if !is_sourced; then
+if ! is_sourced; then
   update_arch_if_needed
   install_arch_packages
 fi

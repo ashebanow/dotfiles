@@ -6,10 +6,12 @@ systems.
 
 Currntly in the process of rearchitecting:
 
-* Get rid of homebrew on everything but Mac casks.
 * Switch to using plain Nix or even pixi. Pixi works better for
 some of these scenarios, since it doesn't require Home Manager to
 publish applications.
+* Rely on native package manager where possible for basic productivity
+tools. That means we need to filter the Brewfile(s) to omit things that
+are installed by the native package manager.
 
 Also note that the instructions aren't fully up to date. As I add
 more automation steps I'll make it all current and consistent.

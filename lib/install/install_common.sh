@@ -14,44 +14,44 @@ set -euo pipefail
 # set -x
 export GUM_LOG_LEVEL=info
 
+function check_platform_type() {
+  if [[ "$(uname -s)" == "Darwin" ]]; then
+    is_darwin=true
+    # Fake the crucial variables from /etc/os-release
+    ID="darwin"
+    PRODUCT_VERSION="$(sw_vers --productVersion)"
+    BUILD_VERSION="$(sw_vers --buildVersion)"
+  else
+    source /etc/os-release
+
+    if [[ $ID == "arch" || (-n $ID_LIKE && $ID_LIKE == "arch") ]]; then
+      is_arch_like=true
+      package_manager=yay
+    fi
+
+    if [[ $ID == "debian" || (-n $ID_LIKE && $ID_LIKE == "debian") ]]; then
+      is_debian_like=true
+      package_manager=apt
+    fi
+
+    if [[ $ID == "fedora" || (-n $ID_LIKE && $ID_LIKE == "fedora") ]]; then
+      is_fedora_like=true
+      if command -v dnf5; then
+        package_manager=dnf5
+      else
+        package_manager=dnf
+      fi
+    fi
+  fi
+}
+
 # platform identification
 is_darwin=false
 is_arch_like=false
 is_debian_like=false
 is_fedora_like=false
 package_manager=brew
-if [[ "$(uname -s)" == "Darwin" ]]; then
-  is_darwin=true
-  # Fake the crucial variables from /etc/os-release
-  ID="darwin"
-  PRODUCT_VERSION="$(sw_vers --productVersion)"
-  BUILD_VERSION="$(sw_vers --buildVersion)"
-else
-  source /etc/os-release
-
-  if [[ $ID == "arch" || (-n $ID_LIKE && $ID_LIKE == "arch") ]]; then
-    is_arch_like=true
-    if command -v yay; then
-      package_manager=yay
-    else
-      package_manager=pacman
-    fi
-  fi
-
-  if [[ $ID == "debian" || (-n $ID_LIKE && $ID_LIKE == "debian") ]]; then
-    is_debian_like=true
-    package_manager=apt
-  fi
-
-  if [[ $ID == "fedora" || (-n $ID_LIKE && $ID_LIKE == "fedora") ]]; then
-    is_fedora_like=true
-    if command -v dnf5; then
-      package_manager=dnf5
-    else
-      package_manager=dnf
-    fi
-  fi
-fi
+check_platform_type
 
 #######################################################################
 # miscellaneous utility functions
@@ -69,12 +69,14 @@ function is_sourced() { [[ "${BASH_SOURCE[1]}" != "" ]] }
 # $2    command
 # $3    post_title      shown after gum returns
 function show_spinner() {
-	gum spin --spinner meter --title "$1" -- "$2"
-	log_info "$3"
+  gum spin --spinner meter --title "$1" -- "$2"
+  log_info "$3"
 }
 
 #######################################################################
-# logging functions
+# logging functions - not to be used unless gum is installed already.
+# Normally this is done by install-prereqisites.sh, which includes this
+# file.
 
 function log_debug() {
   gum log --structured --level debug "$@"

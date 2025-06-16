@@ -4,10 +4,12 @@
 source "${DOTFILES}/lib/install/install_common.sh"
 
 # make sure we only source this once.
-if [ -n $sourced_install_flatpaks ]; then
-  return;
+if is_sourced; then
+  if [ -n $sourced_install_flatpaks ]; then
+    return;
+  fi
+  sourced_install_flatpaks=true
 fi
-sourced_install_flatpaks=true
 
 function install_flatpak_if_needed {
 	if command -v flatpak; then
@@ -40,3 +42,8 @@ function install_flatpak_apps {
 	readarray -t flatpaks_list <"{{- .chezmoi.config.sourceDir -}}/Flatfile"
 	flatpak install --user -y --noninteractive --or-update "${flatpaks_list[@]}"
 }
+
+if ! is_sourced; then
+  install_flatpak_if_needed
+  install_flatpak_apps
+fi
