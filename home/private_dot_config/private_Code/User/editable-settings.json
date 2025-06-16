@@ -112,34 +112,34 @@
     // Include "-" in word selection.
     "editor.wordSeparators": "`~!@#%^&*()=+[{]}\\|;:'\",.<>/?",
     "emmet.includeLanguages": {
-        "vue-html": "html",
-        "vue": "html",
-        "react": "html",
-        "javascript": "html"
+      "vue-html": "html",
+      "vue": "html",
+      "react": "html",
+      "javascript": "html"
     },
 
     /**
     * Prettier
     **/
     "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true
+      "editor.defaultFormatter": "biomejs.biome",
+      "editor.formatOnSave": true
     },
     "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true
+      "editor.defaultFormatter": "biomejs.biome",
+      "editor.formatOnSave": true
     },
     "[tailwindcss]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
     },
     "[vue]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true
+      "editor.defaultFormatter": "biomejs.biome",
+      "editor.formatOnSave": true
     },
     "[javascriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true
+      "editor.defaultFormatter": "biomejs.biome",
+      "editor.formatOnSave": true
     },
     "prettier.requireConfig": true,
     "prettier.useEditorConfig": false,
@@ -148,24 +148,24 @@
     "vetur.format.options.tabSize": 2,
     "workbench.tree.indent": 15,
     "[html]": {
-        "editor.defaultFormatter": "apility.beautify-blade",
-        "editor.formatOnSave": true
+      "editor.defaultFormatter": "apility.beautify-blade",
+      "editor.formatOnSave": true
     },
     "editor.wordWrapColumn": 120,
     "files.autoSave": "afterDelay",
     "[css]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "editor.formatOnSave": true
     },
 
     "editor.quickSuggestions": {
-        "strings": true
+      "strings": true
     },
     "[jsonc]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "biomejs.biome"
     },
     "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
+      "editor.defaultFormatter": "biomejs.biome"
     },
     "security.workspace.trust.untrustedFiles": "open",
     "editor.linkedEditing": true,
@@ -193,30 +193,30 @@
     "editor.stickyScroll.enabled": false,
 
     "editor.tokenColorCustomizations": {
-        "textMateRules": [
-            {
-                "scope": [
-                "comment",
-                "keyword",
-                "variable.language",
-                "entity.other.attribute-name.html",
-                "entity.other.attribute-name",
-                "keyword.control",
-                "storage.type",
-                "comment",
-                "comment.block",
-                "comment.line"
-                ],
-                "settings": {
-                "fontStyle": ""
-                }
-            }
-            ]
+      "textMateRules": [
+        {
+          "scope": [
+          "comment",
+          "keyword",
+          "variable.language",
+          "entity.other.attribute-name.html",
+          "entity.other.attribute-name",
+          "keyword.control",
+          "storage.type",
+          "comment",
+          "comment.block",
+          "comment.line"
+          ],
+          "settings": {
+          "fontStyle": ""
+          }
+        }
+        ]
     },
     "material-icon-theme.saturation": 0,
     "vscode_custom_css.imports": [
-        "file:///var/home/ashebanow/custom-vscode.css",
-        "file:///var/home/ashebanow/vscode-script.js"
+      "file:///var/home/ashebanow/custom-vscode.css",
+      "file:///var/home/ashebanow/vscode-script.js"
     ],
     "workbench.iconTheme": "eq-material-theme-icons-light",
     "workbench.sideBar.location": "right",
