@@ -69,9 +69,6 @@
 
 {{- $email := "ashebanow@gmail.com" -}}
 
-[hooks.read-source-state.pre]
-    command = "{{- .chezmoi.config.sourceDir -}}/bin/install-prerequisites.sh"
-
 [data]
     ephemeral = {{ $ephemeral }}
     email = {{ $email | quote }}

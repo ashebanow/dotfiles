@@ -46,7 +46,7 @@ function install_nix_conf_update_if_needed {
 }
 
 function install_nix_if_needed() {
-  # TODO: move the installer code here from install-prerequisites.
+  # TODO: move the installer code here from install_prerequisites.
   if $need_nix; then
     echo "Installing Nix..."
     curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --determinate

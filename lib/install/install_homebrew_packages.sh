@@ -5,17 +5,13 @@ source "${DOTFILES}/lib/install/install_common.sh"
 
 # make sure we only source this once.
 if is_sourced; then
-  if [ -n $sourced_install_github ]; then
+  if [ -n $sourced_install_homebrew_packages ]; then
     return;
   fi
-  sourced_install_github=true
+  sourced_install_homebrew_packages=true
 fi
 
 # make sure we only source this once.
-if [ -n $sourced_install_homebrew ]; then
-  return;
-fi
-sourced_install_homebrew=true
 
 function install_homebrew_packages() {
 	brew bundle install --upgrade --file="${DOTFILES}/Brewfile"
