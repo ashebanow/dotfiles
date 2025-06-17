@@ -11,41 +11,39 @@ export GUM_LOG_LEVEL=info
 
 # make sure we only source this once.
 if [[ -n "${BASH_SOURCE[1]}" ]]; then
-  if [ -n "$sourced_install_common" ]; then
-    return;
-  fi
-  sourced_install_common=true
+    if [ -n "$sourced_install_common" ]; then
+        return
+    fi
+    sourced_install_common=true
 fi
 
 function check_platform_type {
-  if [[ "$(uname -s)" == "Darwin" ]]; then
-    is_darwin=true
-    # Fake the crucial variables from /etc/os-release
-    ID="darwin"
-    PRODUCT_VERSION="$(sw_vers --productVersion)"
-    BUILD_VERSION="$(sw_vers --buildVersion)"
-  else
-    source /etc/os-release
+    if [[ "$(uname -s)" == "Darwin" ]]; then
+        is_darwin=true
+        # Fake the crucial variables from /etc/os-release
+        ID="darwin"
+    else
+        source /etc/os-release
 
-    if [[ $ID == "arch" || (-n $ID_LIKE && $ID_LIKE == "arch") ]]; then
-      is_arch_like=true
-      package_manager=yay
-    fi
+        if [[ $ID == "arch" || (-n $ID_LIKE && $ID_LIKE == "arch") ]]; then
+            is_arch_like=true
+            package_manager=yay
+        fi
 
-    if [[ $ID == "debian" || (-n $ID_LIKE && $ID_LIKE == "debian") ]]; then
-      is_debian_like=true
-      package_manager=apt
-    fi
+        if [[ $ID == "debian" || (-n $ID_LIKE && $ID_LIKE == "debian") ]]; then
+            is_debian_like=true
+            package_manager=apt
+        fi
 
-    if [[ $ID == "fedora" || (-n $ID_LIKE && $ID_LIKE == "fedora") ]]; then
-      is_fedora_like=true
-      if command -v dnf5; then
-        package_manager=dnf5
-      else
-        package_manager=dnf
-      fi
+        if [[ $ID == "fedora" || (-n $ID_LIKE && $ID_LIKE == "fedora") ]]; then
+            is_fedora_like=true
+            if command -v dnf5; then
+                package_manager=dnf5
+            else
+                package_manager=dnf
+            fi
+        fi
     fi
-  fi
 }
 
 # platform identification variables
@@ -59,9 +57,9 @@ check_platform_type
 #######################################################################
 # miscellaneous utility functions
 
-function fn_exists { declare -F "$1" > /dev/null; }
+function fn_exists { declare -F "$1" >/dev/null; }
 
-function is_sourced { [[ "${BASH_SOURCE[1]}" != "" ]] }
+function is_sourced { [[ "${BASH_SOURCE[1]}" != "" ]]; }
 
 export -f fn_exists
 export -f is_sourced
@@ -74,8 +72,8 @@ export -f is_sourced
 # $2    command
 # $3    post_title      shown after gum returns
 function show_spinner {
-  gum spin --spinner meter --title "$1" -- "$2"
-  log_info "$3"
+    gum spin --spinner meter --title "$1" -- "$2"
+    log_info "$3"
 }
 
 #######################################################################
@@ -84,17 +82,17 @@ function show_spinner {
 # file.
 
 function log_debug {
-  gum log --structured --level debug "$@"
+    gum log --structured --level debug "$@"
 }
 
 function log_info {
-  gum log --structured --level info "$@"
+    gum log --structured --level info "$@"
 }
 
 function log_warning {
-  gum log --structured --level warning "$@"
+    gum log --structured --level warning "$@"
 }
 
 function log_error {
-  gum log --structured --level error "$@"
+    gum log --structured --level error "$@"
 }
