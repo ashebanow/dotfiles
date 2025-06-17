@@ -47,11 +47,11 @@ function check_platform_type {
 }
 
 # platform identification variables
-declare -g is_darwin=false
-declare -g is_arch_like=false
-declare -g is_debian_like=false
-declare -g is_fedora_like=false
-declare -g package_manager=brew
+declare -x is_darwin=false
+declare -x is_arch_like=false
+declare -x is_debian_like=false
+declare -x is_fedora_like=false
+declare -x package_manager=brew
 check_platform_type
 
 #######################################################################
