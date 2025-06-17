@@ -25,6 +25,7 @@ source "${DOTFILES}/lib/install/install_zed.sh"
 # homebrew knows we already have commands installed.
 # TODO: do the same for debian-like systems, and for
 # mutable fedora distributions.
+# TODO: use show_spinner function
 if is_arch_like; then
   update_arch_if_needed
   install_arch_packages
