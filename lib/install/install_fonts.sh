@@ -4,6 +4,7 @@
 source "${DOTFILES}/lib/install/install_common.sh"
 
 # make sure we only source this once.
+# if [[ -n "${BASH_SOURCE[1]}" ]]; then
 if is_sourced; then
   if [ -n $sourced_install_fonts ]; then
     return;
@@ -86,6 +87,6 @@ function install_fonts {
 	}
 }
 
-if ! is_sourced; then
+if [ ! is_sourced ]; then
   install_fonts
 fi
