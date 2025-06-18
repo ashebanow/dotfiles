@@ -8,8 +8,8 @@ fish_add_path -m "$HOME/.npm-global/bin"
 fish_add_path -m "$HOME/bin"
 fish_add_path -m "$HOME/.local/bin"
 
-# TODO: install plugins on first use using 'fisher update'
-if command -v fisher >& /dev/null
+# install or update fish plugins use using 'fisher update'
+if command -v fisher 2>/dev/null
     fisher update
 end
 

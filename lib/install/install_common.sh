@@ -4,13 +4,13 @@
 # for debugging, uncomment the following line and set the
 # GUM_DEBUG_LEVEL to "debug".
 # set -x
-export GUM_LOG_LEVEL=info
-# export GUM_LOG_LEVEL=debug
+# export GUM_LOG_LEVEL=info
+export GUM_LOG_LEVEL=debug
 
 # set -euo pipefail
 
 # make sure we only source this once.
-if [[ -n "${BASH_SOURCE[1]}" ]]; then
+if [ ! "${BASH_SOURCE[0]}" -ef "$0" ]; then
     if [ -n "$sourced_install_common" ]; then
         return
     fi
@@ -58,11 +58,6 @@ check_platform_type
 # miscellaneous utility functions
 
 function fn_exists { declare -F "$1" >/dev/null; }
-
-function is_sourced { [[ "${BASH_SOURCE[1]}" != "" ]]; }
-
-export -f fn_exists
-export -f is_sourced
 
 #######################################################################
 # gum functions
