@@ -4,11 +4,12 @@
 source "${DOTFILES}/lib/install/install_common.sh"
 
 # make sure we only source this once.
-if is_sourced; then
-  if [ -n $sourced_install_nix ]; then
-    return;
-  fi
-  sourced_install_nix=true
+if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
+    if [ -n "$sourced_install_nix" ] && [ "$sourced_install_nix" = "true" ]; then
+        log_debug "$0 has already been sourced, returning early"
+        return
+    fi
+    sourced_install_nix=true
 fi
 
 need_nix=false
@@ -56,6 +57,6 @@ function install_nix_if_needed() {
   install_nix_conf_update_if_needed
 }
 
-if ! is_sourced; then
-  install_nix_if_needed
+if [ -z "$sourced_install_nix" ]; then
+    install_nix_if_needed
 fi

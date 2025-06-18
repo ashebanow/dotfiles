@@ -4,11 +4,12 @@
 source "${DOTFILES}/lib/install/install_common.sh"
 
 # make sure we only source this once.
-if is_sourced; then
-  if [ -n $sourced_install_arch ]; then
-    return;
-  fi
-  sourced_install_arch=true
+if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
+    if [ -n "$sourced_install_arch" ] && [ "$sourced_install_arch" = "true" ]; then
+        log_debug "$0 has already been sourced, returning early"
+        return
+    fi
+    sourced_install_arch=true
 fi
 
 function install_yay_if_needed() {
@@ -41,7 +42,7 @@ function install_arch_packages() {
   yay -S --needed --noconfirm --noprogressbar -q "${arch_package_list[@]}"
 }
 
-if ! is_sourced; then
-  update_arch_if_needed
-  install_arch_packages
+if [ -z "$sourced_install_arch" ]; then
+    update_arch_if_needed
+    install_arch_packages
 fi

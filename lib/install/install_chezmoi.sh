@@ -4,11 +4,12 @@
 source "${DOTFILES}/lib/install/install_common.sh"
 
 # make sure we only source this once.
-if is_sourced; then
-  if [ -n $sourced_install_chezmoi ]; then
-    return;
-  fi
-  sourced_install_chezmoi=true
+if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
+    if [ -n "$sourced_install_chezmoi" ] && [ "$sourced_install_chezmoi" = "true" ]; then
+        log_debug "$0 has already been sourced, returning early"
+        return
+    fi
+    sourced_install_chezmoi=true
 fi
 
 # variables
@@ -35,6 +36,6 @@ function install_chezmoi_if_needed {
 	fi
 }
 
-if ! is_sourced; then
-  install_chezmoi_if_needed
+if [ -z "$sourced_install_chezmoi" ]; then
+    install_chezmoi_if_needed
 fi

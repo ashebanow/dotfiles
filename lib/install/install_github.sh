@@ -4,11 +4,12 @@
 source "${DOTFILES}/lib/install/install_common.sh"
 
 # make sure we only source this once.
-if is_sourced; then
-  if [ -n $sourced_install_github ]; then
-    return;
-  fi
-  sourced_install_github=true
+if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
+    if [ -n "$sourced_install_github" ] && [ "$sourced_install_github" = "true" ]; then
+        log_debug "$0 has already been sourced, returning early"
+        return
+    fi
+    sourced_install_github=true
 fi
 
 function install_github_cli() {
@@ -25,6 +26,6 @@ function install_github_cli() {
   # fi
 }
 
-if ! is_sourced; then
-  install_github_cli
+if [ -z "$sourced_install_github" ]; then
+    install_github_cli
 fi

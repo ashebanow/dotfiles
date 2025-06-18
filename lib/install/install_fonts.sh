@@ -7,7 +7,7 @@ source "${DOTFILES}/lib/install/install_common.sh"
 if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
     if [ -n "$sourced_install_fonts" ] && [ "$sourced_install_fonts" = "true" ]; then
         log_debug "$0 has already been sourced, returning early"
-        exit 0
+        return
     fi
     sourced_install_fonts=true
 fi

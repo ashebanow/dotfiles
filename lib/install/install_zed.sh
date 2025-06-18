@@ -3,10 +3,14 @@
 # setup common to all install scripts
 source "${DOTFILES}/lib/install/install_common.sh"
 
-if [ is_sourced && -n $sourced_install_zed ]; then
-  return;
+# make sure we only source this once.
+if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
+    if [ -n "$sourced_install_zed" ] && [ "$sourced_install_zed" = "true" ]; then
+        log_debug "$0 has already been sourced, returning early"
+        return
+    fi
+    sourced_install_zed=true
 fi
-sourced_install_zed=true
 
 function install_zed() {
   if command -v zed; then
@@ -21,6 +25,6 @@ function install_zed() {
   fi
 }
 
-if ! is_sourced; then
-  install_zed
+if [ -z "$sourced_install_zed" ]; then
+    install_zed
 fi

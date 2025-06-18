@@ -6,11 +6,12 @@
 source "${DOTFILES}/lib/install/install_common.sh"
 
 # make sure we only source this once.
-if is_sourced; then
-  if [ -n $sourced_install_prerequisites ]; then
-    return;
-  fi
-  sourced_install_prerequisites=true
+if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
+    if [ -n "$sourced_install_prerequisites" ] && [ "$sourced_install_prerequisites" = "true" ]; then
+        log_debug "$0 has already been sourced, returning early"
+        return
+    fi
+    sourced_install_prerequisites=true
 fi
 
 #--------------------------------------------------------------------
@@ -127,6 +128,6 @@ function install_prerequisites() {
   install_bitwarden_if_needed
 }
 
-if ! is_sourced; then
-  install_prerequisites
+if [ -z "$sourced_install_prerequisites" ]; then
+    install_prerequisites
 fi

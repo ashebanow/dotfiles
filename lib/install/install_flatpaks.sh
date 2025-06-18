@@ -4,11 +4,12 @@
 source "${DOTFILES}/lib/install/install_common.sh"
 
 # make sure we only source this once.
-if is_sourced; then
-  if [ -n $sourced_install_flatpaks ]; then
-    return;
-  fi
-  sourced_install_flatpaks=true
+if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
+    if [ -n "$sourced_install_flatpaks" ] && [ "$sourced_install_flatpaks" = "true" ]; then
+        log_debug "$0 has already been sourced, returning early"
+        return
+    fi
+    sourced_install_flatpaks=true
 fi
 
 function install_flatpak_if_needed {
@@ -43,7 +44,7 @@ function install_flatpak_apps {
 	flatpak install --user -y --noninteractive --or-update "${flatpaks_list[@]}"
 }
 
-if ! is_sourced; then
-  install_flatpak_if_needed
-  install_flatpak_apps
+if [ -z "$sourced_install_flatpaks" ]; then
+    install_flatpak_if_needed
+    install_flatpak_apps
 fi
