@@ -1,8 +1,5 @@
 function bw_open
-    # Return if we have BW_SESSION defined AND this isn't the login shell.
-    # Unfortunately on Mac everything is a login shell, so the optimization
-    # doesn't work there.
-   if test -n "$BW_SESSION"
+   if bw unlock --check &> /dev/null
         echo "Bitwarden is unlocked and ready to go!"
         return 0
     end

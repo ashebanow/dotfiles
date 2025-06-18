@@ -2,11 +2,16 @@ set -gx EDITOR      "nvim"
 set -gx DOTFILES    "$HOME/.local/share/chezmoi"
 set -gx BUN_INSTALL "$HOME/.bun"
 
-fish_add_path -m -p -g "$HOME/.local/bin"
-fish_add_path -g "$HOME/.cargo/bin"
-fish_add_path -g "$BUN_INSTALL/bin"
+fish_add_path -m "$HOME/.cargo/bin"
+fish_add_path -m "$BUN_INSTALL/bin"
+fish_add_path -m "$HOME/.npm-global/bin"
+fish_add_path -m "$HOME/bin"
+fish_add_path -m "$HOME/.local/bin"
 
 # TODO: install plugins on first use using 'fisher update'
+if command -v fisher >& /dev/null
+    fisher update
+end
 
 # Load aliases
 for file in (find $HOME/.config/fish/aliases -name '*.fish')
