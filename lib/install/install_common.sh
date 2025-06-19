@@ -3,7 +3,7 @@
 
 # for debugging, uncomment the following line and set the
 # GUM_DEBUG_LEVEL to "debug".
-# set -x
+set -x
 # export GUM_LOG_LEVEL=info
 export GUM_LOG_LEVEL=debug
 
