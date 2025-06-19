@@ -39,10 +39,9 @@ link-url                        = true
 macos-titlebar-proxy-icon       = hidden
 macos-titlebar-style            = tabs
 mouse-hide-while-typing         = true
-# window-theme                    = ghostty
+# window-theme                  = ghostty
 window-vsync                    = true
-
-background-blur-radius = 2200
+background-blur-radius          = 20
 shell-integration              = fish
 shell-integration-features     = no-cursor,sudo,title
 
