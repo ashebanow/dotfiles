@@ -3,7 +3,7 @@
 # setup common to all install scripts, but note that gum-dependent
 # functions in this file won't work until gum gets installed, and
 # thus should be avoided here.
-source "install_common.sh"
+source "${DOTFILES}/lib/install/install_common.sh"
 
 # make sure we only source this once.
 if is_sourced; then
