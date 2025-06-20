@@ -24,7 +24,6 @@ function install_github_cli_if_needed {
     declare -A gh_packages=(
         ["arch"]="github-cli"
     )
-    
     if ! pkg_installed "gh" gh_packages; then
         log_info "Installing GitHub CLI..."
         brew install gh
