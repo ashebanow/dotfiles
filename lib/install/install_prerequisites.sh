@@ -20,6 +20,7 @@ fi
 
 need_brew=false
 need_flatpak=false
+need_node=false
 need_gum=false
 need_bitwarden=false
 
@@ -39,6 +40,10 @@ function checkNeededPrerequisites() {
     if ! command -v bw >/dev/null 2>&1; then
         need_bitwarden=true
     fi
+
+    if ! command -v node >/dev/null 2>&1 || ! command -v npm >/dev/null 2>&1; then
+        need_node=true
+    fi
 }
 
 #--------------------------------------------------------------------
@@ -51,6 +56,111 @@ function install_homebrew_if_needed {
     fi
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+}
+
+#--------------------------------------------------------------------
+# INSTALL NODE & NPM
+#--------------------------------------------------------------------
+
+function setup_npm_paths {
+    local npm_bin_dir="\$HOME/.npm-global/bin"
+
+    # Update .bashrc if it exists and doesn't already contain the path
+    if [[ -f ~/.bashrc ]] && ! grep -q ".npm-global/bin" ~/.bashrc; then
+        echo "$npm_bin_dir:\$PATH" >>~/.bashrc
+    fi
+
+    # Update .zshrc if it exists and doesn't already contain the path
+    if [[ -f ~/.zshrc ]] && ! grep -q ".npm-global/bin" ~/.zshrc; then
+        echo "$npm_bin_dir:\$PATH" >>~/.zshrc
+    fi
+
+    # Update fish config if it exists and doesn't already contain the path
+    if [[ -f "/.config/fish/config.fish" ]] && ! grep -q ".npm-global/bin" ~/.config/fish/config.fish; then
+        echo "fish_add_path $npm_bin_dir" >>~/.config/fish/config.fish
+    fi
+
+    # Update current session PATH. its ok if this gets toasted later,
+    # since the shell init script(s) will add it more permanently.
+    export PATH="$npm_bin_dir:$PATH"
+}
+
+function setup_npm_global_directory {
+    # Create ~/.npm-global directory
+    mkdir -p ~/.npm-global
+
+    # Configure npm to use the new directory
+    npm config set prefix ~/.npm-global
+}
+
+function migrate_existing_npm_packages {
+    # Save existing global packages before migration
+    if command -v npm >/dev/null 2>&1; then
+        echo "Saving existing global npm packages list..."
+        npm list -g --depth=0 >~/npm-global-packages-backup.txt 2>/dev/null || true
+
+        # Extract package names (excluding npm itself and path info)
+        if [[ -f ~/npm-global-packages-backup.txt ]]; then
+            grep -E '^[├└]─' ~/npm-global-packages-backup.txt |
+                sed 's/[├└─ ]//g' |
+                sed 's/@[0-9].*//' |
+                grep -v '^npm$' >~/npm-packages-to-reinstall.txt 2>/dev/null || true
+
+            # Reinstall packages in new location if any exist
+            if [[ -f ~/npm-packages-to-reinstall.txt ]] && [[ -s ~/npm-packages-to-reinstall.txt ]]; then
+                echo "Reinstalling global packages in ~/.npm-global..."
+                while read -r package; do
+                    [[ -n "$package" ]] && npm install -g "$package" 2>/dev/null || true
+                done <~/npm-packages-to-reinstall.txt
+            fi
+        fi
+    fi
+}
+
+function install_node_if_needed {
+    if ! $need_node; then
+        # Check if npm is using ~/.npm-global prefix
+        local current_prefix
+        current_prefix=$(npm config get prefix 2>/dev/null || echo "")
+        if [[ "$current_prefix" != "$HOME/.npm-global" ]]; then
+            echo "Node/npm found but not using ~/.npm-global prefix. Setting up..."
+            setup_npm_global_directory
+            setup_npm_paths
+            migrate_existing_npm_packages
+        fi
+        return
+    fi
+
+    echo "Installing Node.js and npm..."
+
+    # Set up the npm global directory structure BEFORE installing Node/npm
+    # This way npm will use the correct prefix from the start
+    mkdir -p ~/.npm-global
+
+    if $is_darwin; then
+        install_homebrew_if_needed
+        brew install node
+    else
+        if [[ $ID == *"arch"* || $ID_LIKE == *"arch"* ]]; then
+            sudo pacman -S --needed --noconfirm nodejs npm
+        elif [[ $ID == *"ubuntu"* || $ID == *"debian"* || $ID_LIKE == *"debian"* ]]; then
+            # Install Node.js 20.x LTS (or whatever the current lts is)
+            curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+            sudo apt-get install -y nodejs
+        elif [[ $ID == *"fedora"* || $ID_LIKE == *"fedora"* ]]; then
+            if command -v dnf5; then
+                sudo dnf5 install nodejs npm
+            else
+                sudo dnf install nodejs npm
+            fi
+        else
+            echo "Unsupported OS for Node.js installation."
+            exit 1
+        fi
+    fi
+
+    # Configure npm to use ~/.npm-global immediately after installation
+    npm config set prefix ~/.npm-global
 }
 
 #--------------------------------------------------------------------
@@ -93,31 +203,6 @@ function install_flatpak_if_needed {
 # INSTALL BITWARDEN CLI
 #--------------------------------------------------------------------
 
-# Bitwarden CLI installation functions
-function homebrew_install_bitwarden_cli {
-    install_homebrew_if_needed
-    brew update
-    brew install --upgrade bitwarden-cli
-}
-
-function linux_native_install_bitwarden_cli {
-    # Create ~/.local/bin if it doesn't exist
-    mkdir -p ~/.local/bin
-
-    # Download the latest Bitwarden CLI binary for Linux x64
-    local url="https://vault.bitwarden.com/download/?app=cli&platform=linux"
-    curl -L "$url" -o ~/.local/bin/bw
-
-    # Make it executable
-    chmod +x ~/.local/bin/bw
-
-    # Make sure our destination bin directory is in the path
-    fullpath="$(realpath ~/.local/bin)"
-    if ! [[ "$PATH" =~ "$fullpath" ]]; then
-        PATH="$fullpath:$PATH"
-    fi
-}
-
 function arch_install_bitwarden_cli {
     # Make sure yay is installed
     if ! command -v yay >/dev/null 2>&1; then
@@ -135,17 +220,16 @@ function arch_install_bitwarden_cli {
 }
 
 function install_bitwarden_cli_if_needed {
-    if $is_darwin; then
-        homebrew_install_bitwarden_cli
+    if command -v bw >&/dev/null; then
+        return
+    fi
+
+    if [[ $ID == *"arch"* || $ID_LIKE == *"arch"* ]]; then
+        arch_install_bitwarden_cli
     else
-        if [[ $ID == *"arch"* || $ID_LIKE == *"arch"* ]]; then
-            arch_install_bitwarden_cli
-        elif [[ $ID == *"ubuntu"* || $ID_LIKE == *"ubuntu"* || $ID == *"fedora"* || $ID_LIKE == *"fedora"* ]]; then
-            linux_native_install_bitwarden_cli
-        else
-            echo "Unsupported OS for Bitwarden CLI installation."
-            exit 1
-        fi
+        install_homebrew_if_needed
+        brew update
+        brew install bitwarden-cli
     fi
 }
 
@@ -156,7 +240,7 @@ function install_bitwarden_cli_if_needed {
 # Bitwarden Desktop installation functions
 function darwin_install_bitwarden_desktop {
     brew update
-    brew install --upgrade --cask bitwarden
+    brew install --cask bitwarden
 }
 
 function arch_install_bitwarden_desktop {
@@ -216,7 +300,7 @@ function install_gum_if_needed() {
     if ! $need_gum; then
         return
     fi
-    brew install --upgrade gum
+    brew install gum
 }
 
 #--------------------------------------------------------------------
@@ -227,6 +311,7 @@ function install_prerequisites() {
     checkNeededPrerequisites
     install_homebrew_if_needed
     install_flatpak_if_needed
+    install_node_if_needed
     install_gum_if_needed
     install_bitwarden_if_needed
 }

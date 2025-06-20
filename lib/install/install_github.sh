@@ -22,7 +22,7 @@ function install_git_if_needed {
 function install_github_cli_if_needed {
     if ! command -v gh >&/dev/null; then
         log_info "Installing GitHub CLI..."
-        brew install github-cli
+        brew install gh
     fi
 }
 
@@ -32,29 +32,29 @@ function login_github_cli_if_needed {
         log_debug "GitHub CLI is already authenticated"
         return 0
     fi
-    
+
     log_info "GitHub CLI not authenticated, logging in..."
-    
+
     # Check if bitwarden CLI is available
     if ! command -v bw >/dev/null 2>&1; then
         log_info "Bitwarden CLI not found, installing prerequisites..."
         source "${DOTFILES}/lib/install/install_prerequisites.sh"
         install_prerequisites
     fi
-    
+
     # Get GitHub token from Bitwarden
     local github_token
     github_token=$(bw get item "GitHub CLI Personal Access Token" --field token 2>/dev/null)
-    
+
     if [ -z "$github_token" ]; then
         log_error "Failed to retrieve GitHub token from Bitwarden"
         log_error "Please ensure 'GitHub CLI Personal Access Token' exists in Bitwarden with 'token' field"
         return 1
     fi
-    
+
     # Login using the token
     echo "$github_token" | gh auth login --with-token
-    
+
     if [ $? -eq 0 ]; then
         log_info "Successfully authenticated with GitHub CLI"
     else
