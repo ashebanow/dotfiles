@@ -1,14 +1,6 @@
 # NOTE: this file is only meant to be sourced by other scripts.
 # It is not meant to be executed directly.
 
-# for debugging, uncomment the following line and set the
-# GUM_DEBUG_LEVEL to "debug".
-set -x
-# export GUM_LOG_LEVEL=info
-export GUM_LOG_LEVEL=debug
-
-# set -euo pipefail
-
 # make sure we only source this once.
 if [ ! "${BASH_SOURCE[0]}" -ef "$0" ]; then
     if [ -n "$sourced_logging" ]; then
