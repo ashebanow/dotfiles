@@ -13,7 +13,7 @@ if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
 fi
 
 function install_getnf_if_needed {
-    if command -v getnf >&/dev/null; then
+    if pkg_installed "getnf"; then
         log_debug "getnf already installed"
         return
     fi

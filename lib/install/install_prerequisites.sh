@@ -26,33 +26,46 @@ need_bitwarden=false
 need_keyring_tools=false
 
 function checkNeededPrerequisites() {
-    if ! command -v brew >/dev/null 2>&1; then
+    if ! pkg_installed "brew"; then
         need_brew=true
     fi
 
-    if ! command -v flatpak >/dev/null 2>&1; then
+    if ! pkg_installed "flatpak"; then
         need_flatpak=true
     fi
 
-    if ! command -v gum >/dev/null 2>&1; then
+    if ! pkg_installed "gum"; then
         need_gum=true
     fi
 
-    if ! command -v bw >/dev/null 2>&1; then
+    # Bitwarden CLI has different package names on different platforms
+    declare -A bw_packages=(
+        ["darwin"]="bitwarden-cli"
+        ["arch"]="bitwarden-cli"
+        ["fedora"]="bitwarden-cli"
+    )
+    if ! pkg_installed "bw" bw_packages; then
         need_bitwarden=true
     fi
 
-    if ! command -v node >/dev/null 2>&1 || ! command -v npm >/dev/null 2>&1; then
+    if ! pkg_installed "node" || ! pkg_installed "npm"; then
         need_node=true
     fi
 
     # Check for keyring tools (Linux only)
     if ! $is_darwin; then
-        if ! command -v secret-tool >/dev/null 2>&1; then
+        # secret-tool package mapping
+        declare -A secret_tool_packages=(
+            ["arch"]="libsecret"
+            ["debian"]="libsecret-tools"
+            ["fedora"]="libsecret"
+        )
+        if ! pkg_installed "secret-tool" secret_tool_packages; then
             need_keyring_tools=true
         fi
+        
         # zenity is optional for GUI environments
-        if [[ -n "${DISPLAY:-}" ]] && ! command -v zenity >/dev/null 2>&1; then
+        if [[ -n "${DISPLAY:-}" ]] && ! pkg_installed "zenity"; then
             need_keyring_tools=true
         fi
     fi
@@ -232,7 +245,12 @@ function arch_install_bitwarden_cli {
 }
 
 function install_bitwarden_cli_if_needed {
-    if command -v bw >&/dev/null; then
+    declare -A bw_packages=(
+        ["darwin"]="bitwarden-cli"
+        ["arch"]="bitwarden-cli"
+        ["fedora"]="bitwarden-cli"
+    )
+    if pkg_installed "bw" bw_packages; then
         return
     fi
 

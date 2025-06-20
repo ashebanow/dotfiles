@@ -13,14 +13,19 @@ if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
 fi
 
 function install_git_if_needed {
-    if ! command -v git >&/dev/null; then
+    if ! pkg_installed "git"; then
         log_info "Installing git..."
         brew install git
     fi
 }
 
 function install_github_cli_if_needed {
-    if ! command -v gh >&/dev/null; then
+    # GitHub CLI has different package names on different platforms
+    declare -A gh_packages=(
+        ["arch"]="github-cli"
+    )
+    
+    if ! pkg_installed "gh" gh_packages; then
         log_info "Installing GitHub CLI..."
         brew install gh
     fi
@@ -36,7 +41,12 @@ function login_github_cli_if_needed {
     log_info "GitHub CLI not authenticated, logging in..."
 
     # Check if bitwarden CLI is available
-    if ! command -v bw >/dev/null 2>&1; then
+    declare -A bw_packages=(
+        ["darwin"]="bitwarden-cli"
+        ["arch"]="bitwarden-cli"
+        ["fedora"]="bitwarden-cli"
+    )
+    if ! pkg_installed "bw" bw_packages; then
         log_info "Bitwarden CLI not found, installing prerequisites..."
         source "${DOTFILES}/lib/install/install_prerequisites.sh"
         install_prerequisites

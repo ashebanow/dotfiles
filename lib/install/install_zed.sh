@@ -13,7 +13,7 @@ if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
 fi
 
 function install_zed() {
-  if command -v zed; then
+  if pkg_installed "zed"; then
     return;
   fi
 

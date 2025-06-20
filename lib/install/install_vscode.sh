@@ -99,7 +99,11 @@ function install_vscode_extensions() {
 }
 
 function install_vscode_if_needed() {
-	if command -v code &> /dev/null; then
+	# VSCode has different package names on different platforms
+	declare -A code_packages=(
+		["arch"]="visual-studio-code-bin"
+	)
+	if pkg_installed "code" code_packages; then
 	    return
 	fi
 

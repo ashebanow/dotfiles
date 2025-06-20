@@ -17,12 +17,12 @@ repo="git@github.com:ashebanow/dotfiles.git"
 bin_dir="$HOME/.local/bin"
 
 function install_chezmoi_if_needed {
-	if [ command -v brew ]; then
+	if pkg_installed "chezmoi"; then
 		return
 	fi
 
 	# TODO: this should prefer package managers if possible
-	if [ ! "$(command -v chezmoi)" ]; then
+	log_info "Installing chezmoi..."
 		if [ "$(command -v curl)" ]; then
 			sh -c "$(curl -fsSL https://git.io/chezmoi)" -- -b "$bin_dir"
 		elif [ "$(command -v wget)" ]; then

@@ -27,3 +27,4 @@ export GUM_LOG_LEVEL=debug
 COMMON_DIR="${DOTFILES}/lib/common"
 source "${COMMON_DIR}/system_environment.sh"
 source "${COMMON_DIR}/logging.sh"
+source "${COMMON_DIR}/packages.sh"

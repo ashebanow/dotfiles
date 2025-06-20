@@ -13,7 +13,7 @@ if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
 fi
 
 function install_distrobox_if_needed() {
-	if command -v distrobox; then
+	if pkg_installed "distrobox"; then
 		return 0
 	fi
 
