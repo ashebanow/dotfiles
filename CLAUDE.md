@@ -70,7 +70,7 @@ When modifying packages, update the appropriate file for the target platform.
 - `install_common.sh` - Platform detection, logging, common functions
 - `install_prerequisites.sh` - Basic system preparation
 - Platform installers: `install_arch.sh`, `install_nix.sh`, `install_homebrew_packages.sh`
-- Component installers: `install_fonts.sh`, `install_flatpaks.sh`, `install_vscode.sh`
+- Component installers: `install_fonts.sh`, `install_flatpak_apps.sh`, `install_vscode.sh`
 
 ### Installation Flow
 1. Platform detection via `install_common.sh`

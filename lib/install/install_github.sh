@@ -65,7 +65,7 @@ function login_github_cli_if_needed {
 
 function install_github_cli_copilot_extensions {
     log_info "Installing GitHub CLI Copilot extensions..."
-    if $(gh extension list | grep -q gh-copilot); then
+    if gh extension list | grep -q gh-copilot; then
         gh extension upgrade github/gh-copilot
     else
         gh extension install github/gh-copilot
