@@ -1,0 +1,268 @@
+#!/usr/bin/env bash
+
+# Bitwarden Session Manager
+# Manages persistent bitwarden sessions using system keyring + GUI prompts
+# Works cross-platform with gnome-keyring (Linux/WSL) and keychain (macOS)
+
+set -euo pipefail
+
+# Try to source our install functions if available
+DOTFILES="${DOTFILES:-$HOME/.local/share/chezmoi}"
+if [[ -f "$DOTFILES/lib/install/install_prerequisites.sh" ]]; then
+    source "$DOTFILES/lib/install/install_prerequisites.sh" 2>/dev/null || true
+fi
+
+KEYRING_SERVICE="bitwarden-dotfiles"
+KEYRING_ACCOUNT="master-password"
+SESSION_FILE="$HOME/.cache/bw-session"
+BW_EMAIL="${BITWARDEN_EMAIL:-}"
+
+# Platform detection
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    PLATFORM="darwin"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    PLATFORM="linux"
+else
+    echo "Error: Unsupported platform $OSTYPE" >&2
+    exit 1
+fi
+
+# Logging
+log() {
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] bw-session-manager: $*" >&2
+}
+
+# Install missing dependencies using our install functions
+ensure_dependencies() {
+    local missing_deps=()
+    
+    if [[ "$PLATFORM" == "linux" ]]; then
+        if ! command -v secret-tool >/dev/null 2>&1; then
+            missing_deps+=("libsecret-tools")
+        fi
+        if ! command -v zenity >/dev/null 2>&1 && [[ -n "${DISPLAY:-}" ]]; then
+            missing_deps+=("zenity")
+        fi
+    fi
+    
+    if [[ ${#missing_deps[@]} -gt 0 ]]; then
+        log "Installing missing dependencies: ${missing_deps[*]}"
+        if command -v install_keyring_tools_if_needed >/dev/null 2>&1; then
+            install_keyring_tools_if_needed
+        else
+            # Fallback direct installation
+            if [[ "$PLATFORM" == "linux" ]]; then
+                if is_arch_like 2>/dev/null; then
+                    sudo pacman -S --needed --noconfirm libsecret zenity
+                elif is_debian_like 2>/dev/null; then
+                    sudo apt-get install -y libsecret-tools zenity
+                elif is_fedora_like 2>/dev/null; then
+                    if command -v dnf5 >/dev/null 2>&1; then
+                        sudo dnf5 install libsecret zenity
+                    else
+                        sudo dnf install libsecret zenity
+                    fi
+                fi
+            fi
+        fi
+    fi
+}
+
+# GUI password prompt
+prompt_password() {
+    local title="$1"
+    local prompt="$2"
+    
+    if [[ "$PLATFORM" == "darwin" ]]; then
+        osascript -e "display dialog \"$prompt\" default answer \"\" with title \"$title\" with hidden answer" -e "text returned of result" 2>/dev/null || true
+    else
+        # Linux - try zenity, fallback to terminal
+        if command -v zenity >/dev/null 2>&1 && [[ -n "${DISPLAY:-}" ]]; then
+            zenity --password --title="$title" --text="$prompt" 2>/dev/null || true
+        else
+            # Terminal fallback
+            read -rsp "$prompt: " password
+            echo "$password"
+        fi
+    fi
+}
+
+# Keyring operations
+store_password() {
+    local password="$1"
+    
+    if [[ "$PLATFORM" == "darwin" ]]; then
+        security add-generic-password -a "$KEYRING_ACCOUNT" -s "$KEYRING_SERVICE" -w "$password" -U 2>/dev/null || {
+            log "Failed to store password in keychain"
+            return 1
+        }
+    else
+        # Linux - ensure secret-tool is available
+        if ! command -v secret-tool >/dev/null 2>&1; then
+            ensure_dependencies
+        fi
+        
+        if command -v secret-tool >/dev/null 2>&1; then
+            echo "$password" | secret-tool store --label="Bitwarden Master Password" service "$KEYRING_SERVICE" account "$KEYRING_ACCOUNT" 2>/dev/null || {
+                log "Failed to store password in keyring"
+                return 1
+            }
+        else
+            log "secret-tool not available after installation attempt"
+            return 1
+        fi
+    fi
+}
+
+get_stored_password() {
+    if [[ "$PLATFORM" == "darwin" ]]; then
+        security find-generic-password -a "$KEYRING_ACCOUNT" -s "$KEYRING_SERVICE" -w 2>/dev/null || true
+    else
+        if command -v secret-tool >/dev/null 2>&1; then
+            secret-tool lookup service "$KEYRING_SERVICE" account "$KEYRING_ACCOUNT" 2>/dev/null || true
+        fi
+    fi
+}
+
+# Session management
+get_current_session() {
+    if [[ -f "$SESSION_FILE" ]]; then
+        cat "$SESSION_FILE"
+    fi
+}
+
+save_session() {
+    local session="$1"
+    mkdir -p "$(dirname "$SESSION_FILE")"
+    echo "$session" > "$SESSION_FILE"
+    chmod 600 "$SESSION_FILE"
+}
+
+clear_session() {
+    rm -f "$SESSION_FILE"
+}
+
+is_session_valid() {
+    local session="${1:-}"
+    if [[ -z "$session" ]]; then
+        return 1
+    fi
+    
+    BW_SESSION="$session" bw status >/dev/null 2>&1
+}
+
+# Main session management logic
+ensure_bitwarden_session() {
+    # Check if current session is valid
+    local current_session
+    current_session=$(get_current_session)
+    
+    if is_session_valid "$current_session"; then
+        echo "$current_session"
+        return 0
+    fi
+    
+    # Clear invalid session
+    clear_session
+    
+    # Ensure dependencies are available
+    ensure_dependencies
+    
+    # Check if we need to login first
+    if ! bw login --check &>/dev/null; then
+        if [[ -z "$BW_EMAIL" ]]; then
+            log "Error: BITWARDEN_EMAIL not set and not logged in"
+            exit 1
+        fi
+        
+        log "Not logged in to Bitwarden, attempting login"
+        local password
+        password=$(get_stored_password)
+        
+        if [[ -z "$password" ]]; then
+            password=$(prompt_password "Bitwarden Login" "Enter your Bitwarden master password for $BW_EMAIL")
+            if [[ -z "$password" ]]; then
+                log "No password provided"
+                exit 1
+            fi
+            
+            # Store password for future use
+            store_password "$password"
+        fi
+        
+        # Attempt login
+        local session
+        session=$(echo "$password" | bw login "$BW_EMAIL" --raw 2>/dev/null) || {
+            log "Login failed, clearing stored password"
+            if [[ "$PLATFORM" == "darwin" ]]; then
+                security delete-generic-password -a "$KEYRING_ACCOUNT" -s "$KEYRING_SERVICE" 2>/dev/null || true
+            else
+                secret-tool clear service "$KEYRING_SERVICE" account "$KEYRING_ACCOUNT" 2>/dev/null || true
+            fi
+            exit 1
+        }
+        
+        save_session "$session"
+        echo "$session"
+        return 0
+    fi
+    
+    # Already logged in, just need to unlock
+    log "Logged in but locked, attempting unlock"
+    local password
+    password=$(get_stored_password)
+    
+    if [[ -z "$password" ]]; then
+        password=$(prompt_password "Bitwarden Unlock" "Enter your Bitwarden master password to unlock")
+        if [[ -z "$password" ]]; then
+            log "No password provided"
+            exit 1
+        fi
+        
+        # Store password for future use
+        store_password "$password"
+    fi
+    
+    # Attempt unlock
+    local session
+    session=$(echo "$password" | bw unlock --raw 2>/dev/null) || {
+        log "Unlock failed, clearing stored password"
+        if [[ "$PLATFORM" == "darwin" ]]; then
+            security delete-generic-password -a "$KEYRING_ACCOUNT" -s "$KEYRING_SERVICE" 2>/dev/null || true
+        else
+            secret-tool clear service "$KEYRING_SERVICE" account "$KEYRING_ACCOUNT" 2>/dev/null || true
+        fi
+        exit 1
+    }
+    
+    save_session "$session"
+    echo "$session"
+}
+
+# Handle different commands
+case "${1:-ensure}" in
+    "ensure"|"get")
+        ensure_bitwarden_session
+        ;;
+    "clear")
+        clear_session
+        log "Session cleared"
+        ;;
+    "status")
+        session=$(get_current_session)
+        if is_session_valid "$session"; then
+            echo "Session valid"
+            exit 0
+        else
+            echo "Session invalid or missing"
+            exit 1
+        fi
+        ;;
+    *)
+        echo "Usage: $0 [ensure|get|clear|status]"
+        echo "  ensure/get: Ensure valid session exists (default)"
+        echo "  clear:      Clear current session"
+        echo "  status:     Check if current session is valid"
+        exit 1
+        ;;
+esac

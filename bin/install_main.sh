@@ -4,14 +4,15 @@
 source "${DOTFILES}/lib/install/install_common.sh"
 
 # source our library of install modules.
-source "${DOTFILES}/lib/install_prerequisites.sh"
+source "${DOTFILES}/lib/install/install_prerequisites.sh"
 source "${DOTFILES}/lib/install/install_arch.sh"
+source "${DOTFILES}/lib/install/install_bitwarden_services.sh"
 source "${DOTFILES}/lib/install/install_chezmoi.sh"
 source "${DOTFILES}/lib/install/install_claude_code.sh"
 source "${DOTFILES}/lib/install/install_distroboxes.sh"
 source "${DOTFILES}/lib/install/install_flatpak_apps.sh"
 source "${DOTFILES}/lib/install/install_fonts.sh"
-source "${DOTFILES}/lib/install/install_homebrew.sh"
+source "${DOTFILES}/lib/install/install_homebrew_packages.sh"
 source "${DOTFILES}/lib/install/install_github.sh"
 source "${DOTFILES}/lib/install/install_nix.sh"
 source "${DOTFILES}/lib/install/install_vscode.sh"
@@ -72,6 +73,10 @@ show_spinner -- "Installing fonts..." \
 
 #######################################################################
 # Phase 2: configuration and initialization
+
+show_spinner -- "Setting up Bitwarden services..." \
+    install_bitwarden_services \
+    "Set up Bitwarden services."
 
 # setup/update github copilot extension
 

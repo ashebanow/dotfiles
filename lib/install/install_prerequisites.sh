@@ -23,6 +23,7 @@ need_flatpak=false
 need_node=false
 need_gum=false
 need_bitwarden=false
+need_keyring_tools=false
 
 function checkNeededPrerequisites() {
     if ! command -v brew >/dev/null 2>&1; then
@@ -43,6 +44,17 @@ function checkNeededPrerequisites() {
 
     if ! command -v node >/dev/null 2>&1 || ! command -v npm >/dev/null 2>&1; then
         need_node=true
+    fi
+
+    # Check for keyring tools (Linux only)
+    if ! $is_darwin; then
+        if ! command -v secret-tool >/dev/null 2>&1; then
+            need_keyring_tools=true
+        fi
+        # zenity is optional for GUI environments
+        if [[ -n "${DISPLAY:-}" ]] && ! command -v zenity >/dev/null 2>&1; then
+            need_keyring_tools=true
+        fi
     fi
 }
 
@@ -293,6 +305,36 @@ function install_bitwarden_if_needed {
 }
 
 #--------------------------------------------------------------------
+# INSTALL KEYRING TOOLS
+#--------------------------------------------------------------------
+
+function install_keyring_tools_if_needed() {
+    if $is_darwin; then
+        # macOS has keychain built-in
+        return
+    fi
+
+    if ! $need_keyring_tools; then
+        return
+    fi
+
+    if is_arch_like; then
+        sudo pacman -S --needed --noconfirm libsecret zenity
+    elif is_debian_like; then
+        sudo apt-get install -y libsecret-tools zenity
+    elif is_fedora_like; then
+        if command -v dnf5 >/dev/null 2>&1; then
+            sudo dnf5 install libsecret zenity
+        else
+            sudo dnf install libsecret zenity
+        fi
+    else
+        log_error "Unsupported/unknown linux variant, cannot install keyring tools"
+        exit 1
+    fi
+}
+
+#--------------------------------------------------------------------
 # INSTALL GUM
 #--------------------------------------------------------------------
 
@@ -312,6 +354,7 @@ function install_prerequisites() {
     install_homebrew_if_needed
     install_flatpak_if_needed
     install_node_if_needed
+    install_keyring_tools_if_needed
     install_gum_if_needed
     install_bitwarden_if_needed
 }

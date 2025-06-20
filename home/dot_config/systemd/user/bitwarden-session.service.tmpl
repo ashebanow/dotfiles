@@ -1,0 +1,25 @@
+{{- if not .darwin -}}
+[Unit]
+Description=Bitwarden Session Manager
+After=graphical-session.target
+Wants=graphical-session.target
+
+[Service]
+Type=oneshot
+Environment=HOME=%h
+Environment=DOTFILES={{.chezmoi.homeDir}}/.local/share/chezmoi
+{{- if .ephemeral }}
+Environment=BITWARDEN_EMAIL=ephemeral@example.com
+{{- else }}
+{{- if .personal }}
+Environment=BITWARDEN_EMAIL={{- bitwarden "item" "bitwarden-email" }}
+{{- end }}
+{{- end }}
+ExecStart=%h/.local/bin/bw-session-manager ensure
+RemainAfterExit=no
+StandardOutput=null
+StandardError=journal
+
+[Install]
+WantedBy=default.target
+{{- end -}}

@@ -1,0 +1,48 @@
+{{- if .darwin -}}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.user.bitwarden-session</string>
+    
+    <key>Program</key>
+    <string>{{.chezmoi.homeDir}}/.local/bin/bw-session-manager</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>{{.chezmoi.homeDir}}/.local/bin/bw-session-manager</string>
+        <string>ensure</string>
+    </array>
+    
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>HOME</key>
+        <string>{{.chezmoi.homeDir}}</string>
+        <key>DOTFILES</key>
+        <string>{{.chezmoi.homeDir}}/.local/share/chezmoi</string>
+        {{- if .ephemeral }}
+        <key>BITWARDEN_EMAIL</key>
+        <string>ephemeral@example.com</string>
+        {{- else }}
+        {{- if .personal }}
+        <key>BITWARDEN_EMAIL</key>
+        <string>{{- bitwarden "item" "bitwarden-email" }}</string>
+        {{- end }}
+        {{- end }}
+    </dict>
+    
+    <key>RunAtLoad</key>
+    <true/>
+    
+    <key>StartInterval</key>
+    <integer>1800</integer>
+    
+    <key>StandardOutPath</key>
+    <string>/dev/null</string>
+    
+    <key>StandardErrorPath</key>
+    <string>{{.chezmoi.homeDir}}/Library/Logs/bitwarden-session.log</string>
+</dict>
+</plist>
+{{- end -}}

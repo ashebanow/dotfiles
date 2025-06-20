@@ -52,22 +52,38 @@ addToPathIfNeeded "$BUN_INSTALL/bin"
 #############################################################################
 # Password/Secret Management
 
-# prefer installed version if available
-if [ -f {{ .chezmoi.homeDir -}}/.local/bin/bw-open ]; then
-  BW_OPEN="{{- .chezmoi.homeDir -}}/.local/bin/bw-open"
-else
-  BW_OPEN="{{- .chezmoi.config.sourceDir -}}/home/private_dot_local/bin/executable_bw-open"
-fi
-
-BITWARDEN_EMAIL=ashebanow@cattivi.com
+export BITWARDEN_EMAIL=ashebanow@cattivi.com
 
 {{ if .headless }}
 # we only define Bitwarden's service accounts on headless systems
 export BWS_ACCESS_TOKEN="{{- (bitwarden "BW Limon BWS Access Token" "login").password -}}"
 {{ end }}
 
-# some secrets need access from elsewhere
-export ZED_GITHUB_PERSONAL_ACCESS_TOKEN="$(bw get password zed_github_access_token)"
+# Function to ensure bitwarden session is available
+ensure_bw_session() {
+  if [[ -z "${BW_SESSION:-}" ]] || ! BW_SESSION="$BW_SESSION" bw status >/dev/null 2>&1; then
+    if [[ -x "$HOME/.local/bin/bw-open" ]]; then
+      export BW_SESSION=$(bw-open)
+    else
+      return 1
+    fi
+  fi
+}
+
+# Function to safely get bitwarden secrets
+bw_get_secret() {
+  local secret_name="$1"
+  if ensure_bw_session; then
+    bw get password "$secret_name" 2>/dev/null || echo ""
+  else
+    echo ""
+  fi
+}
+
+# Set up secrets that other tools expect (only if in interactive environment)
+if [[ -n "${DISPLAY:-}${SSH_TTY:-}" ]]; then
+  export ZED_GITHUB_PERSONAL_ACCESS_TOKEN="$(bw_get_secret zed_github_access_token)"
+fi
 
 # set up env variable for ssh-agent
 export SSH_AUTH_SOCK="{{- .chezmoi.homeDir -}}/.bitwarden-ssh-agent.sock"
