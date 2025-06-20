@@ -12,11 +12,9 @@ if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
     sourced_install_claude_code=true
 fi
 
-# TODO: make sure node and npm are installed and up to date,
-# then use npm to install claude code
-function install_claude_code() {
+function install_claude_code_if_needed() {
 }
 
 if [ -z "$sourced_install_claude_code" ]; then
-    install_claude_code
+    install_claude_code_if_needed
 fi

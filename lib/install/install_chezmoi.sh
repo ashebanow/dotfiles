@@ -17,13 +17,11 @@ repo="git@github.com:ashebanow/dotfiles.git"
 bin_dir="$HOME/.local/bin"
 
 function install_chezmoi_if_needed {
-	# TODO: this should prefer package managers if possible
 	if [ command -v brew ]; then
-		brew install chezmoi
-		return 0
-		# TODO: this should try other package managers too
+		return
 	fi
 
+	# TODO: this should prefer package managers if possible
 	if [ ! "$(command -v chezmoi)" ]; then
 		if [ "$(command -v curl)" ]; then
 			sh -c "$(curl -fsSL https://git.io/chezmoi)" -- -b "$bin_dir"
