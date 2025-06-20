@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # setup common to all install scripts, but note that gum-dependent
 # functions in this file won't work until gum gets installed, and
@@ -141,13 +141,13 @@ function install_node_if_needed {
         install_homebrew_if_needed
         brew install node
     else
-        if [[ $ID == *"arch"* || $ID_LIKE == *"arch"* ]]; then
+        if is_arch_like; then
             sudo pacman -S --needed --noconfirm nodejs npm
-        elif [[ $ID == *"ubuntu"* || $ID == *"debian"* || $ID_LIKE == *"debian"* ]]; then
+        elif is_debian_like; then
             # Install Node.js 20.x LTS (or whatever the current lts is)
             curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
             sudo apt-get install -y nodejs
-        elif [[ $ID == *"fedora"* || $ID_LIKE == *"fedora"* ]]; then
+        elif is_fedora_like; then
             if command -v dnf5; then
                 sudo dnf5 install nodejs npm
             else
@@ -179,11 +179,11 @@ function install_flatpak_if_needed {
         return
     fi
 
-    if [[ $ID == *"arch"* || $ID_LIKE == *"arch"* ]]; then
+    if is_arch_like; then
         sudo pacman -S flatpak
-    elif [[ $ID == *"ubuntu"* || $ID == *"debian"* || $ID_LIKE == *"debian"* ]]; then
+    elif is_debian_like; then
         sudo apt install flatpak
-    elif [[ $ID == *"fedora"* || $ID_LIKE == *"fedora"* ]]; then
+    elif is_fedora_like; then
         if command -v dnf5; then
             sudo dnf5 install flatpak
         else
@@ -224,7 +224,7 @@ function install_bitwarden_cli_if_needed {
         return
     fi
 
-    if [[ $ID == *"arch"* || $ID_LIKE == *"arch"* ]]; then
+    if is_arch_like; then
         arch_install_bitwarden_cli
     else
         install_homebrew_if_needed
@@ -267,9 +267,9 @@ function install_bitwarden_desktop_if_needed {
     if $is_darwin; then
         darwin_install_bitwarden_desktop
     else
-        if [[ $ID == *"arch"* || $ID_LIKE == *"arch"* ]]; then
+        if is_arch_like; then
             arch_install_bitwarden_desktop
-        elif [[ $ID == *"ubuntu"* || $ID_LIKE == *"ubuntu"* || $ID == *"fedora"* || $ID_LIKE == *"fedora"* ]]; then
+        elif is_debian_like || is_fedora_like; then
             linux_native_install_bitwarden_desktop
         else
             echo "Unsupported OS for Bitwarden desktop installation."

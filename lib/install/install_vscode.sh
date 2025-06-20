@@ -62,6 +62,7 @@ find_vscode_binary() {
     # If not found, return error
     return 1
 }
+
 function is_vscode_extension_installed() {
 	local extension="$1"
 
@@ -97,6 +98,42 @@ function install_vscode_extensions() {
 	log_info "Installed VSCode Extensions."
 }
 
+function install_vscode_if_needed() {
+	if command -v code &> /dev/null; then
+	    return
+	fi
+
+	if is_darwin; then
+	    log_error "VSCode installation on Mac not yet supported."
+		log_error "Please install VSCode manually, then rerun the script."
+		exit 1
+	fi
+
+	// TODO: look into whether flatpak is a reasonable alternative for all
+	// linux distros.
+    if is_debian_like; then
+        echo "code code/add-microsoft-repo boolean true" | sudo debconf-set-selections
+        sudo apt-get install wget gpg
+        wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
+        sudo install -D -o root -g root -m 644 packages.microsoft.gpg /etc/apt/keyrings/packages.microsoft.gpg
+        echo "deb [arch=amd64,arm64,armhf signed-by=/etc/apt/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/code stable main" |sudo tee /etc/apt/sources.list.d/vscode.list > /dev/null
+        rm -f packages.microsoft.gpg
+        sudo apt update
+        sudo apt install apt-transport-https code
+    elif is_arch_like; then
+        sudo "${package_manager}" -S code
+    elif is_fedora_like; then
+        sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+        echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" \
+            | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
+        "${package_manager}" check-update
+        sudo "${package_manager}" install code
+    else
+      log_error "Unknown distribution, how did this happen?"
+    fi
+}
+
 if [ -z "$sourced_install_vscode" ]; then
+    install_vscode_if_needed
     install_vscode_extensions
 fi
