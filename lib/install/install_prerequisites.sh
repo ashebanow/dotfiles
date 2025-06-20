@@ -24,6 +24,7 @@ need_node=false
 need_gum=false
 need_bitwarden=false
 need_keyring_tools=false
+need_tailscale=false
 
 function checkNeededPrerequisites() {
     if ! pkg_installed "brew"; then
@@ -68,6 +69,11 @@ function checkNeededPrerequisites() {
         if [[ -n "${DISPLAY:-}" ]] && ! pkg_installed "zenity"; then
             need_keyring_tools=true
         fi
+    fi
+
+    # Check for Tailscale
+    if ! pkg_installed "tailscale"; then
+        need_tailscale=true
     fi
 }
 
@@ -364,6 +370,115 @@ function install_gum_if_needed() {
 }
 
 #--------------------------------------------------------------------
+# INSTALL TAILSCALE
+#--------------------------------------------------------------------
+
+function install_tailscale_if_needed() {
+    if ! $need_tailscale; then
+        return
+    fi
+
+    log_info "Installing Tailscale..."
+
+    if $is_darwin; then
+        # macOS installation via Homebrew
+        install_homebrew_if_needed
+        brew install tailscale
+    elif is_arch_like; then
+        # Arch Linux installation
+        pkg_install "tailscale"
+        # Enable and start tailscaled service
+        sudo systemctl enable --now tailscaled
+    elif is_debian_like; then
+        # Debian/Ubuntu installation
+        curl -fsSL https://tailscale.com/install.sh | sh
+    elif is_fedora_like; then
+        # Fedora installation
+        if command -v dnf5 >/dev/null 2>&1; then
+            sudo dnf5 config-manager --add-repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+            sudo dnf5 install tailscale
+        else
+            sudo dnf config-manager --add-repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+            sudo dnf install tailscale
+        fi
+        # Enable and start tailscaled service
+        sudo systemctl enable --now tailscaled
+    else
+        log_error "Unsupported platform for Tailscale installation"
+        return 1
+    fi
+
+    log_info "Tailscale installed successfully"
+}
+
+function activate_tailscale() {
+    # Automatically detect headless mode based on system environment
+    local headless_mode="false"
+    if $is_virtualized || [[ -z "${DISPLAY:-}" ]]; then
+        headless_mode="true"
+    fi
+
+    # Check if Tailscale is already connected
+    if tailscale status >/dev/null 2>&1 && tailscale status | grep -q "logged in"; then
+        log_info "Tailscale is already activated and connected"
+        return 0
+    fi
+
+    log_info "Activating Tailscale..."
+
+    if [[ "$headless_mode" == "true" ]]; then
+        # Headless mode using Bitwarden auth key
+        log_info "Using headless mode with Bitwarden auth key..."
+
+        # Get auth key from Bitwarden
+        local auth_key
+        auth_key=$(bw get password "tailscale-homelab-ephemeral" 2>/dev/null)
+
+        if [[ -z "$auth_key" ]]; then
+            log_error "Failed to retrieve Tailscale auth key from Bitwarden"
+            log_error "Please ensure 'tailscale-homelab-ephemeral' exists in Bitwarden"
+            return 1
+        fi
+
+        # Create secure temporary file for auth key
+        local temp_key_file
+        temp_key_file=$(mktemp)
+        chmod 600 "$temp_key_file"
+        
+        # Write auth key to temporary file
+        echo "$auth_key" > "$temp_key_file"
+        
+        # Use auth key file for headless setup
+        sudo tailscale up --authkey="file:$temp_key_file" --ssh --accept-routes
+        local result=$?
+        
+        # Clean up temporary file
+        rm -f "$temp_key_file"
+
+        if [[ $result -eq 0 ]]; then
+            log_info "Tailscale activated successfully in headless mode"
+        else
+            log_error "Failed to activate Tailscale in headless mode"
+            return 1
+        fi
+    else
+        # Interactive mode
+        log_info "Activating Tailscale in interactive mode..."
+        log_info "This will open a browser for authentication"
+
+        sudo tailscale up --ssh --accept-routes
+        if [[ $? -eq 0 ]]; then
+            log_info "Tailscale activation initiated"
+            log_info "Note: Activation won't be complete until a Tailscale admin approves this device"
+            log_info "Have an admin approve the new device in the admin console."
+        else
+            log_error "Failed to initiate Tailscale activation"
+            return 1
+        fi
+    fi
+}
+
+#--------------------------------------------------------------------
 # CORE LOGIC
 #--------------------------------------------------------------------
 
@@ -375,6 +490,7 @@ function install_prerequisites() {
     install_keyring_tools_if_needed
     install_gum_if_needed
     install_bitwarden_if_needed
+    install_tailscale_if_needed
 }
 
 if [ -z "$sourced_install_prerequisites" ]; then
