@@ -15,7 +15,7 @@ fi
 function install_git_if_needed {
     if ! pkg_installed "git"; then
         log_info "Installing git..."
-        brew install git
+        pkg_install "git"
     fi
 }
 
@@ -26,7 +26,7 @@ function install_github_cli_if_needed {
     )
     if ! pkg_installed "gh" gh_packages; then
         log_info "Installing GitHub CLI..."
-        brew install gh
+        pkg_install "gh" gh_packages
     fi
 }
 

@@ -63,7 +63,7 @@ function checkNeededPrerequisites() {
         if ! pkg_installed "secret-tool" secret_tool_packages; then
             need_keyring_tools=true
         fi
-        
+
         # zenity is optional for GUI environments
         if [[ -n "${DISPLAY:-}" ]] && ! pkg_installed "zenity"; then
             need_keyring_tools=true
@@ -254,12 +254,16 @@ function install_bitwarden_cli_if_needed {
         return
     fi
 
+    declare -A bw_packages=(
+        ["darwin"]="bitwarden-cli"
+        ["arch"]="bitwarden-cli"
+        ["fedora"]="bitwarden-cli"
+    )
+
     if is_arch_like; then
         arch_install_bitwarden_cli
     else
-        install_homebrew_if_needed
-        brew update
-        brew install bitwarden-cli
+        pkg_install "bw" bw_packages
     fi
 }
 
@@ -336,20 +340,16 @@ function install_keyring_tools_if_needed() {
         return
     fi
 
-    if is_arch_like; then
-        sudo pacman -S --needed --noconfirm libsecret zenity
-    elif is_debian_like; then
-        sudo apt-get install -y libsecret-tools zenity
-    elif is_fedora_like; then
-        if command -v dnf5 >/dev/null 2>&1; then
-            sudo dnf5 install libsecret zenity
-        else
-            sudo dnf install libsecret zenity
-        fi
-    else
-        log_error "Unsupported/unknown linux variant, cannot install keyring tools"
-        exit 1
-    fi
+    # Install secret-tool
+    declare -A secret_tool_packages=(
+        ["arch"]="libsecret"
+        ["debian"]="libsecret-tools"
+        ["fedora"]="libsecret"
+    )
+    pkg_install "secret-tool" secret_tool_packages
+
+    # Install zenity (same name across platforms)
+    pkg_install "zenity"
 }
 
 #--------------------------------------------------------------------
@@ -360,7 +360,7 @@ function install_gum_if_needed() {
     if ! $need_gum; then
         return
     fi
-    brew install gum
+    pkg_install "gum"
 }
 
 #--------------------------------------------------------------------
