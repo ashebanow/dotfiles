@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source "${DOTFILES}/lib/install/install_common.sh"
+source "${DOTFILES}/lib/common/all.sh"
 
 # Check dependencies
 if ! command -v jq &>/dev/null; then

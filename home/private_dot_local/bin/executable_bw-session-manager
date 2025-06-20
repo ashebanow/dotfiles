@@ -6,8 +6,12 @@
 
 set -euo pipefail
 
-# Try to source our install functions if available
+# Try to source our common functions if available
 DOTFILES="${DOTFILES:-$HOME/.local/share/chezmoi}"
+if [[ -f "$DOTFILES/lib/common/all.sh" ]]; then
+    source "$DOTFILES/lib/common/all.sh" 2>/dev/null || true
+fi
+# Also try to source install functions for dependency management
 if [[ -f "$DOTFILES/lib/install/install_prerequisites.sh" ]]; then
     source "$DOTFILES/lib/install/install_prerequisites.sh" 2>/dev/null || true
 fi

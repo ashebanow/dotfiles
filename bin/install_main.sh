@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # setup common to all install scripts
-source "${DOTFILES}/lib/install/install_common.sh"
+source "${DOTFILES}/lib/common/all.sh"
 
 # source our library of install modules.
 source "${DOTFILES}/lib/install/install_prerequisites.sh"

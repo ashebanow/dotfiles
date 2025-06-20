@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # setup common to all install scripts
-source "${DOTFILES}/lib/install/install_common.sh"
+source "${DOTFILES}/lib/common/all.sh"
 
 # make sure we only source this once.
 if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
