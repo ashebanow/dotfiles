@@ -21,14 +21,20 @@ KEYRING_ACCOUNT="master-password"
 SESSION_FILE="$HOME/.cache/bw-session"
 BW_EMAIL="${BITWARDEN_EMAIL:-}"
 
-# Platform detection
-if [[ "$OSTYPE" == "darwin"* ]]; then
-    PLATFORM="darwin"
-elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    PLATFORM="linux"
+# Platform detection - use common functions if available, fallback to OSTYPE
+if command -v check_platform_type >/dev/null 2>&1; then
+    # Already loaded via common/all.sh - platform variables are set
+    :
 else
-    echo "Error: Unsupported platform $OSTYPE" >&2
-    exit 1
+    # Fallback platform detection
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        is_darwin=true
+    elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        is_darwin=false
+    else
+        echo "Error: Unsupported platform $OSTYPE" >&2
+        exit 1
+    fi
 fi
 
 # Logging
@@ -40,7 +46,7 @@ log() {
 ensure_dependencies() {
     local missing_deps=()
     
-    if [[ "$PLATFORM" == "linux" ]]; then
+    if ! $is_darwin; then
         if ! command -v secret-tool >/dev/null 2>&1; then
             missing_deps+=("libsecret-tools")
         fi
@@ -55,7 +61,7 @@ ensure_dependencies() {
             install_keyring_tools_if_needed
         else
             # Fallback direct installation
-            if [[ "$PLATFORM" == "linux" ]]; then
+            if ! $is_darwin; then
                 if is_arch_like 2>/dev/null; then
                     sudo pacman -S --needed --noconfirm libsecret zenity
                 elif is_debian_like 2>/dev/null; then
@@ -77,7 +83,7 @@ prompt_password() {
     local title="$1"
     local prompt="$2"
     
-    if [[ "$PLATFORM" == "darwin" ]]; then
+    if $is_darwin; then
         osascript -e "display dialog \"$prompt\" default answer \"\" with title \"$title\" with hidden answer" -e "text returned of result" 2>/dev/null || true
     else
         # Linux - try zenity, fallback to terminal
@@ -95,7 +101,7 @@ prompt_password() {
 store_password() {
     local password="$1"
     
-    if [[ "$PLATFORM" == "darwin" ]]; then
+    if $is_darwin; then
         security add-generic-password -a "$KEYRING_ACCOUNT" -s "$KEYRING_SERVICE" -w "$password" -U 2>/dev/null || {
             log "Failed to store password in keychain"
             return 1
@@ -119,7 +125,7 @@ store_password() {
 }
 
 get_stored_password() {
-    if [[ "$PLATFORM" == "darwin" ]]; then
+    if $is_darwin; then
         security find-generic-password -a "$KEYRING_ACCOUNT" -s "$KEYRING_SERVICE" -w 2>/dev/null || true
     else
         if command -v secret-tool >/dev/null 2>&1; then
@@ -198,7 +204,7 @@ ensure_bitwarden_session() {
         local session
         session=$(echo "$password" | bw login "$BW_EMAIL" --raw 2>/dev/null) || {
             log "Login failed, clearing stored password"
-            if [[ "$PLATFORM" == "darwin" ]]; then
+            if $is_darwin; then
                 security delete-generic-password -a "$KEYRING_ACCOUNT" -s "$KEYRING_SERVICE" 2>/dev/null || true
             else
                 secret-tool clear service "$KEYRING_SERVICE" account "$KEYRING_ACCOUNT" 2>/dev/null || true
@@ -231,7 +237,7 @@ ensure_bitwarden_session() {
     local session
     session=$(echo "$password" | bw unlock --raw 2>/dev/null) || {
         log "Unlock failed, clearing stored password"
-        if [[ "$PLATFORM" == "darwin" ]]; then
+        if $is_darwin; then
             security delete-generic-password -a "$KEYRING_ACCOUNT" -s "$KEYRING_SERVICE" 2>/dev/null || true
         else
             secret-tool clear service "$KEYRING_SERVICE" account "$KEYRING_ACCOUNT" 2>/dev/null || true
