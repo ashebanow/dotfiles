@@ -21,16 +21,27 @@ function install_chezmoi_if_needed {
 		return
 	fi
 
-	# TODO: this should prefer package managers if possible
 	log_info "Installing chezmoi..."
-		if [ "$(command -v curl)" ]; then
-			sh -c "$(curl -fsSL https://git.io/chezmoi)" -- -b "$bin_dir"
-		elif [ "$(command -v wget)" ]; then
-			sh -c "$(wget -qO- https://git.io/chezmoi)" -- -b "$bin_dir"
-		else
-			echo "To install chezmoi, you must have curl or wget installed." >&2
-			exit 1
-		fi
+
+	# Define custom installation for Debian/Ubuntu (no package available)
+	declare -A chezmoi_custom=(
+		["debian"]="install_chezmoi_web_installer"
+	)
+
+	# Install using package managers where available, fallback to web installer
+	pkg_install "chezmoi" "" "" "" "" chezmoi_custom
+}
+
+# Fallback web installer for distributions without chezmoi packages
+function install_chezmoi_web_installer {
+	log_info "Installing chezmoi via web installer..."
+	if [ "$(command -v curl)" ]; then
+		sh -c "$(curl -fsSL https://git.io/chezmoi)" -- -b "$bin_dir"
+	elif [ "$(command -v wget)" ]; then
+		sh -c "$(wget -qO- https://git.io/chezmoi)" -- -b "$bin_dir"
+	else
+		log_error "To install chezmoi, you must have curl or wget installed."
+		exit 1
 	fi
 }
 
