@@ -25,6 +25,7 @@ need_gum=false
 need_bitwarden=false
 need_keyring_tools=false
 need_tailscale=false
+need_jq=false
 
 function checkNeededPrerequisites() {
     if ! pkg_installed "brew"; then
@@ -37,6 +38,10 @@ function checkNeededPrerequisites() {
 
     if ! pkg_installed "gum"; then
         need_gum=true
+    fi
+
+    if ! pkg_installed "jq"; then
+        need_jq=true
     fi
 
     # Bitwarden CLI has different package names on different platforms
@@ -370,6 +375,17 @@ function install_gum_if_needed() {
 }
 
 #--------------------------------------------------------------------
+# INSTALL JQ
+#--------------------------------------------------------------------
+
+function install_jq_if_needed() {
+    if ! $need_jq; then
+        return
+    fi
+    pkg_install "jq"
+}
+
+#--------------------------------------------------------------------
 # INSTALL TAILSCALE
 #--------------------------------------------------------------------
 
@@ -380,33 +396,30 @@ function install_tailscale_if_needed() {
 
     log_info "Installing Tailscale..."
 
-    if $is_darwin; then
-        # macOS installation via Homebrew
-        install_homebrew_if_needed
-        brew install tailscale
-    elif is_arch_like; then
-        # Arch Linux installation
-        pkg_install "tailscale"
-        # Enable and start tailscaled service
-        sudo systemctl enable --now tailscaled
-    elif is_debian_like; then
-        # Debian/Ubuntu installation
-        curl -fsSL https://tailscale.com/install.sh | sh
-    elif is_fedora_like; then
-        # Fedora installation
-        if command -v dnf5 >/dev/null 2>&1; then
-            sudo dnf5 config-manager --add-repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-            sudo dnf5 install tailscale
-        else
-            sudo dnf config-manager --add-repo https://pkgs.tailscale.com/stable/fedora/tailscale.repo
-            sudo dnf install tailscale
-        fi
-        # Enable and start tailscaled service
-        sudo systemctl enable --now tailscaled
-    else
-        log_error "Unsupported platform for Tailscale installation"
-        return 1
-    fi
+    # Define Tailscale repository configurations
+    declare -A tailscale_repos=(
+        ["debian"]='{
+            "base_url": "https://pkgs.tailscale.com/stable/debian",
+            "version_name": "auto",
+            "key_url": "https://pkgs.tailscale.com/stable/debian/bookworm.noarmor.gpg"
+        }'
+        ["fedora"]="https://pkgs.tailscale.com/stable/fedora/tailscale.repo"
+    )
+    
+    # Define pre-install hooks
+    declare -A tailscale_pre=(
+        ["darwin"]="install_homebrew_if_needed"
+    )
+    
+    # Define post-install hooks
+    declare -A tailscale_post=(
+        ["arch"]="sudo systemctl enable --now tailscaled"
+        ["fedora"]="sudo systemctl enable --now tailscaled"
+        ["darwin"]="brew services start tailscale"
+    )
+    
+    # Install using the unified pkg_install function
+    pkg_install "tailscale" "" tailscale_repos tailscale_pre tailscale_post
 
     log_info "Tailscale installed successfully"
 }
@@ -488,6 +501,7 @@ function install_prerequisites() {
     install_flatpak_if_needed
     install_node_if_needed
     install_keyring_tools_if_needed
+    install_jq_if_needed
     install_gum_if_needed
     install_bitwarden_if_needed
     install_tailscale_if_needed
