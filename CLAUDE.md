@@ -67,19 +67,19 @@ When modifying packages, update the appropriate file for the target platform.
 ### Core Scripts (`lib/install/`)
 - `install_main.sh` - main entrypoint to the lib/install system, called by install.sh. It
   in turn sources the other files in this directory and calls them in the appropriate order.
-- `install_common.sh` - Platform detection, logging, common functions
+- `common/all.sh` - Platform detection, logging, common functions
 - `install_prerequisites.sh` - Basic system preparation
 - Platform installers: `install_arch.sh`, `install_nix.sh`, `install_homebrew_packages.sh`
 - Component installers: `install_fonts.sh`, `install_flatpak_apps.sh`, `install_vscode.sh`
 
 ### Installation Flow
-1. Platform detection via `install_common.sh`
+1. Platform detection via `all.sh`
 2. Prerequisites installation
 3. Package manager setup (Homebrew, Nix, etc.)
 4. Package installation from lists
 5. Component-specific setup (fonts, editors, etc.)
 
-All scripts source `install_common.sh` for shared functionality and should use its logging functions.
+All scripts source `all.sh` for shared functionality and should use its logging functions.
 
 ## Configuration Areas
 
@@ -117,7 +117,7 @@ TODO: All mini-scripts like this should really be in a Justfile.
 
 1. Test platform detection:
    ```bash
-   source lib/install/install_common.sh
+   source lib/common/all.sh
    echo "Platform: $PLATFORM, Distro: $DISTRO"
    ```
 
