@@ -15,10 +15,13 @@ fi
 # make sure we only source this once.
 
 function install_homebrew_packages() {
-	brew bundle install --upgrade --file="${DOTFILES}/Brewfile"
+    brew bundle install --upgrade --file="${DOTFILES}/Brewfile"
 }
 
 function install_mac_only_homebrew_packages() {
+    if ! is_darwin; then
+        return
+    fi
     brew bundle install --upgrade --file="${DOTFILES}/Brewfile-darwin"
 }
 
