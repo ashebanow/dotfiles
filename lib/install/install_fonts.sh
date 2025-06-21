@@ -17,7 +17,8 @@ function install_getnf_if_needed {
         log_debug "getnf already installed"
         return
     fi
-    show_spinner "Installing getnf..." "curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --silent" "Installed getnf."
+    gum spin --title "Installing getnf..." -- bash -c "curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --silent"
+    log_info "Installed getnf."
 }
 
 # Install everything in Fontfile, which has the format "command font-name".
@@ -73,7 +74,8 @@ function install_fonts {
                 ;;
 
             getnf)
-                show_spinner "Installing font $font..." "getnf -U -i \"$font\"" "Installed font $font."
+                log_info "Installing font $font if needed"
+                getnf -U -i "$font" 2>&1 | grep -v "All installed Nerd Fonts are up to date"
                 ;;
 
             *)
