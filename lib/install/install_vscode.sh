@@ -94,7 +94,14 @@ function install_vscode_extensions_internal() {
 }
 
 function install_vscode_extensions() {
-    gum spin --title "Installing VSCode Extensions..." -- install_vscode_extensions_internal
+    # Export the function so gum spin can access it
+    export -f install_vscode_extensions_internal
+    export -f is_vscode_extension_installed
+    export -f find_vscode_binary
+    export -f log_debug
+    export -f log_error
+    
+    gum spin --title "Installing VSCode Extensions..." -- bash -c "install_vscode_extensions_internal"
     log_info "Installed VSCode Extensions."
 }
 
