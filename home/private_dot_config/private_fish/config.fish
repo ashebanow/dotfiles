@@ -9,7 +9,7 @@ fish_add_path -m "$HOME/bin"
 fish_add_path -m "$HOME/.local/bin"
 
 # install or update fish plugins use using 'fisher update'
-if command -v fisher 2>/dev/null
+if type -q fisher
     fisher update
 end
 
