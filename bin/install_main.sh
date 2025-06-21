@@ -8,15 +8,11 @@ source "${DOTFILES}/lib/install/install_prerequisites.sh"
 source "${DOTFILES}/lib/install/install_arch.sh"
 source "${DOTFILES}/lib/install/install_bitwarden_services.sh"
 source "${DOTFILES}/lib/install/install_chezmoi.sh"
-source "${DOTFILES}/lib/install/install_claude_code.sh"
 source "${DOTFILES}/lib/install/install_distroboxes.sh"
 source "${DOTFILES}/lib/install/install_flatpak_apps.sh"
-source "${DOTFILES}/lib/install/install_fonts.sh"
 source "${DOTFILES}/lib/install/install_homebrew_packages.sh"
 source "${DOTFILES}/lib/install/install_github.sh"
 source "${DOTFILES}/lib/install/install_nix.sh"
-source "${DOTFILES}/lib/install/install_vscode.sh"
-source "${DOTFILES}/lib/install/install_zed.sh"
 
 #######################################################################
 # Phase 1: install universal packages and apps
@@ -31,7 +27,7 @@ show_spinner -- \
 # homebrew knows we already have commands installed.
 # TODO: do the same for debian-like systems, and for
 # mutable fedora distributions.
-# TODO: use show_spinner function
+# FIXME: use show_spinner function
 if is_arch_like; then
     update_arch_if_needed
     install_arch_packages
@@ -47,12 +43,6 @@ show_spinner -- \
 # 	install_nix_if_needed \
 # 	"Installed nix."
 
-if is_darwin; then
-    show_spinner -- "Installing Mac-only Brews and Casks..." \
-        install_mac_only_homebrew_packages \
-        "Installed Mac-only Brews and Casks."
-fi
-
 show_spinner -- \
     "Installing Flatpak runtime if needed..." \
     install_flatpak_if_needed \
@@ -63,13 +53,21 @@ show_spinner -- \
     install_flatpak_apps \
     "Installed Flatpak apps."
 
-show_spinner -- "Installing VSCode Extensions..." \
-    "${DOTFILES}/lib/install/install_vscode.sh" \
-    "Installed VSCode Extensions."
-
 show_spinner -- "Installing fonts..." \
     "${DOTFILES}/lib/install/install_fonts.sh" \
     "Installed fonts..."
+
+show_spinner -- "Installing Claude Code\
+    "${DOTFILES}/lib/install/install_claude_code.sh" \
+    "Installed Claude Code."
+
+show_spinner -- "Installing Zed"\
+    "${DOTFILES}/lib/install/install_zed.sh" \
+    "Installed Zed."
+
+show_spinner -- "Installing VSCode and Extensions..." \
+    "${DOTFILES}/lib/install/install_vscode.sh" \
+    "Installed VSCode and Extensions."
 
 #######################################################################
 # Phase 2: configuration and initialization
