@@ -28,7 +28,16 @@ function update_arch_if_needed() {
     return;
   fi
 
-  install_yay_if_needed
+  # Install yay if not available
+  if ! command -v yay >/dev/null 2>&1; then
+    install_yay_if_needed
+  fi
+
+  # Verify yay is now available before using it
+  if ! command -v yay >/dev/null 2>&1; then
+    log_error "yay installation failed or not in PATH"
+    return 1
+  fi
 
   yay -Syu
 }
@@ -38,7 +47,20 @@ function install_arch_packages() {
     return;
   fi
 
-  readarray -t arch_package_list <"{{- .chezmoi.config.sourceDir -}}/Archfile"
+  # Use DOTFILES environment variable instead of chezmoi template
+  local archfile="${DOTFILES}/Archfile"
+  if [[ ! -f "$archfile" ]]; then
+    log_error "Archfile not found at: $archfile"
+    return 1
+  fi
+
+  # Ensure yay is available before using it
+  if ! command -v yay >/dev/null 2>&1; then
+    log_error "yay not found, cannot install Arch packages"
+    return 1
+  fi
+
+  readarray -t arch_package_list <"$archfile"
   yay -S --needed --noconfirm --noprogressbar -q "${arch_package_list[@]}"
 }
 

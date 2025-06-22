@@ -86,8 +86,12 @@ function pkg_installed() {
     # (We prioritize package checking over command checking when mapping is provided)
     if [[ -n "$package_map" ]]; then
         if $is_darwin; then
-            # Check if homebrew package is installed
-            brew list "$package_name" >/dev/null 2>&1
+            # Check if homebrew package is installed (only if brew exists)
+            if command -v brew >/dev/null 2>&1; then
+                brew list "$package_name" >/dev/null 2>&1
+            else
+                return 1  # brew not available, package not installed
+            fi
         elif $is_arch_like; then
             # Check if pacman package is installed
             pacman -Qi "$package_name" >/dev/null 2>&1
@@ -280,6 +284,11 @@ _pkg_add_repository() {
 _pkg_add_repository_darwin() {
     local repo_config="$1"
     
+    if ! command -v brew >/dev/null 2>&1; then
+        log_error "brew not found, cannot add repository: $repo_config"
+        return 1
+    fi
+    
     # For homebrew, repo_config is treated as a tap name
     if ! brew tap | grep -q "^$repo_config$"; then
         brew tap "$repo_config"
@@ -415,6 +424,10 @@ _pkg_install_package() {
     local package_name="$1"
     
     if $is_darwin; then
+        if ! command -v brew >/dev/null 2>&1; then
+            log_error "brew not found, cannot install package: $package_name"
+            return 1
+        fi
         brew install "$package_name"
     elif $is_arch_like; then
         # Determine the best package manager for this package

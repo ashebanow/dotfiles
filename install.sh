@@ -5,6 +5,82 @@
 
 set -e # -e: exit on error
 
+# Show help function
+show_help() {
+    cat << EOF
+Dotfiles Installation Script
+
+USAGE:
+    $0 [OPTIONS]
+
+DESCRIPTION:
+    Installs and configures a complete development environment using chezmoi
+    dotfiles management. This script will:
+    
+    • Install chezmoi if not present
+    • Set up prerequisites (Homebrew, Node.js, development tools)
+    • Install platform-specific packages (Arch, Flatpak, Homebrew)
+    • Configure development applications (VS Code, Zed, Claude Code)
+    • Set up Bitwarden integration for secrets management
+    • Apply dotfiles configuration templates
+
+OPTIONS:
+    --debug           Enable debug mode with verbose output and bash tracing
+    --user USERNAME   Set username for Bitwarden Apple ID lookup (default: ashebanow)
+    --help            Show this help message and exit
+
+EXAMPLES:
+    $0                      # Normal installation (uses 'ashebanow' user)
+    $0 --user john          # Installation using 'john_apple_id' Bitwarden entry
+    $0 --debug              # Installation with debug output
+    $0 --help               # Show this help
+
+For more information, see: https://github.com/ashebanow/dotfiles
+EOF
+}
+
+# Parse command line arguments
+DEBUG_MODE=false
+USER_NAME=""
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        --debug)
+            DEBUG_MODE=true
+            shift
+            ;;
+        --user)
+            if [[ -n "$2" && "$2" != --* ]]; then
+                USER_NAME="$2"
+                shift 2
+            else
+                echo "Error: --user requires a username argument" >&2
+                echo "Try '$0 --help' for more information." >&2
+                exit 1
+            fi
+            ;;
+        --help|-h)
+            show_help
+            exit 0
+            ;;
+        *)
+            echo "Unknown option: $1" >&2
+            echo "Usage: $0 [--debug] [--user USERNAME] [--help]" >&2
+            echo "Try '$0 --help' for more information." >&2
+            exit 1
+            ;;
+    esac
+done
+
+# Set debug options if requested
+if [[ "$DEBUG_MODE" == "true" ]]; then
+    echo "🐛 Debug mode enabled"
+    export GUM_LOG_LEVEL=debug
+    set -x  # Enable bash debug tracing
+fi
+
+# Set Apple ID username for Bitwarden lookup (with default)
+export APPLE_ID_USER="${USER_NAME:-ashebanow}"
+
 # POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
 script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 

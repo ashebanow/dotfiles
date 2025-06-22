@@ -13,7 +13,20 @@ if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
 fi
 
 function install_flatpak_apps {
-	readarray -t flatpaks_list <"{{- .chezmoi.config.sourceDir -}}/Flatfile"
+	# Use DOTFILES environment variable instead of chezmoi template
+	local flatfile="${DOTFILES}/Flatfile"
+	if [[ ! -f "$flatfile" ]]; then
+		log_error "Flatfile not found at: $flatfile"
+		return 1
+	fi
+
+	# Ensure flatpak is available before using it
+	if ! command -v flatpak >/dev/null 2>&1; then
+		log_error "flatpak not found, cannot install Flatpak apps"
+		return 1
+	fi
+
+	readarray -t flatpaks_list <"$flatfile"
 	flatpak install --user -y --noninteractive --or-update "${flatpaks_list[@]}"
 }
 

@@ -14,11 +14,12 @@ if [ -n "$sourced_common_all" ]; then
 fi
 sourced_common_all=true
 
-# for debugging, uncomment the following line and set the
-# GUM_DEBUG_LEVEL to "debug".
-set -x
-# export GUM_LOG_LEVEL=info
-export GUM_LOG_LEVEL=debug
+# Set default log level if not already set (can be overridden by install.sh --debug)
+export GUM_LOG_LEVEL="${GUM_LOG_LEVEL:-info}"
+
+# For debugging individual scripts, uncomment the following line:
+# set -x
+
 # uncomment this to have everything fail fast, which can make debugging easier.
 # But note that this will fail even working scripts in some cases.
 # set -euo pipefail
