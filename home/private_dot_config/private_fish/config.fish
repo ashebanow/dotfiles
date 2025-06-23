@@ -9,8 +9,12 @@ fish_add_path -m "$HOME/bin"
 fish_add_path -m "$HOME/.local/bin"
 
 # install or update fish plugins use using 'fisher update'
-if type -q fisher
-    fisher update
+if ! type -q fisher
+    # install fisher
+    curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher catppuccin/fish
+    if type -q fisher
+        fish_config theme save "Catppuccin Mocha"
+    end
 end
 
 # Load aliases
