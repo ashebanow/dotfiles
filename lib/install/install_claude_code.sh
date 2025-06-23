@@ -53,7 +53,7 @@ function install_claude_code_if_needed() {
         log_info "Run 'claude --help' to get started"
         log_info "You may need to authenticate with 'claude auth login'"
     else
-        log_warn "Claude Code CLI installation may have failed - please check manually"
+        log_warning "Claude Code CLI installation may have failed - please check manually"
         return 1
     fi
 }
