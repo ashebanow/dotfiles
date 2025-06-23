@@ -35,16 +35,13 @@ function install_claude_code_if_needed() {
             return 1
         fi
     else
-        # Linux: Install CLI via official installer
-        # Claude Code provides a CLI tool for Linux environments
-        if command -v curl >/dev/null 2>&1; then
-            gum spin --title "Installing Claude Code CLI..." -- bash -c "curl -fsSL https://claude.ai/cli/install.sh | sh"
-        elif command -v wget >/dev/null 2>&1; then
-            gum spin --title "Installing Claude Code CLI..." -- bash -c "wget -qO- https://claude.ai/cli/install.sh | sh"
-        else
-            log_error "Neither curl nor wget available for installing Claude Code CLI"
-            return 1
-        fi
+        # if command -v curl >/dev/null 2>&1; then
+            # gum spin --title "Installing Claude Code CLI..." -- bash -c "curl -fsSL https://claude.ai/cli/install.sh | sh"
+            gum spin --title "Installing Claude Code CLI..." -- bash -c "npm install -g @anthropic-ai/claude-code"
+        # else
+        #     log_error "Neither curl nor wget available for installing Claude Code CLI"
+        #     return 1
+        # fi
     fi
 
     # Verify installation

@@ -37,7 +37,7 @@ function show_spinner {
 
 function log_debug {
     if command -v gum >/dev/null 2>&1; then
-        gum log --structured --level debug "$@"
+        gum log --structured --level=debug "$@"
     elif [[ "${GUM_LOG_LEVEL:-info}" == "debug" ]]; then
         echo "[DEBUG] $*" >&2
     fi
@@ -45,7 +45,7 @@ function log_debug {
 
 function log_info {
     if command -v gum >/dev/null 2>&1; then
-        gum log --structured --level info "$@"
+        gum log --structured --level=info "$@"
     else
         echo "ℹ️  $*"
     fi
@@ -53,7 +53,7 @@ function log_info {
 
 function log_warning {
     if command -v gum >/dev/null 2>&1; then
-        gum log --structured --level warning "$@"
+        gum log --structured --level=warn "$@"
     else
         echo "⚠️  $*" >&2
     fi
@@ -61,7 +61,7 @@ function log_warning {
 
 function log_error {
     if command -v gum >/dev/null 2>&1; then
-        gum log --structured --level error "$@"
+        gum log --structured --level=error "$@"
     else
         echo "❌ $*" >&2
     fi
