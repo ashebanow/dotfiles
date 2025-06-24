@@ -19,7 +19,7 @@ function install_homebrew_packages() {
 }
 
 function install_mac_only_homebrew_packages() {
-    if ! is_darwin; then
+    if ! $is_darwin; then
         return
     fi
     brew bundle install --upgrade --file="${DOTFILES}/Brewfile-darwin"
