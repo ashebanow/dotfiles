@@ -8,15 +8,6 @@ fish_add_path -m "$HOME/.npm-global/bin"
 fish_add_path -m "$HOME/bin"
 fish_add_path -m "$HOME/.local/bin"
 
-# install or update fish plugins use using 'fisher update'
-if ! type -q fisher
-    # install fisher
-    curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher catppuccin/fish
-    if type -q fisher
-        fish_config theme save "Catppuccin Mocha"
-    end
-end
-
 # Load aliases
 for file in (find $HOME/.config/fish/aliases -name '*.fish')
     source $file
@@ -25,11 +16,11 @@ end
 if status is-interactive
     # Set greeting to fastfetch if available
     function fish_greeting
-        echo "Welcome to fish, the friendly interactive shell."
         if type -q fastfetch
             fastfetch
         else
-            echo "You need to install fastfetch!"
+            echo "Welcome to fish, the friendly interactive shell."
+            echo "Fastfetch isn't installed yet!"
         end
     end
 end
