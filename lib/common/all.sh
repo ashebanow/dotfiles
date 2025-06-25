@@ -15,11 +15,11 @@ fi
 sourced_common_all=true
 
 # Set default log level if not already set (can be overridden by install.sh --debug)
-# export GUM_LOG_LEVEL="${GUM_LOG_LEVEL:-info}"
-export GUM_LOG_LEVEL="${GUM_LOG_LEVEL:-debug}"
+export GUM_LOG_LEVEL="${GUM_LOG_LEVEL:-info}"
+# export GUM_LOG_LEVEL="${GUM_LOG_LEVEL:-debug}"
 
 # For debugging individual scripts, uncomment the following line:
-set -x
+# set -x
 
 # uncomment this to have everything fail fast, which can make debugging easier.
 # But note that this will fail even working scripts in some cases.
@@ -30,3 +30,4 @@ COMMON_DIR="${DOTFILES}/lib/common"
 source "${COMMON_DIR}/system_environment.sh"
 source "${COMMON_DIR}/logging.sh"
 source "${COMMON_DIR}/packages.sh"
+source "${COMMON_DIR}/homebrew_utils.sh"

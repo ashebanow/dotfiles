@@ -75,33 +75,9 @@ function is_vscode_extension_installed() {
     return 0
 }
 
-function install_vscode_extensions_internal() {
-    vscode_binary_path="$(find_vscode_binary)"
-    if [ $? -ne 0 ] || [ -z "$vscode_binary_path" ]; then
-        log_error "You must have the VSCode 'code' or equivalent binary in your PATH."
-        exit 1
-    fi
-
-    declare -a installed_vscode_extensions
-    readarray -t installed_vscode_extensions < <($vscode_binary_path --list-extensions)
-
-    readarray -t vscode_extensions_list <"{{- .chezmoi.config.sourceDir -}}/VSExtensionsFile"
-    for vscode_extension in "${vscode_extensions_list[@]}"; do
-        if is_vscode_extension_installed "$vscode_extension"; then
-            "$vscode_binary_path" --install-extension "$vscode_extension" --force
-        fi
-    done
-}
 
 function install_vscode_extensions() {
-    # Export the function so gum spin can access it
-    export -f install_vscode_extensions_internal
-    export -f is_vscode_extension_installed
-    export -f find_vscode_binary
-    export -f log_debug
-    export -f log_error
-    
-    gum spin --title "Installing VSCode Extensions..." -- bash -c "install_vscode_extensions_internal"
+    gum spin --title "Installing VSCode Extensions..." -- "${DOTFILES}/lib/install/install_vscode_extensions_standalone.sh"
     log_info "Installed VSCode Extensions."
 }
 
