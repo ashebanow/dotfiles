@@ -1,0 +1,33 @@
+[bat]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "A cat clone with syntax highlighting"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[gh]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "GitHub CLI tool"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "high"
+
+[zellij]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "TODO: Add description for zellij"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+

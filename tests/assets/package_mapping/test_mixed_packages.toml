@@ -1,0 +1,32 @@
+[bat]
+arch-pkg = "bat"
+apt-pkg = "bat"
+fedora-pkg = "bat"
+flatpak-pkg = ""
+priority = "high"
+description = "A cat clone with syntax highlighting"
+brew-supports-linux = true
+brew-supports-darwin = true
+brew-is-cask = false
+
+[fd]
+arch-pkg = "fd"
+apt-pkg = "fd-find"
+fedora-pkg = "fd-find"
+flatpak-pkg = ""
+priority = "high"
+description = "A simple, fast and user-friendly alternative to find"
+brew-supports-linux = true
+brew-supports-darwin = true
+brew-is-cask = false
+
+[firefox]
+arch-pkg = "firefox"
+apt-pkg = "firefox"
+fedora-pkg = "firefox"
+flatpak-pkg = "org.mozilla.firefox"
+priority = "flatpak"
+description = "Web browser"
+brew-supports-linux = false
+brew-supports-darwin = false
+brew-is-cask = false

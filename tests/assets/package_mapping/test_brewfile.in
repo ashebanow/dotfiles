@@ -1,0 +1,4 @@
+tap "charmbracelet/tap"
+brew "bat"
+brew "gh"
+brew "zellij"

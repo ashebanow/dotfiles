@@ -2,6 +2,7 @@
 
 # setup common to all install scripts
 source "${DOTFILES}/lib/common/all.sh"
+source "${DOTFILES}/lib/install/package_mappings.sh"
 
 # make sure we only source this once.
 if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
@@ -15,14 +16,51 @@ fi
 # make sure we only source this once.
 
 function install_homebrew_packages() {
-    brew bundle install --upgrade --file="${DOTFILES}/Brewfile"
+    # Try to generate package lists from TOML first
+    if [[ -f "${DOTFILES}/package_mappings.toml" ]] && [[ -f "${DOTFILES}/bin/package_generators.py" ]]; then
+        log_info "Generating package lists from TOML..."
+        if python3 "${DOTFILES}/bin/package_generators.py" \
+            --toml "${DOTFILES}/package_mappings.toml" \
+            --original-brewfile "${DOTFILES}/Brewfile.in" \
+            --output-dir "${DOTFILES}" > "${DOTFILES}/.package_generation.log" 2>&1; then
+            log_info "✓ Generated package lists from TOML"
+        else
+            log_warn "Failed to generate from TOML, falling back to legacy processing"
+            # Process Brewfile.in to create filtered Brewfile (legacy method)
+            if ! process_brewfile; then
+                log_error "Failed to process Brewfile.in"
+                return 1
+            fi
+        fi
+    else
+        log_info "TOML system not available, using legacy processing"
+        # Process Brewfile.in to create filtered Brewfile (legacy method)
+        if ! process_brewfile; then
+            log_error "Failed to process Brewfile.in"
+            return 1
+        fi
+    fi
+    
+    # Install packages from the processed Brewfile
+    if [[ -f "${DOTFILES}/Brewfile" ]]; then
+        brew bundle install --upgrade --file="${DOTFILES}/Brewfile"
+    else
+        log_error "No Brewfile found for installation"
+        return 1
+    fi
 }
 
 function install_mac_only_homebrew_packages() {
     if ! $is_darwin; then
         return
     fi
-    brew bundle install --upgrade --file="${DOTFILES}/Brewfile-darwin"
+    
+    # The TOML generation above should have created Brewfile-darwin if needed
+    if [[ -f "${DOTFILES}/Brewfile-darwin" ]]; then
+        brew bundle install --upgrade --file="${DOTFILES}/Brewfile-darwin"
+    else
+        log_info "No Brewfile-darwin found, skipping macOS-specific packages"
+    fi
 }
 
 if [ -z "$sourced_install_homebrew_packages" ]; then

@@ -47,6 +47,18 @@ function install_arch_packages() {
     return;
   fi
 
+  # Try to generate package lists from TOML first
+  if [[ -f "${DOTFILES}/package_mappings.toml" ]] && [[ -f "${DOTFILES}/bin/package_generators.py" ]]; then
+    log_info "Generating Arch package list from TOML..."
+    if python3 "${DOTFILES}/bin/package_generators.py" \
+        --toml "${DOTFILES}/package_mappings.toml" \
+        --output-dir "${DOTFILES}" > "${DOTFILES}/.package_generation.log" 2>&1; then
+      log_info "✓ Generated Arch package list from TOML"
+    else
+      log_warn "Failed to generate from TOML, using existing Archfile"
+    fi
+  fi
+
   # Use DOTFILES environment variable instead of chezmoi template
   local archfile="${DOTFILES}/Archfile"
   if [[ ! -f "$archfile" ]]; then
@@ -61,7 +73,11 @@ function install_arch_packages() {
   fi
 
   readarray -t arch_package_list <"$archfile"
-  yay -S --needed --noconfirm --noprogressbar -q "${arch_package_list[@]}"
+  if [[ ${#arch_package_list[@]} -gt 0 ]]; then
+    yay -S --needed --noconfirm --noprogressbar -q "${arch_package_list[@]}"
+  else
+    log_info "No Arch packages to install"
+  fi
 }
 
 if [ -z "$sourced_install_arch" ]; then

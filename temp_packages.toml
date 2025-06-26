@@ -1,0 +1,11 @@
+[neovim]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Hyperextensible Vim-based text editor"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "high"
+

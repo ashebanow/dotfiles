@@ -1,0 +1,380 @@
+#!/usr/bin/env bash
+#
+# Test script for the new package management system
+# Tests both package_analysis.py and package_generators.py
+#
+
+set -euo pipefail
+
+# Get script directory and project root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+TEST_ASSETS="$SCRIPT_DIR/assets/package_mapping"
+TEMP_DIR="$SCRIPT_DIR/temp_test_output"
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Test counters
+TESTS_RUN=0
+TESTS_PASSED=0
+TESTS_FAILED=0
+
+print_header() {
+    echo -e "${BLUE}========================================${NC}"
+    echo -e "${BLUE}$1${NC}"
+    echo -e "${BLUE}========================================${NC}"
+}
+
+print_test() {
+    echo -e "${YELLOW}[TEST] $1${NC}"
+    ((TESTS_RUN++))
+}
+
+print_success() {
+    echo -e "${GREEN}✓ $1${NC}"
+    ((TESTS_PASSED++))
+}
+
+print_error() {
+    echo -e "${RED}✗ $1${NC}"
+    ((TESTS_FAILED++))
+}
+
+print_info() {
+    echo -e "${BLUE}ℹ $1${NC}"
+}
+
+# Setup
+setup_tests() {
+    print_header "Setting up test environment"
+    
+    # Clean up any previous test runs
+    rm -rf "$TEMP_DIR"
+    mkdir -p "$TEMP_DIR"
+    
+    # Check if required tools exist
+    if [[ ! -f "$PROJECT_ROOT/bin/package_analysis.py" ]]; then
+        print_error "package_analysis.py not found"
+        exit 1
+    fi
+    
+    if [[ ! -f "$PROJECT_ROOT/bin/package_generators.py" ]]; then
+        print_error "package_generators.py not found"
+        exit 1
+    fi
+    
+    print_success "Test environment setup complete"
+}
+
+# Test 1: Single package analysis
+test_single_package_analysis() {
+    print_test "Single package analysis (bat, gh, zellij)"
+    
+    cd "$PROJECT_ROOT"
+    
+    if python3 bin/package_analysis.py \
+        --package bat gh zellij \
+        --output "$TEMP_DIR/single_packages.toml" \
+        --cache "$TEMP_DIR/cache.json" > "$TEMP_DIR/single_test.log" 2>&1; then
+        
+        # Check if output file was created
+        if [[ -f "$TEMP_DIR/single_packages.toml" ]]; then
+            # Check if all packages are in the output
+            local missing_packages=()
+            for pkg in bat gh zellij; do
+                if ! grep -q "\\[$pkg\\]" "$TEMP_DIR/single_packages.toml"; then
+                    missing_packages+=("$pkg")
+                fi
+            done
+            
+            if [[ ${#missing_packages[@]} -eq 0 ]]; then
+                print_success "Single package analysis completed"
+            else
+                print_error "Missing packages in output: ${missing_packages[*]}"
+            fi
+        else
+            print_error "Output TOML file not created"
+        fi
+    else
+        print_error "Single package analysis failed"
+        cat "$TEMP_DIR/single_test.log"
+    fi
+}
+
+# Test 2: Package file parsing
+test_package_file_parsing() {
+    print_test "Package file parsing (Brewfile, Archfile, etc.)"
+    
+    cd "$PROJECT_ROOT"
+    
+    if python3 bin/package_analysis.py \
+        --package-lists "$TEST_ASSETS/test_brewfile.in" "$TEST_ASSETS/simple_archfile" \
+        --output "$TEMP_DIR/parsed_packages.toml" \
+        --cache "$TEMP_DIR/cache.json" > "$TEMP_DIR/parsing_test.log" 2>&1; then
+        
+        if [[ -f "$TEMP_DIR/parsed_packages.toml" ]]; then
+            # Check for some expected packages
+            local expected_packages=(bat gh zellij fd ripgrep git)
+            local missing_packages=()
+            
+            for pkg in "${expected_packages[@]}"; do
+                if ! grep -q "\\[$pkg\\]" "$TEMP_DIR/parsed_packages.toml"; then
+                    missing_packages+=("$pkg")
+                fi
+            done
+            
+            if [[ ${#missing_packages[@]} -eq 0 ]]; then
+                print_success "Package file parsing completed"
+            else
+                print_error "Missing expected packages: ${missing_packages[*]}"
+            fi
+        else
+            print_error "Output TOML file not created"
+        fi
+    else
+        print_error "Package file parsing failed"
+        cat "$TEMP_DIR/parsing_test.log"
+    fi
+}
+
+# Test 3: Package generation (TOML → package files)
+test_package_generation() {
+    print_test "Package generation (TOML → package files)"
+    
+    cd "$PROJECT_ROOT"
+    
+    # Use the test TOML file
+    if python3 bin/package_generators.py \
+        --toml "$TEST_ASSETS/test_mixed_packages.toml" \
+        --output-dir "$TEMP_DIR/generated_files" \
+        --original-brewfile "$TEST_ASSETS/test_brewfile.in" > "$TEMP_DIR/generation_test.log" 2>&1; then
+        
+        # Check if files were generated
+        local expected_files=(Brewfile)
+        local missing_files=()
+        
+        for file in "${expected_files[@]}"; do
+            if [[ ! -f "$TEMP_DIR/generated_files/$file" ]]; then
+                missing_files+=("$file")
+            fi
+        done
+        
+        if [[ ${#missing_files[@]} -eq 0 ]]; then
+            print_success "Package generation completed"
+            print_info "Generated files: $(ls "$TEMP_DIR/generated_files/")"
+        else
+            print_error "Missing generated files: ${missing_files[*]}"
+        fi
+    else
+        print_error "Package generation failed"
+        cat "$TEMP_DIR/generation_test.log"
+    fi
+}
+
+# Test 4: Roundtrip validation (basic)
+test_basic_roundtrip() {
+    print_test "Basic roundtrip validation"
+    
+    cd "$PROJECT_ROOT"
+    
+    # Step 1: Generate TOML from simple Brewfile
+    if python3 bin/package_analysis.py \
+        --package bat gh zellij \
+        --output "$TEMP_DIR/roundtrip_step1.toml" \
+        --cache "$TEMP_DIR/cache.json" > "$TEMP_DIR/roundtrip_test.log" 2>&1; then
+        
+        # Step 2: Generate Brewfile from TOML
+        if python3 bin/package_generators.py \
+            --toml "$TEMP_DIR/roundtrip_step1.toml" \
+            --output-dir "$TEMP_DIR/roundtrip_output" \
+            --original-brewfile "$TEST_ASSETS/test_brewfile.in" >> "$TEMP_DIR/roundtrip_test.log" 2>&1; then
+            
+            # Step 3: Compare package lists (not exact text, just packages)
+            if [[ -f "$TEMP_DIR/roundtrip_output/Brewfile" ]]; then
+                # Extract package names from original and generated
+                grep '^brew ' "$TEST_ASSETS/test_brewfile.in" | sed 's/brew "\([^"]*\)".*/\1/' | sort > "$TEMP_DIR/original_packages.txt"
+                grep '^brew ' "$TEMP_DIR/roundtrip_output/Brewfile" | sed 's/brew "\([^"]*\)".*/\1/' | sort > "$TEMP_DIR/generated_packages.txt"
+                
+                if diff -q "$TEMP_DIR/original_packages.txt" "$TEMP_DIR/generated_packages.txt" > /dev/null; then
+                    print_success "Basic roundtrip validation passed"
+                else
+                    print_error "Package lists don't match after roundtrip"
+                    echo "Original packages:"
+                    cat "$TEMP_DIR/original_packages.txt"
+                    echo "Generated packages:"
+                    cat "$TEMP_DIR/generated_packages.txt"
+                fi
+            else
+                print_error "Generated Brewfile not found"
+            fi
+        else
+            print_error "Package generation step failed"
+        fi
+    else
+        print_error "TOML generation step failed"
+    fi
+}
+
+# Test 5: Platform filtering
+test_platform_filtering() {
+    print_test "Platform filtering logic"
+    
+    cd "$PROJECT_ROOT"
+    
+    # Test different output targets
+    for target in homebrew all; do
+        if python3 bin/package_generators.py \
+            --toml "$TEST_ASSETS/test_mixed_packages.toml" \
+            --target "$target" \
+            --print-only > "$TEMP_DIR/platform_test_${target}.out" 2>&1; then
+            
+            if [[ -s "$TEMP_DIR/platform_test_${target}.out" ]]; then
+                print_success "Platform filtering for $target completed"
+            else
+                print_error "No output for platform filtering $target"
+            fi
+        else
+            print_error "Platform filtering for $target failed"
+        fi
+    done
+}
+
+# Test 6: Error handling
+test_error_handling() {
+    print_test "Error handling (invalid inputs)"
+    
+    cd "$PROJECT_ROOT"
+    
+    # Test with non-existent file
+    if python3 bin/package_analysis.py \
+        --package-lists "/nonexistent/file.in" \
+        --output "$TEMP_DIR/error_test.toml" \
+        --cache "$TEMP_DIR/cache.json" > "$TEMP_DIR/error_test.log" 2>&1; then
+        
+        # Should still work (just warn about missing file)
+        print_success "Graceful handling of missing input files"
+    else
+        # Check if it's a reasonable error
+        if grep -q "not found" "$TEMP_DIR/error_test.log"; then
+            print_success "Proper error reporting for missing files"
+        else
+            print_error "Unexpected error handling behavior"
+        fi
+    fi
+}
+
+# Main test runner
+run_all_tests() {
+    print_header "Package Management System Tests"
+    
+    setup_tests
+    echo
+    
+    test_single_package_analysis
+    echo
+    
+    test_package_file_parsing
+    echo
+    
+    test_package_generation
+    echo
+    
+    test_basic_roundtrip
+    echo
+    
+    test_platform_filtering
+    echo
+    
+    test_error_handling
+    echo
+    
+    # Summary
+    print_header "Test Summary"
+    echo "Tests run: $TESTS_RUN"
+    echo -e "Tests passed: ${GREEN}$TESTS_PASSED${NC}"
+    echo -e "Tests failed: ${RED}$TESTS_FAILED${NC}"
+    
+    if [[ $TESTS_FAILED -eq 0 ]]; then
+        echo -e "${GREEN}All tests passed!${NC}"
+        return 0
+    else
+        echo -e "${RED}Some tests failed.${NC}"
+        return 1
+    fi
+}
+
+# Cleanup function
+cleanup() {
+    if [[ "${KEEP_TEMP:-}" != "1" ]]; then
+        print_info "Cleaning up temporary files..."
+        rm -rf "$TEMP_DIR"
+    else
+        print_info "Keeping temporary files in: $TEMP_DIR"
+    fi
+}
+
+# Set up cleanup trap (but only for full test runs)
+# Individual tests handle their own cleanup
+
+# Parse command line arguments
+case "${1:-all}" in
+    "all")
+        trap cleanup EXIT
+        run_all_tests
+        ;;
+    "single")
+        setup_tests
+        echo
+        test_single_package_analysis
+        cleanup
+        ;;
+    "parsing")
+        setup_tests
+        echo
+        test_package_file_parsing
+        cleanup
+        ;;
+    "generation")
+        setup_tests
+        echo
+        test_package_generation
+        cleanup
+        ;;
+    "roundtrip")
+        setup_tests
+        echo
+        test_basic_roundtrip
+        cleanup
+        ;;
+    "filtering")
+        setup_tests
+        echo
+        test_platform_filtering
+        cleanup
+        ;;
+    "errors")
+        setup_tests
+        echo
+        test_error_handling
+        cleanup
+        ;;
+    *)
+        echo "Usage: $0 [all|single|parsing|generation|roundtrip|filtering|errors]"
+        echo "  all       - Run all tests (default)"
+        echo "  single    - Test single package analysis"
+        echo "  parsing   - Test package file parsing"
+        echo "  generation - Test package file generation"
+        echo "  roundtrip - Test basic roundtrip validation"
+        echo "  filtering - Test platform filtering"
+        echo "  errors    - Test error handling"
+        echo ""
+        echo "Environment variables:"
+        echo "  KEEP_TEMP=1 - Keep temporary test files for debugging"
+        exit 1
+        ;;
+esac

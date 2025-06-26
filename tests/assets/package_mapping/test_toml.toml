@@ -1,0 +1,704 @@
+[bandwhich]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Terminal bandwidth utilization tool"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[bat]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "A cat clone with syntax highlighting"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[bitwarden-cli]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Bitwarden command line interface"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[btop]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Resource monitor with better UI"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[coreutils]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "GNU core utilities"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "high"
+
+[ctop]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Top-like interface for container metrics"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[curl]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Command line tool for transferring data"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "high"
+
+[dive]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Tool for exploring Docker images"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[duf]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Disk usage/free utility"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[dust]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "More intuitive version of du"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[eza]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Modern replacement for ls"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[fastfetch]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "System information fetch tool"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[fd]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Simple, fast alternative to find"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[findutils]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "GNU find utilities"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[fish]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Smart and user-friendly command line shell"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[fzf]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Command-line fuzzy finder"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "high"
+
+[gcc]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "GNU Compiler Collection"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[gh]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "GitHub CLI tool"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "high"
+
+[git]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Distributed version control system"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "high"
+
+[git-delta]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Syntax-highlighting pager for git"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[git-lfs]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Git Large File Storage"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[glances]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "System monitoring tool"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[glow]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Markdown renderer for the terminal"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[gnupg]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "GNU Privacy Guard"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[htop]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Interactive process viewer"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[hyperfine]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Command-line benchmarking tool"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[imagemagick]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Image manipulation toolkit"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[imv]
+apt-pkg = ""
+arch-pkg = ""
+description = "Command line image viewer for Wayland/X11"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[jj]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Git-compatible VCS"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[jq]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Command-line JSON processor"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "high"
+
+[just]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Command runner and build tool"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[kitty]
+apt-pkg = ""
+arch-pkg = ""
+description = "GPU-accelerated terminal emulator"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[lazygit]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Simple terminal UI for git commands"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[llvm]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Collection of modular compiler and toolchain technologies"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[mpv]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Media player"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[nautilus]
+apt-pkg = ""
+arch-pkg = ""
+description = "GNOME file manager"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[neovim]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Hyperextensible Vim-based text editor"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "high"
+
+[npm]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Node.js package manager"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[pavucontrol]
+apt-pkg = ""
+arch-pkg = ""
+description = "PulseAudio volume control"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[playerctl]
+apt-pkg = ""
+arch-pkg = ""
+description = "Command-line utility for controlling media players"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[ripgrep]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Line-oriented search tool"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "high"
+
+[rsync]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "File synchronization tool"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "high"
+
+[rust]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Systems programming language"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[shellcheck]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Static analysis tool for shell scripts"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[shfmt]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Shell parser and formatter"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[starship]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Cross-shell prompt"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "high"
+
+[tailscale]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Zero config VPN"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[thefuck]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Corrects errors in previous console commands"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[thunar]
+apt-pkg = ""
+arch-pkg = ""
+description = "Xfce file manager"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[tmux]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Terminal multiplexer"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "high"
+
+[tree]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Display directories as trees"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[typescript]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+description = "TypeScript compiler"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[unzip]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Extraction utility for ZIP archives"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[vim]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Vi IMproved text editor"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[waybar]
+apt-pkg = ""
+arch-pkg = ""
+description = "Wayland bar for Sway and Wlroots compositors"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[wget]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Network downloader"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[wl-clipboard]
+apt-pkg = ""
+arch-pkg = ""
+description = "Command-line copy/paste utilities for Wayland"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[wlogout]
+apt-pkg = ""
+arch-pkg = ""
+description = "Logout menu for Wayland"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[wofi]
+apt-pkg = ""
+arch-pkg = ""
+description = "Launcher/menu program for wlroots based wayland compositors"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[xclip]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Command line interface to X11 clipboard"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[yad]
+apt-pkg = ""
+arch-pkg = ""
+description = "Display GTK+ dialogs from shell scripts"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[yq]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Command-line YAML processor"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[yt-dlp]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "YouTube downloader"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "low"
+
+[zellij]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "TODO: Add description for zellij"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[zip]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Compression utility for ZIP archives"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[zoxide]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Smarter cd command"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
+[zsh]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = true
+description = "Z shell"
+fedora-pkg = ""
+flatpak-pkg = ""
+priority = "medium"
+
