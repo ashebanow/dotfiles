@@ -329,7 +329,22 @@ class RepologyClient:
     
     def _is_flatpak_application_id(self, package_name: str) -> bool:
         """Check if package name is a Flatpak application ID (reverse domain notation)."""
-        return '.' in package_name and len(package_name.split('.')) >= 2
+        # Must have dots and at least 2 components
+        if '.' not in package_name or len(package_name.split('.')) < 2:
+            return False
+        
+        # Exclude Homebrew versioned packages (contain @)
+        if '@' in package_name:
+            return False
+            
+        # Exclude Homebrew tapped packages (contain /)
+        if '/' in package_name:
+            return False
+        
+        # Must start with known TLD patterns for Flatpak
+        flatpak_tlds = {'org', 'com', 'app', 'net', 'io', 'dev', 'edu', 'gov', 'mil', 'it', 'us', 'de', 'uk'}
+        first_part = package_name.split('.')[0].lower()
+        return first_part in flatpak_tlds
     
     def _extract_project_name_from_flatpak_id(self, flatpak_id: str) -> str:
         """Extract upstream project name from Flatpak application ID using heuristics."""
@@ -859,9 +874,20 @@ def generate_package_entry(package_name: str, repology_client: RepologyClient,
     
     # Check if this is a Flatpak application ID and extract project name
     is_flatpak_id = repology_client._is_flatpak_application_id(package_name)
+    brew_tap = None
+    
     if is_flatpak_id:
         project_name = repology_client._extract_project_name_from_flatpak_id(package_name)
         print(f"    Detected Flatpak ID: {package_name} → {project_name}")
+    elif '/' in package_name:
+        # Handle Homebrew tapped packages
+        parts = package_name.split('/')
+        if len(parts) >= 2:
+            brew_tap = '/'.join(parts[:-1])  # Everything except the last part
+            project_name = parts[-1]  # Just the package name
+            print(f"    Detected tapped package: {package_name} → {project_name} (tap: {brew_tap})")
+        else:
+            project_name = package_name
     else:
         project_name = package_name
     
@@ -871,6 +897,7 @@ def generate_package_entry(package_name: str, repology_client: RepologyClient,
         'apt-pkg': '',
         'fedora-pkg': '',
         'flatpak-pkg': package_name if is_flatpak_id else '',
+        'brew-tap': brew_tap,
         'prefer_flatpak': is_flatpak_id,  # Auto-set based on source
         'priority': None,
         'description': f'TODO: Add description for {project_name}'
@@ -999,10 +1026,12 @@ def generate_package_entry(package_name: str, repology_client: RepologyClient,
     # Fallback: query Homebrew directly if no useful Repology data
     if not has_repology_data:
         print(f"    No useful Repology data, trying Homebrew...")
-        # For Flatpak IDs, try both the extracted project name and original name
-        brew_data = BrewClient.query_package(project_name)
+        # Use full package name with tap if available, otherwise project name
+        brew_query_name = package_name if brew_tap else project_name
+        brew_data = BrewClient.query_package(brew_query_name)
+        
+        # For Flatpak IDs, also try the original name as fallback
         if not brew_data and is_flatpak_id:
-            # Fallback to original Flatpak ID in case it's somehow in Homebrew
             brew_data = BrewClient.query_package(package_name)
         
         if brew_data:

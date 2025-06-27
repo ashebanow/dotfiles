@@ -1,36 +1,26 @@
-[bitwarden]
+[act3]
 apt-pkg = ""
-arch-is-aur = true
-arch-pkg = "bitwarden"
+arch-pkg = ""
 brew-is-cask = false
-brew-supports-darwin = true
+brew-supports-darwin = false
 brew-supports-linux = false
-description = "Desktop password and login vault"
+brew-tap = "dhth/tap"
+description = "TODO: Add description for act3"
 fedora-pkg = ""
-flatpak-pkg = "com.bitwarden.desktop"
-prefer_flatpak = true
+flatpak-pkg = ""
+prefer_flatpak = false
 priority = ""
 
-[firefox]
-apt-pkg = "firefox"
-arch-is-aur = true
-arch-pkg = "firefox-i18n-is"
+["python@3.11"]
+apt-pkg = ""
+arch-pkg = ""
 brew-is-cask = false
 brew-supports-darwin = true
-brew-supports-linux = false
-description = "Mozilla Firefox (or simply Firefox) is a free and open-source web browser"
-fedora-pkg = "firefox"
-flatpak-pkg = "org.mozilla.firefox"
-prefer_flatpak = true
-priority = ""
-
-[ytmdesktop]
-apt-pkg = ""
-arch-is-aur = true
-arch-pkg = "ytmdesktop"
-description = "A Desktop App for YouTube Music"
+brew-supports-linux = true
+brew-tap = ""
+description = "TODO: Add description for python@3.11"
 fedora-pkg = ""
-flatpak-pkg = "app.ytmdesktop.ytmdesktop"
-prefer_flatpak = true
+flatpak-pkg = ""
+prefer_flatpak = false
 priority = ""
 
