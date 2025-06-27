@@ -838,17 +838,17 @@ def main():
     new_packages_by_type = {}
     
     # Read native package files
-    arch_packages = read_package_file(dotfiles_dir / "Archfile")
+    arch_packages = read_package_file(dotfiles_dir / "tests/assets/legacy_packages/Archfile")
     new_packages_by_type['arch'] = arch_packages - native_packages['arch']
     
-    apt_packages = read_package_file(dotfiles_dir / "Aptfile") 
+    apt_packages = read_package_file(dotfiles_dir / "tests/assets/legacy_packages/Aptfile") 
     new_packages_by_type['apt'] = apt_packages - native_packages['apt']
     
     # Check if Fedorafile exists
     fedora_packages = read_package_file(dotfiles_dir / "Fedorafile")
     new_packages_by_type['fedora'] = fedora_packages - native_packages['fedora']
     
-    flatpak_packages = read_package_file(dotfiles_dir / "Flatfile")
+    flatpak_packages = read_package_file(dotfiles_dir / "tests/assets/legacy_packages/Flatfile")
     new_packages_by_type['flatpak'] = flatpak_packages - native_packages['flatpak']
     
     # Read homebrew files

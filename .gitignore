@@ -10,3 +10,6 @@ devenv.local.nix
 
 # miscellaneous install related files
 Aptfile.new
+
+# Python virtual environment
+.venv/

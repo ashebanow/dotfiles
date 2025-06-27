@@ -1,0 +1,13 @@
+{
+  "homebrew_to_repology": {
+    "gh": "github-cli",
+    "fd": "fd-find",
+    "dust": "du-dust",
+    "python@3.11": "python"
+  },
+  "notes": {
+    "purpose": "Maps Homebrew package names to their corresponding Repology project names",
+    "usage": "When querying Repology for a Homebrew package, use the mapped name if it exists",
+    "maintenance": "Add entries here when package names differ between Homebrew and Repology"
+  }
+}

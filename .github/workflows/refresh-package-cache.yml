@@ -1,0 +1,291 @@
+name: Refresh Package Cache
+
+on:
+  schedule:
+    # Run daily at 02:00 UTC (different time than most other workflows)
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    inputs:
+      segment:
+        description: 'Cache segment to refresh (0-6, or "all" for full refresh)'
+        required: false
+        default: 'auto'
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-cache:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+        
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install toml requests
+        
+    - name: Install Just
+      uses: extractions/setup-just@v1
+      
+    - name: Determine cache segment to refresh
+      id: segment
+      run: |
+        if [[ "${{ github.event.inputs.segment }}" == "all" ]]; then
+          echo "segment=all" >> $GITHUB_OUTPUT
+          echo "description=Full cache refresh" >> $GITHUB_OUTPUT
+        elif [[ "${{ github.event.inputs.segment }}" =~ ^[0-6]$ ]]; then
+          echo "segment=${{ github.event.inputs.segment }}" >> $GITHUB_OUTPUT
+          echo "description=Manual oldest-entries refresh (day ${{ github.event.inputs.segment }})" >> $GITHUB_OUTPUT
+        else
+          # Auto mode: use day of week (0=Sunday, 6=Saturday) 
+          segment=$(date +%w)
+          echo "segment=$segment" >> $GITHUB_OUTPUT
+          echo "description=Daily oldest-entries refresh (day $segment)" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Create cache refresh script
+      run: |
+        cat > bin/refresh_cache_segment.py << 'EOF'
+        #!/usr/bin/env python3
+        """
+        Refresh a segment of the package cache.
+        Divides packages into 7 segments and refreshes one segment per day.
+        """
+        
+        import argparse
+        import json
+        import sys
+        import time
+        from pathlib import Path
+        
+        # Import the package analysis functionality
+        sys.path.insert(0, str(Path(__file__).parent))
+        from package_analysis import RepologyClient, load_toml
+        
+        def refresh_cache_segment(cache_file: str, segment: int, total_segments: int = 7):
+            """Refresh the oldest 1/7 of cache entries."""
+            print(f"Refreshing oldest cache entries (segment {segment})")
+            
+            # Load existing cache
+            cache_path = Path(cache_file)
+            if cache_path.exists():
+                with open(cache_path, 'r') as f:
+                    cache = json.load(f)
+            else:
+                cache = {}
+            
+            # Load package list from TOML
+            toml_path = Path("package_mappings.toml")
+            if not toml_path.exists():
+                print("Error: package_mappings.toml not found")
+                return False
+                
+            packages = load_toml(str(toml_path))
+            all_package_names = set(packages.keys())
+            
+            # Get packages with timestamps and sort by age
+            current_time = time.time()
+            packages_with_age = []
+            
+            for package_name in all_package_names:
+                if package_name in cache and isinstance(cache[package_name], dict) and '_timestamp' in cache[package_name]:
+                    timestamp = cache[package_name]['_timestamp']
+                    age = current_time - timestamp
+                    packages_with_age.append((package_name, age, timestamp))
+                else:
+                    # Missing or no timestamp - treat as infinitely old
+                    packages_with_age.append((package_name, float('inf'), 0))
+            
+            # Sort by age (oldest first)
+            packages_with_age.sort(key=lambda x: x[1], reverse=True)
+            
+            # Calculate how many to refresh (1/7 of total, minimum 1)
+            total_packages = len(packages_with_age)
+            refresh_count = max(1, total_packages // total_segments)
+            
+            # If this is the last segment of the week, get any remaining
+            if segment == total_segments - 1:
+                # Check how many we would have refreshed in previous segments
+                already_refreshed = (total_segments - 1) * (total_packages // total_segments)
+                refresh_count = total_packages - already_refreshed
+            
+            packages_to_refresh = packages_with_age[:refresh_count]
+            
+            print(f"Total packages: {total_packages}")
+            print(f"Refreshing {len(packages_to_refresh)} oldest packages")
+            if packages_to_refresh:
+                oldest_age_days = packages_to_refresh[0][1] / (24 * 60 * 60)
+                newest_age_days = packages_to_refresh[-1][1] / (24 * 60 * 60)
+                print(f"Age range: {oldest_age_days:.1f} - {newest_age_days:.1f} days old")
+            
+            # Initialize Repology client
+            client = RepologyClient(cache_file)
+            
+            # Refresh selected packages
+            refreshed_count = 0
+            for i, (package_name, age, old_timestamp) in enumerate(packages_to_refresh, 1):
+                age_days = age / (24 * 60 * 60) if age != float('inf') else 'never cached'
+                print(f"  [{i}/{len(packages_to_refresh)}] Refreshing {package_name} (age: {age_days})")
+                
+                # Force refresh by temporarily removing from cache
+                if package_name in client.cache:
+                    del client.cache[package_name]
+                
+                # Query package (will add back to cache with new timestamp)
+                result = client.query_package(package_name)
+                if result is not None:
+                    refreshed_count += 1
+                
+                # Rate limiting
+                time.sleep(2.1)  # Slightly more conservative than normal
+            
+            print(f"✅ Refreshed {refreshed_count} packages (oldest entries)")
+            return True
+        
+        def refresh_all_cache(cache_file: str):
+            """Refresh the entire cache."""
+            print("Performing full cache refresh")
+            
+            # Load package list from TOML
+            toml_path = Path("package_mappings.toml")
+            if not toml_path.exists():
+                print("Error: package_mappings.toml not found")
+                return False
+                
+            packages = load_toml(str(toml_path))
+            package_names = sorted(packages.keys())
+            
+            print(f"Refreshing all {len(package_names)} packages")
+            
+            # Remove existing cache to force full refresh
+            cache_path = Path(cache_file)
+            if cache_path.exists():
+                cache_path.unlink()
+            
+            # Initialize fresh client
+            client = RepologyClient(cache_file)
+            
+            # Refresh all packages
+            refreshed_count = 0
+            for i, package_name in enumerate(package_names, 1):
+                print(f"  [{i}/{len(package_names)}] Refreshing {package_name}")
+                
+                result = client.query_package(package_name)
+                if result is not None:
+                    refreshed_count += 1
+                
+                # Rate limiting
+                time.sleep(2.1)
+            
+            print(f"✅ Refreshed {refreshed_count} packages")
+            return True
+        
+        def main():
+            parser = argparse.ArgumentParser(description='Refresh package cache segment')
+            parser.add_argument('--segment', type=str, required=True,
+                              help='Segment to refresh (0-6) or "all" for full refresh')
+            parser.add_argument('--cache', default='.repology_cache.json',
+                              help='Cache file path')
+            
+            args = parser.parse_args()
+            
+            if args.segment == "all":
+                success = refresh_all_cache(args.cache)
+            else:
+                try:
+                    segment_num = int(args.segment)
+                    if 0 <= segment_num <= 6:
+                        success = refresh_cache_segment(args.cache, segment_num)
+                    else:
+                        print("Error: Segment must be 0-6 or 'all'")
+                        return 1
+                except ValueError:
+                    print("Error: Invalid segment number")
+                    return 1
+            
+            return 0 if success else 1
+        
+        if __name__ == "__main__":
+            sys.exit(main())
+        EOF
+        
+        chmod +x bin/refresh_cache_segment.py
+        
+    - name: Refresh cache segment
+      run: |
+        echo "Starting cache refresh: ${{ steps.segment.outputs.description }}"
+        python bin/refresh_cache_segment.py --segment "${{ steps.segment.outputs.segment }}" --cache .repology_cache.json
+        
+    - name: Check if cache was updated
+      id: check_changes
+      run: |
+        if git diff --quiet .repology_cache.json; then
+          echo "has_changes=false" >> $GITHUB_OUTPUT
+          echo "No changes to cache file"
+        else
+          echo "has_changes=true" >> $GITHUB_OUTPUT
+          echo "Cache file has been updated"
+          
+          # Show some stats about the changes
+          echo "Cache file size:" $(du -h .repology_cache.json | cut -f1)
+          echo "Number of entries:" $(jq 'keys | length' .repology_cache.json)
+        fi
+        
+    - name: Commit updated cache
+      if: steps.check_changes.outputs.has_changes == 'true'
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        # Create descriptive commit message
+        ENTRIES=$(jq 'keys | length' .repology_cache.json)
+        CACHE_SIZE=$(du -h .repology_cache.json | cut -f1)
+        
+        git add .repology_cache.json
+        git commit -m "🔄 ${{ steps.segment.outputs.description }}
+
+        Updated Repology package cache by refreshing oldest entries.
+        Uses age-based refresh strategy to keep cache optimally fresh.
+        
+        📊 Cache stats:
+        - Total entries: $ENTRIES packages
+        - Cache size: $CACHE_SIZE
+        - Strategy: Refresh oldest 1/7 of entries daily
+        - Updated: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
+        
+        🤖 Automated update via GitHub Actions"
+        
+    - name: Push changes
+      if: steps.check_changes.outputs.has_changes == 'true'
+      run: |
+        git push
+        echo "✅ Cache updated and pushed to repository"
+        
+    - name: Cache refresh summary
+      run: |
+        echo "## Cache Refresh Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "- **Segment**: ${{ steps.segment.outputs.segment }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Description**: ${{ steps.segment.outputs.description }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Changes**: ${{ steps.check_changes.outputs.has_changes }}" >> $GITHUB_STEP_SUMMARY
+        
+        if [[ -f .repology_cache.json ]]; then
+          ENTRIES=$(jq 'keys | length' .repology_cache.json)
+          CACHE_SIZE=$(du -h .repology_cache.json | cut -f1)
+          echo "- **Total entries**: $ENTRIES packages" >> $GITHUB_STEP_SUMMARY
+          echo "- **Cache size**: $CACHE_SIZE" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "Next scheduled run: $(date -d 'tomorrow 02:00 UTC' -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY

@@ -1,0 +1,24 @@
+{
+  "python@3.11": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "python311",
+      "apt": "python3.9",
+      "fedora": "python3.9",
+      "flatpak": null
+    },
+    "description": "Python is a programming language that lets you work quickly and integrate systems more effectively.",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751000776.898762
+  }
+}

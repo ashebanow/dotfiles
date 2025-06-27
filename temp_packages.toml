@@ -1,11 +1,36 @@
-[neovim]
+[bitwarden]
 apt-pkg = ""
-arch-pkg = ""
+arch-is-aur = true
+arch-pkg = "bitwarden"
 brew-is-cask = false
 brew-supports-darwin = true
-brew-supports-linux = true
-description = "Hyperextensible Vim-based text editor"
+brew-supports-linux = false
+description = "Desktop password and login vault"
 fedora-pkg = ""
-flatpak-pkg = ""
-priority = "high"
+flatpak-pkg = "com.bitwarden.desktop"
+prefer_flatpak = true
+priority = ""
+
+[firefox]
+apt-pkg = "firefox"
+arch-is-aur = true
+arch-pkg = "firefox-i18n-is"
+brew-is-cask = false
+brew-supports-darwin = true
+brew-supports-linux = false
+description = "Mozilla Firefox (or simply Firefox) is a free and open-source web browser"
+fedora-pkg = "firefox"
+flatpak-pkg = "org.mozilla.firefox"
+prefer_flatpak = true
+priority = ""
+
+[ytmdesktop]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "ytmdesktop"
+description = "A Desktop App for YouTube Music"
+fedora-pkg = ""
+flatpak-pkg = "app.ytmdesktop.ytmdesktop"
+prefer_flatpak = true
+priority = ""
 

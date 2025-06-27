@@ -1,0 +1,65 @@
+{
+  "dockutil": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Tool for managing dock items",
+    "brew-supports-linux": false,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1750985513.0804858
+  },
+  "test-pkg": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751043197.26008
+  },
+  "ripgrep": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "ripgrep",
+      "apt": "rust-ripgrep",
+      "fedora": "rust-ripgrep",
+      "flatpak": null
+    },
+    "description": "ripgrep recursively searches directories for a regex pattern",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751043493.318412
+  }
+}

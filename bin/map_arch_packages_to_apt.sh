@@ -8,8 +8,8 @@ if ! command -v jq &>/dev/null; then
     exit 1
 fi
 
-APTFILE="$DOTFILES/Aptfile"
-APTFILE_NEW="$DOTFILES/Aptfile.new"
+APTFILE="$DOTFILES/tests/assets/legacy_packages/Aptfile"
+APTFILE_NEW="$DOTFILES/tests/assets/legacy_packages/Aptfile.new"
 declare -A mappings
 
 # Function to set up global mappings table
@@ -273,7 +273,7 @@ find_ubuntu_equivalent_by_metadata() {
 setup_mappings_table
 
 # Read arch packages into array
-readarray -t arch_package_list <"$DOTFILES/Archfile"
+readarray -t arch_package_list <"$DOTFILES/tests/assets/legacy_packages/Archfile"
 
 log_info "Processing ${#arch_package_list[@]} packages..."
 

@@ -35,6 +35,23 @@ except ImportError:
             raise ImportError("No TOML library available. Install with: pip install toml")
 
 
+def _has_any_packages(entry: Dict[str, Any]) -> bool:
+    """Check if a TOML entry has any packages found on any platform."""
+    package_fields = ['arch-pkg', 'apt-pkg', 'fedora-pkg', 'flatpak-pkg']
+    
+    # Check if any package field has a non-empty value
+    for field in package_fields:
+        if entry.get(field, '').strip():
+            return True
+    
+    # Check homebrew availability (indicated by brew-* fields)
+    homebrew_fields = ['brew-supports-darwin', 'brew-supports-linux', 'brew-is-cask']
+    if any(entry.get(field) is not None for field in homebrew_fields):
+        return True
+    
+    return False
+
+
 class PlatformDetector:
     """Detect current platform capabilities."""
     
@@ -116,6 +133,10 @@ class PackageFilter:
         if not self.platform.supports_homebrew():
             return False
         
+        # Check if this entry has any packages at all (skip empty entries)
+        if not _has_any_packages(entry):
+            return False
+        
         # Check if Homebrew supports this platform
         if self.platform.is_darwin:
             if not entry.get('brew-supports-darwin', True):
@@ -150,6 +171,10 @@ class PackageFilter:
             elif target == "homebrew-darwin":
                 # Darwin-specific homebrew packages (usually casks)
                 if self.platform.is_darwin:
+                    # Skip empty entries
+                    if not _has_any_packages(entry):
+                        continue
+                        
                     # Include packages that are darwin-only or casks
                     is_cask = entry.get('brew-is-cask', False)
                     darwin_only = entry.get('brew-supports-darwin', True) and not entry.get('brew-supports-linux', False)
@@ -168,9 +193,42 @@ class PackageFileGenerator:
     
     @staticmethod
     def generate_brewfile(packages: Dict[str, str], toml_data: Dict[str, Any], 
-                         original_brewfile: str = None) -> str:
-        """Generate Brewfile content."""
+                         original_brewfile: str = None, override_file: str = None) -> str:
+        """Generate Brewfile content with override support."""
         lines = []
+        override_packages = set()
+        
+        # Add auto-generated overrides from TOML priority (highest priority)
+        auto_override_packages = []
+        for pkg_name, entry in toml_data.items():
+            if entry.get('priority') == 'override':
+                auto_override_packages.append(pkg_name)
+                override_packages.add(pkg_name)
+        
+        if auto_override_packages:
+            lines.append("# Override packages (installed on all platforms)")
+            for pkg_name in sorted(auto_override_packages):
+                entry = toml_data[pkg_name]
+                is_cask = entry.get('brew-is-cask', False)
+                if is_cask:
+                    lines.append(f'cask "{pkg_name}"')
+                else:
+                    lines.append(f'brew "{pkg_name}"')
+            lines.append("")  # Empty line after auto-overrides
+        
+        # Add manual overrides from file (fallback/additional)
+        if override_file and os.path.exists(override_file):
+            lines.append("# Additional override packages (from file)")
+            with open(override_file, 'r') as f:
+                for line in f:
+                    line = line.strip()
+                    if line and not line.startswith('#'):
+                        lines.append(line)
+                        # Track override package names to avoid duplicates
+                        if line.startswith('brew "') or line.startswith('cask "'):
+                            pkg_name = line.split('"')[1]
+                            override_packages.add(pkg_name)
+            lines.append("")  # Empty line after manual overrides
         
         # Add taps from original file if available
         if original_brewfile and os.path.exists(original_brewfile):
@@ -182,8 +240,12 @@ class PackageFileGenerator:
         
         lines.append("")  # Empty line after taps
         
-        # Add brew packages
+        # Add platform-specific brew packages (skip if already in overrides)
+        lines.append("# Platform-specific packages")
         for package_name in sorted(packages.keys()):
+            if package_name in override_packages:
+                continue  # Skip packages already in overrides
+                
             entry = toml_data[package_name]
             is_cask = entry.get('brew-is-cask', False)
             
@@ -251,15 +313,19 @@ def generate_package_files(toml_path: str, output_dir: str = None,
     
     # Homebrew files
     if homebrew_packages:
+        # Look for override file in the same directory as TOML
+        toml_dir = Path(toml_path).parent
+        override_file = toml_dir / "Brewfile-overrides"
+        
         brewfile_content = generator.generate_brewfile(
-            homebrew_packages, toml_data, original_brewfile
+            homebrew_packages, toml_data, original_brewfile, str(override_file)
         )
         generated_files['Brewfile'] = brewfile_content
     
     # Darwin-specific Homebrew file
     if homebrew_darwin_packages and platform.is_darwin:
         brewfile_darwin_content = generator.generate_brewfile(
-            homebrew_darwin_packages, toml_data, None  # No taps for darwin-specific file
+            homebrew_darwin_packages, toml_data, None, None  # No taps or overrides for darwin-specific file
         )
         generated_files['Brewfile-darwin'] = brewfile_darwin_content
     

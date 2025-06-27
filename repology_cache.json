@@ -1,0 +1,166 @@
+{
+  "python@3.11": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "python",
+      "apt": "python3.13",
+      "fedora": "python3.13",
+      "flatpak": null
+    },
+    "description": "Python is a programming language that lets you work quickly and integrate systems more effectively.",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751002683.4066901
+  },
+  "grimblast": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "grimblast-git",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "A helper for screenshots within Hyprland.",
+    "_timestamp": 1751042733.0366771
+  },
+  "nodejs": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "nodejs",
+      "apt": "nodejs",
+      "fedora": "nodejs",
+      "flatpak": null
+    },
+    "description": "Platform built on V8 to build network applications",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751042744.139751
+  },
+  "nonexistent-package-test": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751042753.769731
+  },
+  "test-missing-package": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751042770.227795
+  },
+  "python": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "python",
+      "apt": "python3.13",
+      "fedora": "python3.13",
+      "flatpak": null
+    },
+    "description": "Python is a programming language that lets you work quickly and integrate systems more effectively.",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751042773.906125
+  },
+  "bat": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751044264.6838331
+  },
+  "git": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "git",
+      "apt": "git",
+      "fedora": "git",
+      "flatpak": null
+    },
+    "description": "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751044279.17406
+  }
+}

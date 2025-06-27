@@ -16,10 +16,30 @@ fi
 # make sure we only source this once.
 
 function install_homebrew_packages() {
+    # First, install override packages (critical infrastructure)
+    if [[ -f "${DOTFILES}/Brewfile-overrides" ]]; then
+        log_info "Installing override packages (critical infrastructure)..."
+        brew bundle install --file="${DOTFILES}/Brewfile-overrides"
+        
+        # Install Python dependencies needed for package analysis
+        if command -v python3.11 >/dev/null 2>&1; then
+            log_info "Installing Python dependencies for package management..."
+            python3.11 -m pip install --user --quiet toml requests || {
+                log_warn "Failed to install Python dependencies, package analysis may not work"
+            }
+        fi
+    fi
+    
+    # Determine which Python to use for package generation (prefer Homebrew Python)
+    PYTHON_CMD="python3"
+    if command -v python3.11 >/dev/null 2>&1; then
+        PYTHON_CMD="python3.11"
+    fi
+    
     # Try to generate package lists from TOML first
     if [[ -f "${DOTFILES}/package_mappings.toml" ]] && [[ -f "${DOTFILES}/bin/package_generators.py" ]]; then
-        log_info "Generating package lists from TOML..."
-        if python3 "${DOTFILES}/bin/package_generators.py" \
+        log_info "Generating package lists from TOML using ${PYTHON_CMD}..."
+        if "${PYTHON_CMD}" "${DOTFILES}/bin/package_generators.py" \
             --toml "${DOTFILES}/package_mappings.toml" \
             --original-brewfile "${DOTFILES}/Brewfile.in" \
             --output-dir "${DOTFILES}" > "${DOTFILES}/.package_generation.log" 2>&1; then
@@ -43,6 +63,7 @@ function install_homebrew_packages() {
     
     # Install packages from the processed Brewfile
     if [[ -f "${DOTFILES}/Brewfile" ]]; then
+        log_info "Installing platform-specific packages..."
         brew bundle install --upgrade --file="${DOTFILES}/Brewfile"
     else
         log_error "No Brewfile found for installation"

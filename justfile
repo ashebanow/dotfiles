@@ -13,15 +13,34 @@ regen-toml:
     echo "Regenerating package_mappings.toml from package files..."
     echo "Using Python: {{_python_cmd}}"
     {{_python_cmd}} bin/package_analysis.py \
-        --package-lists Brewfile.in Brewfile-darwin Archfile Aptfile Flatfile \
+        --package-lists Brewfile.in Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
         --output package_mappings.toml.new \
         --cache .repology_cache.json
     echo "Generated package_mappings.toml.new"
     echo "Review changes with: diff package_mappings.toml package_mappings.toml.new"
     echo "Apply changes with: mv package_mappings.toml.new package_mappings.toml"
 
-# Helper function to get best Python executable  
-_python_cmd := if `command -v python3.11 >/dev/null 2>&1; echo $?` == "0" { "python3.11" } else { "python3" }
+# Setup Python virtual environment for package management
+[group('setup')]
+setup-python:
+    #!/usr/bin/env bash
+    if [ ! -d ".venv" ]; then
+        echo "Creating Python virtual environment with uv..."
+        uv venv .venv --python $(brew --prefix python3)/bin/python3
+        echo "Installing dependencies..."
+        uv pip install toml requests
+        echo "✓ Python environment ready"
+    else
+        echo "✓ Python environment already exists"
+        # Verify dependencies are available
+        if ! .venv/bin/python3 -c "import requests, toml" 2>/dev/null; then
+            echo "Installing missing dependencies..."
+            uv pip install toml requests
+        fi
+    fi
+
+# Python executable using virtual environment
+_python_cmd := ".venv/bin/python3"
 
 # Regenerate package_mappings.toml and automatically apply changes
 [group('package-management')]
@@ -30,7 +49,7 @@ regen-toml-apply:
     echo "Regenerating and applying package_mappings.toml..."
     echo "Using Python: {{_python_cmd}}"
     {{_python_cmd}} bin/package_analysis.py \
-        --package-lists Brewfile.in Brewfile-darwin Archfile Aptfile Flatfile \
+        --package-lists Brewfile.in Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
         --output package_mappings.toml \
         --cache .repology_cache.json
     echo "✓ Updated package_mappings.toml"
@@ -39,6 +58,7 @@ regen-toml-apply:
 [group('package-management')]
 regen-and-generate:
     @echo "Running complete package management workflow..."
+    @just setup-python
     @just regen-toml-apply
     @just generate-package-lists
     @echo "✓ Complete workflow finished"
@@ -47,11 +67,12 @@ regen-and-generate:
 [group('package-management')]
 add-packages *packages:
     #!/usr/bin/env bash
-    if [[ {{packages}} == "" ]]; then
+    if [[ -z "{{packages}}" ]]; then
         echo "Usage: just add-packages package1 [package2 ...]"
         echo "Example: just add-packages zellij bat"
         exit 1
     fi
+    just setup-python
     echo "Adding packages to TOML: {{packages}}"
     echo "Using Python: {{_python_cmd}}"
     {{_python_cmd}} bin/package_analysis.py \
@@ -77,7 +98,7 @@ generate-package-lists:
 generate-package-files:
     #!/usr/bin/env bash
     echo "Generating package files from TOML..."
-    python3 bin/package_generators.py \
+    {{_python_cmd}} bin/package_generators.py \
         --toml package_mappings.toml \
         --original-brewfile Brewfile.in \
         --output-dir generated_packages
@@ -88,7 +109,7 @@ generate-package-files:
 preview-package-files:
     #!/usr/bin/env bash
     echo "Previewing package file generation..."
-    python3 bin/package_generators.py \
+    {{_python_cmd}} bin/package_generators.py \
         --toml package_mappings.toml \
         --original-brewfile Brewfile.in \
         --print-only
@@ -98,9 +119,9 @@ preview-package-files:
 validate-roundtrip:
     #!/usr/bin/env bash
     echo "Validating package mapping roundtrip..."
-    python3 bin/package_analysis.py \
+    {{_python_cmd}} bin/package_analysis.py \
         --validate \
-        --package-lists Brewfile.in Archfile Aptfile Flatfile
+        --package-lists Brewfile.in tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile
 
 # ===== TESTING =====
 
@@ -171,6 +192,45 @@ clean:
     rm -rf generated_packages/
     rm -rf tests/temp_test_output/
     echo "✓ Cleanup complete"
+
+# Clean expired cache entries (keeps fresh entries)
+[group('maintenance')]
+clean-expired-cache:
+    #!/usr/bin/env bash
+    echo "Cleaning expired cache entries..."
+    echo "Using Python: {{_python_cmd}}"
+    {{_python_cmd}} bin/clean_cache.py .repology_cache.json
+    echo "✓ Expired cache entries cleaned"
+
+# Refresh a specific segment of the cache (0-6)
+[group('maintenance')]
+refresh-cache-segment segment:
+    #!/usr/bin/env bash
+    echo "Refreshing cache segment {{segment}}..."
+    echo "Using Python: {{_python_cmd}}"
+    if [[ ! -f "bin/refresh_cache_segment.py" ]]; then
+        echo "Error: bin/refresh_cache_segment.py not found"
+        echo "This script is created by the GitHub Action workflow"
+        echo "You can manually refresh cache with: just clean-expired-cache && just regen-toml"
+        exit 1
+    fi
+    {{_python_cmd}} bin/refresh_cache_segment.py --segment {{segment}} --cache .repology_cache.json
+    echo "✓ Cache segment {{segment}} refreshed"
+
+# Show cache statistics and segment information
+[group('maintenance')]
+cache-stats:
+    #!/usr/bin/env bash
+    echo "Package Cache Statistics"
+    echo "======================="
+    
+    if [[ -f ".repology_cache.json" ]]; then
+        echo "Using Python: {{_python_cmd}}"
+        {{_python_cmd}} bin/clean_cache.py .repology_cache.json --stats-only
+    else
+        echo "❌ No cache file found (.repology_cache.json)"
+        echo "Run 'just regen-toml' to create initial cache"
+    fi
 
 # ===== DEVELOPMENT HELPERS =====
 
@@ -245,7 +305,7 @@ show-structure:
     echo "=================================="
     tree -I '__pycache__|*.pyc' --dirsfirst -a -L 3 \
         bin/ tests/ lib/install/ \
-        Brewfile.in Archfile Aptfile Flatfile package_mappings.toml 2>/dev/null || \
+        Brewfile.in package_mappings.toml tests/assets/legacy_packages/ 2>/dev/null || \
     find bin tests lib/install -type f -name "*.py" -o -name "*.sh" | sort
 
 # ===== INSTALL INTEGRATION =====
