@@ -35,7 +35,7 @@ function install_getnf_if_needed {
 # SILENTLY.
 function install_fonts {
     function internal_install_fonts() {
-        readarray -t font_specs <"${DOTFILES}/Fontfile"
+        readarray -t font_specs <"${DOTFILES}/packages/Fontfile"
         for spec in "${font_specs[@]}"; do
             # split the font_spec into <command,font> pairs separated by whitespace
             IFS=' ' read -r command font <<<"$spec"

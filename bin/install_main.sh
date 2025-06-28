@@ -28,7 +28,7 @@ show_spinner \
 # TODO: do the same for debian-like systems, and for
 # mutable fedora distributions.
 # FIXME: use show_spinner function
-if is_arch_like; then
+if $is_arch_like; then
     update_arch_if_needed
     install_arch_packages
 fi
