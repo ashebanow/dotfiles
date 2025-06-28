@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 """
 Clean package analysis tool for generating complete package mappings.
 
@@ -10,6 +10,12 @@ This tool treats Repology as the authoritative source and can:
 
 Architecture: Repology-first → fallback to individual package managers → clean TOML generation
 """
+# /// script
+# dependencies = [
+#   "requests",
+#   "toml",
+# ]
+# ///
 
 import argparse
 import json

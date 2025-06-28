@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 """
 Generate package files from package_mappings.toml.
 
@@ -11,6 +11,11 @@ This tool takes the complete TOML mappings and generates platform-specific packa
 
 Architecture: TOML → platform detection → filtered package lists
 """
+# /// script
+# dependencies = [
+#   "toml",
+# ]
+# ///
 
 import argparse
 import os

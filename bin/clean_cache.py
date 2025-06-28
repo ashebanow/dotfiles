@@ -1,5 +1,8 @@
-#!/usr/bin/env python3
+#!/usr/bin/env -S uv run --script
 """Clean expired cache entries or show cache statistics."""
+# /// script
+# dependencies = []
+# ///
 
 import argparse
 import json

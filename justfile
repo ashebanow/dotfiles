@@ -10,10 +10,8 @@ default:
 [group('package-management')]
 regen-toml:
     #!/usr/bin/env bash
-    {{_check_venv}}
     echo "Regenerating package_mappings.toml from package files..."
-    echo "Using Python: {{_python_cmd}}"
-    {{_python_cmd}} bin/package_analysis.py \
+    uv run bin/package_analysis.py \
         --package-lists packages/Brewfile.in packages/Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
         --output packages/package_mappings.toml.new \
         --cache packages/.repology_cache.json
@@ -21,77 +19,14 @@ regen-toml:
     echo "Review changes with: diff packages/package_mappings.toml packages/package_mappings.toml.new"
     echo "Apply changes with: mv packages/package_mappings.toml.new packages/package_mappings.toml"
 
-# Setup Python virtual environment for package management
-[group('setup')]
-setup-python:
-    #!/usr/bin/env bash
-    # Ensure uv is available
-    if ! command -v uv >/dev/null 2>&1; then
-        if command -v brew >/dev/null 2>&1; then
-            echo "Installing uv via Homebrew..."
-            brew install uv
-        else
-            echo "Error: uv is required but not installed."
-            echo "Please install uv: https://docs.astral.sh/uv/getting-started/installation/"
-            echo "Or install Homebrew first: https://brew.sh/"
-            exit 1
-        fi
-    fi
-    
-    # Check if UV has Python installed, if not install it
-    if ! uv python list | grep -q "3\.11"; then
-        echo "Installing Python 3.11 via UV..."
-        if ! uv python install 3.11; then
-            echo "Error: Failed to install Python 3.11 via UV"
-            exit 1
-        fi
-    fi
-    
-    if [ ! -d ".venv" ]; then
-        echo "Creating Python virtual environment with uv..."
-        if ! uv venv .venv --python 3.11; then
-            echo "Error: Failed to create virtual environment"
-            exit 1
-        fi
-        echo "Installing dependencies..."
-        if ! uv pip install toml requests; then
-            echo "Error: Failed to install Python dependencies"
-            exit 1
-        fi
-        echo "✓ Python environment ready"
-    else
-        echo "✓ Python environment already exists"
-        # Verify dependencies are available
-        if ! .venv/bin/python3 -c "import requests, toml" 2>/dev/null; then
-            echo "Installing missing dependencies..."
-            if ! uv pip install toml requests; then
-                echo "Error: Failed to install Python dependencies"
-                exit 1
-            fi
-        fi
-    fi
-    
-    # Final verification that everything works
-    if ! .venv/bin/python3 -c "import requests, toml; print('✓ Virtual environment ready with all dependencies')" 2>/dev/null; then
-        echo "Error: Virtual environment setup failed - dependencies not available"
-        echo "Try removing .venv directory and running 'just setup-python' again"
-        exit 1
-    fi
-
-# Helper to check virtual environment exists
-_check_venv := "if [[ ! -f '.venv/bin/python3' ]]; then echo 'ERROR: Python virtual environment not found. Run: just setup-python'; exit 1; fi"
-
-# Python executable using virtual environment (required for proper dependencies)
-_python_cmd := ".venv/bin/python3"
+# UV manages Python and dependencies automatically
 
 # Regenerate package_mappings.toml and automatically apply changes
 [group('package-management')]
 regen-toml-apply:
     #!/usr/bin/env bash
-    {{_check_venv}}
     echo "Regenerating and applying package_mappings.toml..."
-    echo "Using Python: {{_python_cmd}}"
-    {{_python_cmd}} bin/package_analysis.py \
+    uv run bin/package_analysis.py \
         --package-lists packages/Brewfile.in packages/Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
         --output packages/package_mappings.toml \
         --cache packages/.repology_cache.json
@@ -101,7 +36,6 @@ regen-toml-apply:
 [group('package-management')]
 regen-and-generate:
     @echo "Running complete package management workflow..."
-    @just setup-python
     @just regen-toml-apply
     @just generate-package-lists
     @echo "✓ Complete workflow finished"
@@ -115,11 +49,8 @@ add-packages *packages:
         echo "Example: just add-packages zellij bat"
         exit 1
     fi
-    just setup-python
-    {{_check_venv}}
     echo "Adding packages to TOML: {{packages}}"
-    echo "Using Python: {{_python_cmd}}"
-    {{_python_cmd}} bin/package_analysis.py \
+    uv run bin/package_analysis.py \
         --package {{packages}} \
         --output temp_packages.toml \
         --cache packages/.repology_cache.json
@@ -129,10 +60,8 @@ add-packages *packages:
 [group('package-management')]
 generate-package-lists:
     #!/usr/bin/env bash
-    {{_check_venv}}
     echo "Generating platform-specific package lists from TOML..."
-    echo "Using Python: {{_python_cmd}}"
-    {{_python_cmd}} bin/package_generators.py \
+    uv run bin/package_generators.py \
         --toml packages/package_mappings.toml \
         --original-brewfile packages/Brewfile.in \
         --output-dir packages
@@ -143,7 +72,7 @@ generate-package-lists:
 generate-package-files:
     #!/usr/bin/env bash
     echo "Generating package files from TOML..."
-    {{_python_cmd}} bin/package_generators.py \
+    uv run bin/package_generators.py \
         --toml packages/package_mappings.toml \
         --original-brewfile packages/Brewfile.in \
         --output-dir tests/generated_packages
@@ -154,7 +83,7 @@ generate-package-files:
 preview-package-files:
     #!/usr/bin/env bash
     echo "Previewing package file generation..."
-    {{_python_cmd}} bin/package_generators.py \
+    uv run bin/package_generators.py \
         --toml packages/package_mappings.toml \
         --original-brewfile packages/Brewfile.in \
         --print-only
@@ -164,7 +93,7 @@ preview-package-files:
 validate-roundtrip:
     #!/usr/bin/env bash
     echo "Validating package mapping roundtrip..."
-    {{_python_cmd}} bin/package_analysis.py \
+    uv run bin/package_analysis.py \
         --validate \
         --package-lists packages/Brewfile.in tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile
 
@@ -213,10 +142,8 @@ test-all: test-packages test-install
 [group('debug')]
 debug-package package:
     #!/usr/bin/env bash
-    {{_check_venv}}
     echo "Debugging package: {{package}}"
-    echo "Using Python: {{_python_cmd}}"
-    {{_python_cmd}} bin/package_analysis.py --package {{package}} --cache tests/.debug_cache.json
+    uv run bin/package_analysis.py --package {{package}} --cache tests/.debug_cache.json
 
 # Show package mapping for specific package
 [group('debug')]
@@ -245,8 +172,7 @@ clean:
 clean-expired-cache:
     #!/usr/bin/env bash
     echo "Cleaning expired cache entries..."
-    echo "Using Python: {{_python_cmd}}"
-    {{_python_cmd}} bin/clean_cache.py packages/.repology_cache.json
+    uv run bin/clean_cache.py packages/.repology_cache.json
     echo "✓ Expired cache entries cleaned"
 
 # Refresh a specific segment of the cache (0-6)
@@ -254,14 +180,13 @@ clean-expired-cache:
 refresh-cache-segment segment:
     #!/usr/bin/env bash
     echo "Refreshing cache segment {{segment}}..."
-    echo "Using Python: {{_python_cmd}}"
     if [[ ! -f "bin/refresh_cache_segment.py" ]]; then
         echo "Error: bin/refresh_cache_segment.py not found"
         echo "This script is created by the GitHub Action workflow"
         echo "You can manually refresh cache with: just clean-expired-cache && just regen-toml"
         exit 1
     fi
-    {{_python_cmd}} bin/refresh_cache_segment.py --segment {{segment}} --cache packages/.repology_cache.json
+    uv run bin/refresh_cache_segment.py --segment {{segment}} --cache packages/.repology_cache.json
     echo "✓ Cache segment {{segment}} refreshed"
 
 # Show cache statistics and segment information
@@ -272,8 +197,7 @@ cache-stats:
     echo "======================="
     
     if [[ -f "packages/.repology_cache.json" ]]; then
-        echo "Using Python: {{_python_cmd}}"
-        {{_python_cmd}} bin/clean_cache.py packages/.repology_cache.json --stats-only
+            uv run bin/clean_cache.py packages/.repology_cache.json --stats-only
     else
         echo "❌ No cache file found (packages/.repology_cache.json)"
         echo "Run 'just regen-toml' to create initial cache"
@@ -286,16 +210,16 @@ cache-stats:
 check-deps:
     #!/usr/bin/env bash
     echo "Checking Python dependencies..."
-    {{_python_cmd}} -c "import toml; print('✓ toml library available')" 2>/dev/null || echo "✗ toml library missing (pip install toml)"
-    {{_python_cmd}} -c "import requests; print('✓ requests library available')" 2>/dev/null || echo "✗ requests library missing (pip install requests)"
+    uv run -c "import toml; print('✓ toml library available')" 2>/dev/null || echo "✗ toml library missing (pip install toml)"
+    uv run -c "import requests; print('✓ requests library available')" 2>/dev/null || echo "✗ requests library missing (pip install requests)"
     
     echo "Checking SSL configuration..."
-    {{_python_cmd}} -c "import ssl; print(f'✓ SSL version: {ssl.OPENSSL_VERSION}')" 2>/dev/null || echo "✗ SSL check failed"
-    {{_python_cmd}} -c "import urllib3; print(f'urllib3 version: {urllib3.__version__}')" 2>/dev/null || echo "urllib3 not available"
+    uv run -c "import ssl; print(f'✓ SSL version: {ssl.OPENSSL_VERSION}')" 2>/dev/null || echo "✗ SSL check failed"
+    uv run -c "import urllib3; print(f'urllib3 version: {urllib3.__version__}')" 2>/dev/null || echo "urllib3 not available"
     
     # Check for SSL issues
-    if {{_python_cmd}} -c "import urllib3; assert urllib3.__version__.startswith('2.')" 2>/dev/null; then
-        if {{_python_cmd}} -c "import ssl; assert 'LibreSSL' in ssl.OPENSSL_VERSION" 2>/dev/null; then
+    if uv run -c "import urllib3; assert urllib3.__version__.startswith('2.')" 2>/dev/null; then
+        if uv run -c "import ssl; assert 'LibreSSL' in ssl.OPENSSL_VERSION" 2>/dev/null; then
             echo "⚠️  SSL Issue Detected: urllib3 v2 + LibreSSL (common on macOS)"
             echo "   Fix with: just fix-ssl"
         fi
@@ -309,7 +233,7 @@ check-deps:
 [group('development')]
 install-deps:
     @echo "Installing Python dependencies..."
-    @{{_python_cmd}} -m pip install --user toml requests
+    @uv run -m pip install --user toml requests
 
 # Fix SSL issues (common on macOS with LibreSSL)
 [group('development')]
@@ -319,17 +243,17 @@ fix-ssl:
     
     # Check current status
     echo "Current SSL setup:"
-    {{_python_cmd}} -c "import ssl; print(f'  SSL: {ssl.OPENSSL_VERSION}')" 2>/dev/null || echo "  SSL: Failed to detect"
-    {{_python_cmd}} -c "import urllib3; print(f'  urllib3: {urllib3.__version__}')" 2>/dev/null || echo "  urllib3: Not installed"
+    uv run -c "import ssl; print(f'  SSL: {ssl.OPENSSL_VERSION}')" 2>/dev/null || echo "  SSL: Failed to detect"
+    uv run -c "import urllib3; print(f'  urllib3: {urllib3.__version__}')" 2>/dev/null || echo "  urllib3: Not installed"
     
     echo
     echo "Applying fix: Downgrade urllib3 to v1.x (compatible with LibreSSL)"
-    {{_python_cmd}} -m pip install --user 'urllib3<2.0' 'requests>=2.28.0'
+    uv run -m pip install --user 'urllib3<2.0' 'requests>=2.28.0'
     
     echo
     echo "Verifying fix..."
-    {{_python_cmd}} -c "import urllib3; print(f'✓ urllib3 version: {urllib3.__version__}')"
-    {{_python_cmd}} -c "import ssl, requests; print('✓ SSL/requests working'); requests.get('https://httpbin.org/get', timeout=5)" 2>/dev/null && echo "✓ HTTPS requests working" || echo "✗ HTTPS requests still failing"
+    uv run -c "import urllib3; print(f'✓ urllib3 version: {urllib3.__version__}')"
+    uv run -c "import ssl, requests; print('✓ SSL/requests working'); requests.get('https://httpbin.org/get', timeout=5)" 2>/dev/null && echo "✓ HTTPS requests working" || echo "✗ HTTPS requests still failing"
 
 
 # Show project structure for package management
