@@ -52,9 +52,9 @@ add-packages *packages:
     echo "Adding packages to TOML: {{packages}}"
     uv run bin/package_analysis.py \
         --package {{packages}} \
-        --output temp_packages.toml \
+        --output packages/temp_packages.toml \
         --cache packages/.repology_cache.json
-    echo "Generated temp_packages.toml with package data"
+    echo "Generated packages/temp_packages.toml with package data"
 
 # Generate filtered package files from TOML (smart platform detection)
 [group('package-management')]
@@ -162,7 +162,7 @@ clean:
     #!/usr/bin/env bash
     echo "Cleaning up cache and temporary files..."
     rm -f packages/.repology_cache.json tests/.debug_cache.json
-    rm -f temp_packages.toml packages/package_mappings.toml.new
+    rm -f packages/temp_packages.toml packages/package_mappings.toml.new
     rm -rf tests/generated_packages/
     rm -rf tests/temp_test_output/
     echo "✓ Cleanup complete"

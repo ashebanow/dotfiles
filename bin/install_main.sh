@@ -17,7 +17,7 @@ source "${DOTFILES}/lib/install/install_nix.sh"
 #######################################################################
 # Phase 1: install universal packages and apps
 
-show_spinner -- \
+show_spinner \
     "Installing required prerequisites..." \
     install_prerequisites \
     "Installed required prerequisites."
@@ -33,46 +33,46 @@ if is_arch_like; then
     install_arch_packages
 fi
 
-show_spinner -- \
+show_spinner \
     "Installing homebrew packages..." \
     install_homebrew_packages \
     "Installed homebrew packages."
 
-# show_spinner -- \
+# show_spinner \
 # 	"Installing nix..." \
 # 	install_nix_if_needed \
 # 	"Installed nix."
 
-show_spinner -- \
+show_spinner \
     "Installing Flatpak runtime if needed..." \
     install_flatpak_if_needed \
     "Installed Flatpak runtime if needed."
 
-show_spinner -- \
+show_spinner \
     "Installing Flatpak apps..." \
     install_flatpak_apps \
     "Installed Flatpak apps."
 
-show_spinner -- "Installing fonts..." \
+show_spinner "Installing fonts..." \
     "${DOTFILES}/lib/install/install_fonts.sh" \
     "Installed fonts..."
 
-show_spinner -- "Installing Claude Code\
+show_spinner "Installing Claude Code\
     "${DOTFILES}/lib/install/install_claude_code.sh" \
     "Installed Claude Code."
 
-show_spinner -- "Installing Zed"\
+show_spinner "Installing Zed"\
     "${DOTFILES}/lib/install/install_zed.sh" \
     "Installed Zed."
 
-show_spinner -- "Installing VSCode and Extensions..." \
+show_spinner "Installing VSCode and Extensions..." \
     "${DOTFILES}/lib/install/install_vscode.sh" \
     "Installed VSCode and Extensions."
 
 #######################################################################
 # Phase 2: configuration and initialization
 
-show_spinner -- "Setting up Bitwarden services..." \
+show_spinner "Setting up Bitwarden services..." \
     install_bitwarden_services \
     "Set up Bitwarden services."
 
