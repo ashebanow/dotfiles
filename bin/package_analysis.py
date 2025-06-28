@@ -1423,6 +1423,23 @@ def main():
             print(f"   📊 Cache entries: {len(cache_data)} packages cached")
         except:
             pass
+    
+    # Report empty mappings that need attention
+    empty_mappings = []
+    for pkg_name, data in complete_toml.items():
+        # Check if the mapping is mostly empty (only has defaults or TODO descriptions)
+        if (data.get('description', '').startswith('TODO:') or 
+            data.get('description', '') == '' or
+            (not data.get('apt-pkg') and not data.get('arch-pkg') and not data.get('fedora-pkg'))):
+            empty_mappings.append(pkg_name)
+    
+    if empty_mappings:
+        print(f"\n📝 EMPTY MAPPINGS REPORT:")
+        print(f"   Found {len(empty_mappings)} packages with incomplete mappings:")
+        print(f"   (Consider adding manual descriptions or checking package availability)")
+        print()
+        for pkg in sorted(empty_mappings):
+            print(pkg)
 
 
 if __name__ == "__main__":

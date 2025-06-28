@@ -5637,5 +5637,27 @@
     },
     "description": null,
     "_timestamp": 1751083462.742391
+  },
+  "ghostty": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "ghostty",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Fast, native, feature-rich terminal emulator pushing modern features",
+    "brew-supports-linux": false,
+    "brew-supports-darwin": true,
+    "brew-is-cask": true,
+    "_timestamp": 1751134054.991338
   }
 }

@@ -10,7 +10,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 TEST_ASSETS="$SCRIPT_DIR/assets/package_mapping"
-TEMP_DIR="$SCRIPT_DIR/output/temp_test"
+TEMP_DIR="$SCRIPT_DIR/output"
 
 # Require virtual environment Python (needed for proper dependencies)
 if [[ ! -f "$PROJECT_ROOT/.venv/bin/python3" ]]; then
