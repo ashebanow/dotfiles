@@ -11,8 +11,9 @@ This is a chezmoi-managed dotfiles repository targeting multiple platforms, with
 ### Directory Structure
 - `home/` - All dotfiles and configuration templates (chezmoi target root)
 - `lib/install/` - Installation scripts and automation
+- `lib/packaging/` - Package management utilities
 - `bin/` - Custom executables and utilities
-- Package files at root (Archfile, Brewfile, Aptfile, etc.) - Platform-specific package lists
+- `packages/` - All package lists and metadata (Brewfile, Archfile, package_mappings.toml, etc.)
 
 ### Platform Support
 The system detects and configures for:
@@ -26,6 +27,12 @@ Uses chezmoi's templating with platform detection:
 - `.chezmoi.toml.tmpl` - Main configuration template
 - Feature flags: `ephemeral`, `headless`, `personal`, `wsl`
 - Platform variables: `arch`, `debian`, `fedora`, `darwin`
+
+### Package Management Organization
+All package-related files are organized in the `packages/` directory:
+- Package lists: Brewfile, Archfile, Aptfile, Flatfile, etc.
+- Metadata: package_mappings.toml, package_name_mappings.json
+- Cache: .repology_cache.json
 
 ## Development Commands
 
@@ -64,13 +71,14 @@ curl -sfL https://raw.githubusercontent.com/ashebanow/dotfiles/main/install.sh |
 ```
 
 ### Package Management
-The repository maintains synchronized package lists:
-- `Archfile` (175 packages) - Primary package list for Arch
-- `Aptfile` - Auto-generated Ubuntu equivalents
-- `Brewfile` - Homebrew packages
-- `Flatfile` - Flatpak applications
+The repository maintains synchronized package lists in `packages/`:
+- `packages/Archfile` - Package list for Arch
+- `packages/Aptfile` - Auto-generated Ubuntu equivalents  
+- `packages/Brewfile` - Homebrew packages
+- `packages/Flatfile` - Flatpak applications
+- `packages/package_mappings.toml` - Master package database
 
-When modifying packages, update the appropriate file for the target platform.
+When modifying packages, update the appropriate file in the `packages/` directory.
 
 ## Installation Script Architecture
 
@@ -95,7 +103,7 @@ All scripts source `all.sh` for shared functionality and should use its logging 
 
 ### Package Override Architecture
 
-The repository follows a "prefer native packages" philosophy, but uses **Homebrew overrides** for critical infrastructure packages that must be consistent across all platforms.
+The repository follows a "prefer native packages" philosophy, but uses **Homebrew overrides** for critical infrastructure packages that must be consistent across all platforms. Python is managed by UV directly, not through Homebrew.
 
 #### Override Files
 - `Brewfile-overrides` - Packages installed via Homebrew on ALL platforms
@@ -105,17 +113,16 @@ The repository follows a "prefer native packages" philosophy, but uses **Homebre
   - Dotfiles system dependencies
 
 #### Current Overrides
-- **python@3.11** - Required for package analysis system (system Python on macOS uses LibreSSL which breaks Repology API)
 - **git** - Consistent version for dotfiles management
-- **just** - Command runner for package workflows
-- **uv** - Fast Python package manager for virtual environment setup
+- **just** - Command runner for package workflows  
+- **uv** - Fast Python package manager and Python installation manager
 
 #### Installation Flow
-1. Install Homebrew override packages first
+1. Install Homebrew override packages first (git, just, uv)
 2. Setup Python virtual environment (automatic via `just setup-python`)
-   - Uses UV for fast dependency management
+   - UV installs and manages Python 3.11 directly
    - Creates isolated environment with `toml` and `requests` libraries
-   - Based on Homebrew Python for SSL compatibility
+   - No dependency on Homebrew Python
 3. Generate platform-specific package lists using virtual environment Python
 4. Install platform-appropriate packages
 
@@ -141,7 +148,7 @@ just clean-expired-cache
 just generate-package-lists
 ```
 
-**Important**: The Python override ensures SSL compatibility for Repology API access. The virtual environment uses this Python as its base interpreter for reliable HTTPS connections.
+**Important**: UV manages Python installations directly, ensuring proper SSL compatibility for Repology API access without requiring Homebrew Python.
 
 #### Migration Status
 **Current State**: Gradual migration to TOML-driven system

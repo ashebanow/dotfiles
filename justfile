@@ -14,12 +14,12 @@ regen-toml:
     echo "Regenerating package_mappings.toml from package files..."
     echo "Using Python: {{_python_cmd}}"
     {{_python_cmd}} bin/package_analysis.py \
-        --package-lists Brewfile.in Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
-        --output package_mappings.toml.new \
-        --cache .repology_cache.json
-    echo "Generated package_mappings.toml.new"
-    echo "Review changes with: diff package_mappings.toml package_mappings.toml.new"
-    echo "Apply changes with: mv package_mappings.toml.new package_mappings.toml"
+        --package-lists packages/Brewfile.in packages/Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
+        --output packages/package_mappings.toml.new \
+        --cache packages/.repology_cache.json
+    echo "Generated packages/package_mappings.toml.new"
+    echo "Review changes with: diff packages/package_mappings.toml packages/package_mappings.toml.new"
+    echo "Apply changes with: mv packages/package_mappings.toml.new packages/package_mappings.toml"
 
 # Setup Python virtual environment for package management
 [group('setup')]
@@ -38,11 +38,19 @@ setup-python:
         fi
     fi
     
+    # Check if UV has Python installed, if not install it
+    if ! uv python list | grep -q "3\.11"; then
+        echo "Installing Python 3.11 via UV..."
+        if ! uv python install 3.11; then
+            echo "Error: Failed to install Python 3.11 via UV"
+            exit 1
+        fi
+    fi
+    
     if [ ! -d ".venv" ]; then
         echo "Creating Python virtual environment with uv..."
-        if ! uv venv .venv --python $(brew --prefix python3)/bin/python3; then
+        if ! uv venv .venv --python 3.11; then
             echo "Error: Failed to create virtual environment"
-            echo "Make sure Homebrew Python is available: brew install python@3.11"
             exit 1
         fi
         echo "Installing dependencies..."
@@ -84,10 +92,10 @@ regen-toml-apply:
     echo "Regenerating and applying package_mappings.toml..."
     echo "Using Python: {{_python_cmd}}"
     {{_python_cmd}} bin/package_analysis.py \
-        --package-lists Brewfile.in Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
-        --output package_mappings.toml \
-        --cache .repology_cache.json
-    echo "✓ Updated package_mappings.toml"
+        --package-lists packages/Brewfile.in packages/Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
+        --output packages/package_mappings.toml \
+        --cache packages/.repology_cache.json
+    echo "✓ Updated packages/package_mappings.toml"
 
 # Complete workflow: regenerate TOML and generate package lists
 [group('package-management')]
@@ -114,7 +122,7 @@ add-packages *packages:
     {{_python_cmd}} bin/package_analysis.py \
         --package {{packages}} \
         --output temp_packages.toml \
-        --cache .repology_cache.json
+        --cache packages/.repology_cache.json
     echo "Generated temp_packages.toml with package data"
 
 # Generate filtered package files from TOML (smart platform detection)
@@ -125,9 +133,9 @@ generate-package-lists:
     echo "Generating platform-specific package lists from TOML..."
     echo "Using Python: {{_python_cmd}}"
     {{_python_cmd}} bin/package_generators.py \
-        --toml package_mappings.toml \
-        --original-brewfile Brewfile.in \
-        --output-dir .
+        --toml packages/package_mappings.toml \
+        --original-brewfile packages/Brewfile.in \
+        --output-dir packages
     echo "✓ Generated package lists for current platform"
 
 # Generate filtered package files from TOML (legacy - outputs to subdirectory)
@@ -136,10 +144,10 @@ generate-package-files:
     #!/usr/bin/env bash
     echo "Generating package files from TOML..."
     {{_python_cmd}} bin/package_generators.py \
-        --toml package_mappings.toml \
-        --original-brewfile Brewfile.in \
-        --output-dir generated_packages
-    echo "✓ Generated package files in generated_packages/"
+        --toml packages/package_mappings.toml \
+        --original-brewfile packages/Brewfile.in \
+        --output-dir tests/generated_packages
+    echo "✓ Generated package files in tests/generated_packages/"
 
 # Preview what package files would be generated
 [group('package-management')]
@@ -147,8 +155,8 @@ preview-package-files:
     #!/usr/bin/env bash
     echo "Previewing package file generation..."
     {{_python_cmd}} bin/package_generators.py \
-        --toml package_mappings.toml \
-        --original-brewfile Brewfile.in \
+        --toml packages/package_mappings.toml \
+        --original-brewfile packages/Brewfile.in \
         --print-only
 
 # Validate package mapping roundtrip
@@ -158,7 +166,7 @@ validate-roundtrip:
     echo "Validating package mapping roundtrip..."
     {{_python_cmd}} bin/package_analysis.py \
         --validate \
-        --package-lists Brewfile.in tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile
+        --package-lists packages/Brewfile.in tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile
 
 # ===== TESTING =====
 
@@ -208,17 +216,17 @@ debug-package package:
     {{_check_venv}}
     echo "Debugging package: {{package}}"
     echo "Using Python: {{_python_cmd}}"
-    {{_python_cmd}} bin/package_analysis.py --package {{package}} --cache .debug_cache.json
+    {{_python_cmd}} bin/package_analysis.py --package {{package}} --cache tests/.debug_cache.json
 
 # Show package mapping for specific package
 [group('debug')]
 show-package package:
     #!/usr/bin/env bash
-    if [[ -f "package_mappings.toml" ]]; then
+    if [[ -f "packages/package_mappings.toml" ]]; then
         echo "Package mapping for {{package}}:"
-        grep -A 20 "^\[{{package}}\]" package_mappings.toml || echo "Package not found in TOML"
+        grep -A 20 "^\[{{package}}\]" packages/package_mappings.toml || echo "Package not found in TOML"
     else
-        echo "package_mappings.toml not found"
+        echo "packages/package_mappings.toml not found"
     fi
 
 # Clean up cache and temporary files
@@ -226,9 +234,9 @@ show-package package:
 clean:
     #!/usr/bin/env bash
     echo "Cleaning up cache and temporary files..."
-    rm -f .repology_cache.json .debug_cache.json
-    rm -f temp_packages.toml package_mappings.toml.new
-    rm -rf generated_packages/
+    rm -f packages/.repology_cache.json tests/.debug_cache.json
+    rm -f temp_packages.toml packages/package_mappings.toml.new
+    rm -rf tests/generated_packages/
     rm -rf tests/temp_test_output/
     echo "✓ Cleanup complete"
 
@@ -238,7 +246,7 @@ clean-expired-cache:
     #!/usr/bin/env bash
     echo "Cleaning expired cache entries..."
     echo "Using Python: {{_python_cmd}}"
-    {{_python_cmd}} bin/clean_cache.py .repology_cache.json
+    {{_python_cmd}} bin/clean_cache.py packages/.repology_cache.json
     echo "✓ Expired cache entries cleaned"
 
 # Refresh a specific segment of the cache (0-6)
@@ -253,7 +261,7 @@ refresh-cache-segment segment:
         echo "You can manually refresh cache with: just clean-expired-cache && just regen-toml"
         exit 1
     fi
-    {{_python_cmd}} bin/refresh_cache_segment.py --segment {{segment}} --cache .repology_cache.json
+    {{_python_cmd}} bin/refresh_cache_segment.py --segment {{segment}} --cache packages/.repology_cache.json
     echo "✓ Cache segment {{segment}} refreshed"
 
 # Show cache statistics and segment information
@@ -263,11 +271,11 @@ cache-stats:
     echo "Package Cache Statistics"
     echo "======================="
     
-    if [[ -f ".repology_cache.json" ]]; then
+    if [[ -f "packages/.repology_cache.json" ]]; then
         echo "Using Python: {{_python_cmd}}"
-        {{_python_cmd}} bin/clean_cache.py .repology_cache.json --stats-only
+        {{_python_cmd}} bin/clean_cache.py packages/.repology_cache.json --stats-only
     else
-        echo "❌ No cache file found (.repology_cache.json)"
+        echo "❌ No cache file found (packages/.repology_cache.json)"
         echo "Run 'just regen-toml' to create initial cache"
     fi
 
@@ -331,8 +339,8 @@ show-structure:
     echo "Package Management File Structure:"
     echo "=================================="
     tree -I '__pycache__|*.pyc' --dirsfirst -a -L 3 \
-        bin/ tests/ lib/install/ \
-        Brewfile.in package_mappings.toml tests/assets/legacy_packages/ 2>/dev/null || \
+        bin/ tests/ lib/install/ lib/packaging/ \
+        packages/ 2>/dev/null || \
     find bin tests lib/install -type f -name "*.py" -o -name "*.sh" | sort
 
 # ===== INSTALL INTEGRATION =====
@@ -344,7 +352,7 @@ install-packages:
     echo "Generating and installing packages for current platform..."
     just generate-package-lists
     echo "Package lists generated. Use your system's package installation method to install."
-    echo "Example: For Homebrew: brew bundle --file=Brewfile"
+    echo "Example: For Homebrew: brew bundle --file=packages/Brewfile"
 
 # ===== EXAMPLES =====
 

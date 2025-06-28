@@ -14,7 +14,12 @@ Aptfile.new
 # Python virtual environment
 .venv/
 
-.package_generation.log
+# Package generation and caches
+packages/.package_generation.log
 bin/__pycache__/
-generated_packages/
+tests/generated_packages/
+tests/output/
+tests/.debug_cache.json
+tests/test_cache.json
+tests/validation_cache.json
 

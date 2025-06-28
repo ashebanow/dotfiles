@@ -1,7 +1,6 @@
 # Override packages (critical infrastructure and platform-specific overrides)
 brew "git"
 brew "just"
-brew "python@3.11"
 
 tap "charmbracelet/tap"
 tap "dhth/tap"
@@ -79,7 +78,6 @@ brew "overmind"
 brew "pixi"
 brew "pkg-config"
 brew "presenterm"
-brew "python"
 brew "qalculate-gtk"
 brew "ripgrep"
 brew "rsync"

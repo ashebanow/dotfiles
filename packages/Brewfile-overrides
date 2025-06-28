@@ -10,15 +10,6 @@
 #
 # IMPORTANT: Keep this file minimal. Most packages should follow normal platform preferences.
 
-# Python 3.11 with proper OpenSSL (essential for package analysis system)
-# System Python on macOS uses LibreSSL which breaks the Repology API calls
-brew "python@3.11"
-
-# Essential Python packages for the package management system
-# These ensure the package analysis tools work immediately after Python installation
-# Note: These will be installed via pip after python@3.11 is available
-# pip install --user toml requests
-
 # Git (ensure consistent version across platforms for dotfiles management)
 brew "git"
 

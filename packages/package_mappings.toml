@@ -24,9 +24,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'adobe-source-code-pro-fonts' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["adobe-source-code-pro-fonts"]
+[adobe-source-code-pro-fonts]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -49,7 +47,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["archlinux-keyring"]
+[archlinux-keyring]
 apt-pkg = "archlinux-keyring"
 arch-is-aur = false
 arch-pkg = "archlinux-keyring"
@@ -74,7 +72,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["aylurs-gtk-shell"]
+[aylurs-gtk-shell]
 apt-pkg = ""
 arch-is-aur = true
 arch-pkg = "aylurs-gtk-shell"
@@ -99,9 +97,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'base-devel' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["base-devel"]
+[base-devel]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -137,9 +133,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'bibata-cursor-theme-bin' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["bibata-cursor-theme-bin"]
+[bibata-cursor-theme-bin]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -191,7 +185,7 @@ flatpak-pkg = "com.bitwarden.desktop"
 prefer_flatpak = true
 priority = ""
 
-["bitwarden-cli"]
+[bitwarden-cli]
 apt-pkg = ""
 arch-is-aur = true
 arch-pkg = "bitwarden-cli"
@@ -230,9 +224,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'bluez-utils' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["bluez-utils"]
+[bluez-utils]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -320,7 +312,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["checkupdates-with-aur"]
+[checkupdates-with-aur]
 apt-pkg = ""
 arch-is-aur = true
 arch-pkg = "checkupdates-with-aur"
@@ -407,7 +399,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["dart-sass"]
+[dart-sass]
 apt-pkg = ""
 arch-is-aur = false
 arch-pkg = "dart-sass"
@@ -594,8 +586,6 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'figurine' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
 [figurine]
 apt-pkg = ""
 arch-pkg = ""
@@ -673,9 +663,7 @@ flatpak-pkg = "org.gustavoperedo.FontDownloader"
 prefer_flatpak = true
 priority = ""
 
-# Package 'fonts-dejavu' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["fonts-dejavu"]
+[fonts-dejavu]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -685,9 +673,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'fonts-firacode' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["fonts-firacode"]
+[fonts-firacode]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -697,9 +683,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'fonts-font-awesome' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["fonts-font-awesome"]
+[fonts-font-awesome]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -709,9 +693,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'fonts-jetbrains-mono' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["fonts-jetbrains-mono"]
+[fonts-jetbrains-mono]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -721,9 +703,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'fonts-noto-cjk' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["fonts-noto-cjk"]
+[fonts-noto-cjk]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -733,9 +713,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'fonts-noto-color-emoji' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["fonts-noto-color-emoji"]
+[fonts-noto-color-emoji]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -745,9 +723,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'fonts-noto-extra' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["fonts-noto-extra"]
+[fonts-noto-extra]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -768,8 +744,6 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'fuse2' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
 [fuse2]
 apt-pkg = ""
 arch-pkg = ""
@@ -872,7 +846,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = "override"
 
-["git-delta"]
+[git-delta]
 apt-pkg = "git-delta"
 arch-is-aur = true
 arch-pkg = "git-delta"
@@ -886,7 +860,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["git-lfs"]
+[git-lfs]
 apt-pkg = "git-lfs"
 arch-is-aur = true
 arch-pkg = "git-lfs"
@@ -942,9 +916,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'glib2-devel' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["glib2-devel"]
+[glib2-devel]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -968,7 +940,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["gnome-calculator"]
+[gnome-calculator]
 apt-pkg = "gnome-calculator"
 arch-is-aur = true
 arch-pkg = "gnome-calculator"
@@ -982,7 +954,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["gnome-system-monitor"]
+[gnome-system-monitor]
 apt-pkg = "gnome-system-monitor"
 arch-is-aur = true
 arch-pkg = "gnome-system-monitor"
@@ -993,7 +965,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["gnome-text-editor"]
+[gnome-text-editor]
 apt-pkg = "gnome-text-editor"
 arch-is-aur = true
 arch-pkg = "gnome-text-editor"
@@ -1007,7 +979,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["gnu-units"]
+[gnu-units]
 apt-pkg = "units"
 arch-is-aur = true
 arch-pkg = "units"
@@ -1035,7 +1007,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["gobject-introspection"]
+[gobject-introspection]
 apt-pkg = "gobject-introspection"
 arch-is-aur = false
 arch-pkg = "gobject-introspection"
@@ -1071,7 +1043,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["gtk-engine-murrine"]
+[gtk-engine-murrine]
 apt-pkg = ""
 arch-is-aur = true
 arch-pkg = "gtk-engine-murrine"
@@ -1082,7 +1054,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["gtk-layer-shell"]
+[gtk-layer-shell]
 apt-pkg = "gtk-layer-shell"
 arch-is-aur = true
 arch-pkg = "gtk-layer-shell"
@@ -1096,8 +1068,6 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'gtk3' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
 [gtk3]
 apt-pkg = ""
 arch-pkg = ""
@@ -1148,9 +1118,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'gvfs-mtp' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["gvfs-mtp"]
+[gvfs-mtp]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -1351,8 +1319,6 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'it' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
 [it]
 apt-pkg = ""
 arch-pkg = ""
@@ -1526,9 +1492,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'libdbusmenu-gtk3' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["libdbusmenu-gtk3"]
+[libdbusmenu-gtk3]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -1566,8 +1530,6 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'libsoup3' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
 [libsoup3]
 apt-pkg = ""
 arch-pkg = ""
@@ -1645,9 +1607,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'man-pages' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["man-pages"]
+[man-pages]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -1696,7 +1656,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["mission-center"]
+[mission-center]
 apt-pkg = ""
 arch-is-aur = true
 arch-pkg = "mission-center"
@@ -1732,7 +1692,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["mpv-mpris"]
+[mpv-mpris]
 apt-pkg = "mpv-mpris"
 arch-is-aur = true
 arch-pkg = "mpv-mpris"
@@ -1771,7 +1731,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["nautilus-open-any-terminal"]
+[nautilus-open-any-terminal]
 apt-pkg = ""
 arch-is-aur = true
 arch-pkg = "nautilus-open-any-terminal"
@@ -1796,7 +1756,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["network-manager-applet"]
+[network-manager-applet]
 apt-pkg = "network-manager-applet"
 arch-is-aur = true
 arch-pkg = "nm-connection-editor"
@@ -1832,9 +1792,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'nm-connection-editor' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["nm-connection-editor"]
+[nm-connection-editor]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -1844,9 +1802,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'noto-fonts' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["noto-fonts"]
+[noto-fonts]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -1856,9 +1812,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'noto-fonts-cjk' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["noto-fonts-cjk"]
+[noto-fonts-cjk]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -1868,9 +1822,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'noto-fonts-emoji' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["noto-fonts-emoji"]
+[noto-fonts-emoji]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -1880,9 +1832,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'noto-fonts-extra' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["noto-fonts-extra"]
+[noto-fonts-extra]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -1917,7 +1867,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["nwg-displays"]
+[nwg-displays]
 apt-pkg = "nwg-displays"
 arch-is-aur = false
 arch-pkg = "nwg-displays"
@@ -1928,7 +1878,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["nwg-dock-hyprland"]
+[nwg-dock-hyprland]
 apt-pkg = ""
 arch-is-aur = false
 arch-pkg = "nwg-dock-hyprland"
@@ -1939,7 +1889,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["nwg-look"]
+[nwg-look]
 apt-pkg = "nwg-look"
 arch-is-aur = false
 arch-pkg = "nwg-look"
@@ -1950,8 +1900,6 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'obsproject' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
 [obsproject]
 apt-pkg = ""
 arch-pkg = ""
@@ -1962,9 +1910,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'otf-font-awesome' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["otf-font-awesome"]
+[otf-font-awesome]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -1988,7 +1934,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["pacman-contrib"]
+[pacman-contrib]
 apt-pkg = ""
 arch-is-aur = true
 arch-pkg = "pacman-contrib"
@@ -2021,7 +1967,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["papirus-icon-theme"]
+[papirus-icon-theme]
 apt-pkg = "papirus-icon-theme"
 arch-is-aur = true
 arch-pkg = "papirus-icon-theme"
@@ -2076,8 +2022,6 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'pikabackup' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
 [pikabackup]
 apt-pkg = ""
 arch-pkg = ""
@@ -2116,9 +2060,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'pipewire-alsa' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["pipewire-alsa"]
+[pipewire-alsa]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2128,9 +2070,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'pipewire-audio' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["pipewire-audio"]
+[pipewire-audio]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2140,9 +2080,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'pipewire-pulse' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["pipewire-pulse"]
+[pipewire-pulse]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2166,7 +2104,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["pkg-config"]
+[pkg-config]
 apt-pkg = "pkg-config"
 arch-is-aur = true
 arch-pkg = "mingw-w64-pkg-config"
@@ -2191,7 +2129,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["polkit-gnome"]
+[polkit-gnome]
 apt-pkg = "policykit-1-gnome"
 arch-is-aur = true
 arch-pkg = "polkit-gnome"
@@ -2216,7 +2154,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["power-profiles-daemon"]
+[power-profiles-daemon]
 apt-pkg = "power-profiles-daemon"
 arch-is-aur = true
 arch-pkg = "power-profiles-daemon"
@@ -2241,183 +2179,11 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'pupgui2' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
 [pupgui2]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
 description = "TODO: Add description for pupgui2"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-[python]
-apt-pkg = "python2.7"
-arch-is-aur = true
-arch-pkg = "python-tests"
-brew-is-cask = false
-brew-supports-darwin = true
-brew-supports-linux = true
-brew-tap = ""
-description = "Python is a programming language that lets you work quickly and integrate systems more effectively."
-fedora-pkg = "python2.7"
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python-gobject' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python-gobject"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python-gobject"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python-gpustat' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python-gpustat"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python-gpustat"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python-pip' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python-pip"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python-pip"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python-pyquery' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python-pyquery"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python-pyquery"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python-pywalfox' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python-pywalfox"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python-pywalfox"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python-requests' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python-requests"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python-requests"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python-screeninfo' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python-screeninfo"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python-screeninfo"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python2' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-[python2]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "Python is a programming language that lets you work quickly and integrate systems more effectively."
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python3-gobject' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python3-gobject"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python3-gobject"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python3-pip' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python3-pip"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python3-pip"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python3-pyquery' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python3-pyquery"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python3-pyquery"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python3-requests' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python3-requests"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python3-requests"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python3-screeninfo' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python3-screeninfo"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python3-screeninfo"
 fedora-pkg = ""
 flatpak-pkg = ""
 prefer_flatpak = false
@@ -2434,7 +2200,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["qalculate-gtk"]
+[qalculate-gtk]
 apt-pkg = "qalculate-gtk"
 arch-is-aur = true
 arch-pkg = "qalculate-gtk"
@@ -2448,9 +2214,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'qt5-graphicaleffects' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["qt5-graphicaleffects"]
+[qt5-graphicaleffects]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2460,9 +2224,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'qt5-quickcontrols2' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["qt5-quickcontrols2"]
+[qt5-quickcontrols2]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2472,9 +2234,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'qt5-svg' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["qt5-svg"]
+[qt5-svg]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2484,9 +2244,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'qt5-wayland' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["qt5-wayland"]
+[qt5-wayland]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2507,9 +2265,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'qt6-5compat' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["qt6-5compat"]
+[qt6-5compat]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2519,9 +2275,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'qt6-declarative' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["qt6-declarative"]
+[qt6-declarative]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2531,9 +2285,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'qt6-svg' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["qt6-svg"]
+[qt6-svg]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2543,9 +2295,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'qt6-wayland' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["qt6-wayland"]
+[qt6-wayland]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2580,7 +2330,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["rofi-wayland"]
+[rofi-wayland]
 apt-pkg = ""
 arch-is-aur = true
 arch-pkg = "rofi-wayland"
@@ -2671,8 +2421,6 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'simplescan' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
 [simplescan]
 apt-pkg = ""
 arch-pkg = ""
@@ -2708,9 +2456,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'sof-firmware' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["sof-firmware"]
+[sof-firmware]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2745,8 +2491,6 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'swaync' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
 [swaync]
 apt-pkg = ""
 arch-pkg = ""
@@ -2824,7 +2568,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["thunar-archive-plugin"]
+[thunar-archive-plugin]
 apt-pkg = "thunar-archive-plugin"
 arch-is-aur = true
 arch-pkg = "thunar-archive-plugin"
@@ -2835,7 +2579,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["thunar-volman"]
+[thunar-volman]
 apt-pkg = "thunar-volman"
 arch-is-aur = true
 arch-pkg = "thunar-volman"
@@ -2901,9 +2645,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'ttf-dejavu' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["ttf-dejavu"]
+[ttf-dejavu]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2913,9 +2655,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'ttf-droid' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["ttf-droid"]
+[ttf-droid]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2925,9 +2665,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'ttf-fantasque-nerd' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["ttf-fantasque-nerd"]
+[ttf-fantasque-nerd]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2937,9 +2675,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'ttf-fira-code' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["ttf-fira-code"]
+[ttf-fira-code]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2949,9 +2685,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'ttf-fira-sans' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["ttf-fira-sans"]
+[ttf-fira-sans]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2961,9 +2695,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'ttf-firacode-nerd' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["ttf-firacode-nerd"]
+[ttf-firacode-nerd]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2973,9 +2705,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'ttf-jetbrains-mono' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["ttf-jetbrains-mono"]
+[ttf-jetbrains-mono]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2985,9 +2715,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'ttf-jetbrains-mono-nerd' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["ttf-jetbrains-mono-nerd"]
+[ttf-jetbrains-mono-nerd]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -2997,9 +2725,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'ttf-victor-mono' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["ttf-victor-mono"]
+[ttf-victor-mono]
 apt-pkg = ""
 arch-pkg = ""
 brew-tap = ""
@@ -3090,8 +2816,6 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-# Package 'us' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
 [us]
 apt-pkg = ""
 arch-pkg = ""
@@ -3188,7 +2912,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["wf-recorder"]
+[wf-recorder]
 apt-pkg = "wf-recorder"
 arch-is-aur = true
 arch-pkg = "wf-recorder"
@@ -3251,7 +2975,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["wl-clipboard"]
+[wl-clipboard]
 apt-pkg = "wl-clipboard"
 arch-is-aur = true
 arch-pkg = "wl-clipboard"
@@ -3312,7 +3036,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["xdg-desktop-portal-gtk"]
+[xdg-desktop-portal-gtk]
 apt-pkg = "xdg-desktop-portal-gtk"
 arch-is-aur = true
 arch-pkg = "xdg-desktop-portal-gtk"
@@ -3323,7 +3047,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["xdg-desktop-portal-hyprland"]
+[xdg-desktop-portal-hyprland]
 apt-pkg = "xdg-desktop-portal-hyprland"
 arch-is-aur = true
 arch-pkg = "xdg-desktop-portal-hyprland"
@@ -3334,7 +3058,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["xdg-user-dirs"]
+[xdg-user-dirs]
 apt-pkg = "xdg-user-dirs"
 arch-is-aur = false
 arch-pkg = "xdg-user-dirs"
@@ -3345,7 +3069,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["xdg-utils"]
+[xdg-utils]
 apt-pkg = "xdg-utils"
 arch-is-aur = true
 arch-pkg = "xdg-utils"
@@ -3414,7 +3138,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["yt-dlp"]
+[yt-dlp]
 apt-pkg = "yt-dlp"
 arch-is-aur = true
 arch-pkg = "yt-dlp"
@@ -3521,7 +3245,7 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
-["zsh-completions"]
+[zsh-completions]
 apt-pkg = ""
 arch-is-aur = true
 arch-pkg = "zsh-completions"
@@ -3534,4 +3258,3 @@ fedora-pkg = ""
 flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
-

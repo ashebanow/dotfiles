@@ -14,7 +14,7 @@ fi
 
 function install_flatpak_apps {
 	# Use DOTFILES environment variable instead of chezmoi template
-	local flatfile="${DOTFILES}/Flatfile"
+	local flatfile="${DOTFILES}/packages/Flatfile"
 	if [[ ! -f "$flatfile" ]]; then
 		log_error "Flatfile not found at: $flatfile"
 		return 1

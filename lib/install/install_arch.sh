@@ -56,11 +56,11 @@ function install_arch_packages() {
   local PYTHON_CMD="${DOTFILES}/.venv/bin/python3"
 
   # Try to generate package lists from TOML first
-  if [[ -f "${DOTFILES}/package_mappings.toml" ]] && [[ -f "${DOTFILES}/bin/package_generators.py" ]]; then
+  if [[ -f "${DOTFILES}/packages/package_mappings.toml" ]] && [[ -f "${DOTFILES}/bin/package_generators.py" ]]; then
     log_info "Generating Arch package list from TOML using ${PYTHON_CMD}..."
     if "${PYTHON_CMD}" "${DOTFILES}/bin/package_generators.py" \
-        --toml "${DOTFILES}/package_mappings.toml" \
-        --output-dir "${DOTFILES}" > "${DOTFILES}/.package_generation.log" 2>&1; then
+        --toml "${DOTFILES}/packages/package_mappings.toml" \
+        --output-dir "${DOTFILES}/packages" > "${DOTFILES}/packages/.package_generation.log" 2>&1; then
       log_info "✓ Generated Arch package list from TOML"
     else
       log_warn "Failed to generate from TOML, using existing Archfile"
@@ -68,7 +68,7 @@ function install_arch_packages() {
   fi
 
   # Use DOTFILES environment variable instead of chezmoi template
-  local archfile="${DOTFILES}/Archfile"
+  local archfile="${DOTFILES}/packages/Archfile"
   if [[ ! -f "$archfile" ]]; then
     log_error "Archfile not found at: $archfile"
     return 1
