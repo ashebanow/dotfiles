@@ -176,7 +176,8 @@ class RepologyClient:
             'grimblast': ['grim', 'grimshot'],  # grimblast is a wrapper around grim
             'python': ['python3'],
             'nodejs': ['node'],
-            'neovim': ['nvim']  # nvim is the command name for neovim
+            'neovim': ['nvim'],  # nvim is the command name for neovim
+            'jj': ['jujutsu']  # jj is an alias for jujutsu in Homebrew
         }
     
     def _score_repository(self, repo: str) -> int:
@@ -791,6 +792,21 @@ class BrewClient:
     @staticmethod
     def query_package(package_name: str) -> Optional[Dict[str, Any]]:
         """Query Homebrew for package information."""
+        # Try formula first
+        formula_result = BrewClient._query_formula(package_name)
+        if formula_result:
+            return formula_result
+        
+        # If formula fails, try cask
+        cask_result = BrewClient._query_cask(package_name)
+        if cask_result:
+            return cask_result
+        
+        return None
+    
+    @staticmethod
+    def _query_formula(package_name: str) -> Optional[Dict[str, Any]]:
+        """Query Homebrew formula information."""
         try:
             result = subprocess.run(
                 ['brew', 'info', '--json', package_name],
@@ -806,10 +822,6 @@ class BrewClient:
             
             package_info = data[0]
             
-            # Check if it's a cask
-            tap = package_info.get('tap', '')
-            is_cask = '/cask' in tap or tap == 'homebrew/cask'
-            
             # Check platform support from bottle files
             bottle_files = package_info.get('bottle', {}).get('stable', {}).get('files', {})
             
@@ -824,11 +836,47 @@ class BrewClient:
             return {
                 'supports_darwin': supports_darwin,
                 'supports_linux': supports_linux,
-                'is_cask': is_cask
+                'is_cask': False  # This is a formula, not a cask
             }
             
         except Exception as e:
-            print(f"    Warning: Homebrew query failed for {package_name}: {e}")
+            return None
+    
+    @staticmethod
+    def _query_cask(package_name: str) -> Optional[Dict[str, Any]]:
+        """Query Homebrew cask information."""
+        try:
+            result = subprocess.run(
+                ['brew', 'info', '--json=v2', '--cask', package_name],
+                capture_output=True, text=True, timeout=10
+            )
+            
+            if result.returncode != 0:
+                return None
+            
+            data = json.loads(result.stdout)
+            if not data or 'casks' not in data or not data['casks']:
+                return None
+            
+            cask_info = data['casks'][0]
+            
+            # Casks are typically macOS-only
+            # Check if there are any platform restrictions
+            supported_platforms = cask_info.get('depends_on', {}).get('macos', {})
+            
+            # For casks, assume Darwin support unless explicitly restricted
+            supports_darwin = True
+            
+            # Casks generally don't support Linux
+            supports_linux = False
+            
+            return {
+                'supports_darwin': supports_darwin,
+                'supports_linux': supports_linux,
+                'is_cask': True  # This is a cask
+            }
+            
+        except Exception as e:
             return None
 
 
@@ -946,10 +994,10 @@ def generate_package_entry(package_name: str, repology_client: RepologyClient,
                         'brew-is-cask': brew_data['is_cask']
                     })
                 else:
-                    # Fallback defaults
+                    # Fallback defaults when Homebrew query fails (package doesn't exist)
                     entry.update({
                         'brew-supports-linux': False,
-                        'brew-supports-darwin': True,
+                        'brew-supports-darwin': False,  # Don't assume Darwin support if package doesn't exist
                         'brew-is-cask': False
                     })
     
@@ -1016,10 +1064,10 @@ def generate_package_entry(package_name: str, repology_client: RepologyClient,
                             'brew-is-cask': brew_data['is_cask']
                         })
                     else:
-                        # Fallback defaults
+                        # Fallback defaults when Homebrew query fails (package doesn't exist)
                         entry.update({
                             'brew-supports-linux': False,
-                            'brew-supports-darwin': True,
+                            'brew-supports-darwin': False,  # Don't assume Darwin support if package doesn't exist
                             'brew-is-cask': False
                         })
     

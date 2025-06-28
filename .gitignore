@@ -13,3 +13,8 @@ Aptfile.new
 
 # Python virtual environment
 .venv/
+
+.package_generation.log
+bin/__pycache__/
+generated_packages/
+

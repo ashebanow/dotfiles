@@ -46,7 +46,7 @@ function checkNeededPrerequisites() {
     fi
 
     # Bitwarden CLI has different package names on different platforms
-    declare -A bw_packages=(
+    declare -a bw_packages=(
         ["darwin"]="bitwarden-cli"
         ["arch"]="bitwarden-cli"
         ["fedora"]="bitwarden-cli"
@@ -62,7 +62,7 @@ function checkNeededPrerequisites() {
     # Check for keyring tools (Linux only)
     if ! $is_darwin; then
         # secret-tool package mapping
-        declare -A secret_tool_packages=(
+        declare -a secret_tool_packages=(
             ["arch"]="libsecret"
             ["debian"]="libsecret-tools"
             ["fedora"]="libsecret"
@@ -269,7 +269,7 @@ function arch_install_bitwarden_cli {
 }
 
 function install_bitwarden_cli_if_needed {
-    declare -A bw_packages=(
+    declare -a bw_packages=(
         ["darwin"]="bitwarden-cli"
         ["arch"]="bitwarden-cli"
         ["fedora"]="bitwarden-cli"
@@ -278,7 +278,7 @@ function install_bitwarden_cli_if_needed {
         return
     fi
 
-    declare -A bw_packages=(
+    declare -a bw_packages=(
         ["darwin"]="bitwarden-cli"
         ["arch"]="bitwarden-cli"
         ["fedora"]="bitwarden-cli"
@@ -365,7 +365,7 @@ function install_keyring_tools_if_needed() {
     fi
 
     # Install secret-tool
-    declare -A secret_tool_packages=(
+    declare -a secret_tool_packages=(
         ["arch"]="libsecret"
         ["debian"]="libsecret-tools"
         ["fedora"]="libsecret"
@@ -750,7 +750,7 @@ function install_tailscale_if_needed() {
     log_info "Installing Tailscale..."
 
     # Define Tailscale repository configurations
-    declare -A tailscale_repos=(
+    declare -a tailscale_repos=(
         ["debian"]='{
             "base_url": "https://pkgs.tailscale.com/stable/debian",
             "version_name": "auto",
@@ -760,12 +760,12 @@ function install_tailscale_if_needed() {
     )
 
     # Define pre-install hooks
-    declare -A tailscale_pre=(
+    declare -a tailscale_pre=(
         ["darwin"]="install_homebrew_if_needed"
     )
 
     # Define post-install hooks
-    declare -A tailscale_post=(
+    declare -a tailscale_post=(
         ["arch"]="sudo systemctl enable --now tailscaled"
         ["fedora"]="sudo systemctl enable --now tailscaled"
         ["darwin"]="brew services start tailscale"

@@ -162,5 +162,49 @@
     "brew-supports-darwin": true,
     "brew-is-cask": false,
     "_timestamp": 1751044279.17406
+  },
+  "bitwarden": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "bitwarden",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Desktop password and login vault",
+    "brew-supports-linux": false,
+    "brew-supports-darwin": true,
+    "brew-is-cask": true,
+    "_timestamp": 1751079678.386998
+  },
+  "firefox": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "firefox",
+      "apt": "firefox",
+      "fedora": "firefox",
+      "flatpak": null
+    },
+    "description": "Mozilla Firefox (or simply Firefox) is a free and open-source web browser",
+    "brew-supports-linux": false,
+    "brew-supports-darwin": true,
+    "brew-is-cask": true,
+    "_timestamp": 1751079903.9514308
   }
 }

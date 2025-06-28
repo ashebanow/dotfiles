@@ -1,137 +1,4 @@
 {
-  "act": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986594.3614762
-  },
-  "act3": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986596.928424
-  },
-  "adobe-source-code-pro-fonts": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986599.477459
-  },
-  "antidote": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986602.040214
-  },
-  "app": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986630.527058
-  },
-  "app.ytmdesktop.ytmdesktop": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986633.101548
-  },
-  "app.zen_browser.zen": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986635.652075
-  },
   "archlinux-keyring": {
     "platforms": {
       "arch_official": true,
@@ -213,82 +80,6 @@
     "brew-supports-darwin": true,
     "brew-is-cask": false,
     "_timestamp": 1750986648.903771
-  },
-  "base-devel": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986652.414124
-  },
-  "bat": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986654.974833
-  },
-  "bc": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986657.535174
-  },
-  "bibata-cursor-theme-bin": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986660.097606
   },
   "binsider": {
     "platforms": {
@@ -396,25 +187,6 @@
     "brew-supports-darwin": false,
     "brew-is-cask": false,
     "_timestamp": 1750986679.4897978
-  },
-  "bluez-utils": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986682.9665852
   },
   "breeze": {
     "platforms": {
@@ -602,177 +374,6 @@
     "description": "wayland clipboard manager",
     "_timestamp": 1750986715.386448
   },
-  "com": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986717.9352589
-  },
-  "com.bitwarden.desktop": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986720.517985
-  },
-  "com.discordapp.Discord": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986723.072562
-  },
-  "com.getpostman.Postman": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986725.6225111
-  },
-  "com.google.Chrome": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986728.182948
-  },
-  "com.logseq.Logseq": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986730.74965
-  },
-  "com.obsproject.Studio": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986733.305344
-  },
-  "com.parsecgaming.parsec": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986735.87686
-  },
-  "com.slack.Slack": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986738.445438
-  },
   "coreutils": {
     "platforms": {
       "arch_official": true,
@@ -794,25 +395,6 @@
     "brew-supports-darwin": true,
     "brew-is-cask": false,
     "_timestamp": 1750986741.952725
-  },
-  "ctop": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986745.427221
   },
   "curl": {
     "platforms": {
@@ -920,25 +502,6 @@
     "brew-supports-darwin": true,
     "brew-is-cask": false,
     "_timestamp": 1750986764.838048
-  },
-  "dolphin": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986768.330005
   },
   "duf": {
     "platforms": {
@@ -1094,25 +657,6 @@
     "brew-is-cask": false,
     "_timestamp": 1750986798.822989
   },
-  "figurine": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986802.293621
-  },
   "findutils": {
     "platforms": {
       "arch_official": true,
@@ -1195,139 +739,6 @@
     "description": "Flatpak is a system for building, distributing, and running sandboxed desktop applications on Linux.",
     "_timestamp": 1750986819.577597
   },
-  "fonts-dejavu": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986823.032811
-  },
-  "fonts-firacode": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986825.607508
-  },
-  "fonts-font-awesome": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986828.168808
-  },
-  "fonts-jetbrains-mono": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986830.730787
-  },
-  "fonts-noto-cjk": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986833.283041
-  },
-  "fonts-noto-color-emoji": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986835.827069
-  },
-  "fonts-noto-extra": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986838.386125
-  },
   "foreman": {
     "platforms": {
       "arch_official": false,
@@ -1346,25 +757,6 @@
     },
     "description": "Toolchain manager for Roblox projects",
     "_timestamp": 1750986840.948546
-  },
-  "fuse2": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986843.507184
   },
   "fzf": {
     "platforms": {
@@ -1605,25 +997,6 @@
     "brew-is-cask": false,
     "_timestamp": 1750986890.3397949
   },
-  "glib2-devel": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986893.843338
-  },
   "glow": {
     "platforms": {
       "arch_official": true,
@@ -1845,63 +1218,6 @@
     "description": "Library to create Wayland desktop components using the Layer Shell protocol",
     "_timestamp": 1750986934.116256
   },
-  "gtk3": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986937.578241
-  },
-  "gtk4": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986940.1346922
-  },
-  "gum": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986942.6805499
-  },
   "gvfs": {
     "platforms": {
       "arch_official": true,
@@ -1920,25 +1236,6 @@
     },
     "description": "Virtual filesystem implementation for GIO",
     "_timestamp": 1750986946.167647
-  },
-  "gvfs-mtp": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750986949.648588
   },
   "htop": {
     "platforms": {
@@ -2259,63 +1556,6 @@
     "brew-is-cask": false,
     "_timestamp": 1750986999.123494
   },
-  "it": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987002.6063418
-  },
-  "it.mijorus.gearlever": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987005.161991
-  },
-  "jj": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987007.726547
-  },
   "jq": {
     "platforms": {
       "arch_official": true,
@@ -2381,25 +1621,6 @@
     "brew-supports-darwin": true,
     "brew-is-cask": false,
     "_timestamp": 1750987020.102308
-  },
-  "kitty": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987023.580181
   },
   "kvantum": {
     "platforms": {
@@ -2552,25 +1773,6 @@
     "brew-is-cask": false,
     "_timestamp": 1750987051.778924
   },
-  "libdbusmenu-gtk3": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987055.272785
-  },
   "libgtop": {
     "platforms": {
       "arch_official": true,
@@ -2614,25 +1816,6 @@
     "brew-supports-darwin": true,
     "brew-is-cask": false,
     "_timestamp": 1750987063.2232902
-  },
-  "libsoup3": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987066.717835
   },
   "libspng": {
     "platforms": {
@@ -2718,25 +1901,6 @@
     "brew-supports-darwin": true,
     "brew-is-cask": false,
     "_timestamp": 1750987082.407122
-  },
-  "man-pages": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987085.882742
   },
   "matugen": {
     "platforms": {
@@ -2962,44 +2126,6 @@
     "brew-is-cask": false,
     "_timestamp": 1750987124.395809
   },
-  "net": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987127.890228
-  },
-  "net.davidotek.pupgui2": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987130.463845
-  },
   "network-manager-applet": {
     "platforms": {
       "arch_official": true,
@@ -3056,101 +2182,6 @@
     },
     "description": "Scrollable-tiling Wayland compositor",
     "_timestamp": 1750987139.993026
-  },
-  "nm-connection-editor": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987142.5681229
-  },
-  "noto-fonts": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987145.130504
-  },
-  "noto-fonts-cjk": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987147.697299
-  },
-  "noto-fonts-emoji": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987150.281667
-  },
-  "noto-fonts-extra": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987152.856565
   },
   "npm": {
     "platforms": {
@@ -3268,158 +2299,6 @@
     },
     "description": "Suckless second brain",
     "_timestamp": 1750987170.135027
-  },
-  "org.gnome.DejaDup": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987172.6972
-  },
-  "org.gnome.SimpleScan": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987175.253233
-  },
-  "org.gnome.World.PikaBackup": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987177.810835
-  },
-  "org.gustavoperedo.FontDownloader": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987180.3717718
-  },
-  "org.mozilla.firefox": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987182.933415
-  },
-  "org.signal.Signal": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987185.5071528
-  },
-  "org.videolan.VLC": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987188.069257
-  },
-  "otf-font-awesome": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987190.625964
   },
   "overmind": {
     "platforms": {
@@ -3598,63 +2477,6 @@
     "description": "PipeWire is a project that aims to greatly improve handling of audio and video under Linux.",
     "_timestamp": 1750987267.1079948
   },
-  "pipewire-alsa": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987270.573477
-  },
-  "pipewire-audio": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987273.1419818
-  },
-  "pipewire-pulse": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987275.722183
-  },
   "pixi": {
     "platforms": {
       "arch_official": true,
@@ -3800,272 +2622,6 @@
     "brew-is-cask": false,
     "_timestamp": 1750987300.933153
   },
-  "python-gobject": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987304.413861
-  },
-  "python-gpustat": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987306.975779
-  },
-  "python-pip": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987742.3265789
-  },
-  "python-pyquery": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987744.9058912
-  },
-  "python-pywalfox": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987747.455348
-  },
-  "python-requests": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987750.0312479
-  },
-  "python-screeninfo": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987752.5841012
-  },
-  "python2": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987755.180865
-  },
-  "python3-gobject": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987757.746639
-  },
-  "python3-pip": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987760.3240829
-  },
-  "python3-pyquery": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987762.891733
-  },
-  "python3-requests": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987765.5405061
-  },
-  "python3-screeninfo": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987768.177043
-  },
-  "python@3.11": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987770.9072268
-  },
   "pywal": {
     "platforms": {
       "arch_official": true,
@@ -4107,82 +2663,6 @@
     "brew-is-cask": false,
     "_timestamp": 1750987777.108415
   },
-  "qt5-graphicaleffects": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987780.5837069
-  },
-  "qt5-quickcontrols2": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987783.1808698
-  },
-  "qt5-svg": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987785.748495
-  },
-  "qt5-wayland": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750987788.333417
-  },
   "qt5ct": {
     "platforms": {
       "arch_official": true,
@@ -4201,82 +2681,6 @@
     },
     "description": "Qt5 Configuration Tool",
     "_timestamp": 1750988002.916258
-  },
-  "qt6-5compat": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988005.6778638
-  },
-  "qt6-declarative": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988008.2598941
-  },
-  "qt6-svg": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988010.826599
-  },
-  "qt6-wayland": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988013.40926
   },
   "qt6ct": {
     "platforms": {
@@ -4464,25 +2868,6 @@
     "description": "Select a region in Sway",
     "_timestamp": 1750988046.406497
   },
-  "sof-firmware": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988142.752026
-  },
   "starship": {
     "platforms": {
       "arch_official": true,
@@ -4523,25 +2908,6 @@
     },
     "description": "Wayland native snapshot editing tool, inspired by Snappy on macOS",
     "_timestamp": 1750988149.762232
-  },
-  "swaync": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988152.344917
   },
   "swww": {
     "platforms": {
@@ -4751,196 +3117,6 @@
     "brew-is-cask": false,
     "_timestamp": 1750988283.696853
   },
-  "tree": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988287.1786308
-  },
-  "ttf-dejavu": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988289.754168
-  },
-  "ttf-droid": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988292.314079
-  },
-  "ttf-fantasque-nerd": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988294.88225
-  },
-  "ttf-fira-code": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988298.03325
-  },
-  "ttf-fira-sans": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988300.601208
-  },
-  "ttf-firacode-nerd": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988303.3664079
-  },
-  "ttf-jetbrains-mono": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988306.1402419
-  },
-  "ttf-jetbrains-mono-nerd": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988308.757386
-  },
-  "ttf-victor-mono": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988311.318174
-  },
   "tumbler": {
     "platforms": {
       "arch_official": true,
@@ -5066,44 +3242,6 @@
     },
     "description": "Abstraction for enumerating power devices, listening to device events and querying history and statistics",
     "_timestamp": 1750988451.203472
-  },
-  "us": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988454.661324
-  },
-  "us.zoom.Zoom": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988457.223733
   },
   "uwsm": {
     "platforms": {
@@ -5563,25 +3701,6 @@
     "brew-is-cask": false,
     "_timestamp": 1750988536.123144
   },
-  "yq": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1750988539.6153002
-  },
   "yt-dlp": {
     "platforms": {
       "arch_official": true,
@@ -5752,44 +3871,6 @@
     "description": "Desktop password and login vault",
     "_timestamp": 1751046361.8277938
   },
-  "signal": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751046382.855233
-  },
-  "zen": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751046430.416489
-  },
   "discord": {
     "platforms": {
       "arch_official": true,
@@ -5828,25 +3909,6 @@
     "description": "Collaboration platform for API development",
     "_timestamp": 1751046458.41779
   },
-  "chrome": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751046462.8719392
-  },
   "logseq": {
     "platforms": {
       "arch_official": false,
@@ -5865,44 +3927,6 @@
     },
     "description": "Privacy-first, open-source platform for knowledge sharing and management",
     "_timestamp": 1751046469.1933498
-  },
-  "obsproject": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751046473.663717
-  },
-  "parsec": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751046479.0589728
   },
   "slack": {
     "platforms": {
@@ -5942,82 +3966,6 @@
     "description": "Manage AppImages with ease",
     "_timestamp": 1751046543.021903
   },
-  "pupgui2": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751046571.171225
-  },
-  "dejadup": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751046583.1050901
-  },
-  "simplescan": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751046588.528618
-  },
-  "pikabackup": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751046594.021326
-  },
   "fontdownloader": {
     "platforms": {
       "arch_official": false,
@@ -6056,7 +4004,26 @@
     "description": "Multimedia player",
     "_timestamp": 1751046606.840609
   },
-  "11": {
+  "google-chrome": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "google-chrome",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Google Chrome is a fast, easy to use, and secure web browser.",
+    "_timestamp": 1751077424.7593322
+  },
+  "act": {
     "platforms": {
       "arch_official": false,
       "arch_aur": false,
@@ -6073,7 +4040,1565 @@
       "flatpak": null
     },
     "description": null,
-    "_timestamp": 1751046636.1083689
+    "_timestamp": 1751082890.834122
+  },
+  "act3": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751082895.1948879
+  },
+  "adobe-source-code-pro-fonts": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751082899.527105
+  },
+  "antidote": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751082904.6557472
+  },
+  "zen": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751082908.976083
+  },
+  "base-devel": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751082915.739567
+  },
+  "bat": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751082920.850591
+  },
+  "bc": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751082925.1891992
+  },
+  "bibata-cursor-theme-bin": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751082929.530821
+  },
+  "bluez-utils": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751082939.450187
+  },
+  "chrome": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751082948.577944
+  },
+  "obsproject": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751082963.2440739
+  },
+  "parsec": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751082969.969248
+  },
+  "ctop": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751082977.528123
+  },
+  "dejadup": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751082982.66765
+  },
+  "dolphin": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751082991.791328
+  },
+  "figurine": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083002.508894
+  },
+  "fonts-dejavu": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083012.4574761
+  },
+  "fonts-firacode": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083017.585362
+  },
+  "fonts-font-awesome": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083022.7011049
+  },
+  "fonts-jetbrains-mono": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083027.829221
+  },
+  "fonts-noto-cjk": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083032.9465868
+  },
+  "fonts-noto-color-emoji": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083038.081845
+  },
+  "fonts-noto-extra": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083043.172064
+  },
+  "fuse2": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083048.297527
+  },
+  "glib2-devel": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083061.4571111
+  },
+  "gtk3": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083074.557785
+  },
+  "gtk4": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083079.680831
+  },
+  "gum": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083084.0206358
+  },
+  "gvfs-mtp": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083089.973249
+  },
+  "it": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083099.1069021
+  },
+  "jj": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083104.255884
+  },
+  "kitty": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083110.979703
+  },
+  "libdbusmenu-gtk3": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083120.969883
+  },
+  "libsoup3": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083127.8686972
+  },
+  "man-pages": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083137.016696
+  },
+  "pupgui2": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083147.771782
+  },
+  "nm-connection-editor": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083156.1036422
+  },
+  "noto-fonts": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083161.244334
+  },
+  "noto-fonts-cjk": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083166.381516
+  },
+  "noto-fonts-emoji": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083171.4884841
+  },
+  "noto-fonts-extra": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083176.6276128
+  },
+  "simplescan": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083187.361863
+  },
+  "pikabackup": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083194.1004212
+  },
+  "signal": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083202.409373
+  },
+  "otf-font-awesome": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083209.175593
+  },
+  "pipewire-alsa": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083225.624694
+  },
+  "pipewire-audio": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083230.750973
+  },
+  "pipewire-pulse": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083235.8750222
+  },
+  "python-gobject": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083247.610219
+  },
+  "python-gpustat": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083252.7493818
+  },
+  "python-pip": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083257.8822951
+  },
+  "python-pyquery": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083263.029917
+  },
+  "python-pywalfox": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083268.183116
+  },
+  "python-requests": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083273.298784
+  },
+  "python-screeninfo": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083278.4542432
+  },
+  "python2": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083283.5940962
+  },
+  "python3-gobject": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083288.759776
+  },
+  "python3-pip": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083293.919227
+  },
+  "python3-pyquery": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083299.065043
+  },
+  "python3-requests": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083304.2163148
+  },
+  "python3-screeninfo": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083309.3715699
+  },
+  "qt5-graphicaleffects": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083315.346866
+  },
+  "qt5-quickcontrols2": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083320.5203881
+  },
+  "qt5-svg": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083325.665128
+  },
+  "qt5-wayland": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083330.8312519
+  },
+  "qt6-5compat": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083335.971719
+  },
+  "qt6-declarative": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083341.102669
+  },
+  "qt6-svg": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083346.216605
+  },
+  "qt6-wayland": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083351.349073
+  },
+  "sof-firmware": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083365.615846
+  },
+  "swaync": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083371.5972311
+  },
+  "tree": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083383.3851168
+  },
+  "ttf-dejavu": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083387.760055
+  },
+  "ttf-droid": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083392.92139
+  },
+  "ttf-fantasque-nerd": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083398.1123269
+  },
+  "ttf-fira-code": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083403.2481651
+  },
+  "ttf-fira-sans": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083408.390666
+  },
+  "ttf-firacode-nerd": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083413.547992
+  },
+  "ttf-jetbrains-mono": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083418.667441
+  },
+  "ttf-jetbrains-mono-nerd": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083423.795569
+  },
+  "ttf-victor-mono": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083428.924608
+  },
+  "us": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083438.861165
   },
   "zoom": {
     "platforms": {
@@ -6092,10 +5617,25 @@
       "flatpak": null
     },
     "description": null,
-    "_timestamp": 1751046679.003571
+    "_timestamp": 1751083443.993887
   },
-  "dhth/tap/act3": {
-    "_timestamp": 1751050434.626209,
-    "data": null
+  "yq": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751083462.742391
   }
 }

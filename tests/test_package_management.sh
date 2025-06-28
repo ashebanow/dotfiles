@@ -12,6 +12,14 @@ PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 TEST_ASSETS="$SCRIPT_DIR/assets/package_mapping"
 TEMP_DIR="$SCRIPT_DIR/temp_test_output"
 
+# Require virtual environment Python (needed for proper dependencies)
+if [[ ! -f "$PROJECT_ROOT/.venv/bin/python3" ]]; then
+    echo "ERROR: Python virtual environment not found at $PROJECT_ROOT/.venv/bin/python3"
+    echo "Please run 'just setup-python' from $PROJECT_ROOT first"
+    exit 1
+fi
+PYTHON_CMD="$PROJECT_ROOT/.venv/bin/python3"
+
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -32,17 +40,17 @@ print_header() {
 
 print_test() {
     echo -e "${YELLOW}[TEST] $1${NC}"
-    ((TESTS_RUN++))
+    TESTS_RUN=$((TESTS_RUN + 1))
 }
 
 print_success() {
     echo -e "${GREEN}✓ $1${NC}"
-    ((TESTS_PASSED++))
+    TESTS_PASSED=$((TESTS_PASSED + 1))
 }
 
 print_error() {
     echo -e "${RED}✗ $1${NC}"
-    ((TESTS_FAILED++))
+    TESTS_FAILED=$((TESTS_FAILED + 1))
 }
 
 print_info() {
@@ -77,7 +85,7 @@ test_single_package_analysis() {
     
     cd "$PROJECT_ROOT"
     
-    if python3 bin/package_analysis.py \
+    if $PYTHON_CMD bin/package_analysis.py \
         --package bat gh zellij \
         --output "$TEMP_DIR/single_packages.toml" \
         --cache "$TEMP_DIR/cache.json" > "$TEMP_DIR/single_test.log" 2>&1; then
@@ -112,7 +120,7 @@ test_package_file_parsing() {
     
     cd "$PROJECT_ROOT"
     
-    if python3 bin/package_analysis.py \
+    if $PYTHON_CMD bin/package_analysis.py \
         --package-lists "$TEST_ASSETS/test_brewfile.in" "$TEST_ASSETS/simple_archfile" \
         --output "$TEMP_DIR/parsed_packages.toml" \
         --cache "$TEMP_DIR/cache.json" > "$TEMP_DIR/parsing_test.log" 2>&1; then
@@ -149,7 +157,7 @@ test_package_generation() {
     cd "$PROJECT_ROOT"
     
     # Use the test TOML file
-    if python3 bin/package_generators.py \
+    if $PYTHON_CMD bin/package_generators.py \
         --toml "$TEST_ASSETS/test_mixed_packages.toml" \
         --output-dir "$TEMP_DIR/generated_files" \
         --original-brewfile "$TEST_ASSETS/test_brewfile.in" > "$TEMP_DIR/generation_test.log" 2>&1; then
@@ -183,13 +191,13 @@ test_basic_roundtrip() {
     cd "$PROJECT_ROOT"
     
     # Step 1: Generate TOML from simple Brewfile
-    if python3 bin/package_analysis.py \
+    if $PYTHON_CMD bin/package_analysis.py \
         --package bat gh zellij \
         --output "$TEMP_DIR/roundtrip_step1.toml" \
         --cache "$TEMP_DIR/cache.json" > "$TEMP_DIR/roundtrip_test.log" 2>&1; then
         
         # Step 2: Generate Brewfile from TOML
-        if python3 bin/package_generators.py \
+        if $PYTHON_CMD bin/package_generators.py \
             --toml "$TEMP_DIR/roundtrip_step1.toml" \
             --output-dir "$TEMP_DIR/roundtrip_output" \
             --original-brewfile "$TEST_ASSETS/test_brewfile.in" >> "$TEMP_DIR/roundtrip_test.log" 2>&1; then
@@ -228,7 +236,7 @@ test_platform_filtering() {
     
     # Test different output targets
     for target in homebrew all; do
-        if python3 bin/package_generators.py \
+        if $PYTHON_CMD bin/package_generators.py \
             --toml "$TEST_ASSETS/test_mixed_packages.toml" \
             --target "$target" \
             --print-only > "$TEMP_DIR/platform_test_${target}.out" 2>&1; then
@@ -251,7 +259,7 @@ test_error_handling() {
     cd "$PROJECT_ROOT"
     
     # Test with non-existent file
-    if python3 bin/package_analysis.py \
+    if $PYTHON_CMD bin/package_analysis.py \
         --package-lists "/nonexistent/file.in" \
         --output "$TEMP_DIR/error_test.toml" \
         --cache "$TEMP_DIR/cache.json" > "$TEMP_DIR/error_test.log" 2>&1; then

@@ -47,10 +47,18 @@ function install_arch_packages() {
     return;
   fi
 
+  # Ensure virtual environment is available (required for proper dependencies)
+  if [[ ! -f "${DOTFILES}/.venv/bin/python3" ]]; then
+    log_error "Python virtual environment not found at ${DOTFILES}/.venv/bin/python3"
+    log_error "Please run 'just setup-python' from ${DOTFILES} first"
+    return 1
+  fi
+  local PYTHON_CMD="${DOTFILES}/.venv/bin/python3"
+
   # Try to generate package lists from TOML first
   if [[ -f "${DOTFILES}/package_mappings.toml" ]] && [[ -f "${DOTFILES}/bin/package_generators.py" ]]; then
-    log_info "Generating Arch package list from TOML..."
-    if python3 "${DOTFILES}/bin/package_generators.py" \
+    log_info "Generating Arch package list from TOML using ${PYTHON_CMD}..."
+    if "${PYTHON_CMD}" "${DOTFILES}/bin/package_generators.py" \
         --toml "${DOTFILES}/package_mappings.toml" \
         --output-dir "${DOTFILES}" > "${DOTFILES}/.package_generation.log" 2>&1; then
       log_info "✓ Generated Arch package list from TOML"

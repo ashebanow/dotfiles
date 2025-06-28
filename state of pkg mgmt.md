@@ -22,3 +22,14 @@
 Broken mappings:
 
 base-devel      EMPTY
+bw		Should be bitwarden-cli for brew
+
+
+
+Brews installed during bootstrap:
+
+bitwarden-cli NOT bw
+gum
+tailscale
+xcodes
+

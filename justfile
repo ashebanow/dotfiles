@@ -10,6 +10,7 @@ default:
 [group('package-management')]
 regen-toml:
     #!/usr/bin/env bash
+    {{_check_venv}}
     echo "Regenerating package_mappings.toml from package files..."
     echo "Using Python: {{_python_cmd}}"
     {{_python_cmd}} bin/package_analysis.py \
@@ -24,28 +25,62 @@ regen-toml:
 [group('setup')]
 setup-python:
     #!/usr/bin/env bash
+    # Ensure uv is available
+    if ! command -v uv >/dev/null 2>&1; then
+        if command -v brew >/dev/null 2>&1; then
+            echo "Installing uv via Homebrew..."
+            brew install uv
+        else
+            echo "Error: uv is required but not installed."
+            echo "Please install uv: https://docs.astral.sh/uv/getting-started/installation/"
+            echo "Or install Homebrew first: https://brew.sh/"
+            exit 1
+        fi
+    fi
+    
     if [ ! -d ".venv" ]; then
         echo "Creating Python virtual environment with uv..."
-        uv venv .venv --python $(brew --prefix python3)/bin/python3
+        if ! uv venv .venv --python $(brew --prefix python3)/bin/python3; then
+            echo "Error: Failed to create virtual environment"
+            echo "Make sure Homebrew Python is available: brew install python@3.11"
+            exit 1
+        fi
         echo "Installing dependencies..."
-        uv pip install toml requests
+        if ! uv pip install toml requests; then
+            echo "Error: Failed to install Python dependencies"
+            exit 1
+        fi
         echo "✓ Python environment ready"
     else
         echo "✓ Python environment already exists"
         # Verify dependencies are available
         if ! .venv/bin/python3 -c "import requests, toml" 2>/dev/null; then
             echo "Installing missing dependencies..."
-            uv pip install toml requests
+            if ! uv pip install toml requests; then
+                echo "Error: Failed to install Python dependencies"
+                exit 1
+            fi
         fi
     fi
+    
+    # Final verification that everything works
+    if ! .venv/bin/python3 -c "import requests, toml; print('✓ Virtual environment ready with all dependencies')" 2>/dev/null; then
+        echo "Error: Virtual environment setup failed - dependencies not available"
+        echo "Try removing .venv directory and running 'just setup-python' again"
+        exit 1
+    fi
 
-# Python executable using virtual environment
+# Helper to check virtual environment exists
+_check_venv := "if [[ ! -f '.venv/bin/python3' ]]; then echo 'ERROR: Python virtual environment not found. Run: just setup-python'; exit 1; fi"
+
+# Python executable using virtual environment (required for proper dependencies)
 _python_cmd := ".venv/bin/python3"
 
 # Regenerate package_mappings.toml and automatically apply changes
 [group('package-management')]
 regen-toml-apply:
     #!/usr/bin/env bash
+    {{_check_venv}}
     echo "Regenerating and applying package_mappings.toml..."
     echo "Using Python: {{_python_cmd}}"
     {{_python_cmd}} bin/package_analysis.py \
@@ -73,6 +108,7 @@ add-packages *packages:
         exit 1
     fi
     just setup-python
+    {{_check_venv}}
     echo "Adding packages to TOML: {{packages}}"
     echo "Using Python: {{_python_cmd}}"
     {{_python_cmd}} bin/package_analysis.py \
@@ -85,6 +121,7 @@ add-packages *packages:
 [group('package-management')]
 generate-package-lists:
     #!/usr/bin/env bash
+    {{_check_venv}}
     echo "Generating platform-specific package lists from TOML..."
     echo "Using Python: {{_python_cmd}}"
     {{_python_cmd}} bin/package_generators.py \
@@ -167,9 +204,11 @@ test-all: test-packages test-install
 # Debug specific package analysis
 [group('debug')]
 debug-package package:
-    @echo "Debugging package: {{package}}"
-    @echo "Using Python: {{_python_cmd}}"
-    @{{_python_cmd}} bin/package_analysis.py --package {{package}} --cache .debug_cache.json
+    #!/usr/bin/env bash
+    {{_check_venv}}
+    echo "Debugging package: {{package}}"
+    echo "Using Python: {{_python_cmd}}"
+    {{_python_cmd}} bin/package_analysis.py --package {{package}} --cache .debug_cache.json
 
 # Show package mapping for specific package
 [group('debug')]
@@ -239,16 +278,16 @@ cache-stats:
 check-deps:
     #!/usr/bin/env bash
     echo "Checking Python dependencies..."
-    python3 -c "import toml; print('✓ toml library available')" 2>/dev/null || echo "✗ toml library missing (pip install toml)"
-    python3 -c "import requests; print('✓ requests library available')" 2>/dev/null || echo "✗ requests library missing (pip install requests)"
+    {{_python_cmd}} -c "import toml; print('✓ toml library available')" 2>/dev/null || echo "✗ toml library missing (pip install toml)"
+    {{_python_cmd}} -c "import requests; print('✓ requests library available')" 2>/dev/null || echo "✗ requests library missing (pip install requests)"
     
     echo "Checking SSL configuration..."
-    python3 -c "import ssl; print(f'✓ SSL version: {ssl.OPENSSL_VERSION}')" 2>/dev/null || echo "✗ SSL check failed"
-    python3 -c "import urllib3; print(f'urllib3 version: {urllib3.__version__}')" 2>/dev/null || echo "urllib3 not available"
+    {{_python_cmd}} -c "import ssl; print(f'✓ SSL version: {ssl.OPENSSL_VERSION}')" 2>/dev/null || echo "✗ SSL check failed"
+    {{_python_cmd}} -c "import urllib3; print(f'urllib3 version: {urllib3.__version__}')" 2>/dev/null || echo "urllib3 not available"
     
     # Check for SSL issues
-    if python3 -c "import urllib3; assert urllib3.__version__.startswith('2.')" 2>/dev/null; then
-        if python3 -c "import ssl; assert 'LibreSSL' in ssl.OPENSSL_VERSION" 2>/dev/null; then
+    if {{_python_cmd}} -c "import urllib3; assert urllib3.__version__.startswith('2.')" 2>/dev/null; then
+        if {{_python_cmd}} -c "import ssl; assert 'LibreSSL' in ssl.OPENSSL_VERSION" 2>/dev/null; then
             echo "⚠️  SSL Issue Detected: urllib3 v2 + LibreSSL (common on macOS)"
             echo "   Fix with: just fix-ssl"
         fi
@@ -262,7 +301,7 @@ check-deps:
 [group('development')]
 install-deps:
     @echo "Installing Python dependencies..."
-    @python3 -m pip install --user toml requests
+    @{{_python_cmd}} -m pip install --user toml requests
 
 # Fix SSL issues (common on macOS with LibreSSL)
 [group('development')]
@@ -272,30 +311,18 @@ fix-ssl:
     
     # Check current status
     echo "Current SSL setup:"
-    python3 -c "import ssl; print(f'  SSL: {ssl.OPENSSL_VERSION}')" 2>/dev/null || echo "  SSL: Failed to detect"
-    python3 -c "import urllib3; print(f'  urllib3: {urllib3.__version__}')" 2>/dev/null || echo "  urllib3: Not installed"
+    {{_python_cmd}} -c "import ssl; print(f'  SSL: {ssl.OPENSSL_VERSION}')" 2>/dev/null || echo "  SSL: Failed to detect"
+    {{_python_cmd}} -c "import urllib3; print(f'  urllib3: {urllib3.__version__}')" 2>/dev/null || echo "  urllib3: Not installed"
     
     echo
     echo "Applying fix: Downgrade urllib3 to v1.x (compatible with LibreSSL)"
-    python3 -m pip install --user 'urllib3<2.0' 'requests>=2.28.0'
+    {{_python_cmd}} -m pip install --user 'urllib3<2.0' 'requests>=2.28.0'
     
     echo
     echo "Verifying fix..."
-    python3 -c "import urllib3; print(f'✓ urllib3 version: {urllib3.__version__}')"
-    python3 -c "import ssl, requests; print('✓ SSL/requests working'); requests.get('https://httpbin.org/get', timeout=5)" 2>/dev/null && echo "✓ HTTPS requests working" || echo "✗ HTTPS requests still failing"
+    {{_python_cmd}} -c "import urllib3; print(f'✓ urllib3 version: {urllib3.__version__}')"
+    {{_python_cmd}} -c "import ssl, requests; print('✓ SSL/requests working'); requests.get('https://httpbin.org/get', timeout=5)" 2>/dev/null && echo "✓ HTTPS requests working" || echo "✗ HTTPS requests still failing"
 
-# Alternative: Use Homebrew Python (if available)  
-[group('development')]
-use-brew-python:
-    #!/usr/bin/env bash
-    if command -v brew >/dev/null 2>&1; then
-        echo "Installing Python via Homebrew (includes proper OpenSSL)..."
-        brew install python@3.11
-        echo "✓ Use 'python3.11' or update your PATH to use Homebrew Python"
-        python3.11 -c "import ssl; print(f'Homebrew Python SSL: {ssl.OPENSSL_VERSION}')" 2>/dev/null || echo "Homebrew Python not ready yet"
-    else
-        echo "Homebrew not found. Install with: /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
-    fi
 
 # Show project structure for package management
 [group('development')]

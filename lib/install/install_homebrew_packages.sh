@@ -30,11 +30,13 @@ function install_homebrew_packages() {
         fi
     fi
     
-    # Determine which Python to use for package generation (prefer Homebrew Python)
-    PYTHON_CMD="python3"
-    if command -v python3.11 >/dev/null 2>&1; then
-        PYTHON_CMD="python3.11"
+    # Ensure virtual environment is available (required for proper dependencies)
+    if [[ ! -f "${DOTFILES}/.venv/bin/python3" ]]; then
+        log_error "Python virtual environment not found at ${DOTFILES}/.venv/bin/python3"
+        log_error "Please run 'just setup-python' from ${DOTFILES} first"
+        return 1
     fi
+    PYTHON_CMD="${DOTFILES}/.venv/bin/python3"
     
     # Try to generate package lists from TOML first
     if [[ -f "${DOTFILES}/package_mappings.toml" ]] && [[ -f "${DOTFILES}/bin/package_generators.py" ]]; then
