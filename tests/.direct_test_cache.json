@@ -1,0 +1,21 @@
+{
+  "bat": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751133690.760067
+  }
+}
