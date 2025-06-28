@@ -1,15 +1,11 @@
 
 # Platform-specific packages
-cask "discord"
 brew "dockutil"
 cask "dolphin"
+cask "ghostty"
 cask "kitty"
-cask "logseq"
 cask "parsec"
 cask "pinta"
-cask "postman"
 cask "signal"
-cask "slack"
-cask "vlc"
 cask "zen"
 cask "zoom"

@@ -2222,164 +2222,6 @@ flatpak-pkg = "net.davidotek.pupgui2"
 prefer_flatpak = true
 priority = ""
 
-[python]
-apt-pkg = "python2.7"
-arch-is-aur = true
-arch-pkg = "python-tests"
-brew-is-cask = false
-brew-supports-darwin = true
-brew-supports-linux = true
-brew-tap = ""
-description = "Python is a programming language that lets you work quickly and integrate systems more effectively."
-fedora-pkg = "python2.7"
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python-gobject' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python-gobject"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python-gobject"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python-gpustat' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python-gpustat"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python-gpustat"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python-pip' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python-pip"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python-pip"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python-pyquery' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python-pyquery"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python-pyquery"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python-pywalfox' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python-pywalfox"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python-pywalfox"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python-requests' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python-requests"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python-requests"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python-screeninfo' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python-screeninfo"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python-screeninfo"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python3-gobject' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python3-gobject"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python3-gobject"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python3-pip' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python3-pip"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python3-pip"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python3-pyquery' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python3-pyquery"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python3-pyquery"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python3-requests' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python3-requests"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python3-requests"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
-# Package 'python3-screeninfo' not found on any platform - kept for periodic retry
-# This entry will be excluded from generated package files
-["python3-screeninfo"]
-apt-pkg = ""
-arch-pkg = ""
-brew-tap = ""
-description = "TODO: Add description for python3-screeninfo"
-fedora-pkg = ""
-flatpak-pkg = ""
-prefer_flatpak = false
-priority = ""
-
 [pywal]
 apt-pkg = ""
 arch-is-aur = true
@@ -3473,6 +3315,20 @@ brew-supports-darwin = false
 brew-supports-linux = false
 brew-tap = ""
 description = "Additional completion definitions for zsh"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+[ghostty]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "ghostty"
+brew-is-cask = true
+brew-supports-darwin = true
+brew-supports-linux = false
+brew-tap = ""
+description = "Fast, native, feature-rich terminal emulator pushing modern features"
 fedora-pkg = ""
 flatpak-pkg = ""
 prefer_flatpak = false
