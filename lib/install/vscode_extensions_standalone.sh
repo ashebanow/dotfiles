@@ -36,10 +36,10 @@ is_vscode_extension_installed() {
     for installed_extension in "${installed_vscode_extensions[@]}"; do
         if [ "$installed_extension" == "$extension" ]; then
             log_debug "$extension is already installed, skipping."
-            return 1
+            return 0
         fi
     done
-    return 0
+    return 1
 }
 
 # Main extension installation logic
@@ -50,13 +50,21 @@ main() {
         exit 1
     fi
 
+    # Get installed extensions (bash 3.2 compatible)
     declare -a installed_vscode_extensions
-    readarray -t installed_vscode_extensions < <($vscode_binary_path --list-extensions)
+    while IFS= read -r extension; do
+        installed_vscode_extensions+=("$extension")
+    done < <("$vscode_binary_path" --list-extensions 2>/dev/null || true)
 
-    readarray -t vscode_extensions_list <"${DOTFILES}/VSExtensionsFile"
+    # Read extensions to install (bash 3.2 compatible)
+    declare -a vscode_extensions_list
+    while IFS= read -r extension; do
+        [[ -n "$extension" ]] && vscode_extensions_list+=("$extension")
+    done < "${DOTFILES}/packages/VSExtensionsFile"
     for vscode_extension in "${vscode_extensions_list[@]}"; do
-        if is_vscode_extension_installed "$vscode_extension"; then
-            "$vscode_binary_path" --install-extension "$vscode_extension" --force
+        if ! is_vscode_extension_installed "$vscode_extension"; then
+            log_info "Installing VSCode extension: $vscode_extension"
+            "$vscode_binary_path" --install-extension "$vscode_extension" --force >/dev/null 2>&1
         fi
     done
 }
