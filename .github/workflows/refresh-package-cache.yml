@@ -86,7 +86,7 @@ jobs:
                 cache = {}
             
             # Load package list from TOML
-            toml_path = Path("package_mappings.toml")
+            toml_path = Path("packages/package_mappings.toml")
             if not toml_path.exists():
                 print("Error: package_mappings.toml not found")
                 return False
@@ -158,7 +158,7 @@ jobs:
             print("Performing full cache refresh")
             
             # Load package list from TOML
-            toml_path = Path("package_mappings.toml")
+            toml_path = Path("packages/package_mappings.toml")
             if not toml_path.exists():
                 print("Error: package_mappings.toml not found")
                 return False
@@ -225,12 +225,12 @@ jobs:
     - name: Refresh cache segment
       run: |
         echo "Starting cache refresh: ${{ steps.segment.outputs.description }}"
-        python bin/refresh_cache_segment.py --segment "${{ steps.segment.outputs.segment }}" --cache .repology_cache.json
+        python bin/refresh_cache_segment.py --segment "${{ steps.segment.outputs.segment }}" --cache packages/.repology_cache.json
         
     - name: Check if cache was updated
       id: check_changes
       run: |
-        if git diff --quiet .repology_cache.json; then
+        if git diff --quiet packages/.repology_cache.json; then
           echo "has_changes=false" >> $GITHUB_OUTPUT
           echo "No changes to cache file"
         else
@@ -238,8 +238,8 @@ jobs:
           echo "Cache file has been updated"
           
           # Show some stats about the changes
-          echo "Cache file size:" $(du -h .repology_cache.json | cut -f1)
-          echo "Number of entries:" $(jq 'keys | length' .repology_cache.json)
+          echo "Cache file size:" $(du -h packages/.repology_cache.json | cut -f1)
+          echo "Number of entries:" $(jq 'keys | length' packages/.repology_cache.json)
         fi
         
     - name: Commit updated cache
@@ -249,10 +249,10 @@ jobs:
         git config --local user.name "GitHub Action"
         
         # Create descriptive commit message
-        ENTRIES=$(jq 'keys | length' .repology_cache.json)
-        CACHE_SIZE=$(du -h .repology_cache.json | cut -f1)
+        ENTRIES=$(jq 'keys | length' packages/.repology_cache.json)
+        CACHE_SIZE=$(du -h packages/.repology_cache.json | cut -f1)
         
-        git add .repology_cache.json
+        git add packages/.repology_cache.json
         git commit -m "🔄 ${{ steps.segment.outputs.description }}
 
         Updated Repology package cache by refreshing oldest entries.
@@ -280,9 +280,9 @@ jobs:
         echo "- **Description**: ${{ steps.segment.outputs.description }}" >> $GITHUB_STEP_SUMMARY
         echo "- **Changes**: ${{ steps.check_changes.outputs.has_changes }}" >> $GITHUB_STEP_SUMMARY
         
-        if [[ -f .repology_cache.json ]]; then
-          ENTRIES=$(jq 'keys | length' .repology_cache.json)
-          CACHE_SIZE=$(du -h .repology_cache.json | cut -f1)
+        if [[ -f packages/.repology_cache.json ]]; then
+          ENTRIES=$(jq 'keys | length' packages/.repology_cache.json)
+          CACHE_SIZE=$(du -h packages/.repology_cache.json | cut -f1)
           echo "- **Total entries**: $ENTRIES packages" >> $GITHUB_STEP_SUMMARY
           echo "- **Cache size**: $CACHE_SIZE" >> $GITHUB_STEP_SUMMARY
         fi
