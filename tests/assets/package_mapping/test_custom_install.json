@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Test Custom Installation Configuration",
+  "description": "Test fixtures for custom installation functionality",
+  "type": "object",
+  "properties": {
+    "packages": {
+      "type": "object"
+    }
+  },
+  "required": ["packages"],
+  "additionalProperties": false,
+  "packages": {
+    "test-custom-always": {
+      "description": "Test package with always priority",
+      "custom-install": {
+        "is_darwin": [
+          "echo 'Installing on macOS'",
+          "echo 'Step 2 on macOS'"
+        ],
+        "is_linux": [
+          "echo 'Installing on Linux'"
+        ],
+        "default": [
+          "echo 'Default installation'"
+        ]
+      },
+      "custom-install-priority": "always"
+    },
+    "test-custom-fallback": {
+      "description": "Test package with fallback priority",
+      "custom-install": {
+        "default": [
+          "echo 'Fallback installation'"
+        ]
+      },
+      "custom-install-priority": "fallback"
+    },
+    "test-custom-confirmation": {
+      "description": "Test package requiring confirmation",
+      "custom-install": {
+        "default": [
+          "echo 'Installing with confirmation'"
+        ]
+      },
+      "requires-confirmation": true
+    },
+    "test-custom-condition": {
+      "description": "Test package with install condition",
+      "custom-install": {
+        "default": [
+          "echo 'Installing with condition'"
+        ]
+      },
+      "install-condition": "command -v echo"
+    },
+    "test-custom-no-commands": {
+      "description": "Test package with empty custom install",
+      "custom-install": {}
+    },
+    "test-custom-platform-specific": {
+      "description": "Test platform-specific package",
+      "custom-install": {
+        "is_arch_like": [
+          "yay -S test-package",
+          "sudo systemctl enable test-service"
+        ],
+        "is_debian_like": [
+          "sudo apt update",
+          "sudo apt install -y test-package"
+        ]
+      }
+    }
+  }
+}

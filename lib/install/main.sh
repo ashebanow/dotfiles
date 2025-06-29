@@ -44,6 +44,11 @@ show_spinner \
     "${DOTFILES}/lib/install/flatpak_apps.sh" \
     "Installed Flatpak apps."
 
+show_spinner \
+    "Installing custom packages..." \
+    "${DOTFILES}/lib/install/custom.sh" \
+    "Installed custom packages."
+
 show_spinner "Installing fonts..." \
     "${DOTFILES}/lib/install/fonts.sh" \
     "Installed fonts..."

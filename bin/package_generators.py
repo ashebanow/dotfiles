@@ -42,11 +42,21 @@ except ImportError:
 
 def _has_any_packages(entry: Dict[str, Any]) -> bool:
     """Check if a TOML entry has any packages found on any platform."""
-    package_fields = ['arch-pkg', 'apt-pkg', 'fedora-pkg', 'flatpak-pkg']
+    package_fields = ['arch-pkg', 'apt-pkg', 'fedora-pkg', 'flatpak-pkg', 'custom-install']
     
     # Check if any package field has a non-empty value
     for field in package_fields:
-        if entry.get(field, '').strip():
+        value = entry.get(field, '')
+        if field == 'custom-install':
+            # Handle hierarchical custom-install dict
+            if isinstance(value, dict):
+                # Check if any platform has commands
+                for platform, commands in value.items():
+                    if isinstance(commands, list) and commands:
+                        return True
+            elif isinstance(value, str) and value.strip():
+                return True
+        elif isinstance(value, str) and value.strip():
             return True
     
     # Check homebrew availability (indicated by brew-* fields)
@@ -115,7 +125,20 @@ class PackageFilter:
             return False
         
         pkg_field = f"{native_pm}-pkg"
-        return bool(entry.get(pkg_field, '').strip())
+        has_native_pkg = bool(entry.get(pkg_field, '').strip())
+        
+        if not has_native_pkg:
+            return False
+        
+        # Check if custom install with "always" priority overrides native
+        custom_priority = entry.get('custom-install-priority', 'always').lower()
+        if custom_priority == 'always':
+            custom_install = entry.get('custom-install', '')
+            if custom_install:
+                # If there's a custom install with always priority, don't use native
+                return False
+        
+        return True
     
     def should_use_flatpak(self, package_name: str, entry: Dict[str, Any]) -> bool:
         """Check if package should be installed via Flatpak."""
@@ -151,11 +174,89 @@ class PackageFilter:
                 return False
         
         # Use Homebrew if no higher-priority alternatives available
-        return not (self.should_use_native_package(package_name, entry) or 
+        return not (self.should_use_custom_install(package_name, entry) or
+                   self.should_use_native_package(package_name, entry) or 
                    self.should_use_flatpak(package_name, entry))
     
+    def should_use_custom_install(self, package_name: str, entry: Dict[str, Any]) -> bool:
+        """Check if package should be installed via custom command."""
+        custom_install = entry.get('custom-install', '')
+        if not custom_install:
+            return False
+        
+        # If custom_install is a dict (hierarchical), check if we have commands for this platform
+        if isinstance(custom_install, dict):
+            commands = self.get_custom_install_commands(entry)
+            if not commands:
+                return False
+        elif isinstance(custom_install, str) and not custom_install.strip():
+            return False
+        
+        # Check custom install priority
+        custom_priority = entry.get('custom-install-priority', 'always').lower()
+        
+        if custom_priority == 'never':
+            return False
+        elif custom_priority == 'always':
+            return True
+        elif custom_priority == 'fallback':
+            # Use custom install only if no other package managers have this package
+            has_native = self.should_use_native_package(package_name, entry)
+            has_flatpak = self.should_use_flatpak(package_name, entry)
+            has_homebrew = entry.get('brew-supports-darwin', False) or entry.get('brew-supports-linux', False)
+            return not (has_native or has_flatpak or has_homebrew)
+        
+        return True
+    
+    def get_custom_install_commands(self, entry: Dict[str, Any]) -> List[str]:
+        """Get custom installation commands for the current platform."""
+        custom_install = entry.get('custom-install', '')
+        if not custom_install:
+            return []
+        
+        # Handle legacy string format
+        if isinstance(custom_install, str):
+            return [custom_install] if custom_install.strip() else []
+        
+        # Handle hierarchical format
+        if not isinstance(custom_install, dict):
+            return []
+        
+        # Platform-specific lookup order
+        platform_keys = []
+        
+        if self.platform.is_darwin:
+            platform_keys.append('is_darwin')
+        if self.platform.is_linux:
+            platform_keys.append('is_linux')
+        if self.platform.is_arch_like:
+            platform_keys.append('is_arch_like')
+        if self.platform.is_debian_like:
+            platform_keys.append('is_debian_like')
+        if self.platform.is_fedora_like:
+            platform_keys.append('is_fedora_like')
+        
+        # Try platform-specific commands first
+        for key in platform_keys:
+            if key in custom_install:
+                commands = custom_install[key]
+                if isinstance(commands, list):
+                    return commands
+                elif isinstance(commands, str) and commands.strip():
+                    return [commands]
+        
+        # Fall back to default
+        if 'default' in custom_install:
+            commands = custom_install['default']
+            if isinstance(commands, list):
+                return commands
+            elif isinstance(commands, str) and commands.strip():
+                return [commands]
+        
+        return []
+    
     def get_filtered_packages(self, target: str) -> Dict[str, str]:
-        """Get packages filtered for specific target (native/flatpak/homebrew)."""
+        """Get packages filtered for specific target (native/flatpak/homebrew/custom)."""
         filtered = {}
         
         for package_name, entry in self.toml_data.items():
@@ -190,11 +291,19 @@ class PackageFilter:
                     
                     if is_cask or darwin_only:
                         # Don't include if better alternatives exist
-                        if not (self.should_use_native_package(package_name, entry) or 
+                        if not (self.should_use_custom_install(package_name, entry) or
+                               self.should_use_native_package(package_name, entry) or 
                                self.should_use_flatpak(package_name, entry)):
                             # Use explicit brew-pkg if available, otherwise use package name
                             brew_name = entry.get('brew-pkg', package_name)
                             filtered[package_name] = brew_name
+            
+            elif target == "custom":
+                if self.should_use_custom_install(package_name, entry):
+                    commands = self.get_custom_install_commands(entry)
+                    if commands:
+                        # Store the package name with its commands for custom installation
+                        filtered[package_name] = commands
         
         return filtered
 
@@ -294,6 +403,43 @@ class PackageFileGenerator:
                 lines.append(pkg_name)
         
         return '\n'.join(lines) + '\n'
+    
+    @staticmethod
+    def generate_customfile(packages: Dict[str, Any], toml_data: Dict[str, Any]) -> str:
+        """Generate Customfile with package names and install commands."""
+        lines = []
+        lines.append("# Custom installation commands")
+        lines.append("# Format: package_name|command1|command2|...")
+        lines.append("# Multiple commands are executed in sequence")
+        lines.append("")
+        
+        for package_name in sorted(packages.keys()):
+            entry = toml_data[package_name]
+            commands = packages[package_name]  # This is now a list of commands
+            description = entry.get('description', '')
+            
+            if description and not description.startswith('TODO:'):
+                lines.append(f"# {description}")
+            
+            # Add metadata if needed
+            requires_confirmation = entry.get('requires-confirmation', False)
+            install_condition = entry.get('install-condition', '')
+            
+            if requires_confirmation:
+                lines.append(f"# Requires user confirmation")
+            if install_condition:
+                lines.append(f"# Condition: {install_condition}")
+            
+            # Join package name with commands using pipe separator
+            if isinstance(commands, list):
+                command_line = package_name + '|' + '|'.join(commands)
+            else:
+                command_line = f"{package_name}|{commands}"
+            
+            lines.append(command_line)
+            lines.append("")
+        
+        return '\n'.join(lines) + '\n'
 
 
 def should_regenerate_files(toml_path: str, output_dir: str, 
@@ -343,6 +489,10 @@ def should_regenerate_files(toml_path: str, output_dir: str,
     if platform.supports_flatpak() and output_path.joinpath('Flatfile').exists():
         expected_files.append('Flatfile')
     
+    # Check for Custom file
+    if output_path.joinpath('Customfile').exists():
+        expected_files.append('Customfile')
+    
     # If no expected files exist, need to regenerate
     if not expected_files:
         return True
@@ -382,13 +532,14 @@ def generate_package_files(toml_path: str, output_dir: str = None,
     native_packages = package_filter.get_filtered_packages("native")
     flatpak_packages = package_filter.get_filtered_packages("flatpak")
     homebrew_packages = package_filter.get_filtered_packages("homebrew")
+    custom_packages = package_filter.get_filtered_packages("custom")
     
     # Get Darwin-specific packages if on macOS
     homebrew_darwin_packages = {}
     if platform.is_darwin:
         homebrew_darwin_packages = package_filter.get_filtered_packages("homebrew-darwin")
     
-    print(f"Filtered packages: Native={len(native_packages)}, Flatpak={len(flatpak_packages)}, Homebrew={len(homebrew_packages)}")
+    print(f"Filtered packages: Native={len(native_packages)}, Flatpak={len(flatpak_packages)}, Homebrew={len(homebrew_packages)}, Custom={len(custom_packages)}")
     if homebrew_darwin_packages:
         print(f"Darwin-specific: {len(homebrew_darwin_packages)}")
     
@@ -431,6 +582,11 @@ def generate_package_files(toml_path: str, output_dir: str = None,
         flatfile_content = generator.generate_simple_list(flatpak_packages)
         generated_files['Flatfile'] = flatfile_content
     
+    # Custom installation file
+    if custom_packages:
+        customfile_content = generator.generate_customfile(custom_packages, toml_data)
+        generated_files['Customfile'] = customfile_content
+    
     # Write files if output directory specified
     if output_dir:
         output_path = Path(output_dir)
@@ -461,7 +617,7 @@ def main():
                        help='Print generated files to stdout instead of writing')
     
     # Filter options
-    parser.add_argument('--target', choices=['native', 'flatpak', 'homebrew', 'homebrew-darwin', 'all'],
+    parser.add_argument('--target', choices=['native', 'flatpak', 'homebrew', 'homebrew-darwin', 'custom', 'all'],
                        default='all',
                        help='Generate files for specific package manager only')
     parser.add_argument('--force', '-f', action='store_true',

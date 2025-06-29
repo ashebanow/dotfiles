@@ -1,0 +1,109 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Custom Installation Configuration",
+  "description": "Defines custom installation commands for packages that cannot be installed via standard package managers",
+  "type": "object",
+  "properties": {
+    "packages": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z0-9._-]+$": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string",
+              "description": "Human-readable description of the package"
+            },
+            "custom-install": {
+              "type": "object",
+              "description": "Platform-specific installation commands",
+              "properties": {
+                "default": {
+                  "type": "array",
+                  "items": {"type": "string"},
+                  "description": "Default installation commands for all platforms"
+                },
+                "is_darwin": {
+                  "type": "array", 
+                  "items": {"type": "string"},
+                  "description": "Installation commands for macOS"
+                },
+                "is_linux": {
+                  "type": "array",
+                  "items": {"type": "string"},
+                  "description": "Installation commands for Linux"
+                },
+                "is_arch_like": {
+                  "type": "array",
+                  "items": {"type": "string"},
+                  "description": "Installation commands for Arch-based systems"
+                },
+                "is_debian_like": {
+                  "type": "array",
+                  "items": {"type": "string"},
+                  "description": "Installation commands for Debian-based systems"
+                },
+                "is_fedora_like": {
+                  "type": "array",
+                  "items": {"type": "string"},
+                  "description": "Installation commands for Fedora-based systems"
+                }
+              },
+              "additionalProperties": false
+            },
+            "custom-install-priority": {
+              "type": "string",
+              "enum": ["always", "fallback", "never"],
+              "default": "always",
+              "description": "When to use custom install: always (override package managers), fallback (if no package available), never (disabled)"
+            },
+            "requires-confirmation": {
+              "type": "boolean",
+              "default": false,
+              "description": "Whether to prompt user before installing this package"
+            },
+            "install-condition": {
+              "type": "string",
+              "description": "Shell command that must return 0 for installation to proceed (e.g., 'command -v docker')"
+            }
+          },
+          "required": ["custom-install"],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "required": ["packages"],
+  "additionalProperties": false,
+  "packages": {
+    "tailscale": {
+      "description": "Zero config VPN service",
+      "custom-install": {
+        "is_darwin": [
+          "brew install --cask tailscale"
+        ],
+        "is_debian_like": [
+          "curl -fsSL https://tailscale.com/install.sh | sh"
+        ],
+        "is_arch_like": [
+          "yay -S tailscale",
+          "sudo systemctl enable --now tailscaled"
+        ],
+        "default": [
+          "echo 'Please install Tailscale manually from https://tailscale.com/download'"
+        ]
+      },
+      "custom-install-priority": "always",
+      "requires-confirmation": true
+    },
+    "getnf": {
+      "description": "A better way to install Nerd Fonts",
+      "custom-install": {
+        "default": [
+          "curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash"
+        ]
+      }
+    }
+  }
+}

@@ -38,14 +38,20 @@ except ImportError:
 try:
     import tomllib  # Python 3.11+
     def load_toml(filepath):
-        with open(filepath, 'rb') as f:
-            return tomllib.load(f)
+        try:
+            with open(filepath, 'rb') as f:
+                return tomllib.load(f)
+        except (FileNotFoundError, tomllib.TOMLDecodeError, OSError):
+            return {}
 except ImportError:
     try:
         import toml
         def load_toml(filepath):
-            with open(filepath, 'r') as f:
-                return toml.load(f)
+            try:
+                with open(filepath, 'r') as f:
+                    return toml.load(f)
+            except (FileNotFoundError, toml.TomlDecodeError, OSError):
+                return {}
     except ImportError:
         def load_toml(filepath):
             raise ImportError("No TOML library available. Install with: pip install toml")
@@ -89,6 +95,23 @@ def write_toml(data: Dict[str, Any], filepath: str) -> None:
                     f.write(f"{key} = \"{value}\"\n")
                 elif value is None:
                     f.write(f"{key} = \"\"\n")  # Convert None to empty string for TOML
+                elif isinstance(value, dict) and key == 'custom-install':
+                    # Handle hierarchical custom install commands
+                    f.write(f"\n[{section_name}.custom-install]\n")
+                    for platform, commands in sorted(value.items()):
+                        if isinstance(commands, list):
+                            f.write(f"{platform} = [\n")
+                            for cmd in commands:
+                                f.write(f"  \"{cmd}\",\n")
+                            f.write("]\n")
+                        else:
+                            f.write(f"{platform} = \"{commands}\"\n")
+                elif isinstance(value, list):
+                    # Handle arrays
+                    f.write(f"{key} = [\n")
+                    for item in value:
+                        f.write(f"  \"{item}\",\n")
+                    f.write("]\n")
                 else:
                     f.write(f"{key} = {value}\n")
             f.write("\n")
@@ -954,7 +977,8 @@ def generate_package_entry(package_name: str, repology_client: RepologyClient,
         'brew-tap': brew_tap,
         'prefer_flatpak': is_flatpak_id,  # Auto-set based on source
         'priority': None,
-        'description': f'TODO: Add description for {project_name}'
+        'description': f'TODO: Add description for {project_name}',
+        'custom-install': ''  # Custom installation command
     }
     
     # Try Repology first using the extracted project name (authoritative source)
@@ -1110,6 +1134,9 @@ def generate_package_entry(package_name: str, repology_client: RepologyClient,
         # Preserve manual priority settings
         if existing_entry.get('priority'):
             entry['priority'] = existing_entry['priority']
+        # Preserve custom installation commands
+        if existing_entry.get('custom-install'):
+            entry['custom-install'] = existing_entry['custom-install']
     
     return project_name, entry
 
@@ -1165,8 +1192,53 @@ def _select_best_alias_result(alias_results: List[Tuple[str, Dict[str, Any]]]) -
     return scored_results[0][1], scored_results[0][2]
 
 
+def load_custom_installations(custom_install_path: str = "packages/custom_install.json") -> Dict[str, Any]:
+    """Load custom installation configurations from JSON file."""
+    if not os.path.exists(custom_install_path):
+        return {}
+    
+    try:
+        with open(custom_install_path, 'r') as f:
+            data = json.load(f)
+            return data.get('packages', {})
+    except Exception as e:
+        print(f"Warning: Failed to load custom installations from {custom_install_path}: {e}")
+        return {}
+
+
+def merge_custom_installation(entry: Dict[str, Any], package_name: str, custom_installs: Dict[str, Any]) -> Dict[str, Any]:
+    """Merge custom installation data into package entry."""
+    if package_name not in custom_installs:
+        return entry
+    
+    custom_data = custom_installs[package_name]
+    
+    # Add custom installation commands
+    if 'custom-install' in custom_data:
+        entry['custom-install'] = custom_data['custom-install']
+    
+    # Add custom installation priority (only if not default)
+    priority = custom_data.get('custom-install-priority', 'always')
+    if priority != 'always':
+        entry['custom-install-priority'] = priority
+    
+    # Add other custom fields
+    if 'requires-confirmation' in custom_data:
+        entry['requires-confirmation'] = custom_data['requires-confirmation']
+    
+    if 'install-condition' in custom_data:
+        entry['install-condition'] = custom_data['install-condition']
+    
+    # Update description if provided in custom data
+    if 'description' in custom_data and custom_data['description']:
+        entry['description'] = custom_data['description']
+    
+    return entry
+
+
 def generate_complete_toml(package_lists: List[str], specific_packages: List[str] = None,
-                          existing_toml_path: str = None, repology_cache: str = "repology_cache.json") -> Dict[str, Any]:
+                          existing_toml_path: str = None, repology_cache: str = "repology_cache.json",
+                          custom_install_path: str = "packages/custom_install.json") -> Dict[str, Any]:
     """Generate complete TOML mappings from scratch."""
     
     # Load existing TOML for reference
@@ -1174,6 +1246,11 @@ def generate_complete_toml(package_lists: List[str], specific_packages: List[str
     if existing_toml_path and os.path.exists(existing_toml_path):
         existing_toml = load_toml(existing_toml_path)
         print(f"Loaded {len(existing_toml)} existing entries from {existing_toml_path}")
+    
+    # Load custom installation configurations
+    custom_installs = load_custom_installations(custom_install_path)
+    if custom_installs:
+        print(f"Loaded {len(custom_installs)} custom installation configs from {custom_install_path}")
     
     # Collect packages to process
     if specific_packages:
@@ -1188,6 +1265,9 @@ def generate_complete_toml(package_lists: List[str], specific_packages: List[str
         if invalid_packages:
             print(f"Filtering out {len(invalid_packages)} invalid packages: {', '.join(sorted(invalid_packages))}")
         all_packages.update(valid_existing_packages)
+        
+        # Add packages from custom installations
+        all_packages.update(custom_installs.keys())
         print(f"Processing {len(all_packages)} total packages")
     
     # Initialize clients
@@ -1203,6 +1283,10 @@ def generate_complete_toml(package_lists: List[str], specific_packages: List[str
         print(f"\r\033[K🔍 [{progress_bar}] {percent:3d}% Analyzing package {i}/{len(all_packages)}: {package_name:<30}", end="", flush=True)
         
         key_name, entry = generate_package_entry(package_name, repology_client, existing_toml)
+        
+        # Merge custom installation data
+        entry = merge_custom_installation(entry, package_name, custom_installs)
+        
         complete_toml[key_name] = entry
     
     # Clear progress line and show completion
@@ -1366,6 +1450,9 @@ def main():
         if default_toml.exists():
             args.existing_toml = str(default_toml)
     
+    # Set default custom install path
+    custom_install_path = str(dotfiles_dir / "packages/custom_install.json")
+    
     # Handle validation mode
     if args.validate:
         if not args.package_lists:
@@ -1389,7 +1476,8 @@ def main():
         package_lists=args.package_lists or [],
         specific_packages=args.specific_packages,
         existing_toml_path=args.existing_toml,
-        repology_cache=args.cache
+        repology_cache=args.cache,
+        custom_install_path=custom_install_path
     )
     
     # Output results

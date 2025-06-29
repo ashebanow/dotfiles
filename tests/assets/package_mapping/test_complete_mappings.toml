@@ -1,0 +1,132 @@
+# Test fixture for complete package mappings
+# Contains various types of packages for comprehensive testing
+
+[test-standard-package]
+arch-pkg = "test-package"
+apt-pkg = "test-package"
+fedora-pkg = "test-package" 
+flatpak-pkg = ""
+brew-tap = ""
+brew-supports-darwin = true
+brew-supports-linux = true
+brew-is-cask = false
+prefer_flatpak = false
+priority = ""
+description = "Standard package available in all package managers"
+custom-install = ""
+
+[test-flatpak-package]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = "org.test.TestApp"
+brew-tap = ""
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-is-cask = false
+prefer_flatpak = true
+priority = "flatpak"
+description = "Flatpak-only package"
+custom-install = ""
+
+[test-homebrew-cask]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+brew-supports-darwin = true
+brew-supports-linux = false
+brew-is-cask = true
+prefer_flatpak = false
+priority = ""
+description = "macOS-only Homebrew cask"
+custom-install = ""
+
+[test-tapped-package]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = "custom-tap/tools"
+brew-supports-darwin = true
+brew-supports-linux = true
+brew-is-cask = false
+prefer_flatpak = false
+priority = ""
+description = "Package from custom Homebrew tap"
+custom-install = ""
+
+[test-aur-package]
+arch-pkg = "test-aur-package"
+arch-is-aur = true
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-is-cask = false
+prefer_flatpak = false
+priority = ""
+description = "Arch User Repository package"
+custom-install = ""
+
+[test-custom-always]
+arch-pkg = "test-package"
+apt-pkg = "test-package"
+fedora-pkg = "test-package"
+flatpak-pkg = ""
+brew-tap = ""
+brew-supports-darwin = true
+brew-supports-linux = true
+brew-is-cask = false
+prefer_flatpak = false
+priority = ""
+description = "Test package with always priority custom install"
+custom-install-priority = "always"
+
+[test-custom-always.custom-install]
+is_darwin = [
+  "echo 'Installing on macOS'",
+  "echo 'Step 2 on macOS'"
+]
+is_linux = [
+  "echo 'Installing on Linux'"
+]
+default = [
+  "echo 'Default installation'"
+]
+
+[test-custom-fallback]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-is-cask = false
+prefer_flatpak = false
+priority = ""
+description = "Test package with fallback priority custom install"
+custom-install-priority = "fallback"
+
+[test-custom-fallback.custom-install]
+default = [
+  "echo 'Fallback installation'"
+]
+
+[test-empty-package]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-is-cask = false
+prefer_flatpak = false
+priority = ""
+description = "Package not found on any platform"
+custom-install = ""

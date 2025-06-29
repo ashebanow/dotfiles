@@ -1,0 +1,17 @@
+# Custom installation commands
+# Format: package_name|command1|command2|...
+# Multiple commands are executed in sequence
+
+# Test package with always priority
+test-custom-always|echo 'Installing on macOS'|echo 'Step 2 on macOS'
+
+# Test package requiring confirmation
+# Requires user confirmation
+test-custom-confirmation|echo 'Installing with confirmation'
+
+# Test package with install condition
+# Condition: command -v echo
+test-custom-condition|echo 'Installing with condition'
+
+# Test platform-specific package
+test-custom-platform-specific|yay -S test-package|sudo systemctl enable test-service

@@ -1127,11 +1127,13 @@ brew-is-cask = false
 brew-supports-darwin = true
 brew-supports-linux = true
 brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for gum"
 fedora-pkg = ""
 flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
+
 
 [gvfs]
 apt-pkg = "gvfs"

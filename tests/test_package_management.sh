@@ -276,6 +276,45 @@ test_error_handling() {
     fi
 }
 
+# Test 7: Unit tests
+test_unit_tests() {
+    print_test "Python unit tests"
+    
+    cd "$PROJECT_ROOT"
+    
+    # Run Python unit tests for package modules
+    local unit_test_files=(
+        "tests/test_package_analysis.py"
+        "tests/test_package_generators.py"
+        "tests/test_custom_install.py"
+        "tests/test_package_integration.py"
+    )
+    
+    local passed_tests=0
+    local total_tests=${#unit_test_files[@]}
+    
+    for test_file in "${unit_test_files[@]}"; do
+        if [[ -f "$test_file" ]]; then
+            if $PYTHON_CMD "$test_file" > "$TEMP_DIR/$(basename "$test_file").log" 2>&1; then
+                print_success "Unit tests in $(basename "$test_file") passed"
+                passed_tests=$((passed_tests + 1))
+            else
+                print_error "Unit tests in $(basename "$test_file") failed"
+                echo "Error log:"
+                cat "$TEMP_DIR/$(basename "$test_file").log"
+            fi
+        else
+            print_error "Unit test file not found: $test_file"
+        fi
+    done
+    
+    if [[ $passed_tests -eq $total_tests ]]; then
+        print_success "All unit tests passed ($passed_tests/$total_tests)"
+    else
+        print_error "Some unit tests failed ($passed_tests/$total_tests passed)"
+    fi
+}
+
 # Main test runner
 run_all_tests() {
     print_header "Package Management System Tests"
@@ -299,6 +338,9 @@ run_all_tests() {
     echo
     
     test_error_handling
+    echo
+    
+    test_unit_tests
     echo
     
     # Summary
@@ -371,8 +413,14 @@ case "${1:-all}" in
         test_error_handling
         cleanup
         ;;
+    "unit")
+        setup_tests
+        echo
+        test_unit_tests
+        cleanup
+        ;;
     *)
-        echo "Usage: $0 [all|single|parsing|generation|roundtrip|filtering|errors]"
+        echo "Usage: $0 [all|single|parsing|generation|roundtrip|filtering|errors|unit]"
         echo "  all       - Run all tests (default)"
         echo "  single    - Test single package analysis"
         echo "  parsing   - Test package file parsing"
@@ -380,6 +428,7 @@ case "${1:-all}" in
         echo "  roundtrip - Test basic roundtrip validation"
         echo "  filtering - Test platform filtering"
         echo "  errors    - Test error handling"
+        echo "  unit      - Run Python unit tests"
         echo ""
         echo "Environment variables:"
         echo "  KEEP_TEMP=1 - Keep temporary test files for debugging"
