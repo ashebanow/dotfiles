@@ -47,7 +47,7 @@ function login_github_cli_if_needed {
     )
     if ! pkg_installed "bw" bw_packages; then
         log_info "Bitwarden CLI not found, installing prerequisites..."
-        source "${DOTFILES}/lib/install/install_prerequisites.sh"
+        source "${DOTFILES}/lib/install/prerequisites.sh"
         install_prerequisites
     fi
 

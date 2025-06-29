@@ -3,7 +3,7 @@
 # Standalone script to install VSCode extensions
 # This script contains all necessary functions and logic
 
-set -euo pipefail
+set -eo pipefail
 
 # Source common functions for logging
 source "${DOTFILES}/lib/common/all.sh"

@@ -501,14 +501,14 @@ function install_xcodes_if_needed() {
     if $need_xcodes; then
         log_info "Installing xcodes (Xcode version manager)..."
         show_spinner "Installing xcodes via Homebrew" \
-            "${DOTFILES}/lib/install/install_xcodes_brew.sh" \
+            "${DOTFILES}/lib/install/xcodes_brew.sh" \
             "xcodes installed successfully"
     fi
 
     if $need_aria2c; then
         log_info "Installing aria2c (fast downloader)..."
         show_spinner "Installing aria2c via Homebrew" \
-            "${DOTFILES}/lib/install/install_aria2c_brew.sh" \
+            "${DOTFILES}/lib/install/aria2c_brew.sh" \
             "aria2c installed successfully"
     fi
 }

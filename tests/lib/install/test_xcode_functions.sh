@@ -10,7 +10,7 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../../../" && pwd)"
 export DOTFILES="$REPO_ROOT"
 
 # Source the functions to test
-source "${REPO_ROOT}/lib/install/install_prerequisites.sh"
+source "${REPO_ROOT}/lib/install/prerequisites.sh"
 
 # Test counter
 TESTS_RUN=0

@@ -12,8 +12,8 @@ if [[ -f "$DOTFILES/lib/common/all.sh" ]]; then
     source "$DOTFILES/lib/common/all.sh" 2>/dev/null || true
 fi
 # Also try to source install functions for dependency management
-if [[ -f "$DOTFILES/lib/install/install_prerequisites.sh" ]]; then
-    source "$DOTFILES/lib/install/install_prerequisites.sh" 2>/dev/null || true
+if [[ -f "$DOTFILES/lib/install/prerequisites.sh" ]]; then
+    source "$DOTFILES/lib/install/prerequisites.sh" 2>/dev/null || true
 fi
 
 KEYRING_SERVICE="bitwarden-dotfiles"

@@ -107,7 +107,7 @@ echo "Initializing chezmoi..."
 # Run install scripts to set up dependencies
 export DOTFILES="$script_dir"
 echo "Running installation scripts..."
-"$script_dir/bin/install_main.sh"
+"$script_dir/lib/install/main.sh"
 
 # Establish bitwarden session for template expansion
 echo "Setting up Bitwarden session for template expansion..."

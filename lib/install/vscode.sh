@@ -77,7 +77,7 @@ function is_vscode_extension_installed() {
 
 
 function install_vscode_extensions() {
-    gum spin --title "Installing VSCode Extensions..." -- "${DOTFILES}/lib/install/install_vscode_extensions_standalone.sh"
+    gum spin --title "Installing VSCode Extensions..." -- "${DOTFILES}/lib/install/vscode_extensions_standalone.sh"
     log_info "Installed VSCode Extensions."
 }
 
@@ -143,7 +143,7 @@ function install_vscode_if_needed() {
     fi
 
     # VSCode has different package names on different platforms
-    declare -A code_packages
+    # declare -A code_packages
     code_packages["arch"]="visual-studio-code-bin"
     if pkg_installed "code" code_packages; then
         return
