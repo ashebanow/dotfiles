@@ -232,6 +232,10 @@ s() {
   fi
 }
 
+function bwunlock {
+    export BW_SESSION="$(bw-open)"
+}
+
 source "$HOME/.local/bin/extract"
 
 #show fastfetch info on startup
