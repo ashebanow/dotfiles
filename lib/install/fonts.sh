@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
 # setup common to all install scripts
+# Auto-detect DOTFILES if not set
+if [[ -z "${DOTFILES:-}" ]]; then
+    DOTFILES="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+    export DOTFILES
+fi
 source "${DOTFILES}/lib/common/all.sh"
 
 # make sure we only source this once.
@@ -17,7 +22,12 @@ function install_getnf_if_needed {
         log_debug "getnf already installed"
         return
     fi
-    gum spin --title "Installing getnf..." -- bash -c "curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --silent"
+    log_info "Installing getnf..."
+    if command -v gum >/dev/null 2>&1; then
+        gum spin --title "Installing getnf..." -- bash -c "curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --silent"
+    else
+        bash -c "curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --silent"
+    fi
     log_info "Installed getnf."
 }
 
