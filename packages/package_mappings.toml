@@ -2939,6 +2939,19 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
+[visual-studio-code]
+apt-pkg = "code"
+arch-pkg = "visual-studio-code-bin"
+brew-is-cask = true
+brew-supports-darwin = true
+brew-supports-linux = false
+brew-tap = ""
+description = "Visual Studio Code - Code editing. Redefined."
+fedora-pkg = "code"
+flatpak-pkg = "com.visualstudio.code"
+prefer_flatpak = false
+priority = ""
+
 [vlc]
 apt-pkg = "vlc"
 arch-is-aur = true

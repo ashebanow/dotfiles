@@ -87,9 +87,9 @@ function install_vscode_server_if_needed() {
         log_debug "VSCode Server already installed"
         return
     fi
-    
+
     log_info "Installing VSCode Server for virtualized environment..."
-    
+
     # Install code-server using the official install script
     # This works across all platforms and is the recommended method
     if command -v curl >/dev/null 2>&1; then
@@ -100,15 +100,15 @@ function install_vscode_server_if_needed() {
         log_error "Neither curl nor wget available for installing code-server"
         return 1
     fi
-    
+
     # Verify installation
     if pkg_installed "code-server"; then
         log_info "VSCode Server installed successfully"
-        
+
         # Create a basic config if it doesn't exist
         local config_dir="$HOME/.config/code-server"
         local config_file="$config_dir/config.yaml"
-        
+
         if [[ ! -f "$config_file" ]]; then
             mkdir -p "$config_dir"
             # TODO: Add Tailscale setup and verification before creating config
@@ -143,17 +143,15 @@ function install_vscode_if_needed() {
     fi
 
     # VSCode has different package names on different platforms
-    declare -A code_packages=(
-        ["arch"]="visual-studio-code-bin"
-    )
+    declare -A code_packages
+    code_packages["arch"]="visual-studio-code-bin"
     if pkg_installed "code" code_packages; then
         return
     fi
 
     if $is_darwin; then
-        log_error "VSCode installation on Mac not yet supported."
-        log_error "Please install VSCode manually, then rerun the script."
-        exit 0
+        brew install --cask visual-studio-code
+        return
     fi
 
     # TODO: look into whether flatpak is a reasonable alternative for all
