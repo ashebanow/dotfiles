@@ -125,15 +125,31 @@ jobs:
             print(f"Total packages: {total_packages}")
             print(f"Refreshing {len(packages_to_refresh)} oldest packages")
             if packages_to_refresh:
-                oldest_age_days = packages_to_refresh[0][1] / (24 * 60 * 60)
-                newest_age_days = packages_to_refresh[-1][1] / (24 * 60 * 60)
-                print(f"Age range: {oldest_age_days:.1f} - {newest_age_days:.1f} days old")
+                oldest_age = packages_to_refresh[0][1]
+                newest_age = packages_to_refresh[-1][1]
+                
+                # Handle infinite ages (never cached packages)
+                if oldest_age == float('inf') and newest_age == float('inf'):
+                    print(f"Age range: All packages never cached before")
+                elif oldest_age == float('inf'):
+                    newest_age_days = newest_age / (24 * 60 * 60)
+                    print(f"Age range: Never cached - {newest_age_days:.1f} days old")
+                elif newest_age == float('inf'):
+                    oldest_age_days = oldest_age / (24 * 60 * 60)
+                    print(f"Age range: {oldest_age_days:.1f} days - Never cached")
+                else:
+                    oldest_age_days = oldest_age / (24 * 60 * 60)
+                    newest_age_days = newest_age / (24 * 60 * 60)
+                    print(f"Age range: {oldest_age_days:.1f} - {newest_age_days:.1f} days old")
             
             # Initialize Repology client
             client = RepologyClient(cache_file)
             
             # Refresh selected packages
             refreshed_count = 0
+            not_found_count = 0
+            error_count = 0
+            
             for i, (package_name, age, old_timestamp) in enumerate(packages_to_refresh, 1):
                 age_days = age / (24 * 60 * 60) if age != float('inf') else 'never cached'
                 print(f"  [{i}/{len(packages_to_refresh)}] Refreshing {package_name} (age: {age_days})")
@@ -146,11 +162,25 @@ jobs:
                 result = client.query_package(package_name)
                 if result is not None:
                     refreshed_count += 1
+                elif result is None:
+                    # Check if this was a 404 (not found) vs other error
+                    # The RepologyClient caches None results for 404s
+                    if package_name in client.cache:
+                        cache_entry = client.cache[package_name]
+                        if isinstance(cache_entry, dict) and cache_entry.get('data') is None:
+                            not_found_count += 1
+                        else:
+                            error_count += 1
+                    else:
+                        error_count += 1
                 
                 # Rate limiting
                 time.sleep(2.1)  # Slightly more conservative than normal
             
-            print(f"✅ Refreshed {refreshed_count} packages (oldest entries)")
+            print(f"✅ Cache refresh complete:")
+            print(f"   - Found data for {refreshed_count} packages")
+            print(f"   - Not found in Repology: {not_found_count} packages") 
+            print(f"   - API errors/timeouts: {error_count} packages")
             return True
         
         def refresh_all_cache(cache_file: str):
@@ -227,19 +257,45 @@ jobs:
         echo "Starting cache refresh: ${{ steps.segment.outputs.description }}"
         python bin/refresh_cache_segment.py --segment "${{ steps.segment.outputs.segment }}" --cache packages/.repology_cache.json
         
-    - name: Check if cache was updated
+    - name: Regenerate package mappings if cache updated
+      run: |
+        if ! git diff --quiet packages/.repology_cache.json; then
+          echo "Cache updated, regenerating package_mappings.toml..."
+          python bin/package_analysis.py \
+            --package-lists packages/Brewfile.in packages/Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
+            --output packages/package_mappings.toml.new \
+            --cache packages/.repology_cache.json
+          
+          # Check if TOML changed
+          if ! diff -q packages/package_mappings.toml packages/package_mappings.toml.new >/dev/null 2>&1; then
+            echo "✅ Package mappings updated"
+            mv packages/package_mappings.toml.new packages/package_mappings.toml
+          else
+            echo "ℹ️  No changes to package mappings"
+            rm packages/package_mappings.toml.new
+          fi
+        else
+          echo "No cache changes detected"
+        fi
+    
+    - name: Check if files were updated
       id: check_changes
       run: |
-        if git diff --quiet packages/.repology_cache.json; then
+        if git diff --quiet packages/.repology_cache.json packages/package_mappings.toml; then
           echo "has_changes=false" >> $GITHUB_OUTPUT
-          echo "No changes to cache file"
+          echo "No changes to package files"
         else
           echo "has_changes=true" >> $GITHUB_OUTPUT
-          echo "Cache file has been updated"
+          echo "Package files have been updated"
           
           # Show some stats about the changes
           echo "Cache file size:" $(du -h packages/.repology_cache.json | cut -f1)
-          echo "Number of entries:" $(jq 'keys | length' packages/.repology_cache.json)
+          echo "Number of cache entries:" $(jq 'keys | length' packages/.repology_cache.json)
+          
+          if [[ -f packages/package_mappings.toml ]]; then
+            echo "TOML file size:" $(du -h packages/package_mappings.toml | cut -f1)
+            echo "Number of packages:" $(grep -c '^\[' packages/package_mappings.toml)
+          fi
         fi
         
     - name: Commit updated cache
@@ -252,7 +308,7 @@ jobs:
         ENTRIES=$(jq 'keys | length' packages/.repology_cache.json)
         CACHE_SIZE=$(du -h packages/.repology_cache.json | cut -f1)
         
-        git add packages/.repology_cache.json
+        git add packages/.repology_cache.json packages/package_mappings.toml
         git commit -m "🔄 ${{ steps.segment.outputs.description }}
 
         Updated Repology package cache by refreshing oldest entries.

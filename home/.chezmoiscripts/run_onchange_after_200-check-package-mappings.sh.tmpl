@@ -1,0 +1,143 @@
+#!/bin/bash
+# chezmoi:template:left-delimiter="<!-- " right-delimiter=" -->"
+
+# Package mappings change detector and installer
+# This script runs when package_mappings.toml changes and automatically:
+# 1. Regenerates package files
+# 2. Runs install.sh to install new packages
+
+set -euo pipefail
+
+# Dependency tracking - script runs when any of these files change:
+# package_mappings.toml hash: <!-- include "packages/package_mappings.toml" | sha256sum -->
+# install.sh hash: <!-- include "install.sh" | sha256sum -->
+# lib/install/main.sh hash: <!-- include "lib/install/main.sh" | sha256sum -->
+# lib/install/homebrew_packages.sh hash: <!-- include "lib/install/homebrew_packages.sh" | sha256sum -->
+# lib/install/arch.sh hash: <!-- include "lib/install/arch.sh" | sha256sum -->
+# lib/install/flatpak_apps.sh hash: <!-- include "lib/install/flatpak_apps.sh" | sha256sum -->
+# lib/install/prerequisites.sh hash: <!-- include "lib/install/prerequisites.sh" | sha256sum -->
+
+# Source common utilities
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DOTFILES_DIR="$(cd "$SCRIPT_DIR/../../.." && pwd)"
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Check if we have access to package management tools
+if [[ ! -f "$DOTFILES_DIR/justfile" ]] || ! command -v just >/dev/null 2>&1; then
+    echo -e "${YELLOW}⚠️  Package management tools not available, skipping package update${NC}"
+    exit 0
+fi
+
+# Check if package_mappings.toml exists
+PACKAGE_MAPPINGS="$DOTFILES_DIR/packages/package_mappings.toml"
+if [[ ! -f "$PACKAGE_MAPPINGS" ]]; then
+    echo -e "${YELLOW}ℹ️  No package_mappings.toml found, skipping package update${NC}"
+    exit 0
+fi
+
+echo ""
+echo -e "${BLUE}🔄 Package configuration has changed!${NC}"
+echo ""
+echo "Detected changes in package management files. This will:"
+echo "  1. Regenerate package lists for your platform"
+echo "  2. Run install.sh to install any new packages"
+echo ""
+
+# Function to regenerate packages and install
+regenerate_and_install() {
+    echo -e "${BLUE}📋 Step 1: Regenerating package lists...${NC}"
+    cd "$DOTFILES_DIR"
+    
+    if just generate-package-lists; then
+        echo ""
+        echo -e "${GREEN}✅ Package lists updated successfully!${NC}"
+        echo ""
+        
+        # Show what was generated
+        echo "📦 Generated package files:"
+        for pkg_file in Brewfile Archfile Aptfile Flatfile; do
+            local full_path="packages/$pkg_file"
+            if [[ -f "$full_path" ]]; then
+                local count=$(grep -c '^[^#]' "$full_path" 2>/dev/null || echo "0")
+                echo "   • $pkg_file ($count packages)"
+            fi
+        done
+        echo ""
+        
+        echo -e "${BLUE}🚀 Step 2: Installing packages...${NC}"
+        echo ""
+        
+        # Run install.sh (should be idempotent)
+        if [[ -f "$DOTFILES_DIR/install.sh" ]]; then
+            if bash "$DOTFILES_DIR/install.sh"; then
+                echo ""
+                echo -e "${GREEN}✅ Package installation completed successfully!${NC}"
+                echo ""
+                echo -e "${GREEN}🎉 All done! Your packages are now up to date.${NC}"
+            else
+                echo ""
+                echo -e "${YELLOW}⚠️  Package installation completed with some warnings${NC}"
+                echo "Check the output above for any issues."
+                echo ""
+                echo "You can manually retry with: cd $DOTFILES_DIR && ./install.sh"
+            fi
+        else
+            echo -e "${RED}❌ install.sh not found in $DOTFILES_DIR${NC}"
+            echo ""
+            echo "Package lists were updated, but automatic installation failed."
+            echo "You can install packages manually using your system's package manager."
+        fi
+    else
+        echo ""
+        echo -e "${RED}❌ Failed to regenerate package lists${NC}"
+        echo "You can try manually with: cd $DOTFILES_DIR && just generate-package-lists"
+        return 1
+    fi
+}
+
+# Function for non-interactive handling
+handle_non_interactive() {
+    echo -e "${BLUE}🤖 Non-interactive mode: Proceeding with automatic update...${NC}"
+    echo ""
+    regenerate_and_install
+}
+
+# Function for interactive handling
+handle_interactive() {
+    echo -e "${YELLOW}This is safe to run - install.sh is designed to be idempotent.${NC}"
+    echo ""
+    echo "Would you like to proceed? [Y/n] "
+    read -r response
+    case "$response" in
+        [nN]|[nN][oO])
+            echo ""
+            echo -e "${YELLOW}⏭️  Skipped automatic package update.${NC}"
+            echo ""
+            echo "To update manually later:"
+            echo "  cd $DOTFILES_DIR"
+            echo "  just generate-package-lists"
+            echo "  ./install.sh"
+            ;;
+        *)
+            echo ""
+            regenerate_and_install
+            ;;
+    esac
+}
+
+# Check if running interactively
+if [[ -t 0 ]] && [[ -t 1 ]]; then
+    # Interactive mode - ask user
+    handle_interactive
+else
+    # Non-interactive mode - proceed automatically
+    handle_non_interactive
+fi
+
+echo ""

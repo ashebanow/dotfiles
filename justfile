@@ -203,6 +203,13 @@ cache-stats:
         echo "Run 'just regen-toml' to create initial cache"
     fi
 
+# Check if package files need updating
+[group('maintenance')]
+check-updates:
+    #!/usr/bin/env bash
+    echo "Checking for package updates..."
+    ./bin/check_package_updates.sh
+
 # ===== DEVELOPMENT HELPERS =====
 
 # Check if required Python dependencies are available
