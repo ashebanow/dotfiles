@@ -279,23 +279,22 @@ validate-custom-install:
 [group('package-management')]
 generate-package-lists:
     #!/usr/bin/env bash
-    echo "Generating platform-specific package lists from TOML..."
-    uv run bin/package_generators.py \
+    echo "Generating platform-specific package lists from TOML (using tagged system)..."
+    uv run bin/package_generators_tagged.py \
         --toml packages/package_mappings.toml \
-        --original-brewfile packages/Brewfile.in \
         --output-dir packages
-    echo "✓ Generated package lists for current platform"
+    echo "✓ Generated package lists for current platform using tagged filtering"
 
-# Generate filtered package files from TOML (legacy - outputs to subdirectory)
+# Generate filtered package files from TOML (legacy boolean-flag system)
 [group('package-management')]
-generate-package-files:
+generate-package-files-legacy:
     #!/usr/bin/env bash
-    echo "Generating package files from TOML..."
+    echo "Generating package files from TOML (using legacy boolean flags)..."
     uv run bin/package_generators.py \
         --toml packages/package_mappings.toml \
         --original-brewfile packages/Brewfile.in \
         --output-dir tests/generated_packages
-    echo "✓ Generated package files in tests/generated_packages/"
+    echo "✓ Generated package files in tests/generated_packages/ (legacy system)"
 
 # Preview what package files would be generated
 [group('package-management')]

@@ -1,7 +1,5 @@
-
-# Platform-specific packages
+# Homebrew casks
 cask "claude"
-brew "dockutil"
 cask "dolphin"
 cask "ghostty"
 cask "kitty"

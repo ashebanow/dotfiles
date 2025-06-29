@@ -1,9 +1,4 @@
-# Override packages (critical infrastructure and platform-specific overrides)
-brew "git"
-brew "just"
-
-
-# Platform-specific packages
+# Homebrew packages
 brew "act"
 brew "atuin"
 brew "bandwhich"
@@ -35,6 +30,7 @@ brew "fzf"
 brew "gcc"
 brew "gdu"
 brew "gh"
+brew "git"
 brew "git-delta"
 brew "git-lfs"
 brew "gitleaks"
@@ -54,6 +50,7 @@ brew "inxi"
 brew "jj"
 brew "jq"
 brew "jujutsu"
+brew "just"
 brew "lazydocker"
 brew "lazygit"
 brew "lazyjj"
