@@ -1,5 +1,6 @@
 
 # Platform-specific packages
+cask "claude"
 brew "dockutil"
 cask "dolphin"
 cask "ghostty"

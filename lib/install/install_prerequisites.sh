@@ -7,7 +7,7 @@ source "${DOTFILES}/lib/common/all.sh"
 
 # make sure we only source this once.
 if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
-    if [ -n "$sourced_install_prerequisites" ] && [ "$sourced_install_prerequisites" = "true" ]; then
+    if [ -n "${sourced_install_prerequisites:-}" ] && [ "$sourced_install_prerequisites" = "true" ]; then
         log_debug "$0 has already been sourced, returning early"
         return
     fi

@@ -13,6 +13,11 @@ if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
 fi
 
 function install_flatpak_apps {
+	# Skip on Darwin/macOS since Flatpak is Linux-specific
+	if $is_darwin; then
+		return
+	fi
+
 	# Use DOTFILES environment variable instead of chezmoi template
 	local flatfile="${DOTFILES}/packages/Flatfile"
 	if [[ ! -f "$flatfile" ]]; then

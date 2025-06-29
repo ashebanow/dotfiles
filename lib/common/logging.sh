@@ -3,7 +3,7 @@
 
 # make sure we only source this once.
 if [ ! "${BASH_SOURCE[0]}" -ef "$0" ]; then
-    if [ -n "$sourced_logging" ]; then
+    if [ -n "${sourced_logging:-}" ]; then
         return
     fi
     sourced_logging=true

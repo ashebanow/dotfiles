@@ -55,7 +55,7 @@ export BITWARDEN_EMAIL=ashebanow@cattivi.com
 
 {{ if .headless }}
 # we only define Bitwarden's service accounts on headless systems
-export BWS_ACCESS_TOKEN="{{- (bitwarden "BW Limon BWS Access Token" "login").password -}}"
+export BWS_ACCESS_TOKEN="{{- (bitwarden "item" "BW Limon BWS Access Token").login.password -}}"
 {{ end }}
 
 # Function to ensure bitwarden session is available

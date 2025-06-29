@@ -9,7 +9,7 @@ if [ "${BASH_SOURCE[0]}" -ef "$0" ]; then
 fi
 
 # make sure we only source this once.
-if [ -n "$sourced_common_all" ]; then
+if [ -n "${sourced_common_all:-}" ]; then
     return
 fi
 sourced_common_all=true

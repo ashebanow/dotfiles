@@ -153,7 +153,7 @@ function install_vscode_if_needed() {
     if $is_darwin; then
         log_error "VSCode installation on Mac not yet supported."
         log_error "Please install VSCode manually, then rerun the script."
-        exit 1
+        exit 0
     fi
 
     # TODO: look into whether flatpak is a reasonable alternative for all

@@ -13,44 +13,41 @@ if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
 fi
 
 function install_claude_code_if_needed() {
-    # Check if Claude CLI is already installed
-    if pkg_installed "claude"; then
+    # Ensure npm global bin directory is in PATH
+    local npm_bin_dir="$HOME/.npm-global/bin"
+    if [[ ":$PATH:" != *":$npm_bin_dir:"* ]]; then
+        export PATH="$npm_bin_dir:$PATH"
+        log_debug "Added npm global bin directory to PATH: $npm_bin_dir"
+    fi
+
+    # Check if Claude Code CLI is already installed
+    if command -v claude >/dev/null 2>&1; then
         log_debug "Claude Code CLI already installed"
         return
     fi
 
-    log_info "Installing Claude Code CLI..."
+    log_info "Installing Claude Code CLI via npm..."
 
-    if $is_darwin; then
-        # macOS: Install via Homebrew
-        # First try to install the desktop app which includes the CLI
-        if command -v brew >/dev/null 2>&1; then
-            brew install --cask claude
-            # Also install the standalone CLI if available
-            brew install anthropics/claude/claude 2>/dev/null || {
-                log_debug "Standalone Claude CLI not available via brew, desktop app CLI should be sufficient"
-            }
-        else
-            log_error "Homebrew not available for Claude Code installation on macOS"
-            return 1
-        fi
-    else
-        # if command -v curl >/dev/null 2>&1; then
-            # gum spin --title "Installing Claude Code CLI..." -- bash -c "curl -fsSL https://claude.ai/cli/install.sh | sh"
-            gum spin --title "Installing Claude Code CLI..." -- bash -c "npm install -g @anthropic-ai/claude-code"
-        # else
-        #     log_error "Neither curl nor wget available for installing Claude Code CLI"
-        #     return 1
-        # fi
+    # Ensure npm is available
+    if ! command -v npm >/dev/null 2>&1; then
+        log_error "npm not available - please ensure Node.js is installed"
+        return 1
+    fi
+
+    # Install Claude Code CLI via npm on all platforms
+    if ! npm install -g @anthropic-ai/claude-code; then
+        log_error "Failed to install Claude Code CLI via npm"
+        return 1
     fi
 
     # Verify installation
-    if pkg_installed "claude"; then
+    if command -v claude >/dev/null 2>&1; then
         log_info "Claude Code CLI installed successfully"
         log_info "Run 'claude --help' to get started"
         log_info "You may need to authenticate with 'claude auth login'"
     else
         log_warning "Claude Code CLI installation may have failed - please check manually"
+        log_warning "You may need to add $npm_bin_dir to your PATH"
         return 1
     fi
 }

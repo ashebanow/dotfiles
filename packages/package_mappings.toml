@@ -331,6 +331,19 @@ flatpak-pkg = ""
 prefer_flatpak = false
 priority = ""
 
+[claude]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = true
+brew-supports-darwin = true
+brew-supports-linux = false
+brew-tap = ""
+description = "Claude desktop app (AI assistant)"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
 [chrome]
 apt-pkg = ""
 arch-pkg = ""

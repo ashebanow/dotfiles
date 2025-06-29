@@ -1,4 +1,4 @@
-{{- if not .darwin -}}
+{{- if not (eq .chezmoi.os "darwin") -}}
 [Unit]
 Description=Bitwarden Session Manager Timer
 Requires=bitwarden-session.service

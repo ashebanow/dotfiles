@@ -3,7 +3,7 @@
 
 # make sure we only source this once.
 if [ ! "${BASH_SOURCE[0]}" -ef "$0" ]; then
-    if [ -n "$sourced_homebrew_utils" ]; then
+    if [ -n "${sourced_homebrew_utils:-}" ]; then
         return
     fi
     sourced_homebrew_utils=true

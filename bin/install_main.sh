@@ -16,10 +16,9 @@ source "${DOTFILES}/lib/install/install_nix.sh"
 
 #######################################################################
 # Phase 1: install universal packages and apps
-
 show_spinner \
     "Installing required prerequisites..." \
-    install_prerequisites \
+    "${DOTFILES}/lib/install/install_prerequisites.sh" \
     "Installed required prerequisites."
 
 # install arch packages here if appropriate.
@@ -27,15 +26,16 @@ show_spinner \
 # homebrew knows we already have commands installed.
 # TODO: do the same for debian-like systems, and for
 # mutable fedora distributions.
-# FIXME: use show_spinner function
 if $is_arch_like; then
-    update_arch_if_needed
-    install_arch_packages
+    show_spinner \
+        "Installing Arch packages..." \
+        "${DOTFILES}/lib/install/install_arch.sh" \
+        "Installed Arch packages."
 fi
 
 show_spinner \
     "Installing homebrew packages..." \
-    install_homebrew_packages \
+    "${DOTFILES}/lib/install/install_homebrew_packages.sh" \
     "Installed homebrew packages."
 
 # show_spinner \
@@ -45,23 +45,23 @@ show_spinner \
 
 show_spinner \
     "Installing Flatpak runtime if needed..." \
-    install_flatpak_if_needed \
+    "${DOTFILES}/lib/install/install_flatpak_runtime.sh" \
     "Installed Flatpak runtime if needed."
 
 show_spinner \
     "Installing Flatpak apps..." \
-    install_flatpak_apps \
+    "${DOTFILES}/lib/install/install_flatpak_apps.sh" \
     "Installed Flatpak apps."
 
 show_spinner "Installing fonts..." \
     "${DOTFILES}/lib/install/install_fonts.sh" \
     "Installed fonts..."
 
-show_spinner "Installing Claude Code\
+show_spinner "Installing Claude Code..." \
     "${DOTFILES}/lib/install/install_claude_code.sh" \
     "Installed Claude Code."
 
-show_spinner "Installing Zed"\
+show_spinner "Installing Zed..." \
     "${DOTFILES}/lib/install/install_zed.sh" \
     "Installed Zed."
 
@@ -73,7 +73,7 @@ show_spinner "Installing VSCode and Extensions..." \
 # Phase 2: configuration and initialization
 
 show_spinner "Setting up Bitwarden services..." \
-    install_bitwarden_services \
+    "${DOTFILES}/lib/install/install_bitwarden_services.sh" \
     "Set up Bitwarden services."
 
 # setup/update github copilot extension

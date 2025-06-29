@@ -2,10 +2,6 @@
 brew "git"
 brew "just"
 
-tap "charmbracelet/tap"
-tap "dhth/tap"
-tap "jesseduffield/lazydocker"
-tap "siderolabs/tap"
 
 # Platform-specific packages
 brew "act"
