@@ -258,6 +258,7 @@ jobs:
         python bin/refresh_cache_segment.py --segment "${{ steps.segment.outputs.segment }}" --cache packages/.repology_cache.json
         
     - name: Regenerate package mappings if cache updated
+      timeout-minutes: 10
       run: |
         if ! git diff --quiet packages/.repology_cache.json; then
           echo "Cache updated, regenerating package_mappings.toml..."

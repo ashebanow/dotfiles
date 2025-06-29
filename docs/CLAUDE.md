@@ -148,6 +148,22 @@ just clean-expired-cache
 just generate-package-lists
 ```
 
+#### Long-Running Command Timeouts
+**Important for Claude Code**: When running package analysis or other long-running commands that make API calls, always specify a 10-minute timeout to avoid the default 2-minute timeout:
+
+```bash
+# Package analysis - ALWAYS use 10-minute timeout (600000ms)
+uv run bin/package_analysis.py --package-lists packages/Brewfile.in --output packages/package_mappings.toml --cache packages/.repology_cache.json
+
+# Other long-running commands that may need extended timeout:
+# - bin/package_analysis.py (Repology API calls)
+# - just regen-toml (calls package_analysis.py)
+# - Cache refresh operations
+# - Large package list processing
+```
+
+The package analysis tool makes many sequential API calls to Repology and can take 3-8 minutes to complete depending on cache state and network conditions.
+
 **Important**: UV manages Python installations directly, ensuring proper SSL compatibility for Repology API access without requiring Homebrew Python.
 
 #### Migration Status
