@@ -48,7 +48,7 @@ def analyze_tag_redundancies(tags: List[str]) -> Dict[str, Any]:
     """Analyze a list of tags for redundancies."""
     issues = {
         'duplicates': [],
-        'homebrew_redundancy': False,
+        'homebrew_normalization': False,
         'pm_redundancies': [],
         'original_count': len(tags),
         'unique_tags': list(dict.fromkeys(tags))  # Remove duplicates while preserving order
@@ -61,17 +61,15 @@ def analyze_tag_redundancies(tags: List[str]) -> Dict[str, Any]:
             issues['duplicates'].append(tag)
         seen.add(tag)
     
-    # Check for pm:homebrew redundancy
+    # Check for pm:homebrew normalization opportunity
     has_general_homebrew = 'pm:homebrew' in tags
     has_darwin_homebrew = 'pm:homebrew:darwin' in tags
     has_linux_homebrew = 'pm:homebrew:linux' in tags
     
-    if has_general_homebrew and (has_darwin_homebrew or has_linux_homebrew):
-        issues['homebrew_redundancy'] = True
-        
-        # If we have all platforms, the general tag is redundant
-        if has_darwin_homebrew and has_linux_homebrew:
-            issues['pm_redundancies'].append('pm:homebrew (covered by platform-specific tags)')
+    # If we have both platform-specific tags, we should normalize to general tag
+    if has_darwin_homebrew and has_linux_homebrew:
+        issues['homebrew_normalization'] = True
+        issues['pm_redundancies'].append('Replace platform-specific tags with general pm:homebrew')
     
     return issues
 
@@ -81,14 +79,20 @@ def clean_tags(tags: List[str]) -> List[str]:
     # Remove exact duplicates while preserving order
     cleaned_tags = list(dict.fromkeys(tags))
     
-    # Handle pm:homebrew redundancy
+    # Handle pm:homebrew redundancy/normalization
     has_general_homebrew = 'pm:homebrew' in cleaned_tags
     has_darwin_homebrew = 'pm:homebrew:darwin' in cleaned_tags
     has_linux_homebrew = 'pm:homebrew:linux' in cleaned_tags
     
-    # If we have both platform-specific tags, remove the general one
-    if has_general_homebrew and has_darwin_homebrew and has_linux_homebrew:
-        cleaned_tags.remove('pm:homebrew')
+    # Normalize homebrew tags: if we have both platform-specific tags, use general tag instead
+    if has_darwin_homebrew and has_linux_homebrew:
+        # Remove platform-specific tags and ensure general tag is present
+        if has_darwin_homebrew:
+            cleaned_tags.remove('pm:homebrew:darwin')
+        if has_linux_homebrew:
+            cleaned_tags.remove('pm:homebrew:linux')
+        if not has_general_homebrew:
+            cleaned_tags.append('pm:homebrew')
     
     return cleaned_tags
 
@@ -111,12 +115,12 @@ def analyze_toml_redundancies(toml_data: Dict[str, Dict[str, Any]]) -> Dict[str,
             
         issues = analyze_tag_redundancies(tags)
         
-        if issues['duplicates'] or issues['homebrew_redundancy']:
+        if issues['duplicates'] or issues['homebrew_normalization']:
             stats['packages_with_issues'] += 1
             stats['issues_by_package'][package_name] = issues
             
             stats['total_duplicates'] += len(issues['duplicates'])
-            if issues['homebrew_redundancy']:
+            if issues['homebrew_normalization']:
                 stats['homebrew_redundancies'] += 1
                 
             # Calculate potential tags saved
@@ -155,8 +159,8 @@ def cleanup_toml_tags(toml_path: str, output_path: str = None, dry_run: bool = T
             print(f"\n{package_name}:")
             if issues['duplicates']:
                 print(f"  - Remove duplicate tags: {issues['duplicates']}")
-            if issues['homebrew_redundancy']:
-                print(f"  - Remove redundant pm:homebrew tag (covered by platform-specific)")
+            if issues['homebrew_normalization']:
+                print(f"  - Normalize to general pm:homebrew tag (replace platform-specific)")
             print(f"  - Tag count: {issues['original_count']} → {len(clean_tags(toml_data[package_name].get('tags', [])))}")
             shown += 1
         

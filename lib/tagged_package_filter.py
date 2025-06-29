@@ -423,9 +423,10 @@ def migrate_package_to_tags(entry: Dict[str, Any]) -> Dict[str, Any]:
     if entry.get('brew-supports-linux'):
         brew_tags.extend(['os:linux', 'pm:homebrew:linux'])
     
-    # If both platforms supported, also add general homebrew tag
+    # If both platforms supported, use general homebrew tag instead of platform-specific
     if entry.get('brew-supports-darwin') and entry.get('brew-supports-linux'):
-        brew_tags.append('pm:homebrew')
+        # Remove platform-specific tags and use general tag
+        brew_tags = ['os:macos', 'os:linux', 'pm:homebrew']
     
     tags.extend(brew_tags)
     

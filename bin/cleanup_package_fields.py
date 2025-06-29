@@ -96,20 +96,18 @@ def clean_package_entry(package_name: str, entry: Dict[str, Any]) -> Dict[str, A
     cleaned = entry.copy()
     
     # Remove empty fields that have fallback behavior or are always cleanable
-    cleanable_if_empty = ['arch-pkg', 'apt-pkg', 'fedora-pkg', 'flatpak-pkg', 'brew-tap', 'priority']
+    # Note: flatpak-pkg is NOT included because it has no fallback - must be explicit
+    cleanable_if_empty = ['arch-pkg', 'apt-pkg', 'fedora-pkg', 'brew-pkg', 'brew-tap', 'priority']
     for field in cleanable_if_empty:
         if field in cleaned and cleaned[field] == '':
             del cleaned[field]
     
-    # Remove fields that match canonical name (except flatpak)
-    fallback_fields = ['arch-pkg', 'apt-pkg', 'fedora-pkg']
+    # Remove fields that match canonical name (tagged generator has fallback logic)
+    # Note: flatpak-pkg is NOT included because it has no fallback - must be explicit
+    fallback_fields = ['arch-pkg', 'apt-pkg', 'fedora-pkg', 'brew-pkg']
     for field in fallback_fields:
         if field in cleaned and cleaned[field] == package_name:
             del cleaned[field]
-    
-    # Check brew-pkg separately
-    if 'brew-pkg' in cleaned and cleaned['brew-pkg'] == package_name:
-        del cleaned['brew-pkg']
     
     return cleaned
 
