@@ -26,11 +26,11 @@ function show_spinner {
         
         if [[ "$saved_log_level" == "debug" ]]; then
             # For debug mode, show output but suppress our internal debug messages
-            gum spin --spinner meter --title="$1" --show-output -- bash -c "$2"
+            RUNNING_UNDER_SPINNER=1 gum spin --spinner meter --title="$1" --show-output -- bash -c "$2"
             exit_code=$?
         else
             # Normal mode - no output shown
-            gum spin --spinner meter --title="$1" -- bash -c "$2"
+            RUNNING_UNDER_SPINNER=1 gum spin --spinner meter --title="$1" -- bash -c "$2"
             exit_code=$?
         fi
         

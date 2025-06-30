@@ -208,7 +208,8 @@ process_custom_installations() {
         fi
         
         # Interactive confirmation if required
-        if [[ "$requires_confirmation" == "true" ]] && [[ -t 0 ]] && [[ -t 1 ]]; then
+        # Skip prompts when running under show_spinner or when stdin is not available
+        if [[ "$requires_confirmation" == "true" ]] && [[ -t 0 ]] && [[ -t 1 ]] && [[ -z "${RUNNING_UNDER_SPINNER:-}" ]]; then
             if ! prompt_confirmation "$package_name" "$description"; then
                 log_info "Skipped: $package_name"
                 skipped_packages=$((skipped_packages + 1))
