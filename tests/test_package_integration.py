@@ -23,14 +23,13 @@ import pytest
 sys.path.insert(0, str(Path(__file__).parent.parent / "bin"))
 
 try:
-    import package_analysis
-    import package_generators
-    from package_analysis import (
-        RepologyClient,
-        load_custom_installations,
-        merge_custom_installation,
+    import package_analysis_cli as package_analysis
+    import package_generators_tagged as package_generators
+    from package_analysis_cli import (
+        create_basic_package_entry,
+        analyze_packages,
     )
-    from package_generators import PackageFileGenerator, PackageFilter, PlatformDetector
+    from package_generators_tagged import TaggedPackageFileGenerator as PackageFileGenerator, EnhancedPlatformDetector as PlatformDetector
 except ImportError as e:
     print(f"Error importing package modules: {e}")
     sys.exit(1)

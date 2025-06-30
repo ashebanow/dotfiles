@@ -21,7 +21,7 @@ from unittest.mock import Mock, patch
 sys.path.insert(0, str(Path(__file__).parent.parent / "bin"))
 
 try:
-    from package_generators import PackageFilter, PlatformDetector
+    from package_generators_tagged import EnhancedPlatformDetector as PlatformDetector, TaggedPackageFileGenerator
 except ImportError as e:
     print(f"Error importing package modules: {e}")
     sys.exit(1)

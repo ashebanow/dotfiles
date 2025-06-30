@@ -11,7 +11,7 @@ default:
 regen-toml:
     #!/usr/bin/env bash
     echo "Regenerating package_mappings.toml from package files..."
-    uv run bin/package_analysis_tagged.py \
+    uv run bin/package_analysis_cli.py \
         --package-lists packages/Brewfile.in packages/Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
         --output packages/package_mappings.toml.new \
         --cache packages/.repology_cache.json
@@ -26,7 +26,7 @@ regen-toml:
 regen-toml-apply:
     #!/usr/bin/env bash
     echo "Regenerating and applying package_mappings.toml..."
-    uv run bin/package_analysis_tagged.py \
+    uv run bin/package_analysis_cli.py \
         --package-lists packages/Brewfile.in packages/Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
         --output packages/package_mappings.toml \
         --cache packages/.repology_cache.json
@@ -50,7 +50,7 @@ add-packages *packages:
         exit 1
     fi
     echo "Adding packages to TOML: {{packages}}"
-    uv run bin/package_analysis_tagged.py \
+    uv run bin/package_analysis_cli.py \
         --package {{packages}} \
         --output packages/temp_packages.toml \
         --cache packages/.repology_cache.json
@@ -140,7 +140,7 @@ validate-roundtrip:
     fi
     
     echo "Validating package mapping roundtrip..."
-    uv run bin/package_analysis_tagged.py \
+    uv run bin/package_analysis_cli.py \
         --validate \
         --package-lists packages/Brewfile.in tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile
 
@@ -211,7 +211,7 @@ format-and-lint:
 debug-package package:
     #!/usr/bin/env bash
     echo "Debugging package: {{package}}"
-    uv run bin/package_analysis_tagged.py --package {{package}} --cache tests/.debug_cache.json
+    uv run bin/package_analysis_cli.py --package {{package}} --cache tests/.debug_cache.json
 
 # Show package mapping for specific package
 [group('debug')]
