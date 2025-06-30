@@ -34,15 +34,17 @@ show_spinner \
 #   "${DOTFILES}/lib/install/nix.sh"
 # 	"Installed nix."
 
-show_spinner \
-    "Installing Flatpak runtime if needed..." \
-    "${DOTFILES}/lib/install/flatpak_runtime.sh" \
-    "Installed Flatpak runtime if needed."
+if ! $is_darwin; then
+    show_spinner \
+        "Installing Flatpak runtime if needed..." \
+        "${DOTFILES}/lib/install/flatpak_runtime.sh" \
+        "Installed Flatpak runtime if needed."
 
-show_spinner \
-    "Installing Flatpak apps..." \
-    "${DOTFILES}/lib/install/flatpak_apps.sh" \
-    "Installed Flatpak apps."
+    show_spinner \
+        "Installing Flatpak apps..." \
+        "${DOTFILES}/lib/install/flatpak_apps.sh" \
+        "Installed Flatpak apps."
+fi
 
 show_spinner \
     "Installing custom packages..." \
