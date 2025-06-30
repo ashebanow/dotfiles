@@ -20,6 +20,7 @@ packages/temp_packages.toml
 packages/package_mappings.toml.new
 bin/__pycache__/
 lib/__pycache__/
+tests/__pycache__/
 tests/generated_packages/
 tests/output/
 tests/.debug_cache.json
