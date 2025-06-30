@@ -258,6 +258,9 @@ test_basic_roundtrip() {
                 print_error "No files generated in roundtrip test"
                 echo "Contents of output directory:"
                 ls -la "$TEMP_DIR/roundtrip_output/" || echo "Directory not found"
+                echo "=== FULL ROUNDTRIP LOG ==="
+                cat "$TEMP_DIR/roundtrip_test.log"
+                echo "=== END LOG ==="
             fi
         else
             print_error "Package generation step failed"
