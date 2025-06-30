@@ -9,15 +9,15 @@
 set -euo pipefail
 
 # Dependency tracking - script runs when any of these files change:
-# package_mappings.toml hash: <!-- include "packages/package_mappings.toml" | sha256sum -->
-# custom_install.json hash: <!-- include "packages/custom_install.json" | sha256sum -->
-# install.sh hash: <!-- include "install.sh" | sha256sum -->
-# lib/install/main.sh hash: <!-- include "lib/install/main.sh" | sha256sum -->
-# lib/install/homebrew_packages.sh hash: <!-- include "lib/install/homebrew_packages.sh" | sha256sum -->
-# lib/install/arch.sh hash: <!-- include "lib/install/arch.sh" | sha256sum -->
-# lib/install/flatpak_apps.sh hash: <!-- include "lib/install/flatpak_apps.sh" | sha256sum -->
-# lib/install/prerequisites.sh hash: <!-- include "lib/install/prerequisites.sh" | sha256sum -->
-# lib/install/custom.sh hash: <!-- include "lib/install/custom.sh" | sha256sum -->
+# ../packages/package_mappings.toml hash: <!-- include "../packages/package_mappings.toml" | sha256sum -->
+# ../packages/custom_install.json hash: <!-- include "../packages/custom_install.json" | sha256sum -->
+# ../install.sh hash: <!-- include "../install.sh" | sha256sum -->
+# ../lib/install/main.sh hash: <!-- include "../lib/install/main.sh" | sha256sum -->
+# ../lib/install/homebrew_packages.sh hash: <!-- include "../lib/install/homebrew_packages.sh" | sha256sum -->
+# ../lib/install/arch.sh hash: <!-- include "../lib/install/arch.sh" | sha256sum -->
+# ../lib/install/flatpak_apps.sh hash: <!-- include "../lib/install/flatpak_apps.sh" | sha256sum -->
+# ../lib/install/prerequisites.sh hash: <!-- include "../lib/install/prerequisites.sh" | sha256sum -->
+# ../lib/install/custom.sh hash: <!-- include "../lib/install/custom.sh" | sha256sum -->
 
 # Source common utilities
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -55,12 +55,12 @@ echo ""
 regenerate_and_install() {
     echo -e "${BLUE}📋 Step 1: Regenerating package lists...${NC}"
     cd "$DOTFILES_DIR"
-    
+
     if just generate-package-lists; then
         echo ""
         echo -e "${GREEN}✅ Package lists updated successfully!${NC}"
         echo ""
-        
+
         # Show what was generated
         echo "📦 Generated package files:"
         for pkg_file in Brewfile Archfile Aptfile Flatfile; do
@@ -71,10 +71,10 @@ regenerate_and_install() {
             fi
         done
         echo ""
-        
+
         echo -e "${BLUE}🚀 Step 2: Installing packages...${NC}"
         echo ""
-        
+
         # Run install.sh (should be idempotent)
         if [[ -f "$DOTFILES_DIR/install.sh" ]]; then
             if bash "$DOTFILES_DIR/install.sh"; then

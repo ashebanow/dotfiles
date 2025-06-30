@@ -75,7 +75,8 @@ show_spinner "Setting up Bitwarden services..." \
 # setup/update github copilot extension
 
 # initialize bat cache, which is annoying to have to do on first install
-bat cache --build
+log_info "Initializing bat cache..."
+bat cache --build > /dev/null 2>&1
 
 # TODO: install devenv.sh & distrobox
 # TODO: adjust sudo permissions

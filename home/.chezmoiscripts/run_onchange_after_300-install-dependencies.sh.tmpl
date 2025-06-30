@@ -8,21 +8,21 @@
 set -euo pipefail
 
 # Dependency tracking - script runs when any of these files change:
-# install.sh hash: <!-- include "install.sh" | sha256sum -->
-# lib/install/main.sh hash: <!-- include "lib/install/main.sh" | sha256sum -->
-# lib/common/all.sh hash: <!-- include "lib/common/all.sh" | sha256sum -->
-# lib/common/homebrew_utils.sh hash: <!-- include "lib/common/homebrew_utils.sh" | sha256sum -->
-# lib/common/logging.sh hash: <!-- include "lib/common/logging.sh" | sha256sum -->
-# lib/common/packages.sh hash: <!-- include "lib/common/packages.sh" | sha256sum -->
-# lib/common/system_environment.sh hash: <!-- include "lib/common/system_environment.sh" | sha256sum -->
-# lib/install/prerequisites.sh hash: <!-- include "lib/install/prerequisites.sh" | sha256sum -->
-# lib/install/homebrew_packages.sh hash: <!-- include "lib/install/homebrew_packages.sh" | sha256sum -->
-# lib/install/arch.sh hash: <!-- include "lib/install/arch.sh" | sha256sum -->
-# lib/install/flatpak_apps.sh hash: <!-- include "lib/install/flatpak_apps.sh" | sha256sum -->
-# lib/install/custom.sh hash: <!-- include "lib/install/custom.sh" | sha256sum -->
-# lib/install/fonts.sh hash: <!-- include "lib/install/fonts.sh" | sha256sum -->
-# lib/install/vscode.sh hash: <!-- include "lib/install/vscode.sh" | sha256sum -->
-# lib/install/nix.sh hash: <!-- include "lib/install/nix.sh" | sha256sum -->
+# ../install.sh hash: <!-- include "../install.sh" | sha256sum -->
+# ../lib/install/main.sh hash: <!-- include "../lib/install/main.sh" | sha256sum -->
+# ../lib/common/all.sh hash: <!-- include "../lib/common/all.sh" | sha256sum -->
+# ../lib/common/homebrew_utils.sh hash: <!-- include "../lib/common/homebrew_utils.sh" | sha256sum -->
+# ../lib/common/logging.sh hash: <!-- include "../lib/common/logging.sh" | sha256sum -->
+# ../lib/common/packages.sh hash: <!-- include "../lib/common/packages.sh" | sha256sum -->
+# ../lib/common/system_environment.sh hash: <!-- include "../lib/common/system_environment.sh" | sha256sum -->
+# ../lib/install/prerequisites.sh hash: <!-- include "../lib/install/prerequisites.sh" | sha256sum -->
+# ../lib/install/homebrew_packages.sh hash: <!-- include "../lib/install/homebrew_packages.sh" | sha256sum -->
+# ../lib/install/arch.sh hash: <!-- include "../lib/install/arch.sh" | sha256sum -->
+# ../lib/install/flatpak_apps.sh hash: <!-- include "../lib/install/flatpak_apps.sh" | sha256sum -->
+# ../lib/install/custom.sh hash: <!-- include "../lib/install/custom.sh" | sha256sum -->
+# ../lib/install/fonts.sh hash: <!-- include "../lib/install/fonts.sh" | sha256sum -->
+# ../lib/install/vscode.sh hash: <!-- include "../lib/install/vscode.sh" | sha256sum -->
+# ../lib/install/nix.sh hash: <!-- include "../lib/install/nix.sh" | sha256sum -->
 
 # Source common utilities
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -53,9 +53,9 @@ echo ""
 run_install() {
     echo -e "${BLUE}🚀 Running install.sh...${NC}"
     echo ""
-    
+
     cd "$DOTFILES_DIR"
-    
+
     if bash "./install.sh"; then
         echo ""
         echo -e "${GREEN}✅ Installation completed successfully!${NC}"
@@ -77,7 +77,7 @@ handle_non_interactive() {
     run_install
 }
 
-# Function for interactive handling  
+# Function for interactive handling
 handle_interactive() {
     echo -e "${YELLOW}This is safe to run - install.sh is designed to be idempotent.${NC}"
     echo ""
