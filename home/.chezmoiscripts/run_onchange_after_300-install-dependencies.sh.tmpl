@@ -26,7 +26,8 @@ set -euo pipefail
 
 # Source common utilities
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DOTFILES_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
+# Use chezmoi source directory parent (the actual repo root)
+DOTFILES_DIR="$(dirname "<!-- .chezmoi.sourceDir -->")"
 
 # Colors for output
 RED='\033[0;31m'
@@ -55,7 +56,6 @@ run_install() {
     echo ""
 
     cd "$DOTFILES_DIR"
-
     if bash "./install.sh"; then
         echo ""
         echo -e "${GREEN}✅ Installation completed successfully!${NC}"

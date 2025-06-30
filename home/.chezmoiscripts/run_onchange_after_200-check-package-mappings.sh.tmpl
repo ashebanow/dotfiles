@@ -21,7 +21,8 @@ set -euo pipefail
 
 # Source common utilities
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-DOTFILES_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
+# Use chezmoi source directory parent (the actual repo root)
+DOTFILES_DIR="$(dirname "<!-- .chezmoi.sourceDir -->")"
 
 # Colors for output
 RED='\033[0;31m'
@@ -31,8 +32,13 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Check if we have access to package management tools
-if [[ ! -f "$DOTFILES_DIR/justfile" ]] || ! command -v just >/dev/null 2>&1; then
-    echo -e "${YELLOW}⚠️  Package management tools not available, skipping package update${NC}"
+if [[ ! -f "$DOTFILES_DIR/justfile" ]]; then
+    echo -e "${YELLOW}⚠️  justfile not found at $DOTFILES_DIR/justfile, skipping package update${NC}"
+    exit 0
+fi
+
+if ! command -v just >/dev/null 2>&1; then
+    echo -e "${YELLOW}⚠️  'just' command not found in PATH, skipping package update${NC}"
     exit 0
 fi
 
@@ -77,7 +83,8 @@ regenerate_and_install() {
 
         # Run install.sh (should be idempotent)
         if [[ -f "$DOTFILES_DIR/install.sh" ]]; then
-            if bash "$DOTFILES_DIR/install.sh"; then
+            cd "$DOTFILES_DIR"
+            if bash "./install.sh"; then
                 echo ""
                 echo -e "${GREEN}✅ Package installation completed successfully!${NC}"
                 echo ""
