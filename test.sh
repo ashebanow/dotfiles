@@ -119,7 +119,7 @@ done
 
 # Build pytest command
 build_pytest_cmd() {
-    local cmd="pytest"
+    local cmd="uv run pytest"
     
     # Add verbosity
     if [[ -n "$VERBOSE" ]]; then
@@ -168,7 +168,7 @@ run_all_tests() {
 # Run tests with coverage
 run_coverage_tests() {
     log_info "Running tests with detailed coverage..."
-    pytest --cov=bin --cov=lib \
+    uv run pytest --cov=bin --cov=lib \
            --cov-report=term-missing \
            --cov-report=html:htmlcov \
            --cov-report=xml \
@@ -201,13 +201,13 @@ run_lint() {
     log_info "Running code quality checks..."
     
     echo "🔍 Running ruff (linting)..."
-    ruff check bin/ lib/ tests/ || log_warn "Ruff found issues"
+    uv run ruff check bin/ lib/ tests/ || log_warn "Ruff found issues"
     
     echo "🎨 Checking black (formatting)..."
-    black --check bin/ lib/ tests/ || log_warn "Black found formatting issues"
+    uv run black --check bin/ lib/ tests/ || log_warn "Black found formatting issues"
     
     echo "🔬 Running mypy (type checking)..."
-    mypy bin/ lib/ || log_warn "MyPy found type issues"
+    uv run mypy bin/ lib/ || log_warn "MyPy found type issues"
     
     log_success "Code quality checks completed"
 }
@@ -217,10 +217,10 @@ run_format() {
     log_info "Formatting code..."
     
     echo "🎨 Running black (formatter)..."
-    black bin/ lib/ tests/
+    uv run black bin/ lib/ tests/
     
     echo "🔧 Running ruff (auto-fix)..."
-    ruff check --fix bin/ lib/ tests/ || true
+    uv run ruff check --fix bin/ lib/ tests/ || true
     
     log_success "Code formatting completed"
 }
