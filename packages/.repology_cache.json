@@ -1628,5 +1628,3805 @@
     "brew-supports-darwin": true,
     "brew-is-cask": false,
     "_timestamp": 1751241078.518668
+  },
+  "google-chrome": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "google-chrome",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Google Chrome is a fast, easy to use, and secure web browser.",
+    "_timestamp": 1751251385.8227947
+  },
+  "hyprsunset": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "hyprsunset",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "An application to enable a blue-light filter on Hyprland",
+    "_timestamp": 1751251391.2667031
+  },
+  "network-manager-applet": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "network-manager-applet",
+      "apt": "network-manager-applet",
+      "fedora": "network-manager-applet",
+      "flatpak": null
+    },
+    "description": "A network control and status applet for NetworkManager",
+    "_timestamp": 1751251396.7119024
+  },
+  "pacseek": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "pacseek",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "A terminal user interface for searching and installing Arch Linux packages",
+    "_timestamp": 1751251402.1536248
+  },
+  "ttf-firacode-nerd": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251407.5948904
+  },
+  "dockutil": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Tool for managing dock items",
+    "_timestamp": 1751251413.0375998
+  },
+  "ttf-droid": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251418.478429
+  },
+  "logseq": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "logseq-desktop",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Privacy-first, open-source platform for knowledge sharing and management",
+    "_timestamp": 1751251423.9236264
+  },
+  "pkg-config": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "pkg-config-git",
+      "apt": "pkg-config",
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "pkg-config is a helper tool used when compiling applications and libraries.",
+    "_timestamp": 1751251429.3667269
+  },
+  "fonts-noto-cjk": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251434.8086722
+  },
+  "pinta": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "pinta",
+      "apt": "pinta",
+      "fedora": "pinta",
+      "flatpak": null
+    },
+    "description": "Simple Gtk# Paint Program",
+    "_timestamp": 1751251440.2514827
+  },
+  "gnome-calculator": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "gnome-calculator",
+      "apt": "gnome-calculator",
+      "fedora": "gnome-calculator",
+      "flatpak": null
+    },
+    "description": "GNOME desktop calculator",
+    "_timestamp": 1751251445.6980295
+  },
+  "checkupdates-with-aur": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "checkupdates-with-aur",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Helper script to check updates, including AUR updates",
+    "_timestamp": 1751251451.1388533
+  },
+  "polkit-gnome": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "polkit-gnome",
+      "apt": "policykit-1-gnome",
+      "fedora": "polkit-gnome",
+      "flatpak": null
+    },
+    "description": "PolicyKit integration for the GNOME desktop",
+    "_timestamp": 1751251456.5818663
+  },
+  "zoom": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251462.0230596
+  },
+  "otf-font-awesome": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251467.4674506
+  },
+  "qt6ct": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "qt6ct",
+      "apt": "qt6ct",
+      "fedora": "qt6ct",
+      "flatpak": null
+    },
+    "description": "Qt6 - Configuration Tool",
+    "_timestamp": 1751251472.9099247
+  },
+  "zen": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251478.351495
+  },
+  "qt6-5compat": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251483.7933676
+  },
+  "lsd": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "lsd",
+      "apt": "rust-lsd",
+      "fedora": "rust-lsd",
+      "flatpak": null
+    },
+    "description": "Clone of ls with colorful output, file type icons, and more",
+    "_timestamp": 1751251489.2368975
+  },
+  "kitty": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251494.677641
+  },
+  "swaync": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251500.1184616
+  },
+  "thunar-archive-plugin": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "thunar-archive-plugin",
+      "apt": "thunar-archive-plugin",
+      "fedora": "thunar-archive-plugin",
+      "flatpak": null
+    },
+    "description": "Archive plugin for the Thunar file manager",
+    "_timestamp": 1751251505.568493
+  },
+  "npm": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "npm",
+      "apt": "npm",
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "JavaScript package manager",
+    "_timestamp": 1751251511.010739
+  },
+  "discord": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "discord",
+      "apt": null,
+      "fedora": "discord",
+      "flatpak": null
+    },
+    "description": "Voice and text chat software",
+    "_timestamp": 1751251516.4546535
+  },
+  "qalculate-gtk": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "qalculate-gtk",
+      "apt": "qalculate-gtk",
+      "fedora": "qalculate-gtk",
+      "flatpak": null
+    },
+    "description": "Multi-purpose desktop calculator",
+    "_timestamp": 1751251521.898102
+  },
+  "playerctl": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "playerctl",
+      "apt": "playerctl",
+      "fedora": "playerctl",
+      "flatpak": null
+    },
+    "description": "Command-line MPRIS-compatible Media Player Controller",
+    "_timestamp": 1751251527.3419042
+  },
+  "htop": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "htop",
+      "apt": "htop",
+      "fedora": "htop",
+      "flatpak": null
+    },
+    "description": "htop is an interactive process viewer for Unix systems.",
+    "_timestamp": 1751251532.7868454
+  },
+  "libspng": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "libspng",
+      "apt": "libspng",
+      "fedora": "libspng",
+      "flatpak": null
+    },
+    "description": "libspng is a C library for reading and writing Portable Network Graphics (PNG) format files with a focus on security and ease of use.",
+    "_timestamp": 1751251538.2303946
+  },
+  "gvfs-mtp": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251543.670968
+  },
+  "hyprshot": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "hyprshot",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Hyprland screenshot utility",
+    "_timestamp": 1751251549.1192212
+  },
+  "mercurial": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "mercurial",
+      "apt": "mercurial",
+      "fedora": "mercurial",
+      "flatpak": null
+    },
+    "description": "Mercurial is a free, distributed source control management tool. It efficiently handles projects of any size and offers an easy and intuitive interface.",
+    "_timestamp": 1751251554.5672855
+  },
+  "wl-clipboard": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "wl-clipboard",
+      "apt": "wl-clipboard",
+      "fedora": "wl-clipboard",
+      "flatpak": null
+    },
+    "description": "Command-line copy/paste utilities for Wayland",
+    "_timestamp": 1751251560.0113251
+  },
+  "yazi": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "yazi",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Blazing fast terminal file manager written in Rust, based on async I/O",
+    "_timestamp": 1751251565.4564235
+  },
+  "hypridle": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "hypridle",
+      "apt": null,
+      "fedora": "hypridle",
+      "flatpak": null
+    },
+    "description": "Hyprland's idle daemon",
+    "_timestamp": 1751251570.8990295
+  },
+  "thunar-volman": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "thunar-volman",
+      "apt": "thunar-volman",
+      "fedora": "thunar-volman",
+      "flatpak": null
+    },
+    "description": "Automatic management of removable drives and media for Thunar",
+    "_timestamp": 1751251576.3424778
+  },
+  "fonts-dejavu": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251581.7837114
+  },
+  "adobe-source-code-pro-fonts": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251587.3976927
+  },
+  "ytmdesktop": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "ytmdesktop",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "A Desktop App for YouTube Music",
+    "_timestamp": 1751251590.7417536
+  },
+  "archlinux-keyring": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "archlinux-keyring",
+      "apt": "archlinux-keyring",
+      "fedora": "archlinux-keyring",
+      "flatpak": null
+    },
+    "description": "GPG keys used by Arch distribution to sign packages",
+    "_timestamp": 1751251594.0859535
+  },
+  "aylurs-gtk-shell": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "aylurs-gtk-shell",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Aylurs's Gtk Shell (AGS), An eww inspired gtk widget system.",
+    "_timestamp": 1751251597.428695
+  },
+  "base-devel": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251600.7713
+  },
+  "bc": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251604.1129587
+  },
+  "bibata-cursor-theme-bin": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251607.4593306
+  },
+  "blueman": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "blueman",
+      "apt": "blueman",
+      "fedora": "blueman",
+      "flatpak": null
+    },
+    "description": "GTK+ Bluetooth Manager",
+    "_timestamp": 1751251610.8060198
+  },
+  "bluez": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "bluez",
+      "apt": "bluez",
+      "fedora": "bluez",
+      "flatpak": null
+    },
+    "description": "Bluetooth protocol stack for Linux",
+    "_timestamp": 1751251614.1541426
+  },
+  "bluez-utils": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251617.5009658
+  },
+  "breeze": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "breeze",
+      "apt": "breeze",
+      "fedora": "kde-style-breeze",
+      "flatpak": null
+    },
+    "description": "KDE 4 version of Plasma 5 artwork, style and assets",
+    "_timestamp": 1751251620.8467102
+  },
+  "brightnessctl": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "brightnessctl",
+      "apt": "brightnessctl",
+      "fedora": "brightnessctl",
+      "flatpak": null
+    },
+    "description": "Read and control device brightness",
+    "_timestamp": 1751251624.189145
+  },
+  "cliphist": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "cliphist",
+      "apt": "cliphist",
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "wayland clipboard manager",
+    "_timestamp": 1751251627.5354862
+  },
+  "bitwarden": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "bitwarden",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Desktop password and login vault",
+    "_timestamp": 1751251630.879141
+  },
+  "postman": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "postman",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Collaboration platform for API development",
+    "_timestamp": 1751251634.228205
+  },
+  "chrome": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251637.5694551
+  },
+  "obsproject": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251640.9129014
+  },
+  "parsec": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251644.2559202
+  },
+  "slack": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "slack-electron",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Team communication and collaboration software",
+    "_timestamp": 1751251647.6012478
+  },
+  "dart-sass": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "dart-sass",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Sass makes CSS fun again",
+    "_timestamp": 1751251650.9480128
+  },
+  "dolphin": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251654.2900345
+  },
+  "ffmpegthumbnailer": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "ffmpegthumbnailer",
+      "apt": "ffmpegthumbnailer",
+      "fedora": "ffmpegthumbnailer",
+      "flatpak": null
+    },
+    "description": "Create thumbnails for your video files",
+    "_timestamp": 1751251657.63799
+  },
+  "figlet": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "figlet",
+      "apt": "figlet",
+      "fedora": "figlet",
+      "flatpak": null
+    },
+    "description": "Banner-like program prints strings as ASCII art",
+    "_timestamp": 1751251660.9870336
+  },
+  "figurine": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251664.3286772
+  },
+  "findutils": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "findutils",
+      "apt": "findutils",
+      "fedora": "findutils",
+      "flatpak": null
+    },
+    "description": "the basic directory searching utilities of the GNU operating system",
+    "_timestamp": 1751251667.6746006
+  },
+  "firefox": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "firefox",
+      "apt": "firefox",
+      "fedora": "firefox",
+      "flatpak": null
+    },
+    "description": "Mozilla Firefox (or simply Firefox) is a free and open-source web browser",
+    "_timestamp": 1751251671.4200735
+  },
+  "flatpak": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "flatpak",
+      "apt": "flatpak",
+      "fedora": "flatpak",
+      "flatpak": null
+    },
+    "description": "Flatpak is a system for building, distributing, and running sandboxed desktop applications on Linux.",
+    "_timestamp": 1751251674.769465
+  },
+  "fonts-firacode": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251678.1120634
+  },
+  "fonts-font-awesome": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251681.455547
+  },
+  "fonts-jetbrains-mono": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251684.7991102
+  },
+  "fonts-noto-color-emoji": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251688.1418767
+  },
+  "fonts-noto-extra": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251691.485967
+  },
+  "fuse2": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251694.8275611
+  },
+  "gjs": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "gjs",
+      "apt": "gjs",
+      "fedora": "gjs",
+      "flatpak": null
+    },
+    "description": "Javascript Bindings for GNOME",
+    "_timestamp": 1751251698.1774387
+  },
+  "glib2-devel": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251701.520818
+  },
+  "gnome-system-monitor": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "gnome-system-monitor",
+      "apt": "gnome-system-monitor",
+      "fedora": "gnome-system-monitor",
+      "flatpak": null
+    },
+    "description": "Process and resource monitor",
+    "_timestamp": 1751251704.8664935
+  },
+  "gnome-text-editor": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "gnome-text-editor",
+      "apt": "gnome-text-editor",
+      "fedora": "gnome-text-editor",
+      "flatpak": null
+    },
+    "description": "GNOME Text Editor",
+    "_timestamp": 1751251708.211691
+  },
+  "gobject-introspection": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "gobject-introspection",
+      "apt": "gobject-introspection",
+      "fedora": "gobject-introspection",
+      "flatpak": null
+    },
+    "description": "GObject introspection is a middleware layer between C libraries (using GObject) and language bindings.",
+    "_timestamp": 1751251711.560047
+  },
+  "grim": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "grim",
+      "apt": "grim",
+      "fedora": "grim",
+      "flatpak": null
+    },
+    "description": "Screenshot tool for Sway",
+    "_timestamp": 1751251714.9146342
+  },
+  "grimblast": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "grimblast-git",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "A helper for screenshots within Hyprland.",
+    "_timestamp": 1751251718.2592769
+  },
+  "gtk-engine-murrine": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "gtk-engine-murrine",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "GTK2 engine to make your desktop look like a 'murrina', an italian word meaning the art glass works done by Venicians glass blowers.",
+    "_timestamp": 1751251721.6019394
+  },
+  "gtk-layer-shell": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "gtk-layer-shell",
+      "apt": "gtk-layer-shell",
+      "fedora": "gtk-layer-shell",
+      "flatpak": null
+    },
+    "description": "Library to create Wayland desktop components using the Layer Shell protocol",
+    "_timestamp": 1751251724.9464846
+  },
+  "gtk3": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251728.287771
+  },
+  "gtk4": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251731.6307287
+  },
+  "gvfs": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "gvfs",
+      "apt": "gvfs",
+      "fedora": "gvfs",
+      "flatpak": null
+    },
+    "description": "Virtual filesystem implementation for GIO",
+    "_timestamp": 1751251734.9819546
+  },
+  "hyprland": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "hyprland",
+      "apt": "hyprland",
+      "fedora": "hyprland",
+      "flatpak": null
+    },
+    "description": "Dynamic tiling Wayland compositor that doesn't sacrifice on its looks",
+    "_timestamp": 1751251738.3276343
+  },
+  "hyprlock": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "hyprlock",
+      "apt": null,
+      "fedora": "hyprlock",
+      "flatpak": null
+    },
+    "description": "Hyprland's GPU-accelerated screen locking utility",
+    "_timestamp": 1751251741.670998
+  },
+  "hyprpanel": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "hyprpanel",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "An opinionated panel/shell for the Hyprland compositor.",
+    "_timestamp": 1751251745.0132985
+  },
+  "hyprpaper": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "hyprpaper",
+      "apt": "hyprpaper",
+      "fedora": "hyprpaper",
+      "flatpak": null
+    },
+    "description": "Blazing fast wayland wallpaper utility with IPC controls",
+    "_timestamp": 1751251748.3568316
+  },
+  "hyprpicker": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "hyprpicker",
+      "apt": null,
+      "fedora": "hyprpicker",
+      "flatpak": null
+    },
+    "description": "A wlroots-compatible Wayland color picker",
+    "_timestamp": 1751251751.700531
+  },
+  "hyprpolkitagent": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "hyprpolkitagent",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Simple polkit authentication agent for Hyprland, written in QT/QML",
+    "_timestamp": 1751251755.0429826
+  },
+  "hyprshade": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "hyprshade",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Hyprland shade configuration tool",
+    "_timestamp": 1751251758.385414
+  },
+  "imagemagick": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "imagemagick",
+      "apt": "imagemagick",
+      "fedora": "ImageMagick",
+      "flatpak": null
+    },
+    "description": "Use ImageMagick to create, edit, compose, or convert bitmap images.",
+    "_timestamp": 1751251761.7384076
+  },
+  "imv": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "imv",
+      "apt": "imv",
+      "fedora": "imv",
+      "flatpak": null
+    },
+    "description": "Image viewer for X11 and Wayland",
+    "_timestamp": 1751251765.0836525
+  },
+  "inxi": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "inxi",
+      "apt": "inxi",
+      "fedora": "inxi",
+      "flatpak": null
+    },
+    "description": "Full featured CLI system information tool",
+    "_timestamp": 1751251768.4298625
+  },
+  "gearlever": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "gearlever",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Manage AppImages with ease",
+    "_timestamp": 1751251771.773503
+  },
+  "kvantum": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "kvantum",
+      "apt": "kvantum",
+      "fedora": "kvantum",
+      "flatpak": null
+    },
+    "description": "SVG-based theme engine for Qt5, KDE and LXQt",
+    "_timestamp": 1751251775.121895
+  },
+  "libadwaita": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "libadwaita",
+      "apt": null,
+      "fedora": "libadwaita",
+      "flatpak": null
+    },
+    "description": "Library of GNOME-specific UI patterns, replacing libhandy for GTK4",
+    "_timestamp": 1751251778.47046
+  },
+  "libdbusmenu-gtk3": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251781.8165371
+  },
+  "libgtop": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "libgtop",
+      "apt": "libgtop2",
+      "fedora": "libgtop2",
+      "flatpak": null
+    },
+    "description": "A library for collecting system monitoring data",
+    "_timestamp": 1751251785.162894
+  },
+  "libnotify": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "libnotify",
+      "apt": "libnotify",
+      "fedora": "libnotify",
+      "flatpak": null
+    },
+    "description": "A library for sending desktop notifications.",
+    "_timestamp": 1751251788.5096626
+  },
+  "libsoup3": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251791.8525271
+  },
+  "loupe": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "loupe",
+      "apt": "loupe",
+      "fedora": "loupe",
+      "flatpak": null
+    },
+    "description": "Image viewer",
+    "_timestamp": 1751251795.1997092
+  },
+  "man-pages": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251798.541915
+  },
+  "matugen": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "matugen-bin",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "A material you color generation tool with templates",
+    "_timestamp": 1751251801.8856235
+  },
+  "meson": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "meson",
+      "apt": "meson",
+      "fedora": "meson",
+      "flatpak": null
+    },
+    "description": "Fast and user friendly build system",
+    "_timestamp": 1751251805.2404084
+  },
+  "mission-center": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "mission-center",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Monitor your CPU, Memory, Disk, Network and GPU usage",
+    "_timestamp": 1751251808.5870187
+  },
+  "mousepad": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "mousepad",
+      "apt": "mousepad",
+      "fedora": "mousepad",
+      "flatpak": null
+    },
+    "description": "Simple text editor for Xfce desktop environment",
+    "_timestamp": 1751251811.9326274
+  },
+  "mpv": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "mpv",
+      "apt": "mpv",
+      "fedora": "mpv",
+      "flatpak": null
+    },
+    "description": "Video player based on MPlayer/mplayer2",
+    "_timestamp": 1751251815.2803445
+  },
+  "mpv-mpris": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "mpv-mpris",
+      "apt": "mpv-mpris",
+      "fedora": "mpv-mpris",
+      "flatpak": null
+    },
+    "description": "MPRIS plugin for mpv",
+    "_timestamp": 1751251818.6238081
+  },
+  "nano": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "nano",
+      "apt": "nano",
+      "fedora": "nano",
+      "flatpak": null
+    },
+    "description": "Nano's ANOther editor, an enhanced free Pico clone.",
+    "_timestamp": 1751251821.9718544
+  },
+  "nautilus": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "nautilus",
+      "apt": "nautilus",
+      "fedora": "nautilus",
+      "flatpak": null
+    },
+    "description": "Default file manager for GNOME",
+    "_timestamp": 1751251825.324311
+  },
+  "nautilus-open-any-terminal": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "nautilus-open-any-terminal",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "context-menu entry for opening other terminal in nautilus",
+    "_timestamp": 1751251828.6675243
+  },
+  "pupgui2": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251832.011238
+  },
+  "networkmanager": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "networkmanager",
+      "apt": "network-manager",
+      "fedora": "NetworkManager",
+      "flatpak": null
+    },
+    "description": "Network connection manager and user applications",
+    "_timestamp": 1751251835.3615339
+  },
+  "niri": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "niri",
+      "apt": null,
+      "fedora": "niri",
+      "flatpak": null
+    },
+    "description": "Scrollable-tiling Wayland compositor",
+    "_timestamp": 1751251838.705024
+  },
+  "nm-connection-editor": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251842.0476549
+  },
+  "noto-fonts": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251845.393977
+  },
+  "noto-fonts-cjk": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251848.7367306
+  },
+  "noto-fonts-emoji": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251852.0799258
+  },
+  "noto-fonts-extra": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251855.4227138
+  },
+  "nvtop": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "nvtop",
+      "apt": "nvtop",
+      "fedora": "nvtop",
+      "flatpak": null
+    },
+    "description": "Interactive GPU process monitor",
+    "_timestamp": 1751251858.7683814
+  },
+  "nwg-displays": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "nwg-displays",
+      "apt": "nwg-displays",
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Output management utility for sway and Hyprland Wayland compositors",
+    "_timestamp": 1751251862.112889
+  },
+  "nwg-dock-hyprland": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "nwg-dock-hyprland",
+      "apt": null,
+      "fedora": "nwg-dock-hyprland",
+      "flatpak": null
+    },
+    "description": "GTK3-based dock for Hyprland",
+    "_timestamp": 1751251865.4567375
+  },
+  "nwg-look": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "nwg-look",
+      "apt": "nwg-look",
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "GTK settings editor adapted to work on wlroots-based compositors",
+    "_timestamp": 1751251868.800054
+  },
+  "dejadup": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251872.1519666
+  },
+  "simplescan": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251875.495724
+  },
+  "pikabackup": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251878.8386166
+  },
+  "fontdownloader": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "fontdownloader",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "A simple GTK font downloader",
+    "_timestamp": 1751251882.183535
+  },
+  "signal": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251885.52673
+  },
+  "vlc": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "vlc",
+      "apt": "vlc",
+      "fedora": "vlc",
+      "flatpak": null
+    },
+    "description": "Multimedia player",
+    "_timestamp": 1751251888.882818
+  },
+  "pacman-contrib": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "pacman-contrib",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Contributed scripts and tools for pacman systems",
+    "_timestamp": 1751251892.2281232
+  },
+  "pamixer": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "pamixer",
+      "apt": "pamixer",
+      "fedora": "pamixer",
+      "flatpak": null
+    },
+    "description": "PulseAudio command line mixer",
+    "_timestamp": 1751251895.572327
+  },
+  "papirus-icon-theme": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "papirus-icon-theme",
+      "apt": "papirus-icon-theme",
+      "fedora": "papirus-icon-theme",
+      "flatpak": null
+    },
+    "description": "SVG icon theme for Linux, based on Paper Icon Set",
+    "_timestamp": 1751251898.9182832
+  },
+  "pavucontrol": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "pavucontrol",
+      "apt": "pavucontrol",
+      "fedora": "pavucontrol",
+      "flatpak": null
+    },
+    "description": "PulseAudio Volume Control",
+    "_timestamp": 1751251902.2651355
+  },
+  "pciutils": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "pciutils",
+      "apt": "pciutils",
+      "fedora": "pciutils",
+      "flatpak": null
+    },
+    "description": "PCI utilities",
+    "_timestamp": 1751251905.6158404
+  },
+  "pipewire": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "pipewire",
+      "apt": "pipewire",
+      "fedora": "pipewire",
+      "flatpak": null
+    },
+    "description": "PipeWire is a project that aims to greatly improve handling of audio and video under Linux.",
+    "_timestamp": 1751251908.9673998
+  },
+  "pipewire-alsa": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251912.310889
+  },
+  "pipewire-audio": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251915.653796
+  },
+  "pipewire-pulse": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251918.996584
+  },
+  "power-profiles-daemon": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "power-profiles-daemon",
+      "apt": "power-profiles-daemon",
+      "fedora": "power-profiles-daemon",
+      "flatpak": null
+    },
+    "description": "Makes power profiles handling available over D-Bus",
+    "_timestamp": 1751251922.3434439
+  },
+  "python": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "python",
+      "apt": "python3.13",
+      "fedora": "python3.13",
+      "flatpak": null
+    },
+    "description": "Python is a programming language that lets you work quickly and integrate systems more effectively.",
+    "_timestamp": 1751251925.8182912
+  },
+  "python-gobject": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251929.160756
+  },
+  "python-gpustat": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251932.504861
+  },
+  "python-pip": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251935.8479774
+  },
+  "python-pyquery": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251939.192486
+  },
+  "python-pywalfox": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251942.5368323
+  },
+  "python-requests": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251945.8803172
+  },
+  "python-screeninfo": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251949.224263
+  },
+  "python3-gobject": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251952.56806
+  },
+  "python3-pip": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251955.9117906
+  },
+  "python3-pyquery": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251959.2556171
+  },
+  "python3-requests": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251962.5999455
+  },
+  "python3-screeninfo": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251965.9429839
+  },
+  "pywal": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "python-pywal",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Generate and change colorschemes on the fly",
+    "_timestamp": 1751251969.2889943
+  },
+  "qt5-graphicaleffects": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251972.6341372
+  },
+  "qt5-quickcontrols2": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251975.9828103
+  },
+  "qt5-svg": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251979.3266506
+  },
+  "qt5-wayland": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251982.6709006
+  },
+  "qt5ct": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "qt5ct",
+      "apt": "qt5ct",
+      "fedora": "qt5ct",
+      "flatpak": null
+    },
+    "description": "Qt5 Configuration Tool",
+    "_timestamp": 1751251986.0167682
+  },
+  "qt6-declarative": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251989.3602002
+  },
+  "qt6-svg": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251992.7042475
+  },
+  "qt6-wayland": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751251996.0478303
+  },
+  "rofi-wayland": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "rofi-wayland",
+      "apt": null,
+      "fedora": "rofi-wayland",
+      "flatpak": null
+    },
+    "description": "Fork of rofi with Wayland support",
+    "_timestamp": 1751251999.3923423
+  },
+  "rsync": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "rsync",
+      "apt": "rsync",
+      "fedora": "rsync",
+      "flatpak": null
+    },
+    "description": "rsync is an open source utility that provides fast incremental file transfer.",
+    "_timestamp": 1751252002.7405934
+  },
+  "rust": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "rust",
+      "apt": "rustc",
+      "fedora": "rust",
+      "flatpak": null
+    },
+    "description": "Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety.",
+    "_timestamp": 1751252006.206431
+  },
+  "sddm": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "sddm",
+      "apt": "sddm",
+      "fedora": "sddm",
+      "flatpak": null
+    },
+    "description": "QML based desktop and login manager",
+    "_timestamp": 1751252009.552045
+  },
+  "slurp": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "slurp",
+      "apt": "slurp",
+      "fedora": "slurp",
+      "flatpak": null
+    },
+    "description": "Select a region in Sway",
+    "_timestamp": 1751252012.8989358
+  },
+  "sof-firmware": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751252016.2425027
+  },
+  "swappy": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "swappy",
+      "apt": "swappy",
+      "fedora": "swappy",
+      "flatpak": null
+    },
+    "description": "Wayland native snapshot editing tool, inspired by Snappy on macOS",
+    "_timestamp": 1751252019.5881417
+  },
+  "swww": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "swww",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "A Solution to your Wayland Wallpaper Woes",
+    "_timestamp": 1751252022.936009
+  },
+  "thunar": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "thunar",
+      "apt": "thunar",
+      "fedora": "Thunar",
+      "flatpak": null
+    },
+    "description": "Thunar File Manager",
+    "_timestamp": 1751252026.2887025
+  },
+  "ttf-dejavu": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751252029.634447
+  },
+  "ttf-fantasque-nerd": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751252032.9798687
+  },
+  "ttf-fira-code": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751252036.3232296
+  },
+  "ttf-fira-sans": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751252039.666938
+  },
+  "ttf-jetbrains-mono": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751252043.0122273
+  },
+  "ttf-jetbrains-mono-nerd": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751252046.3722155
+  },
+  "ttf-victor-mono": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751252049.7169652
+  },
+  "tumbler": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "tumbler",
+      "apt": "tumbler",
+      "fedora": "tumbler",
+      "flatpak": null
+    },
+    "description": "D-Bus service for applications to request thumbnails",
+    "_timestamp": 1751252053.064592
+  },
+  "typescript": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "typescript",
+      "apt": "typescript",
+      "fedora": "typescript",
+      "flatpak": null
+    },
+    "description": "Language for application scale JavaScript development",
+    "_timestamp": 1751252056.4094267
+  },
+  "umockdev": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "umockdev",
+      "apt": "umockdev",
+      "fedora": "umockdev",
+      "flatpak": null
+    },
+    "description": "Mock hardware devices for creating unit tests and bug reporting",
+    "_timestamp": 1751252059.7572358
+  },
+  "unzip": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "unzip",
+      "apt": "unzip",
+      "fedora": "unzip",
+      "flatpak": null
+    },
+    "description": "UnZip is an extraction utility for archives compressed in .zip format (also called 'zipfiles').",
+    "_timestamp": 1751252063.1050522
+  },
+  "upower": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "upower",
+      "apt": "upower",
+      "fedora": "upower",
+      "flatpak": null
+    },
+    "description": "Abstraction for enumerating power devices, listening to device events and querying history and statistics",
+    "_timestamp": 1751252066.4528368
+  },
+  "uwsm": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "uwsm",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "A standalone Wayland session manager",
+    "_timestamp": 1751252069.7974122
+  },
+  "vim": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "vim",
+      "apt": "vim",
+      "fedora": "vim",
+      "flatpak": null
+    },
+    "description": "Vim is a highly configurable text editor built to make creating and changing any kind of text very efficient. (with advanced features, such as a GUI)",
+    "_timestamp": 1751252073.271583
+  },
+  "wallust": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "wallust",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "generate colors from an image",
+    "_timestamp": 1751252076.6162167
+  },
+  "waybar": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "waybar",
+      "apt": "waybar",
+      "fedora": "waybar",
+      "flatpak": null
+    },
+    "description": "Highly customizable Wayland bar for Sway and Wlroots based compositors",
+    "_timestamp": 1751252079.964287
+  },
+  "waypaper": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "waypaper",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "GUI wallpaper setter for Wayland and Xorg window managers. It works as a frontend for popular wallpaper backends like swaybg, swww, wallutils, hyprpaper and feh.",
+    "_timestamp": 1751252083.3084826
+  },
+  "wf-recorder": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "wf-recorder",
+      "apt": "wf-recorder",
+      "fedora": "wf-recorder",
+      "flatpak": null
+    },
+    "description": "Screen recorder for wlroots-based compositors eg swaywm",
+    "_timestamp": 1751252086.6546073
+  },
+  "whiptail": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "displays dialog boxes from shell scripts.",
+    "_timestamp": 1751252089.9999416
+  },
+  "wireplumber": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "wireplumber",
+      "apt": "wireplumber",
+      "fedora": "wireplumber",
+      "flatpak": null
+    },
+    "description": "A modular session/policy manager for PipeWire",
+    "_timestamp": 1751252093.3477166
+  },
+  "wlogout": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "wlogout",
+      "apt": "wlogout",
+      "fedora": "wlogout",
+      "flatpak": null
+    },
+    "description": "Wayland based logout menu",
+    "_timestamp": 1751252096.6934853
+  },
+  "wofi": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "wofi",
+      "apt": "wofi",
+      "fedora": "wofi",
+      "flatpak": null
+    },
+    "description": "A launcher/menu for wlroots based wayland compositors",
+    "_timestamp": 1751252100.038652
+  },
+  "xarchiver": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "xarchiver",
+      "apt": "xarchiver",
+      "fedora": "xarchiver",
+      "flatpak": null
+    },
+    "description": "Archive manager for Xfce",
+    "_timestamp": 1751252103.3854628
+  },
+  "xclip": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "xclip",
+      "apt": "xclip",
+      "fedora": "xclip",
+      "flatpak": null
+    },
+    "description": "Command line interface to the X11 clipboard",
+    "_timestamp": 1751252106.760219
+  },
+  "xdg-desktop-portal-gtk": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "xdg-desktop-portal-gtk",
+      "apt": "xdg-desktop-portal-gtk",
+      "fedora": "xdg-desktop-portal-gtk",
+      "flatpak": null
+    },
+    "description": "Backend implementation for xdg-desktop-portal using GTK+",
+    "_timestamp": 1751252110.1063018
+  },
+  "xdg-desktop-portal-hyprland": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "xdg-desktop-portal-hyprland",
+      "apt": "xdg-desktop-portal-hyprland",
+      "fedora": "xdg-desktop-portal-hyprland",
+      "flatpak": null
+    },
+    "description": "xdg-desktop-portal backend for hyprland",
+    "_timestamp": 1751252113.4510648
+  },
+  "xdg-user-dirs": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "xdg-user-dirs",
+      "apt": "xdg-user-dirs",
+      "fedora": "xdg-user-dirs",
+      "flatpak": null
+    },
+    "description": "Handles user special directories",
+    "_timestamp": 1751252116.7966924
+  },
+  "xdg-utils": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "xdg-utils",
+      "apt": "xdg-utils",
+      "fedora": "xdg-utils",
+      "flatpak": null
+    },
+    "description": "xdg-utils is a set of tools that allows applications to easily integrate with the desktop environment of the user, regardless of the specific desktop environment that the user runs.",
+    "_timestamp": 1751252120.1429117
+  },
+  "yad": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "yad",
+      "apt": "yad",
+      "fedora": "yad",
+      "flatpak": null
+    },
+    "description": "display graphical dialogs from shell scripts or command line.",
+    "_timestamp": 1751252123.4915147
+  },
+  "zip": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "zip",
+      "apt": "zip",
+      "fedora": "zip",
+      "flatpak": null
+    },
+    "description": "Zip is a compression and file packaging/archive utility for archives compressed in .zip format (also called 'zipfiles').",
+    "_timestamp": 1751252126.840653
+  },
+  "zsh-completions": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "zsh-completions",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Additional completion definitions for zsh",
+    "_timestamp": 1751252130.1879482
   }
 }

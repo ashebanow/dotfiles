@@ -1,3258 +1,3730 @@
+# Package 'act' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [act]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for act"
-tags = ["os:linux", "os:macos", "pm:homebrew"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
+# Package 'act3' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [act3]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for act3"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[adobe-source-code-pro-fonts]
+# Package 'adobe-source-code-pro-fonts' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["adobe-source-code-pro-fonts"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for adobe-source-code-pro-fonts"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
+# Package 'antidote' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [antidote]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for antidote"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[archlinux-keyring]
+["archlinux-keyring"]
+apt-pkg = "archlinux-keyring"
+arch-is-aur = false
+arch-pkg = "archlinux-keyring"
+brew-tap = ""
+custom-install = ""
 description = "GPG keys used by Arch distribution to sign packages"
-tags = [
-    "cat:cli-tool",
-    "cat:security",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "archlinux-keyring"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [atuin]
+apt-pkg = "atuin"
+arch-is-aur = true
+arch-pkg = "atuin"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Improved shell history for zsh, bash, fish and nushell"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "atuin"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[aylurs-gtk-shell]
+["aylurs-gtk-shell"]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "aylurs-gtk-shell"
+brew-tap = ""
+custom-install = ""
 description = "Aylurs's Gtk Shell (AGS), An eww inspired gtk widget system."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:shell",
-    "cat:system",
-    "cat:terminal",
-    "de:gnome",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [bandwhich]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "bandwhich"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Terminal bandwidth utilization tool"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[base-devel]
+# Package 'base-devel' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["base-devel"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for base-devel"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
+# Package 'bat' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [bat]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for bat"
-tags = ["os:linux", "os:macos", "pm:homebrew"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
+# Package 'bc' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [bc]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for bc"
-tags = ["os:linux", "os:macos", "pm:homebrew"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[bibata-cursor-theme-bin]
+# Package 'bibata-cursor-theme-bin' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["bibata-cursor-theme-bin"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for bibata-cursor-theme-bin"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [binsider]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "binsider"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Analyzes ELF binaries"
-tags = [
-    "cat:aur",
-    "cat:development",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
-arch-pkg = "binsider-git"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [biome]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "biome"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Toolchain of the web"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [bitwarden]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "bitwarden"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Desktop password and login vault"
-tags = [
-    "cat:aur",
-    "cat:security",
-    "dist:arch",
-    "os:linux",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-    "role:data-science",
-    "role:security",
-]
+fedora-pkg = ""
 flatpak-pkg = "com.bitwarden.desktop"
+prefer_flatpak = true
+priority = ""
 
-[bitwarden-cli]
+["bitwarden-cli"]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "bitwarden-cli"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Secure and free password manager for all of your devices"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:security",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-    "role:security",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [blueman]
+apt-pkg = "blueman"
+arch-is-aur = true
+arch-pkg = "blueman"
+brew-tap = ""
+custom-install = ""
 description = "GTK+ Bluetooth Manager"
-tags = [
-    "cat:aur",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+fedora-pkg = "blueman"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [bluez]
+apt-pkg = "bluez"
+arch-is-aur = true
+arch-pkg = "bluez"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Bluetooth protocol stack for Linux"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew:linux",
-    "pm:pacman",
-]
-arch-pkg = "bluez-mesh"
+fedora-pkg = "bluez"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[bluez-utils]
+# Package 'bluez-utils' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["bluez-utils"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for bluez-utils"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [breeze]
+apt-pkg = "breeze"
+arch-is-aur = true
+arch-pkg = "breeze"
+brew-tap = ""
+custom-install = ""
 description = "KDE 4 version of Plasma 5 artwork, style and assets"
-tags = [
-    "cat:aur",
-    "de:kde",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
 fedora-pkg = "kde-style-breeze"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [brightnessctl]
+apt-pkg = "brightnessctl"
+arch-is-aur = true
+arch-pkg = "brightnessctl"
+brew-tap = ""
+custom-install = ""
 description = "Read and control device brightness"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "brightnessctl"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [btop]
+apt-pkg = "btop"
+arch-is-aur = true
+arch-pkg = "btop"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Resource monitor that shows usage and stats for processor, memory, disks, network and processes."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:network",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "btop"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [caddy]
+apt-pkg = "caddy"
+arch-is-aur = true
+arch-pkg = "caddy"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Powerful, enterprise-ready, open source web server with automatic HTTPS"
-tags = [
-    "cat:aur",
-    "cat:network",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "caddy"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [cava]
+apt-pkg = "cava"
+arch-is-aur = true
+arch-pkg = "cava"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Console-based Audio Visualizer for ALSA"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "cava"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[checkupdates-with-aur]
+["checkupdates-with-aur"]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "checkupdates-with-aur"
+brew-tap = ""
+custom-install = ""
 description = "Helper script to check updates, including AUR updates"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [chezmoi]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "chezmoi"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Manage your dotfiles across multiple diverse machines, securely"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[google-chrome]
+[chrome]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for chrome"
-tags = [
-    "os:linux",
-    "pm:flatpak",
-    "priority:flatpak",
-    "role:data-science",
-    "role:desktop",
-]
+fedora-pkg = ""
 flatpak-pkg = "com.google.Chrome"
-
-[claude]
-description = "Claude desktop app (AI assistant)"
-tags = ["cat:cask", "os:macos", "pm:homebrew:darwin"]
+prefer_flatpak = true
+priority = ""
 
 [cliphist]
+apt-pkg = "cliphist"
+arch-is-aur = false
+arch-pkg = "cliphist"
+brew-tap = ""
+custom-install = ""
 description = "wayland clipboard manager"
-tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [coreutils]
+apt-pkg = "coreutils"
+arch-is-aur = true
+arch-pkg = "coreutils"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "The GNU Core Utilities are the basic file, shell and text manipulation utilities of the GNU operating system."
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "coreutils"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
+# Package 'ctop' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [ctop]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for ctop"
-tags = ["os:linux", "os:macos", "pm:homebrew"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [curl]
+apt-pkg = "curl"
+arch-is-aur = true
+arch-pkg = "curl"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Command line tool and library for transferring data with URLs."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
-arch-pkg = "libcurl-compat"
+fedora-pkg = "curl"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[dart-sass]
+["dart-sass"]
+apt-pkg = ""
+arch-is-aur = false
+arch-pkg = "dart-sass"
+brew-tap = ""
+custom-install = ""
 description = "Sass makes CSS fun again"
-tags = [
-    "cat:cli-tool",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [dejadup]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for dejadup"
-tags = ["os:linux", "pm:flatpak", "priority:flatpak"]
+fedora-pkg = ""
 flatpak-pkg = "org.gnome.DejaDup"
+prefer_flatpak = true
+priority = ""
 
 [direnv]
+apt-pkg = "direnv"
+arch-is-aur = false
+arch-pkg = "direnv"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Load/unload environment variables based on $PWD"
-tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "direnv"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [discord]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "discord"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Voice and text chat software"
-tags = [
-    "cat:aur",
-    "cat:communication",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "pm:dnf",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-    "role:data-science",
-    "role:desktop",
-]
+fedora-pkg = "discord"
 flatpak-pkg = "com.discordapp.Discord"
+prefer_flatpak = true
+priority = ""
 
 [dive]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "dive"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Tool for exploring each layer in a docker image"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[dockutil]
-description = "Tool for managing dock items"
-tags = ["os:macos", "pm:homebrew:darwin"]
-
+# Package 'dolphin' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [dolphin]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for dolphin"
-tags = ["cat:cask", "os:macos", "pm:homebrew:darwin"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [duf]
+apt-pkg = "duf"
+arch-is-aur = true
+arch-pkg = "duf"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Disk Usage/Free Utility - a better 'df' alternative"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "duf"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
+# Package 'dust' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [dust]
-description = "More intuitive version of du in rust"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "rust-du-dust"
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for dust"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [eza]
-description = "Modern, maintained replacement for ls"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
 apt-pkg = "rust-eza"
+arch-is-aur = true
+arch-pkg = "eza"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Modern, maintained replacement for ls"
 fedora-pkg = "rust-eza"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [fastfetch]
+apt-pkg = "fastfetch"
+arch-is-aur = true
+arch-pkg = "fastfetch"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Like Neofetch, but much faster because written in C"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "fastfetch"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
+# Package 'fd' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [fd]
-description = "A simple, fast and user-friendly alternative to 'find'."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "rust-fd-find"
-fedora-pkg = "rust-fd-find"
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for fd"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [ffmpegthumbnailer]
+apt-pkg = "ffmpegthumbnailer"
+arch-is-aur = false
+arch-pkg = "ffmpegthumbnailer"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Create thumbnails for your video files"
-tags = [
-    "cat:development",
-    "cat:multimedia",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "ffmpegthumbnailer"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [figlet]
-description = "FIGlet is a program for making large letters out of ordinary text."
-tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+apt-pkg = "figlet"
+arch-is-aur = false
+arch-pkg = "figlet"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Banner-like program prints strings as ASCII art"
+fedora-pkg = "figlet"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
+# Package 'figurine' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [figurine]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for figurine"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [findutils]
+apt-pkg = "findutils"
+arch-is-aur = true
+arch-pkg = "findutils"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "the basic directory searching utilities of the GNU operating system"
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "findutils"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [firefox]
+apt-pkg = "firefox"
+arch-is-aur = true
+arch-pkg = "firefox"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Mozilla Firefox (or simply Firefox) is a free and open-source web browser"
-tags = [
-    "cat:aur",
-    "cat:browser",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-    "role:data-science",
-    "role:desktop",
-]
-arch-pkg = "firefox-i18n-is"
+fedora-pkg = "firefox"
 flatpak-pkg = "org.mozilla.firefox"
+prefer_flatpak = true
+priority = ""
 
 [fish]
+apt-pkg = "fish"
+arch-is-aur = true
+arch-pkg = "fish"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "fish is a smart and user-friendly command line shell for macOS, Linux, and the rest of the family."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:shell",
-    "cat:terminal",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "fish"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [flatpak]
+apt-pkg = "flatpak"
+arch-is-aur = true
+arch-pkg = "flatpak"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Flatpak is a system for building, distributing, and running sandboxed desktop applications on Linux."
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
-arch-pkg = "flatpak-docs"
+fedora-pkg = "flatpak"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [fontdownloader]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "fontdownloader"
+brew-tap = ""
+custom-install = ""
 description = "A simple GTK font downloader"
-tags = [
-    "cat:aur",
-    "de:gnome",
-    "dist:arch",
-    "os:linux",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-    "role:data-science",
-]
+fedora-pkg = ""
 flatpak-pkg = "org.gustavoperedo.FontDownloader"
+prefer_flatpak = true
+priority = ""
 
-[fonts-dejavu]
+# Package 'fonts-dejavu' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["fonts-dejavu"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for fonts-dejavu"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[fonts-firacode]
+# Package 'fonts-firacode' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["fonts-firacode"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for fonts-firacode"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[fonts-font-awesome]
+# Package 'fonts-font-awesome' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["fonts-font-awesome"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for fonts-font-awesome"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[fonts-jetbrains-mono]
+# Package 'fonts-jetbrains-mono' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["fonts-jetbrains-mono"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for fonts-jetbrains-mono"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[fonts-noto-cjk]
+# Package 'fonts-noto-cjk' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["fonts-noto-cjk"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for fonts-noto-cjk"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[fonts-noto-color-emoji]
+# Package 'fonts-noto-color-emoji' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["fonts-noto-color-emoji"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for fonts-noto-color-emoji"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[fonts-noto-extra]
+# Package 'fonts-noto-extra' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["fonts-noto-extra"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for fonts-noto-extra"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [foreman]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "foreman"
+brew-tap = ""
+custom-install = ""
 description = "Toolchain manager for Roblox projects"
-tags = ["cat:aur", "dist:arch", "os:linux", "pm:pacman", "role:data-science"]
-arch-pkg = "foreman-git"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
+# Package 'fuse2' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [fuse2]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for fuse2"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [fzf]
+apt-pkg = "fzf"
+arch-is-aur = true
+arch-pkg = "fzf"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "A command-line fuzzy finder"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:filesystem",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-arch-pkg = "fzf-git"
+fedora-pkg = "fzf"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [gcc]
-description = "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, and Go."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:development",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
-apt-pkg = "gcc-14"
-arch-pkg = "gcc-m2"
-fedora-pkg = "avr-gcc"
+apt-pkg = "gcc-15"
+arch-is-aur = true
+arch-pkg = "gcc"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "GNU compiler collection"
+fedora-pkg = "gcc"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [gdu]
+apt-pkg = "gdu"
+arch-is-aur = true
+arch-pkg = "gdu"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Disk usage analyzer with console interface written in Go"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "gdu"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [gearlever]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "gearlever"
+brew-tap = ""
+custom-install = ""
 description = "Manage AppImages with ease"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "os:linux",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-    "role:data-science",
-]
+fedora-pkg = ""
 flatpak-pkg = "it.mijorus.gearlever"
+prefer_flatpak = true
+priority = ""
 
 [getnf]
-description = "Simple utility to install nerd fonts"
-tags = ["cat:aur", "dist:arch", "os:linux", "pm:pacman"]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "getnf"
+brew-tap = ""
 
+[getnf.custom-install]
+default = [
+  "curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash",
+]
+description = "A better way to install Nerd Fonts"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+# Package 'gh' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [gh]
-description = "Official Github CLI tool"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-arch-pkg = "github-cli"
-
-[ghostty]
-description = "Fast, native, feature-rich terminal emulator pushing modern features"
-tags = [
-    "cat:aur",
-    "cat:cask",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew:darwin",
-    "pm:pacman",
-]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for gh"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [git]
+apt-pkg = "git"
+arch-is-aur = true
+arch-pkg = "git"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:system",
-    "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
-arch-pkg = "git-zsh-completion"
+fedora-pkg = "git"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[git-delta]
+["git-delta"]
+apt-pkg = "git-delta"
+arch-is-aur = true
+arch-pkg = "git-delta"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Syntax-highlighting pager for git and diff output"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
 fedora-pkg = "rust-git-delta"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[git-lfs]
+["git-lfs"]
+apt-pkg = "git-lfs"
+arch-is-aur = true
+arch-pkg = "git-lfs"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Git extension for versioning large files"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
+fedora-pkg = "git-lfs"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [gitleaks]
+apt-pkg = "gitleaks"
+arch-is-aur = false
+arch-pkg = "gitleaks"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Audit git repos for secrets"
-tags = [
-    "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
+fedora-pkg = "gitleaks"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [gjs]
+apt-pkg = "gjs"
+arch-is-aur = true
+arch-pkg = "gjs"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Javascript Bindings for GNOME"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "gjs"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [glances]
+apt-pkg = "glances"
+arch-is-aur = true
+arch-pkg = "glances"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Alternative to top/htop"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "glances"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[glib2-devel]
+# Package 'glib2-devel' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["glib2-devel"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for glib2-devel"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [glow]
-description = "Glow is a terminal based markdown reader."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+apt-pkg = "glow"
+arch-is-aur = true
+arch-pkg = "glow"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Render markdown on the CLI"
+fedora-pkg = "glow"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[gnome-calculator]
+["gnome-calculator"]
+apt-pkg = "gnome-calculator"
+arch-is-aur = true
+arch-pkg = "gnome-calculator"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "GNOME desktop calculator"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "gnome-calculator"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[gnome-system-monitor]
+["gnome-system-monitor"]
+apt-pkg = "gnome-system-monitor"
+arch-is-aur = true
+arch-pkg = "gnome-system-monitor"
+brew-tap = ""
+custom-install = ""
 description = "Process and resource monitor"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:system",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "gnome-system-monitor"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[gnome-text-editor]
+["gnome-text-editor"]
+apt-pkg = "gnome-text-editor"
+arch-is-aur = true
+arch-pkg = "gnome-text-editor"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "GNOME Text Editor"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:editor",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "gnome-text-editor"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[gnu-units]
-description = "GNU Units converts quantities expressed in various systems of measurement to their equivalents in other systems of measurement."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+["gnu-units"]
 apt-pkg = "units"
+arch-is-aur = true
 arch-pkg = "units"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "GNU Units converts quantities expressed in various systems of measurement to their equivalents in other systems of measurement."
 fedora-pkg = "units"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [gnupg]
+apt-pkg = "gnupg"
+arch-is-aur = true
+arch-pkg = "gnupg"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "GnuPG is a complete and free implementation of the OpenPGP standard as defined by RFC4880 (also known as PGP)."
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "gnupg2"
 fedora-pkg = "gnupg2"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[gobject-introspection]
+["gobject-introspection"]
+apt-pkg = "gobject-introspection"
+arch-is-aur = false
+arch-pkg = "gobject-introspection"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "GObject introspection is a middleware layer between C libraries (using GObject) and language bindings."
-tags = [
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-    "role:development",
-]
+fedora-pkg = "gobject-introspection"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [grim]
+apt-pkg = "grim"
+arch-is-aur = true
+arch-pkg = "grim"
+brew-tap = ""
+custom-install = ""
 description = "Screenshot tool for Sway"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:sway",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "grim"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [grimblast]
-description = "A helper for screenshots within Hyprland."
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+apt-pkg = ""
+arch-is-aur = true
 arch-pkg = "grimblast-git"
-
-[gtk-engine-murrine]
-description = "GTK2 engine to make your desktop look like a 'murrina', an italian word meaning the art glass works done by Venicians glass blowers."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:gnome",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
-
-[gtk-layer-shell]
-description = "Library to create Wayland desktop components using the Layer Shell protocol"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:shell",
-    "cat:terminal",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
-
-[gtk3]
-description = "TODO: Add description for gtk3"
-tags = []
-
-[gtk4]
-description = "TODO: Add description for gtk4"
-tags = ["os:linux", "os:macos", "pm:homebrew"]
-
-[gum]
-description = "TODO: Add description for gum"
-tags = ["os:linux", "os:macos", "pm:homebrew"]
+brew-tap = ""
 custom-install = ""
+description = "A helper for screenshots within Hyprland."
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+["gtk-engine-murrine"]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "gtk-engine-murrine"
+brew-tap = ""
+custom-install = ""
+description = "GTK2 engine to make your desktop look like a 'murrina', an italian word meaning the art glass works done by Venicians glass blowers."
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+["gtk-layer-shell"]
+apt-pkg = "gtk-layer-shell"
+arch-is-aur = true
+arch-pkg = "gtk-layer-shell"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Library to create Wayland desktop components using the Layer Shell protocol"
+fedora-pkg = "gtk-layer-shell"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+# Package 'gtk3' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+[gtk3]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for gtk3"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+# Package 'gtk4' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+[gtk4]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for gtk4"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+# Package 'gum' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+[gum]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for gum"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [gvfs]
+apt-pkg = "gvfs"
+arch-is-aur = true
+arch-pkg = "gvfs"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Virtual filesystem implementation for GIO"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
-arch-pkg = "gvfs-google"
+fedora-pkg = "gvfs"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[gvfs-mtp]
+# Package 'gvfs-mtp' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["gvfs-mtp"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for gvfs-mtp"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [htop]
+apt-pkg = "htop"
+arch-is-aur = true
+arch-pkg = "htop"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "htop is an interactive process viewer for Unix systems."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "htop"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [hyperfine]
-description = "Command-line benchmarking tool"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
 apt-pkg = "rust-hyperfine"
+arch-is-aur = true
+arch-pkg = "hyperfine"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Command-line benchmarking tool"
 fedora-pkg = "rust-hyperfine"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [hypridle]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "hypridle"
+brew-tap = ""
+custom-install = ""
 description = "Hyprland's idle daemon"
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "hypridle"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [hyprland]
+apt-pkg = "hyprland"
+arch-is-aur = true
+arch-pkg = "hyprland"
+brew-tap = ""
+custom-install = ""
 description = "Dynamic tiling Wayland compositor that doesn't sacrifice on its looks"
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "hyprland"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [hyprlock]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "hyprlock"
+brew-tap = ""
+custom-install = ""
 description = "Hyprland's GPU-accelerated screen locking utility"
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "hyprlock"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [hyprpanel]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "hyprpanel"
+brew-tap = ""
+custom-install = ""
 description = "An opinionated panel/shell for the Hyprland compositor."
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [hyprpaper]
+apt-pkg = "hyprpaper"
+arch-is-aur = true
+arch-pkg = "hyprpaper"
+brew-tap = ""
+custom-install = ""
 description = "Blazing fast wayland wallpaper utility with IPC controls"
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "hyprpaper"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [hyprpicker]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "hyprpicker"
+brew-tap = ""
+custom-install = ""
 description = "A wlroots-compatible Wayland color picker"
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "hyprpicker"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [hyprpolkitagent]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "hyprpolkitagent"
+brew-tap = ""
+custom-install = ""
 description = "Simple polkit authentication agent for Hyprland, written in QT/QML"
-tags = [
-    "cat:aur",
-    "cat:security",
-    "de:kde",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [hyprshade]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "hyprshade"
+brew-tap = ""
+custom-install = ""
 description = "Hyprland shade configuration tool"
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [hyprshot]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "hyprshot"
+brew-tap = ""
+custom-install = ""
 description = "Hyprland screenshot utility"
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [hyprsunset]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "hyprsunset"
+brew-tap = ""
+custom-install = ""
 description = "An application to enable a blue-light filter on Hyprland"
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [imagemagick]
+apt-pkg = "imagemagick"
+arch-is-aur = true
+arch-pkg = "imagemagick"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Use ImageMagick to create, edit, compose, or convert bitmap images."
-tags = [
-    "cat:aur",
-    "cat:graphics",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
 fedora-pkg = "ImageMagick"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [imv]
+apt-pkg = "imv"
+arch-is-aur = true
+arch-pkg = "imv"
+brew-tap = ""
+custom-install = ""
 description = "Image viewer for X11 and Wayland"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+fedora-pkg = "imv"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [inetutils]
+apt-pkg = "inetutils"
+arch-is-aur = true
+arch-pkg = "inetutils"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "GNU utilities for networking"
-tags = [
-    "cat:aur",
-    "cat:network",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [inxi]
-description = "inxi is a full featured CLI system information tool."
-tags = [
-    "cat:cli-tool",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+apt-pkg = "inxi"
+arch-is-aur = false
+arch-pkg = "inxi"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Full featured CLI system information tool"
+fedora-pkg = "inxi"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [jj]
-description = "Git-compatible distributed version control system"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:system",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+apt-pkg = ""
+arch-is-aur = true
 arch-pkg = "jujutsu"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Git-compatible distributed version control system"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [jq]
+apt-pkg = "jq"
+arch-is-aur = true
+arch-pkg = "jq"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "jq is a lightweight and flexible command-line JSON processor."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "jq"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [jujutsu]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "jujutsu"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Git-compatible distributed version control system"
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [just]
-description = "Handy way to save and run project-specific commands"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
 apt-pkg = "rust-just"
+arch-is-aur = true
+arch-pkg = "just"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Handy way to save and run project-specific commands"
 fedora-pkg = "rust-just"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
+# Package 'kitty' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [kitty]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for kitty"
-tags = ["cat:cask", "os:macos", "pm:homebrew:darwin"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [kvantum]
+apt-pkg = "kvantum"
+arch-is-aur = true
+arch-pkg = "kvantum"
+brew-tap = ""
+custom-install = ""
 description = "SVG-based theme engine for Qt5, KDE and LXQt"
-tags = [
-    "cat:aur",
-    "de:kde",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
-apt-pkg = "qt5-style-kvantum"
-arch-pkg = "kvantum-qt5"
+fedora-pkg = "kvantum"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [lazydocker]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "lazydocker"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Lazier way to manage everything docker"
-tags = [
-    "cat:aur",
-    "cat:virtualization",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-    "role:development",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [lazygit]
+apt-pkg = "lazygit"
+arch-is-aur = true
+arch-pkg = "lazygit"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Simple terminal UI for git commands"
-tags = [
-    "cat:aur",
-    "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [lazyjj]
+apt-pkg = ""
+arch-is-aur = false
+arch-pkg = "lazyjj"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "TUI for Jujutsu/jj"
-tags = ["dist:arch", "os:linux", "os:macos", "pm:homebrew", "pm:pacman"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [lazysql]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "lazysql"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Cross-platform TUI database management tool"
-tags = [
-    "cat:aur",
-    "cat:database-tools",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [lego]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "lego"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Let's Encrypt/ACME client and library written in Go"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:security",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [libadwaita]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "libadwaita"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Library of GNOME-specific UI patterns, replacing libhandy for GTK4"
-tags = [
-    "cat:aur",
-    "de:gnome",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "os:macos",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "libadwaita"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[libdbusmenu-gtk3]
+# Package 'libdbusmenu-gtk3' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["libdbusmenu-gtk3"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for libdbusmenu-gtk3"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [libgtop]
-description = "A library for collecting system monitoring data"
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
 apt-pkg = "libgtop2"
+arch-is-aur = true
+arch-pkg = "libgtop"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "A library for collecting system monitoring data"
 fedora-pkg = "libgtop2"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [libnotify]
+apt-pkg = "libnotify"
+arch-is-aur = true
+arch-pkg = "libnotify"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "A library for sending desktop notifications."
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "libnotify"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
+# Package 'libsoup3' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [libsoup3]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for libsoup3"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [libspng]
+apt-pkg = "libspng"
+arch-is-aur = true
+arch-pkg = "libspng"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "libspng is a C library for reading and writing Portable Network Graphics (PNG) format files with a focus on security and ease of use."
-tags = [
-    "cat:aur",
-    "cat:network",
-    "cat:security",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "libspng"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [llvm]
-description = "LLVM Project Linker"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:virtualization",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "flang"
-arch-pkg = "compiler-rt"
-fedora-pkg = "clang"
+apt-pkg = "llvm-toolchain-19"
+arch-is-aur = true
+arch-pkg = "llvm"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Next-gen compiler infrastructure"
+fedora-pkg = "llvm"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [logseq]
-description = "Privacy-first, open-source platform for knowledge sharing and management"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "os:linux",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-]
+apt-pkg = ""
+arch-is-aur = true
 arch-pkg = "logseq-desktop"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Privacy-first, open-source platform for knowledge sharing and management"
+fedora-pkg = ""
 flatpak-pkg = "com.logseq.Logseq"
+prefer_flatpak = true
+priority = ""
 
 [loupe]
+apt-pkg = "loupe"
+arch-is-aur = true
+arch-pkg = "loupe"
+brew-tap = ""
+custom-install = ""
 description = "Image viewer"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+fedora-pkg = "loupe"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [lsd]
-description = "Clone of ls with colorful output, file type icons, and more"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
 apt-pkg = "rust-lsd"
+arch-is-aur = true
+arch-pkg = "lsd"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Clone of ls with colorful output, file type icons, and more"
 fedora-pkg = "rust-lsd"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[man-pages]
+# Package 'man-pages' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["man-pages"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for man-pages"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [matugen]
-description = "A material you color generation tool with templates"
-tags = ["cat:aur", "dist:arch", "os:linux", "pm:pacman"]
+apt-pkg = ""
+arch-is-aur = true
 arch-pkg = "matugen-bin"
+brew-tap = ""
+custom-install = ""
+description = "A material you color generation tool with templates"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [mercurial]
+apt-pkg = "mercurial"
+arch-is-aur = true
+arch-pkg = "mercurial"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Mercurial is a free, distributed source control management tool. It efficiently handles projects of any size and offers an easy and intuitive interface."
-tags = [
-    "cat:aur",
-    "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "mercurial"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [meson]
+apt-pkg = "meson"
+arch-is-aur = true
+arch-pkg = "meson"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Fast and user friendly build system"
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+fedora-pkg = "meson"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[mission-center]
+["mission-center"]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "mission-center"
+brew-tap = ""
+custom-install = ""
 description = "Monitor your CPU, Memory, Disk, Network and GPU usage"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:network",
-    "cat:system",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [mousepad]
+apt-pkg = "mousepad"
+arch-is-aur = true
+arch-pkg = "mousepad"
+brew-tap = ""
+custom-install = ""
 description = "Simple text editor for Xfce desktop environment"
-tags = [
-    "cat:aur",
-    "de:xfce",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+fedora-pkg = "mousepad"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [mpv]
+apt-pkg = "mpv"
+arch-is-aur = true
+arch-pkg = "mpv"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Video player based on MPlayer/mplayer2"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:development",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-arch-pkg = "mpv-git"
+fedora-pkg = "mpv"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[mpv-mpris]
+["mpv-mpris"]
+apt-pkg = "mpv-mpris"
+arch-is-aur = true
+arch-pkg = "mpv-mpris"
+brew-tap = ""
+custom-install = ""
 description = "MPRIS plugin for mpv"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "mpv-mpris"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [nano]
-description = "Free (GNU) replacement for the Pico text editor"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:editor",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+apt-pkg = "nano"
+arch-is-aur = true
+arch-pkg = "nano"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Nano's ANOther editor, an enhanced free Pico clone."
+fedora-pkg = "nano"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [nautilus]
+apt-pkg = "nautilus"
+arch-is-aur = true
+arch-pkg = "nautilus"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Default file manager for GNOME"
-tags = [
-    "cat:aur",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+fedora-pkg = "nautilus"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[nautilus-open-any-terminal]
+["nautilus-open-any-terminal"]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "nautilus-open-any-terminal"
+brew-tap = ""
+custom-install = ""
 description = "context-menu entry for opening other terminal in nautilus"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:shell",
-    "cat:terminal",
-    "de:gnome",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [neovim]
+apt-pkg = "neovim"
+arch-is-aur = true
+arch-pkg = "neovim"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Neovim is a refactor, and sometimes redactor, in the tradition of Vim (which itself derives from Stevie)."
-tags = [
-    "cat:aur",
-    "cat:editor",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
+fedora-pkg = "neovim"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[network-manager-applet]
+["network-manager-applet"]
+apt-pkg = "network-manager-applet"
+arch-is-aur = true
+arch-pkg = "network-manager-applet"
+brew-tap = ""
+custom-install = ""
 description = "A network control and status applet for NetworkManager"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:network",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
-arch-pkg = "nm-connection-editor"
+fedora-pkg = "network-manager-applet"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [networkmanager]
-description = "Network connection manager and user applications"
-tags = [
-    "cat:aur",
-    "cat:network",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
 apt-pkg = "network-manager"
-arch-pkg = "networkmanager-docs"
+arch-is-aur = true
+arch-pkg = "networkmanager"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Network connection manager and user applications"
 fedora-pkg = "NetworkManager"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [niri]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "niri"
+brew-tap = ""
+custom-install = ""
 description = "Scrollable-tiling Wayland compositor"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:niri",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "niri"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[nm-connection-editor]
+# Package 'nm-connection-editor' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["nm-connection-editor"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for nm-connection-editor"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[noto-fonts]
+# Package 'noto-fonts' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["noto-fonts"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for noto-fonts"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[noto-fonts-cjk]
+# Package 'noto-fonts-cjk' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["noto-fonts-cjk"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for noto-fonts-cjk"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[noto-fonts-emoji]
+# Package 'noto-fonts-emoji' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["noto-fonts-emoji"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for noto-fonts-emoji"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[noto-fonts-extra]
+# Package 'noto-fonts-extra' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["noto-fonts-extra"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for noto-fonts-extra"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [npm]
+apt-pkg = "npm"
+arch-is-aur = false
+arch-pkg = "npm"
+brew-tap = ""
+custom-install = ""
 description = "JavaScript package manager"
-tags = [
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [nvtop]
+apt-pkg = "nvtop"
+arch-is-aur = true
+arch-pkg = "nvtop"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Interactive GPU process monitor"
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "nvtop"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[nwg-displays]
+["nwg-displays"]
+apt-pkg = "nwg-displays"
+arch-is-aur = false
+arch-pkg = "nwg-displays"
+brew-tap = ""
+custom-install = ""
 description = "Output management utility for sway and Hyprland Wayland compositors"
-tags = [
-    "cat:cli-tool",
-    "de:hyprland",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[nwg-dock-hyprland]
+["nwg-dock-hyprland"]
+apt-pkg = ""
+arch-is-aur = false
+arch-pkg = "nwg-dock-hyprland"
+brew-tap = ""
+custom-install = ""
 description = "GTK3-based dock for Hyprland"
-tags = [
-    "cat:cli-tool",
-    "de:gnome",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "nwg-dock-hyprland"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[nwg-look]
+["nwg-look"]
+apt-pkg = "nwg-look"
+arch-is-aur = false
+arch-pkg = "nwg-look"
+brew-tap = ""
+custom-install = ""
 description = "GTK settings editor adapted to work on wlroots-based compositors"
-tags = [
-    "cat:cli-tool",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [obsproject]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for obsproject"
-tags = ["os:linux", "pm:flatpak", "priority:flatpak", "role:data-science"]
+fedora-pkg = ""
 flatpak-pkg = "com.obsproject.Studio"
+prefer_flatpak = true
+priority = ""
 
-[otf-font-awesome]
+# Package 'otf-font-awesome' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["otf-font-awesome"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for otf-font-awesome"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [overmind]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "overmind"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Process manager for Procfile-based applications and tmux"
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[pacman-contrib]
+["pacman-contrib"]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "pacman-contrib"
+brew-tap = ""
+custom-install = ""
 description = "Contributed scripts and tools for pacman systems"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:system",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [pacseek]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "pacseek"
+brew-tap = ""
+custom-install = ""
 description = "A terminal user interface for searching and installing Arch Linux packages"
-tags = ["cat:aur", "dist:arch", "os:linux", "pm:pacman"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [pamixer]
+apt-pkg = "pamixer"
+arch-is-aur = true
+arch-pkg = "pamixer"
+brew-tap = ""
+custom-install = ""
 description = "PulseAudio command line mixer"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "pamixer"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[papirus-icon-theme]
+["papirus-icon-theme"]
+apt-pkg = "papirus-icon-theme"
+arch-is-aur = true
+arch-pkg = "papirus-icon-theme"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "SVG icon theme for Linux, based on Paper Icon Set"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "papirus-icon-theme"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [parsec]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for parsec"
-tags = [
-    "cat:cask",
-    "os:linux",
-    "os:macos",
-    "pm:flatpak",
-    "pm:homebrew:darwin",
-    "priority:flatpak",
-    "role:data-science",
-]
+fedora-pkg = ""
 flatpak-pkg = "com.parsecgaming.parsec"
+prefer_flatpak = true
+priority = ""
 
 [pavucontrol]
+apt-pkg = "pavucontrol"
+arch-is-aur = true
+arch-pkg = "pavucontrol"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "PulseAudio Volume Control"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "pavucontrol"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [pciutils]
-description = "The PCI Utilities are a collection of programs for inspecting and manipulating configuration of PCI devices, all based on a common portable library libpci which offers access to the PCI configuration space on a variety of operating systems."
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew:linux",
-    "pm:pacman",
-]
-arch-pkg = "android-armv7a-eabi-pciutils"
+apt-pkg = "pciutils"
+arch-is-aur = true
+arch-pkg = "pciutils"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "PCI utilities"
+fedora-pkg = "pciutils"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [pikabackup]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for pikabackup"
-tags = ["os:linux", "pm:flatpak", "priority:flatpak"]
+fedora-pkg = ""
 flatpak-pkg = "org.gnome.World.PikaBackup"
+prefer_flatpak = true
+priority = ""
 
 [pinta]
+apt-pkg = "pinta"
+arch-is-aur = true
+arch-pkg = "pinta"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Simple Gtk# Paint Program"
-tags = [
-    "cat:aur",
-    "cat:cask",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew:darwin",
-    "pm:pacman",
-]
+fedora-pkg = "pinta"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [pipewire]
+apt-pkg = "pipewire"
+arch-is-aur = true
+arch-pkg = "pipewire"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "PipeWire is a project that aims to greatly improve handling of audio and video under Linux."
-tags = [
-    "cat:aur",
-    "cat:development",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
-arch-pkg = "pipewire-libcamera"
+fedora-pkg = "pipewire"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[pipewire-alsa]
+# Package 'pipewire-alsa' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["pipewire-alsa"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for pipewire-alsa"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[pipewire-audio]
+# Package 'pipewire-audio' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["pipewire-audio"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for pipewire-audio"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[pipewire-pulse]
+# Package 'pipewire-pulse' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["pipewire-pulse"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for pipewire-pulse"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [pixi]
+apt-pkg = ""
+arch-is-aur = false
+arch-pkg = "pixi"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Package management made easy"
-tags = [
-    "cat:cli-tool",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[pkg-config]
+["pkg-config"]
+apt-pkg = "pkg-config"
+arch-is-aur = true
+arch-pkg = "pkg-config-git"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "pkg-config is a helper tool used when compiling applications and libraries."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:homebrew",
-    "pm:pacman",
-]
-arch-pkg = "mingw-w64-pkg-config"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [playerctl]
+apt-pkg = "playerctl"
+arch-is-aur = true
+arch-pkg = "playerctl"
+brew-tap = ""
+custom-install = ""
 description = "Command-line MPRIS-compatible Media Player Controller"
-tags = [
-    "cat:aur",
-    "cat:multimedia",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
-arch-pkg = "playerctl-git"
+fedora-pkg = "playerctl"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[polkit-gnome]
-description = "PolicyKit integration for the GNOME desktop"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+["polkit-gnome"]
 apt-pkg = "policykit-1-gnome"
+arch-is-aur = true
+arch-pkg = "polkit-gnome"
+brew-tap = ""
+custom-install = ""
+description = "PolicyKit integration for the GNOME desktop"
+fedora-pkg = "polkit-gnome"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [postman]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "postman"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Collaboration platform for API development"
-tags = [
-    "cat:aur",
-    "cat:development",
-    "dist:arch",
-    "os:linux",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-]
+fedora-pkg = ""
 flatpak-pkg = "com.getpostman.Postman"
+prefer_flatpak = true
+priority = ""
 
-[power-profiles-daemon]
+["power-profiles-daemon"]
+apt-pkg = "power-profiles-daemon"
+arch-is-aur = true
+arch-pkg = "power-profiles-daemon"
+brew-tap = ""
+custom-install = ""
 description = "Makes power profiles handling available over D-Bus"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:filesystem",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "power-profiles-daemon"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [presenterm]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "presenterm"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Terminal slideshow tool"
-tags = [
-    "cat:aur",
-    "cat:development",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [pupgui2]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for pupgui2"
-tags = ["os:linux", "pm:flatpak", "priority:flatpak"]
+fedora-pkg = ""
 flatpak-pkg = "net.davidotek.pupgui2"
+prefer_flatpak = true
+priority = ""
+
+[python]
+apt-pkg = "python3.13"
+arch-is-aur = true
+arch-pkg = "python"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Python is a programming language that lets you work quickly and integrate systems more effectively."
+fedora-pkg = "python3.13"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+# Package 'python-gobject' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["python-gobject"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for python-gobject"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+# Package 'python-gpustat' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["python-gpustat"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for python-gpustat"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+# Package 'python-pip' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["python-pip"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for python-pip"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+# Package 'python-pyquery' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["python-pyquery"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for python-pyquery"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+# Package 'python-pywalfox' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["python-pywalfox"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for python-pywalfox"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+# Package 'python-requests' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["python-requests"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for python-requests"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+# Package 'python-screeninfo' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["python-screeninfo"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for python-screeninfo"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+# Package 'python3-gobject' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["python3-gobject"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for python3-gobject"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+# Package 'python3-pip' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["python3-pip"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for python3-pip"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+# Package 'python3-pyquery' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["python3-pyquery"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for python3-pyquery"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+# Package 'python3-requests' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["python3-requests"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for python3-requests"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
+# Package 'python3-screeninfo' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["python3-screeninfo"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
+description = "TODO: Add description for python3-screeninfo"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [pywal]
-description = "Generate and change colorschemes on the fly"
-tags = ["cat:aur", "dist:arch", "os:linux", "pm:pacman"]
+apt-pkg = ""
+arch-is-aur = true
 arch-pkg = "python-pywal"
+brew-tap = ""
+custom-install = ""
+description = "Generate and change colorschemes on the fly"
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[qalculate-gtk]
+["qalculate-gtk"]
+apt-pkg = "qalculate-gtk"
+arch-is-aur = true
+arch-pkg = "qalculate-gtk"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Multi-purpose desktop calculator"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "qalculate-gtk"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[qt5-graphicaleffects]
+# Package 'qt5-graphicaleffects' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["qt5-graphicaleffects"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for qt5-graphicaleffects"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[qt5-quickcontrols2]
+# Package 'qt5-quickcontrols2' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["qt5-quickcontrols2"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for qt5-quickcontrols2"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[qt5-svg]
+# Package 'qt5-svg' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["qt5-svg"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for qt5-svg"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[qt5-wayland]
+# Package 'qt5-wayland' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["qt5-wayland"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for qt5-wayland"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [qt5ct]
+apt-pkg = "qt5ct"
+arch-is-aur = true
+arch-pkg = "qt5ct"
+brew-tap = ""
+custom-install = ""
 description = "Qt5 Configuration Tool"
-tags = [
-    "cat:aur",
-    "de:kde",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+fedora-pkg = "qt5ct"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[qt6-5compat]
+# Package 'qt6-5compat' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["qt6-5compat"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for qt6-5compat"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[qt6-declarative]
+# Package 'qt6-declarative' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["qt6-declarative"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for qt6-declarative"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[qt6-svg]
+# Package 'qt6-svg' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["qt6-svg"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for qt6-svg"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[qt6-wayland]
+# Package 'qt6-wayland' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["qt6-wayland"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for qt6-wayland"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [qt6ct]
+apt-pkg = "qt6ct"
+arch-is-aur = true
+arch-pkg = "qt6ct"
+brew-tap = ""
+custom-install = ""
 description = "Qt6 - Configuration Tool"
-tags = [
-    "cat:aur",
-    "de:kde",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+fedora-pkg = "qt6ct"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [ripgrep]
-description = "ripgrep recursively searches directories for a regex pattern"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
 apt-pkg = "rust-ripgrep"
+arch-is-aur = true
+arch-pkg = "ripgrep"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "ripgrep recursively searches directories for a regex pattern"
 fedora-pkg = "rust-ripgrep"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[rofi-wayland]
+["rofi-wayland"]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "rofi-wayland"
+brew-tap = ""
+custom-install = ""
 description = "Fork of rofi with Wayland support"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "rofi-wayland"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [rsync]
+apt-pkg = "rsync"
+arch-is-aur = true
+arch-pkg = "rsync"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "rsync is an open source utility that provides fast incremental file transfer."
-tags = [
-    "cat:aur",
-    "cat:development",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "rsync"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [rust]
-description = "Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:development",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-    "role:development",
-]
 apt-pkg = "rustc"
-arch-pkg = "rust-src"
+arch-is-aur = true
+arch-pkg = "rust"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety."
+fedora-pkg = "rust"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [sddm]
+apt-pkg = "sddm"
+arch-is-aur = true
+arch-pkg = "sddm"
+brew-tap = ""
+custom-install = ""
 description = "QML based desktop and login manager"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+fedora-pkg = "sddm"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [shellcheck]
+apt-pkg = "shellcheck"
+arch-is-aur = true
+arch-pkg = "shellcheck"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Static analysis tool for shell scripts"
-tags = [
-    "cat:aur",
-    "cat:shell",
-    "cat:terminal",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
 fedora-pkg = "ShellCheck"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [shfmt]
+apt-pkg = "shfmt"
+arch-is-aur = false
+arch-pkg = "shfmt"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Autoformat shell script source code"
-tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [signal]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for signal"
-tags = [
-    "cat:cask",
-    "os:linux",
-    "os:macos",
-    "pm:flatpak",
-    "pm:homebrew:darwin",
-    "priority:flatpak",
-]
+fedora-pkg = ""
 flatpak-pkg = "org.signal.Signal"
+prefer_flatpak = true
+priority = ""
 
 [simplescan]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for simplescan"
-tags = ["os:linux", "pm:flatpak", "priority:flatpak"]
+fedora-pkg = ""
 flatpak-pkg = "org.gnome.SimpleScan"
+prefer_flatpak = true
+priority = ""
 
 [slack]
-description = "Team communication and collaboration software"
-tags = [
-    "cat:aur",
-    "cat:communication",
-    "dist:arch",
-    "os:linux",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-    "role:desktop",
-]
+apt-pkg = ""
+arch-is-aur = true
 arch-pkg = "slack-electron"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Team communication and collaboration software"
+fedora-pkg = ""
 flatpak-pkg = "com.slack.Slack"
+prefer_flatpak = true
+priority = ""
 
 [slurp]
+apt-pkg = "slurp"
+arch-is-aur = true
+arch-pkg = "slurp"
+brew-tap = ""
+custom-install = ""
 description = "Select a region in Sway"
-tags = [
-    "cat:aur",
-    "de:sway",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "slurp"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[sof-firmware]
+# Package 'sof-firmware' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["sof-firmware"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for sof-firmware"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [starship]
+apt-pkg = "starship"
+arch-is-aur = true
+arch-pkg = "starship"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Cross-shell prompt for astronauts"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [swappy]
+apt-pkg = "swappy"
+arch-is-aur = true
+arch-pkg = "swappy"
+brew-tap = ""
+custom-install = ""
 description = "Wayland native snapshot editing tool, inspired by Snappy on macOS"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+fedora-pkg = "swappy"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
+# Package 'swaync' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [swaync]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for swaync"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [swww]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "swww"
+brew-tap = ""
+custom-install = ""
 description = "A Solution to your Wayland Wallpaper Woes"
-tags = ["cat:aur", "cat:cli-tool", "dist:arch", "os:linux", "pm:pacman"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [tailscale]
-description = "Easiest, most secure way to use WireGuard and 2FA"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "os:macos",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "tailscale"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+
+[tailscale.custom-install]
+default = [
+  "echo 'Please install Tailscale manually from https://tailscale.com/download'",
 ]
+is_arch_like = [
+  "yay -S tailscale",
+  "sudo systemctl enable --now tailscaled",
+]
+is_darwin = [
+  "brew install --cask tailscale",
+]
+is_debian_like = [
+  "curl -fsSL https://tailscale.com/install.sh | sh",
+]
+description = "Zero config VPN service"
+fedora-pkg = "tailscale"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+requires-confirmation = true
 
 [talosctl]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "talosctl"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "CLI for out-of-band management of Kubernetes nodes created by Talos"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [thefuck]
+apt-pkg = "thefuck"
+arch-is-aur = false
+arch-pkg = "thefuck"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Thef*ck is a magnificent app which corrects your previous console command."
-tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "thefuck"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [thunar]
+apt-pkg = "thunar"
+arch-is-aur = true
+arch-pkg = "thunar"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Thunar File Manager"
-tags = [
-    "cat:aur",
-    "de:xfce",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
 fedora-pkg = "Thunar"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[thunar-archive-plugin]
+["thunar-archive-plugin"]
+apt-pkg = "thunar-archive-plugin"
+arch-is-aur = true
+arch-pkg = "thunar-archive-plugin"
+brew-tap = ""
+custom-install = ""
 description = "Archive plugin for the Thunar file manager"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:xfce",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "thunar-archive-plugin"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[thunar-volman]
+["thunar-volman"]
+apt-pkg = "thunar-volman"
+arch-is-aur = true
+arch-pkg = "thunar-volman"
+brew-tap = ""
+custom-install = ""
 description = "Automatic management of removable drives and media for Thunar"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:xfce",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "thunar-volman"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [tlrc]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "tlrc"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Official tldr client written in Rust"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [tmux]
+apt-pkg = "tmux"
+arch-is-aur = true
+arch-pkg = "tmux"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "tmux is a terminal multiplexer"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:shell",
-    "cat:terminal",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "tmux"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [tpm]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "tpm"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Plugin manager for tmux"
-tags = ["cat:aur", "cat:cli-tool", "dist:arch", "os:linux", "pm:pacman"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
+# Package 'tree' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [tree]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for tree"
-tags = ["os:linux", "os:macos", "pm:homebrew", "role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[ttf-dejavu]
+# Package 'ttf-dejavu' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["ttf-dejavu"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for ttf-dejavu"
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[ttf-droid]
+# Package 'ttf-droid' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["ttf-droid"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for ttf-droid"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[ttf-fantasque-nerd]
+# Package 'ttf-fantasque-nerd' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["ttf-fantasque-nerd"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for ttf-fantasque-nerd"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[ttf-fira-code]
+# Package 'ttf-fira-code' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["ttf-fira-code"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for ttf-fira-code"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[ttf-fira-sans]
+# Package 'ttf-fira-sans' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["ttf-fira-sans"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for ttf-fira-sans"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[ttf-firacode-nerd]
+# Package 'ttf-firacode-nerd' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["ttf-firacode-nerd"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for ttf-firacode-nerd"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[ttf-jetbrains-mono]
+# Package 'ttf-jetbrains-mono' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["ttf-jetbrains-mono"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for ttf-jetbrains-mono"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[ttf-jetbrains-mono-nerd]
+# Package 'ttf-jetbrains-mono-nerd' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["ttf-jetbrains-mono-nerd"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for ttf-jetbrains-mono-nerd"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[ttf-victor-mono]
+# Package 'ttf-victor-mono' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
+["ttf-victor-mono"]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for ttf-victor-mono"
-tags = ["role:data-science"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [tumbler]
+apt-pkg = "tumbler"
+arch-is-aur = true
+arch-pkg = "tumbler"
+brew-tap = ""
+custom-install = ""
 description = "D-Bus service for applications to request thumbnails"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "tumbler"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [typescript]
+apt-pkg = "typescript"
+arch-is-aur = true
+arch-pkg = "typescript"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Language for application scale JavaScript development"
-tags = [
-    "cat:aur",
-    "cat:development",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "typescript"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [ugrep]
-description = "A more powerful, ultra fast, user-friendly, compatible grep"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+apt-pkg = "ugrep"
+arch-is-aur = true
+arch-pkg = "ugrep"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "Ultra fast grep with query UI, fuzzy search, archive search, and more"
+fedora-pkg = "ugrep"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [umockdev]
+apt-pkg = "umockdev"
+arch-is-aur = false
+arch-pkg = "umockdev"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Mock hardware devices for creating unit tests and bug reporting"
-tags = [
-    "de:kde",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew:linux",
-    "pm:pacman",
-]
+fedora-pkg = "umockdev"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [unzip]
+apt-pkg = "unzip"
+arch-is-aur = true
+arch-pkg = "unzip"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "UnZip is an extraction utility for archives compressed in .zip format (also called 'zipfiles')."
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "unzip"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [upower]
+apt-pkg = "upower"
+arch-is-aur = true
+arch-pkg = "upower"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Abstraction for enumerating power devices, listening to device events and querying history and statistics"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "upower"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [uwsm]
+apt-pkg = ""
+arch-is-aur = false
+arch-pkg = "uwsm"
+brew-tap = ""
+custom-install = ""
 description = "A standalone Wayland session manager"
-tags = ["cat:cli-tool", "dist:arch", "os:linux", "pm:pacman"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [vale]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "vale"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Syntax-aware linter for prose"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [vim]
+apt-pkg = "vim"
+arch-is-aur = true
+arch-pkg = "vim"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Vim is a highly configurable text editor built to make creating and changing any kind of text very efficient. (with advanced features, such as a GUI)"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:editor",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
-
-[visual-studio-code]
-description = "Visual Studio Code - Code editing. Redefined."
-tags = [
-    "cat:cask",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:flatpak",
-    "pm:homebrew:darwin",
-    "pm:pacman",
-]
-apt-pkg = "code"
-arch-pkg = "visual-studio-code-bin"
-fedora-pkg = "code"
-flatpak-pkg = "com.visualstudio.code"
+fedora-pkg = "vim"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [vlc]
+apt-pkg = "vlc"
+arch-is-aur = true
+arch-pkg = "vlc"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Multimedia player"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:multimedia",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-    "role:desktop",
-]
+fedora-pkg = "vlc"
 flatpak-pkg = "org.videolan.VLC"
+prefer_flatpak = true
+priority = ""
 
 [wallust]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "wallust"
+brew-tap = ""
+custom-install = ""
 description = "generate colors from an image"
-tags = ["cat:aur", "dist:arch", "os:linux", "pm:pacman"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [waybar]
+apt-pkg = "waybar"
+arch-is-aur = true
+arch-pkg = "waybar"
+brew-tap = ""
+custom-install = ""
 description = "Highly customizable Wayland bar for Sway and Wlroots based compositors"
-tags = [
-    "cat:aur",
-    "de:sway",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "waybar"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [waypaper]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "waypaper"
+brew-tap = ""
+custom-install = ""
 description = "GUI wallpaper setter for Wayland and Xorg window managers. It works as a frontend for popular wallpaper backends like swaybg, swww, wallutils, hyprpaper and feh."
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[wf-recorder]
+["wf-recorder"]
+apt-pkg = "wf-recorder"
+arch-is-aur = true
+arch-pkg = "wf-recorder"
+brew-tap = ""
+custom-install = ""
 description = "Screen recorder for wlroots-based compositors eg swaywm"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:sway",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "wf-recorder"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [wget]
+apt-pkg = "wget"
+arch-is-aur = true
+arch-pkg = "wget"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "GNU Wget is a free software package for retrieving files using HTTP, HTTPS, FTP and FTPS."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:network",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "wget2"
-fedora-pkg = "wget2"
+fedora-pkg = "wget"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [whiptail]
+apt-pkg = ""
+arch-pkg = ""
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "displays dialog boxes from shell scripts."
-tags = []
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [wireplumber]
+apt-pkg = "wireplumber"
+arch-is-aur = true
+arch-pkg = "wireplumber"
+brew-tap = ""
+custom-install = ""
 description = "A modular session/policy manager for PipeWire"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "wireplumber"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [wishlist]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "wishlist"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "The SSH directory - a single entrypoint for multiple SSH endpoints."
-tags = ["cat:aur", "cat:network", "dist:arch", "os:linux", "pm:pacman"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[wl-clipboard]
+["wl-clipboard"]
+apt-pkg = "wl-clipboard"
+arch-is-aur = true
+arch-pkg = "wl-clipboard"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Command-line copy/paste utilities for Wayland"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "wl-clipboard"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [wlogout]
+apt-pkg = "wlogout"
+arch-is-aur = true
+arch-pkg = "wlogout"
+brew-tap = ""
+custom-install = ""
 description = "Wayland based logout menu"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:development",
-]
+fedora-pkg = "wlogout"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [wofi]
+apt-pkg = "wofi"
+arch-is-aur = true
+arch-pkg = "wofi"
+brew-tap = ""
+custom-install = ""
 description = "A launcher/menu for wlroots based wayland compositors"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+fedora-pkg = "wofi"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [xarchiver]
+apt-pkg = "xarchiver"
+arch-is-aur = true
+arch-pkg = "xarchiver"
+brew-tap = ""
+custom-install = ""
 description = "Archive manager for Xfce"
-tags = [
-    "cat:aur",
-    "de:xfce",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
-arch-pkg = "xarchiver-gtk2"
+fedora-pkg = "xarchiver"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [xclip]
+apt-pkg = "xclip"
+arch-is-aur = true
+arch-pkg = "xclip"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Command line interface to the X11 clipboard"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "xclip"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[xdg-desktop-portal-gtk]
+["xdg-desktop-portal-gtk"]
+apt-pkg = "xdg-desktop-portal-gtk"
+arch-is-aur = true
+arch-pkg = "xdg-desktop-portal-gtk"
+brew-tap = ""
+custom-install = ""
 description = "Backend implementation for xdg-desktop-portal using GTK+"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "xdg-desktop-portal-gtk"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[xdg-desktop-portal-hyprland]
+["xdg-desktop-portal-hyprland"]
+apt-pkg = "xdg-desktop-portal-hyprland"
+arch-is-aur = true
+arch-pkg = "xdg-desktop-portal-hyprland"
+brew-tap = ""
+custom-install = ""
 description = "xdg-desktop-portal backend for hyprland"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:hyprland",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "xdg-desktop-portal-hyprland"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[xdg-user-dirs]
+["xdg-user-dirs"]
+apt-pkg = "xdg-user-dirs"
+arch-is-aur = false
+arch-pkg = "xdg-user-dirs"
+brew-tap = ""
+custom-install = ""
 description = "Handles user special directories"
-tags = [
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+fedora-pkg = "xdg-user-dirs"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[xdg-utils]
+["xdg-utils"]
+apt-pkg = "xdg-utils"
+arch-is-aur = true
+arch-pkg = "xdg-utils"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "xdg-utils is a set of tools that allows applications to easily integrate with the desktop environment of the user, regardless of the specific desktop environment that the user runs."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+fedora-pkg = "xdg-utils"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [xz]
-description = "XZ Utils is free general-purpose data compression software with a high compression ratio."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
 apt-pkg = "xz-utils"
+arch-is-aur = true
+arch-pkg = "xz"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "XZ Utils is free general-purpose data compression software with a high compression ratio."
+fedora-pkg = "xz"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [yad]
+apt-pkg = "yad"
+arch-is-aur = true
+arch-pkg = "yad"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "display graphical dialogs from shell scripts or command line."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
-arch-pkg = "yad-gtk2"
+fedora-pkg = "yad"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [yazi]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "yazi"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Blazing fast terminal file manager written in Rust, based on async I/O"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
+# Package 'yq' not found on any platform - kept for periodic retry
+# This entry will be excluded from generated package files
 [yq]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for yq"
-tags = ["os:linux", "os:macos", "pm:homebrew"]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[yt-dlp]
-description = "Feature-rich command-line audio/video downloader"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:development",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+["yt-dlp"]
+apt-pkg = "yt-dlp"
+arch-is-aur = true
+arch-pkg = "yt-dlp"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "A fork of youtube-dl with additional features and patches"
+fedora-pkg = "yt-dlp"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [ytmdesktop]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "ytmdesktop"
+brew-tap = ""
+custom-install = ""
 description = "A Desktop App for YouTube Music"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "os:linux",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-]
+fedora-pkg = ""
 flatpak-pkg = "app.ytmdesktop.ytmdesktop"
+prefer_flatpak = true
+priority = ""
 
 [zellij]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "zellij"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "A terminal multiplexer"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [zen]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for zen"
-tags = [
-    "cat:cask",
-    "os:linux",
-    "os:macos",
-    "pm:flatpak",
-    "pm:homebrew:darwin",
-    "priority:flatpak",
-]
+fedora-pkg = ""
 flatpak-pkg = "app.zen_browser.zen"
+prefer_flatpak = true
+priority = ""
 
 [zip]
+apt-pkg = "zip"
+arch-is-aur = true
+arch-pkg = "zip"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Zip is a compression and file packaging/archive utility for archives compressed in .zip format (also called 'zipfiles')."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+fedora-pkg = "zip"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [zoom]
+apt-pkg = ""
+arch-pkg = ""
+brew-tap = ""
+custom-install = ""
 description = "TODO: Add description for zoom"
-tags = [
-    "cat:cask",
-    "os:linux",
-    "os:macos",
-    "pm:flatpak",
-    "pm:homebrew:darwin",
-    "priority:flatpak",
-    "role:desktop",
-]
+fedora-pkg = ""
 flatpak-pkg = "us.zoom.Zoom"
+prefer_flatpak = true
+priority = ""
 
 [zoxide]
-description = "zoxide is a smarter cd command, inspired by z and autojump."
-tags = [
-    "cat:aur",
-    "cat:development",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
 apt-pkg = "rust-zoxide"
+arch-is-aur = true
+arch-pkg = "zoxide"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
+description = "zoxide is a smarter cd command, inspired by z and autojump."
 fedora-pkg = "rust-zoxide"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
 [zsh]
+apt-pkg = "zsh"
+arch-is-aur = true
+arch-pkg = "zsh"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Zsh is a shell designed for interactive use, although it is also a powerful scripting language."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:shell",
-    "cat:terminal",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-arch-pkg = "zsh-doc"
+fedora-pkg = "zsh"
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
 
-[zsh-completions]
+["zsh-completions"]
+apt-pkg = ""
+arch-is-aur = true
+arch-pkg = "zsh-completions"
+brew-is-cask = false
+brew-supports-darwin = false
+brew-supports-linux = false
+brew-tap = ""
+custom-install = ""
 description = "Additional completion definitions for zsh"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:shell",
-    "cat:terminal",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-]
+fedora-pkg = ""
+flatpak-pkg = ""
+prefer_flatpak = false
+priority = ""
+
