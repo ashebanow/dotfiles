@@ -166,10 +166,46 @@ test-packages-specific test_name:
 test-install:
     @./lib/testing/run_install_tests.sh
 
+# Run Python unit tests with pytest
+[group('testing')]
+test-python:
+    @echo "Running Python unit tests..."
+    @./test.sh unit
+
+# Run Python tests with coverage
+[group('testing')]
+test-python-coverage:
+    @echo "Running Python tests with coverage..."
+    @./test.sh coverage
+
+# Run code quality checks (black, ruff, mypy)
+[group('testing')]
+test-lint:
+    @echo "Running code quality checks..."
+    @./test.sh lint
+
 # Run all tests (package management + install scripts)
 [group('testing')]
 test-all: test-packages test-install
     @echo "✓ All tests completed"
+
+# Run comprehensive tests (package management + install scripts + Python)
+[group('testing')]
+test-all-comprehensive: test-packages test-install test-python
+    @echo "✓ All comprehensive tests completed (package + install + Python)"
+
+# Run fast Python tests in parallel
+[group('testing')]
+test-python-fast:
+    @echo "Running Python tests in parallel..."
+    @./test.sh fast
+
+# Format code and run linting
+[group('testing')]
+format-and-lint:
+    @echo "Formatting code and running quality checks..."
+    @./test.sh format
+    @./test.sh lint
 
 # ===== DEBUGGING & DEVELOPMENT =====
 
