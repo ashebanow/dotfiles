@@ -59,149 +59,7 @@ add-packages *packages:
 # Add custom installation entry interactively
 [group('package-management')]
 add-custom-install:
-    #!/usr/bin/env bash
-    echo "Adding custom installation entry..."
-    
-    if ! command -v gum >/dev/null 2>&1; then
-        echo "Error: gum is required for interactive custom installation setup"
-        echo "Install gum first: brew install gum"
-        exit 1
-    fi
-    
-    # Get package name
-    PACKAGE_NAME=$(gum input --placeholder "Package name (e.g., tailscale)")
-    if [[ -z "$PACKAGE_NAME" ]]; then
-        echo "Package name is required"
-        exit 1
-    fi
-    
-    # Get description
-    DESCRIPTION=$(gum input --placeholder "Package description" --value "")
-    
-    # Get priority
-    PRIORITY=$(gum choose --header "Custom install priority:" "always" "fallback" "never")
-    
-    # Get confirmation requirement
-    REQUIRES_CONFIRMATION=$(gum choose --header "Require user confirmation?" "false" "true")
-    
-    # Get install condition (optional)
-    INSTALL_CONDITION=$(gum input --placeholder "Install condition (optional, e.g. 'test \$(uname) = Darwin')" --value "")
-    
-    echo ""
-    echo "Setting up platform-specific commands..."
-    echo "Press Enter to skip a platform, or provide commands (one per line, empty line to finish)"
-    echo ""
-    
-    # Helper function to get commands for a platform
-    get_platform_commands() {
-        local platform_name="$1"
-        local platform_key="$2"
-        
-        echo "Commands for $platform_name:"
-        local commands=()
-        while true; do
-            local cmd=$(gum input --placeholder "Command $(( ${#commands[@]} + 1 )) (empty to finish)" --value "")
-            if [[ -z "$cmd" ]]; then
-                break
-            fi
-            commands+=("$cmd")
-        done
-        
-        if [[ ${#commands[@]} -gt 0 ]]; then
-            printf '    "%s": [\n' "$platform_key"
-            for cmd in "${commands[@]}"; do
-                printf '      "%s",\n' "$cmd"
-            done
-            printf '    ],\n'
-        fi
-    }
-    
-    # Create JSON structure
-    TEMP_JSON=$(mktemp)
-    cat > "$TEMP_JSON" << EOF
-{
-  "packages": {
-    "$PACKAGE_NAME": {
-EOF
-    
-    if [[ -n "$DESCRIPTION" ]]; then
-        echo "      \"description\": \"$DESCRIPTION\"," >> "$TEMP_JSON"
-    fi
-    
-    echo '      "custom-install": {' >> "$TEMP_JSON"
-    
-    # Get platform-specific commands
-    if gum confirm "Add macOS-specific commands?"; then
-        get_platform_commands "macOS" "is_darwin" >> "$TEMP_JSON"
-    fi
-    
-    if gum confirm "Add Linux-specific commands?"; then
-        get_platform_commands "Linux" "is_linux" >> "$TEMP_JSON"
-    fi
-    
-    if gum confirm "Add Arch Linux-specific commands?"; then
-        get_platform_commands "Arch Linux" "is_arch_like" >> "$TEMP_JSON"
-    fi
-    
-    if gum confirm "Add Debian/Ubuntu-specific commands?"; then
-        get_platform_commands "Debian/Ubuntu" "is_debian_like" >> "$TEMP_JSON"
-    fi
-    
-    if gum confirm "Add Fedora-specific commands?"; then
-        get_platform_commands "Fedora" "is_fedora_like" >> "$TEMP_JSON"
-    fi
-    
-    if gum confirm "Add default commands (fallback for all platforms)?"; then
-        get_platform_commands "Default (all platforms)" "default" >> "$TEMP_JSON"
-    fi
-    
-    echo '      },' >> "$TEMP_JSON"
-    
-    if [[ "$PRIORITY" != "always" ]]; then
-        echo "      \"custom-install-priority\": \"$PRIORITY\"," >> "$TEMP_JSON"
-    fi
-    
-    if [[ "$REQUIRES_CONFIRMATION" == "true" ]]; then
-        echo "      \"requires-confirmation\": true," >> "$TEMP_JSON"
-    fi
-    
-    if [[ -n "$INSTALL_CONDITION" ]]; then
-        echo "      \"install-condition\": \"$INSTALL_CONDITION\"," >> "$TEMP_JSON"
-    fi
-    
-    # Remove trailing comma and close JSON
-    sed -i '' '$ s/,$//' "$TEMP_JSON" 2>/dev/null || sed -i '$ s/,$//' "$TEMP_JSON"
-    
-    cat >> "$TEMP_JSON" << EOF
-    }
-  }
-}
-EOF
-    
-    # Merge with existing custom_install.json
-    if [[ -f "packages/custom_install.json" ]]; then
-        # Use jq to merge if available, otherwise manual merge
-        if command -v jq >/dev/null 2>&1; then
-            MERGED=$(jq -s '.[0].packages * .[1].packages | {packages: .}' packages/custom_install.json "$TEMP_JSON")
-            echo "$MERGED" > packages/custom_install.json
-        else
-            echo "Warning: jq not available, creating new custom_install.json file"
-            cp "$TEMP_JSON" packages/custom_install.json
-        fi
-    else
-        cp "$TEMP_JSON" packages/custom_install.json
-    fi
-    
-    rm "$TEMP_JSON"
-    
-    echo ""
-    echo "✅ Added custom installation entry for: $PACKAGE_NAME"
-    echo "📝 Updated: packages/custom_install.json"
-    echo ""
-    echo "Next steps:"
-    echo "  1. Review the entry: cat packages/custom_install.json"
-    echo "  2. Regenerate TOML: just regen-toml"
-    echo "  3. Test installation: just install-custom-only"
+    @./lib/packaging/add_custom_install.sh
 
 # Install only custom packages
 [group('package-management')]
@@ -237,43 +95,7 @@ edit-custom-install:
 # Validate custom installation configuration
 [group('package-management')]
 validate-custom-install:
-    #!/usr/bin/env bash
-    echo "Validating custom installation configuration..."
-    
-    if [[ ! -f "packages/custom_install.json" ]]; then
-        echo "✅ No custom installation file found (this is ok)"
-        exit 0
-    fi
-    
-    # Basic JSON validation
-    if command -v jq >/dev/null 2>&1; then
-        if jq empty packages/custom_install.json >/dev/null 2>&1; then
-            echo "✅ JSON syntax is valid"
-        else
-            echo "❌ JSON syntax error in packages/custom_install.json"
-            exit 1
-        fi
-        
-        # Check structure
-        if jq -e '.packages' packages/custom_install.json >/dev/null 2>&1; then
-            PACKAGE_COUNT=$(jq '.packages | length' packages/custom_install.json)
-            echo "✅ Found $PACKAGE_COUNT custom packages"
-        else
-            echo "❌ Missing 'packages' key in custom_install.json"
-            exit 1
-        fi
-    else
-        echo "⚠️  jq not available, cannot validate JSON structure"
-        echo "✅ File exists and is readable"
-    fi
-    
-    echo ""
-    echo "Custom packages:"
-    if command -v jq >/dev/null 2>&1; then
-        jq -r '.packages | keys[]' packages/custom_install.json | sed 's/^/  - /'
-    else
-        echo "  (install jq to see package list)"
-    fi
+    @./lib/packaging/validate_custom_install.sh
 
 # Generate filtered package files from TOML (smart platform detection)
 [group('package-management')]
@@ -342,22 +164,7 @@ test-packages-specific test_name:
 # Run install script tests (if they exist)
 [group('testing')]
 test-install:
-    #!/usr/bin/env bash
-    if [[ -f "tests/test_install.sh" ]]; then
-        echo "Running install script tests..."
-        ./tests/test_install.sh
-    elif [[ -d "lib/install/tests" ]]; then
-        echo "Running tests in lib/install/tests..."
-        for test in lib/install/tests/*.sh; do
-            if [[ -f "$test" ]]; then
-                echo "Running $test..."
-                bash "$test"
-            fi
-        done
-    else
-        echo "No install tests found."
-        echo "Create tests/test_install.sh or tests in lib/install/tests/"
-    fi
+    @./lib/testing/run_install_tests.sh
 
 # Run all tests (package management + install scripts)
 [group('testing')]
@@ -443,26 +250,7 @@ check-updates:
 # Check if required Python dependencies are available
 [group('development')]
 check-deps:
-    #!/usr/bin/env bash
-    echo "Checking Python dependencies..."
-    uv run -c "import toml; print('✓ toml library available')" 2>/dev/null || echo "✗ toml library missing (pip install toml)"
-    uv run -c "import requests; print('✓ requests library available')" 2>/dev/null || echo "✗ requests library missing (pip install requests)"
-    
-    echo "Checking SSL configuration..."
-    uv run -c "import ssl; print(f'✓ SSL version: {ssl.OPENSSL_VERSION}')" 2>/dev/null || echo "✗ SSL check failed"
-    uv run -c "import urllib3; print(f'urllib3 version: {urllib3.__version__}')" 2>/dev/null || echo "urllib3 not available"
-    
-    # Check for SSL issues
-    if uv run -c "import urllib3; assert urllib3.__version__.startswith('2.')" 2>/dev/null; then
-        if uv run -c "import ssl; assert 'LibreSSL' in ssl.OPENSSL_VERSION" 2>/dev/null; then
-            echo "⚠️  SSL Issue Detected: urllib3 v2 + LibreSSL (common on macOS)"
-            echo "   Fix with: just fix-ssl"
-        fi
-    fi
-    
-    echo "Checking tools..."
-    command -v just >/dev/null 2>&1 && echo "✓ just available" || echo "✗ just not found"
-    command -v python3 >/dev/null 2>&1 && echo "✓ python3 available" || echo "✗ python3 not found"
+    @./lib/development/check_dependencies.sh
 
 # Install Python dependencies
 [group('development')]
@@ -473,22 +261,7 @@ install-deps:
 # Fix SSL issues (common on macOS with LibreSSL)
 [group('development')]
 fix-ssl:
-    #!/usr/bin/env bash
-    echo "Fixing SSL configuration issues..."
-    
-    # Check current status
-    echo "Current SSL setup:"
-    uv run -c "import ssl; print(f'  SSL: {ssl.OPENSSL_VERSION}')" 2>/dev/null || echo "  SSL: Failed to detect"
-    uv run -c "import urllib3; print(f'  urllib3: {urllib3.__version__}')" 2>/dev/null || echo "  urllib3: Not installed"
-    
-    echo
-    echo "Applying fix: Downgrade urllib3 to v1.x (compatible with LibreSSL)"
-    uv run -m pip install --user 'urllib3<2.0' 'requests>=2.28.0'
-    
-    echo
-    echo "Verifying fix..."
-    uv run -c "import urllib3; print(f'✓ urllib3 version: {urllib3.__version__}')"
-    uv run -c "import ssl, requests; print('✓ SSL/requests working'); requests.get('https://httpbin.org/get', timeout=5)" 2>/dev/null && echo "✓ HTTPS requests working" || echo "✗ HTTPS requests still failing"
+    @./lib/development/fix_ssl_issues.sh
 
 
 # Show project structure for package management
