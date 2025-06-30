@@ -5,6 +5,9 @@
 
 set -e # -e: exit on error
 
+# setup common to all install scripts
+source "${DOTFILES}/lib/common/all.sh"
+
 # Show help function
 show_help() {
     cat << EOF
