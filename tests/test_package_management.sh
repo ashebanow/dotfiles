@@ -207,6 +207,12 @@ test_basic_roundtrip() {
         --output "$TEMP_DIR/roundtrip_step1.toml" \
         --cache "$TEMP_DIR/cache.json" > "$TEMP_DIR/roundtrip_test.log" 2>&1; then
         
+        # Show what's in the generated TOML for debugging
+        print_info "Generated TOML contains $(grep -c '^\[' "$TEMP_DIR/roundtrip_step1.toml" || echo 0) packages"
+        
+        # Ensure output directory exists
+        mkdir -p "$TEMP_DIR/roundtrip_output"
+        
         # Step 2: Generate Brewfile from TOML (force homebrew target)
         if $PYTHON_CMD bin/package_generators.py \
             --toml "$TEMP_DIR/roundtrip_step1.toml" \
@@ -240,9 +246,13 @@ test_basic_roundtrip() {
                 fi
             else
                 print_error "No files generated in roundtrip test"
+                echo "Contents of output directory:"
+                ls -la "$TEMP_DIR/roundtrip_output/" || echo "Directory not found"
             fi
         else
             print_error "Package generation step failed"
+            echo "Last 20 lines of error log:"
+            tail -20 "$TEMP_DIR/roundtrip_test.log"
         fi
     else
         print_error "TOML generation step failed"
