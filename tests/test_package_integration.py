@@ -17,6 +17,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import Mock
+import pytest
 
 # Add the bin directory to the path so we can import package modules
 sys.path.insert(0, str(Path(__file__).parent.parent / "bin"))
@@ -35,6 +36,7 @@ except ImportError as e:
     sys.exit(1)
 
 
+@pytest.mark.integration
 class TestPackageWorkflowIntegration(unittest.TestCase):
     """Test complete package management workflow integration."""
 

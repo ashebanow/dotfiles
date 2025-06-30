@@ -15,6 +15,7 @@ import sys
 import unittest
 from pathlib import Path
 from unittest.mock import Mock
+import pytest
 
 # Add the lib directory to the path
 sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
@@ -560,6 +561,7 @@ class TestAutoTagging(unittest.TestCase):
         self.assertIn("priority:optional", priorities)
 
 
+@pytest.mark.integration
 class TestTaggedPackageIntegration(unittest.TestCase):
     """Test integration between different tagging components"""
 
