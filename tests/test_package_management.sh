@@ -151,31 +151,47 @@ test_package_generation() {
     
     cd "$PROJECT_ROOT"
     
-    # Use the test TOML file
+    # Test 3a: Test Brewfile generation specifically
+    # Use a TOML that only has Homebrew packages to ensure Brewfile is generated
+    print_info "Testing Brewfile generation..."
     if $PYTHON_CMD bin/package_generators.py \
-        --toml "$TEST_ASSETS/test_mixed_packages.toml" \
+        --toml "$TEST_ASSETS/test_brewfile_only.toml" \
         --output-dir "$TEMP_DIR/generated_files" \
         --original-brewfile "$TEST_ASSETS/test_brewfile.in" > "$TEMP_DIR/generation_test.log" 2>&1; then
         
-        # Check if files were generated
-        local expected_files=(Brewfile)
-        local missing_files=()
-        
-        for file in "${expected_files[@]}"; do
-            if [[ ! -f "$TEMP_DIR/generated_files/$file" ]]; then
-                missing_files+=("$file")
-            fi
-        done
-        
-        if [[ ${#missing_files[@]} -eq 0 ]]; then
-            print_success "Package generation completed"
+        # Check if Brewfile was generated
+        if [[ -f "$TEMP_DIR/generated_files/Brewfile" ]]; then
+            print_success "Brewfile generation completed"
             print_info "Generated files: $(ls "$TEMP_DIR/generated_files/")"
         else
-            print_error "Missing generated files: ${missing_files[*]}"
+            print_error "Brewfile not generated"
+            cat "$TEMP_DIR/generation_test.log"
         fi
     else
         print_error "Package generation failed"
         cat "$TEMP_DIR/generation_test.log"
+    fi
+    
+    # Test 3b: Test platform-specific generation with mixed packages
+    print_info "Testing platform-specific generation with mixed packages..."
+    rm -rf "$TEMP_DIR/generated_files_mixed"
+    if $PYTHON_CMD bin/package_generators.py \
+        --toml "$TEST_ASSETS/test_mixed_packages.toml" \
+        --output-dir "$TEMP_DIR/generated_files_mixed" \
+        --original-brewfile "$TEST_ASSETS/test_brewfile.in" > "$TEMP_DIR/generation_mixed_test.log" 2>&1; then
+        
+        # Check if any files were generated (platform-dependent)
+        local generated_count=$(ls "$TEMP_DIR/generated_files_mixed/" 2>/dev/null | wc -l)
+        
+        if [[ $generated_count -gt 0 ]]; then
+            print_success "Platform-specific generation completed"
+            print_info "Generated files: $(ls "$TEMP_DIR/generated_files_mixed/")"
+        else
+            print_error "No files generated for current platform"
+        fi
+    else
+        print_error "Platform-specific generation failed"
+        cat "$TEMP_DIR/generation_mixed_test.log"
     fi
 }
 

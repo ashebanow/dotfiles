@@ -1,0 +1,27 @@
+# Test TOML specifically for Brewfile generation testing
+# These packages have Homebrew support but no native package manager entries
+# This ensures a Brewfile will be generated on any platform
+
+[bat]
+brew-pkg = "bat"
+priority = "high"
+description = "A cat clone with syntax highlighting"
+brew-supports-linux = true
+brew-supports-darwin = true
+brew-is-cask = false
+
+[gh]
+brew-pkg = "gh"
+priority = "high"
+description = "GitHub CLI"
+brew-supports-linux = true
+brew-supports-darwin = true
+brew-is-cask = false
+
+[zellij]
+brew-pkg = "zellij"
+priority = "medium"
+description = "Terminal multiplexer"
+brew-supports-linux = true
+brew-supports-darwin = true
+brew-is-cask = false
