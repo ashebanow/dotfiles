@@ -1,6 +1,6 @@
 [act]
 description = "TODO: Add description for act"
-tags = [ "os:macos", "os:linux", "pm:homebrew",]
+tags = [ "os:linux", "os:macos", "pm:homebrew",]
 
 [act3]
 description = "TODO: Add description for act3"
@@ -16,19 +16,34 @@ tags = []
 
 [archlinux-keyring]
 description = "GPG keys used by Arch distribution to sign packages"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:security", "cat:cli-tool", "role:data-science",]
+tags = [
+  "cat:cli-tool", "cat:security", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [atuin]
 description = "Improved shell history for zsh, bash, fish and nushell"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "os:macos", "pm:apt",
+  "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 
 [aylurs-gtk-shell]
 description = "Aylurs's Gtk Shell (AGS), An eww inspired gtk widget system."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "cat:shell", "cat:terminal", "cat:system", "cat:cli-tool", "de:gnome", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:shell", "cat:system",
+  "cat:terminal", "de:gnome", "dist:arch", "os:linux",
+  "pm:pacman", "role:data-science",
+]
 
 [bandwhich]
 description = "Terminal bandwidth utilization tool"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "os:linux", "os:macos",
+  "pm:homebrew", "pm:pacman",
+]
 
 [base-devel]
 description = "TODO: Add description for base-devel"
@@ -36,11 +51,11 @@ tags = []
 
 [bat]
 description = "TODO: Add description for bat"
-tags = [ "os:macos", "os:linux", "pm:homebrew",]
+tags = [ "os:linux", "os:macos", "pm:homebrew",]
 
 [bc]
 description = "TODO: Add description for bc"
-tags = [ "os:macos", "os:linux", "pm:homebrew",]
+tags = [ "os:linux", "os:macos", "pm:homebrew",]
 
 [bibata-cursor-theme-bin]
 description = "TODO: Add description for bibata-cursor-theme-bin"
@@ -48,29 +63,51 @@ tags = [ "role:data-science",]
 
 [binsider]
 description = "Analyzes ELF binaries"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "cat:development", "role:data-science", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:development", "dist:arch", "os:linux",
+  "os:macos", "pm:homebrew", "pm:pacman", "role:data-science",
+]
 arch-pkg = "binsider-git"
 
 [biome]
 description = "Toolchain of the web"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "os:linux", "os:macos",
+  "pm:homebrew", "pm:pacman",
+]
 
 [bitwarden]
 description = "Desktop password and login vault"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "pm:flatpak", "priority:flatpak", "cat:security", "role:security", "role:data-science",]
+tags = [
+  "cat:aur", "cat:security", "dist:arch", "os:linux",
+  "pm:flatpak", "pm:pacman", "priority:flatpak", "role:data-science",
+  "role:security",
+]
 flatpak-pkg = "com.bitwarden.desktop"
 
 [bitwarden-cli]
 description = "Secure and free password manager for all of your devices"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "cat:security", "cat:cli-tool", "role:security", "role:data-science", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:security", "dist:arch",
+  "os:linux", "os:macos", "pm:homebrew", "pm:pacman",
+  "role:data-science", "role:security",
+]
 
 [blueman]
 description = "GTK+ Bluetooth Manager"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "de:gnome",]
+tags = [
+  "cat:aur", "de:gnome", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman",
+]
 
 [bluez]
 description = "Bluetooth protocol stack for Linux"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "pm:homebrew:linux",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "pm:apt", "pm:dnf",
+  "pm:homebrew:linux", "pm:pacman",
+]
 arch-pkg = "bluez-mesh"
 
 [bluez-utils]
@@ -79,62 +116,108 @@ tags = []
 
 [breeze]
 description = "KDE 4 version of Plasma 5 artwork, style and assets"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "de:kde", "role:data-science",]
+tags = [
+  "cat:aur", "de:kde", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman", "role:data-science",
+]
 fedora-pkg = "kde-style-breeze"
 
 [brightnessctl]
 description = "Read and control device brightness"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "role:data-science",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "pm:apt", "pm:dnf",
+  "pm:pacman", "role:data-science",
+]
 
 [btop]
 description = "Resource monitor that shows usage and stats for processor, memory, disks, network and processes."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:system", "cat:network", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:network", "cat:system",
+  "dist:arch", "dist:debian", "dist:fedora", "dist:ubuntu",
+  "os:linux", "os:macos", "pm:apt", "pm:dnf",
+  "pm:homebrew", "pm:pacman",
+]
 
 [caddy]
 description = "Powerful, enterprise-ready, open source web server with automatic HTTPS"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:network", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:network", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 
 [cava]
 description = "Console-based Audio Visualizer for ALSA"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 
 [checkupdates-with-aur]
 description = "Helper script to check updates, including AUR updates"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "cat:cli-tool", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "os:linux",
+  "pm:pacman", "role:data-science",
+]
 
 [chezmoi]
 description = "Manage your dotfiles across multiple diverse machines, securely"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "os:linux", "os:macos",
+  "pm:homebrew", "pm:pacman",
+]
 
 [chrome]
 description = "TODO: Add description for chrome"
-tags = [ "os:linux", "pm:flatpak", "priority:flatpak", "role:desktop", "role:data-science",]
+tags = [
+  "os:linux", "pm:flatpak", "priority:flatpak", "role:data-science",
+  "role:desktop",
+]
 flatpak-pkg = "com.google.Chrome"
 
 [claude]
 description = "Claude desktop app (AI assistant)"
-tags = [ "os:macos", "pm:homebrew:darwin", "cat:cask",]
+tags = [ "cat:cask", "os:macos", "pm:homebrew:darwin",]
 
 [cliphist]
 description = "wayland clipboard manager"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:debian", "dist:ubuntu", "pm:apt",]
+tags = [
+  "dist:arch", "dist:debian", "dist:ubuntu", "os:linux",
+  "pm:apt", "pm:pacman",
+]
 
 [coreutils]
 description = "The GNU Core Utilities are the basic file, shell and text manipulation utilities of the GNU operating system."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:system", "role:data-science", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:system", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+  "role:data-science",
+]
 
 [ctop]
 description = "TODO: Add description for ctop"
-tags = [ "os:macos", "os:linux", "pm:homebrew",]
+tags = [ "os:linux", "os:macos", "pm:homebrew",]
 
 [curl]
 description = "Command line tool and library for transferring data with URLs."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:cli-tool", "role:data-science", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+  "role:data-science",
+]
 arch-pkg = "libcurl-compat"
 
 [dart-sass]
 description = "Sass makes CSS fun again"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:cli-tool", "role:data-science",]
+tags = [
+  "cat:cli-tool", "dist:arch", "os:linux", "pm:pacman",
+  "role:data-science",
+]
 
 [dejadup]
 description = "TODO: Add description for dejadup"
@@ -143,16 +226,27 @@ flatpak-pkg = "org.gnome.DejaDup"
 
 [direnv]
 description = "Load/unload environment variables based on $PWD"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "role:data-science", "pm:homebrew",]
+tags = [
+  "dist:arch", "dist:debian", "dist:fedora", "dist:ubuntu",
+  "os:linux", "os:macos", "pm:apt", "pm:dnf",
+  "pm:homebrew", "pm:pacman", "role:data-science",
+]
 
 [discord]
 description = "Voice and text chat software"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:fedora", "pm:dnf", "pm:flatpak", "priority:flatpak", "cat:communication", "role:desktop", "role:data-science",]
+tags = [
+  "cat:aur", "cat:communication", "dist:arch", "dist:fedora",
+  "os:linux", "pm:dnf", "pm:flatpak", "pm:pacman",
+  "priority:flatpak", "role:data-science", "role:desktop",
+]
 flatpak-pkg = "com.discordapp.Discord"
 
 [dive]
 description = "Tool for exploring each layer in a docker image"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "os:linux",
+  "os:macos", "pm:homebrew", "pm:pacman",
+]
 
 [dockutil]
 description = "Tool for managing dock items"
@@ -160,40 +254,69 @@ tags = [ "os:macos", "pm:homebrew:darwin",]
 
 [dolphin]
 description = "TODO: Add description for dolphin"
-tags = [ "os:macos", "pm:homebrew:darwin", "cat:cask",]
+tags = [ "cat:cask", "os:macos", "pm:homebrew:darwin",]
 
 [duf]
 description = "Disk Usage/Free Utility - a better 'df' alternative"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 
 [dust]
 description = "More intuitive version of du in rust"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:ubuntu", "os:linux", "os:macos", "pm:apt",
+  "pm:homebrew", "pm:pacman",
+]
 apt-pkg = "rust-du-dust"
 
 [eza]
 description = "Modern, maintained replacement for ls"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 apt-pkg = "rust-eza"
 fedora-pkg = "rust-eza"
 
 [fastfetch]
 description = "Like Neofetch, but much faster because written in C"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "os:macos", "pm:apt",
+  "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 
 [fd]
 description = "A simple, fast and user-friendly alternative to 'find'."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 apt-pkg = "rust-fd-find"
 fedora-pkg = "rust-fd-find"
 
 [ffmpegthumbnailer]
 description = "Create thumbnails for your video files"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:development", "cat:multimedia", "role:data-science", "pm:homebrew",]
+tags = [
+  "cat:development", "cat:multimedia", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+  "role:data-science",
+]
 
 [figlet]
 description = "FIGlet is a program for making large letters out of ordinary text."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "pm:homebrew",]
+tags = [
+  "dist:arch", "dist:debian", "dist:fedora", "dist:ubuntu",
+  "os:linux", "os:macos", "pm:apt", "pm:dnf",
+  "pm:homebrew", "pm:pacman",
+]
 
 [figurine]
 description = "TODO: Add description for figurine"
@@ -201,26 +324,47 @@ tags = [ "role:data-science",]
 
 [findutils]
 description = "the basic directory searching utilities of the GNU operating system"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:system", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:system", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 
 [firefox]
 description = "Mozilla Firefox (or simply Firefox) is a free and open-source web browser"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "pm:flatpak", "priority:flatpak", "cat:browser", "role:desktop", "role:data-science",]
+tags = [
+  "cat:aur", "cat:browser", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:flatpak", "pm:pacman", "priority:flatpak",
+  "role:data-science", "role:desktop",
+]
 arch-pkg = "firefox-i18n-is"
 flatpak-pkg = "org.mozilla.firefox"
 
 [fish]
 description = "fish is a smart and user-friendly command line shell for macOS, Linux, and the rest of the family."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:shell", "cat:terminal", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:shell", "cat:terminal",
+  "dist:arch", "dist:debian", "dist:fedora", "dist:ubuntu",
+  "os:linux", "os:macos", "pm:apt", "pm:dnf",
+  "pm:homebrew", "pm:pacman",
+]
 
 [flatpak]
 description = "Flatpak is a system for building, distributing, and running sandboxed desktop applications on Linux."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:system",]
+tags = [
+  "cat:aur", "cat:system", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman",
+]
 arch-pkg = "flatpak-docs"
 
 [fontdownloader]
 description = "A simple GTK font downloader"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "pm:flatpak", "priority:flatpak", "de:gnome", "role:data-science",]
+tags = [
+  "cat:aur", "de:gnome", "dist:arch", "os:linux",
+  "pm:flatpak", "pm:pacman", "priority:flatpak", "role:data-science",
+]
 flatpak-pkg = "org.gustavoperedo.FontDownloader"
 
 [fonts-dejavu]
@@ -253,7 +397,10 @@ tags = [ "role:data-science",]
 
 [foreman]
 description = "Toolchain manager for Roblox projects"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "role:data-science",]
+tags = [
+  "cat:aur", "dist:arch", "os:linux", "pm:pacman",
+  "role:data-science",
+]
 arch-pkg = "foreman-git"
 
 [fuse2]
@@ -262,63 +409,115 @@ tags = []
 
 [fzf]
 description = "A command-line fuzzy finder"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:filesystem", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:filesystem", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman",
+]
 arch-pkg = "fzf-git"
 
 [gcc]
 description = "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, and Go."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:development", "cat:cli-tool", "role:development", "pm:homebrew",]
-arch-pkg = "gcc-m2"
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:development", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman", "role:development",
+]
 apt-pkg = "gcc-14"
+arch-pkg = "gcc-m2"
 fedora-pkg = "avr-gcc"
 
 [gdu]
 description = "Disk usage analyzer with console interface written in Go"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 
 [gearlever]
 description = "Manage AppImages with ease"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "pm:flatpak", "priority:flatpak", "role:data-science",]
+tags = [
+  "cat:aur", "dist:arch", "os:linux", "pm:flatpak",
+  "pm:pacman", "priority:flatpak", "role:data-science",
+]
 flatpak-pkg = "it.mijorus.gearlever"
 
 [getnf]
 description = "Simple utility to install nerd fonts"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur",]
+tags = [ "cat:aur", "dist:arch", "os:linux", "pm:pacman",]
 
 [gh]
 description = "Official Github CLI tool"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 arch-pkg = "github-cli"
 
 [ghostty]
 description = "Fast, native, feature-rich terminal emulator pushing modern features"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "pm:homebrew:darwin", "cat:cask",]
+tags = [
+  "cat:aur", "cat:cask", "dist:arch", "os:linux",
+  "os:macos", "pm:homebrew:darwin", "pm:pacman",
+]
 
 [git]
 description = "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:vcs", "cat:system", "cat:cli-tool", "role:development", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:system", "cat:vcs",
+  "dist:arch", "dist:debian", "dist:fedora", "dist:ubuntu",
+  "os:linux", "os:macos", "pm:apt", "pm:dnf",
+  "pm:homebrew", "pm:pacman", "role:development",
+]
 arch-pkg = "git-zsh-completion"
 
 [git-delta]
 description = "Syntax-highlighting pager for git and diff output"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:vcs", "cat:cli-tool", "role:development", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:vcs", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman", "role:development",
+]
 fedora-pkg = "rust-git-delta"
 
 [git-lfs]
 description = "Git extension for versioning large files"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:vcs", "cat:cli-tool", "role:development", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:vcs", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman", "role:development",
+]
 
 [gitleaks]
 description = "Audit git repos for secrets"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:vcs", "role:development", "pm:homebrew",]
+tags = [
+  "cat:vcs", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "os:macos", "pm:apt",
+  "pm:dnf", "pm:homebrew", "pm:pacman", "role:development",
+]
 
 [gjs]
 description = "Javascript Bindings for GNOME"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:cli-tool", "de:gnome", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "de:gnome", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman",
+]
 
 [glances]
 description = "Alternative to top/htop"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "os:macos", "pm:apt",
+  "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 
 [glib2-devel]
 description = "TODO: Add description for glib2-devel"
@@ -326,53 +525,100 @@ tags = []
 
 [glow]
 description = "Glow is a terminal based markdown reader."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 
 [gnome-calculator]
 description = "GNOME desktop calculator"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool", "de:gnome", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "de:gnome", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "pm:apt", "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [gnome-system-monitor]
 description = "Process and resource monitor"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:system", "cat:cli-tool", "de:gnome", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:system", "de:gnome",
+  "dist:arch", "dist:debian", "dist:fedora", "dist:ubuntu",
+  "os:linux", "pm:apt", "pm:dnf", "pm:pacman",
+  "role:data-science",
+]
 
 [gnome-text-editor]
 description = "GNOME Text Editor"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:editor", "cat:cli-tool", "de:gnome", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:editor", "de:gnome",
+  "dist:arch", "dist:debian", "dist:fedora", "dist:ubuntu",
+  "os:linux", "pm:apt", "pm:dnf", "pm:pacman",
+  "role:data-science",
+]
 
 [gnu-units]
 description = "GNU Units converts quantities expressed in various systems of measurement to their equivalents in other systems of measurement."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:system", "cat:cli-tool", "pm:homebrew",]
-arch-pkg = "units"
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:system", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman",
+]
 apt-pkg = "units"
+arch-pkg = "units"
 fedora-pkg = "units"
 
 [gnupg]
 description = "GnuPG is a complete and free implementation of the OpenPGP standard as defined by RFC4880 (also known as PGP)."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "os:macos", "pm:apt",
+  "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 apt-pkg = "gnupg2"
 fedora-pkg = "gnupg2"
 
 [gobject-introspection]
 description = "GObject introspection is a middleware layer between C libraries (using GObject) and language bindings."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:cli-tool", "role:development", "role:data-science", "pm:homebrew",]
+tags = [
+  "cat:cli-tool", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "os:macos", "pm:apt",
+  "pm:dnf", "pm:homebrew", "pm:pacman", "role:data-science",
+  "role:development",
+]
 
 [grim]
 description = "Screenshot tool for Sway"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool", "de:sway", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "de:sway", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "pm:apt", "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [grimblast]
 description = "A helper for screenshots within Hyprland."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "de:hyprland", "role:data-science",]
+tags = [
+  "cat:aur", "de:hyprland", "dist:arch", "os:linux",
+  "pm:pacman", "role:data-science",
+]
 arch-pkg = "grimblast-git"
 
 [gtk-engine-murrine]
 description = "GTK2 engine to make your desktop look like a 'murrina', an italian word meaning the art glass works done by Venicians glass blowers."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "cat:cli-tool", "de:gnome", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "de:gnome", "dist:arch",
+  "os:linux", "pm:pacman", "role:data-science",
+]
 
 [gtk-layer-shell]
 description = "Library to create Wayland desktop components using the Layer Shell protocol"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:shell", "cat:terminal", "cat:cli-tool", "de:gnome", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:shell", "cat:terminal",
+  "de:gnome", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "pm:apt", "pm:dnf",
+  "pm:pacman", "role:data-science",
+]
 
 [gtk3]
 description = "TODO: Add description for gtk3"
@@ -380,16 +626,20 @@ tags = []
 
 [gtk4]
 description = "TODO: Add description for gtk4"
-tags = [ "os:macos", "os:linux", "pm:homebrew",]
+tags = [ "os:linux", "os:macos", "pm:homebrew",]
 
 [gum]
 description = "TODO: Add description for gum"
-tags = [ "os:macos", "os:linux", "pm:homebrew",]
+tags = [ "os:linux", "os:macos", "pm:homebrew",]
 custom-install = ""
 
 [gvfs]
 description = "Virtual filesystem implementation for GIO"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:system", "cat:cli-tool",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:system", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "pm:apt", "pm:dnf", "pm:pacman",
+]
 arch-pkg = "gvfs-google"
 
 [gvfs-mtp]
@@ -398,123 +648,221 @@ tags = []
 
 [htop]
 description = "htop is an interactive process viewer for Unix systems."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:system", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:system", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman",
+]
 
 [hyperfine]
 description = "Command-line benchmarking tool"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "role:data-science", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "os:macos", "pm:apt",
+  "pm:dnf", "pm:homebrew", "pm:pacman", "role:data-science",
+]
 apt-pkg = "rust-hyperfine"
 fedora-pkg = "rust-hyperfine"
 
 [hypridle]
 description = "Hyprland's idle daemon"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:fedora", "pm:dnf", "de:hyprland", "role:data-science",]
+tags = [
+  "cat:aur", "de:hyprland", "dist:arch", "dist:fedora",
+  "os:linux", "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [hyprland]
 description = "Dynamic tiling Wayland compositor that doesn't sacrifice on its looks"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "de:hyprland", "role:data-science",]
+tags = [
+  "cat:aur", "de:hyprland", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [hyprlock]
 description = "Hyprland's GPU-accelerated screen locking utility"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:fedora", "pm:dnf", "de:hyprland", "role:data-science",]
+tags = [
+  "cat:aur", "de:hyprland", "dist:arch", "dist:fedora",
+  "os:linux", "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [hyprpanel]
 description = "An opinionated panel/shell for the Hyprland compositor."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "de:hyprland", "role:data-science",]
+tags = [
+  "cat:aur", "de:hyprland", "dist:arch", "os:linux",
+  "pm:pacman", "role:data-science",
+]
 
 [hyprpaper]
 description = "Blazing fast wayland wallpaper utility with IPC controls"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "de:hyprland", "role:data-science",]
+tags = [
+  "cat:aur", "de:hyprland", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [hyprpicker]
 description = "A wlroots-compatible Wayland color picker"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:fedora", "pm:dnf", "de:hyprland", "role:data-science",]
+tags = [
+  "cat:aur", "de:hyprland", "dist:arch", "dist:fedora",
+  "os:linux", "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [hyprpolkitagent]
 description = "Simple polkit authentication agent for Hyprland, written in QT/QML"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "cat:security", "de:kde", "role:data-science",]
+tags = [
+  "cat:aur", "cat:security", "de:kde", "dist:arch",
+  "os:linux", "pm:pacman", "role:data-science",
+]
 
 [hyprshade]
 description = "Hyprland shade configuration tool"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "de:hyprland", "role:data-science",]
+tags = [
+  "cat:aur", "de:hyprland", "dist:arch", "os:linux",
+  "pm:pacman", "role:data-science",
+]
 
 [hyprshot]
 description = "Hyprland screenshot utility"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "de:hyprland", "role:data-science",]
+tags = [
+  "cat:aur", "de:hyprland", "dist:arch", "os:linux",
+  "pm:pacman", "role:data-science",
+]
 
 [hyprsunset]
 description = "An application to enable a blue-light filter on Hyprland"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "de:hyprland", "role:data-science",]
+tags = [
+  "cat:aur", "de:hyprland", "dist:arch", "os:linux",
+  "pm:pacman", "role:data-science",
+]
 
 [imagemagick]
 description = "Use ImageMagick to create, edit, compose, or convert bitmap images."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:graphics", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:graphics", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 fedora-pkg = "ImageMagick"
 
 [imv]
 description = "Image viewer for X11 and Wayland"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman",
+]
 
 [inetutils]
 description = "GNU utilities for networking"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "os:macos", "cat:network", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:network", "dist:arch", "dist:debian",
+  "dist:ubuntu", "os:linux", "os:macos", "pm:apt",
+  "pm:homebrew", "pm:pacman",
+]
 
 [inxi]
 description = "inxi is a full featured CLI system information tool."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:system", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:cli-tool", "cat:system", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 
 [jj]
 description = "Git-compatible distributed version control system"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "cat:system", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:system", "dist:arch",
+  "os:linux", "os:macos", "pm:homebrew", "pm:pacman",
+]
 arch-pkg = "jujutsu"
 
 [jq]
 description = "jq is a lightweight and flexible command-line JSON processor."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:system", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:system", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman",
+]
 
 [jujutsu]
 description = "Git-compatible distributed version control system"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "cat:system", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:system", "dist:arch", "os:linux",
+  "os:macos", "pm:homebrew", "pm:pacman",
+]
 
 [just]
 description = "Handy way to save and run project-specific commands"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 apt-pkg = "rust-just"
 fedora-pkg = "rust-just"
 
 [kitty]
 description = "TODO: Add description for kitty"
-tags = [ "os:macos", "pm:homebrew:darwin", "cat:cask",]
+tags = [ "cat:cask", "os:macos", "pm:homebrew:darwin",]
 
 [kvantum]
 description = "SVG-based theme engine for Qt5, KDE and LXQt"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "de:kde",]
-arch-pkg = "kvantum-qt5"
+tags = [
+  "cat:aur", "de:kde", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman",
+]
 apt-pkg = "qt5-style-kvantum"
+arch-pkg = "kvantum-qt5"
 
 [lazydocker]
 description = "Lazier way to manage everything docker"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "cat:virtualization", "role:development", "role:data-science", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:virtualization", "dist:arch", "os:linux",
+  "os:macos", "pm:homebrew", "pm:pacman", "role:data-science",
+  "role:development",
+]
 
 [lazygit]
 description = "Simple terminal UI for git commands"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "os:macos", "cat:vcs", "role:development", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:vcs", "dist:arch", "dist:debian",
+  "dist:ubuntu", "os:linux", "os:macos", "pm:apt",
+  "pm:homebrew", "pm:pacman", "role:development",
+]
 
 [lazyjj]
 description = "TUI for Jujutsu/jj"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "os:macos", "pm:homebrew",]
+tags = [
+  "dist:arch", "os:linux", "os:macos", "pm:homebrew",
+  "pm:pacman",
+]
 
 [lazysql]
 description = "Cross-platform TUI database management tool"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "cat:database-tools", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:database-tools", "dist:arch", "os:linux",
+  "os:macos", "pm:homebrew", "pm:pacman",
+]
 
 [lego]
 description = "Let's Encrypt/ACME client and library written in Go"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "cat:security", "cat:cli-tool", "role:development", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:security", "dist:arch",
+  "os:linux", "os:macos", "pm:homebrew", "pm:pacman",
+  "role:development",
+]
 
 [libadwaita]
 description = "Library of GNOME-specific UI patterns, replacing libhandy for GTK4"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:fedora", "pm:dnf", "os:macos", "de:gnome", "pm:homebrew",]
+tags = [
+  "cat:aur", "de:gnome", "dist:arch", "dist:fedora",
+  "os:linux", "os:macos", "pm:dnf", "pm:homebrew",
+  "pm:pacman",
+]
 
 [libdbusmenu-gtk3]
 description = "TODO: Add description for libdbusmenu-gtk3"
@@ -522,13 +870,21 @@ tags = []
 
 [libgtop]
 description = "A library for collecting system monitoring data"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:system", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:system", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 apt-pkg = "libgtop2"
 fedora-pkg = "libgtop2"
 
 [libnotify]
 description = "A library for sending desktop notifications."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "os:macos", "pm:apt",
+  "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 
 [libsoup3]
 description = "TODO: Add description for libsoup3"
@@ -536,28 +892,49 @@ tags = []
 
 [libspng]
 description = "libspng is a C library for reading and writing Portable Network Graphics (PNG) format files with a focus on security and ease of use."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:network", "cat:security", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:network", "cat:security", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman",
+]
 
 [llvm]
 description = "LLVM Project Linker"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:virtualization", "cat:cli-tool", "pm:homebrew",]
-arch-pkg = "compiler-rt"
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:virtualization", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman",
+]
 apt-pkg = "flang"
+arch-pkg = "compiler-rt"
 fedora-pkg = "clang"
 
 [logseq]
 description = "Privacy-first, open-source platform for knowledge sharing and management"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "pm:flatpak", "priority:flatpak",]
+tags = [
+  "cat:aur", "dist:arch", "os:linux", "pm:flatpak",
+  "pm:pacman", "priority:flatpak",
+]
 arch-pkg = "logseq-desktop"
 flatpak-pkg = "com.logseq.Logseq"
 
 [loupe]
 description = "Image viewer"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "pm:apt", "pm:dnf",
+  "pm:pacman",
+]
 
 [lsd]
 description = "Clone of ls with colorful output, file type icons, and more"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 apt-pkg = "rust-lsd"
 fedora-pkg = "rust-lsd"
 
@@ -567,65 +944,120 @@ tags = []
 
 [matugen]
 description = "A material you color generation tool with templates"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur",]
+tags = [ "cat:aur", "dist:arch", "os:linux", "pm:pacman",]
 arch-pkg = "matugen-bin"
 
 [mercurial]
 description = "Mercurial is a free, distributed source control management tool. It efficiently handles projects of any size and offers an easy and intuitive interface."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:vcs", "role:data-science", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:vcs", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+  "role:data-science",
+]
 
 [meson]
 description = "Fast and user friendly build system"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:system",]
+tags = [
+  "cat:aur", "cat:system", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman",
+]
 
 [mission-center]
 description = "Monitor your CPU, Memory, Disk, Network and GPU usage"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "cat:system", "cat:network", "cat:cli-tool", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:network", "cat:system",
+  "dist:arch", "os:linux", "pm:pacman", "role:data-science",
+]
 
 [mousepad]
 description = "Simple text editor for Xfce desktop environment"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "de:xfce",]
+tags = [
+  "cat:aur", "de:xfce", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman",
+]
 
 [mpv]
 description = "Video player based on MPlayer/mplayer2"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:development", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:development", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman",
+]
 arch-pkg = "mpv-git"
 
 [mpv-mpris]
 description = "MPRIS plugin for mpv"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [nano]
 description = "Free (GNU) replacement for the Pico text editor"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:editor", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:editor", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman",
+]
 
 [nautilus]
 description = "Default file manager for GNOME"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "de:gnome",]
+tags = [
+  "cat:aur", "de:gnome", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman",
+]
 
 [nautilus-open-any-terminal]
 description = "context-menu entry for opening other terminal in nautilus"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "cat:shell", "cat:terminal", "cat:cli-tool", "de:gnome", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:shell", "cat:terminal",
+  "de:gnome", "dist:arch", "os:linux", "pm:pacman",
+  "role:data-science",
+]
 
 [neovim]
 description = "Neovim is a refactor, and sometimes redactor, in the tradition of Vim (which itself derives from Stevie)."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:editor", "role:development", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:editor", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+  "role:development",
+]
 
 [network-manager-applet]
 description = "A network control and status applet for NetworkManager"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:network", "cat:cli-tool", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:network", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "pm:apt", "pm:dnf", "pm:pacman", "role:data-science",
+]
 arch-pkg = "nm-connection-editor"
 
 [networkmanager]
 description = "Network connection manager and user applications"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:network", "role:data-science",]
-arch-pkg = "networkmanager-docs"
+tags = [
+  "cat:aur", "cat:network", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman", "role:data-science",
+]
 apt-pkg = "network-manager"
+arch-pkg = "networkmanager-docs"
 fedora-pkg = "NetworkManager"
 
 [niri]
 description = "Scrollable-tiling Wayland compositor"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:fedora", "pm:dnf", "cat:cli-tool", "de:niri", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "de:niri", "dist:arch",
+  "dist:fedora", "os:linux", "pm:dnf", "pm:pacman",
+  "role:data-science",
+]
 
 [nm-connection-editor]
 description = "TODO: Add description for nm-connection-editor"
@@ -649,23 +1081,39 @@ tags = [ "role:data-science",]
 
 [npm]
 description = "JavaScript package manager"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:debian", "dist:ubuntu", "pm:apt", "cat:cli-tool",]
+tags = [
+  "cat:cli-tool", "dist:arch", "dist:debian", "dist:ubuntu",
+  "os:linux", "pm:apt", "pm:pacman",
+]
 
 [nvtop]
 description = "Interactive GPU process monitor"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:system", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:system", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 
 [nwg-displays]
 description = "Output management utility for sway and Hyprland Wayland compositors"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:debian", "dist:ubuntu", "pm:apt", "cat:cli-tool", "de:hyprland",]
+tags = [
+  "cat:cli-tool", "de:hyprland", "dist:arch", "dist:debian",
+  "dist:ubuntu", "os:linux", "pm:apt", "pm:pacman",
+]
 
 [nwg-dock-hyprland]
 description = "GTK3-based dock for Hyprland"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:fedora", "pm:dnf", "cat:cli-tool", "de:gnome", "role:data-science",]
+tags = [
+  "cat:cli-tool", "de:gnome", "dist:arch", "dist:fedora",
+  "os:linux", "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [nwg-look]
 description = "GTK settings editor adapted to work on wlroots-based compositors"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:debian", "dist:ubuntu", "pm:apt", "cat:cli-tool", "de:gnome",]
+tags = [
+  "cat:cli-tool", "de:gnome", "dist:arch", "dist:debian",
+  "dist:ubuntu", "os:linux", "pm:apt", "pm:pacman",
+]
 
 [obsproject]
 description = "TODO: Add description for obsproject"
@@ -678,36 +1126,61 @@ tags = []
 
 [overmind]
 description = "Process manager for Procfile-based applications and tmux"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "cat:system", "role:data-science", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:system", "dist:arch", "os:linux",
+  "os:macos", "pm:homebrew", "pm:pacman", "role:data-science",
+]
 
 [pacman-contrib]
 description = "Contributed scripts and tools for pacman systems"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "cat:system", "cat:cli-tool", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:system", "dist:arch",
+  "os:linux", "pm:pacman", "role:data-science",
+]
 
 [pacseek]
 description = "A terminal user interface for searching and installing Arch Linux packages"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur",]
+tags = [ "cat:aur", "dist:arch", "os:linux", "pm:pacman",]
 
 [pamixer]
 description = "PulseAudio command line mixer"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "role:data-science",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "pm:apt", "pm:dnf",
+  "pm:pacman", "role:data-science",
+]
 
 [papirus-icon-theme]
 description = "SVG icon theme for Linux, based on Paper Icon Set"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [parsec]
 description = "TODO: Add description for parsec"
-tags = [ "os:linux", "pm:flatpak", "priority:flatpak", "os:macos", "pm:homebrew:darwin", "cat:cask", "role:data-science",]
+tags = [
+  "cat:cask", "os:linux", "os:macos", "pm:flatpak",
+  "pm:homebrew:darwin", "priority:flatpak", "role:data-science",
+]
 flatpak-pkg = "com.parsecgaming.parsec"
 
 [pavucontrol]
 description = "PulseAudio Volume Control"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "role:data-science",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "pm:apt", "pm:dnf",
+  "pm:pacman", "role:data-science",
+]
 
 [pciutils]
 description = "The PCI Utilities are a collection of programs for inspecting and manipulating configuration of PCI devices, all based on a common portable library libpci which offers access to the PCI configuration space on a variety of operating systems."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "pm:homebrew:linux", "cat:system",]
+tags = [
+  "cat:aur", "cat:system", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:homebrew:linux", "pm:pacman",
+]
 arch-pkg = "android-armv7a-eabi-pciutils"
 
 [pikabackup]
@@ -717,11 +1190,20 @@ flatpak-pkg = "org.gnome.World.PikaBackup"
 
 [pinta]
 description = "Simple Gtk# Paint Program"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "pm:homebrew:darwin", "cat:cask", "de:gnome",]
+tags = [
+  "cat:aur", "cat:cask", "de:gnome", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew:darwin",
+  "pm:pacman",
+]
 
 [pipewire]
 description = "PipeWire is a project that aims to greatly improve handling of audio and video under Linux."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:development", "role:data-science",]
+tags = [
+  "cat:aur", "cat:development", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman", "role:data-science",
+]
 arch-pkg = "pipewire-libcamera"
 
 [pipewire-alsa]
@@ -738,35 +1220,60 @@ tags = [ "role:data-science",]
 
 [pixi]
 description = "Package management made easy"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:cli-tool", "dist:arch", "os:linux", "os:macos",
+  "pm:homebrew", "pm:pacman",
+]
 
 [pkg-config]
 description = "pkg-config is a helper tool used when compiling applications and libraries."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:ubuntu", "os:linux", "os:macos", "pm:apt",
+  "pm:homebrew", "pm:pacman",
+]
 arch-pkg = "mingw-w64-pkg-config"
 
 [playerctl]
 description = "Command-line MPRIS-compatible Media Player Controller"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:multimedia", "role:data-science",]
+tags = [
+  "cat:aur", "cat:multimedia", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman", "role:data-science",
+]
 arch-pkg = "playerctl-git"
 
 [polkit-gnome]
 description = "PolicyKit integration for the GNOME desktop"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool", "de:gnome",]
+tags = [
+  "cat:aur", "cat:cli-tool", "de:gnome", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "pm:apt", "pm:dnf", "pm:pacman",
+]
 apt-pkg = "policykit-1-gnome"
 
 [postman]
 description = "Collaboration platform for API development"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "pm:flatpak", "priority:flatpak", "cat:development",]
+tags = [
+  "cat:aur", "cat:development", "dist:arch", "os:linux",
+  "pm:flatpak", "pm:pacman", "priority:flatpak",
+]
 flatpak-pkg = "com.getpostman.Postman"
 
 [power-profiles-daemon]
 description = "Makes power profiles handling available over D-Bus"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:filesystem", "cat:cli-tool", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:filesystem", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "pm:apt", "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [presenterm]
 description = "Terminal slideshow tool"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "cat:development", "role:data-science", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:development", "dist:arch", "os:linux",
+  "os:macos", "pm:homebrew", "pm:pacman", "role:data-science",
+]
 
 [pupgui2]
 description = "TODO: Add description for pupgui2"
@@ -775,12 +1282,17 @@ flatpak-pkg = "net.davidotek.pupgui2"
 
 [pywal]
 description = "Generate and change colorschemes on the fly"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur",]
+tags = [ "cat:aur", "dist:arch", "os:linux", "pm:pacman",]
 arch-pkg = "python-pywal"
 
 [qalculate-gtk]
 description = "Multi-purpose desktop calculator"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:cli-tool", "de:gnome", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "de:gnome", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman",
+]
 
 [qt5-graphicaleffects]
 description = "TODO: Add description for qt5-graphicaleffects"
@@ -800,7 +1312,11 @@ tags = []
 
 [qt5ct]
 description = "Qt5 Configuration Tool"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "de:kde",]
+tags = [
+  "cat:aur", "de:kde", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman",
+]
 
 [qt6-5compat]
 description = "TODO: Add description for qt6-5compat"
@@ -820,44 +1336,80 @@ tags = []
 
 [qt6ct]
 description = "Qt6 - Configuration Tool"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "de:kde",]
+tags = [
+  "cat:aur", "de:kde", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman",
+]
 
 [ripgrep]
 description = "ripgrep recursively searches directories for a regex pattern"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "role:data-science", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "os:macos", "pm:apt",
+  "pm:dnf", "pm:homebrew", "pm:pacman", "role:data-science",
+]
 apt-pkg = "rust-ripgrep"
 fedora-pkg = "rust-ripgrep"
 
 [rofi-wayland]
 description = "Fork of rofi with Wayland support"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:fedora", "pm:dnf", "cat:cli-tool", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:fedora",
+  "os:linux", "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [rsync]
 description = "rsync is an open source utility that provides fast incremental file transfer."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:development", "role:data-science", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:development", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+  "role:data-science",
+]
 
 [rust]
 description = "Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:development", "cat:system", "cat:cli-tool", "role:development", "role:data-science", "pm:homebrew",]
-arch-pkg = "rust-src"
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:development", "cat:system",
+  "dist:arch", "dist:debian", "dist:fedora", "dist:ubuntu",
+  "os:linux", "os:macos", "pm:apt", "pm:dnf",
+  "pm:homebrew", "pm:pacman", "role:data-science", "role:development",
+]
 apt-pkg = "rustc"
+arch-pkg = "rust-src"
 
 [sddm]
 description = "QML based desktop and login manager"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman",
+]
 
 [shellcheck]
 description = "Static analysis tool for shell scripts"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:shell", "cat:terminal", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:shell", "cat:terminal", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman",
+]
 fedora-pkg = "ShellCheck"
 
 [shfmt]
 description = "Autoformat shell script source code"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:debian", "dist:ubuntu", "pm:apt", "os:macos", "pm:homebrew",]
+tags = [
+  "dist:arch", "dist:debian", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:homebrew", "pm:pacman",
+]
 
 [signal]
 description = "TODO: Add description for signal"
-tags = [ "os:linux", "pm:flatpak", "priority:flatpak", "os:macos", "pm:homebrew:darwin", "cat:cask",]
+tags = [
+  "cat:cask", "os:linux", "os:macos", "pm:flatpak",
+  "pm:homebrew:darwin", "priority:flatpak",
+]
 flatpak-pkg = "org.signal.Signal"
 
 [simplescan]
@@ -867,13 +1419,20 @@ flatpak-pkg = "org.gnome.SimpleScan"
 
 [slack]
 description = "Team communication and collaboration software"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "pm:flatpak", "priority:flatpak", "cat:communication", "role:desktop",]
+tags = [
+  "cat:aur", "cat:communication", "dist:arch", "os:linux",
+  "pm:flatpak", "pm:pacman", "priority:flatpak", "role:desktop",
+]
 arch-pkg = "slack-electron"
 flatpak-pkg = "com.slack.Slack"
 
 [slurp]
 description = "Select a region in Sway"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "de:sway", "role:data-science",]
+tags = [
+  "cat:aur", "de:sway", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [sof-firmware]
 description = "TODO: Add description for sof-firmware"
@@ -881,11 +1440,19 @@ tags = [ "role:data-science",]
 
 [starship]
 description = "Cross-shell prompt for astronauts"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "os:macos", "role:data-science", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:ubuntu",
+  "os:linux", "os:macos", "pm:apt", "pm:homebrew",
+  "pm:pacman", "role:data-science",
+]
 
 [swappy]
 description = "Wayland native snapshot editing tool, inspired by Snappy on macOS"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "pm:apt", "pm:dnf",
+  "pm:pacman",
+]
 
 [swaync]
 description = "TODO: Add description for swaync"
@@ -893,48 +1460,84 @@ tags = []
 
 [swww]
 description = "A Solution to your Wayland Wallpaper Woes"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "cat:cli-tool",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "os:linux",
+  "pm:pacman",
+]
 
 [tailscale]
 description = "Easiest, most secure way to use WireGuard and 2FA"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:fedora", "pm:dnf", "os:macos", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "dist:fedora", "os:linux",
+  "os:macos", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 
 [talosctl]
 description = "CLI for out-of-band management of Kubernetes nodes created by Talos"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "os:linux", "os:macos",
+  "pm:homebrew", "pm:pacman",
+]
 
 [thefuck]
 description = "Thef*ck is a magnificent app which corrects your previous console command."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "pm:homebrew",]
+tags = [
+  "dist:arch", "dist:debian", "dist:fedora", "dist:ubuntu",
+  "os:linux", "os:macos", "pm:apt", "pm:dnf",
+  "pm:homebrew", "pm:pacman",
+]
 
 [thunar]
 description = "Thunar File Manager"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "de:xfce", "role:data-science",]
+tags = [
+  "cat:aur", "de:xfce", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman", "role:data-science",
+]
 fedora-pkg = "Thunar"
 
 [thunar-archive-plugin]
 description = "Archive plugin for the Thunar file manager"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool", "de:xfce", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "de:xfce", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "pm:apt", "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [thunar-volman]
 description = "Automatic management of removable drives and media for Thunar"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool", "de:xfce", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "de:xfce", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "pm:apt", "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [tlrc]
 description = "Official tldr client written in Rust"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "cat:cli-tool", "role:data-science", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "os:linux",
+  "os:macos", "pm:homebrew", "pm:pacman", "role:data-science",
+]
 
 [tmux]
 description = "tmux is a terminal multiplexer"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:shell", "cat:terminal", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:shell", "cat:terminal",
+  "dist:arch", "dist:debian", "dist:fedora", "dist:ubuntu",
+  "os:linux", "os:macos", "pm:apt", "pm:dnf",
+  "pm:homebrew", "pm:pacman",
+]
 
 [tpm]
 description = "Plugin manager for tmux"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "cat:cli-tool",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "os:linux",
+  "pm:pacman",
+]
 
 [tree]
 description = "TODO: Add description for tree"
-tags = [ "os:macos", "os:linux", "role:data-science", "pm:homebrew",]
+tags = [ "os:linux", "os:macos", "pm:homebrew", "role:data-science",]
 
 [ttf-dejavu]
 description = "TODO: Add description for ttf-dejavu"
@@ -974,72 +1577,130 @@ tags = [ "role:data-science",]
 
 [tumbler]
 description = "D-Bus service for applications to request thumbnails"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "role:data-science",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "pm:apt", "pm:dnf",
+  "pm:pacman", "role:data-science",
+]
 
 [typescript]
 description = "Language for application scale JavaScript development"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:development", "role:data-science",]
+tags = [
+  "cat:aur", "cat:development", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [ugrep]
 description = "A more powerful, ultra fast, user-friendly, compatible grep"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "role:data-science", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "os:macos", "pm:apt",
+  "pm:dnf", "pm:homebrew", "pm:pacman", "role:data-science",
+]
 
 [umockdev]
 description = "Mock hardware devices for creating unit tests and bug reporting"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "pm:homebrew:linux", "de:kde",]
+tags = [
+  "de:kde", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "pm:apt", "pm:dnf",
+  "pm:homebrew:linux", "pm:pacman",
+]
 
 [unzip]
 description = "UnZip is an extraction utility for archives compressed in .zip format (also called 'zipfiles')."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "os:macos", "pm:apt",
+  "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 
 [upower]
 description = "Abstraction for enumerating power devices, listening to device events and querying history and statistics"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "role:data-science",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "pm:apt", "pm:dnf",
+  "pm:pacman", "role:data-science",
+]
 
 [uwsm]
 description = "A standalone Wayland session manager"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:cli-tool",]
+tags = [ "cat:cli-tool", "dist:arch", "os:linux", "pm:pacman",]
 
 [vale]
 description = "Syntax-aware linter for prose"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "os:linux",
+  "os:macos", "pm:homebrew", "pm:pacman",
+]
 
 [vim]
 description = "Vim is a highly configurable text editor built to make creating and changing any kind of text very efficient. (with advanced features, such as a GUI)"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:editor", "cat:cli-tool", "role:development", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:editor", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman", "role:development",
+]
 
 [visual-studio-code]
 description = "Visual Studio Code - Code editing. Redefined."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "pm:flatpak", "os:macos", "pm:homebrew:darwin", "cat:cask", "cat:cli-tool",]
-arch-pkg = "visual-studio-code-bin"
+tags = [
+  "cat:cask", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:flatpak", "pm:homebrew:darwin",
+  "pm:pacman",
+]
 apt-pkg = "code"
+arch-pkg = "visual-studio-code-bin"
 fedora-pkg = "code"
 flatpak-pkg = "com.visualstudio.code"
 
 [vlc]
 description = "Multimedia player"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "pm:flatpak", "priority:flatpak", "cat:multimedia", "cat:cli-tool", "role:desktop",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:multimedia", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "pm:apt", "pm:dnf", "pm:flatpak", "pm:pacman",
+  "priority:flatpak", "role:desktop",
+]
 flatpak-pkg = "org.videolan.VLC"
 
 [wallust]
 description = "generate colors from an image"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur",]
+tags = [ "cat:aur", "dist:arch", "os:linux", "pm:pacman",]
 
 [waybar]
 description = "Highly customizable Wayland bar for Sway and Wlroots based compositors"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "de:sway", "role:data-science",]
+tags = [
+  "cat:aur", "de:sway", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [waypaper]
 description = "GUI wallpaper setter for Wayland and Xorg window managers. It works as a frontend for popular wallpaper backends like swaybg, swww, wallutils, hyprpaper and feh."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "de:hyprland", "role:data-science",]
+tags = [
+  "cat:aur", "de:hyprland", "dist:arch", "os:linux",
+  "pm:pacman", "role:data-science",
+]
 
 [wf-recorder]
 description = "Screen recorder for wlroots-based compositors eg swaywm"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool", "de:sway", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "de:sway", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "pm:apt", "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [wget]
 description = "GNU Wget is a free software package for retrieving files using HTTP, HTTPS, FTP and FTPS."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:network", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:network", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman",
+]
 apt-pkg = "wget2"
 fedora-pkg = "wget2"
 
@@ -1049,105 +1710,192 @@ tags = []
 
 [wireplumber]
 description = "A modular session/policy manager for PipeWire"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "role:data-science",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "pm:apt", "pm:dnf",
+  "pm:pacman", "role:data-science",
+]
 
 [wishlist]
 description = "The SSH directory - a single entrypoint for multiple SSH endpoints."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "cat:network",]
+tags = [
+  "cat:aur", "cat:network", "dist:arch", "os:linux",
+  "pm:pacman",
+]
 
 [wl-clipboard]
 description = "Command-line copy/paste utilities for Wayland"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [wlogout]
 description = "Wayland based logout menu"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "role:development",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "pm:apt", "pm:dnf",
+  "pm:pacman", "role:development",
+]
 
 [wofi]
 description = "A launcher/menu for wlroots based wayland compositors"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman",
+]
 
 [xarchiver]
 description = "Archive manager for Xfce"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "de:xfce", "role:data-science",]
+tags = [
+  "cat:aur", "de:xfce", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman", "role:data-science",
+]
 arch-pkg = "xarchiver-gtk2"
 
 [xclip]
 description = "Command line interface to the X11 clipboard"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "os:macos", "pm:apt",
+  "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 
 [xdg-desktop-portal-gtk]
 description = "Backend implementation for xdg-desktop-portal using GTK+"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool", "de:gnome", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "de:gnome", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "pm:apt", "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [xdg-desktop-portal-hyprland]
 description = "xdg-desktop-portal backend for hyprland"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool", "de:hyprland", "role:data-science",]
+tags = [
+  "cat:aur", "cat:cli-tool", "de:hyprland", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "pm:apt", "pm:dnf", "pm:pacman", "role:data-science",
+]
 
 [xdg-user-dirs]
 description = "Handles user special directories"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool", "role:data-science",]
+tags = [
+  "cat:cli-tool", "dist:arch", "dist:debian", "dist:fedora",
+  "dist:ubuntu", "os:linux", "pm:apt", "pm:dnf",
+  "pm:pacman", "role:data-science",
+]
 
 [xdg-utils]
 description = "xdg-utils is a set of tools that allows applications to easily integrate with the desktop environment of the user, regardless of the specific desktop environment that the user runs."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman",
+]
 
 [xz]
 description = "XZ Utils is free general-purpose data compression software with a high compression ratio."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 apt-pkg = "xz-utils"
 
 [yad]
 description = "display graphical dialogs from shell scripts or command line."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "cat:cli-tool",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "pm:apt",
+  "pm:dnf", "pm:pacman",
+]
 arch-pkg = "yad-gtk2"
 
 [yazi]
 description = "Blazing fast terminal file manager written in Rust, based on async I/O"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "os:linux",
+  "os:macos", "pm:homebrew", "pm:pacman",
+]
 
 [yq]
 description = "TODO: Add description for yq"
-tags = [ "os:macos", "os:linux", "pm:homebrew",]
+tags = [ "os:linux", "os:macos", "pm:homebrew",]
 
 [yt-dlp]
 description = "Feature-rich command-line audio/video downloader"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:development", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:development", "dist:arch",
+  "dist:debian", "dist:fedora", "dist:ubuntu", "os:linux",
+  "os:macos", "pm:apt", "pm:dnf", "pm:homebrew",
+  "pm:pacman",
+]
 
 [ytmdesktop]
 description = "A Desktop App for YouTube Music"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "pm:flatpak", "priority:flatpak",]
+tags = [
+  "cat:aur", "dist:arch", "os:linux", "pm:flatpak",
+  "pm:pacman", "priority:flatpak",
+]
 flatpak-pkg = "app.ytmdesktop.ytmdesktop"
 
 [zellij]
 description = "A terminal multiplexer"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "os:macos", "pm:homebrew",]
+tags = [
+  "cat:aur", "dist:arch", "os:linux", "os:macos",
+  "pm:homebrew", "pm:pacman",
+]
 
 [zen]
 description = "TODO: Add description for zen"
-tags = [ "os:linux", "pm:flatpak", "priority:flatpak", "os:macos", "pm:homebrew:darwin", "cat:cask",]
+tags = [
+  "cat:cask", "os:linux", "os:macos", "pm:flatpak",
+  "pm:homebrew:darwin", "priority:flatpak",
+]
 flatpak-pkg = "app.zen_browser.zen"
 
 [zip]
 description = "Zip is a compression and file packaging/archive utility for archives compressed in .zip format (also called 'zipfiles')."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 
 [zoom]
 description = "TODO: Add description for zoom"
-tags = [ "os:linux", "pm:flatpak", "priority:flatpak", "os:macos", "pm:homebrew:darwin", "cat:cask", "role:desktop",]
+tags = [
+  "cat:cask", "os:linux", "os:macos", "pm:flatpak",
+  "pm:homebrew:darwin", "priority:flatpak", "role:desktop",
+]
 flatpak-pkg = "us.zoom.Zoom"
 
 [zoxide]
 description = "zoxide is a smarter cd command, inspired by z and autojump."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:development", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:development", "dist:arch", "dist:debian",
+  "dist:fedora", "dist:ubuntu", "os:linux", "os:macos",
+  "pm:apt", "pm:dnf", "pm:homebrew", "pm:pacman",
+]
 apt-pkg = "rust-zoxide"
 fedora-pkg = "rust-zoxide"
 
 [zsh]
 description = "Zsh is a shell designed for interactive use, although it is also a powerful scripting language."
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "dist:debian", "dist:ubuntu", "pm:apt", "dist:fedora", "pm:dnf", "os:macos", "cat:shell", "cat:terminal", "cat:cli-tool", "pm:homebrew",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:shell", "cat:terminal",
+  "dist:arch", "dist:debian", "dist:fedora", "dist:ubuntu",
+  "os:linux", "os:macos", "pm:apt", "pm:dnf",
+  "pm:homebrew", "pm:pacman",
+]
 arch-pkg = "zsh-doc"
 
 [zsh-completions]
 description = "Additional completion definitions for zsh"
-tags = [ "os:linux", "dist:arch", "pm:pacman", "cat:aur", "cat:shell", "cat:terminal", "cat:cli-tool",]
+tags = [
+  "cat:aur", "cat:cli-tool", "cat:shell", "cat:terminal",
+  "dist:arch", "os:linux", "pm:pacman",
+]
