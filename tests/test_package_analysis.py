@@ -345,7 +345,7 @@ class TestRepologyClientMocking(unittest.TestCase):
         ]
         mock_requests.get.return_value = mock_response
         
-        client = RepologyClient(cache_file=":memory:")
+        client = RepologyClient(cache_file=None)
         result = client.query_package("test-package")
         
         self.assertIsNotNone(result)
@@ -359,7 +359,7 @@ class TestRepologyClientMocking(unittest.TestCase):
         mock_response.status_code = 404
         mock_requests.get.return_value = mock_response
         
-        client = RepologyClient(cache_file=":memory:")
+        client = RepologyClient(cache_file=None)
         result = client.query_package("nonexistent-package")
         
         self.assertIsNone(result)

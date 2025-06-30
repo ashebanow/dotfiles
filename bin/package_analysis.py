@@ -169,7 +169,7 @@ class PackageListParser:
 class RepologyClient:
     """Client for querying Repology API with caching and rate limiting."""
     
-    def __init__(self, cache_file: str = "repology_cache.json", cache_ttl_days: int = 7):
+    def __init__(self, cache_file: Optional[str] = "repology_cache.json", cache_ttl_days: int = 7):
         self.cache_file = cache_file
         self.cache = self._load_cache()
         self.rate_limit_delay = 3.0  # Very conservative: ~20 requests/minute
@@ -182,6 +182,8 @@ class RepologyClient:
         
     def _load_cache(self) -> Dict[str, Any]:
         """Load cache from file."""
+        if self.cache_file is None:
+            return {}  # No file caching, use empty in-memory cache
         if os.path.exists(self.cache_file):
             try:
                 with open(self.cache_file, 'r') as f:
@@ -192,6 +194,8 @@ class RepologyClient:
     
     def _save_cache(self) -> None:
         """Save cache to file."""
+        if self.cache_file is None:
+            return  # No file caching, skip save
         try:
             with open(self.cache_file, 'w') as f:
                 json.dump(self.cache, f, indent=2)
