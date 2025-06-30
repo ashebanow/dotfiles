@@ -89,7 +89,20 @@ function install_fonts {
 
             getnf)
                 log_info "Installing font $font if needed"
-                getnf -U -i "$font" 2>&1 | grep -v "All installed Nerd Fonts are up to date"
+                # Capture getnf output and exit code
+                local output
+                local exit_code
+                output=$(getnf -U -i "$font" 2>&1)
+                exit_code=$?
+                
+                # Check if getnf failed
+                if [[ $exit_code -ne 0 ]]; then
+                    log_error "Failed to install font $font: $output"
+                    return 1
+                fi
+                
+                # Filter out "already up to date" message but show other output
+                echo "$output" | grep -v "All installed Nerd Fonts are up to date" || true
                 ;;
 
             *)
