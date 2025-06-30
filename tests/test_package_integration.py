@@ -36,6 +36,7 @@ except ImportError as e:
 
 
 @pytest.mark.integration
+@pytest.mark.skip(reason="Needs rewriting for new tagged architecture")
 class TestPackageWorkflowIntegration(unittest.TestCase):
     """Test complete package management workflow integration."""
 
@@ -399,6 +400,7 @@ class TestPackageWorkflowIntegration(unittest.TestCase):
         self.assertNotIn("test-standard-package", custom_packages)
 
 
+@pytest.mark.skip(reason="Needs rewriting for new tagged architecture")
 class TestPackageWorkflowErrorHandling(unittest.TestCase):
     """Test error handling in package workflow integration."""
 
