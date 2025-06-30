@@ -86,7 +86,7 @@ jobs:
         
     - name: Archive test artifacts
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: test-artifacts-py${{ matrix.python-version }}
         path: |
@@ -173,7 +173,7 @@ jobs:
         
     - name: Upload security scan results
       if: always()
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: security-scan-results
         path: bandit-report.json
