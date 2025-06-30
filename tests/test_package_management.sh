@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # Test script for the new package management system
-# Tests both package_analysis.py and package_generators.py
+# Tests both package_analysis_tagged.py and package_generators_tagged.py
 #
 
 set -euo pipefail
@@ -61,12 +61,12 @@ setup_tests() {
     mkdir -p "$TEMP_DIR"
     
     # Check if required tools exist
-    if [[ ! -f "$PROJECT_ROOT/bin/package_analysis.py" ]]; then
+    if [[ ! -f "$PROJECT_ROOT/bin/package_analysis_tagged.py" ]]; then
         print_error "package_analysis.py not found"
         exit 1
     fi
     
-    if [[ ! -f "$PROJECT_ROOT/bin/package_generators.py" ]]; then
+    if [[ ! -f "$PROJECT_ROOT/bin/package_generators_tagged.py" ]]; then
         print_error "package_generators.py not found"
         exit 1
     fi
@@ -80,7 +80,7 @@ test_single_package_analysis() {
     
     cd "$PROJECT_ROOT"
     
-    if $PYTHON_CMD bin/package_analysis.py \
+    if $PYTHON_CMD bin/package_analysis_tagged.py \
         --package bat gh zellij \
         --output "$TEMP_DIR/single_packages.toml" \
         --cache "$TEMP_DIR/cache.json" > "$TEMP_DIR/single_test.log" 2>&1; then
@@ -115,7 +115,7 @@ test_package_file_parsing() {
     
     cd "$PROJECT_ROOT"
     
-    if $PYTHON_CMD bin/package_analysis.py \
+    if $PYTHON_CMD bin/package_analysis_tagged.py \
         --package-lists "$TEST_ASSETS/test_brewfile.in" "$TEST_ASSETS/simple_archfile" \
         --output "$TEMP_DIR/parsed_packages.toml" \
         --cache "$TEMP_DIR/cache.json" > "$TEMP_DIR/parsing_test.log" 2>&1; then
@@ -154,7 +154,7 @@ test_package_generation() {
     # Test 3a: Test Brewfile generation specifically
     # Use a TOML that only has Homebrew packages to ensure Brewfile is generated
     print_info "Testing Brewfile generation..."
-    if $PYTHON_CMD bin/package_generators.py \
+    if $PYTHON_CMD bin/package_generators_tagged.py \
         --toml "$TEST_ASSETS/test_brewfile_only.toml" \
         --output-dir "$TEMP_DIR/generated_files" \
         --original-brewfile "$TEST_ASSETS/test_brewfile.in" > "$TEMP_DIR/generation_test.log" 2>&1; then
@@ -175,7 +175,7 @@ test_package_generation() {
     # Test 3b: Test platform-specific generation with mixed packages
     print_info "Testing platform-specific generation with mixed packages..."
     rm -rf "$TEMP_DIR/generated_files_mixed"
-    if $PYTHON_CMD bin/package_generators.py \
+    if $PYTHON_CMD bin/package_generators_tagged.py \
         --toml "$TEST_ASSETS/test_mixed_packages.toml" \
         --output-dir "$TEMP_DIR/generated_files_mixed" \
         --original-brewfile "$TEST_ASSETS/test_brewfile.in" > "$TEMP_DIR/generation_mixed_test.log" 2>&1; then
@@ -214,16 +214,16 @@ test_basic_roundtrip() {
     
     # Step 2: Generate Brewfile from TOML (force homebrew target)
     echo "=== Testing package generation command ===" >> "$TEMP_DIR/roundtrip_test.log"
-    echo "Command: $PYTHON_CMD bin/package_generators.py --toml $TEMP_DIR/roundtrip_step1.toml --output-dir $TEMP_DIR/roundtrip_output --target homebrew" >> "$TEMP_DIR/roundtrip_test.log"
+    echo "Command: $PYTHON_CMD bin/package_generators_tagged.py --toml $TEMP_DIR/roundtrip_step1.toml --output-dir $TEMP_DIR/roundtrip_output --target homebrew" >> "$TEMP_DIR/roundtrip_test.log"
     
     # First test what would be generated in print-only mode
     echo "=== Print-only test ===" >> "$TEMP_DIR/roundtrip_test.log"
-    $PYTHON_CMD bin/package_generators.py \
+    $PYTHON_CMD bin/package_generators_tagged.py \
         --toml "$TEMP_DIR/roundtrip_step1.toml" \
         --target homebrew \
         --print-only >> "$TEMP_DIR/roundtrip_test.log" 2>&1
     
-    if $PYTHON_CMD bin/package_generators.py \
+    if $PYTHON_CMD bin/package_generators_tagged.py \
         --toml "$TEMP_DIR/roundtrip_step1.toml" \
         --output-dir "$TEMP_DIR/roundtrip_output" \
         --target homebrew \
@@ -264,7 +264,7 @@ test_platform_filtering() {
     
     # Test different output targets
     for target in homebrew all; do
-        if $PYTHON_CMD bin/package_generators.py \
+        if $PYTHON_CMD bin/package_generators_tagged.py \
             --toml "$TEST_ASSETS/test_mixed_packages.toml" \
             --target "$target" \
             --print-only > "$TEMP_DIR/platform_test_${target}.out" 2>&1; then
@@ -287,7 +287,7 @@ test_error_handling() {
     cd "$PROJECT_ROOT"
     
     # Test with non-existent file
-    if $PYTHON_CMD bin/package_analysis.py \
+    if $PYTHON_CMD bin/package_analysis_tagged.py \
         --package-lists "/nonexistent/file.in" \
         --output "$TEMP_DIR/error_test.toml" \
         --cache "$TEMP_DIR/cache.json" > "$TEMP_DIR/error_test.log" 2>&1; then

@@ -262,7 +262,7 @@ jobs:
       run: |
         if ! git diff --quiet packages/.repology_cache.json; then
           echo "Cache updated, regenerating package_mappings.toml..."
-          python bin/package_analysis.py \
+          python bin/package_analysis_tagged.py \
             --package-lists packages/Brewfile.in packages/Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
             --output packages/package_mappings.toml.new \
             --cache packages/.repology_cache.json
