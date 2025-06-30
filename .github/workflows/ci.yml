@@ -137,7 +137,7 @@ jobs:
       run: |
         echo "::group::Real Package Analysis Test"
         # Test with a subset of real packages to avoid API rate limits
-        uv run bin/package_analysis.py \
+        uv run bin/package_analysis_cli.py \
           --package-lists tests/assets/package_mapping/test_simple.toml \
           --output /tmp/test_mappings.toml \
           --cache /tmp/test_cache.json

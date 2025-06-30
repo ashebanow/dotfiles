@@ -62,7 +62,7 @@ setup_tests() {
     
     # Check if required tools exist
     if [[ ! -f "$PROJECT_ROOT/bin/package_analysis_cli.py" ]]; then
-        print_error "package_analysis.py not found"
+        print_error "package_analysis_cli.py not found"
         exit 1
     fi
     
