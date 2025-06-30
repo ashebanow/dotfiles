@@ -36,7 +36,7 @@ prompt_confirmation() {
     local description="$2"
     
     echo ""
-    info "Custom installation required for: $package_name"
+    log_info "Custom installation required for: $package_name"
     if [[ -n "$description" && "$description" != *"TODO:"* ]]; then
         echo "  Description: $description"
     fi
@@ -67,80 +67,150 @@ execute_custom_install() {
     shift
     local commands=("$@")
     
-    info "Installing $package_name with custom commands..."
+    log_info "Installing $package_name with custom commands..."
     
     local command_count=0
     for cmd in "${commands[@]}"; do
         command_count=$((command_count + 1))
-        info "  Step $command_count: $cmd"
+        log_info "  Step $command_count: $cmd"
         
         # Execute the command with proper error handling
         if eval "$cmd"; then
-            success "    ✓ Step $command_count completed"
+            log_info "    ✓ Step $command_count completed"
         else
-            error "    ✗ Step $command_count failed: $cmd"
+            log_error "    ✗ Step $command_count failed: $cmd"
             return 1
         fi
     done
     
-    success "✓ $package_name installed successfully"
+    log_info "✓ $package_name installed successfully"
     return 0
 }
 
-# Function to process custom installation file
+# Function to get platform-specific commands from JSON
+get_platform_commands() {
+    local json_data="$1"
+    local package_name="$2"
+    
+    # Check platform-specific commands in order of specificity
+    local commands=()
+    local platform_key=""
+    
+    # Determine the most specific platform key
+    if [[ "$is_arch_like" == "true" ]] && jq -e ".packages.\"$package_name\"[\"custom-install\"].is_arch_like" >/dev/null 2>&1 <<< "$json_data"; then
+        platform_key="is_arch_like"
+    elif [[ "$is_debian_like" == "true" ]] && jq -e ".packages.\"$package_name\"[\"custom-install\"].is_debian_like" >/dev/null 2>&1 <<< "$json_data"; then
+        platform_key="is_debian_like"
+    elif [[ "$is_fedora_like" == "true" ]] && jq -e ".packages.\"$package_name\"[\"custom-install\"].is_fedora_like" >/dev/null 2>&1 <<< "$json_data"; then
+        platform_key="is_fedora_like"
+    elif [[ "$is_darwin" == "true" ]] && jq -e ".packages.\"$package_name\"[\"custom-install\"].is_darwin" >/dev/null 2>&1 <<< "$json_data"; then
+        platform_key="is_darwin"
+    elif jq -e ".packages.\"$package_name\"[\"custom-install\"].is_linux" >/dev/null 2>&1 <<< "$json_data"; then
+        # Check if we're on Linux and there's a generic Linux entry
+        if [[ "$(uname -s)" == "Linux" ]]; then
+            platform_key="is_linux"
+        fi
+    fi
+    
+    # Get commands for the platform or fall back to default
+    if [[ -n "$platform_key" ]]; then
+        while IFS= read -r cmd; do
+            commands+=("$cmd")
+        done < <(jq -r ".packages.\"$package_name\"[\"custom-install\"].\"$platform_key\"[]" <<< "$json_data")
+    else
+        # Fall back to default if no platform-specific commands
+        while IFS= read -r cmd; do
+            commands+=("$cmd")
+        done < <(jq -r ".packages.\"$package_name\"[\"custom-install\"].default[]?" <<< "$json_data")
+    fi
+    
+    printf '%s\n' "${commands[@]}"
+}
+
+# Function to process custom installation JSON file
 process_custom_installations() {
     local custom_file="$1"
     
     if [[ ! -f "$custom_file" ]]; then
-        info "No custom installation file found: $custom_file"
+        log_info "No custom installation file found: $custom_file"
         return 0
     fi
     
-    info "Processing custom installations from: $custom_file"
+    # Check if jq is available
+    if ! command_exists jq; then
+        log_error "jq is required to process custom_install.json but is not installed"
+        return 1
+    fi
+    
+    log_info "Processing custom installations from: $custom_file"
     echo ""
+    
+    # Read and validate JSON
+    local json_data
+    if ! json_data=$(jq '.' "$custom_file" 2>/dev/null); then
+        log_error "Failed to parse JSON file: $custom_file"
+        return 1
+    fi
     
     local total_packages=0
     local installed_packages=0
     local skipped_packages=0
     local failed_packages=0
     
-    # Read the file line by line
-    while IFS='|' read -r package_name command1 command2 command3 command4 command5 command6 command7 command8 command9 command10; do
-        # Skip comments and empty lines
-        if [[ -z "$package_name" || "$package_name" =~ ^[[:space:]]*# ]]; then
-            continue
-        fi
-        
+    # Get all package names
+    local package_names=()
+    while IFS= read -r name; do
+        package_names+=("$name")
+    done < <(jq -r '.packages | keys[]' <<< "$json_data")
+    
+    for package_name in "${package_names[@]}"; do
         total_packages=$((total_packages + 1))
         
-        # Collect all non-empty commands
-        local commands=()
-        for cmd in "$command1" "$command2" "$command3" "$command4" "$command5" "$command6" "$command7" "$command8" "$command9" "$command10"; do
-            if [[ -n "$cmd" ]]; then
-                commands+=("$cmd")
+        # Get package info
+        local description=$(jq -r ".packages.\"$package_name\".description // \"\"" <<< "$json_data")
+        local priority=$(jq -r ".packages.\"$package_name\"[\"custom-install-priority\"] // \"fallback\"" <<< "$json_data")
+        local requires_confirmation=$(jq -r ".packages.\"$package_name\"[\"requires-confirmation\"] // false" <<< "$json_data")
+        local install_condition=$(jq -r ".packages.\"$package_name\"[\"install-condition\"] // \"\"" <<< "$json_data")
+        
+        # Check install priority
+        if [[ "$priority" == "never" ]]; then
+            log_info "Skipping $package_name (priority: never)"
+            skipped_packages=$((skipped_packages + 1))
+            continue
+        fi
+        
+        # Check install condition if specified
+        if [[ -n "$install_condition" ]] && [[ "$install_condition" != "null" ]]; then
+            if ! check_install_condition "$install_condition"; then
+                log_info "Skipping $package_name (condition not met: $install_condition)"
+                skipped_packages=$((skipped_packages + 1))
+                continue
             fi
-        done
+        fi
+        
+        # Check if package is already installed
+        if [[ "$priority" == "fallback" ]] && command_exists "$package_name"; then
+            log_info "Package already available: $package_name"
+            skipped_packages=$((skipped_packages + 1))
+            continue
+        fi
+        
+        # Get platform-specific commands
+        local commands=()
+        while IFS= read -r cmd; do
+            commands+=("$cmd")
+        done < <(get_platform_commands "$json_data" "$package_name")
         
         if [[ ${#commands[@]} -eq 0 ]]; then
-            warning "No commands found for package: $package_name"
+            log_warning "No commands found for package: $package_name on this platform"
             skipped_packages=$((skipped_packages + 1))
             continue
         fi
         
-        # Check if package is already installed (basic check)
-        if command_exists "$package_name"; then
-            info "Package already available: $package_name"
-            skipped_packages=$((skipped_packages + 1))
-            continue
-        fi
-        
-        # TODO: Parse metadata from TOML (requires-confirmation, install-condition, description)
-        # For now, we'll implement basic confirmation prompting
-        
-        # Interactive confirmation for custom installs
-        if [[ -t 0 ]] && [[ -t 1 ]]; then
-            if ! prompt_confirmation "$package_name" ""; then
-                info "Skipped: $package_name"
+        # Interactive confirmation if required
+        if [[ "$requires_confirmation" == "true" ]] && [[ -t 0 ]] && [[ -t 1 ]]; then
+            if ! prompt_confirmation "$package_name" "$description"; then
+                log_info "Skipped: $package_name"
                 skipped_packages=$((skipped_packages + 1))
                 continue
             fi
@@ -150,16 +220,16 @@ process_custom_installations() {
         if execute_custom_install "$package_name" "${commands[@]}"; then
             installed_packages=$((installed_packages + 1))
         else
-            error "Failed to install: $package_name"
+            log_error "Failed to install: $package_name"
             failed_packages=$((failed_packages + 1))
         fi
         
         echo ""
-    done < "$custom_file"
+    done
     
     # Summary
     echo ""
-    info "Custom installation summary:"
+    log_info "Custom installation summary:"
     echo "  Total packages: $total_packages"
     echo "  Installed: $installed_packages"
     echo "  Skipped: $skipped_packages"
@@ -174,10 +244,10 @@ process_custom_installations() {
 
 # Main function
 main() {
-    info "=== Custom Package Installation ==="
+    log_info "=== Custom Package Installation ==="
     
     # Determine the custom file location
-    local custom_file="${1:-packages/Customfile}"
+    local custom_file="${1:-packages/custom_install.json}"
     
     # Make path absolute if relative
     if [[ "$custom_file" != /* ]]; then
@@ -186,10 +256,10 @@ main() {
     
     # Process custom installations
     if process_custom_installations "$custom_file"; then
-        success "Custom installation completed successfully"
+        log_info "Custom installation completed successfully"
         return 0
     else
-        error "Custom installation completed with errors"
+        log_error "Custom installation completed with errors"
         return 1
     fi
 }
