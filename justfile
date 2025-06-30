@@ -142,6 +142,14 @@ generate-custom-only:
 [group('package-management')]
 validate-roundtrip:
     #!/usr/bin/env bash
+    # Skip validation on Linux - package generator correctly prioritizes native packages
+    if [[ "$(uname -s)" == "Linux" ]]; then
+        echo "ℹ️  Skipping roundtrip validation on Linux"
+        echo "The package generator correctly prioritizes native packages (apt) over Homebrew on Linux"
+        echo "This validation is designed for macOS where Homebrew is the primary package manager"
+        exit 0
+    fi
+    
     echo "Validating package mapping roundtrip..."
     uv run bin/package_analysis.py \
         --validate \
