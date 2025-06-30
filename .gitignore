@@ -19,9 +19,9 @@ packages/.package_generation.log
 packages/temp_packages.toml
 packages/package_mappings.toml.new
 bin/__pycache__/
+lib/__pycache__/
 tests/generated_packages/
 tests/output/
 tests/.debug_cache.json
 tests/test_cache.json
 tests/validation_cache.json
-

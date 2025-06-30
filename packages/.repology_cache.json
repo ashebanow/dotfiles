@@ -1,0 +1,1632 @@
+{
+  "act": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751240244.937004
+  },
+  "act3": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751240249.6624892
+  },
+  "antidote": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751240254.145725
+  },
+  "atuin": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "atuin",
+      "apt": "atuin",
+      "fedora": "atuin",
+      "flatpak": null
+    },
+    "description": "Improved shell history for zsh, bash, fish and nushell",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240259.551444
+  },
+  "bandwhich": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "bandwhich",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Terminal bandwidth utilization tool",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240264.9500868
+  },
+  "bat": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751240269.414958
+  },
+  "binsider": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "binsider",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Analyzes ELF binaries",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240274.804617
+  },
+  "biome": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "biome",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Toolchain of the web",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240280.2095602
+  },
+  "bitwarden-cli": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "bitwarden-cli",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Secure and free password manager for all of your devices",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240285.619358
+  },
+  "btop": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "btop",
+      "apt": "btop",
+      "fedora": "btop",
+      "flatpak": null
+    },
+    "description": "Resource monitor that shows usage and stats for processor, memory, disks, network and processes.",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240291.044697
+  },
+  "caddy": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "caddy",
+      "apt": "caddy",
+      "fedora": "caddy",
+      "flatpak": null
+    },
+    "description": "Powerful, enterprise-ready, open source web server with automatic HTTPS",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240296.4669209
+  },
+  "cava": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "cava",
+      "apt": "cava",
+      "fedora": "cava",
+      "flatpak": null
+    },
+    "description": "Console-based Audio Visualizer for ALSA",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240301.8969228
+  },
+  "chezmoi": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "chezmoi",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Manage your dotfiles across multiple diverse machines, securely",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240307.300889
+  },
+  "coreutils": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "coreutils",
+      "apt": "coreutils",
+      "fedora": "coreutils",
+      "flatpak": null
+    },
+    "description": "The GNU Core Utilities are the basic file, shell and text manipulation utilities of the GNU operating system.",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240312.674807
+  },
+  "ctop": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751240317.142297
+  },
+  "curl": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "curl",
+      "apt": "curl",
+      "fedora": "curl",
+      "flatpak": null
+    },
+    "description": "Command line tool and library for transferring data with URLs.",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240322.6070652
+  },
+  "direnv": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "direnv",
+      "apt": "direnv",
+      "fedora": "direnv",
+      "flatpak": null
+    },
+    "description": "Load/unload environment variables based on $PWD",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240328.014764
+  },
+  "dive": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "dive",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Tool for exploring each layer in a docker image",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240333.4109209
+  },
+  "duf": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "duf",
+      "apt": "duf",
+      "fedora": "duf",
+      "flatpak": null
+    },
+    "description": "Disk Usage/Free Utility - a better 'df' alternative",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240338.8002071
+  },
+  "dust": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751240343.267246
+  },
+  "eza": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "eza",
+      "apt": "rust-eza",
+      "fedora": "rust-eza",
+      "flatpak": null
+    },
+    "description": "Modern, maintained replacement for ls",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240348.656044
+  },
+  "fastfetch": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "fastfetch",
+      "apt": "fastfetch",
+      "fedora": "fastfetch",
+      "flatpak": null
+    },
+    "description": "Like Neofetch, but much faster because written in C",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240354.062028
+  },
+  "fd": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751240358.543395
+  },
+  "fish": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "fish",
+      "apt": "fish",
+      "fedora": "fish",
+      "flatpak": null
+    },
+    "description": "fish is a smart and user-friendly command line shell for macOS, Linux, and the rest of the family.",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240803.1715891
+  },
+  "foreman": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "foreman",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Toolchain manager for Roblox projects",
+    "_timestamp": 1751240807.624046
+  },
+  "fzf": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "fzf",
+      "apt": "fzf",
+      "fedora": "fzf",
+      "flatpak": null
+    },
+    "description": "A command-line fuzzy finder",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240812.121383
+  },
+  "gcc": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "gcc",
+      "apt": "gcc-15",
+      "fedora": "gcc",
+      "flatpak": null
+    },
+    "description": "GNU compiler collection",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240818.302114
+  },
+  "gdu": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "gdu",
+      "apt": "gdu",
+      "fedora": "gdu",
+      "flatpak": null
+    },
+    "description": "Disk usage analyzer with console interface written in Go",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240823.720387
+  },
+  "getnf": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "getnf",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Simple utility to install nerd fonts",
+    "_timestamp": 1751240828.212845
+  },
+  "gh": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751240831.7823339
+  },
+  "git": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "git",
+      "apt": "git",
+      "fedora": "git",
+      "flatpak": null
+    },
+    "description": "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency.",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240837.191967
+  },
+  "git-delta": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "git-delta",
+      "apt": "git-delta",
+      "fedora": "rust-git-delta",
+      "flatpak": null
+    },
+    "description": "Syntax-highlighting pager for git and diff output",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240842.6449091
+  },
+  "git-lfs": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "git-lfs",
+      "apt": "git-lfs",
+      "fedora": "git-lfs",
+      "flatpak": null
+    },
+    "description": "Git extension for versioning large files",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240848.106146
+  },
+  "gitleaks": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "gitleaks",
+      "apt": "gitleaks",
+      "fedora": "gitleaks",
+      "flatpak": null
+    },
+    "description": "Audit git repos for secrets",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240853.528987
+  },
+  "glances": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "glances",
+      "apt": "glances",
+      "fedora": "glances",
+      "flatpak": null
+    },
+    "description": "Alternative to top/htop",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240859.0125718
+  },
+  "glow": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "glow",
+      "apt": "glow",
+      "fedora": "glow",
+      "flatpak": null
+    },
+    "description": "Render markdown on the CLI",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240864.4569962
+  },
+  "gnu-units": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "units",
+      "apt": "units",
+      "fedora": "units",
+      "flatpak": null
+    },
+    "description": "GNU Units converts quantities expressed in various systems of measurement to their equivalents in other systems of measurement.",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240869.916907
+  },
+  "gnupg": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "gnupg",
+      "apt": "gnupg",
+      "fedora": "gnupg2",
+      "flatpak": null
+    },
+    "description": "GnuPG is a complete and free implementation of the OpenPGP standard as defined by RFC4880 (also known as PGP).",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240875.35746
+  },
+  "gum": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751240879.863449
+  },
+  "hyperfine": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "hyperfine",
+      "apt": "rust-hyperfine",
+      "fedora": "rust-hyperfine",
+      "flatpak": null
+    },
+    "description": "Command-line benchmarking tool",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240885.320569
+  },
+  "inetutils": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "inetutils",
+      "apt": "inetutils",
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "GNU utilities for networking",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240890.7120278
+  },
+  "jj": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751240895.1954298
+  },
+  "jujutsu": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "jujutsu",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Git-compatible distributed version control system",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240899.668114
+  },
+  "jq": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "jq",
+      "apt": "jq",
+      "fedora": "jq",
+      "flatpak": null
+    },
+    "description": "jq is a lightweight and flexible command-line JSON processor.",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240905.113654
+  },
+  "just": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "just",
+      "apt": "rust-just",
+      "fedora": "rust-just",
+      "flatpak": null
+    },
+    "description": "Handy way to save and run project-specific commands",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240910.547285
+  },
+  "lazydocker": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "lazydocker",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Lazier way to manage everything docker",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240915.945525
+  },
+  "lazygit": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "lazygit",
+      "apt": "lazygit",
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Simple terminal UI for git commands",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240921.3404632
+  },
+  "lazyjj": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "lazyjj",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "TUI for Jujutsu/jj",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240926.760993
+  },
+  "lazysql": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "lazysql",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Cross-platform TUI database management tool",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240932.17344
+  },
+  "lego": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "lego",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Let's Encrypt/ACME client and library written in Go",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240937.612588
+  },
+  "llvm": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "llvm",
+      "apt": "llvm-toolchain-19",
+      "fedora": "llvm",
+      "flatpak": null
+    },
+    "description": "Next-gen compiler infrastructure",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240943.7840571
+  },
+  "neovim": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "neovim",
+      "apt": "neovim",
+      "fedora": "neovim",
+      "flatpak": null
+    },
+    "description": "Neovim is a refactor, and sometimes redactor, in the tradition of Vim (which itself derives from Stevie).",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240949.22083
+  },
+  "overmind": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "overmind",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Process manager for Procfile-based applications and tmux",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240954.7473888
+  },
+  "pixi": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "pixi",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Package management made easy",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240960.163127
+  },
+  "presenterm": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "presenterm",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Terminal slideshow tool",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240965.618617
+  },
+  "ripgrep": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "ripgrep",
+      "apt": "rust-ripgrep",
+      "fedora": "rust-ripgrep",
+      "flatpak": null
+    },
+    "description": "ripgrep recursively searches directories for a regex pattern",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240971.085813
+  },
+  "shellcheck": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "shellcheck",
+      "apt": "shellcheck",
+      "fedora": "ShellCheck",
+      "flatpak": null
+    },
+    "description": "Static analysis tool for shell scripts",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240976.5144901
+  },
+  "shfmt": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": true,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "shfmt",
+      "apt": "shfmt",
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Autoformat shell script source code",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240981.987175
+  },
+  "starship": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "starship",
+      "apt": "starship",
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Cross-shell prompt for astronauts",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240987.450391
+  },
+  "tailscale": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "tailscale",
+      "apt": null,
+      "fedora": "tailscale",
+      "flatpak": null
+    },
+    "description": "Easiest, most secure way to use WireGuard and 2FA",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240992.885622
+  },
+  "talosctl": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "talosctl",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "CLI for out-of-band management of Kubernetes nodes created by Talos",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751240998.374448
+  },
+  "thefuck": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "thefuck",
+      "apt": "thefuck",
+      "fedora": "thefuck",
+      "flatpak": null
+    },
+    "description": "Thef*ck is a magnificent app which corrects your previous console command.",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751241003.784864
+  },
+  "tlrc": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "tlrc",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Official tldr client written in Rust",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751241009.276326
+  },
+  "tmux": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "tmux",
+      "apt": "tmux",
+      "fedora": "tmux",
+      "flatpak": null
+    },
+    "description": "tmux is a terminal multiplexer",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751241014.7614
+  },
+  "tpm": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "tpm",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Plugin manager for tmux",
+    "brew-supports-linux": false,
+    "brew-supports-darwin": false,
+    "brew-is-cask": false,
+    "_timestamp": 1751241020.217543
+  },
+  "tree": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751241024.713045
+  },
+  "ugrep": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "ugrep",
+      "apt": "ugrep",
+      "fedora": "ugrep",
+      "flatpak": null
+    },
+    "description": "Ultra fast grep with query UI, fuzzy search, archive search, and more",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751241030.1995919
+  },
+  "vale": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "vale",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Syntax-aware linter for prose",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751241035.64868
+  },
+  "wget": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "wget",
+      "apt": "wget",
+      "fedora": "wget",
+      "flatpak": null
+    },
+    "description": "GNU Wget is a free software package for retrieving files using HTTP, HTTPS, FTP and FTPS.",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751241041.137951
+  },
+  "wishlist": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "wishlist",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "The SSH directory - a single entrypoint for multiple SSH endpoints.",
+    "brew-supports-linux": false,
+    "brew-supports-darwin": false,
+    "brew-is-cask": false,
+    "_timestamp": 1751241046.597066
+  },
+  "xz": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "xz",
+      "apt": "xz-utils",
+      "fedora": "xz",
+      "flatpak": null
+    },
+    "description": "XZ Utils is free general-purpose data compression software with a high compression ratio.",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751241052.097655
+  },
+  "yq": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751241056.6070652
+  },
+  "yt-dlp": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "yt-dlp",
+      "apt": "yt-dlp",
+      "fedora": "yt-dlp",
+      "flatpak": null
+    },
+    "description": "A fork of youtube-dl with additional features and patches",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751241062.1018822
+  },
+  "zellij": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "zellij",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "A terminal multiplexer",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751241067.597853
+  },
+  "zoxide": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "zoxide",
+      "apt": "rust-zoxide",
+      "fedora": "rust-zoxide",
+      "flatpak": null
+    },
+    "description": "zoxide is a smarter cd command, inspired by z and autojump.",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751241073.05099
+  },
+  "zsh": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "zsh",
+      "apt": "zsh",
+      "fedora": "zsh",
+      "flatpak": null
+    },
+    "description": "Zsh is a shell designed for interactive use, although it is also a powerful scripting language.",
+    "brew-supports-linux": true,
+    "brew-supports-darwin": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751241078.518668
+  }
+}
