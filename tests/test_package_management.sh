@@ -214,6 +214,16 @@ test_basic_roundtrip() {
         mkdir -p "$TEMP_DIR/roundtrip_output"
         
         # Step 2: Generate Brewfile from TOML (force homebrew target)
+        echo "=== Testing package generation command ===" >> "$TEMP_DIR/roundtrip_test.log"
+        echo "Command: $PYTHON_CMD bin/package_generators.py --toml $TEMP_DIR/roundtrip_step1.toml --output-dir $TEMP_DIR/roundtrip_output --target homebrew" >> "$TEMP_DIR/roundtrip_test.log"
+        
+        # First test what would be generated in print-only mode
+        echo "=== Print-only test ===" >> "$TEMP_DIR/roundtrip_test.log"
+        $PYTHON_CMD bin/package_generators.py \
+            --toml "$TEMP_DIR/roundtrip_step1.toml" \
+            --target homebrew \
+            --print-only >> "$TEMP_DIR/roundtrip_test.log" 2>&1
+        
         if $PYTHON_CMD bin/package_generators.py \
             --toml "$TEMP_DIR/roundtrip_step1.toml" \
             --output-dir "$TEMP_DIR/roundtrip_output" \
