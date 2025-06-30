@@ -12,13 +12,8 @@ PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 TEST_ASSETS="$SCRIPT_DIR/assets/package_mapping"
 TEMP_DIR="$SCRIPT_DIR/output"
 
-# Require virtual environment Python (needed for proper dependencies)
-if [[ ! -f "$PROJECT_ROOT/.venv/bin/python3" ]]; then
-    echo "ERROR: Python virtual environment not found at $PROJECT_ROOT/.venv/bin/python3"
-    echo "Please run 'just setup-python' from $PROJECT_ROOT first"
-    exit 1
-fi
-PYTHON_CMD="$PROJECT_ROOT/.venv/bin/python3"
+# Use uv to run Python commands (ensures proper dependencies)
+PYTHON_CMD="uv run python"
 
 # Colors for output
 RED='\033[0;31m'
