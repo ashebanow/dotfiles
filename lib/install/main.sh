@@ -3,8 +3,6 @@
 # setup common to all install scripts
 source "${DOTFILES}/lib/common/all.sh"
 
-source "${DOTFILES}/lib/install/nix.sh"
-
 #######################################################################
 # Phase 1: install universal packages and apps
 show_spinner \
