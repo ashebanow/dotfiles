@@ -1,0 +1,8 @@
+# Custom installation commands
+# Format: package_name|command1|command2|...
+# Multiple commands are executed in sequence
+
+getnf|curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
+
+tailscale|brew install --cask tailscale
+
