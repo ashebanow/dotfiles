@@ -127,8 +127,9 @@ class TestMergeCustomInstallation(unittest.TestCase):
         self.assertEqual(result["custom-install-priority"], "fallback")
 
         # Test default priority is not included
+        entry_fresh = {}  # Use a fresh entry object
         custom_installs["test-package"]["custom-install-priority"] = "always"
-        result = merge_custom_installation(entry, "test-package", custom_installs)
+        result = merge_custom_installation(entry_fresh, "test-package", custom_installs)
         self.assertNotIn("custom-install-priority", result)
 
     def test_merge_additional_fields(self):
@@ -185,7 +186,7 @@ class TestWriteToml(unittest.TestCase):
         with open(self.toml_file) as f:
             content = f.read()
 
-        self.assertIn("[test-package]", content)
+        self.assertIn('["test-package"]', content)
         self.assertIn('arch-pkg = "test-pkg"', content)
         self.assertIn('description = "Test package"', content)
         self.assertIn("prefer_flatpak = false", content)

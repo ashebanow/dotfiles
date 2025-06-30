@@ -36,11 +36,11 @@ except ImportError as e:
 class TestPlatformDetector(unittest.TestCase):
     """Test platform detection functionality."""
 
-    @patch("package_generators.platform.system")
+    @patch("package_generators.os.uname")
     @patch("package_generators.os.path.exists")
-    def test_darwin_detection(self, mock_exists, mock_system):
+    def test_darwin_detection(self, mock_exists, mock_uname):
         """Test macOS platform detection."""
-        mock_system.return_value = "Darwin"
+        mock_uname.return_value.sysname = "Darwin"
         mock_exists.return_value = True  # /opt/homebrew exists
 
         detector = PlatformDetector()
@@ -50,11 +50,11 @@ class TestPlatformDetector(unittest.TestCase):
         self.assertTrue(detector.supports_homebrew())
         self.assertFalse(detector.supports_flatpak())
 
-    @patch("package_generators.platform.system")
+    @patch("package_generators.os.uname")
     @patch("package_generators.os.path.exists")
-    def test_linux_detection(self, mock_exists, mock_system):
+    def test_linux_detection(self, mock_exists, mock_uname):
         """Test Linux platform detection."""
-        mock_system.return_value = "Linux"
+        mock_uname.return_value.sysname = "Linux"
         mock_exists.side_effect = lambda path: path == "/etc/os-release"
 
         with patch("builtins.open", mock_open_os_release("ubuntu")):
@@ -66,11 +66,11 @@ class TestPlatformDetector(unittest.TestCase):
         self.assertFalse(detector.is_arch_like)
         self.assertFalse(detector.is_fedora_like)
 
-    @patch("package_generators.platform.system")
+    @patch("package_generators.os.uname")
     @patch("package_generators.os.path.exists")
-    def test_arch_detection(self, mock_exists, mock_system):
+    def test_arch_detection(self, mock_exists, mock_uname):
         """Test Arch Linux detection."""
-        mock_system.return_value = "Linux"
+        mock_uname.return_value.sysname = "Linux"
         mock_exists.side_effect = lambda path: path == "/etc/os-release"
 
         with patch("builtins.open", mock_open_os_release("arch")):
@@ -81,11 +81,11 @@ class TestPlatformDetector(unittest.TestCase):
         self.assertFalse(detector.is_debian_like)
         self.assertEqual(detector.get_native_package_manager(), "arch")
 
-    @patch("package_generators.platform.system")
+    @patch("package_generators.os.uname")
     @patch("package_generators.os.path.exists")
-    def test_fedora_detection(self, mock_exists, mock_system):
+    def test_fedora_detection(self, mock_exists, mock_uname):
         """Test Fedora detection."""
-        mock_system.return_value = "Linux"
+        mock_uname.return_value.sysname = "Linux"
         mock_exists.side_effect = lambda path: path == "/etc/os-release"
 
         with patch("builtins.open", mock_open_os_release("fedora")):
@@ -95,6 +95,22 @@ class TestPlatformDetector(unittest.TestCase):
         self.assertTrue(detector.is_fedora_like)
         self.assertFalse(detector.is_debian_like)
         self.assertEqual(detector.get_native_package_manager(), "fedora")
+
+    @patch("package_generators.os.uname")
+    @patch("package_generators.os.path.exists")
+    def test_pop_os_detection(self, mock_exists, mock_uname):
+        """Test Pop!_OS detection (derivative with multiple ID_LIKE values)."""
+        mock_uname.return_value.sysname = "Linux"
+        mock_exists.side_effect = lambda path: path == "/etc/os-release"
+
+        with patch("builtins.open", mock_open_os_release("pop")):
+            detector = PlatformDetector()
+
+        self.assertTrue(detector.is_linux)
+        self.assertTrue(detector.is_debian_like)  # Should detect debian in ID_LIKE
+        self.assertFalse(detector.is_arch_like)
+        self.assertFalse(detector.is_fedora_like)
+        self.assertEqual(detector.get_native_package_manager(), "apt")
 
 
 class TestPackageFilter(unittest.TestCase):
@@ -346,7 +362,14 @@ class TestHasAnyPackages(unittest.TestCase):
 # Helper functions for mocking
 def mock_open_os_release(distro_id):
     """Create a mock open function that returns os-release content."""
-    content = f'ID="{distro_id}"\nNAME="{distro_id.title()}"\n'
+    content = f'ID={distro_id}\nNAME="{distro_id.title()}"\n'
+
+    # Add ID_LIKE for distributions that inherit from others
+    if distro_id == "ubuntu":
+        content += 'ID_LIKE=debian\n'
+    elif distro_id == "pop":
+        # Pop!_OS is based on Ubuntu which is based on Debian
+        content += 'ID_LIKE="ubuntu debian"\n'
 
     def mock_open_func(*args, **kwargs):
         from unittest.mock import mock_open

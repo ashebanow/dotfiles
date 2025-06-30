@@ -88,11 +88,24 @@ class PlatformDetector:
             try:
                 with open("/etc/os-release") as f:
                     os_release = f.read()
-                    if "ID=arch" in os_release or "ID_LIKE=arch" in os_release:
+                    
+                    # Parse ID and ID_LIKE values
+                    id_value = ""
+                    id_like_value = ""
+                    
+                    for line in os_release.splitlines():
+                        line = line.strip()
+                        if line.startswith("ID="):
+                            id_value = line[3:].strip('"')
+                        elif line.startswith("ID_LIKE="):
+                            id_like_value = line[8:].strip('"')
+                    
+                    # Check distribution families using proper logic
+                    if id_value == "arch" or "arch" in id_like_value.split():
                         self.is_arch_like = True
-                    elif "ID=debian" in os_release or "ID_LIKE=debian" in os_release:
+                    elif id_value == "debian" or "debian" in id_like_value.split():
                         self.is_debian_like = True
-                    elif "ID=fedora" in os_release or "ID_LIKE=fedora" in os_release:
+                    elif id_value == "fedora" or "fedora" in id_like_value.split():
                         self.is_fedora_like = True
             except:
                 pass  # Can't detect, assume generic Linux
