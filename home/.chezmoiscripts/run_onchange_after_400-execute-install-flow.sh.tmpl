@@ -1,0 +1,229 @@
+#!/bin/bash
+# chezmoi:template:left-delimiter="<!-- " right-delimiter=" -->"
+
+# Unified executor for package regeneration and installation
+# This script runs after detectors and handles the actual work based on flags
+
+set -euo pipefail
+
+# Hash tracking for this script (minimal dependencies)
+# ../justfile hash: <!-- include "../justfile" | sha256sum -->
+
+# Source common utilities
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+# Use chezmoi source directory parent (the actual repo root)
+DOTFILES_DIR="<!-- .chezmoi.sourceDir | dir -->"
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Check if we're already running under install.sh (avoid recursive calls)
+if [[ -n "${DOTFILES_INSTALL_RUNNING:-}" ]]; then
+    echo -e "${YELLOW}ℹ️  Changes detected during install.sh execution${NC}"
+    
+    # Still do regen if needed since that's safe and required
+    if [[ -n "${DOTFILES_NEEDS_REGEN:-}" ]]; then
+        echo -e "${YELLOW}   Regenerating package files (install.sh will pick up changes)${NC}"
+        echo ""
+        
+        echo -e "${BLUE}📋 Regenerating package lists...${NC}"
+        cd "$DOTFILES_DIR"
+        
+        if just generate-package-lists; then
+            echo ""
+            echo -e "${GREEN}✅ Package lists updated successfully!${NC}"
+            echo ""
+            echo -e "${YELLOW}📝 Package files regenerated. Current install.sh will use these changes.${NC}"
+        else
+            echo ""
+            echo -e "${RED}❌ Failed to regenerate package lists${NC}"
+        fi
+    fi
+    
+    # Skip install since we're already in an install.sh run
+    if [[ -n "${DOTFILES_NEEDS_INSTALL:-}" ]]; then
+        echo -e "${YELLOW}   Install dependencies changed (will be handled by current install.sh)${NC}"
+    fi
+    
+    exit 0
+fi
+
+# Check if anything needs to be done
+if [[ -z "${DOTFILES_NEEDS_REGEN:-}" ]] && [[ -z "${DOTFILES_NEEDS_INSTALL:-}" ]]; then
+    # No flags set - nothing to do
+    exit 0
+fi
+
+# Determine what work is needed
+NEEDS_REGEN="${DOTFILES_NEEDS_REGEN:-}"
+NEEDS_INSTALL="${DOTFILES_NEEDS_INSTALL:-}"
+
+# Check prerequisites
+if [[ -n "$NEEDS_REGEN" ]]; then
+    if [[ ! -f "$DOTFILES_DIR/justfile" ]]; then
+        echo -e "${YELLOW}⚠️  justfile not found, skipping package regeneration${NC}"
+        NEEDS_REGEN=""
+    elif ! command -v just >/dev/null 2>&1; then
+        echo -e "${YELLOW}⚠️  'just' command not found, skipping package regeneration${NC}"
+        NEEDS_REGEN=""
+    fi
+fi
+
+if [[ -n "$NEEDS_INSTALL" ]]; then
+    if [[ ! -f "$DOTFILES_DIR/install.sh" ]]; then
+        echo -e "${YELLOW}⚠️  install.sh not found, skipping installation${NC}"
+        NEEDS_INSTALL=""
+    fi
+fi
+
+# Exit if nothing can be done
+if [[ -z "$NEEDS_REGEN" ]] && [[ -z "$NEEDS_INSTALL" ]]; then
+    exit 0
+fi
+
+# Show what will be done
+echo ""
+if [[ -n "$NEEDS_REGEN" ]] && [[ -n "$NEEDS_INSTALL" ]]; then
+    echo -e "${BLUE}🔄 Package configuration and installation dependencies have changed!${NC}"
+    echo ""
+    echo "This will:"
+    echo "  1. Regenerate package lists for your platform"
+    echo "  2. Run install.sh to install any new packages and dependencies"
+elif [[ -n "$NEEDS_REGEN" ]]; then
+    echo -e "${BLUE}🔄 Package configuration has changed!${NC}"
+    echo ""
+    echo "This will:"
+    echo "  1. Regenerate package lists for your platform"
+    echo "  2. Run install.sh to install any new packages"
+elif [[ -n "$NEEDS_INSTALL" ]]; then
+    echo -e "${BLUE}🔧 Installation dependencies have changed!${NC}"
+    echo ""
+    echo "This will run install.sh to ensure all dependencies are up to date."
+fi
+echo ""
+
+# Function to regenerate packages
+regenerate_packages() {
+    echo -e "${BLUE}📋 Step 1: Regenerating package lists...${NC}"
+    cd "$DOTFILES_DIR"
+
+    if just generate-package-lists; then
+        echo ""
+        echo -e "${GREEN}✅ Package lists updated successfully!${NC}"
+        echo ""
+
+        # Show what was generated
+        echo "📦 Generated package files:"
+        for pkg_file in Brewfile Archfile Aptfile Flatfile; do
+            local full_path="packages/$pkg_file"
+            if [[ -f "$full_path" ]]; then
+                local count=$(grep -c '^[^#]' "$full_path" 2>/dev/null || echo "0")
+                echo "   • $pkg_file ($count packages)"
+            fi
+        done
+        echo ""
+        return 0
+    else
+        echo ""
+        echo -e "${RED}❌ Failed to regenerate package lists${NC}"
+        echo "You can try manually with: cd $DOTFILES_DIR && just generate-package-lists"
+        return 1
+    fi
+}
+
+# Function to run install.sh
+run_install() {
+    local step_prefix="$1"
+    echo -e "${BLUE}🚀 ${step_prefix}: Running install.sh...${NC}"
+    echo ""
+
+    cd "$DOTFILES_DIR"
+    if bash "./install.sh"; then
+        echo ""
+        echo -e "${GREEN}✅ Installation completed successfully!${NC}"
+        echo ""
+        echo -e "${GREEN}🎉 All packages and dependencies are now up to date.${NC}"
+        return 0
+    else
+        echo ""
+        echo -e "${YELLOW}⚠️  Installation completed with some warnings${NC}"
+        echo "Check the output above for any issues."
+        echo ""
+        echo "You can manually retry with: cd $DOTFILES_DIR && ./install.sh"
+        return 1
+    fi
+}
+
+# Function to execute the complete flow
+execute_flow() {
+    local regen_success=0
+    
+    # Step 1: Regenerate if needed
+    if [[ -n "$NEEDS_REGEN" ]]; then
+        if ! regenerate_packages; then
+            regen_success=1
+        fi
+    fi
+    
+    # Step 2: Install (always if flagged, regardless of regen success)
+    if [[ -n "$NEEDS_INSTALL" ]]; then
+        local step_label="Step 2"
+        if [[ -z "$NEEDS_REGEN" ]]; then
+            step_label="Running"
+        fi
+        
+        if ! run_install "$step_label"; then
+            return 1
+        fi
+    fi
+    
+    # Return regen failure if install succeeded but regen failed
+    return $regen_success
+}
+
+# Function for non-interactive handling
+handle_non_interactive() {
+    echo -e "${BLUE}🤖 Non-interactive mode: Proceeding automatically...${NC}"
+    echo ""
+    execute_flow
+}
+
+# Function for interactive handling
+handle_interactive() {
+    echo -e "${YELLOW}This is safe to run - install.sh is designed to be idempotent.${NC}"
+    echo ""
+    echo "Would you like to proceed? [Y/n] "
+    read -r response
+    case "$response" in
+        [nN]|[nN][oO])
+            echo ""
+            echo -e "${YELLOW}⏭️  Skipped automatic update.${NC}"
+            echo ""
+            echo "To update manually later:"
+            echo "  cd $DOTFILES_DIR"
+            if [[ -n "$NEEDS_REGEN" ]]; then
+                echo "  just generate-package-lists"
+            fi
+            echo "  ./install.sh"
+            ;;
+        *)
+            echo ""
+            execute_flow
+            ;;
+    esac
+}
+
+# Check if running interactively
+if [[ -t 0 ]] && [[ -t 1 ]]; then
+    # Interactive mode - ask user
+    handle_interactive
+else
+    # Non-interactive mode - proceed automatically
+    handle_non_interactive
+fi
+
+echo ""

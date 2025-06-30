@@ -106,6 +106,8 @@ echo "Initializing chezmoi..."
 
 # Run install scripts to set up dependencies
 export DOTFILES="$script_dir"
+# Set flag to prevent recursive calls from run_onchange scripts
+export DOTFILES_INSTALL_RUNNING=1
 echo "Running installation scripts..."
 "$script_dir/lib/install/main.sh"
 
