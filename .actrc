@@ -1,0 +1,22 @@
+# Act configuration for dotfiles project
+# This file configures act to run GitHub Actions locally
+
+# Use linux/amd64 architecture for compatibility
+--container-architecture linux/amd64
+
+# Don't auto-pull images for faster testing (use --pull to override)
+--pull=false
+
+# Use verbose output for better debugging
+--verbose
+
+# Use Ubuntu image compatible with our workflows
+--platform ubuntu-latest=catthehacker/ubuntu:act-latest
+
+# Set reasonable resource limits
+--container-cap-add SYS_PTRACE
+--container-options "--rm --init"
+
+# Default environment variables for local testing
+--env GITHUB_ACTIONS=true
+--env CI=false

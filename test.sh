@@ -47,6 +47,7 @@ COMMANDS:
     coverage        Run tests with coverage report
     fast            Run tests in parallel (fast)
     package         Run package analysis tests only
+    actions         Run GitHub Actions tests with act (local only)
     lint            Run code quality checks (ruff, black, mypy)
     format          Format code with black and ruff
     clean           Clean test artifacts and cache
@@ -63,6 +64,7 @@ EXAMPLES:
     $0 coverage         # Run with coverage
     $0 fast -v          # Run in parallel with verbose output
     $0 package          # Test package analysis only
+    $0 actions          # Test GitHub Actions with act
     $0 lint             # Check code quality
     $0 format           # Format code
 
@@ -85,7 +87,7 @@ PYTEST_ARGS=()
 # Parse arguments
 while [[ $# -gt 0 ]]; do
     case $1 in
-        unit|integration|all|coverage|fast|package|lint|format|clean)
+        unit|integration|all|coverage|fast|package|actions|lint|format|clean)
             COMMAND="$1"
             shift
             ;;
@@ -196,6 +198,26 @@ run_package_tests() {
     $cmd tests/test_package_analysis.py "${PYTEST_ARGS[@]+"${PYTEST_ARGS[@]}"}"
 }
 
+# Run GitHub Actions tests with act
+run_actions_tests() {
+    log_info "Running GitHub Actions tests with act..."
+    
+    # Check if act is available
+    if ! command -v act &> /dev/null; then
+        log_error "act is not installed. Install from: https://github.com/nektos/act"
+        return 1
+    fi
+    
+    # Check if we're on CI
+    if [[ "${CI:-false}" == "true" ]]; then
+        log_info "Skipping act tests on CI - GitHub Actions run natively"
+        return 0
+    fi
+    
+    # Run the GitHub Actions integration tests
+    python tests/test_github_actions.py
+}
+
 # Run code quality checks
 run_lint() {
     log_info "Running code quality checks..."
@@ -262,6 +284,9 @@ case "$COMMAND" in
         ;;
     "package")
         run_package_tests
+        ;;
+    "actions")
+        run_actions_tests
         ;;
     "lint")
         run_lint

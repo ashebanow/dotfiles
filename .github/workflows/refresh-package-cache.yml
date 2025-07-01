@@ -501,38 +501,19 @@ jobs:
         if [[ "${{ steps.segment.outputs.mode }}" == "validate" ]]; then
           echo "Validation mode - checking cache integrity and mappings..."
           # Validate cache structure
-          python -c "
-import json
-from pathlib import Path
-
-# Validate Repology cache
-cache_file = Path('packages/.repology_cache.json')
-if cache_file.exists():
-    with open(cache_file) as f:
-        cache = json.load(f)
-    print(f'✅ Repology cache: {len(cache)} entries')
-    
-    # Check for empty entries
-    empty_count = sum(1 for entry in cache.values() 
-                     if isinstance(entry, dict) and 'platforms' in entry 
-                     and all(not v for v in entry['platforms'].values()))
-    if empty_count > 0:
-        print(f'⚠️  Found {empty_count} empty entries (should be cleaned)')
-    else:
-        print('✅ No empty entries found')
-else:
-    print('❌ Repology cache file not found')
-
-# Validate name mappings
-mappings_file = Path('packages/package_name_mappings.json')
-if mappings_file.exists():
-    with open(mappings_file) as f:
-        mappings = json.load(f)
-    homebrew_mappings = mappings.get('homebrew_to_repology', {})
-    print(f'✅ Package name mappings: {len(homebrew_mappings)} entries')
-else:
-    print('❌ Package name mappings file not found')
-"
+          if [[ -f "packages/.repology_cache.json" ]]; then
+            CACHE_ENTRIES=$(jq 'keys | length' packages/.repology_cache.json)
+            echo "✅ Repology cache: $CACHE_ENTRIES entries"
+          else
+            echo "❌ Repology cache file not found"
+          fi
+          
+          if [[ -f "packages/package_name_mappings.json" ]]; then
+            MAPPING_ENTRIES=$(jq '.homebrew_to_repology | keys | length' packages/package_name_mappings.json)
+            echo "✅ Package name mappings: $MAPPING_ENTRIES entries"
+          else
+            echo "❌ Package name mappings file not found"
+          fi
         else
           python bin/refresh_cache_segment.py --segment "${{ steps.segment.outputs.segment }}" --cache packages/.repology_cache.json
         fi

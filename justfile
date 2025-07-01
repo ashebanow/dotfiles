@@ -197,6 +197,12 @@ test-python-fast:
     @echo "Running Python tests in parallel..."
     @./test.sh fast
 
+# Test GitHub Actions with act (local only)
+[group('testing')]
+test-actions:
+    @echo "Testing GitHub Actions with act..."
+    @./test.sh actions
+
 # Format code and run linting
 [group('testing')]
 format-and-lint:
