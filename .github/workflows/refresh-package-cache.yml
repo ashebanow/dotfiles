@@ -137,6 +137,9 @@ jobs:
             
             def query_package(self, package_name: str) -> Optional[dict]:
                 """Query package information from Repology."""
+                # Determine mapped name first
+                mapped_name = self.name_mappings.get(package_name)
+                
                 # Check if already in cache (try both original and mapped names)
                 cache_key = package_name
                 if package_name in self.cache:
@@ -150,7 +153,6 @@ jobs:
                             return cache_entry
                 
                 # Try mapped name if original not found
-                mapped_name = self.name_mappings.get(package_name)
                 if mapped_name and mapped_name in self.cache:
                     cache_entry = self.cache[mapped_name]
                     if isinstance(cache_entry, dict) and '_timestamp' in cache_entry:
@@ -163,9 +165,11 @@ jobs:
                 
                 # Query Repology API (use mapped name if available)
                 query_name = mapped_name if mapped_name else package_name
+                cache_key = mapped_name if mapped_name else package_name  # Always use mapped name for cache key
                 if mapped_name:
                     print(f"  Querying Repology with mapped name: {package_name} -> {mapped_name}")
-                    cache_key = mapped_name  # Store under mapped name
+                else:
+                    print(f"  Querying Repology with original name: {package_name}")
                 
                 try:
                     url = f"{self.api_base_url}/project/{query_name}"

@@ -122,25 +122,6 @@
     "brew-is-cask": false,
     "_timestamp": 1751042773.906125
   },
-  "bat": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751044264.6838331
-  },
   "git": {
     "platforms": {
       "arch_official": true,

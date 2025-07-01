@@ -320,6 +320,28 @@ if __name__ == "__main__":
             import os
             os.unlink(temp_script)
 
+    def test_package_name_mappings_logic(self):
+        """Test that package name mappings are properly handled"""
+        # Test that the mappings file exists and has correct format
+        mappings_file = self.project_root / "packages" / "package_name_mappings.json"
+        self.assertTrue(mappings_file.exists(), "Package name mappings file should exist")
+        
+        # Load and validate mappings structure
+        import json
+        with open(mappings_file, 'r') as f:
+            mappings = json.load(f)
+        
+        self.assertIn("homebrew_to_repology", mappings, "Should have homebrew_to_repology mappings")
+        homebrew_mappings = mappings["homebrew_to_repology"]
+        
+        # Test known mappings
+        self.assertIn("bat", homebrew_mappings, "Should have bat mapping")
+        self.assertEqual(homebrew_mappings["bat"], "bat-cat", "bat should map to bat-cat")
+        
+        # Test that mapped names are different from original names (otherwise mapping is pointless)
+        for original, mapped in homebrew_mappings.items():
+            self.assertNotEqual(original, mapped, f"Mapping {original} -> {mapped} should be different names")
+
     def test_workflow_secrets_handling(self):
         """Test that workflows handle missing secrets gracefully in act"""
         # Create a temporary secrets file
