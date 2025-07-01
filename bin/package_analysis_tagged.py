@@ -62,9 +62,13 @@ def analyze_repology_data_for_tags(repology_data: Dict[str, Any]) -> List[str]:
     if platforms.get("flatpak"):
         tags.extend(["os:linux", "pm:flatpak"])
     
-    # Analyze categories from different repositories (if available in future)
+    # Analyze categories from different repositories
     categories_seen = set()
-    # Note: Current cache format doesn't include categories
+    
+    # Extract categories from platforms data
+    for platform_name, platform_data in platforms.items():
+        if isinstance(platform_data, dict) and "categories" in platform_data:
+            categories_seen.update(platform_data["categories"])
 
     # Map Repology categories to our tags
     category_mapping = {
