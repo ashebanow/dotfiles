@@ -4,19 +4,16 @@
 # Use linux/amd64 architecture for compatibility
 --container-architecture linux/amd64
 
-# Don't auto-pull images for faster testing (use --pull to override)
+# Don't auto-pull images for faster testing
 --pull=false
 
-# Use verbose output for better debugging
---verbose
-
-# Use Ubuntu image compatible with our workflows
---platform ubuntu-latest=catthehacker/ubuntu:act-latest
+# Use compatible Ubuntu image (smaller, no auth required)
+--platform ubuntu-latest=node:16-bullseye-slim
 
 # Set reasonable resource limits
---container-cap-add SYS_PTRACE
 --container-options "--rm --init"
 
 # Default environment variables for local testing
 --env GITHUB_ACTIONS=true
 --env CI=false
+--env RUNNER_OS=Linux
