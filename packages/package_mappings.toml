@@ -1,3258 +1,3468 @@
 [act]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for act"
-tags = ["os:linux", "os:macos", "pm:homebrew"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [act3]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for act3"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [adobe-source-code-pro-fonts]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for adobe-source-code-pro-fonts"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [antidote]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for antidote"
-tags = []
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+["app.ytmdesktop.ytmdesktop"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for app.ytmdesktop.ytmdesktop"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+["app.zen_browser.zen"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for app.zen_browser.zen"
+custom-install = ""
+tags = ["cat:browser", "priority:optional", "scope:workflow-specific"]
 
 [archlinux-keyring]
-description = "GPG keys used by Arch distribution to sign packages"
-tags = [
-    "cat:cli-tool",
-    "cat:security",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for archlinux-keyring"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [atuin]
-description = "Improved shell history for zsh, bash, fish and nushell"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for atuin"
+custom-install = ""
+tags = ["pm:apt", "dist:debian", "dist:ubuntu", "os:linux", "pm:homebrew", "pm:dnf", "pm:pacman", "os:macos", "dist:fedora", "priority:essential", "dist:arch", "priority:recommended", "scope:extended"]
 
 [aylurs-gtk-shell]
-description = "Aylurs's Gtk Shell (AGS), An eww inspired gtk widget system."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:shell",
-    "cat:system",
-    "cat:terminal",
-    "de:gnome",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for aylurs-gtk-shell"
+custom-install = ""
+tags = ["cat:shell", "cat:terminal", "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
 
 [bandwhich]
-description = "Terminal bandwidth utilization tool"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for bandwhich"
+custom-install = ""
+tags = ["pm:homebrew", "dist:arch", "cat:cli-tool", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
 
 [base-devel]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for base-devel"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [bat]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for bat"
-tags = ["os:linux", "os:macos", "pm:homebrew"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [bc]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for bc"
-tags = ["os:linux", "os:macos", "pm:homebrew"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [bibata-cursor-theme-bin]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for bibata-cursor-theme-bin"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [binsider]
-description = "Analyzes ELF binaries"
-tags = [
-    "cat:aur",
-    "cat:development",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
-arch-pkg = "binsider-git"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for binsider"
+custom-install = ""
+tags = ["cat:development", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "role:development", "priority:recommended", "scope:extended"]
 
 [biome]
-description = "Toolchain of the web"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
-
-[bitwarden]
-description = "Desktop password and login vault"
-tags = [
-    "cat:aur",
-    "cat:security",
-    "dist:arch",
-    "os:linux",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-    "role:data-science",
-    "role:security",
-]
-flatpak-pkg = "com.bitwarden.desktop"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for biome"
+custom-install = ""
+tags = ["os:linux", "pm:homebrew", "pm:pacman", "os:macos", "dist:arch", "priority:recommended", "scope:extended"]
 
 [bitwarden-cli]
-description = "Secure and free password manager for all of your devices"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:security",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-    "role:security",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for bitwarden-cli"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
 
 [blueman]
-description = "GTK+ Bluetooth Manager"
-tags = [
-    "cat:aur",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for blueman"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [bluez]
-description = "Bluetooth protocol stack for Linux"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew:linux",
-    "pm:pacman",
-]
-arch-pkg = "bluez-mesh"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for bluez"
+custom-install = ""
+tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [bluez-utils]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for bluez-utils"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [breeze]
-description = "KDE 4 version of Plasma 5 artwork, style and assets"
-tags = [
-    "cat:aur",
-    "de:kde",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
-fedora-pkg = "kde-style-breeze"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for breeze"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [brightnessctl]
-description = "Read and control device brightness"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for brightnessctl"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [btop]
-description = "Resource monitor that shows usage and stats for processor, memory, disks, network and processes."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:network",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for btop"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [caddy]
-description = "Powerful, enterprise-ready, open source web server with automatic HTTPS"
-tags = [
-    "cat:aur",
-    "cat:network",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for caddy"
+custom-install = ""
+tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+
+[cask "claude"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for cask "claude""
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[cask "dolphin"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for cask "dolphin""
+custom-install = ""
+tags = ["de:kde", "priority:optional", "scope:workflow-specific"]
+
+[cask "ghostty"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for cask "ghostty""
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[cask "kitty"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for cask "kitty""
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[cask "parsec"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for cask "parsec""
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[cask "pinta"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for cask "pinta""
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[cask "signal"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for cask "signal""
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[cask "visual-studio-code"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for cask "visual-studio-code""
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
+
+[cask "zen"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for cask "zen""
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[cask "zoom"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for cask "zoom""
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [cava]
-description = "Console-based Audio Visualizer for ALSA"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for cava"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [checkupdates-with-aur]
-description = "Helper script to check updates, including AUR updates"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for checkupdates-with-aur"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [chezmoi]
-description = "Manage your dotfiles across multiple diverse machines, securely"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
-
-[google-chrome]
-description = "TODO: Add description for chrome"
-tags = [
-    "os:linux",
-    "pm:flatpak",
-    "priority:flatpak",
-    "role:data-science",
-    "role:desktop",
-]
-flatpak-pkg = "com.google.Chrome"
-
-[claude]
-description = "Claude desktop app (AI assistant)"
-tags = ["cat:cask", "os:macos", "pm:homebrew:darwin"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for chezmoi"
+custom-install = ""
+tags = ["pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
 
 [cliphist]
-description = "wayland clipboard manager"
-tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for cliphist"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+["com.bitwarden.desktop"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for com.bitwarden.desktop"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+["com.discordapp.Discord"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for com.discordapp.Discord"
+custom-install = ""
+tags = ["cat:communication", "priority:optional", "scope:workflow-specific"]
+
+["com.getpostman.Postman"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for com.getpostman.Postman"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+["com.google.Chrome"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for com.google.Chrome"
+custom-install = ""
+tags = ["cat:browser", "role:development", "priority:recommended", "scope:extended"]
+
+["com.logseq.Logseq"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for com.logseq.Logseq"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+["com.obsproject.Studio"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for com.obsproject.Studio"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+["com.parsecgaming.parsec"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for com.parsecgaming.parsec"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+["com.slack.Slack"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for com.slack.Slack"
+custom-install = ""
+tags = ["cat:communication", "priority:optional", "scope:workflow-specific"]
 
 [coreutils]
-description = "The GNU Core Utilities are the basic file, shell and text manipulation utilities of the GNU operating system."
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for coreutils"
+custom-install = ""
+tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [ctop]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for ctop"
-tags = ["os:linux", "os:macos", "pm:homebrew"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [curl]
-description = "Command line tool and library for transferring data with URLs."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
-arch-pkg = "libcurl-compat"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for curl"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "scope:core"]
 
 [dart-sass]
-description = "Sass makes CSS fun again"
-tags = [
-    "cat:cli-tool",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
-
-[dejadup]
-description = "TODO: Add description for dejadup"
-tags = ["os:linux", "pm:flatpak", "priority:flatpak"]
-flatpak-pkg = "org.gnome.DejaDup"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for dart-sass"
+custom-install = ""
+tags = ["cat:cli-tool", "dist:arch", "pm:pacman", "os:linux", "priority:recommended", "scope:extended"]
 
 [direnv]
-description = "Load/unload environment variables based on $PWD"
-tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
-
-[discord]
-description = "Voice and text chat software"
-tags = [
-    "cat:aur",
-    "cat:communication",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "pm:dnf",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-    "role:data-science",
-    "role:desktop",
-]
-flatpak-pkg = "com.discordapp.Discord"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for direnv"
+custom-install = ""
+tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [dive]
-description = "Tool for exploring each layer in a docker image"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
-
-[dockutil]
-description = "Tool for managing dock items"
-tags = ["os:macos", "pm:homebrew:darwin"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for dive"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
 
 [dolphin]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for dolphin"
-tags = ["cat:cask", "os:macos", "pm:homebrew:darwin"]
+custom-install = ""
+tags = ["de:kde", "priority:optional", "scope:workflow-specific"]
 
 [duf]
-description = "Disk Usage/Free Utility - a better 'df' alternative"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for duf"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [dust]
-description = "More intuitive version of du in rust"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "rust-du-dust"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for dust"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [eza]
-description = "Modern, maintained replacement for ls"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "rust-eza"
-fedora-pkg = "rust-eza"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for eza"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [fastfetch]
-description = "Like Neofetch, but much faster because written in C"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for fastfetch"
+custom-install = ""
+tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [fd]
-description = "A simple, fast and user-friendly alternative to 'find'."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "rust-fd-find"
-fedora-pkg = "rust-fd-find"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for fd"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [ffmpegthumbnailer]
-description = "Create thumbnails for your video files"
-tags = [
-    "cat:development",
-    "cat:multimedia",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for ffmpegthumbnailer"
+custom-install = ""
+tags = ["cat:multimedia", "role:content-creation", "priority:optional", "scope:workflow-specific"]
 
 [figlet]
-description = "FIGlet is a program for making large letters out of ordinary text."
-tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for figlet"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [figurine]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for figurine"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [findutils]
-description = "the basic directory searching utilities of the GNU operating system"
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for findutils"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [firefox]
-description = "Mozilla Firefox (or simply Firefox) is a free and open-source web browser"
-tags = [
-    "cat:aur",
-    "cat:browser",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-    "role:data-science",
-    "role:desktop",
-]
-arch-pkg = "firefox-i18n-is"
-flatpak-pkg = "org.mozilla.firefox"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for firefox"
+custom-install = ""
+tags = ["cat:browser", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "cat:cask", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "role:desktop", "priority:recommended", "scope:extended"]
 
 [fish]
-description = "fish is a smart and user-friendly command line shell for macOS, Linux, and the rest of the family."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:shell",
-    "cat:terminal",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for fish"
+custom-install = ""
+tags = ["cat:shell", "cat:terminal", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [flatpak]
-description = "Flatpak is a system for building, distributing, and running sandboxed desktop applications on Linux."
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
-arch-pkg = "flatpak-docs"
-
-[fontdownloader]
-description = "A simple GTK font downloader"
-tags = [
-    "cat:aur",
-    "de:gnome",
-    "dist:arch",
-    "os:linux",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-    "role:data-science",
-]
-flatpak-pkg = "org.gustavoperedo.FontDownloader"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for flatpak"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [fonts-dejavu]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for fonts-dejavu"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [fonts-firacode]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for fonts-firacode"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [fonts-font-awesome]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for fonts-font-awesome"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "de:awesome", "priority:optional", "scope:workflow-specific"]
 
 [fonts-jetbrains-mono]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for fonts-jetbrains-mono"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [fonts-noto-cjk]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for fonts-noto-cjk"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [fonts-noto-color-emoji]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for fonts-noto-color-emoji"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [fonts-noto-extra]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for fonts-noto-extra"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [foreman]
-description = "Toolchain manager for Roblox projects"
-tags = ["cat:aur", "dist:arch", "os:linux", "pm:pacman", "role:data-science"]
-arch-pkg = "foreman-git"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for foreman"
+custom-install = ""
+tags = ["dist:arch", "pm:pacman", "os:linux", "cat:aur", "priority:recommended", "scope:extended"]
 
 [fuse2]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for fuse2"
-tags = []
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [fzf]
-description = "A command-line fuzzy finder"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:filesystem",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-arch-pkg = "fzf-git"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for fzf"
+custom-install = ""
+tags = ["cat:filesystem", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [gcc]
-description = "The GNU Compiler Collection includes front ends for C, C++, Objective-C, Fortran, Ada, and Go."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:development",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
-apt-pkg = "gcc-14"
-arch-pkg = "gcc-m2"
-fedora-pkg = "avr-gcc"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for gcc"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "cat:development", "os:macos", "dist:ubuntu", "os:linux", "role:development", "scope:core"]
 
 [gdu]
-description = "Disk usage analyzer with console interface written in Go"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-
-[gearlever]
-description = "Manage AppImages with ease"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "os:linux",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-    "role:data-science",
-]
-flatpak-pkg = "it.mijorus.gearlever"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for gdu"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [getnf]
-description = "Simple utility to install nerd fonts"
-tags = ["cat:aur", "dist:arch", "os:linux", "pm:pacman"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for getnf"
+custom-install = ""
+tags = ["dist:arch", "pm:pacman", "os:linux", "cat:aur", "priority:recommended", "scope:extended"]
 
 [gh]
-description = "Official Github CLI tool"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-arch-pkg = "github-cli"
-
-[ghostty]
-description = "Fast, native, feature-rich terminal emulator pushing modern features"
-tags = [
-    "cat:aur",
-    "cat:cask",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew:darwin",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for gh"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [git]
-description = "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:system",
-    "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
-arch-pkg = "git-zsh-completion"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for git"
+custom-install = ""
+tags = ["cat:vcs", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "role:development", "scope:core"]
 
 [git-delta]
-description = "Syntax-highlighting pager for git and diff output"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
-fedora-pkg = "rust-git-delta"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for git-delta"
+custom-install = ""
+tags = ["cat:vcs", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "role:development", "scope:core"]
 
 [git-lfs]
-description = "Git extension for versioning large files"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for git-lfs"
+custom-install = ""
+tags = ["cat:vcs", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "role:development", "scope:core"]
 
 [gitleaks]
-description = "Audit git repos for secrets"
-tags = [
-    "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for gitleaks"
+custom-install = ""
+tags = ["cat:vcs", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "role:development", "priority:recommended", "scope:extended"]
 
 [gjs]
-description = "Javascript Bindings for GNOME"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for gjs"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [glances]
-description = "Alternative to top/htop"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for glances"
+custom-install = ""
+tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [glib2-devel]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for glib2-devel"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
 
 [glow]
-description = "Glow is a terminal based markdown reader."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for glow"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [gnome-calculator]
-description = "GNOME desktop calculator"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for gnome-calculator"
+custom-install = ""
+tags = ["cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
 
 [gnome-system-monitor]
-description = "Process and resource monitor"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:system",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for gnome-system-monitor"
+custom-install = ""
+tags = ["cat:system", "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
 
 [gnome-text-editor]
-description = "GNOME Text Editor"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:editor",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for gnome-text-editor"
+custom-install = ""
+tags = ["cat:editor", "cat:cli-tool", "de:gnome", "pm:apt", "priority:essential", "dist:debian", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [gnu-units]
-description = "GNU Units converts quantities expressed in various systems of measurement to their equivalents in other systems of measurement."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "units"
-arch-pkg = "units"
-fedora-pkg = "units"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for gnu-units"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [gnupg]
-description = "GnuPG is a complete and free implementation of the OpenPGP standard as defined by RFC4880 (also known as PGP)."
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "gnupg2"
-fedora-pkg = "gnupg2"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for gnupg"
+custom-install = ""
+tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [gobject-introspection]
-description = "GObject introspection is a middleware layer between C libraries (using GObject) and language bindings."
-tags = [
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-    "role:development",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for gobject-introspection"
+custom-install = ""
+tags = ["cat:cli-tool", "role:development", "priority:recommended", "scope:extended"]
 
 [grim]
-description = "Screenshot tool for Sway"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:sway",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for grim"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [grimblast]
-description = "A helper for screenshots within Hyprland."
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
-arch-pkg = "grimblast-git"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for grimblast"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [gtk-engine-murrine]
-description = "GTK2 engine to make your desktop look like a 'murrina', an italian word meaning the art glass works done by Venicians glass blowers."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:gnome",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for gtk-engine-murrine"
+custom-install = ""
+tags = ["cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
 
 [gtk-layer-shell]
-description = "Library to create Wayland desktop components using the Layer Shell protocol"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:shell",
-    "cat:terminal",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for gtk-layer-shell"
+custom-install = ""
+tags = ["cat:shell", "cat:terminal", "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
 
 [gtk3]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for gtk3"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
 
 [gtk4]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for gtk4"
-tags = ["os:linux", "os:macos", "pm:homebrew"]
+custom-install = ""
+tags = ["cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
 
 [gum]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for gum"
-tags = ["os:linux", "os:macos", "pm:homebrew"]
 custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [gvfs]
-description = "Virtual filesystem implementation for GIO"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
-arch-pkg = "gvfs-google"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for gvfs"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [gvfs-mtp]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for gvfs-mtp"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [htop]
-description = "htop is an interactive process viewer for Unix systems."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for htop"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [hyperfine]
-description = "Command-line benchmarking tool"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
-apt-pkg = "rust-hyperfine"
-fedora-pkg = "rust-hyperfine"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for hyperfine"
+custom-install = ""
+tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "cat:cli-tool", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [hypridle]
-description = "Hyprland's idle daemon"
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for hypridle"
+custom-install = ""
+tags = ["de:hyprland", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:linux", "priority:recommended", "scope:extended"]
 
 [hyprland]
-description = "Dynamic tiling Wayland compositor that doesn't sacrifice on its looks"
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for hyprland"
+custom-install = ""
+tags = ["de:hyprland", "priority:optional", "scope:workflow-specific"]
 
 [hyprlock]
-description = "Hyprland's GPU-accelerated screen locking utility"
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for hyprlock"
+custom-install = ""
+tags = ["de:hyprland", "priority:optional", "scope:workflow-specific"]
 
 [hyprpanel]
-description = "An opinionated panel/shell for the Hyprland compositor."
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for hyprpanel"
+custom-install = ""
+tags = ["de:hyprland", "priority:optional", "scope:workflow-specific"]
 
 [hyprpaper]
-description = "Blazing fast wayland wallpaper utility with IPC controls"
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for hyprpaper"
+custom-install = ""
+tags = ["de:hyprland", "priority:optional", "scope:workflow-specific"]
 
 [hyprpicker]
-description = "A wlroots-compatible Wayland color picker"
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for hyprpicker"
+custom-install = ""
+tags = ["de:hyprland", "priority:optional", "scope:workflow-specific"]
 
 [hyprpolkitagent]
-description = "Simple polkit authentication agent for Hyprland, written in QT/QML"
-tags = [
-    "cat:aur",
-    "cat:security",
-    "de:kde",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for hyprpolkitagent"
+custom-install = ""
+tags = ["de:hyprland", "priority:optional", "scope:workflow-specific"]
 
 [hyprshade]
-description = "Hyprland shade configuration tool"
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for hyprshade"
+custom-install = ""
+tags = ["de:hyprland", "priority:optional", "scope:workflow-specific"]
 
 [hyprshot]
-description = "Hyprland screenshot utility"
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for hyprshot"
+custom-install = ""
+tags = ["de:hyprland", "priority:optional", "scope:workflow-specific"]
 
 [hyprsunset]
-description = "An application to enable a blue-light filter on Hyprland"
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for hyprsunset"
+custom-install = ""
+tags = ["de:hyprland", "priority:optional", "scope:workflow-specific"]
 
 [imagemagick]
-description = "Use ImageMagick to create, edit, compose, or convert bitmap images."
-tags = [
-    "cat:aur",
-    "cat:graphics",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-fedora-pkg = "ImageMagick"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for imagemagick"
+custom-install = ""
+tags = ["cat:graphics", "priority:optional", "scope:workflow-specific"]
 
 [imv]
-description = "Image viewer for X11 and Wayland"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for imv"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [inetutils]
-description = "GNU utilities for networking"
-tags = [
-    "cat:aur",
-    "cat:network",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for inetutils"
+custom-install = ""
+tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [inxi]
-description = "inxi is a full featured CLI system information tool."
-tags = [
-    "cat:cli-tool",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for inxi"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
+
+["it.mijorus.gearlever"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for it.mijorus.gearlever"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [jj]
-description = "Git-compatible distributed version control system"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:system",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
-arch-pkg = "jujutsu"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for jj"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [jq]
-description = "jq is a lightweight and flexible command-line JSON processor."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for jq"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [jujutsu]
-description = "Git-compatible distributed version control system"
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for jujutsu"
+custom-install = ""
+tags = ["pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
 
 [just]
-description = "Handy way to save and run project-specific commands"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "rust-just"
-fedora-pkg = "rust-just"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for just"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [kitty]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for kitty"
-tags = ["cat:cask", "os:macos", "pm:homebrew:darwin"]
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [kvantum]
-description = "SVG-based theme engine for Qt5, KDE and LXQt"
-tags = [
-    "cat:aur",
-    "de:kde",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
-apt-pkg = "qt5-style-kvantum"
-arch-pkg = "kvantum-qt5"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for kvantum"
+custom-install = ""
+tags = ["pm:apt", "priority:essential", "dist:debian", "dist:arch", "cat:gui", "dist:fedora", "pm:pacman", "pm:dnf", "dist:ubuntu", "os:linux", "role:desktop", "priority:recommended", "scope:extended"]
 
 [lazydocker]
-description = "Lazier way to manage everything docker"
-tags = [
-    "cat:aur",
-    "cat:virtualization",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-    "role:development",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for lazydocker"
+custom-install = ""
+tags = ["cat:virtualization", "pm:homebrew", "dist:arch", "cat:aur", "pm:pacman", "os:macos", "os:linux", "role:development", "priority:recommended", "scope:extended"]
 
 [lazygit]
-description = "Simple terminal UI for git commands"
-tags = [
-    "cat:aur",
-    "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for lazygit"
+custom-install = ""
+tags = ["cat:vcs", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "cat:cli-tool", "pm:pacman", "os:macos", "dist:ubuntu", "os:linux", "role:development", "priority:recommended", "scope:extended"]
 
 [lazyjj]
-description = "TUI for Jujutsu/jj"
-tags = ["dist:arch", "os:linux", "os:macos", "pm:homebrew", "pm:pacman"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for lazyjj"
+custom-install = ""
+tags = ["pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
 
 [lazysql]
-description = "Cross-platform TUI database management tool"
-tags = [
-    "cat:aur",
-    "cat:database-tools",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for lazysql"
+custom-install = ""
+tags = ["cat:database-tools", "pm:homebrew", "dist:arch", "cat:aur", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
 
 [lego]
-description = "Let's Encrypt/ACME client and library written in Go"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:security",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for lego"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "role:development", "priority:recommended", "scope:extended"]
 
 [libadwaita]
-description = "Library of GNOME-specific UI patterns, replacing libhandy for GTK4"
-tags = [
-    "cat:aur",
-    "de:gnome",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "os:macos",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for libadwaita"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [libdbusmenu-gtk3]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for libdbusmenu-gtk3"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
 
 [libgtop]
-description = "A library for collecting system monitoring data"
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "libgtop2"
-fedora-pkg = "libgtop2"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for libgtop"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [libnotify]
-description = "A library for sending desktop notifications."
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for libnotify"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [libsoup3]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for libsoup3"
-tags = []
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [libspng]
-description = "libspng is a C library for reading and writing Portable Network Graphics (PNG) format files with a focus on security and ease of use."
-tags = [
-    "cat:aur",
-    "cat:network",
-    "cat:security",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for libspng"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [llvm]
-description = "LLVM Project Linker"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:virtualization",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "flang"
-arch-pkg = "compiler-rt"
-fedora-pkg = "clang"
-
-[logseq]
-description = "Privacy-first, open-source platform for knowledge sharing and management"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "os:linux",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-]
-arch-pkg = "logseq-desktop"
-flatpak-pkg = "com.logseq.Logseq"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for llvm"
+custom-install = ""
+tags = ["cat:virtualization", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "cat:development", "os:macos", "dist:ubuntu", "os:linux", "role:development", "priority:recommended", "scope:extended"]
 
 [loupe]
-description = "Image viewer"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for loupe"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [lsd]
-description = "Clone of ls with colorful output, file type icons, and more"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "rust-lsd"
-fedora-pkg = "rust-lsd"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for lsd"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [man-pages]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for man-pages"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [matugen]
-description = "A material you color generation tool with templates"
-tags = ["cat:aur", "dist:arch", "os:linux", "pm:pacman"]
-arch-pkg = "matugen-bin"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for matugen"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [mercurial]
-description = "Mercurial is a free, distributed source control management tool. It efficiently handles projects of any size and offers an easy and intuitive interface."
-tags = [
-    "cat:aur",
-    "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for mercurial"
+custom-install = ""
+tags = ["cat:vcs", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [meson]
-description = "Fast and user friendly build system"
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for meson"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [mission-center]
-description = "Monitor your CPU, Memory, Disk, Network and GPU usage"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:network",
-    "cat:system",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for mission-center"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [mousepad]
-description = "Simple text editor for Xfce desktop environment"
-tags = [
-    "cat:aur",
-    "de:xfce",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for mousepad"
+custom-install = ""
+tags = ["pm:apt", "priority:essential", "dist:debian", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [mpv]
-description = "Video player based on MPlayer/mplayer2"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:development",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-arch-pkg = "mpv-git"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for mpv"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [mpv-mpris]
-description = "MPRIS plugin for mpv"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for mpv-mpris"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [nano]
-description = "Free (GNU) replacement for the Pico text editor"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:editor",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for nano"
+custom-install = ""
+tags = ["cat:editor", "cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [nautilus]
-description = "Default file manager for GNOME"
-tags = [
-    "cat:aur",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for nautilus"
+custom-install = ""
+tags = ["de:gnome", "priority:optional", "scope:workflow-specific"]
 
 [nautilus-open-any-terminal]
-description = "context-menu entry for opening other terminal in nautilus"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:shell",
-    "cat:terminal",
-    "de:gnome",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for nautilus-open-any-terminal"
+custom-install = ""
+tags = ["cat:shell", "cat:terminal", "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
 
 [neovim]
-description = "Neovim is a refactor, and sometimes redactor, in the tradition of Vim (which itself derives from Stevie)."
-tags = [
-    "cat:aur",
-    "cat:editor",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for neovim"
+custom-install = ""
+tags = ["cat:editor", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "role:development", "priority:recommended", "scope:extended"]
+
+["net.davidotek.pupgui2"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for net.davidotek.pupgui2"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [network-manager-applet]
-description = "A network control and status applet for NetworkManager"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:network",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
-arch-pkg = "nm-connection-editor"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for network-manager-applet"
+custom-install = ""
+tags = ["cat:network", "cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [networkmanager]
-description = "Network connection manager and user applications"
-tags = [
-    "cat:aur",
-    "cat:network",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
-apt-pkg = "network-manager"
-arch-pkg = "networkmanager-docs"
-fedora-pkg = "NetworkManager"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for networkmanager"
+custom-install = ""
+tags = ["cat:network", "priority:optional", "scope:workflow-specific"]
 
 [niri]
-description = "Scrollable-tiling Wayland compositor"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:niri",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for niri"
+custom-install = ""
+tags = ["cat:cli-tool", "de:niri", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:linux", "priority:recommended", "scope:extended"]
 
 [nm-connection-editor]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for nm-connection-editor"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:editor", "cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [noto-fonts]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for noto-fonts"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [noto-fonts-cjk]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for noto-fonts-cjk"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [noto-fonts-emoji]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for noto-fonts-emoji"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [noto-fonts-extra]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for noto-fonts-extra"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [npm]
-description = "JavaScript package manager"
-tags = [
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for npm"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [nvtop]
-description = "Interactive GPU process monitor"
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for nvtop"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [nwg-displays]
-description = "Output management utility for sway and Hyprland Wayland compositors"
-tags = [
-    "cat:cli-tool",
-    "de:hyprland",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for nwg-displays"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [nwg-dock-hyprland]
-description = "GTK3-based dock for Hyprland"
-tags = [
-    "cat:cli-tool",
-    "de:gnome",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for nwg-dock-hyprland"
+custom-install = ""
+tags = ["cat:cli-tool", "de:hyprland", "dist:arch", "cat:gui", "dist:fedora", "pm:pacman", "pm:dnf", "os:linux", "role:desktop", "priority:recommended", "scope:extended"]
 
 [nwg-look]
-description = "GTK settings editor adapted to work on wlroots-based compositors"
-tags = [
-    "cat:cli-tool",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for nwg-look"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "dist:debian", "dist:arch", "cat:gui", "pm:pacman", "dist:ubuntu", "os:linux", "role:desktop", "priority:recommended", "scope:extended"]
 
-[obsproject]
-description = "TODO: Add description for obsproject"
-tags = ["os:linux", "pm:flatpak", "priority:flatpak", "role:data-science"]
-flatpak-pkg = "com.obsproject.Studio"
+["org.gnome.DejaDup"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for org.gnome.DejaDup"
+custom-install = ""
+tags = ["de:gnome", "priority:optional", "scope:workflow-specific"]
+
+["org.gnome.SimpleScan"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for org.gnome.SimpleScan"
+custom-install = ""
+tags = ["de:gnome", "priority:optional", "scope:workflow-specific"]
+
+["org.gnome.World.PikaBackup"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for org.gnome.World.PikaBackup"
+custom-install = ""
+tags = ["de:gnome", "priority:optional", "scope:workflow-specific"]
+
+["org.gustavoperedo.FontDownloader"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for org.gustavoperedo.FontDownloader"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+["org.mozilla.firefox"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for org.mozilla.firefox"
+custom-install = ""
+tags = ["cat:browser", "priority:optional", "scope:workflow-specific"]
+
+["org.signal.Signal"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for org.signal.Signal"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+["org.videolan.VLC"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for org.videolan.VLC"
+custom-install = ""
+tags = ["cat:development", "cat:multimedia", "role:content-creation", "role:development", "priority:recommended", "scope:extended"]
 
 [otf-font-awesome]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for otf-font-awesome"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "de:awesome", "priority:optional", "scope:workflow-specific"]
 
 [overmind]
-description = "Process manager for Procfile-based applications and tmux"
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for overmind"
+custom-install = ""
+tags = ["pm:homebrew", "dist:arch", "cat:aur", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
 
 [pacman-contrib]
-description = "Contributed scripts and tools for pacman systems"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:system",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for pacman-contrib"
+custom-install = ""
+tags = ["cat:cli-tool", "dist:arch", "pm:pacman", "os:linux", "priority:recommended", "scope:extended"]
 
 [pacseek]
-description = "A terminal user interface for searching and installing Arch Linux packages"
-tags = ["cat:aur", "dist:arch", "os:linux", "pm:pacman"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for pacseek"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [pamixer]
-description = "PulseAudio command line mixer"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for pamixer"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [papirus-icon-theme]
-description = "SVG icon theme for Linux, based on Paper Icon Set"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
-
-[parsec]
-description = "TODO: Add description for parsec"
-tags = [
-    "cat:cask",
-    "os:linux",
-    "os:macos",
-    "pm:flatpak",
-    "pm:homebrew:darwin",
-    "priority:flatpak",
-    "role:data-science",
-]
-flatpak-pkg = "com.parsecgaming.parsec"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for papirus-icon-theme"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [pavucontrol]
-description = "PulseAudio Volume Control"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for pavucontrol"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [pciutils]
-description = "The PCI Utilities are a collection of programs for inspecting and manipulating configuration of PCI devices, all based on a common portable library libpci which offers access to the PCI configuration space on a variety of operating systems."
-tags = [
-    "cat:aur",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew:linux",
-    "pm:pacman",
-]
-arch-pkg = "android-armv7a-eabi-pciutils"
-
-[pikabackup]
-description = "TODO: Add description for pikabackup"
-tags = ["os:linux", "pm:flatpak", "priority:flatpak"]
-flatpak-pkg = "org.gnome.World.PikaBackup"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for pciutils"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [pinta]
-description = "Simple Gtk# Paint Program"
-tags = [
-    "cat:aur",
-    "cat:cask",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew:darwin",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for pinta"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [pipewire]
-description = "PipeWire is a project that aims to greatly improve handling of audio and video under Linux."
-tags = [
-    "cat:aur",
-    "cat:development",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
-arch-pkg = "pipewire-libcamera"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for pipewire"
+custom-install = ""
+tags = ["pm:apt", "priority:essential", "dist:debian", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [pipewire-alsa]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for pipewire-alsa"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [pipewire-audio]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for pipewire-audio"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:multimedia", "cat:cli-tool", "role:content-creation", "priority:optional", "scope:workflow-specific"]
 
 [pipewire-pulse]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for pipewire-pulse"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [pixi]
-description = "Package management made easy"
-tags = [
-    "cat:cli-tool",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for pixi"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
 
 [pkg-config]
-description = "pkg-config is a helper tool used when compiling applications and libraries."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:homebrew",
-    "pm:pacman",
-]
-arch-pkg = "mingw-w64-pkg-config"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for pkg-config"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [playerctl]
-description = "Command-line MPRIS-compatible Media Player Controller"
-tags = [
-    "cat:aur",
-    "cat:multimedia",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
-arch-pkg = "playerctl-git"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for playerctl"
+custom-install = ""
+tags = ["cat:multimedia", "pm:apt", "priority:essential", "dist:debian", "dist:arch", "cat:cli-tool", "dist:fedora", "pm:pacman", "pm:dnf", "dist:ubuntu", "os:linux", "role:content-creation", "priority:recommended", "scope:extended"]
 
 [polkit-gnome]
-description = "PolicyKit integration for the GNOME desktop"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
-apt-pkg = "policykit-1-gnome"
-
-[postman]
-description = "Collaboration platform for API development"
-tags = [
-    "cat:aur",
-    "cat:development",
-    "dist:arch",
-    "os:linux",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-]
-flatpak-pkg = "com.getpostman.Postman"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for polkit-gnome"
+custom-install = ""
+tags = ["cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
 
 [power-profiles-daemon]
-description = "Makes power profiles handling available over D-Bus"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:filesystem",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for power-profiles-daemon"
+custom-install = ""
+tags = ["cat:filesystem", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [presenterm]
-description = "Terminal slideshow tool"
-tags = [
-    "cat:aur",
-    "cat:development",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for presenterm"
+custom-install = ""
+tags = ["pm:homebrew", "dist:arch", "cat:cli-tool", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
 
-[pupgui2]
-description = "TODO: Add description for pupgui2"
-tags = ["os:linux", "pm:flatpak", "priority:flatpak"]
-flatpak-pkg = "net.davidotek.pupgui2"
+[python]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for python"
+custom-install = ""
+tags = ["role:development", "priority:essential", "scope:core"]
+
+[python-gobject]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for python-gobject"
+custom-install = ""
+tags = ["cat:cli-tool", "role:development", "priority:essential", "scope:core"]
+
+[python-gpustat]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for python-gpustat"
+custom-install = ""
+tags = ["cat:cli-tool", "role:development", "priority:essential", "scope:core"]
+
+[python-pip]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for python-pip"
+custom-install = ""
+tags = ["cat:cli-tool", "role:development", "priority:essential", "scope:core"]
+
+[python-pyquery]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for python-pyquery"
+custom-install = ""
+tags = ["cat:cli-tool", "role:development", "priority:essential", "scope:core"]
+
+[python-pywalfox]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for python-pywalfox"
+custom-install = ""
+tags = ["cat:cli-tool", "role:development", "priority:essential", "scope:core"]
+
+[python-requests]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for python-requests"
+custom-install = ""
+tags = ["cat:cli-tool", "role:development", "priority:essential", "scope:core"]
+
+[python-screeninfo]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for python-screeninfo"
+custom-install = ""
+tags = ["cat:cli-tool", "role:development", "priority:essential", "scope:core"]
+
+[python3-gobject]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for python3-gobject"
+custom-install = ""
+tags = ["cat:cli-tool", "role:development", "priority:recommended", "scope:extended"]
+
+[python3-pip]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for python3-pip"
+custom-install = ""
+tags = ["cat:cli-tool", "role:development", "priority:recommended", "scope:extended"]
+
+[python3-pyquery]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for python3-pyquery"
+custom-install = ""
+tags = ["cat:cli-tool", "role:development", "priority:recommended", "scope:extended"]
+
+[python3-requests]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for python3-requests"
+custom-install = ""
+tags = ["cat:cli-tool", "role:development", "priority:recommended", "scope:extended"]
+
+[python3-screeninfo]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for python3-screeninfo"
+custom-install = ""
+tags = ["cat:cli-tool", "role:development", "priority:recommended", "scope:extended"]
 
 [pywal]
-description = "Generate and change colorschemes on the fly"
-tags = ["cat:aur", "dist:arch", "os:linux", "pm:pacman"]
-arch-pkg = "python-pywal"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for pywal"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [qalculate-gtk]
-description = "Multi-purpose desktop calculator"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for qalculate-gtk"
+custom-install = ""
+tags = ["cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
 
 [qt5-graphicaleffects]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for qt5-graphicaleffects"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific"]
 
 [qt5-quickcontrols2]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for qt5-quickcontrols2"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific"]
 
 [qt5-svg]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for qt5-svg"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific"]
 
 [qt5-wayland]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for qt5-wayland"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific"]
 
 [qt5ct]
-description = "Qt5 Configuration Tool"
-tags = [
-    "cat:aur",
-    "de:kde",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for qt5ct"
+custom-install = ""
+tags = ["de:kde", "priority:optional", "scope:workflow-specific"]
 
 [qt6-5compat]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for qt6-5compat"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific"]
 
 [qt6-declarative]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for qt6-declarative"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific"]
 
 [qt6-svg]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for qt6-svg"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific"]
 
 [qt6-wayland]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for qt6-wayland"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific"]
 
 [qt6ct]
-description = "Qt6 - Configuration Tool"
-tags = [
-    "cat:aur",
-    "de:kde",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for qt6ct"
+custom-install = ""
+tags = ["de:kde", "priority:optional", "scope:workflow-specific"]
 
 [ripgrep]
-description = "ripgrep recursively searches directories for a regex pattern"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
-apt-pkg = "rust-ripgrep"
-fedora-pkg = "rust-ripgrep"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for ripgrep"
+custom-install = ""
+tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [rofi-wayland]
-description = "Fork of rofi with Wayland support"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for rofi-wayland"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [rsync]
-description = "rsync is an open source utility that provides fast incremental file transfer."
-tags = [
-    "cat:aur",
-    "cat:development",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for rsync"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [rust]
-description = "Rust is a systems programming language that runs blazingly fast, prevents segfaults, and guarantees thread safety."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:development",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-    "role:development",
-]
-apt-pkg = "rustc"
-arch-pkg = "rust-src"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for rust"
+custom-install = ""
+tags = ["cat:cli-tool", "role:development", "priority:recommended", "scope:extended"]
 
 [sddm]
-description = "QML based desktop and login manager"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for sddm"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [shellcheck]
-description = "Static analysis tool for shell scripts"
-tags = [
-    "cat:aur",
-    "cat:shell",
-    "cat:terminal",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-fedora-pkg = "ShellCheck"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for shellcheck"
+custom-install = ""
+tags = ["cat:shell", "cat:terminal", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [shfmt]
-description = "Autoformat shell script source code"
-tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:homebrew",
-    "pm:pacman",
-]
-
-[signal]
-description = "TODO: Add description for signal"
-tags = [
-    "cat:cask",
-    "os:linux",
-    "os:macos",
-    "pm:flatpak",
-    "pm:homebrew:darwin",
-    "priority:flatpak",
-]
-flatpak-pkg = "org.signal.Signal"
-
-[simplescan]
-description = "TODO: Add description for simplescan"
-tags = ["os:linux", "pm:flatpak", "priority:flatpak"]
-flatpak-pkg = "org.gnome.SimpleScan"
-
-[slack]
-description = "Team communication and collaboration software"
-tags = [
-    "cat:aur",
-    "cat:communication",
-    "dist:arch",
-    "os:linux",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-    "role:desktop",
-]
-arch-pkg = "slack-electron"
-flatpak-pkg = "com.slack.Slack"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for shfmt"
+custom-install = ""
+tags = ["pm:apt", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [slurp]
-description = "Select a region in Sway"
-tags = [
-    "cat:aur",
-    "de:sway",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for slurp"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [sof-firmware]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for sof-firmware"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [starship]
-description = "Cross-shell prompt for astronauts"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for starship"
+custom-install = ""
+tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [swappy]
-description = "Wayland native snapshot editing tool, inspired by Snappy on macOS"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for swappy"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [swaync]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for swaync"
-tags = []
+custom-install = ""
+tags = ["de:sway", "priority:optional", "scope:workflow-specific"]
 
 [swww]
-description = "A Solution to your Wayland Wallpaper Woes"
-tags = ["cat:aur", "cat:cli-tool", "dist:arch", "os:linux", "pm:pacman"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for swww"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [tailscale]
-description = "Easiest, most secure way to use WireGuard and 2FA"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:fedora",
-    "os:linux",
-    "os:macos",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for tailscale"
+custom-install = ""
+tags = ["priority:essential", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
 
 [talosctl]
-description = "CLI for out-of-band management of Kubernetes nodes created by Talos"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for talosctl"
+custom-install = ""
+tags = ["pm:homebrew", "dist:arch", "cat:cli-tool", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
+
+[tap "charmbracelet/tap"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for tap "charmbracelet/tap""
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[tap "dhth/tap"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for tap "dhth/tap""
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[tap "jesseduffield/lazydocker"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for tap "jesseduffield/lazydocker""
+custom-install = ""
+tags = ["cat:virtualization", "role:development", "priority:recommended", "scope:extended"]
+
+[tap "siderolabs/tap"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for tap "siderolabs/tap""
+custom-install = ""
+tags = ["cat:development", "role:development", "priority:recommended", "scope:extended"]
 
 [thefuck]
-description = "Thef*ck is a magnificent app which corrects your previous console command."
-tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for thefuck"
+custom-install = ""
+tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "cat:cli-tool", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [thunar]
-description = "Thunar File Manager"
-tags = [
-    "cat:aur",
-    "de:xfce",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
-fedora-pkg = "Thunar"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for thunar"
+custom-install = ""
+tags = ["de:xfce", "priority:optional", "scope:workflow-specific"]
 
 [thunar-archive-plugin]
-description = "Archive plugin for the Thunar file manager"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:xfce",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for thunar-archive-plugin"
+custom-install = ""
+tags = ["cat:cli-tool", "de:xfce", "priority:optional", "scope:workflow-specific"]
 
 [thunar-volman]
-description = "Automatic management of removable drives and media for Thunar"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:xfce",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for thunar-volman"
+custom-install = ""
+tags = ["cat:cli-tool", "de:xfce", "priority:optional", "scope:workflow-specific"]
 
 [tlrc]
-description = "Official tldr client written in Rust"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for tlrc"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:homebrew", "dist:arch", "cat:aur", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
 
 [tmux]
-description = "tmux is a terminal multiplexer"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:shell",
-    "cat:terminal",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for tmux"
+custom-install = ""
+tags = ["cat:shell", "cat:terminal", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "scope:core"]
 
 [tpm]
-description = "Plugin manager for tmux"
-tags = ["cat:aur", "cat:cli-tool", "dist:arch", "os:linux", "pm:pacman"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for tpm"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:homebrew", "dist:arch", "cat:aur", "pm:pacman", "os:linux", "priority:recommended", "scope:extended"]
 
 [tree]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for tree"
-tags = ["os:linux", "os:macos", "pm:homebrew", "role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [ttf-dejavu]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for ttf-dejavu"
-tags = []
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [ttf-droid]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for ttf-droid"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [ttf-fantasque-nerd]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for ttf-fantasque-nerd"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [ttf-fira-code]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for ttf-fira-code"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [ttf-fira-sans]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for ttf-fira-sans"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [ttf-firacode-nerd]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for ttf-firacode-nerd"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [ttf-jetbrains-mono]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for ttf-jetbrains-mono"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [ttf-jetbrains-mono-nerd]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for ttf-jetbrains-mono-nerd"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [ttf-victor-mono]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for ttf-victor-mono"
-tags = ["role:data-science"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [tumbler]
-description = "D-Bus service for applications to request thumbnails"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for tumbler"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [typescript]
-description = "Language for application scale JavaScript development"
-tags = [
-    "cat:aur",
-    "cat:development",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for typescript"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [ugrep]
-description = "A more powerful, ultra fast, user-friendly, compatible grep"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for ugrep"
+custom-install = ""
+tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [umockdev]
-description = "Mock hardware devices for creating unit tests and bug reporting"
-tags = [
-    "de:kde",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew:linux",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for umockdev"
+custom-install = ""
+tags = ["de:kde", "priority:optional", "scope:workflow-specific"]
 
 [unzip]
-description = "UnZip is an extraction utility for archives compressed in .zip format (also called 'zipfiles')."
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for unzip"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [upower]
-description = "Abstraction for enumerating power devices, listening to device events and querying history and statistics"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for upower"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
+
+["us.zoom.Zoom"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for us.zoom.Zoom"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [uwsm]
-description = "A standalone Wayland session manager"
-tags = ["cat:cli-tool", "dist:arch", "os:linux", "pm:pacman"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for uwsm"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [vale]
-description = "Syntax-aware linter for prose"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for vale"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
 
 [vim]
-description = "Vim is a highly configurable text editor built to make creating and changing any kind of text very efficient. (with advanced features, such as a GUI)"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:editor",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-    "role:development",
-]
-
-[visual-studio-code]
-description = "Visual Studio Code - Code editing. Redefined."
-tags = [
-    "cat:cask",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:flatpak",
-    "pm:homebrew:darwin",
-    "pm:pacman",
-]
-apt-pkg = "code"
-arch-pkg = "visual-studio-code-bin"
-fedora-pkg = "code"
-flatpak-pkg = "com.visualstudio.code"
-
-[vlc]
-description = "Multimedia player"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:multimedia",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-    "role:desktop",
-]
-flatpak-pkg = "org.videolan.VLC"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for vim"
+custom-install = ""
+tags = ["cat:editor", "cat:cli-tool", "role:development", "priority:essential", "scope:core"]
 
 [wallust]
-description = "generate colors from an image"
-tags = ["cat:aur", "dist:arch", "os:linux", "pm:pacman"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for wallust"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [waybar]
-description = "Highly customizable Wayland bar for Sway and Wlroots based compositors"
-tags = [
-    "cat:aur",
-    "de:sway",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for waybar"
+custom-install = ""
+tags = ["de:sway", "priority:optional", "scope:workflow-specific"]
 
 [waypaper]
-description = "GUI wallpaper setter for Wayland and Xorg window managers. It works as a frontend for popular wallpaper backends like swaybg, swww, wallutils, hyprpaper and feh."
-tags = [
-    "cat:aur",
-    "de:hyprland",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for waypaper"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [wf-recorder]
-description = "Screen recorder for wlroots-based compositors eg swaywm"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:sway",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for wf-recorder"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [wget]
-description = "GNU Wget is a free software package for retrieving files using HTTP, HTTPS, FTP and FTPS."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:network",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "wget2"
-fedora-pkg = "wget2"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for wget"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "scope:core"]
 
 [whiptail]
-description = "displays dialog boxes from shell scripts."
-tags = []
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for whiptail"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [wireplumber]
-description = "A modular session/policy manager for PipeWire"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for wireplumber"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [wishlist]
-description = "The SSH directory - a single entrypoint for multiple SSH endpoints."
-tags = ["cat:aur", "cat:network", "dist:arch", "os:linux", "pm:pacman"]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for wishlist"
+custom-install = ""
+tags = ["pm:homebrew", "dist:arch", "cat:aur", "pm:pacman", "os:linux", "priority:recommended", "scope:extended"]
 
 [wl-clipboard]
-description = "Command-line copy/paste utilities for Wayland"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for wl-clipboard"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [wlogout]
-description = "Wayland based logout menu"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:development",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for wlogout"
+custom-install = ""
+tags = ["role:development", "priority:recommended", "scope:extended"]
 
 [wofi]
-description = "A launcher/menu for wlroots based wayland compositors"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for wofi"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [xarchiver]
-description = "Archive manager for Xfce"
-tags = [
-    "cat:aur",
-    "de:xfce",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
-arch-pkg = "xarchiver-gtk2"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for xarchiver"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [xclip]
-description = "Command line interface to the X11 clipboard"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for xclip"
+custom-install = ""
+tags = ["priority:optional", "scope:workflow-specific"]
 
 [xdg-desktop-portal-gtk]
-description = "Backend implementation for xdg-desktop-portal using GTK+"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:gnome",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for xdg-desktop-portal-gtk"
+custom-install = ""
+tags = ["cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
 
 [xdg-desktop-portal-hyprland]
-description = "xdg-desktop-portal backend for hyprland"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "de:hyprland",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for xdg-desktop-portal-hyprland"
+custom-install = ""
+tags = ["cat:cli-tool", "de:hyprland", "priority:optional", "scope:workflow-specific"]
 
 [xdg-user-dirs]
-description = "Handles user special directories"
-tags = [
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-    "role:data-science",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for xdg-user-dirs"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [xdg-utils]
-description = "xdg-utils is a set of tools that allows applications to easily integrate with the desktop environment of the user, regardless of the specific desktop environment that the user runs."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for xdg-utils"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [xz]
-description = "XZ Utils is free general-purpose data compression software with a high compression ratio."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "xz-utils"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for xz"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [yad]
-description = "display graphical dialogs from shell scripts or command line."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "pm:apt",
-    "pm:dnf",
-    "pm:pacman",
-]
-arch-pkg = "yad-gtk2"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for yad"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [yazi]
-description = "Blazing fast terminal file manager written in Rust, based on async I/O"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for yazi"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [yq]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
 description = "TODO: Add description for yq"
-tags = ["os:linux", "os:macos", "pm:homebrew"]
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [yt-dlp]
-description = "Feature-rich command-line audio/video downloader"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:development",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-
-[ytmdesktop]
-description = "A Desktop App for YouTube Music"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "os:linux",
-    "pm:flatpak",
-    "pm:pacman",
-    "priority:flatpak",
-]
-flatpak-pkg = "app.ytmdesktop.ytmdesktop"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for yt-dlp"
+custom-install = ""
+tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
 [zellij]
-description = "A terminal multiplexer"
-tags = [
-    "cat:aur",
-    "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:pacman",
-]
-
-[zen]
-description = "TODO: Add description for zen"
-tags = [
-    "cat:cask",
-    "os:linux",
-    "os:macos",
-    "pm:flatpak",
-    "pm:homebrew:darwin",
-    "priority:flatpak",
-]
-flatpak-pkg = "app.zen_browser.zen"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for zellij"
+custom-install = ""
+tags = ["pm:homebrew", "dist:arch", "cat:cli-tool", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
 
 [zip]
-description = "Zip is a compression and file packaging/archive utility for archives compressed in .zip format (also called 'zipfiles')."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-
-[zoom]
-description = "TODO: Add description for zoom"
-tags = [
-    "cat:cask",
-    "os:linux",
-    "os:macos",
-    "pm:flatpak",
-    "pm:homebrew:darwin",
-    "priority:flatpak",
-    "role:desktop",
-]
-flatpak-pkg = "us.zoom.Zoom"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for zip"
+custom-install = ""
+tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [zoxide]
-description = "zoxide is a smarter cd command, inspired by z and autojump."
-tags = [
-    "cat:aur",
-    "cat:development",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-apt-pkg = "rust-zoxide"
-fedora-pkg = "rust-zoxide"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for zoxide"
+custom-install = ""
+tags = ["cat:development", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "cat:cli-tool", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "role:development", "priority:recommended", "scope:extended"]
 
 [zsh]
-description = "Zsh is a shell designed for interactive use, although it is also a powerful scripting language."
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:shell",
-    "cat:terminal",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:pacman",
-]
-arch-pkg = "zsh-doc"
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for zsh"
+custom-install = ""
+tags = ["cat:shell", "cat:terminal", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "scope:core"]
 
 [zsh-completions]
-description = "Additional completion definitions for zsh"
-tags = [
-    "cat:aur",
-    "cat:cli-tool",
-    "cat:shell",
-    "cat:terminal",
-    "dist:arch",
-    "os:linux",
-    "pm:pacman",
-]
+arch-pkg = ""
+apt-pkg = ""
+fedora-pkg = ""
+flatpak-pkg = ""
+brew-tap = ""
+prefer_flatpak = false
+priority = ""
+description = "TODO: Add description for zsh-completions"
+custom-install = ""
+tags = ["cat:shell", "cat:terminal", "cat:cli-tool", "priority:essential", "scope:core"]
+
