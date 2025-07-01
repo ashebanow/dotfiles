@@ -1,0 +1,72 @@
+{
+  "atuin": {
+    "_repology_timestamp": 1751240259.551444,
+    "_timestamp": 1751386156.054415,
+    "tags": [
+      "pm:apt",
+      "dist:debian",
+      "dist:ubuntu",
+      "os:linux",
+      "pm:homebrew",
+      "pm:dnf",
+      "pm:pacman",
+      "os:macos",
+      "dist:fedora",
+      "priority:essential",
+      "dist:arch",
+      "priority:recommended",
+      "scope:extended"
+    ]
+  },
+  "bat": {
+    "_repology_timestamp": 1751240269.414958,
+    "_timestamp": 1751386024.5070798,
+    "tags": [
+      "cat:cli-tool",
+      "priority:optional",
+      "scope:workflow-specific"
+    ]
+  },
+  "biome": {
+    "_repology_timestamp": 1751240280.2095602,
+    "_timestamp": 1751386156.054451,
+    "tags": [
+      "os:linux",
+      "pm:homebrew",
+      "pm:pacman",
+      "os:macos",
+      "dist:arch",
+      "priority:recommended",
+      "scope:extended"
+    ]
+  },
+  "fd": {
+    "_repology_timestamp": 1751240358.543395,
+    "_timestamp": 1751386672.1511,
+    "tags": [
+      "cat:cli-tool",
+      "priority:optional",
+      "scope:workflow-specific"
+    ]
+  },
+  "gh": {
+    "_repology_timestamp": 1751240831.7823339,
+    "_timestamp": 1751386702.054275,
+    "tags": [
+      "cat:cli-tool",
+      "priority:optional",
+      "scope:workflow-specific"
+    ]
+  },
+  "vim": {
+    "_repology_timestamp": 0,
+    "_timestamp": 1751386024.507048,
+    "tags": [
+      "cat:editor",
+      "cat:cli-tool",
+      "role:development",
+      "priority:essential",
+      "scope:core"
+    ]
+  }
+}

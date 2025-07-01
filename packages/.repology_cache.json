@@ -1,61 +1,4 @@
 {
-  "act": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751240244.937004
-  },
-  "act3": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751240249.6624892
-  },
-  "antidote": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751240254.145725
-  },
   "atuin": {
     "platforms": {
       "arch_official": true,
@@ -99,25 +42,6 @@
     "brew-supports-darwin": true,
     "brew-is-cask": false,
     "_timestamp": 1751240264.9500868
-  },
-  "bat": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751240269.414958
   },
   "binsider": {
     "platforms": {
@@ -295,25 +219,6 @@
     "brew-is-cask": false,
     "_timestamp": 1751240312.674807
   },
-  "ctop": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751240317.142297
-  },
   "curl": {
     "platforms": {
       "arch_official": true,
@@ -402,25 +307,6 @@
     "brew-is-cask": false,
     "_timestamp": 1751240338.8002071
   },
-  "dust": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751240343.267246
-  },
   "eza": {
     "platforms": {
       "arch_official": true,
@@ -464,25 +350,6 @@
     "brew-supports-darwin": true,
     "brew-is-cask": false,
     "_timestamp": 1751240354.062028
-  },
-  "fd": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751240358.543395
   },
   "fish": {
     "platforms": {
@@ -609,25 +476,6 @@
     },
     "description": "Simple utility to install nerd fonts",
     "_timestamp": 1751240828.212845
-  },
-  "gh": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751240831.7823339
   },
   "git": {
     "platforms": {
@@ -805,25 +653,6 @@
     "brew-is-cask": false,
     "_timestamp": 1751240875.35746
   },
-  "gum": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751240879.863449
-  },
   "hyperfine": {
     "platforms": {
       "arch_official": true,
@@ -867,25 +696,6 @@
     "brew-supports-darwin": true,
     "brew-is-cask": false,
     "_timestamp": 1751240890.7120278
-  },
-  "jj": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751240895.1954298
   },
   "jujutsu": {
     "platforms": {
@@ -1393,25 +1203,6 @@
     "brew-is-cask": false,
     "_timestamp": 1751241020.217543
   },
-  "tree": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751241024.713045
-  },
   "ugrep": {
     "platforms": {
       "arch_official": true,
@@ -1521,25 +1312,6 @@
     "brew-supports-darwin": true,
     "brew-is-cask": false,
     "_timestamp": 1751241052.097655
-  },
-  "yq": {
-    "platforms": {
-      "arch_official": false,
-      "arch_aur": false,
-      "debian": false,
-      "ubuntu": false,
-      "fedora": false,
-      "homebrew": false,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": null,
-      "apt": null,
-      "fedora": null,
-      "flatpak": null
-    },
-    "description": null,
-    "_timestamp": 1751241056.6070652
   },
   "yt-dlp": {
     "platforms": {

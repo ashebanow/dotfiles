@@ -3,7 +3,8 @@
     "gh": "github-cli",
     "fd": "fd-find",
     "dust": "du-dust",
-    "python@3.11": "python"
+    "python@3.11": "python",
+    "bat": "bat-cat"
   },
   "notes": {
     "purpose": "Maps Homebrew package names to their corresponding Repology project names",

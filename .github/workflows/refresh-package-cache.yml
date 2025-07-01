@@ -11,6 +11,18 @@ on:
         required: false
         default: 'auto'
         type: string
+  push:
+    paths:
+      - 'packages/.repology_cache.json'
+      - 'packages/.tag_cache.json'
+      - 'packages/package_name_mappings.json'
+    branches:
+      - main
+  pull_request:
+    paths:
+      - 'packages/.repology_cache.json'
+      - 'packages/.tag_cache.json'
+      - 'packages/package_name_mappings.json'
 
 permissions:
   contents: write
@@ -41,14 +53,26 @@ jobs:
     - name: Determine cache segment to refresh
       id: segment
       run: |
-        if [[ "${{ github.event.inputs.segment }}" == "all" ]]; then
+        # Determine if this is a validation run (PR) or refresh run
+        if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+          echo "mode=validate" >> $GITHUB_OUTPUT
+          echo "segment=validate" >> $GITHUB_OUTPUT
+          echo "description=Cache validation (PR)" >> $GITHUB_OUTPUT
+        elif [[ "${{ github.event_name }}" == "push" ]]; then
+          echo "mode=validate" >> $GITHUB_OUTPUT
+          echo "segment=validate" >> $GITHUB_OUTPUT
+          echo "description=Cache validation (push)" >> $GITHUB_OUTPUT
+        elif [[ "${{ github.event.inputs.segment }}" == "all" ]]; then
+          echo "mode=refresh" >> $GITHUB_OUTPUT
           echo "segment=all" >> $GITHUB_OUTPUT
           echo "description=Full cache refresh" >> $GITHUB_OUTPUT
         elif [[ "${{ github.event.inputs.segment }}" =~ ^[0-6]$ ]]; then
+          echo "mode=refresh" >> $GITHUB_OUTPUT
           echo "segment=${{ github.event.inputs.segment }}" >> $GITHUB_OUTPUT
           echo "description=Manual oldest-entries refresh (day ${{ github.event.inputs.segment }})" >> $GITHUB_OUTPUT
         else
           # Auto mode: use day of week (0=Sunday, 6=Saturday) 
+          echo "mode=refresh" >> $GITHUB_OUTPUT
           segment=$(date +%w)
           echo "segment=$segment" >> $GITHUB_OUTPUT
           echo "description=Daily oldest-entries refresh (day $segment)" >> $GITHUB_OUTPUT
@@ -71,7 +95,217 @@ jobs:
         
         # Import the package analysis functionality
         sys.path.insert(0, str(Path(__file__).parent))
-        from package_analysis_cli import RepologyClient, load_toml
+        from package_analysis_cli import load_toml
+        
+        import requests
+        
+        class RepologyClient:
+            """Client for querying Repology package information."""
+            
+            def __init__(self, cache_file: str = None):
+                self.cache_file = cache_file
+                self.cache = {}
+                self.name_mappings = {}
+                self.api_base_url = "https://repology.org/api/v1"
+                self.session = requests.Session()
+                self.session.headers.update({
+                    "User-Agent": "dotfiles-package-manager/1.0 (ashebanow@cattivi.com)"
+                })
+                
+                # Load existing cache if available
+                if cache_file and Path(cache_file).exists():
+                    try:
+                        with open(cache_file, 'r') as f:
+                            self.cache = json.load(f)
+                    except Exception as e:
+                        print(f"Error loading cache: {e}")
+                        self.cache = {}
+                
+                # Load package name mappings
+                cache_dir = Path(cache_file).parent if cache_file else Path("packages")
+                mappings_file = cache_dir / "package_name_mappings.json"
+                if mappings_file.exists():
+                    try:
+                        with open(mappings_file, 'r') as f:
+                            mappings_data = json.load(f)
+                            self.name_mappings = mappings_data.get('homebrew_to_repology', {})
+                            if self.name_mappings:
+                                print(f"Loaded {len(self.name_mappings)} package name mappings")
+                    except Exception as e:
+                        print(f"Warning: Could not load package name mappings: {e}")
+            
+            def query_package(self, package_name: str) -> Optional[dict]:
+                """Query package information from Repology."""
+                # Check if already in cache (try both original and mapped names)
+                cache_key = package_name
+                if package_name in self.cache:
+                    cache_entry = self.cache[package_name]
+                    if isinstance(cache_entry, dict) and '_timestamp' in cache_entry:
+                        # Return cached data - handle both old and new cache formats
+                        if 'data' in cache_entry:
+                            return cache_entry.get('data')
+                        else:
+                            # Old format - data is stored directly
+                            return cache_entry
+                
+                # Try mapped name if original not found
+                mapped_name = self.name_mappings.get(package_name)
+                if mapped_name and mapped_name in self.cache:
+                    cache_entry = self.cache[mapped_name]
+                    if isinstance(cache_entry, dict) and '_timestamp' in cache_entry:
+                        print(f"  Using cached data for mapped name: {package_name} -> {mapped_name}")
+                        cache_key = mapped_name  # Use mapped name as cache key
+                        if 'data' in cache_entry:
+                            return cache_entry.get('data')
+                        else:
+                            return cache_entry
+                
+                # Query Repology API (use mapped name if available)
+                query_name = mapped_name if mapped_name else package_name
+                if mapped_name:
+                    print(f"  Querying Repology with mapped name: {package_name} -> {mapped_name}")
+                    cache_key = mapped_name  # Store under mapped name
+                
+                try:
+                    url = f"{self.api_base_url}/project/{query_name}"
+                    response = self.session.get(url, timeout=30)
+                    
+                    if response.status_code == 404:
+                        # Package not found
+                        result = None
+                    elif response.status_code == 200:
+                        data = response.json()
+                        # Process and structure the data
+                        result = self._process_repology_data(package_name, data)
+                    else:
+                        print(f"API error for {package_name}: {response.status_code}")
+                        result = None
+                    
+                    # Cache the result in the existing format
+                    if result:
+                        self.cache[cache_key] = {
+                            **result,
+                            '_timestamp': time.time()
+                        }
+                    else:
+                        # For not found packages, store minimal entry
+                        self.cache[cache_key] = {
+                            'platforms': {
+                                "arch_official": False,
+                                "arch_aur": False,
+                                "debian": False,
+                                "ubuntu": False,
+                                "fedora": False,
+                                "homebrew": False,
+                                "flatpak": False
+                            },
+                            'package_names': {
+                                "arch": None,
+                                "apt": None,
+                                "fedora": None,
+                                "flatpak": None
+                            },
+                            'description': None,
+                            '_timestamp': time.time()
+                        }
+                    
+                    # Save cache after each query
+                    if self.cache_file:
+                        self._save_cache()
+                    
+                    return result
+                    
+                except Exception as e:
+                    print(f"Error querying {package_name}: {e}")
+                    return None
+            
+            def _process_repology_data(self, package_name: str, data: list) -> dict:
+                """Process raw Repology data into our format."""
+                platforms = {
+                    "arch_official": False,
+                    "arch_aur": False, 
+                    "debian": False,
+                    "ubuntu": False,
+                    "fedora": False,
+                    "homebrew": False,
+                    "flatpak": False
+                }
+                
+                package_names = {
+                    "arch": None,
+                    "apt": None,
+                    "fedora": None,
+                    "flatpak": None
+                }
+                
+                description = None
+                brew_supports_darwin = False
+                brew_supports_linux = False
+                brew_is_cask = False
+                
+                # Process each repository entry
+                for entry in data:
+                    repo = entry.get("repo", "")
+                    binname = entry.get("binname", package_name)
+                    
+                    # Map repository to our platform categories
+                    if repo == "arch":
+                        platforms["arch_official"] = True
+                        package_names["arch"] = binname
+                    elif repo == "aur":
+                        platforms["arch_aur"] = True
+                        if not package_names["arch"]:
+                            package_names["arch"] = binname
+                    elif repo.startswith("debian_") or repo == "debian":
+                        platforms["debian"] = True
+                        package_names["apt"] = binname
+                    elif repo.startswith("ubuntu_"):
+                        platforms["ubuntu"] = True
+                        if not package_names["apt"]:
+                            package_names["apt"] = binname
+                    elif repo.startswith("fedora_"):
+                        platforms["fedora"] = True
+                        package_names["fedora"] = binname
+                    elif repo == "homebrew":
+                        platforms["homebrew"] = True
+                        brew_supports_darwin = True
+                        brew_supports_linux = True  # Default for formula
+                    elif repo == "homebrew_casks":
+                        platforms["homebrew"] = True
+                        brew_is_cask = True
+                        brew_supports_darwin = True
+                        brew_supports_linux = False  # Casks are macOS only
+                    elif repo == "flathub":
+                        platforms["flatpak"] = True
+                        package_names["flatpak"] = binname
+                    
+                    # Get description from first entry
+                    if not description and "summary" in entry:
+                        description = entry["summary"]
+                
+                result = {
+                    "platforms": platforms,
+                    "package_names": package_names,
+                    "description": description
+                }
+                
+                # Add Homebrew metadata if applicable
+                if platforms["homebrew"]:
+                    result["brew-supports-darwin"] = brew_supports_darwin
+                    result["brew-supports-linux"] = brew_supports_linux
+                    result["brew-is-cask"] = brew_is_cask
+                
+                return result
+            
+            def _save_cache(self):
+                """Save cache to file."""
+                try:
+                    with open(self.cache_file, 'w') as f:
+                        json.dump(self.cache, f, indent=2)
+                except Exception as e:
+                    print(f"Error saving cache: {e}")
+        
+        from typing import Optional
         
         def refresh_cache_segment(cache_file: str, segment: int, total_segments: int = 7):
             """Refresh the oldest 1/7 of cache entries."""
@@ -154,9 +388,13 @@ jobs:
                 age_days = age / (24 * 60 * 60) if age != float('inf') else 'never cached'
                 print(f"  [{i}/{len(packages_to_refresh)}] Refreshing {package_name} (age: {age_days})")
                 
-                # Force refresh by temporarily removing from cache
+                # Force refresh by temporarily removing from cache (check both names)
                 if package_name in client.cache:
                     del client.cache[package_name]
+                # Also check mapped name
+                mapped_name = client.name_mappings.get(package_name)
+                if mapped_name and mapped_name in client.cache:
+                    del client.cache[mapped_name]
                 
                 # Query package (will add back to cache with new timestamp)
                 result = client.query_package(package_name)
@@ -167,8 +405,13 @@ jobs:
                     # The RepologyClient caches None results for 404s
                     if package_name in client.cache:
                         cache_entry = client.cache[package_name]
-                        if isinstance(cache_entry, dict) and cache_entry.get('data') is None:
-                            not_found_count += 1
+                        # Check if all platforms are false (indicates not found)
+                        if isinstance(cache_entry, dict) and 'platforms' in cache_entry:
+                            platforms = cache_entry.get('platforms', {})
+                            if all(not v for v in platforms.values()):
+                                not_found_count += 1
+                            else:
+                                error_count += 1
                         else:
                             error_count += 1
                     else:
@@ -254,18 +497,73 @@ jobs:
         
     - name: Refresh cache segment
       run: |
-        echo "Starting cache refresh: ${{ steps.segment.outputs.description }}"
-        python bin/refresh_cache_segment.py --segment "${{ steps.segment.outputs.segment }}" --cache packages/.repology_cache.json
+        echo "Starting cache operation: ${{ steps.segment.outputs.description }}"
+        if [[ "${{ steps.segment.outputs.mode }}" == "validate" ]]; then
+          echo "Validation mode - checking cache integrity and mappings..."
+          # Validate cache structure
+          python -c "
+import json
+from pathlib import Path
+
+# Validate Repology cache
+cache_file = Path('packages/.repology_cache.json')
+if cache_file.exists():
+    with open(cache_file) as f:
+        cache = json.load(f)
+    print(f'✅ Repology cache: {len(cache)} entries')
+    
+    # Check for empty entries
+    empty_count = sum(1 for entry in cache.values() 
+                     if isinstance(entry, dict) and 'platforms' in entry 
+                     and all(not v for v in entry['platforms'].values()))
+    if empty_count > 0:
+        print(f'⚠️  Found {empty_count} empty entries (should be cleaned)')
+    else:
+        print('✅ No empty entries found')
+else:
+    print('❌ Repology cache file not found')
+
+# Validate name mappings
+mappings_file = Path('packages/package_name_mappings.json')
+if mappings_file.exists():
+    with open(mappings_file) as f:
+        mappings = json.load(f)
+    homebrew_mappings = mappings.get('homebrew_to_repology', {})
+    print(f'✅ Package name mappings: {len(homebrew_mappings)} entries')
+else:
+    print('❌ Package name mappings file not found')
+"
+        else
+          python bin/refresh_cache_segment.py --segment "${{ steps.segment.outputs.segment }}" --cache packages/.repology_cache.json
+        fi
         
     - name: Regenerate package mappings if cache updated
       timeout-minutes: 10
       run: |
-        if ! git diff --quiet packages/.repology_cache.json; then
+        should_regenerate=false
+        
+        if [[ "${{ steps.segment.outputs.mode }}" == "validate" ]]; then
+          echo "Validation mode - always regenerating to check consistency..."
+          should_regenerate=true
+        elif ! git diff --quiet packages/.repology_cache.json; then
           echo "Cache updated, regenerating package_mappings.toml..."
+          should_regenerate=true
+        else
+          echo "No cache changes detected"
+        fi
+        
+        if [[ "$should_regenerate" == "true" ]]; then
+          # Clean stale entries from tag cache first
+          if [ -f packages/.tag_cache.json ]; then
+            echo "Cleaning stale tag cache entries..."
+            python bin/tag_cache_utils.py clean --cache packages/.tag_cache.json
+          fi
+          
           python bin/package_analysis_cli.py \
             --package-lists packages/Brewfile.in packages/Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
             --output packages/package_mappings.toml.new \
-            --cache packages/.repology_cache.json
+            --cache packages/.repology_cache.json \
+            --tag-cache packages/.tag_cache.json
           
           # Check if TOML changed
           if ! diff -q packages/package_mappings.toml packages/package_mappings.toml.new >/dev/null 2>&1; then
@@ -275,14 +573,12 @@ jobs:
             echo "ℹ️  No changes to package mappings"
             rm packages/package_mappings.toml.new
           fi
-        else
-          echo "No cache changes detected"
         fi
     
     - name: Check if files were updated
       id: check_changes
       run: |
-        if git diff --quiet packages/.repology_cache.json packages/package_mappings.toml; then
+        if git diff --quiet packages/.repology_cache.json packages/package_mappings.toml packages/.tag_cache.json; then
           echo "has_changes=false" >> $GITHUB_OUTPUT
           echo "No changes to package files"
         else
@@ -293,6 +589,11 @@ jobs:
           echo "Cache file size:" $(du -h packages/.repology_cache.json | cut -f1)
           echo "Number of cache entries:" $(jq 'keys | length' packages/.repology_cache.json)
           
+          if [[ -f packages/.tag_cache.json ]]; then
+            echo "Tag cache size:" $(du -h packages/.tag_cache.json | cut -f1)
+            echo "Number of tag entries:" $(jq 'keys | length' packages/.tag_cache.json)
+          fi
+          
           if [[ -f packages/package_mappings.toml ]]; then
             echo "TOML file size:" $(du -h packages/package_mappings.toml | cut -f1)
             echo "Number of packages:" $(grep -c '^\[' packages/package_mappings.toml)
@@ -300,7 +601,7 @@ jobs:
         fi
         
     - name: Commit updated cache
-      if: steps.check_changes.outputs.has_changes == 'true'
+      if: steps.check_changes.outputs.has_changes == 'true' && steps.segment.outputs.mode == 'refresh'
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
@@ -309,7 +610,7 @@ jobs:
         ENTRIES=$(jq 'keys | length' packages/.repology_cache.json)
         CACHE_SIZE=$(du -h packages/.repology_cache.json | cut -f1)
         
-        git add packages/.repology_cache.json packages/package_mappings.toml
+        git add packages/.repology_cache.json packages/package_mappings.toml packages/.tag_cache.json
         git commit -m "🔄 ${{ steps.segment.outputs.description }}
 
         Updated Repology package cache by refreshing oldest entries.
@@ -324,16 +625,21 @@ jobs:
         🤖 Automated update via GitHub Actions"
         
     - name: Push changes
-      if: steps.check_changes.outputs.has_changes == 'true'
+      if: steps.check_changes.outputs.has_changes == 'true' && steps.segment.outputs.mode == 'refresh'
       run: |
         git push
         echo "✅ Cache updated and pushed to repository"
         
-    - name: Cache refresh summary
+    - name: Cache operation summary
       run: |
-        echo "## Cache Refresh Summary" >> $GITHUB_STEP_SUMMARY
+        if [[ "${{ steps.segment.outputs.mode }}" == "validate" ]]; then
+          echo "## Cache Validation Summary" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "## Cache Refresh Summary" >> $GITHUB_STEP_SUMMARY
+        fi
         echo "" >> $GITHUB_STEP_SUMMARY
-        echo "- **Segment**: ${{ steps.segment.outputs.segment }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Mode**: ${{ steps.segment.outputs.mode }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Trigger**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
         echo "- **Description**: ${{ steps.segment.outputs.description }}" >> $GITHUB_STEP_SUMMARY
         echo "- **Changes**: ${{ steps.check_changes.outputs.has_changes }}" >> $GITHUB_STEP_SUMMARY
         
@@ -344,5 +650,27 @@ jobs:
           echo "- **Cache size**: $CACHE_SIZE" >> $GITHUB_STEP_SUMMARY
         fi
         
+        if [[ -f packages/.tag_cache.json ]]; then
+          TAG_ENTRIES=$(jq 'keys | length' packages/.tag_cache.json)
+          TAG_SIZE=$(du -h packages/.tag_cache.json | cut -f1)
+          echo "- **Tag cache entries**: $TAG_ENTRIES packages" >> $GITHUB_STEP_SUMMARY
+          echo "- **Tag cache size**: $TAG_SIZE" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        if [[ -f packages/package_name_mappings.json ]]; then
+          MAPPINGS=$(jq '.homebrew_to_repology | keys | length' packages/package_name_mappings.json)
+          echo "- **Package name mappings**: $MAPPINGS entries" >> $GITHUB_STEP_SUMMARY
+        fi
+        
         echo "" >> $GITHUB_STEP_SUMMARY
-        echo "Next scheduled run: $(date -d 'tomorrow 02:00 UTC' -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        if [[ "${{ steps.segment.outputs.mode }}" == "validate" ]]; then
+          echo "**Validation completed** - no changes were committed." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### What was validated:" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Cache file structure and integrity" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Package name mappings format" >> $GITHUB_STEP_SUMMARY  
+          echo "- ✅ TOML generation from current cache" >> $GITHUB_STEP_SUMMARY
+          echo "- ✅ Tag generation system functionality" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "Next scheduled run: $(date -d 'tomorrow 02:00 UTC' -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+        fi

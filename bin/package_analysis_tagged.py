@@ -31,11 +31,40 @@ def analyze_repology_data_for_tags(repology_data: Dict[str, Any]) -> List[str]:
     if not repology_data:
         return tags
 
-    # Analyze categories from different repositories
+    # Handle our cache format
+    platforms = repology_data.get("platforms", {})
+    
+    # Generate OS and PM tags from platform availability
+    if platforms.get("arch_official") or platforms.get("arch_aur"):
+        tags.extend(["os:linux", "dist:arch", "pm:pacman"])
+        if platforms.get("arch_aur") and not platforms.get("arch_official"):
+            tags.append("cat:aur")
+    
+    if platforms.get("debian"):
+        tags.extend(["os:linux", "dist:debian", "pm:apt"])
+    
+    if platforms.get("ubuntu"):
+        tags.extend(["os:linux", "dist:ubuntu", "pm:apt"])
+    
+    if platforms.get("fedora"):
+        tags.extend(["os:linux", "dist:fedora", "pm:dnf"])
+    
+    if platforms.get("homebrew"):
+        tags.append("pm:homebrew")
+        # Check if it's macOS specific
+        if repology_data.get("brew-supports-darwin", True):
+            tags.append("os:macos")
+        if repology_data.get("brew-supports-linux", False):
+            tags.append("os:linux")
+        if repology_data.get("brew-is-cask", False):
+            tags.append("cat:cask")
+    
+    if platforms.get("flatpak"):
+        tags.extend(["os:linux", "pm:flatpak"])
+    
+    # Analyze categories from different repositories (if available in future)
     categories_seen = set()
-    for platform_data in repology_data.get("platforms", {}).values():
-        if "categories" in platform_data:
-            categories_seen.update(platform_data["categories"])
+    # Note: Current cache format doesn't include categories
 
     # Map Repology categories to our tags
     category_mapping = {
@@ -67,19 +96,25 @@ def analyze_repology_data_for_tags(repology_data: Dict[str, Any]) -> List[str]:
             if key in cat_lower:
                 tags.append(tag)
 
-    # Analyze package availability for role tags
-    platforms = repology_data.get("platforms", {})
-
+    # Count how many platforms support this package
+    platform_count = sum(1 for v in platforms.values() if v)
+    
     # If available on many platforms, likely a core tool
-    if len(platforms) > 5:
+    if platform_count > 3:
         tags.append("priority:essential")
-
-    # GUI vs CLI detection
-    if any(
-        "gui" in str(v).lower() or "gtk" in str(v).lower() or "qt" in str(v).lower()
-        for v in platforms.values()
-    ):
-        tags.append("cat:gui")
+    
+    # Use description for additional categorization
+    description = repology_data.get("description", "").lower()
+    if description:
+        # GUI vs CLI detection
+        if any(term in description for term in ["gui", "gtk", "qt", "graphical", "desktop"]):
+            tags.append("cat:gui")
+        elif any(term in description for term in ["cli", "command", "terminal"]):
+            tags.append("cat:cli-tool")
+        
+        # Development tool detection
+        if any(term in description for term in ["compiler", "debugger", "development", "programming"]):
+            tags.append("cat:development")
 
     return list(set(tags))  # Remove duplicates
 

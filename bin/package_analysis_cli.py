@@ -17,9 +17,60 @@ sys.path.insert(0, str(Path(__file__).parent))
 
 try:
     from package_analysis_tagged import enhance_package_entry_with_tags
+    from tag_cache_utils import TagCache
 except ImportError as e:
-    print(f"Error importing package_analysis_tagged: {e}")
+    print(f"Error importing required modules: {e}")
     sys.exit(1)
+
+class RepologyCache:
+    """Simple cache reader for existing Repology cache format."""
+    
+    def __init__(self, cache_file: str = None):
+        self.cache = {}
+        self.name_mappings = {}
+        
+        if cache_file and Path(cache_file).exists():
+            try:
+                with open(cache_file, 'r') as f:
+                    self.cache = json.load(f)
+            except Exception as e:
+                print(f"Warning: Could not load Repology cache: {e}")
+        
+        # Load package name mappings
+        cache_dir = Path(cache_file).parent if cache_file else Path("packages")
+        mappings_file = cache_dir / "package_name_mappings.json"
+        if mappings_file.exists():
+            try:
+                with open(mappings_file, 'r') as f:
+                    mappings_data = json.load(f)
+                    self.name_mappings = mappings_data.get('homebrew_to_repology', {})
+            except Exception as e:
+                print(f"Warning: Could not load package name mappings: {e}")
+    
+    def get_package_data(self, package_name: str) -> dict:
+        """Get cached data for a package, checking name mappings."""
+        # First try direct lookup
+        data = self.cache.get(package_name, {})
+        
+        # If not found, try mapped name
+        if not data and package_name in self.name_mappings:
+            mapped_name = self.name_mappings[package_name]
+            data = self.cache.get(mapped_name, {})
+            if data:
+                print(f"  Using mapped name: {package_name} -> {mapped_name}")
+        
+        return data
+    
+    def query_package(self, package_name: str) -> dict:
+        """Query method for compatibility with enhance_package_entry_with_tags."""
+        data = self.get_package_data(package_name)
+        # Return None if no data or all platforms are false
+        if not data:
+            return None
+        platforms = data.get('platforms', {})
+        if all(not v for v in platforms.values()):
+            return None
+        return data
 
 # Import TOML handling
 try:
@@ -88,9 +139,29 @@ def create_basic_package_entry(package_name: str) -> dict:
         "tags": []
     }
 
-def analyze_packages(package_names: list, output_file: str = None, cache_file: str = None):
+def analyze_packages(package_names: list, output_file: str = None, cache_file: str = None, 
+                    tag_cache_file: str = None, use_tag_cache: bool = True):
     """Analyze packages and generate TOML entries."""
     results = {}
+    
+    # Load Repology cache if available
+    repology_client = None
+    if cache_file:
+        repology_client = RepologyCache(cache_file)
+        print(f"Loaded Repology cache with {len(repology_client.cache)} entries")
+    
+    # Load tag cache if enabled
+    tag_cache = None
+    if use_tag_cache:
+        if not tag_cache_file:
+            # Default location in packages directory
+            tag_cache_file = str(Path(cache_file).parent / ".tag_cache.json") if cache_file else ".tag_cache.json"
+        tag_cache = TagCache(tag_cache_file)
+        stats = tag_cache.get_stats()
+        print(f"Loaded tag cache with {stats['fresh_entries']} fresh entries")
+    
+    cache_hits = 0
+    cache_misses = 0
     
     for package_name in package_names:
         print(f"Analyzing package: {package_name}")
@@ -98,13 +169,44 @@ def analyze_packages(package_names: list, output_file: str = None, cache_file: s
         # Create basic entry
         entry = create_basic_package_entry(package_name)
         
-        # Enhance with tags
-        try:
-            enhanced_entry = enhance_package_entry_with_tags(package_name, entry)
-            results[package_name] = enhanced_entry
-        except Exception as e:
-            print(f"Warning: Could not enhance {package_name} with tags: {e}")
+        # Check tag cache first
+        cached_tags = None
+        repology_timestamp = None
+        
+        if tag_cache and repology_client:
+            # Get Repology data timestamp
+            repology_data = repology_client.get_package_data(package_name)
+            repology_timestamp = repology_data.get('_timestamp') if repology_data else None
+            
+            # Try to get cached tags
+            cached_tags = tag_cache.get_tags(package_name, repology_timestamp)
+            
+        if cached_tags is not None:
+            # Use cached tags
+            entry['tags'] = cached_tags
             results[package_name] = entry
+            cache_hits += 1
+        else:
+            # Compute tags
+            try:
+                enhanced_entry = enhance_package_entry_with_tags(
+                    package_name, entry, repology_client=repology_client
+                )
+                results[package_name] = enhanced_entry
+                cache_misses += 1
+                
+                # Cache the computed tags
+                if tag_cache:
+                    tag_cache.set_tags(package_name, enhanced_entry.get('tags', []), repology_timestamp)
+                    
+            except Exception as e:
+                print(f"Warning: Could not enhance {package_name} with tags: {e}")
+                results[package_name] = entry
+    
+    # Save tag cache if modified
+    if tag_cache:
+        tag_cache.save()
+        print(f"Tag cache stats: {cache_hits} hits, {cache_misses} misses")
     
     if output_file:
         write_toml(results, output_file)
@@ -173,7 +275,16 @@ def main():
     )
     parser.add_argument(
         "--cache", 
-        help="Cache file (for compatibility, not used)"
+        help="Repology cache file to use for enhanced tag generation"
+    )
+    parser.add_argument(
+        "--tag-cache", 
+        help="Tag cache file (defaults to .tag_cache.json in same dir as --cache)"
+    )
+    parser.add_argument(
+        "--no-tag-cache", 
+        action="store_true",
+        help="Disable tag caching"
     )
     parser.add_argument(
         "--existing-toml", 
@@ -193,12 +304,24 @@ def main():
     
     if args.package:
         # Analyze specific packages
-        analyze_packages(args.package, args.output, args.cache)
+        analyze_packages(
+            args.package, 
+            args.output, 
+            args.cache,
+            tag_cache_file=args.tag_cache,
+            use_tag_cache=not args.no_tag_cache
+        )
     elif args.package_lists:
         # Parse package lists and analyze all packages
         all_packages = parse_package_lists(args.package_lists)
         if all_packages:
-            analyze_packages(list(all_packages), args.output, args.cache)
+            analyze_packages(
+                list(all_packages), 
+                args.output, 
+                args.cache,
+                tag_cache_file=args.tag_cache,
+                use_tag_cache=not args.no_tag_cache
+            )
         else:
             print("No packages found in package lists")
             return 1
