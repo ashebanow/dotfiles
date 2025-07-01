@@ -23,6 +23,6 @@ lib/__pycache__/
 tests/__pycache__/
 tests/generated_packages/
 tests/output/
-tests/.debug_cache.json
+tests/debug_cache.json
 tests/test_cache.json
 tests/validation_cache.json

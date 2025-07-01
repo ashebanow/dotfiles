@@ -13,15 +13,15 @@ on:
         type: string
   push:
     paths:
-      - 'packages/.repology_cache.json'
-      - 'packages/.tag_cache.json'
+      - 'packages/repology_cache.json'
+      - 'packages/tag_cache.json'
       - 'packages/package_name_mappings.json'
     branches:
       - main
   pull_request:
     paths:
-      - 'packages/.repology_cache.json'
-      - 'packages/.tag_cache.json'
+      - 'packages/repology_cache.json'
+      - 'packages/tag_cache.json'
       - 'packages/package_name_mappings.json'
 
 permissions:
@@ -471,7 +471,7 @@ jobs:
             parser = argparse.ArgumentParser(description='Refresh package cache segment')
             parser.add_argument('--segment', type=str, required=True,
                               help='Segment to refresh (0-6) or "all" for full refresh')
-            parser.add_argument('--cache', default='.repology_cache.json',
+            parser.add_argument('--cache', default='repology_cache.json',
                               help='Cache file path')
             
             args = parser.parse_args()
@@ -504,8 +504,8 @@ jobs:
         if [[ "${{ steps.segment.outputs.mode }}" == "validate" ]]; then
           echo "Validation mode - checking cache integrity and mappings..."
           # Validate cache structure
-          if [[ -f "packages/.repology_cache.json" ]]; then
-            CACHE_ENTRIES=$(jq 'keys | length' packages/.repology_cache.json)
+          if [[ -f "packages/repology_cache.json" ]]; then
+            CACHE_ENTRIES=$(jq 'keys | length' packages/repology_cache.json)
             echo "✅ Repology cache: $CACHE_ENTRIES entries"
           else
             echo "❌ Repology cache file not found"
@@ -518,7 +518,7 @@ jobs:
             echo "❌ Package name mappings file not found"
           fi
         else
-          python bin/refresh_cache_segment.py --segment "${{ steps.segment.outputs.segment }}" --cache packages/.repology_cache.json
+          python bin/refresh_cache_segment.py --segment "${{ steps.segment.outputs.segment }}" --cache packages/repology_cache.json
         fi
         
     - name: Regenerate package mappings if cache updated
@@ -529,7 +529,7 @@ jobs:
         if [[ "${{ steps.segment.outputs.mode }}" == "validate" ]]; then
           echo "Validation mode - always regenerating to check consistency..."
           should_regenerate=true
-        elif ! git diff --quiet packages/.repology_cache.json; then
+        elif ! git diff --quiet packages/repology_cache.json; then
           echo "Cache updated, regenerating package_mappings.toml..."
           should_regenerate=true
         else
@@ -538,16 +538,16 @@ jobs:
         
         if [[ "$should_regenerate" == "true" ]]; then
           # Clean stale entries from tag cache first
-          if [ -f packages/.tag_cache.json ]; then
+          if [ -f packages/tag_cache.json ]; then
             echo "Cleaning stale tag cache entries..."
-            python bin/tag_cache_utils.py clean --cache packages/.tag_cache.json
+            python bin/tag_cache_utils.py clean --cache packages/tag_cache.json
           fi
           
           python bin/package_analysis_cli.py \
             --package-lists packages/Brewfile.in packages/Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
             --output packages/package_mappings.toml.new \
-            --cache packages/.repology_cache.json \
-            --tag-cache packages/.tag_cache.json
+            --cache packages/repology_cache.json \
+            --tag-cache packages/tag_cache.json
           
           # Check if TOML changed
           if ! diff -q packages/package_mappings.toml packages/package_mappings.toml.new >/dev/null 2>&1; then
@@ -562,7 +562,7 @@ jobs:
     - name: Check if files were updated
       id: check_changes
       run: |
-        if git diff --quiet packages/.repology_cache.json packages/package_mappings.toml packages/.tag_cache.json; then
+        if git diff --quiet packages/repology_cache.json packages/package_mappings.toml packages/tag_cache.json; then
           echo "has_changes=false" >> $GITHUB_OUTPUT
           echo "No changes to package files"
         else
@@ -570,12 +570,12 @@ jobs:
           echo "Package files have been updated"
           
           # Show some stats about the changes
-          echo "Cache file size:" $(du -h packages/.repology_cache.json | cut -f1)
-          echo "Number of cache entries:" $(jq 'keys | length' packages/.repology_cache.json)
+          echo "Cache file size:" $(du -h packages/repology_cache.json | cut -f1)
+          echo "Number of cache entries:" $(jq 'keys | length' packages/repology_cache.json)
           
-          if [[ -f packages/.tag_cache.json ]]; then
-            echo "Tag cache size:" $(du -h packages/.tag_cache.json | cut -f1)
-            echo "Number of tag entries:" $(jq 'keys | length' packages/.tag_cache.json)
+          if [[ -f packages/tag_cache.json ]]; then
+            echo "Tag cache size:" $(du -h packages/tag_cache.json | cut -f1)
+            echo "Number of tag entries:" $(jq 'keys | length' packages/tag_cache.json)
           fi
           
           if [[ -f packages/package_mappings.toml ]]; then
@@ -591,10 +591,10 @@ jobs:
         git config --local user.name "GitHub Action"
         
         # Create descriptive commit message
-        ENTRIES=$(jq 'keys | length' packages/.repology_cache.json)
-        CACHE_SIZE=$(du -h packages/.repology_cache.json | cut -f1)
+        ENTRIES=$(jq 'keys | length' packages/repology_cache.json)
+        CACHE_SIZE=$(du -h packages/repology_cache.json | cut -f1)
         
-        git add packages/.repology_cache.json packages/package_mappings.toml packages/.tag_cache.json
+        git add packages/repology_cache.json packages/package_mappings.toml packages/tag_cache.json
         git commit -m "🔄 ${{ steps.segment.outputs.description }}
 
         Updated Repology package cache by refreshing oldest entries.
@@ -627,16 +627,16 @@ jobs:
         echo "- **Description**: ${{ steps.segment.outputs.description }}" >> $GITHUB_STEP_SUMMARY
         echo "- **Changes**: ${{ steps.check_changes.outputs.has_changes }}" >> $GITHUB_STEP_SUMMARY
         
-        if [[ -f packages/.repology_cache.json ]]; then
-          ENTRIES=$(jq 'keys | length' packages/.repology_cache.json)
-          CACHE_SIZE=$(du -h packages/.repology_cache.json | cut -f1)
+        if [[ -f packages/repology_cache.json ]]; then
+          ENTRIES=$(jq 'keys | length' packages/repology_cache.json)
+          CACHE_SIZE=$(du -h packages/repology_cache.json | cut -f1)
           echo "- **Total entries**: $ENTRIES packages" >> $GITHUB_STEP_SUMMARY
           echo "- **Cache size**: $CACHE_SIZE" >> $GITHUB_STEP_SUMMARY
         fi
         
-        if [[ -f packages/.tag_cache.json ]]; then
-          TAG_ENTRIES=$(jq 'keys | length' packages/.tag_cache.json)
-          TAG_SIZE=$(du -h packages/.tag_cache.json | cut -f1)
+        if [[ -f packages/tag_cache.json ]]; then
+          TAG_ENTRIES=$(jq 'keys | length' packages/tag_cache.json)
+          TAG_SIZE=$(du -h packages/tag_cache.json | cut -f1)
           echo "- **Tag cache entries**: $TAG_ENTRIES packages" >> $GITHUB_STEP_SUMMARY
           echo "- **Tag cache size**: $TAG_SIZE" >> $GITHUB_STEP_SUMMARY
         fi

@@ -279,7 +279,7 @@ def refresh_cache_segment(cache_file: str, segment: int, total_segments: int = 7
 def main():
     parser = argparse.ArgumentParser(description='Refresh package cache segment')
     parser.add_argument('--segment', type=str, required=True)
-    parser.add_argument('--cache', default='.repology_cache.json')
+    parser.add_argument('--cache', default='repology_cache.json')
     return 0
 
 if __name__ == "__main__":

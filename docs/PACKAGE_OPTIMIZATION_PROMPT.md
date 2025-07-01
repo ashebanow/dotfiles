@@ -90,7 +90,7 @@ Fixed User-Agent from "Python" to proper format, resolving 403 Forbidden errors 
 ### Development Environment
 - Python 3.11 via Homebrew (override for SSL compatibility)
 - Dependencies: `toml`, `requests` libraries
-- Cache files: `.repology_cache.json`, `.debug_cache.json`
+- Cache files: `repology_cache.json`, `debug_cache.json`
 - Platform: macOS Darwin with chezmoi dotfiles management
 
 ### Testing Commands

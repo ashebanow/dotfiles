@@ -14,7 +14,7 @@ from typing import Dict, List, Optional, Any
 class TagCache:
     """Manages cached tags for packages."""
     
-    def __init__(self, cache_file: str = ".tag_cache.json", ttl_days: int = 7):
+    def __init__(self, cache_file: str = "tag_cache.json", ttl_days: int = 7):
         self.cache_file = cache_file
         self.ttl_seconds = ttl_days * 24 * 60 * 60
         self.cache = self._load_cache()
@@ -160,7 +160,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Tag cache management utilities")
     parser.add_argument('command', choices=['stats', 'clean', 'merge'],
                         help='Command to execute')
-    parser.add_argument('--cache', default='.tag_cache.json',
+    parser.add_argument('--cache', default='tag_cache.json',
                         help='Cache file path')
     parser.add_argument('--secondary', help='Secondary cache for merge')
     parser.add_argument('--output', help='Output cache for merge')

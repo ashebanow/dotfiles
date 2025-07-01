@@ -155,7 +155,7 @@ def analyze_packages(package_names: list, output_file: str = None, cache_file: s
     if use_tag_cache:
         if not tag_cache_file:
             # Default location in packages directory
-            tag_cache_file = str(Path(cache_file).parent / ".tag_cache.json") if cache_file else ".tag_cache.json"
+            tag_cache_file = str(Path(cache_file).parent / "tag_cache.json") if cache_file else "tag_cache.json"
         tag_cache = TagCache(tag_cache_file)
         stats = tag_cache.get_stats()
         print(f"Loaded tag cache with {stats['fresh_entries']} fresh entries")
@@ -279,7 +279,7 @@ def main():
     )
     parser.add_argument(
         "--tag-cache", 
-        help="Tag cache file (defaults to .tag_cache.json in same dir as --cache)"
+        help="Tag cache file (defaults to tag_cache.json in same dir as --cache)"
     )
     parser.add_argument(
         "--no-tag-cache", 

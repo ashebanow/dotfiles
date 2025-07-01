@@ -14,7 +14,7 @@ regen-toml:
     uv run bin/package_analysis_cli.py \
         --package-lists packages/Brewfile.in packages/Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
         --output packages/package_mappings.toml.new \
-        --cache packages/.repology_cache.json
+        --cache packages/repology_cache.json
     echo "Generated packages/package_mappings.toml.new"
     echo "Review changes with: diff packages/package_mappings.toml packages/package_mappings.toml.new"
     echo "Apply changes with: mv packages/package_mappings.toml.new packages/package_mappings.toml"
@@ -29,7 +29,7 @@ regen-toml-apply:
     uv run bin/package_analysis_cli.py \
         --package-lists packages/Brewfile.in packages/Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
         --output packages/package_mappings.toml \
-        --cache packages/.repology_cache.json
+        --cache packages/repology_cache.json
     echo "✓ Updated packages/package_mappings.toml"
 
 # Complete workflow: regenerate TOML and generate package lists
@@ -53,7 +53,7 @@ add-packages *packages:
     uv run bin/package_analysis_cli.py \
         --package {{packages}} \
         --output packages/temp_packages.toml \
-        --cache packages/.repology_cache.json
+        --cache packages/repology_cache.json
     echo "Generated packages/temp_packages.toml with package data"
 
 # Add custom installation entry interactively
@@ -217,7 +217,7 @@ format-and-lint:
 debug-package package:
     #!/usr/bin/env bash
     echo "Debugging package: {{package}}"
-    uv run bin/package_analysis_cli.py --package {{package}} --cache tests/.debug_cache.json
+    uv run bin/package_analysis_cli.py --package {{package}} --cache tests/debug_cache.json
 
 # Show package mapping for specific package
 [group('debug')]
@@ -235,7 +235,7 @@ show-package package:
 clean:
     #!/usr/bin/env bash
     echo "Cleaning up cache and temporary files..."
-    rm -f packages/.repology_cache.json tests/.debug_cache.json
+    rm -f packages/repology_cache.json tests/debug_cache.json
     rm -f packages/temp_packages.toml packages/package_mappings.toml.new
     rm -rf tests/generated_packages/
     rm -rf tests/temp_test_output/
@@ -246,7 +246,7 @@ clean:
 clean-expired-cache:
     #!/usr/bin/env bash
     echo "Cleaning expired cache entries..."
-    uv run bin/clean_cache.py packages/.repology_cache.json
+    uv run bin/clean_cache.py packages/repology_cache.json
     echo "✓ Expired cache entries cleaned"
 
 # Refresh a specific segment of the cache (0-6)
@@ -260,7 +260,7 @@ refresh-cache-segment segment:
         echo "You can manually refresh cache with: just clean-expired-cache && just regen-toml"
         exit 1
     fi
-    uv run bin/refresh_cache_segment.py --segment {{segment}} --cache packages/.repology_cache.json
+    uv run bin/refresh_cache_segment.py --segment {{segment}} --cache packages/repology_cache.json
     echo "✓ Cache segment {{segment}} refreshed"
 
 # Show cache statistics and segment information
@@ -270,10 +270,10 @@ cache-stats:
     echo "Package Cache Statistics"
     echo "======================="
     
-    if [[ -f "packages/.repology_cache.json" ]]; then
-            uv run bin/clean_cache.py packages/.repology_cache.json --stats-only
+    if [[ -f "packages/repology_cache.json" ]]; then
+            uv run bin/clean_cache.py packages/repology_cache.json --stats-only
     else
-        echo "❌ No cache file found (packages/.repology_cache.json)"
+        echo "❌ No cache file found (packages/repology_cache.json)"
         echo "Run 'just regen-toml' to create initial cache"
     fi
 

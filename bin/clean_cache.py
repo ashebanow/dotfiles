@@ -10,7 +10,7 @@ import time
 from pathlib import Path
 
 
-def show_cache_stats(cache_file: str = ".repology_cache.json", ttl_days: int = 7):
+def show_cache_stats(cache_file: str = "repology_cache.json", ttl_days: int = 7):
     """Show cache statistics."""
     ttl_seconds = ttl_days * 24 * 60 * 60
 
@@ -64,7 +64,7 @@ def show_cache_stats(cache_file: str = ".repology_cache.json", ttl_days: int = 7
             print(f"🔄 Cache health: {(fresh_count/total_entries)*100:.1f}% fresh entries")
 
 
-def clean_expired_cache(cache_file: str = ".repology_cache.json", ttl_days: int = 7, remove_empty: bool = False):
+def clean_expired_cache(cache_file: str = "repology_cache.json", ttl_days: int = 7, remove_empty: bool = False):
     """Clean expired entries from cache file."""
     backup_file = cache_file + ".backup"
     ttl_seconds = ttl_days * 24 * 60 * 60
@@ -134,7 +134,7 @@ def clean_expired_cache(cache_file: str = ".repology_cache.json", ttl_days: int 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Clean expired cache entries or show stats")
     parser.add_argument(
-        "cache_file", nargs="?", default=".repology_cache.json", help="Cache file path"
+        "cache_file", nargs="?", default="repology_cache.json", help="Cache file path"
     )
     parser.add_argument(
         "--stats-only", action="store_true", help="Only show statistics, do not clean"

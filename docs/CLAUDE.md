@@ -32,7 +32,7 @@ Uses chezmoi's templating with platform detection:
 All package-related files are organized in the `packages/` directory:
 - Package lists: Brewfile, Archfile, Aptfile, Flatfile, etc.
 - Metadata: package_mappings.toml, package_name_mappings.json
-- Cache: .repology_cache.json
+- Cache: repology_cache.json
 
 ## Development Commands
 
@@ -153,7 +153,7 @@ just generate-package-lists
 
 ```bash
 # Package analysis - ALWAYS use 10-minute timeout (600000ms)
-uv run bin/package_analysis.py --package-lists packages/Brewfile.in --output packages/package_mappings.toml --cache packages/.repology_cache.json
+uv run bin/package_analysis.py --package-lists packages/Brewfile.in --output packages/package_mappings.toml --cache packages/repology_cache.json
 
 # Other long-running commands that may need extended timeout:
 # - bin/package_analysis.py (Repology API calls)

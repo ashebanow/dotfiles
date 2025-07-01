@@ -63,7 +63,7 @@ check_package_files_status() {
 }
 
 show_cache_status() {
-    local cache_file="$DOTFILES_DIR/packages/.repology_cache.json"
+    local cache_file="$DOTFILES_DIR/packages/repology_cache.json"
     
     echo "🗄️  Checking cache status..."
     echo ""
