@@ -166,6 +166,25 @@ The package analysis tool makes many sequential API calls to Repology and can ta
 
 **Important**: UV manages Python installations directly, ensuring proper SSL compatibility for Repology API access without requiring Homebrew Python.
 
+### ⚠️ CRITICAL: Repology API User-Agent Requirement
+**NEVER FORGET**: ALL Repology API calls MUST include a proper User-Agent header with email contact:
+```
+User-Agent: dotfiles-package-manager/1.0 (ashebanow@cattivi.com)
+```
+
+This includes:
+- Direct `curl` commands for debugging/testing Repology API
+- Any new scripts that query Repology
+- Manual API testing during development
+
+**Repology blocks requests without proper User-Agent headers with 403 Forbidden errors.**
+
+The package analysis scripts already include this header, but manual debugging calls often forget it. Use:
+```bash
+# Correct way to test Repology API
+curl -H "User-Agent: dotfiles-package-manager/1.0 (ashebanow@cattivi.com)" "https://repology.org/api/v1/project/package-name"
+```
+
 #### Migration Status
 **Current State**: Gradual migration to TOML-driven system
 - ✅ **TOML as source of truth**: `package_mappings.toml` contains all package metadata
