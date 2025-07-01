@@ -92,6 +92,7 @@ jobs:
         import sys
         import time
         from pathlib import Path
+        from typing import Optional
         
         # Import the package analysis functionality
         sys.path.insert(0, str(Path(__file__).parent))
@@ -304,8 +305,6 @@ jobs:
                         json.dump(self.cache, f, indent=2)
                 except Exception as e:
                     print(f"Error saving cache: {e}")
-        
-        from typing import Optional
         
         def refresh_cache_segment(cache_file: str, segment: int, total_segments: int = 7):
             """Refresh the oldest 1/7 of cache entries."""
