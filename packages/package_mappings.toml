@@ -286,7 +286,7 @@ description = "TODO: Add description for caddy"
 custom-install = ""
 tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
-[cask "claude"]
+[claude]
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -294,11 +294,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "claude""
+description = "TODO: Add description for claude"
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
-[cask "dolphin"]
+[dolphin]
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -306,11 +306,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "dolphin""
+description = "TODO: Add description for dolphin"
 custom-install = ""
 tags = ["de:kde", "priority:optional", "scope:workflow-specific"]
 
-[cask "ghostty"]
+[ghostty]
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -318,11 +318,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "ghostty""
+description = "TODO: Add description for ghostty"
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
-[cask "kitty"]
+[kitty]
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -330,11 +330,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "kitty""
+description = "TODO: Add description for kitty"
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
-[cask "parsec"]
+[parsec]
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -342,11 +342,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "parsec""
+description = "TODO: Add description for parsec"
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
-[cask "pinta"]
+[pinta]
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -354,11 +354,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "pinta""
+description = "TODO: Add description for pinta"
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
-[cask "signal"]
+[signal]
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -366,11 +366,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "signal""
+description = "TODO: Add description for signal"
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
-[cask "visual-studio-code"]
+[visual-studio-code]
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -378,11 +378,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "visual-studio-code""
+description = "TODO: Add description for visual-studio-code"
 custom-install = ""
 tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
-[cask "zen"]
+[zen]
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -390,11 +390,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "zen""
+description = "TODO: Add description for zen"
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
-[cask "zoom"]
+[zoom]
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -402,7 +402,7 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "zoom""
+description = "TODO: Add description for zoom"
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
@@ -621,18 +621,6 @@ priority = ""
 description = "TODO: Add description for dive"
 custom-install = ""
 tags = ["cat:cli-tool", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
-
-[dolphin]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for dolphin"
-custom-install = ""
-tags = ["de:kde", "priority:optional", "scope:workflow-specific"]
 
 [duf]
 arch-pkg = ""
@@ -1474,18 +1462,6 @@ description = "TODO: Add description for just"
 custom-install = ""
 tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
 
-[kitty]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for kitty"
-custom-install = ""
-tags = ["priority:optional", "scope:workflow-specific"]
-
 [kvantum]
 arch-pkg = ""
 apt-pkg = ""
@@ -2158,18 +2134,6 @@ description = "TODO: Add description for pciutils"
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
-[pinta]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for pinta"
-custom-install = ""
-tags = ["priority:optional", "scope:workflow-specific"]
-
 [pipewire]
 arch-pkg = ""
 apt-pkg = ""
@@ -2770,7 +2734,7 @@ description = "TODO: Add description for talosctl"
 custom-install = ""
 tags = ["pm:homebrew", "dist:arch", "cat:cli-tool", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
 
-[tap "charmbracelet/tap"]
+[charmbracelet-tap]
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -2778,11 +2742,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for tap "charmbracelet/tap""
+description = "TODO: Add description for charmbracelet/tap"
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
-[tap "dhth/tap"]
+[dhth-tap]
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -2790,11 +2754,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for tap "dhth/tap""
+description = "TODO: Add description for dhth/tap"
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
-[tap "jesseduffield/lazydocker"]
+[jesseduffield-lazydocker]
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -2802,11 +2766,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for tap "jesseduffield/lazydocker""
+description = "TODO: Add description for jesseduffield/lazydocker"
 custom-install = ""
 tags = ["cat:virtualization", "role:development", "priority:recommended", "scope:extended"]
 
-[tap "siderolabs/tap"]
+[siderolabs-tap]
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -2814,7 +2778,7 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for tap "siderolabs/tap""
+description = "TODO: Add description for siderolabs/tap"
 custom-install = ""
 tags = ["cat:development", "role:development", "priority:recommended", "scope:extended"]
 
