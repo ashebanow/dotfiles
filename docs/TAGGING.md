@@ -88,6 +88,7 @@ This design allows flexibility for users to add their own organizational tags wh
 - `pm:homebrew` - Homebrew packages (any platform where Homebrew is available)
 - `pm:homebrew:darwin` - Homebrew packages specifically for macOS
 - `pm:homebrew:linux` - Homebrew packages specifically for Linux
+- `pm:homebrew:cask` - Homebrew casks (macOS GUI applications)
 - `pm:apt` - APT packages (Debian/Ubuntu)
 - `pm:pacman` - Pacman packages (Arch)
 - `pm:dnf` - DNF packages (Fedora/RHEL)
@@ -98,7 +99,9 @@ This design allows flexibility for users to add their own organizational tags wh
 **Note on Homebrew tags**: 
 - Use `pm:homebrew` when a package works with Homebrew on both macOS and Linux
 - Use `pm:homebrew:darwin` or `pm:homebrew:linux` when a package only works on a specific platform
+- Use `pm:homebrew:cask` for Homebrew casks (macOS GUI applications) - these are automatically Darwin-only
 - The platform-specific tags are more specific and will override the general `pm:homebrew` tag during filtering
+- Cask packages should typically also include `os:macos` as they are macOS-specific GUI applications
 
 ### Software Category Tags (`cat:`)
 
