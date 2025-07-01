@@ -1657,28 +1657,6 @@
     "brew-is-cask": false,
     "_timestamp": 1751388857.9607236
   },
-  "github-cli": {
-    "platforms": {
-      "arch_official": true,
-      "arch_aur": true,
-      "debian": true,
-      "ubuntu": true,
-      "fedora": true,
-      "homebrew": true,
-      "flatpak": false
-    },
-    "package_names": {
-      "arch": "github-cli",
-      "apt": "gh",
-      "fedora": "gh",
-      "flatpak": null
-    },
-    "description": "The GitHub CLI",
-    "brew-supports-darwin": true,
-    "brew-supports-linux": true,
-    "brew-is-cask": false,
-    "_timestamp": 1751388860.1845238
-  },
   "bluez-utils": {
     "platforms": {
       "arch_official": false,
@@ -2118,5 +2096,801 @@
     },
     "description": null,
     "_timestamp": 1751388911.8390906
+  },
+  "hyprpanel": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "hyprpanel",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "An opinionated panel/shell for the Hyprland compositor.",
+    "_timestamp": 1751396832.4584854
+  },
+  "org.videolan.VLC": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751396834.7435353
+  },
+  "xdg-desktop-portal-gtk": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "xdg-desktop-portal-gtk",
+      "apt": "xdg-desktop-portal-gtk",
+      "fedora": "xdg-desktop-portal-gtk",
+      "flatpak": null
+    },
+    "description": "A backend implementation for xdg-desktop-portal using GTK",
+    "_timestamp": 1751396837.0307121
+  },
+  "ttf-jetbrains-mono": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751396839.315767
+  },
+  "mpv": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "mpv",
+      "apt": "mpv",
+      "fedora": "mpv",
+      "flatpak": null
+    },
+    "description": "An improved fork of mplayer",
+    "brew-supports-darwin": true,
+    "brew-supports-linux": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751396841.605297
+  },
+  "ttf-fira-sans": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751396843.8901424
+  },
+  "pinta": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "pinta",
+      "apt": "pinta",
+      "fedora": "pinta",
+      "flatpak": null
+    },
+    "description": "An easy to use drawing and image editing program",
+    "brew-supports-darwin": true,
+    "brew-supports-linux": false,
+    "brew-is-cask": true,
+    "_timestamp": 1751396846.176065
+  },
+  "python-pip": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751396848.4610837
+  },
+  "org.mozilla.firefox": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751396850.7471974
+  },
+  "gobject-introspection": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "libgirepository",
+      "apt": "gobject-introspection",
+      "fedora": "gobject-introspection",
+      "flatpak": null
+    },
+    "description": "Introspection system for GObject-based libraries",
+    "brew-supports-darwin": true,
+    "brew-supports-linux": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751396853.03907
+  },
+  "fd-find": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "fd",
+      "apt": "fd",
+      "fedora": "fd",
+      "flatpak": null
+    },
+    "description": "Simple, fast and user-friendly alternative to find",
+    "brew-supports-darwin": true,
+    "brew-supports-linux": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751396855.3262541
+  },
+  "grimblast": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "grimblast-git",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "A helper for screenshots within Hyprland.",
+    "_timestamp": 1751396857.6115081
+  },
+  "htop": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "htop",
+      "apt": "htop",
+      "fedora": "htop",
+      "flatpak": null
+    },
+    "description": "Interactive process viewer",
+    "brew-supports-darwin": true,
+    "brew-supports-linux": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751396859.899143
+  },
+  "pywal": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "python-pywal",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Color palette generator and applicator",
+    "_timestamp": 1751396862.185599
+  },
+  "xdg-user-dirs": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "xdg-user-dirs",
+      "apt": "xdg-user-dirs",
+      "fedora": "xdg-user-dirs",
+      "flatpak": null
+    },
+    "description": "Handles user special directories",
+    "_timestamp": 1751396864.4745016
+  },
+  "yad": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "yad",
+      "apt": "yad",
+      "fedora": "yad",
+      "flatpak": null
+    },
+    "description": "A fork of zenity - display graphical dialogs from shell scripts or command line",
+    "_timestamp": 1751396866.7615418
+  },
+  "swaync": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751396869.0467284
+  },
+  "pipewire-alsa": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751396871.3316536
+  },
+  "fonts-noto-color-emoji": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751396873.6174445
+  },
+  "bat-cat": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "bat",
+      "apt": "bat",
+      "fedora": "bat",
+      "flatpak": null
+    },
+    "description": "cat clone with additional features",
+    "brew-supports-darwin": true,
+    "brew-supports-linux": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751396875.904942
+  },
+  "networkmanager": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "lib32-libnm",
+      "apt": "networkmanager",
+      "fedora": "networkmanager",
+      "flatpak": null
+    },
+    "description": "NetworkManager client library",
+    "_timestamp": 1751396878.1963236
+  },
+  "python-screeninfo": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751396880.4817543
+  },
+  "ttf-victor-mono": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751396882.7674797
+  },
+  "inxi": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": false,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "inxi",
+      "apt": "inxi",
+      "fedora": "inxi",
+      "flatpak": null
+    },
+    "description": "Fully featured CLI system information tool (documentation)",
+    "brew-supports-darwin": true,
+    "brew-supports-linux": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751396885.0545716
+  },
+  "act3": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751396887.3400133
+  },
+  "hyprshot": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "hyprshot",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Hyprland screenshot utility",
+    "_timestamp": 1751396889.6274946
+  },
+  "base-devel": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751396891.918688
+  },
+  "gtk4": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751396894.2038343
+  },
+  "nautilus": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "libnautilus-extension-docs",
+      "apt": "nautilus",
+      "fedora": "nautilus",
+      "flatpak": null
+    },
+    "description": "Extension interface for Nautilus",
+    "_timestamp": 1751396896.4932327
+  },
+  "qalculate-gtk": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "qalculate-gtk",
+      "apt": "qalculate-gtk",
+      "fedora": "qalculate-gtk",
+      "flatpak": null
+    },
+    "description": "GTK frontend for libqalculate",
+    "brew-supports-darwin": true,
+    "brew-supports-linux": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751396898.7800746
+  },
+  "app.ytmdesktop.ytmdesktop": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751396901.0657804
+  },
+  "pipewire-audio": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751396903.3518214
+  },
+  "typescript": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "typescript",
+      "apt": "typescript",
+      "fedora": "typescript",
+      "flatpak": null
+    },
+    "description": "JavaScript with syntax for types",
+    "brew-supports-darwin": true,
+    "brew-supports-linux": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751396905.6399906
+  },
+  "wlogout": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "wlogout",
+      "apt": "wlogout",
+      "fedora": "wlogout",
+      "flatpak": null
+    },
+    "description": "A wayland based logout menu",
+    "_timestamp": 1751396907.9308171
+  },
+  "yazi": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "yazi",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Blazing fast terminal file manager written in Rust, based on async I/O",
+    "brew-supports-darwin": true,
+    "brew-supports-linux": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751396910.2246573
+  },
+  "qt6-5compat": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": false,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": null,
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": null,
+    "_timestamp": 1751396912.5097842
+  },
+  "brightnessctl": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "brightnessctl",
+      "apt": "brightnessctl",
+      "fedora": "brightnessctl",
+      "flatpak": null
+    },
+    "description": "Program to read and control device brightness (documentation)",
+    "_timestamp": 1751396914.7966743
+  },
+  "nautilus-open-any-terminal": {
+    "platforms": {
+      "arch_official": false,
+      "arch_aur": true,
+      "debian": false,
+      "ubuntu": false,
+      "fedora": false,
+      "homebrew": false,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "nautilus-open-any-terminal",
+      "apt": null,
+      "fedora": null,
+      "flatpak": null
+    },
+    "description": "Extension for nautilus, which adds an context-entry for opening other terminal emulators",
+    "_timestamp": 1751396917.0829265
+  },
+  "libnotify": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "libnotify-docs",
+      "apt": "libnotify",
+      "fedora": "libnotify",
+      "flatpak": null
+    },
+    "description": "Library for sending desktop notifications",
+    "brew-supports-darwin": true,
+    "brew-supports-linux": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751396919.3709216
+  },
+  "github-cli": {
+    "platforms": {
+      "arch_official": true,
+      "arch_aur": true,
+      "debian": true,
+      "ubuntu": true,
+      "fedora": true,
+      "homebrew": true,
+      "flatpak": false
+    },
+    "package_names": {
+      "arch": "github-cli",
+      "apt": "gh",
+      "fedora": "gh",
+      "flatpak": null
+    },
+    "description": "The GitHub CLI",
+    "brew-supports-darwin": true,
+    "brew-supports-linux": true,
+    "brew-is-cask": false,
+    "_timestamp": 1751396921.6600296
   }
 }

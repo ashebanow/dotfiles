@@ -9,8 +9,8 @@
     ]
   },
   "act3": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0599005,
+    "_repology_timestamp": 1751396887.3400133,
+    "_timestamp": 1751396923.8830767,
     "tags": [
       "cat:cli-tool",
       "priority:optional",
@@ -35,8 +35,8 @@
     ]
   },
   "app.ytmdesktop.ytmdesktop": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0617313,
+    "_repology_timestamp": 1751396901.0657804,
+    "_timestamp": 1751396923.8826652,
     "tags": [
       "priority:optional",
       "scope:workflow-specific"
@@ -106,8 +106,8 @@
     ]
   },
   "base-devel": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0639338,
+    "_repology_timestamp": 1751396891.918688,
+    "_timestamp": 1751396923.883216,
     "tags": [
       "cat:cli-tool",
       "priority:optional",
@@ -115,12 +115,23 @@
     ]
   },
   "bat": {
-    "_repology_timestamp": 1751240269.414958,
-    "_timestamp": 1751386024.5070798,
+    "_repology_timestamp": 1751396875.904942,
+    "_timestamp": 1751396923.8821988,
     "tags": [
       "cat:cli-tool",
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "dist:ubuntu",
+      "priority:essential",
+      "dist:debian",
+      "pm:homebrew",
+      "os:linux",
+      "pm:dnf",
+      "os:macos",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "bc": {
@@ -228,11 +239,20 @@
     ]
   },
   "brightnessctl": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0679235,
+    "_repology_timestamp": 1751396914.7966743,
+    "_timestamp": 1751396923.881983,
     "tags": [
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "dist:ubuntu",
+      "priority:essential",
+      "dist:debian",
+      "os:linux",
+      "pm:dnf",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "btop": {
@@ -644,12 +664,23 @@
     ]
   },
   "fd": {
-    "_repology_timestamp": 1751240358.543395,
-    "_timestamp": 1751386672.1511,
+    "_repology_timestamp": 1751396855.3262541,
+    "_timestamp": 1751396923.8827555,
     "tags": [
       "cat:cli-tool",
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "dist:ubuntu",
+      "priority:essential",
+      "dist:debian",
+      "pm:homebrew",
+      "os:linux",
+      "pm:dnf",
+      "os:macos",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "ffmpegthumbnailer": {
@@ -785,8 +816,8 @@
     ]
   },
   "fonts-noto-color-emoji": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0664937,
+    "_repology_timestamp": 1751396873.6174445,
+    "_timestamp": 1751396923.8816214,
     "tags": [
       "cat:cli-tool",
       "priority:optional",
@@ -897,21 +928,21 @@
     ]
   },
   "gh": {
-    "_repology_timestamp": 1751388860.1845238,
-    "_timestamp": 1751388914.0624146,
+    "_repology_timestamp": 1751396921.6600296,
+    "_timestamp": 1751396923.8834722,
     "tags": [
       "cat:cli-tool",
-      "pm:apt",
+      "dist:arch",
+      "dist:ubuntu",
       "priority:essential",
       "dist:debian",
       "pm:homebrew",
-      "dist:arch",
-      "dist:fedora",
-      "pm:pacman",
+      "os:linux",
       "pm:dnf",
       "os:macos",
-      "dist:ubuntu",
-      "os:linux",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
       "priority:recommended",
       "scope:extended"
     ]
@@ -1139,10 +1170,21 @@
     ]
   },
   "gobject-introspection": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.061972,
+    "_repology_timestamp": 1751396853.03907,
+    "_timestamp": 1751396923.881863,
     "tags": [
       "cat:cli-tool",
+      "dist:arch",
+      "dist:ubuntu",
+      "priority:essential",
+      "dist:debian",
+      "pm:homebrew",
+      "os:linux",
+      "pm:dnf",
+      "os:macos",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
       "role:development",
       "priority:recommended",
       "scope:extended"
@@ -1158,11 +1200,15 @@
     ]
   },
   "grimblast": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.067291,
+    "_repology_timestamp": 1751396857.6115081,
+    "_timestamp": 1751396923.8818018,
     "tags": [
-      "priority:optional",
-      "scope:workflow-specific"
+      "os:linux",
+      "cat:aur",
+      "pm:pacman",
+      "dist:arch",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "gtk-engine-murrine": {
@@ -1198,8 +1244,8 @@
     ]
   },
   "gtk4": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0654035,
+    "_repology_timestamp": 1751396894.2038343,
+    "_timestamp": 1751396923.882499,
     "tags": [
       "cat:cli-tool",
       "de:gnome",
@@ -1235,12 +1281,23 @@
     ]
   },
   "htop": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.067726,
+    "_repology_timestamp": 1751396859.899143,
+    "_timestamp": 1751396923.8827124,
     "tags": [
       "cat:cli-tool",
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "dist:ubuntu",
+      "priority:essential",
+      "dist:debian",
+      "pm:homebrew",
+      "os:linux",
+      "pm:dnf",
+      "os:macos",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "hyperfine": {
@@ -1296,12 +1353,16 @@
     ]
   },
   "hyprpanel": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0675952,
+    "_repology_timestamp": 1751396832.4584854,
+    "_timestamp": 1751396923.8836439,
     "tags": [
       "de:hyprland",
-      "priority:optional",
-      "scope:workflow-specific"
+      "os:linux",
+      "cat:aur",
+      "pm:pacman",
+      "dist:arch",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "hyprpaper": {
@@ -1341,12 +1402,15 @@
     ]
   },
   "hyprshot": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0626383,
+    "_repology_timestamp": 1751396889.6274946,
+    "_timestamp": 1751396923.8837142,
     "tags": [
       "de:hyprland",
-      "priority:optional",
-      "scope:workflow-specific"
+      "os:linux",
+      "pm:pacman",
+      "dist:arch",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "hyprsunset": {
@@ -1394,12 +1458,23 @@
     ]
   },
   "inxi": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.063124,
+    "_repology_timestamp": 1751396885.0545716,
+    "_timestamp": 1751396923.8830264,
     "tags": [
       "cat:cli-tool",
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "dist:ubuntu",
+      "priority:essential",
+      "dist:debian",
+      "pm:homebrew",
+      "os:linux",
+      "pm:dnf",
+      "os:macos",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "it.mijorus.gearlever": {
@@ -1605,11 +1680,24 @@
     ]
   },
   "libnotify": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0634227,
+    "_repology_timestamp": 1751396919.3709216,
+    "_timestamp": 1751396923.8831773,
     "tags": [
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "dist:ubuntu",
+      "priority:essential",
+      "dist:debian",
+      "pm:homebrew",
+      "cat:gui",
+      "os:linux",
+      "pm:dnf",
+      "os:macos",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
+      "role:desktop",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "libsoup3": {
@@ -1740,12 +1828,23 @@
     ]
   },
   "mpv": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.068688,
+    "_repology_timestamp": 1751396841.605297,
+    "_timestamp": 1751396923.882554,
     "tags": [
       "cat:cli-tool",
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "dist:ubuntu",
+      "priority:essential",
+      "dist:debian",
+      "pm:homebrew",
+      "os:linux",
+      "pm:dnf",
+      "os:macos",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "mpv-mpris": {
@@ -1777,24 +1876,37 @@
     ]
   },
   "nautilus": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0697334,
+    "_repology_timestamp": 1751396896.4932327,
+    "_timestamp": 1751396923.8829834,
     "tags": [
       "de:gnome",
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "dist:ubuntu",
+      "priority:essential",
+      "dist:debian",
+      "os:linux",
+      "pm:dnf",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "nautilus-open-any-terminal": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.063565,
+    "_repology_timestamp": 1751396917.0829265,
+    "_timestamp": 1751396923.8838108,
     "tags": [
       "cat:shell",
       "cat:terminal",
       "cat:cli-tool",
       "de:gnome",
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "os:linux",
+      "cat:aur",
+      "pm:pacman",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "neovim": {
@@ -1837,12 +1949,22 @@
     ]
   },
   "networkmanager": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.069488,
+    "_repology_timestamp": 1751396878.1963236,
+    "_timestamp": 1751396923.8816943,
     "tags": [
       "cat:network",
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "dist:ubuntu",
+      "priority:essential",
+      "dist:debian",
+      "os:linux",
+      "pm:dnf",
+      "cat:cli-tool",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "niri": {
@@ -2002,8 +2124,8 @@
     ]
   },
   "org.mozilla.firefox": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0671217,
+    "_repology_timestamp": 1751396850.7471974,
+    "_timestamp": 1751396923.8822367,
     "tags": [
       "cat:browser",
       "priority:optional",
@@ -2019,13 +2141,13 @@
     ]
   },
   "org.videolan.VLC": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0657535,
+    "_repology_timestamp": 1751396834.7435353,
+    "_timestamp": 1751396923.8819067,
     "tags": [
       "cat:development",
       "cat:multimedia",
-      "role:content-creation",
       "role:development",
+      "role:content-creation",
       "priority:recommended",
       "scope:extended"
     ]
@@ -2117,11 +2239,24 @@
     ]
   },
   "pinta": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0659902,
+    "_repology_timestamp": 1751396846.176065,
+    "_timestamp": 1751396923.8824275,
     "tags": [
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "cat:cask",
+      "dist:ubuntu",
+      "priority:essential",
+      "pm:homebrew",
+      "os:linux",
+      "pm:dnf",
+      "cat:aur",
+      "os:macos",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
+      "role:desktop",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "pipewire": {
@@ -2142,8 +2277,8 @@
     ]
   },
   "pipewire-alsa": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0600536,
+    "_repology_timestamp": 1751396871.3316536,
+    "_timestamp": 1751396923.8826005,
     "tags": [
       "cat:cli-tool",
       "priority:optional",
@@ -2151,8 +2286,8 @@
     ]
   },
   "pipewire-audio": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.061079,
+    "_repology_timestamp": 1751396903.3518214,
+    "_timestamp": 1751396923.883385,
     "tags": [
       "cat:multimedia",
       "cat:cli-tool",
@@ -2286,8 +2421,8 @@
     ]
   },
   "python-pip": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0674512,
+    "_repology_timestamp": 1751396848.4610837,
+    "_timestamp": 1751396923.8823662,
     "tags": [
       "cat:cli-tool",
       "role:development",
@@ -2326,8 +2461,8 @@
     ]
   },
   "python-screeninfo": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0662906,
+    "_repology_timestamp": 1751396880.4817543,
+    "_timestamp": 1751396923.8828747,
     "tags": [
       "cat:cli-tool",
       "role:development",
@@ -2386,21 +2521,37 @@
     ]
   },
   "pywal": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0651872,
+    "_repology_timestamp": 1751396862.185599,
+    "_timestamp": 1751396923.8817449,
     "tags": [
-      "priority:optional",
-      "scope:workflow-specific"
+      "os:linux",
+      "pm:pacman",
+      "dist:arch",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "qalculate-gtk": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.065429,
+    "_repology_timestamp": 1751396898.7800746,
+    "_timestamp": 1751396923.8822854,
     "tags": [
       "cat:cli-tool",
       "de:gnome",
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "dist:ubuntu",
+      "priority:essential",
+      "dist:debian",
+      "pm:homebrew",
+      "cat:gui",
+      "os:linux",
+      "pm:dnf",
+      "os:macos",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
+      "role:desktop",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "qt5-graphicaleffects": {
@@ -2453,8 +2604,8 @@
     ]
   },
   "qt6-5compat": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0641031,
+    "_repology_timestamp": 1751396912.5097842,
+    "_timestamp": 1751396923.8823242,
     "tags": [
       "cat:cli-tool",
       "de:kde",
@@ -2635,8 +2786,8 @@
     ]
   },
   "swaync": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0611382,
+    "_repology_timestamp": 1751396869.0467284,
+    "_timestamp": 1751396923.8824644,
     "tags": [
       "de:sway",
       "priority:optional",
@@ -2863,8 +3014,8 @@
     ]
   },
   "ttf-fira-sans": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0643497,
+    "_repology_timestamp": 1751396843.8901424,
+    "_timestamp": 1751396923.88376,
     "tags": [
       "cat:cli-tool",
       "priority:optional",
@@ -2881,8 +3032,8 @@
     ]
   },
   "ttf-jetbrains-mono": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0664606,
+    "_repology_timestamp": 1751396839.315767,
+    "_timestamp": 1751396923.8831344,
     "tags": [
       "cat:cli-tool",
       "priority:optional",
@@ -2899,8 +3050,8 @@
     ]
   },
   "ttf-victor-mono": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0638163,
+    "_repology_timestamp": 1751396882.7674797,
+    "_timestamp": 1751396923.8832676,
     "tags": [
       "cat:cli-tool",
       "priority:optional",
@@ -2916,11 +3067,21 @@
     ]
   },
   "typescript": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0653226,
+    "_repology_timestamp": 1751396905.6399906,
+    "_timestamp": 1751396923.882151,
     "tags": [
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "dist:ubuntu",
+      "priority:essential",
+      "pm:homebrew",
+      "os:linux",
+      "pm:dnf",
+      "os:macos",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "ugrep": {
@@ -3101,9 +3262,19 @@
     ]
   },
   "wlogout": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0695322,
+    "_repology_timestamp": 1751396907.9308171,
+    "_timestamp": 1751396923.882915,
     "tags": [
+      "dist:arch",
+      "dist:ubuntu",
+      "priority:essential",
+      "dist:debian",
+      "os:linux",
+      "pm:dnf",
+      "cat:aur",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
       "role:development",
       "priority:recommended",
       "scope:extended"
@@ -3135,13 +3306,24 @@
     ]
   },
   "xdg-desktop-portal-gtk": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.067381,
+    "_repology_timestamp": 1751396837.0307121,
+    "_timestamp": 1751396923.8828385,
     "tags": [
       "cat:cli-tool",
       "de:gnome",
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "dist:ubuntu",
+      "priority:essential",
+      "dist:debian",
+      "cat:gui",
+      "os:linux",
+      "pm:dnf",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
+      "role:desktop",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "xdg-desktop-portal-hyprland": {
@@ -3155,12 +3337,21 @@
     ]
   },
   "xdg-user-dirs": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0605345,
+    "_repology_timestamp": 1751396864.4745016,
+    "_timestamp": 1751396923.8834312,
     "tags": [
       "cat:cli-tool",
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "dist:ubuntu",
+      "priority:essential",
+      "dist:debian",
+      "os:linux",
+      "pm:dnf",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "xdg-utils": {
@@ -3193,21 +3384,37 @@
     ]
   },
   "yad": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0670214,
+    "_repology_timestamp": 1751396866.7615418,
+    "_timestamp": 1751396923.8835707,
     "tags": [
       "cat:cli-tool",
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "dist:ubuntu",
+      "priority:essential",
+      "dist:debian",
+      "cat:gui",
+      "os:linux",
+      "pm:dnf",
+      "dist:fedora",
+      "pm:apt",
+      "pm:pacman",
+      "role:desktop",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "yazi": {
-    "_repology_timestamp": 0,
-    "_timestamp": 1751388914.0644212,
+    "_repology_timestamp": 1751396910.2246573,
+    "_timestamp": 1751396923.8833215,
     "tags": [
       "cat:cli-tool",
-      "priority:optional",
-      "scope:workflow-specific"
+      "dist:arch",
+      "pm:homebrew",
+      "pm:pacman",
+      "os:linux",
+      "os:macos",
+      "priority:recommended",
+      "scope:extended"
     ]
   },
   "yq": {
