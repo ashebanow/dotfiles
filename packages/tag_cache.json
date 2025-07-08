@@ -2391,6 +2391,14 @@
       "scope:extended"
     ]
   },
+  "prettier": {
+    "_repology_timestamp": 0,
+    "_timestamp": 1751996731.625097,
+    "tags": [
+      "priority:optional",
+      "scope:workflow-specific"
+    ]
+  },
   "python": {
     "_repology_timestamp": 0,
     "_timestamp": 1751388914.0630677,

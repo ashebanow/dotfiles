@@ -92,7 +92,21 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for atuin"
 custom-install = ""
-tags = ["pm:apt", "dist:debian", "dist:ubuntu", "os:linux", "pm:homebrew", "pm:dnf", "pm:pacman", "os:macos", "dist:fedora", "priority:essential", "dist:arch", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
+    "os:linux",
+    "pm:homebrew",
+    "pm:dnf",
+    "pm:pacman",
+    "os:macos",
+    "dist:fedora",
+    "priority:essential",
+    "dist:arch",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [aylurs-gtk-shell]
 arch-pkg = ""
@@ -104,7 +118,14 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for aylurs-gtk-shell"
 custom-install = ""
-tags = ["cat:shell", "cat:terminal", "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:shell",
+    "cat:terminal",
+    "cat:cli-tool",
+    "de:gnome",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [bandwhich]
 arch-pkg = ""
@@ -116,7 +137,16 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for bandwhich"
 custom-install = ""
-tags = ["pm:homebrew", "dist:arch", "cat:cli-tool", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:homebrew",
+    "dist:arch",
+    "cat:cli-tool",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [base-devel]
 arch-pkg = ""
@@ -140,7 +170,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for bat"
 custom-install = ""
-tags = ["cat:cli-tool", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "pm:homebrew", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "os:linux",
+    "pm:dnf",
+    "os:macos",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [bc]
 arch-pkg = ""
@@ -176,7 +221,17 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for binsider"
 custom-install = ""
-tags = ["cat:development", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:development",
+    "pm:homebrew",
+    "dist:arch",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [biome]
 arch-pkg = ""
@@ -188,7 +243,15 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for biome"
 custom-install = ""
-tags = ["os:linux", "pm:homebrew", "pm:pacman", "os:macos", "dist:arch", "priority:recommended", "scope:extended"]
+tags = [
+    "os:linux",
+    "pm:homebrew",
+    "pm:pacman",
+    "os:macos",
+    "dist:arch",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [bitwarden-cli]
 arch-pkg = ""
@@ -200,7 +263,16 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for bitwarden-cli"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "dist:arch",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [blueman]
 arch-pkg = ""
@@ -224,7 +296,21 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for bluez"
 custom-install = ""
-tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [bluez-utils]
 arch-pkg = ""
@@ -260,7 +346,19 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for brightnessctl"
 custom-install = ""
-tags = ["dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "os:linux", "pm:dnf", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended"]
+tags = [
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "dist:debian",
+    "os:linux",
+    "pm:dnf",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [btop]
 arch-pkg = ""
@@ -272,7 +370,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for btop"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [caddy]
 arch-pkg = ""
@@ -284,9 +397,24 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for caddy"
 custom-install = ""
-tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [cask "claude"]
+description = "TODO: Add description for cask "claude""
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -294,11 +422,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "claude""
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
 [cask "dolphin"]
+description = "TODO: Add description for cask "dolphin""
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -306,11 +434,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "dolphin""
 custom-install = ""
 tags = ["de:kde", "priority:optional", "scope:workflow-specific"]
 
 [cask "ghostty"]
+description = "TODO: Add description for cask "ghostty""
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -318,11 +446,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "ghostty""
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
 [cask "kitty"]
+description = "TODO: Add description for cask "kitty""
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -330,11 +458,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "kitty""
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
 [cask "parsec"]
+description = "TODO: Add description for cask "parsec""
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -342,11 +470,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "parsec""
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
 [cask "pinta"]
+description = "TODO: Add description for cask "pinta""
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -354,11 +482,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "pinta""
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
 [cask "signal"]
+description = "TODO: Add description for cask "signal""
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -366,11 +494,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "signal""
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
 [cask "visual-studio-code"]
+description = "TODO: Add description for cask "visual-studio-code""
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -378,11 +506,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "visual-studio-code""
 custom-install = ""
 tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
 [cask "zen"]
+description = "TODO: Add description for cask "zen""
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -390,11 +518,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "zen""
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
 [cask "zoom"]
+description = "TODO: Add description for cask "zoom""
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -402,7 +530,6 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for cask "zoom""
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
@@ -416,7 +543,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for cava"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [checkupdates-with-aur]
 arch-pkg = ""
@@ -440,7 +582,15 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for chezmoi"
 custom-install = ""
-tags = ["pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:homebrew",
+    "dist:arch",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [cliphist]
 arch-pkg = ""
@@ -500,7 +650,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for com.google.Chrome"
 custom-install = ""
-tags = ["cat:browser", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:browser",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 ["com.logseq.Logseq"]
 arch-pkg = ""
@@ -560,7 +715,21 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for coreutils"
 custom-install = ""
-tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [ctop]
 arch-pkg = ""
@@ -584,7 +753,21 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for curl"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "scope:core"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "scope:core",
+]
 
 [dart-sass]
 arch-pkg = ""
@@ -596,7 +779,14 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for dart-sass"
 custom-install = ""
-tags = ["cat:cli-tool", "dist:arch", "pm:pacman", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "dist:arch",
+    "pm:pacman",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [direnv]
 arch-pkg = ""
@@ -608,7 +798,21 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for direnv"
 custom-install = ""
-tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [dive]
 arch-pkg = ""
@@ -620,7 +824,16 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for dive"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "dist:arch",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [dolphin]
 arch-pkg = ""
@@ -644,7 +857,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for duf"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [dust]
 arch-pkg = ""
@@ -668,7 +896,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for eza"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [fastfetch]
 arch-pkg = ""
@@ -680,7 +923,21 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for fastfetch"
 custom-install = ""
-tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [fd]
 arch-pkg = ""
@@ -692,7 +949,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for fd"
 custom-install = ""
-tags = ["cat:cli-tool", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "pm:homebrew", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "os:linux",
+    "pm:dnf",
+    "os:macos",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [ffmpegthumbnailer]
 arch-pkg = ""
@@ -704,7 +976,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for ffmpegthumbnailer"
 custom-install = ""
-tags = ["cat:multimedia", "role:content-creation", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:multimedia",
+    "role:content-creation",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [figlet]
 arch-pkg = ""
@@ -752,7 +1029,24 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for firefox"
 custom-install = ""
-tags = ["cat:browser", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "cat:cask", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "role:desktop", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:browser",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "cat:cask",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "role:desktop",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [fish]
 arch-pkg = ""
@@ -764,7 +1058,24 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for fish"
 custom-install = ""
-tags = ["cat:shell", "cat:terminal", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:shell",
+    "cat:terminal",
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [flatpak]
 arch-pkg = ""
@@ -812,7 +1123,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for fonts-font-awesome"
 custom-install = ""
-tags = ["cat:cli-tool", "de:awesome", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:awesome",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [fonts-jetbrains-mono]
 arch-pkg = ""
@@ -872,7 +1188,14 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for foreman"
 custom-install = ""
-tags = ["dist:arch", "pm:pacman", "os:linux", "cat:aur", "priority:recommended", "scope:extended"]
+tags = [
+    "dist:arch",
+    "pm:pacman",
+    "os:linux",
+    "cat:aur",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [fuse2]
 arch-pkg = ""
@@ -896,7 +1219,23 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for fzf"
 custom-install = ""
-tags = ["cat:filesystem", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:filesystem",
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [gcc]
 arch-pkg = ""
@@ -908,7 +1247,23 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gcc"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "cat:development", "os:macos", "dist:ubuntu", "os:linux", "role:development", "scope:core"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "cat:development",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "role:development",
+    "scope:core",
+]
 
 [gdu]
 arch-pkg = ""
@@ -920,7 +1275,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gdu"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [getnf]
 arch-pkg = ""
@@ -932,7 +1302,14 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for getnf"
 custom-install = ""
-tags = ["dist:arch", "pm:pacman", "os:linux", "cat:aur", "priority:recommended", "scope:extended"]
+tags = [
+    "dist:arch",
+    "pm:pacman",
+    "os:linux",
+    "cat:aur",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [gh]
 arch-pkg = ""
@@ -944,7 +1321,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gh"
 custom-install = ""
-tags = ["cat:cli-tool", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "pm:homebrew", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "os:linux",
+    "pm:dnf",
+    "os:macos",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [git]
 arch-pkg = ""
@@ -956,7 +1348,23 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for git"
 custom-install = ""
-tags = ["cat:vcs", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "role:development", "scope:core"]
+tags = [
+    "cat:vcs",
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "role:development",
+    "scope:core",
+]
 
 [git-delta]
 arch-pkg = ""
@@ -968,7 +1376,23 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for git-delta"
 custom-install = ""
-tags = ["cat:vcs", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "role:development", "scope:core"]
+tags = [
+    "cat:vcs",
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "role:development",
+    "scope:core",
+]
 
 [git-lfs]
 arch-pkg = ""
@@ -980,7 +1404,23 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for git-lfs"
 custom-install = ""
-tags = ["cat:vcs", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "role:development", "scope:core"]
+tags = [
+    "cat:vcs",
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "role:development",
+    "scope:core",
+]
 
 [gitleaks]
 arch-pkg = ""
@@ -992,7 +1432,23 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gitleaks"
 custom-install = ""
-tags = ["cat:vcs", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:vcs",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [gjs]
 arch-pkg = ""
@@ -1016,7 +1472,21 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for glances"
 custom-install = ""
-tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [glib2-devel]
 arch-pkg = ""
@@ -1028,7 +1498,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for glib2-devel"
 custom-install = ""
-tags = ["cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [glow]
 arch-pkg = ""
@@ -1040,7 +1515,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for glow"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [gnome-calculator]
 arch-pkg = ""
@@ -1052,7 +1542,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gnome-calculator"
 custom-install = ""
-tags = ["cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [gnome-system-monitor]
 arch-pkg = ""
@@ -1064,7 +1559,13 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gnome-system-monitor"
 custom-install = ""
-tags = ["cat:system", "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:system",
+    "cat:cli-tool",
+    "de:gnome",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [gnome-text-editor]
 arch-pkg = ""
@@ -1076,7 +1577,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gnome-text-editor"
 custom-install = ""
-tags = ["cat:editor", "cat:cli-tool", "de:gnome", "pm:apt", "priority:essential", "dist:debian", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:editor",
+    "cat:cli-tool",
+    "de:gnome",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [gnu-units]
 arch-pkg = ""
@@ -1088,7 +1604,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gnu-units"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [gnupg]
 arch-pkg = ""
@@ -1100,7 +1631,21 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gnupg"
 custom-install = ""
-tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [gobject-introspection]
 arch-pkg = ""
@@ -1112,7 +1657,23 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gobject-introspection"
 custom-install = ""
-tags = ["cat:cli-tool", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "pm:homebrew", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "os:linux",
+    "pm:dnf",
+    "os:macos",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [grim]
 arch-pkg = ""
@@ -1136,7 +1697,14 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for grimblast"
 custom-install = ""
-tags = ["os:linux", "cat:aur", "pm:pacman", "dist:arch", "priority:recommended", "scope:extended"]
+tags = [
+    "os:linux",
+    "cat:aur",
+    "pm:pacman",
+    "dist:arch",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [gtk-engine-murrine]
 arch-pkg = ""
@@ -1148,7 +1716,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gtk-engine-murrine"
 custom-install = ""
-tags = ["cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [gtk-layer-shell]
 arch-pkg = ""
@@ -1160,7 +1733,14 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gtk-layer-shell"
 custom-install = ""
-tags = ["cat:shell", "cat:terminal", "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:shell",
+    "cat:terminal",
+    "cat:cli-tool",
+    "de:gnome",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [gtk3]
 arch-pkg = ""
@@ -1172,7 +1752,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gtk3"
 custom-install = ""
-tags = ["cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [gtk4]
 arch-pkg = ""
@@ -1184,7 +1769,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gtk4"
 custom-install = ""
-tags = ["cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [gum]
 arch-pkg = ""
@@ -1232,7 +1822,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for htop"
 custom-install = ""
-tags = ["cat:cli-tool", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "pm:homebrew", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "os:linux",
+    "pm:dnf",
+    "os:macos",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [hyperfine]
 arch-pkg = ""
@@ -1244,7 +1849,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for hyperfine"
 custom-install = ""
-tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "cat:cli-tool", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "cat:cli-tool",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [hypridle]
 arch-pkg = ""
@@ -1256,7 +1876,16 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for hypridle"
 custom-install = ""
-tags = ["de:hyprland", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "de:hyprland",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [hyprland]
 arch-pkg = ""
@@ -1292,7 +1921,15 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for hyprpanel"
 custom-install = ""
-tags = ["de:hyprland", "os:linux", "cat:aur", "pm:pacman", "dist:arch", "priority:recommended", "scope:extended"]
+tags = [
+    "de:hyprland",
+    "os:linux",
+    "cat:aur",
+    "pm:pacman",
+    "dist:arch",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [hyprpaper]
 arch-pkg = ""
@@ -1352,7 +1989,14 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for hyprshot"
 custom-install = ""
-tags = ["de:hyprland", "os:linux", "pm:pacman", "dist:arch", "priority:recommended", "scope:extended"]
+tags = [
+    "de:hyprland",
+    "os:linux",
+    "pm:pacman",
+    "dist:arch",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [hyprsunset]
 arch-pkg = ""
@@ -1400,7 +2044,19 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for inetutils"
 custom-install = ""
-tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "pm:pacman",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [inxi]
 arch-pkg = ""
@@ -1412,7 +2068,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for inxi"
 custom-install = ""
-tags = ["cat:cli-tool", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "pm:homebrew", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "os:linux",
+    "pm:dnf",
+    "os:macos",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "priority:recommended",
+    "scope:extended",
+]
 
 ["it.mijorus.gearlever"]
 arch-pkg = ""
@@ -1448,7 +2119,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for jq"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [jujutsu]
 arch-pkg = ""
@@ -1460,7 +2146,15 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for jujutsu"
 custom-install = ""
-tags = ["pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:homebrew",
+    "dist:arch",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [just]
 arch-pkg = ""
@@ -1472,7 +2166,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for just"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [kitty]
 arch-pkg = ""
@@ -1496,7 +2205,21 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for kvantum"
 custom-install = ""
-tags = ["pm:apt", "priority:essential", "dist:debian", "dist:arch", "cat:gui", "dist:fedora", "pm:pacman", "pm:dnf", "dist:ubuntu", "os:linux", "role:desktop", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "dist:arch",
+    "cat:gui",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "dist:ubuntu",
+    "os:linux",
+    "role:desktop",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [lazydocker]
 arch-pkg = ""
@@ -1508,7 +2231,18 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for lazydocker"
 custom-install = ""
-tags = ["cat:virtualization", "pm:homebrew", "dist:arch", "cat:aur", "pm:pacman", "os:macos", "os:linux", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:virtualization",
+    "pm:homebrew",
+    "dist:arch",
+    "cat:aur",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [lazygit]
 arch-pkg = ""
@@ -1520,7 +2254,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for lazygit"
 custom-install = ""
-tags = ["cat:vcs", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "cat:cli-tool", "pm:pacman", "os:macos", "dist:ubuntu", "os:linux", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:vcs",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "cat:cli-tool",
+    "pm:pacman",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [lazyjj]
 arch-pkg = ""
@@ -1532,7 +2281,15 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for lazyjj"
 custom-install = ""
-tags = ["pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:homebrew",
+    "dist:arch",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [lazysql]
 arch-pkg = ""
@@ -1544,7 +2301,17 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for lazysql"
 custom-install = ""
-tags = ["cat:database-tools", "pm:homebrew", "dist:arch", "cat:aur", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:database-tools",
+    "pm:homebrew",
+    "dist:arch",
+    "cat:aur",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [lego]
 arch-pkg = ""
@@ -1556,7 +2323,17 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for lego"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "dist:arch",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [libadwaita]
 arch-pkg = ""
@@ -1580,7 +2357,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for libdbusmenu-gtk3"
 custom-install = ""
-tags = ["cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [libgtop]
 arch-pkg = ""
@@ -1604,7 +2386,23 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for libnotify"
 custom-install = ""
-tags = ["dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "pm:homebrew", "cat:gui", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "role:desktop", "priority:recommended", "scope:extended"]
+tags = [
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "cat:gui",
+    "os:linux",
+    "pm:dnf",
+    "os:macos",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "role:desktop",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [libsoup3]
 arch-pkg = ""
@@ -1640,7 +2438,25 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for llvm"
 custom-install = ""
-tags = ["cat:virtualization", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "cat:development", "os:macos", "dist:ubuntu", "os:linux", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:virtualization",
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "cat:development",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [loupe]
 arch-pkg = ""
@@ -1700,7 +2516,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for mercurial"
 custom-install = ""
-tags = ["cat:vcs", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:vcs",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [meson]
 arch-pkg = ""
@@ -1736,7 +2567,19 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for mousepad"
 custom-install = ""
-tags = ["pm:apt", "priority:essential", "dist:debian", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [mpv]
 arch-pkg = ""
@@ -1748,7 +2591,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for mpv"
 custom-install = ""
-tags = ["cat:cli-tool", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "pm:homebrew", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "os:linux",
+    "pm:dnf",
+    "os:macos",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [mpv-mpris]
 arch-pkg = ""
@@ -1760,7 +2618,20 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for mpv-mpris"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [nano]
 arch-pkg = ""
@@ -1772,7 +2643,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for nano"
 custom-install = ""
-tags = ["cat:editor", "cat:cli-tool", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:editor",
+    "cat:cli-tool",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [nautilus]
 arch-pkg = ""
@@ -1784,7 +2660,20 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for nautilus"
 custom-install = ""
-tags = ["de:gnome", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "os:linux", "pm:dnf", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended"]
+tags = [
+    "de:gnome",
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "dist:debian",
+    "os:linux",
+    "pm:dnf",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [nautilus-open-any-terminal]
 arch-pkg = ""
@@ -1796,7 +2685,18 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for nautilus-open-any-terminal"
 custom-install = ""
-tags = ["cat:shell", "cat:terminal", "cat:cli-tool", "de:gnome", "dist:arch", "os:linux", "cat:aur", "pm:pacman", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:shell",
+    "cat:terminal",
+    "cat:cli-tool",
+    "de:gnome",
+    "dist:arch",
+    "os:linux",
+    "cat:aur",
+    "pm:pacman",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [neovim]
 arch-pkg = ""
@@ -1808,7 +2708,23 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for neovim"
 custom-install = ""
-tags = ["cat:editor", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:editor",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 ["net.davidotek.pupgui2"]
 arch-pkg = ""
@@ -1832,7 +2748,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for network-manager-applet"
 custom-install = ""
-tags = ["cat:network", "cat:cli-tool", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:network",
+    "cat:cli-tool",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [networkmanager]
 arch-pkg = ""
@@ -1844,7 +2765,21 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for networkmanager"
 custom-install = ""
-tags = ["cat:network", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "os:linux", "pm:dnf", "cat:cli-tool", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:network",
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "dist:debian",
+    "os:linux",
+    "pm:dnf",
+    "cat:cli-tool",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [niri]
 arch-pkg = ""
@@ -1856,7 +2791,17 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for niri"
 custom-install = ""
-tags = ["cat:cli-tool", "de:niri", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "de:niri",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [nm-connection-editor]
 arch-pkg = ""
@@ -1868,7 +2813,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for nm-connection-editor"
 custom-install = ""
-tags = ["cat:editor", "cat:cli-tool", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:editor",
+    "cat:cli-tool",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [noto-fonts]
 arch-pkg = ""
@@ -1964,7 +2914,19 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for nwg-dock-hyprland"
 custom-install = ""
-tags = ["cat:cli-tool", "de:hyprland", "dist:arch", "cat:gui", "dist:fedora", "pm:pacman", "pm:dnf", "os:linux", "role:desktop", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "de:hyprland",
+    "dist:arch",
+    "cat:gui",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:linux",
+    "role:desktop",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [nwg-look]
 arch-pkg = ""
@@ -1976,7 +2938,19 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for nwg-look"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "dist:debian", "dist:arch", "cat:gui", "pm:pacman", "dist:ubuntu", "os:linux", "role:desktop", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "dist:debian",
+    "dist:arch",
+    "cat:gui",
+    "pm:pacman",
+    "dist:ubuntu",
+    "os:linux",
+    "role:desktop",
+    "priority:recommended",
+    "scope:extended",
+]
 
 ["org.gnome.DejaDup"]
 arch-pkg = ""
@@ -2060,7 +3034,14 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for org.videolan.VLC"
 custom-install = ""
-tags = ["cat:development", "cat:multimedia", "role:development", "role:content-creation", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:development",
+    "cat:multimedia",
+    "role:development",
+    "role:content-creation",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [otf-font-awesome]
 arch-pkg = ""
@@ -2072,7 +3053,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for otf-font-awesome"
 custom-install = ""
-tags = ["cat:cli-tool", "de:awesome", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:awesome",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [overmind]
 arch-pkg = ""
@@ -2084,7 +3070,16 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for overmind"
 custom-install = ""
-tags = ["pm:homebrew", "dist:arch", "cat:aur", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:homebrew",
+    "dist:arch",
+    "cat:aur",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [pacman-contrib]
 arch-pkg = ""
@@ -2096,7 +3091,14 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for pacman-contrib"
 custom-install = ""
-tags = ["cat:cli-tool", "dist:arch", "pm:pacman", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "dist:arch",
+    "pm:pacman",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [pacseek]
 arch-pkg = ""
@@ -2132,7 +3134,20 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for papirus-icon-theme"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [pavucontrol]
 arch-pkg = ""
@@ -2168,7 +3183,23 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for pinta"
 custom-install = ""
-tags = ["dist:arch", "cat:cask", "dist:ubuntu", "priority:essential", "pm:homebrew", "os:linux", "pm:dnf", "cat:aur", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "role:desktop", "priority:recommended", "scope:extended"]
+tags = [
+    "dist:arch",
+    "cat:cask",
+    "dist:ubuntu",
+    "priority:essential",
+    "pm:homebrew",
+    "os:linux",
+    "pm:dnf",
+    "cat:aur",
+    "os:macos",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "role:desktop",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [pipewire]
 arch-pkg = ""
@@ -2180,7 +3211,19 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for pipewire"
 custom-install = ""
-tags = ["pm:apt", "priority:essential", "dist:debian", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [pipewire-alsa]
 arch-pkg = ""
@@ -2204,7 +3247,13 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for pipewire-audio"
 custom-install = ""
-tags = ["cat:multimedia", "cat:cli-tool", "role:content-creation", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:multimedia",
+    "cat:cli-tool",
+    "role:content-creation",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [pipewire-pulse]
 arch-pkg = ""
@@ -2228,7 +3277,16 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for pixi"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "dist:arch",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [pkg-config]
 arch-pkg = ""
@@ -2252,7 +3310,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for playerctl"
 custom-install = ""
-tags = ["cat:multimedia", "pm:apt", "priority:essential", "dist:debian", "dist:arch", "cat:cli-tool", "dist:fedora", "pm:pacman", "pm:dnf", "dist:ubuntu", "os:linux", "role:content-creation", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:multimedia",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "dist:arch",
+    "cat:cli-tool",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "dist:ubuntu",
+    "os:linux",
+    "role:content-creation",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [polkit-gnome]
 arch-pkg = ""
@@ -2264,7 +3337,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for polkit-gnome"
 custom-install = ""
-tags = ["cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [power-profiles-daemon]
 arch-pkg = ""
@@ -2276,7 +3354,21 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for power-profiles-daemon"
 custom-install = ""
-tags = ["cat:filesystem", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:filesystem",
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [presenterm]
 arch-pkg = ""
@@ -2288,7 +3380,16 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for presenterm"
 custom-install = ""
-tags = ["pm:homebrew", "dist:arch", "cat:cli-tool", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:homebrew",
+    "dist:arch",
+    "cat:cli-tool",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [python]
 arch-pkg = ""
@@ -2396,7 +3497,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for python3-gobject"
 custom-install = ""
-tags = ["cat:cli-tool", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [python3-pip]
 arch-pkg = ""
@@ -2408,7 +3514,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for python3-pip"
 custom-install = ""
-tags = ["cat:cli-tool", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [python3-pyquery]
 arch-pkg = ""
@@ -2420,7 +3531,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for python3-pyquery"
 custom-install = ""
-tags = ["cat:cli-tool", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [python3-requests]
 arch-pkg = ""
@@ -2432,7 +3548,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for python3-requests"
 custom-install = ""
-tags = ["cat:cli-tool", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [python3-screeninfo]
 arch-pkg = ""
@@ -2444,7 +3565,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for python3-screeninfo"
 custom-install = ""
-tags = ["cat:cli-tool", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [pywal]
 arch-pkg = ""
@@ -2456,7 +3582,13 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for pywal"
 custom-install = ""
-tags = ["os:linux", "pm:pacman", "dist:arch", "priority:recommended", "scope:extended"]
+tags = [
+    "os:linux",
+    "pm:pacman",
+    "dist:arch",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [qalculate-gtk]
 arch-pkg = ""
@@ -2468,7 +3600,25 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for qalculate-gtk"
 custom-install = ""
-tags = ["cat:cli-tool", "de:gnome", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "pm:homebrew", "cat:gui", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "role:desktop", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "cat:gui",
+    "os:linux",
+    "pm:dnf",
+    "os:macos",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "role:desktop",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [qt5-graphicaleffects]
 arch-pkg = ""
@@ -2480,7 +3630,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for qt5-graphicaleffects"
 custom-install = ""
-tags = ["cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:kde",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [qt5-quickcontrols2]
 arch-pkg = ""
@@ -2492,7 +3647,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for qt5-quickcontrols2"
 custom-install = ""
-tags = ["cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:kde",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [qt5-svg]
 arch-pkg = ""
@@ -2504,7 +3664,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for qt5-svg"
 custom-install = ""
-tags = ["cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:kde",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [qt5-wayland]
 arch-pkg = ""
@@ -2516,7 +3681,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for qt5-wayland"
 custom-install = ""
-tags = ["cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:kde",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [qt5ct]
 arch-pkg = ""
@@ -2540,7 +3710,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for qt6-5compat"
 custom-install = ""
-tags = ["cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:kde",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [qt6-declarative]
 arch-pkg = ""
@@ -2552,7 +3727,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for qt6-declarative"
 custom-install = ""
-tags = ["cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:kde",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [qt6-svg]
 arch-pkg = ""
@@ -2564,7 +3744,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for qt6-svg"
 custom-install = ""
-tags = ["cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:kde",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [qt6-wayland]
 arch-pkg = ""
@@ -2576,7 +3761,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for qt6-wayland"
 custom-install = ""
-tags = ["cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:kde",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [qt6ct]
 arch-pkg = ""
@@ -2600,7 +3790,21 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for ripgrep"
 custom-install = ""
-tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [rofi-wayland]
 arch-pkg = ""
@@ -2636,7 +3840,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for rust"
 custom-install = ""
-tags = ["cat:cli-tool", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [sddm]
 arch-pkg = ""
@@ -2660,7 +3869,23 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for shellcheck"
 custom-install = ""
-tags = ["cat:shell", "cat:terminal", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:shell",
+    "cat:terminal",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [shfmt]
 arch-pkg = ""
@@ -2672,7 +3897,17 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for shfmt"
 custom-install = ""
-tags = ["pm:apt", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "pm:homebrew",
+    "dist:arch",
+    "pm:pacman",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [slurp]
 arch-pkg = ""
@@ -2708,7 +3943,19 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for starship"
 custom-install = ""
-tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "pm:pacman",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [swappy]
 arch-pkg = ""
@@ -2756,7 +4003,18 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for tailscale"
 custom-install = ""
-tags = ["priority:essential", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "priority:essential",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [talosctl]
 arch-pkg = ""
@@ -2768,9 +4026,19 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for talosctl"
 custom-install = ""
-tags = ["pm:homebrew", "dist:arch", "cat:cli-tool", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:homebrew",
+    "dist:arch",
+    "cat:cli-tool",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [tap "charmbracelet/tap"]
+description = "TODO: Add description for tap "charmbracelet/tap""
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -2778,11 +4046,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for tap "charmbracelet/tap""
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
 [tap "dhth/tap"]
+description = "TODO: Add description for tap "dhth/tap""
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -2790,11 +4058,11 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for tap "dhth/tap""
 custom-install = ""
 tags = ["priority:optional", "scope:workflow-specific"]
 
 [tap "jesseduffield/lazydocker"]
+description = "TODO: Add description for tap "jesseduffield/lazydocker""
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -2802,11 +4070,16 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for tap "jesseduffield/lazydocker""
 custom-install = ""
-tags = ["cat:virtualization", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:virtualization",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [tap "siderolabs/tap"]
+description = "TODO: Add description for tap "siderolabs/tap""
 arch-pkg = ""
 apt-pkg = ""
 fedora-pkg = ""
@@ -2814,9 +4087,13 @@ flatpak-pkg = ""
 brew-tap = ""
 prefer_flatpak = false
 priority = ""
-description = "TODO: Add description for tap "siderolabs/tap""
 custom-install = ""
-tags = ["cat:development", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:development",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [thefuck]
 arch-pkg = ""
@@ -2828,7 +4105,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for thefuck"
 custom-install = ""
-tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "cat:cli-tool", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "cat:cli-tool",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [thunar]
 arch-pkg = ""
@@ -2852,7 +4144,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for thunar-archive-plugin"
 custom-install = ""
-tags = ["cat:cli-tool", "de:xfce", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:xfce",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [thunar-volman]
 arch-pkg = ""
@@ -2864,7 +4161,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for thunar-volman"
 custom-install = ""
-tags = ["cat:cli-tool", "de:xfce", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:xfce",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [tlrc]
 arch-pkg = ""
@@ -2876,7 +4178,17 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for tlrc"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:homebrew", "dist:arch", "cat:aur", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "dist:arch",
+    "cat:aur",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [tmux]
 arch-pkg = ""
@@ -2888,7 +4200,23 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for tmux"
 custom-install = ""
-tags = ["cat:shell", "cat:terminal", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "scope:core"]
+tags = [
+    "cat:shell",
+    "cat:terminal",
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "scope:core",
+]
 
 [tpm]
 arch-pkg = ""
@@ -2900,7 +4228,16 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for tpm"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:homebrew", "dist:arch", "cat:aur", "pm:pacman", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "dist:arch",
+    "cat:aur",
+    "pm:pacman",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [tree]
 arch-pkg = ""
@@ -3044,7 +4381,20 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for typescript"
 custom-install = ""
-tags = ["dist:arch", "dist:ubuntu", "priority:essential", "pm:homebrew", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended"]
+tags = [
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "pm:homebrew",
+    "os:linux",
+    "pm:dnf",
+    "os:macos",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [ugrep]
 arch-pkg = ""
@@ -3056,7 +4406,21 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for ugrep"
 custom-install = ""
-tags = ["pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [umockdev]
 arch-pkg = ""
@@ -3128,7 +4492,16 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for vale"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:homebrew", "dist:arch", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "dist:arch",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [vim]
 arch-pkg = ""
@@ -3140,7 +4513,13 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for vim"
 custom-install = ""
-tags = ["cat:editor", "cat:cli-tool", "role:development", "priority:essential", "scope:core"]
+tags = [
+    "cat:editor",
+    "cat:cli-tool",
+    "role:development",
+    "priority:essential",
+    "scope:core",
+]
 
 [wallust]
 arch-pkg = ""
@@ -3200,7 +4579,21 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for wget"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "scope:core"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "scope:core",
+]
 
 [whiptail]
 arch-pkg = ""
@@ -3236,7 +4629,15 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for wishlist"
 custom-install = ""
-tags = ["pm:homebrew", "dist:arch", "cat:aur", "pm:pacman", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:homebrew",
+    "dist:arch",
+    "cat:aur",
+    "pm:pacman",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [wl-clipboard]
 arch-pkg = ""
@@ -3260,7 +4661,21 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for wlogout"
 custom-install = ""
-tags = ["dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "os:linux", "pm:dnf", "cat:aur", "dist:fedora", "pm:apt", "pm:pacman", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "dist:debian",
+    "os:linux",
+    "pm:dnf",
+    "cat:aur",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [wofi]
 arch-pkg = ""
@@ -3308,7 +4723,23 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for xdg-desktop-portal-gtk"
 custom-install = ""
-tags = ["cat:cli-tool", "de:gnome", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "cat:gui", "os:linux", "pm:dnf", "dist:fedora", "pm:apt", "pm:pacman", "role:desktop", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "dist:debian",
+    "cat:gui",
+    "os:linux",
+    "pm:dnf",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "role:desktop",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [xdg-desktop-portal-hyprland]
 arch-pkg = ""
@@ -3320,7 +4751,12 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for xdg-desktop-portal-hyprland"
 custom-install = ""
-tags = ["cat:cli-tool", "de:hyprland", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "cat:cli-tool",
+    "de:hyprland",
+    "priority:optional",
+    "scope:workflow-specific",
+]
 
 [xdg-user-dirs]
 arch-pkg = ""
@@ -3332,7 +4768,20 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for xdg-user-dirs"
 custom-install = ""
-tags = ["cat:cli-tool", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "os:linux", "pm:dnf", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "dist:debian",
+    "os:linux",
+    "pm:dnf",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [xdg-utils]
 arch-pkg = ""
@@ -3356,7 +4805,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for xz"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [yad]
 arch-pkg = ""
@@ -3368,7 +4832,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for yad"
 custom-install = ""
-tags = ["cat:cli-tool", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "cat:gui", "os:linux", "pm:dnf", "dist:fedora", "pm:apt", "pm:pacman", "role:desktop", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "dist:arch",
+    "dist:ubuntu",
+    "priority:essential",
+    "dist:debian",
+    "cat:gui",
+    "os:linux",
+    "pm:dnf",
+    "dist:fedora",
+    "pm:apt",
+    "pm:pacman",
+    "role:desktop",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [yazi]
 arch-pkg = ""
@@ -3380,7 +4859,16 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for yazi"
 custom-install = ""
-tags = ["cat:cli-tool", "dist:arch", "pm:homebrew", "pm:pacman", "os:linux", "os:macos", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "dist:arch",
+    "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "os:macos",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [yq]
 arch-pkg = ""
@@ -3404,7 +4892,22 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for yt-dlp"
 custom-install = ""
-tags = ["cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [zellij]
 arch-pkg = ""
@@ -3416,7 +4919,16 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for zellij"
 custom-install = ""
-tags = ["pm:homebrew", "dist:arch", "cat:cli-tool", "pm:pacman", "os:macos", "os:linux", "priority:recommended", "scope:extended"]
+tags = [
+    "pm:homebrew",
+    "dist:arch",
+    "cat:cli-tool",
+    "pm:pacman",
+    "os:macos",
+    "os:linux",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [zip]
 arch-pkg = ""
@@ -3440,7 +4952,24 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for zoxide"
 custom-install = ""
-tags = ["cat:development", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "cat:cli-tool", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "role:development", "priority:recommended", "scope:extended"]
+tags = [
+    "cat:development",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "cat:cli-tool",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "role:development",
+    "priority:recommended",
+    "scope:extended",
+]
 
 [zsh]
 arch-pkg = ""
@@ -3452,7 +4981,23 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for zsh"
 custom-install = ""
-tags = ["cat:shell", "cat:terminal", "cat:cli-tool", "pm:apt", "priority:essential", "dist:debian", "pm:homebrew", "dist:arch", "dist:fedora", "pm:pacman", "pm:dnf", "os:macos", "dist:ubuntu", "os:linux", "scope:core"]
+tags = [
+    "cat:shell",
+    "cat:terminal",
+    "cat:cli-tool",
+    "pm:apt",
+    "priority:essential",
+    "dist:debian",
+    "pm:homebrew",
+    "dist:arch",
+    "dist:fedora",
+    "pm:pacman",
+    "pm:dnf",
+    "os:macos",
+    "dist:ubuntu",
+    "os:linux",
+    "scope:core",
+]
 
 [zsh-completions]
 arch-pkg = ""
@@ -3464,5 +5009,10 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for zsh-completions"
 custom-install = ""
-tags = ["cat:shell", "cat:terminal", "cat:cli-tool", "priority:essential", "scope:core"]
-
+tags = [
+    "cat:shell",
+    "cat:terminal",
+    "cat:cli-tool",
+    "priority:essential",
+    "scope:core",
+]

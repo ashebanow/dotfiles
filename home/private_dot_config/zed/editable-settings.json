@@ -15,8 +15,15 @@
   "gutters": {
     "min_line_number_digits": 3
   },
+  "languages": {
+    "Markdown": {
+      "format_on_save": "on",
+      "remove_trailing_whitespace_on_save": true
+    }
+  },
   "context_servers": {
     "mcp-server-github": {
+      "source": "extension",
       "settings": {
         "github_personal_access_token": "$ZED_GITHUB_PERSONAL_ACCESS_TOKEN"
       }

@@ -529,7 +529,7 @@ def main():
 
     # Load TOML data
     try:
-        toml_data = load_toml(args.toml)
+        toml_data: Dict[str, Any] = load_toml(args.toml)
     except Exception as e:
         print(f"Error loading TOML file: {e}")
         return 1
