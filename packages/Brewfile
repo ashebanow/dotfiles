@@ -1,1 +1,7 @@
+tap "charmbracelet/tap"
+tap "dhth/tap"
+tap "jesseduffield/lazydocker"
+tap "siderolabs/tap"
+
 # Homebrew packages
+brew "wishlist"

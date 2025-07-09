@@ -284,17 +284,15 @@ class TaggedPackageFileGenerator:
         # Homebrew files
         if self.platform.supports_homebrew():
             if self.platform.is_darwin:
-                # Regular packages
-                brew_packages = self.filter.filter_by_tags("(pm:homebrew AND os:macos) AND NOT cat:cask AND NOT pm:homebrew:cask")
+                # Cross-platform Homebrew packages (Brewfile)
+                brew_packages = self.filter.filter_by_tags("pm:homebrew AND NOT os:macos")
                 if brew_packages:
                     files["Brewfile"] = self._generate_brewfile(brew_packages, include_casks=False)
 
-                # Casks
-                cask_packages = self.filter.filter_by_tags("pm:homebrew:cask OR (cat:cask AND os:macos)")
-                if cask_packages:
-                    files["Brewfile-darwin"] = self._generate_brewfile(
-                        cask_packages, casks_only=True
-                    )
+                # macOS-only Homebrew packages (Brewfile-darwin) - includes both formulas and casks
+                darwin_packages = self.filter.filter_by_tags("pm:homebrew AND os:macos")
+                if darwin_packages:
+                    files["Brewfile-darwin"] = self._generate_brewfile(darwin_packages, include_casks=True)
 
             elif self.platform.is_linux:
                 brew_packages = self.filter.filter_by_tags("pm:homebrew:linux")
@@ -390,23 +388,33 @@ class TaggedPackageFileGenerator:
             if lines:
                 lines.append("")
 
-        if not casks_only:
-            lines.append("# Homebrew packages")
-            for package_name in sorted(packages.keys()):
-                entry = packages[package_name]
-                if not self.filter.is_tag_set(package_name, "cat:cask") and not self.filter.is_tag_set(package_name, "pm:homebrew:cask"):
-                    brew_name = entry.get("brew-pkg", package_name)
-                    lines.append(f'brew "{brew_name}"')
+        # Separate packages into formulas and casks
+        formulas = {}
+        casks = {}
+        
+        for package_name, entry in packages.items():
+            if self.filter.is_tag_set(package_name, "cat:cask"):
+                casks[package_name] = entry
+            else:
+                formulas[package_name] = entry
 
-        if include_casks or casks_only:
+        # Generate brew formulas (unless casks_only)
+        if not casks_only and formulas:
+            lines.append("# Homebrew packages")
+            for package_name in sorted(formulas.keys()):
+                entry = formulas[package_name]
+                brew_name = entry.get("brew-pkg", package_name)
+                lines.append(f'brew "{brew_name}"')
+
+        # Generate casks (if include_casks or casks_only)
+        if (include_casks or casks_only) and casks:
             if lines and not casks_only:
                 lines.append("")
             lines.append("# Homebrew casks")
-            for package_name in sorted(packages.keys()):
-                if self.filter.is_tag_set(package_name, "cat:cask") or self.filter.is_tag_set(package_name, "pm:homebrew:cask"):
-                    entry = packages[package_name]
-                    brew_name = entry.get("brew-pkg", package_name)
-                    lines.append(f'cask "{brew_name}"')
+            for package_name in sorted(casks.keys()):
+                entry = casks[package_name]
+                brew_name = entry.get("brew-pkg", package_name)
+                lines.append(f'cask "{brew_name}"')
 
         return "\n".join(lines) + "\n"
 
