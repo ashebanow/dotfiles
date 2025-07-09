@@ -16,13 +16,19 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import Mock, patch
+
 import pytest
 
 # Add the bin directory to the path so we can import package modules
 sys.path.insert(0, str(Path(__file__).parent.parent / "bin"))
 
 try:
-    from package_generators_tagged import EnhancedPlatformDetector as PlatformDetector, TaggedPackageFileGenerator
+    from package_generators_tagged import (
+        EnhancedPlatformDetector as PlatformDetector,
+    )
+    from package_generators_tagged import (
+        TaggedPackageFileGenerator,
+    )
 except ImportError as e:
     print(f"Error importing package modules: {e}")
     sys.exit(1)

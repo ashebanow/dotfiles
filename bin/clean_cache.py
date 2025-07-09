@@ -64,7 +64,9 @@ def show_cache_stats(cache_file: str = "repology_cache.json", ttl_days: int = 7)
             print(f"🔄 Cache health: {(fresh_count/total_entries)*100:.1f}% fresh entries")
 
 
-def clean_expired_cache(cache_file: str = "repology_cache.json", ttl_days: int = 7, remove_empty: bool = False):
+def clean_expired_cache(
+    cache_file: str = "repology_cache.json", ttl_days: int = 7, remove_empty: bool = False
+):
     """Clean expired entries from cache file."""
     backup_file = cache_file + ".backup"
     ttl_seconds = ttl_days * 24 * 60 * 60
@@ -93,7 +95,7 @@ def clean_expired_cache(cache_file: str = "repology_cache.json", ttl_days: int =
             # Check if it's an error result (null data or all platforms false)
             is_error_result = False
             is_empty_entry = False
-            
+
             if "data" in entry and entry["data"] is None:
                 is_error_result = True
             elif "platforms" in entry:
@@ -109,7 +111,7 @@ def clean_expired_cache(cache_file: str = "repology_cache.json", ttl_days: int =
             if is_error_result:
                 error_entries_removed += 1
                 continue  # Skip error results
-                
+
             if is_empty_entry:
                 continue  # Skip empty entries when remove_empty=True
 
@@ -128,7 +130,9 @@ def clean_expired_cache(cache_file: str = "repology_cache.json", ttl_days: int =
     print(f"Kept {len(fresh_cache)} fresh entries out of {len(cache)} total")
     print(f"Removed {expired_count} expired entries and {error_entries_removed} error entries")
     if remove_empty:
-        print(f"Removed {empty_entries_removed} empty entries (will be refreshed on next cache run)")
+        print(
+            f"Removed {empty_entries_removed} empty entries (will be refreshed on next cache run)"
+        )
 
 
 if __name__ == "__main__":
@@ -141,8 +145,9 @@ if __name__ == "__main__":
     )
     parser.add_argument("--ttl-days", type=int, default=7, help="TTL in days (default: 7)")
     parser.add_argument(
-        "--remove-empty", action="store_true", 
-        help="Remove empty entries (all platforms false) to force refresh"
+        "--remove-empty",
+        action="store_true",
+        help="Remove empty entries (all platforms false) to force refresh",
     )
 
     args = parser.parse_args()

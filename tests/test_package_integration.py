@@ -17,6 +17,7 @@ import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import Mock
+
 import pytest
 
 # Add the bin directory to the path so we can import package modules
@@ -26,10 +27,15 @@ try:
     import package_analysis_cli as package_analysis
     import package_generators_tagged as package_generators
     from package_analysis_cli import (
-        create_basic_package_entry,
         analyze_packages,
+        create_basic_package_entry,
     )
-    from package_generators_tagged import TaggedPackageFileGenerator as PackageFileGenerator, EnhancedPlatformDetector as PlatformDetector
+    from package_generators_tagged import (
+        EnhancedPlatformDetector as PlatformDetector,
+    )
+    from package_generators_tagged import (
+        TaggedPackageFileGenerator as PackageFileGenerator,
+    )
 except ImportError as e:
     print(f"Error importing package modules: {e}")
     sys.exit(1)

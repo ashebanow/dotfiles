@@ -8,7 +8,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for act"
 custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew", "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
 
 [act3]
 arch-pkg = ""
@@ -20,19 +20,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for act3"
 custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[adobe-source-code-pro-fonts]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for adobe-source-code-pro-fonts"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew", "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
 
 [antidote]
 arch-pkg = ""
@@ -44,43 +32,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for antidote"
 custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-["app.ytmdesktop.ytmdesktop"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for app.ytmdesktop.ytmdesktop"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-["app.zen_browser.zen"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for app.zen_browser.zen"
-custom-install = ""
-tags = [ "cat:browser", "priority:optional", "scope:workflow-specific",]
-
-[archlinux-keyring]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for archlinux-keyring"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew", "priority:optional", "scope:workflow-specific",]
 
 [atuin]
 arch-pkg = ""
@@ -92,19 +44,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for atuin"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
-
-[aylurs-gtk-shell]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for aylurs-gtk-shell"
-custom-install = ""
-tags = [ "cat:shell", "cat:terminal", "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [bandwhich]
 arch-pkg = ""
@@ -116,19 +56,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for bandwhich"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "cat:cli-tool", "os:macos", "dist:arch", "pm:pacman",]
-
-[base-devel]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for base-devel"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "dist:arch", "cat:cli-tool", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [bat]
 arch-pkg = ""
@@ -140,31 +68,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for bat"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "cat:cli-tool", "priority:essential", "pm:dnf", "os:macos", "dist:arch", "pm:pacman",]
-
-[bc]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for bc"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[bibata-cursor-theme-bin]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for bibata-cursor-theme-bin"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [binsider]
 arch-pkg = ""
@@ -176,7 +80,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for binsider"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "cat:development", "os:macos", "role:development", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:development", "dist:arch", "pm:pacman", "pm:homebrew", "os:linux", "role:development", "priority:recommended", "scope:extended",]
 
 [biome]
 arch-pkg = ""
@@ -188,7 +92,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for biome"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "dist:arch", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [bitwarden-cli]
 arch-pkg = ""
@@ -200,19 +104,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for bitwarden-cli"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "cat:cli-tool", "os:macos", "dist:arch", "pm:pacman",]
-
-[blueman]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for blueman"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "dist:arch", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [bluez]
 arch-pkg = ""
@@ -224,43 +116,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for bluez"
 custom-install = ""
-tags = [ "dist:arch", "dist:fedora", "pm:homebrew", "os:linux", "dist:debian", "pm:pacman", "pm:dnf", "os:macos", "pm:apt", "dist:ubuntu", "priority:essential", "priority:recommended", "scope:extended",]
-
-[bluez-utils]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for bluez-utils"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[breeze]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for breeze"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[brightnessctl]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for brightnessctl"
-custom-install = ""
-tags = [ "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "os:linux", "pm:dnf", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [btop]
 arch-pkg = ""
@@ -272,7 +128,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for btop"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [caddy]
 arch-pkg = ""
@@ -284,7 +140,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for caddy"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [cava]
 arch-pkg = ""
@@ -296,19 +152,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for cava"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
-
-[checkupdates-with-aur]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for checkupdates-with-aur"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [chezmoi]
 arch-pkg = ""
@@ -320,7 +164,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for chezmoi"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "dist:arch", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [claude]
 arch-pkg = ""
@@ -332,115 +176,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for claude"
 custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific", "pm:homebrew:cask", "cat:cask", "os:macos", "role:desktop",]
-
-[cliphist]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for cliphist"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-["com.bitwarden.desktop"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for com.bitwarden.desktop"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-["com.discordapp.Discord"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for com.discordapp.Discord"
-custom-install = ""
-tags = [ "cat:communication", "priority:optional", "scope:workflow-specific",]
-
-["com.getpostman.Postman"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for com.getpostman.Postman"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-["com.google.Chrome"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for com.google.Chrome"
-custom-install = ""
-tags = [ "cat:browser", "role:development", "priority:recommended", "scope:extended",]
-
-["com.logseq.Logseq"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for com.logseq.Logseq"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-["com.obsproject.Studio"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for com.obsproject.Studio"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-["com.parsecgaming.parsec"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for com.parsecgaming.parsec"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-["com.slack.Slack"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for com.slack.Slack"
-custom-install = ""
-tags = [ "cat:communication", "priority:optional", "scope:workflow-specific",]
+tags = [ "cat:cask", "os:macos", "role:desktop", "priority:optional", "scope:workflow-specific", "pm:homebrew:macos",]
 
 [coreutils]
 arch-pkg = ""
@@ -452,7 +188,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for coreutils"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [ctop]
 arch-pkg = ""
@@ -464,7 +200,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for ctop"
 custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew", "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
 
 [curl]
 arch-pkg = ""
@@ -476,19 +212,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for curl"
 custom-install = ""
-tags = [ "pm:homebrew", "dist:debian", "scope:core", "dist:ubuntu", "os:linux", "dist:fedora", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
-
-[dart-sass]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for dart-sass"
-custom-install = ""
-tags = [ "cat:cli-tool", "dist:arch", "pm:pacman", "os:linux", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "scope:core",]
 
 [direnv]
 arch-pkg = ""
@@ -500,7 +224,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for direnv"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [dive]
 arch-pkg = ""
@@ -512,7 +236,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for dive"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "cat:cli-tool", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "dist:arch", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [dolphin]
 arch-pkg = ""
@@ -524,7 +248,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for dolphin"
 custom-install = ""
-tags = [ "de:kde", "priority:optional", "scope:workflow-specific", "pm:homebrew:cask", "cat:cask", "os:macos",]
+tags = [ "cat:cask", "os:macos", "de:kde", "role:desktop", "priority:optional", "scope:workflow-specific", "pm:homebrew:macos",]
 
 [duf]
 arch-pkg = ""
@@ -536,7 +260,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for duf"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [dust]
 arch-pkg = ""
@@ -548,7 +272,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for dust"
 custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew", "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
 
 [eza]
 arch-pkg = ""
@@ -560,7 +284,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for eza"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [fastfetch]
 arch-pkg = ""
@@ -572,7 +296,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for fastfetch"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [fd]
 arch-pkg = ""
@@ -584,55 +308,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for fd"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "cat:cli-tool", "priority:essential", "pm:dnf", "os:macos", "dist:arch", "pm:pacman",]
-
-[ffmpegthumbnailer]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for ffmpegthumbnailer"
-custom-install = ""
-tags = [ "cat:multimedia", "role:content-creation", "priority:optional", "scope:workflow-specific",]
-
-[figlet]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for figlet"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[figurine]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for figurine"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[findutils]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for findutils"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [firefox]
 arch-pkg = ""
@@ -644,7 +320,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for firefox"
 custom-install = ""
-tags = [ "cat:browser", "dist:arch", "dist:fedora", "pm:homebrew", "os:linux", "dist:debian", "pm:pacman", "pm:dnf", "os:macos", "pm:apt", "dist:ubuntu", "priority:essential", "role:desktop", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:browser", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "cat:cask", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "role:desktop", "priority:recommended", "scope:extended", "pm:homebrew:macos",]
 
 [fish]
 arch-pkg = ""
@@ -656,103 +332,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for fish"
 custom-install = ""
-tags = [ "priority:recommended", "cat:shell", "pm:homebrew", "dist:debian", "dist:ubuntu", "dist:fedora", "os:linux", "scope:extended", "cat:terminal", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
-
-[flatpak]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for flatpak"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[fonts-dejavu]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for fonts-dejavu"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[fonts-firacode]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for fonts-firacode"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[fonts-font-awesome]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for fonts-font-awesome"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:awesome", "priority:optional", "scope:workflow-specific",]
-
-[fonts-jetbrains-mono]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for fonts-jetbrains-mono"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[fonts-noto-cjk]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for fonts-noto-cjk"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[fonts-noto-color-emoji]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for fonts-noto-color-emoji"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[fonts-noto-extra]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for fonts-noto-extra"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:shell", "cat:terminal", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [foreman]
 arch-pkg = ""
@@ -764,19 +344,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for foreman"
 custom-install = ""
-tags = [ "dist:arch", "cat:aur", "pm:pacman", "os:linux", "priority:recommended", "scope:extended",]
-
-[fuse2]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for fuse2"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew", "dist:arch", "pm:pacman", "os:linux", "cat:aur", "priority:recommended", "scope:extended",]
 
 [fzf]
 arch-pkg = ""
@@ -788,7 +356,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for fzf"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "dist:fedora", "os:linux", "scope:extended", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "cat:filesystem", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:filesystem", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [gcc]
 arch-pkg = ""
@@ -800,7 +368,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gcc"
 custom-install = ""
-tags = [ "pm:homebrew", "dist:debian", "scope:core", "dist:ubuntu", "os:linux", "dist:fedora", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "cat:development", "os:macos", "role:development", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "cat:development", "role:development", "scope:core",]
 
 [gdu]
 arch-pkg = ""
@@ -812,19 +380,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gdu"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
-
-[getnf]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for getnf"
-custom-install = ""
-tags = [ "dist:arch", "cat:aur", "pm:pacman", "os:linux", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [gh]
 arch-pkg = ""
@@ -836,7 +392,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gh"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "cat:cli-tool", "priority:essential", "pm:dnf", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [ghostty]
 arch-pkg = ""
@@ -848,7 +404,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for ghostty"
 custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific", "pm:homebrew:cask", "cat:cask", "os:macos", "role:desktop",]
+tags = [ "cat:cask", "os:macos", "role:desktop", "priority:optional", "scope:workflow-specific", "pm:homebrew:macos",]
 
 [git]
 arch-pkg = ""
@@ -860,7 +416,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for git"
 custom-install = ""
-tags = [ "pm:homebrew", "dist:debian", "scope:core", "dist:ubuntu", "cat:vcs", "dist:fedora", "os:linux", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "role:development", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:vcs", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "role:development", "scope:core",]
 
 [git-delta]
 arch-pkg = ""
@@ -872,7 +428,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for git-delta"
 custom-install = ""
-tags = [ "pm:homebrew", "dist:debian", "scope:core", "dist:ubuntu", "cat:vcs", "dist:fedora", "os:linux", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "role:development", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:vcs", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "role:development", "scope:core",]
 
 [git-lfs]
 arch-pkg = ""
@@ -884,7 +440,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for git-lfs"
 custom-install = ""
-tags = [ "pm:homebrew", "dist:debian", "scope:core", "dist:ubuntu", "cat:vcs", "dist:fedora", "os:linux", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "role:development", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:vcs", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "role:development", "scope:core",]
 
 [gitleaks]
 arch-pkg = ""
@@ -896,19 +452,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gitleaks"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "cat:vcs", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "pm:dnf", "priority:essential", "os:macos", "role:development", "dist:arch", "pm:pacman",]
-
-[gjs]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for gjs"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:vcs", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "role:development", "priority:recommended", "scope:extended",]
 
 [glances]
 arch-pkg = ""
@@ -920,19 +464,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for glances"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
-
-[glib2-devel]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for glib2-devel"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [glow]
 arch-pkg = ""
@@ -944,43 +476,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for glow"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
-
-[gnome-calculator]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for gnome-calculator"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific",]
-
-[gnome-system-monitor]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for gnome-system-monitor"
-custom-install = ""
-tags = [ "cat:system", "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific",]
-
-[gnome-text-editor]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for gnome-text-editor"
-custom-install = ""
-tags = [ "cat:editor", "cat:cli-tool", "de:gnome", "dist:arch", "dist:fedora", "os:linux", "dist:debian", "pm:pacman", "pm:dnf", "pm:apt", "dist:ubuntu", "priority:essential", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [gnu-units]
 arch-pkg = ""
@@ -992,7 +488,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gnu-units"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [gnupg]
 arch-pkg = ""
@@ -1004,7 +500,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gnupg"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [gobject-introspection]
 arch-pkg = ""
@@ -1016,79 +512,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gobject-introspection"
 custom-install = ""
-tags = [ "cat:cli-tool", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "pm:homebrew", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "role:development", "priority:recommended", "scope:extended",]
-
-[grim]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for grim"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[grimblast]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for grimblast"
-custom-install = ""
-tags = [ "os:linux", "cat:aur", "pm:pacman", "dist:arch", "priority:recommended", "scope:extended",]
-
-[gtk-engine-murrine]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for gtk-engine-murrine"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific",]
-
-[gtk-layer-shell]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for gtk-layer-shell"
-custom-install = ""
-tags = [ "cat:shell", "cat:terminal", "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific",]
-
-[gtk3]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for gtk3"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific",]
-
-[gtk4]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for gtk4"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "role:development", "priority:recommended", "scope:extended",]
 
 [gum]
 arch-pkg = ""
@@ -1100,31 +524,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for gum"
 custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[gvfs]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for gvfs"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[gvfs-mtp]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for gvfs-mtp"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew", "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
 
 [htop]
 arch-pkg = ""
@@ -1136,7 +536,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for htop"
 custom-install = ""
-tags = [ "cat:cli-tool", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "pm:homebrew", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [hyperfine]
 arch-pkg = ""
@@ -1148,151 +548,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for hyperfine"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
-
-[hypridle]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for hypridle"
-custom-install = ""
-tags = [ "de:hyprland", "dist:arch", "dist:fedora", "os:linux", "pm:pacman", "pm:dnf", "priority:recommended", "scope:extended",]
-
-[hyprland]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for hyprland"
-custom-install = ""
-tags = [ "de:hyprland", "priority:optional", "scope:workflow-specific",]
-
-[hyprlock]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for hyprlock"
-custom-install = ""
-tags = [ "de:hyprland", "priority:optional", "scope:workflow-specific",]
-
-[hyprpanel]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for hyprpanel"
-custom-install = ""
-tags = [ "de:hyprland", "os:linux", "cat:aur", "pm:pacman", "dist:arch", "priority:recommended", "scope:extended",]
-
-[hyprpaper]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for hyprpaper"
-custom-install = ""
-tags = [ "de:hyprland", "priority:optional", "scope:workflow-specific",]
-
-[hyprpicker]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for hyprpicker"
-custom-install = ""
-tags = [ "de:hyprland", "priority:optional", "scope:workflow-specific",]
-
-[hyprpolkitagent]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for hyprpolkitagent"
-custom-install = ""
-tags = [ "de:hyprland", "priority:optional", "scope:workflow-specific",]
-
-[hyprshade]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for hyprshade"
-custom-install = ""
-tags = [ "de:hyprland", "priority:optional", "scope:workflow-specific",]
-
-[hyprshot]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for hyprshot"
-custom-install = ""
-tags = [ "de:hyprland", "os:linux", "pm:pacman", "dist:arch", "priority:recommended", "scope:extended",]
-
-[hyprsunset]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for hyprsunset"
-custom-install = ""
-tags = [ "de:hyprland", "priority:optional", "scope:workflow-specific",]
-
-[imagemagick]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for imagemagick"
-custom-install = ""
-tags = [ "cat:graphics", "priority:optional", "scope:workflow-specific",]
-
-[imv]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for imv"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "cat:cli-tool", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [inetutils]
 arch-pkg = ""
@@ -1304,7 +560,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for inetutils"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "scope:extended", "pm:apt", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [inxi]
 arch-pkg = ""
@@ -1316,19 +572,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for inxi"
 custom-install = ""
-tags = [ "cat:cli-tool", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "pm:homebrew", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended",]
-
-["it.mijorus.gearlever"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for it.mijorus.gearlever"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [jj]
 arch-pkg = ""
@@ -1340,7 +584,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for jj"
 custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew", "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
 
 [jq]
 arch-pkg = ""
@@ -1352,7 +596,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for jq"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [jujutsu]
 arch-pkg = ""
@@ -1364,7 +608,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for jujutsu"
 custom-install = ""
-tags = [ "dist:arch", "pm:homebrew", "os:linux", "pm:pacman", "os:macos", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "dist:arch", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [just]
 arch-pkg = ""
@@ -1376,7 +620,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for just"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [kitty]
 arch-pkg = ""
@@ -1388,19 +632,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for kitty"
 custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific", "pm:homebrew:cask", "cat:cask", "os:macos",]
-
-[kvantum]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for kvantum"
-custom-install = ""
-tags = [ "dist:arch", "dist:fedora", "os:linux", "dist:debian", "cat:gui", "pm:pacman", "pm:dnf", "pm:apt", "dist:ubuntu", "priority:essential", "role:desktop", "priority:recommended", "scope:extended",]
+tags = [ "cat:cask", "os:macos", "role:desktop", "priority:optional", "scope:workflow-specific", "pm:homebrew:macos",]
 
 [lazydocker]
 arch-pkg = ""
@@ -1412,7 +644,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for lazydocker"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "cat:virtualization", "os:linux", "scope:extended", "role:development", "os:macos", "cat:aur", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:virtualization", "dist:arch", "cat:aur", "pm:pacman", "pm:homebrew", "os:linux", "role:development", "priority:recommended", "scope:extended",]
 
 [lazygit]
 arch-pkg = ""
@@ -1424,7 +656,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for lazygit"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "cat:vcs", "os:linux", "scope:extended", "pm:apt", "cat:cli-tool", "priority:essential", "os:macos", "role:development", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:vcs", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "cat:cli-tool", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "role:development", "priority:recommended", "scope:extended",]
 
 [lazyjj]
 arch-pkg = ""
@@ -1436,7 +668,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for lazyjj"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "dist:arch", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [lazysql]
 arch-pkg = ""
@@ -1448,7 +680,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for lazysql"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "cat:database-tools", "os:macos", "cat:aur", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:database-tools", "dist:arch", "cat:aur", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [lego]
 arch-pkg = ""
@@ -1460,43 +692,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for lego"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "cat:cli-tool", "os:macos", "role:development", "dist:arch", "pm:pacman",]
-
-[libadwaita]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for libadwaita"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[libdbusmenu-gtk3]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for libdbusmenu-gtk3"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific",]
-
-[libgtop]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for libgtop"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "dist:arch", "pm:pacman", "pm:homebrew", "os:linux", "role:development", "priority:recommended", "scope:extended",]
 
 [libnotify]
 arch-pkg = ""
@@ -1508,31 +704,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for libnotify"
 custom-install = ""
-tags = [ "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "pm:homebrew", "cat:gui", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "role:desktop", "priority:recommended", "scope:extended",]
-
-[libsoup3]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for libsoup3"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[libspng]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for libspng"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "cat:gui", "os:linux", "priority:essential", "role:desktop", "priority:recommended", "scope:extended",]
 
 [llvm]
 arch-pkg = ""
@@ -1544,55 +716,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for llvm"
 custom-install = ""
-tags = [ "cat:cli-tool", "pm:dnf", "os:macos", "pm:pacman", "os:linux", "priority:essential", "cat:development", "dist:arch", "priority:recommended", "dist:debian", "cat:virtualization", "scope:extended", "pm:apt", "role:development", "pm:homebrew", "dist:ubuntu", "dist:fedora",]
-
-[loupe]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for loupe"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[lsd]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for lsd"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[man-pages]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for man-pages"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[matugen]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for matugen"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:virtualization", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "cat:development", "role:development", "priority:recommended", "scope:extended",]
 
 [mercurial]
 arch-pkg = ""
@@ -1604,43 +728,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for mercurial"
 custom-install = ""
-tags = [ "cat:vcs", "dist:arch", "dist:fedora", "pm:homebrew", "os:linux", "dist:debian", "pm:pacman", "pm:dnf", "os:macos", "pm:apt", "dist:ubuntu", "priority:essential", "priority:recommended", "scope:extended",]
-
-[meson]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for meson"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[mission-center]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for mission-center"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[mousepad]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for mousepad"
-custom-install = ""
-tags = [ "dist:arch", "dist:fedora", "os:linux", "dist:debian", "pm:pacman", "pm:dnf", "pm:apt", "dist:ubuntu", "priority:essential", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:vcs", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [mpv]
 arch-pkg = ""
@@ -1652,55 +740,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for mpv"
 custom-install = ""
-tags = [ "cat:cli-tool", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "pm:homebrew", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended",]
-
-[mpv-mpris]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for mpv-mpris"
-custom-install = ""
-tags = [ "cat:cli-tool", "dist:arch", "dist:fedora", "os:linux", "dist:debian", "pm:pacman", "pm:dnf", "pm:apt", "dist:ubuntu", "priority:essential", "priority:recommended", "scope:extended",]
-
-[nano]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for nano"
-custom-install = ""
-tags = [ "cat:editor", "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[nautilus]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for nautilus"
-custom-install = ""
-tags = [ "de:gnome", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "os:linux", "pm:dnf", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended",]
-
-[nautilus-open-any-terminal]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for nautilus-open-any-terminal"
-custom-install = ""
-tags = [ "cat:shell", "cat:terminal", "cat:cli-tool", "de:gnome", "dist:arch", "os:linux", "cat:aur", "pm:pacman", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [neovim]
 arch-pkg = ""
@@ -1712,271 +752,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for neovim"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "cat:editor", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "pm:dnf", "priority:essential", "os:macos", "role:development", "dist:arch", "pm:pacman",]
-
-["net.davidotek.pupgui2"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for net.davidotek.pupgui2"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[network-manager-applet]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for network-manager-applet"
-custom-install = ""
-tags = [ "cat:network", "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[networkmanager]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for networkmanager"
-custom-install = ""
-tags = [ "cat:network", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "os:linux", "pm:dnf", "cat:cli-tool", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended",]
-
-[niri]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for niri"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:niri", "dist:arch", "dist:fedora", "os:linux", "pm:pacman", "pm:dnf", "priority:recommended", "scope:extended",]
-
-[nm-connection-editor]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for nm-connection-editor"
-custom-install = ""
-tags = [ "cat:editor", "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[noto-fonts]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for noto-fonts"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[noto-fonts-cjk]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for noto-fonts-cjk"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[noto-fonts-emoji]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for noto-fonts-emoji"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[noto-fonts-extra]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for noto-fonts-extra"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[npm]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for npm"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[nvtop]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for nvtop"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[nwg-displays]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for nwg-displays"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[nwg-dock-hyprland]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for nwg-dock-hyprland"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:hyprland", "dist:arch", "dist:fedora", "os:linux", "pm:pacman", "pm:dnf", "cat:gui", "role:desktop", "priority:recommended", "scope:extended",]
-
-[nwg-look]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for nwg-look"
-custom-install = ""
-tags = [ "cat:cli-tool", "dist:arch", "os:linux", "dist:debian", "pm:pacman", "pm:apt", "dist:ubuntu", "cat:gui", "role:desktop", "priority:recommended", "scope:extended",]
-
-["org.gnome.DejaDup"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for org.gnome.DejaDup"
-custom-install = ""
-tags = [ "de:gnome", "priority:optional", "scope:workflow-specific",]
-
-["org.gnome.SimpleScan"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for org.gnome.SimpleScan"
-custom-install = ""
-tags = [ "de:gnome", "priority:optional", "scope:workflow-specific",]
-
-["org.gnome.World.PikaBackup"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for org.gnome.World.PikaBackup"
-custom-install = ""
-tags = [ "de:gnome", "priority:optional", "scope:workflow-specific",]
-
-["org.gustavoperedo.FontDownloader"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for org.gustavoperedo.FontDownloader"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-["org.mozilla.firefox"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for org.mozilla.firefox"
-custom-install = ""
-tags = [ "cat:browser", "priority:optional", "scope:workflow-specific",]
-
-["org.signal.Signal"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for org.signal.Signal"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-["org.videolan.VLC"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for org.videolan.VLC"
-custom-install = ""
-tags = [ "cat:development", "cat:multimedia", "role:development", "role:content-creation", "priority:recommended", "scope:extended",]
-
-[otf-font-awesome]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for otf-font-awesome"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:awesome", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:editor", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "role:development", "priority:recommended", "scope:extended",]
 
 [overmind]
 arch-pkg = ""
@@ -1988,55 +764,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for overmind"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "os:macos", "cat:aur", "dist:arch", "pm:pacman",]
-
-[pacman-contrib]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for pacman-contrib"
-custom-install = ""
-tags = [ "cat:cli-tool", "dist:arch", "pm:pacman", "os:linux", "priority:recommended", "scope:extended",]
-
-[pacseek]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for pacseek"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[pamixer]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for pamixer"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[papirus-icon-theme]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for papirus-icon-theme"
-custom-install = ""
-tags = [ "cat:cli-tool", "dist:arch", "dist:fedora", "os:linux", "dist:debian", "pm:pacman", "pm:dnf", "pm:apt", "dist:ubuntu", "priority:essential", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "dist:arch", "cat:aur", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [parsec]
 arch-pkg = ""
@@ -2048,31 +776,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for parsec"
 custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific", "pm:homebrew:cask", "cat:cask", "os:macos", "role:desktop",]
-
-[pavucontrol]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for pavucontrol"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[pciutils]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for pciutils"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
+tags = [ "cat:cask", "os:macos", "role:desktop", "priority:optional", "scope:workflow-specific", "pm:homebrew:macos",]
 
 [pinta]
 arch-pkg = ""
@@ -2084,55 +788,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for pinta"
 custom-install = ""
-tags = [ "dist:arch", "cat:cask", "dist:ubuntu", "priority:essential", "os:linux", "pm:dnf", "cat:aur", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "role:desktop", "priority:recommended", "scope:extended", "pm:homebrew:cask",]
-
-[pipewire]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for pipewire"
-custom-install = ""
-tags = [ "dist:arch", "dist:fedora", "os:linux", "dist:debian", "pm:pacman", "pm:dnf", "pm:apt", "dist:ubuntu", "priority:essential", "priority:recommended", "scope:extended",]
-
-[pipewire-alsa]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for pipewire-alsa"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[pipewire-audio]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for pipewire-audio"
-custom-install = ""
-tags = [ "cat:multimedia", "cat:cli-tool", "role:content-creation", "priority:optional", "scope:workflow-specific",]
-
-[pipewire-pulse]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for pipewire-pulse"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "cat:cask", "os:macos", "pm:apt", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "cat:aur", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "role:desktop", "priority:recommended", "scope:extended", "pm:homebrew:macos",]
 
 [pixi]
 arch-pkg = ""
@@ -2144,55 +800,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for pixi"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "cat:cli-tool", "os:macos", "dist:arch", "pm:pacman",]
-
-[pkg-config]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for pkg-config"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[playerctl]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for playerctl"
-custom-install = ""
-tags = [ "cat:multimedia", "dist:arch", "dist:fedora", "os:linux", "dist:debian", "pm:pacman", "pm:dnf", "cat:cli-tool", "pm:apt", "dist:ubuntu", "priority:essential", "role:content-creation", "priority:recommended", "scope:extended",]
-
-[polkit-gnome]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for polkit-gnome"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:gnome", "priority:optional", "scope:workflow-specific",]
-
-[power-profiles-daemon]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for power-profiles-daemon"
-custom-install = ""
-tags = [ "cat:filesystem", "cat:cli-tool", "dist:arch", "dist:fedora", "os:linux", "dist:debian", "pm:pacman", "pm:dnf", "pm:apt", "dist:ubuntu", "priority:essential", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "dist:arch", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [presenterm]
 arch-pkg = ""
@@ -2204,7 +812,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for presenterm"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "cat:cli-tool", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "dist:arch", "cat:cli-tool", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [prettier]
 arch-pkg = ""
@@ -2216,175 +824,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for prettier"
 custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[python]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for python"
-custom-install = ""
-tags = [ "role:development", "priority:essential", "scope:core",]
-
-[python-gobject]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for python-gobject"
-custom-install = ""
-tags = [ "cat:cli-tool", "role:development", "priority:essential", "scope:core",]
-
-[python-gpustat]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for python-gpustat"
-custom-install = ""
-tags = [ "cat:cli-tool", "role:development", "priority:essential", "scope:core",]
-
-[python-pip]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for python-pip"
-custom-install = ""
-tags = [ "cat:cli-tool", "role:development", "priority:essential", "scope:core",]
-
-[python-pyquery]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for python-pyquery"
-custom-install = ""
-tags = [ "cat:cli-tool", "role:development", "priority:essential", "scope:core",]
-
-[python-pywalfox]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for python-pywalfox"
-custom-install = ""
-tags = [ "cat:cli-tool", "role:development", "priority:essential", "scope:core",]
-
-[python-requests]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for python-requests"
-custom-install = ""
-tags = [ "cat:cli-tool", "role:development", "priority:essential", "scope:core",]
-
-[python-screeninfo]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for python-screeninfo"
-custom-install = ""
-tags = [ "cat:cli-tool", "role:development", "priority:essential", "scope:core",]
-
-[python3-gobject]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for python3-gobject"
-custom-install = ""
-tags = [ "cat:cli-tool", "role:development", "priority:recommended", "scope:extended",]
-
-[python3-pip]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for python3-pip"
-custom-install = ""
-tags = [ "cat:cli-tool", "role:development", "priority:recommended", "scope:extended",]
-
-[python3-pyquery]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for python3-pyquery"
-custom-install = ""
-tags = [ "cat:cli-tool", "role:development", "priority:recommended", "scope:extended",]
-
-[python3-requests]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for python3-requests"
-custom-install = ""
-tags = [ "cat:cli-tool", "role:development", "priority:recommended", "scope:extended",]
-
-[python3-screeninfo]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for python3-screeninfo"
-custom-install = ""
-tags = [ "cat:cli-tool", "role:development", "priority:recommended", "scope:extended",]
-
-[pywal]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for pywal"
-custom-install = ""
-tags = [ "os:linux", "pm:pacman", "dist:arch", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew", "priority:optional", "scope:workflow-specific",]
 
 [qalculate-gtk]
 arch-pkg = ""
@@ -2396,127 +836,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for qalculate-gtk"
 custom-install = ""
-tags = [ "cat:cli-tool", "de:gnome", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "pm:homebrew", "cat:gui", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "role:desktop", "priority:recommended", "scope:extended",]
-
-[qt5-graphicaleffects]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for qt5-graphicaleffects"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific",]
-
-[qt5-quickcontrols2]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for qt5-quickcontrols2"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific",]
-
-[qt5-svg]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for qt5-svg"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific",]
-
-[qt5-wayland]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for qt5-wayland"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific",]
-
-[qt5ct]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for qt5ct"
-custom-install = ""
-tags = [ "de:kde", "priority:optional", "scope:workflow-specific",]
-
-[qt6-5compat]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for qt6-5compat"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific",]
-
-[qt6-declarative]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for qt6-declarative"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific",]
-
-[qt6-svg]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for qt6-svg"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific",]
-
-[qt6-wayland]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for qt6-wayland"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:kde", "priority:optional", "scope:workflow-specific",]
-
-[qt6ct]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for qt6ct"
-custom-install = ""
-tags = [ "de:kde", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "de:gnome", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "cat:gui", "os:linux", "priority:essential", "role:desktop", "priority:recommended", "scope:extended",]
 
 [ripgrep]
 arch-pkg = ""
@@ -2528,55 +848,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for ripgrep"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
-
-[rofi-wayland]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for rofi-wayland"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[rsync]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for rsync"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[rust]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for rust"
-custom-install = ""
-tags = [ "cat:cli-tool", "role:development", "priority:recommended", "scope:extended",]
-
-[sddm]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for sddm"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [shellcheck]
 arch-pkg = ""
@@ -2588,7 +860,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for shellcheck"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "cat:shell", "dist:debian", "dist:ubuntu", "dist:fedora", "os:linux", "scope:extended", "cat:terminal", "pm:apt", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:shell", "cat:terminal", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [shfmt]
 arch-pkg = ""
@@ -2600,7 +872,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for shfmt"
 custom-install = ""
-tags = [ "dist:arch", "pm:homebrew", "os:linux", "pm:pacman", "os:macos", "pm:apt", "dist:ubuntu", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:ubuntu", "dist:arch", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [signal]
 arch-pkg = ""
@@ -2612,31 +884,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for signal"
 custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific", "pm:homebrew:cask", "cat:cask", "os:macos", "role:desktop",]
-
-[slurp]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for slurp"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[sof-firmware]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for sof-firmware"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "cat:cask", "os:macos", "role:desktop", "priority:optional", "scope:workflow-specific", "pm:homebrew:macos",]
 
 [starship]
 arch-pkg = ""
@@ -2648,43 +896,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for starship"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "scope:extended", "pm:apt", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
-
-[swappy]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for swappy"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[swaync]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for swaync"
-custom-install = ""
-tags = [ "de:sway", "priority:optional", "scope:workflow-specific",]
-
-[swww]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for swww"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [tailscale]
 arch-pkg = ""
@@ -2696,7 +908,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for tailscale"
 custom-install = ""
-tags = [ "dist:arch", "dist:fedora", "pm:homebrew", "os:linux", "pm:pacman", "pm:dnf", "os:macos", "priority:essential", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [talosctl]
 arch-pkg = ""
@@ -2708,7 +920,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for talosctl"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "cat:cli-tool", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "dist:arch", "cat:cli-tool", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [thefuck]
 arch-pkg = ""
@@ -2720,43 +932,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for thefuck"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
-
-[thunar]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for thunar"
-custom-install = ""
-tags = [ "de:xfce", "priority:optional", "scope:workflow-specific",]
-
-[thunar-archive-plugin]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for thunar-archive-plugin"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:xfce", "priority:optional", "scope:workflow-specific",]
-
-[thunar-volman]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for thunar-volman"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:xfce", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "cat:cli-tool", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [tlrc]
 arch-pkg = ""
@@ -2768,7 +944,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for tlrc"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "cat:cli-tool", "os:macos", "cat:aur", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "dist:arch", "cat:aur", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [tmux]
 arch-pkg = ""
@@ -2780,7 +956,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for tmux"
 custom-install = ""
-tags = [ "cat:shell", "pm:homebrew", "dist:debian", "dist:ubuntu", "scope:core", "dist:fedora", "os:linux", "cat:terminal", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:shell", "cat:terminal", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "scope:core",]
 
 [tpm]
 arch-pkg = ""
@@ -2792,7 +968,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for tpm"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "cat:cli-tool", "os:macos", "cat:aur", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "dist:arch", "cat:aur", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [tree]
 arch-pkg = ""
@@ -2804,127 +980,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for tree"
 custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[ttf-dejavu]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for ttf-dejavu"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[ttf-droid]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for ttf-droid"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[ttf-fantasque-nerd]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for ttf-fantasque-nerd"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[ttf-fira-code]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for ttf-fira-code"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[ttf-fira-sans]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for ttf-fira-sans"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[ttf-firacode-nerd]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for ttf-firacode-nerd"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[ttf-jetbrains-mono]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for ttf-jetbrains-mono"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[ttf-jetbrains-mono-nerd]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for ttf-jetbrains-mono-nerd"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[ttf-victor-mono]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for ttf-victor-mono"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[tumbler]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for tumbler"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew", "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
 
 [typescript]
 arch-pkg = ""
@@ -2936,7 +992,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for typescript"
 custom-install = ""
-tags = [ "dist:arch", "dist:ubuntu", "priority:essential", "pm:homebrew", "os:linux", "pm:dnf", "os:macos", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [ugrep]
 arch-pkg = ""
@@ -2948,67 +1004,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for ugrep"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
-
-[umockdev]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for umockdev"
-custom-install = ""
-tags = [ "de:kde", "priority:optional", "scope:workflow-specific",]
-
-[unzip]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for unzip"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[upower]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for upower"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-["us.zoom.Zoom"]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for us.zoom.Zoom"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[uwsm]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for uwsm"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [vale]
 arch-pkg = ""
@@ -3020,19 +1016,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for vale"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "cat:cli-tool", "os:macos", "dist:arch", "pm:pacman",]
-
-[vim]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for vim"
-custom-install = ""
-tags = [ "cat:editor", "cat:cli-tool", "role:development", "priority:essential", "scope:core",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "dist:arch", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [visual-studio-code]
 arch-pkg = ""
@@ -3044,55 +1028,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for visual-studio-code"
 custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific", "cat:cli-tool", "pm:homebrew:cask", "cat:cask", "os:macos", "role:desktop",]
-
-[wallust]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for wallust"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[waybar]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for waybar"
-custom-install = ""
-tags = [ "de:sway", "priority:optional", "scope:workflow-specific",]
-
-[waypaper]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for waypaper"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[wf-recorder]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for wf-recorder"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "cat:cask", "os:macos", "cat:cli-tool", "role:desktop", "priority:optional", "scope:workflow-specific", "pm:homebrew:macos",]
 
 [wget]
 arch-pkg = ""
@@ -3104,31 +1040,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for wget"
 custom-install = ""
-tags = [ "pm:homebrew", "dist:debian", "scope:core", "dist:ubuntu", "os:linux", "dist:fedora", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
-
-[whiptail]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for whiptail"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[wireplumber]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for wireplumber"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "scope:core",]
 
 [wishlist]
 arch-pkg = ""
@@ -3140,115 +1052,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for wishlist"
 custom-install = ""
-tags = [ "dist:arch", "pm:homebrew", "os:linux", "pm:pacman", "cat:aur", "priority:recommended", "scope:extended",]
-
-[wl-clipboard]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for wl-clipboard"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[wlogout]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for wlogout"
-custom-install = ""
-tags = [ "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "os:linux", "pm:dnf", "cat:aur", "dist:fedora", "pm:apt", "pm:pacman", "role:development", "priority:recommended", "scope:extended",]
-
-[wofi]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for wofi"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
-
-[xarchiver]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for xarchiver"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[xclip]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for xclip"
-custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific",]
-
-[xdg-desktop-portal-gtk]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for xdg-desktop-portal-gtk"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:gnome", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "cat:gui", "os:linux", "pm:dnf", "dist:fedora", "pm:apt", "pm:pacman", "role:desktop", "priority:recommended", "scope:extended",]
-
-[xdg-desktop-portal-hyprland]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for xdg-desktop-portal-hyprland"
-custom-install = ""
-tags = [ "cat:cli-tool", "de:hyprland", "priority:optional", "scope:workflow-specific",]
-
-[xdg-user-dirs]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for xdg-user-dirs"
-custom-install = ""
-tags = [ "cat:cli-tool", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "os:linux", "pm:dnf", "dist:fedora", "pm:apt", "pm:pacman", "priority:recommended", "scope:extended",]
-
-[xdg-utils]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for xdg-utils"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew", "dist:arch", "cat:aur", "pm:pacman", "os:linux", "priority:recommended", "scope:extended",]
 
 [xz]
 arch-pkg = ""
@@ -3260,19 +1064,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for xz"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
-
-[yad]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for yad"
-custom-install = ""
-tags = [ "cat:cli-tool", "dist:arch", "dist:ubuntu", "priority:essential", "dist:debian", "cat:gui", "os:linux", "pm:dnf", "dist:fedora", "pm:apt", "pm:pacman", "role:desktop", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [yazi]
 arch-pkg = ""
@@ -3284,7 +1076,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for yazi"
 custom-install = ""
-tags = [ "cat:cli-tool", "dist:arch", "pm:homebrew", "pm:pacman", "os:linux", "os:macos", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "dist:arch", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [yq]
 arch-pkg = ""
@@ -3296,7 +1088,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for yq"
 custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "pm:homebrew", "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
 
 [yt-dlp]
 arch-pkg = ""
@@ -3308,7 +1100,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for yt-dlp"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "dist:debian", "dist:ubuntu", "os:linux", "dist:fedora", "scope:extended", "pm:apt", "cat:cli-tool", "pm:dnf", "priority:essential", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "priority:recommended", "scope:extended",]
 
 [zellij]
 arch-pkg = ""
@@ -3320,7 +1112,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for zellij"
 custom-install = ""
-tags = [ "priority:recommended", "pm:homebrew", "os:linux", "scope:extended", "cat:cli-tool", "os:macos", "dist:arch", "pm:pacman",]
+tags = [ "pm:homebrew:darwin", "os:macos", "dist:arch", "cat:cli-tool", "pm:pacman", "pm:homebrew", "os:linux", "priority:recommended", "scope:extended",]
 
 [zen]
 arch-pkg = ""
@@ -3332,19 +1124,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for zen"
 custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific", "cat:cli-tool", "pm:homebrew:cask", "cat:cask", "os:macos", "role:desktop",]
-
-[zip]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for zip"
-custom-install = ""
-tags = [ "cat:cli-tool", "priority:optional", "scope:workflow-specific",]
+tags = [ "cat:cask", "os:macos", "cat:cli-tool", "role:desktop", "priority:optional", "scope:workflow-specific", "pm:homebrew:macos",]
 
 [zoom]
 arch-pkg = ""
@@ -3356,7 +1136,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for zoom"
 custom-install = ""
-tags = [ "priority:optional", "scope:workflow-specific", "cat:cli-tool", "pm:homebrew:cask", "cat:cask", "os:macos", "role:desktop",]
+tags = [ "cat:cask", "os:macos", "cat:cli-tool", "role:desktop", "priority:optional", "scope:workflow-specific", "pm:homebrew:macos",]
 
 [zoxide]
 arch-pkg = ""
@@ -3368,7 +1148,7 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for zoxide"
 custom-install = ""
-tags = [ "cat:development", "dist:arch", "dist:fedora", "pm:homebrew", "os:linux", "dist:debian", "pm:pacman", "pm:dnf", "cat:cli-tool", "os:macos", "pm:apt", "dist:ubuntu", "priority:essential", "role:development", "priority:recommended", "scope:extended",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:development", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "cat:cli-tool", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "role:development", "priority:recommended", "scope:extended",]
 
 [zsh]
 arch-pkg = ""
@@ -3380,16 +1160,4 @@ prefer_flatpak = false
 priority = ""
 description = "TODO: Add description for zsh"
 custom-install = ""
-tags = [ "cat:shell", "cat:terminal", "cat:cli-tool", "dist:arch", "dist:fedora", "pm:homebrew", "os:linux", "dist:debian", "pm:pacman", "pm:dnf", "os:macos", "pm:apt", "dist:ubuntu", "priority:essential", "scope:core",]
-
-[zsh-completions]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for zsh-completions"
-custom-install = ""
-tags = [ "cat:shell", "cat:terminal", "cat:cli-tool", "priority:essential", "scope:core",]
+tags = [ "pm:homebrew:darwin", "os:macos", "cat:shell", "cat:terminal", "cat:cli-tool", "pm:apt", "dist:debian", "dist:ubuntu", "dist:arch", "pm:dnf", "dist:fedora", "pm:pacman", "pm:homebrew", "os:linux", "priority:essential", "scope:core",]

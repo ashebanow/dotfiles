@@ -285,19 +285,32 @@ class TaggedPackageFileGenerator:
         if self.platform.supports_homebrew():
             if self.platform.is_darwin:
                 # Cross-platform Homebrew packages (Brewfile)
-                brew_packages = self.filter.filter_by_tags("pm:homebrew AND NOT os:macos")
+                # All homebrew packages EXCEPT those that are darwin-only (have pm:homebrew:darwin but not pm:homebrew:linux)
+                brew_packages = self.filter.filter_by_tags(
+                    "pm:homebrew AND NOT (pm:homebrew:darwin AND NOT pm:homebrew:linux)"
+                )
                 if brew_packages:
                     files["Brewfile"] = self._generate_brewfile(brew_packages, include_casks=False)
 
-                # macOS-only Homebrew packages (Brewfile-darwin) - includes both formulas and casks
-                darwin_packages = self.filter.filter_by_tags("pm:homebrew AND os:macos")
+                # macOS-only Homebrew packages (Brewfile-darwin)
+                # Packages that are casks (macOS GUI apps) - these are inherently macOS-only
+                darwin_packages = self.filter.filter_by_tags("cat:cask")
                 if darwin_packages:
-                    files["Brewfile-darwin"] = self._generate_brewfile(darwin_packages, include_casks=True)
+                    files["Brewfile-darwin"] = self._generate_brewfile(
+                        darwin_packages, include_casks=True
+                    )
 
             elif self.platform.is_linux:
-                brew_packages = self.filter.filter_by_tags("pm:homebrew:linux")
-                if brew_packages:
-                    files["Brewfile"] = self._generate_brewfile(brew_packages)
+                # Cross-platform packages
+                brew_packages = self.filter.filter_by_tags(
+                    "pm:homebrew AND NOT pm:homebrew:darwin AND NOT pm:homebrew:linux"
+                )
+                # Plus Linux-specific packages
+                linux_packages = self.filter.filter_by_tags("pm:homebrew:linux")
+                # Combine them
+                all_packages = {**brew_packages, **linux_packages}
+                if all_packages:
+                    files["Brewfile"] = self._generate_brewfile(all_packages)
 
         # Flatpak file
         if self.platform.supports_flatpak():
@@ -377,10 +390,10 @@ class TaggedPackageFileGenerator:
     ) -> str:
         """Generate Brewfile content"""
         lines = []
-        
+
         # Add taps from Brewfile.in if this is the main Brewfile
         if not casks_only and Path("packages/Brewfile.in").exists():
-            with open("packages/Brewfile.in", "r") as f:
+            with open("packages/Brewfile.in") as f:
                 for line in f:
                     line = line.strip()
                     if line.startswith("tap "):
@@ -391,7 +404,7 @@ class TaggedPackageFileGenerator:
         # Separate packages into formulas and casks
         formulas = {}
         casks = {}
-        
+
         for package_name, entry in packages.items():
             if self.filter.is_tag_set(package_name, "cat:cask"):
                 casks[package_name] = entry

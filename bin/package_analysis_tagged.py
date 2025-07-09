@@ -33,22 +33,22 @@ def analyze_repology_data_for_tags(repology_data: Dict[str, Any]) -> List[str]:
 
     # Handle our cache format
     platforms = repology_data.get("platforms", {})
-    
+
     # Generate OS and PM tags from platform availability
     if platforms.get("arch_official") or platforms.get("arch_aur"):
         tags.extend(["os:linux", "dist:arch", "pm:pacman"])
         if platforms.get("arch_aur") and not platforms.get("arch_official"):
             tags.append("cat:aur")
-    
+
     if platforms.get("debian"):
         tags.extend(["os:linux", "dist:debian", "pm:apt"])
-    
+
     if platforms.get("ubuntu"):
         tags.extend(["os:linux", "dist:ubuntu", "pm:apt"])
-    
+
     if platforms.get("fedora"):
         tags.extend(["os:linux", "dist:fedora", "pm:dnf"])
-    
+
     if platforms.get("homebrew"):
         tags.append("pm:homebrew")
         # Check if it's macOS specific
@@ -58,13 +58,13 @@ def analyze_repology_data_for_tags(repology_data: Dict[str, Any]) -> List[str]:
             tags.append("os:linux")
         if repology_data.get("brew-is-cask", False):
             tags.append("cat:cask")
-    
+
     if platforms.get("flatpak"):
         tags.extend(["os:linux", "pm:flatpak"])
-    
+
     # Analyze categories from different repositories
     categories_seen = set()
-    
+
     # Extract categories from platforms data
     for platform_name, platform_data in platforms.items():
         if isinstance(platform_data, dict) and "categories" in platform_data:
@@ -102,11 +102,11 @@ def analyze_repology_data_for_tags(repology_data: Dict[str, Any]) -> List[str]:
 
     # Count how many platforms support this package
     platform_count = sum(1 for v in platforms.values() if v)
-    
+
     # If available on many platforms, likely a core tool
     if platform_count > 3:
         tags.append("priority:essential")
-    
+
     # Use description for additional categorization
     description = repology_data.get("description", "").lower()
     if description:
@@ -115,9 +115,11 @@ def analyze_repology_data_for_tags(repology_data: Dict[str, Any]) -> List[str]:
             tags.append("cat:gui")
         elif any(term in description for term in ["cli", "command", "terminal"]):
             tags.append("cat:cli-tool")
-        
+
         # Development tool detection
-        if any(term in description for term in ["compiler", "debugger", "development", "programming"]):
+        if any(
+            term in description for term in ["compiler", "debugger", "development", "programming"]
+        ):
             tags.append("cat:development")
 
     return list(set(tags))  # Remove duplicates
