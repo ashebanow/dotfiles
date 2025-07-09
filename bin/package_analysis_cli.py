@@ -18,6 +18,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 try:
     from package_analysis_tagged import enhance_package_entry_with_tags
     from tag_cache_utils import TagCache
+    from homebrew_client import HomebrewClient
 except ImportError as e:
     print(f"Error importing required modules: {e}")
     sys.exit(1)
@@ -186,6 +187,14 @@ def analyze_packages(
         repology_client = RepologyCache(cache_file)
         print(f"Loaded Repology cache with {len(repology_client.cache)} entries")
 
+    # Initialize Homebrew client for description fallback
+    homebrew_client = HomebrewClient()
+    if homebrew_client.is_available():
+        print("Homebrew available for description fallback")
+    else:
+        print("Homebrew not available - skipping description fallback")
+        homebrew_client = None
+
     # Load tag cache if enabled
     tag_cache = None
     if use_tag_cache:
@@ -241,13 +250,28 @@ def analyze_packages(
             if metadata.get("is_cask", False):
                 cached_tags = list(set(cached_tags + ["cat:cask", "os:macos"]))
             entry["tags"] = cached_tags
+            
+            # Even with cached tags, we should try to get description if missing
+            if not entry.get("description", "").strip():
+                # Try Repology first
+                if repology_data and repology_data.get("description", "").strip():
+                    entry["description"] = repology_data["description"].strip()
+                # Fall back to Homebrew if needed
+                elif homebrew_client:
+                    try:
+                        homebrew_description = homebrew_client.get_package_description(package_name)
+                        if homebrew_description:
+                            entry["description"] = homebrew_description
+                    except Exception as e:
+                        print(f"Warning: Homebrew description lookup failed for {package_name}: {e}")
+            
             results[package_name] = entry
             cache_hits += 1
         else:
             # Compute tags
             try:
                 enhanced_entry = enhance_package_entry_with_tags(
-                    package_name, entry, repology_client=repology_client
+                    package_name, entry, repology_client=repology_client, homebrew_client=homebrew_client
                 )
                 results[package_name] = enhanced_entry
                 cache_misses += 1

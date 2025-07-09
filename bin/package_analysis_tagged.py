@@ -353,7 +353,7 @@ def generate_tags_for_package(
 
 
 def enhance_package_entry_with_tags(
-    package_name: str, entry: Dict[str, Any], repology_client: Any = None
+    package_name: str, entry: Dict[str, Any], repology_client: Any = None, homebrew_client: Any = None
 ) -> Dict[str, Any]:
     """Enhance a package entry with auto-generated tags"""
     enhanced_entry = entry.copy()
@@ -374,6 +374,18 @@ def enhance_package_entry_with_tags(
         repology_description = repology_data.get("description", "").strip()
         if repology_description:
             enhanced_entry["description"] = repology_description
+
+    # Fall back to Homebrew if Repology didn't provide a description
+    if not enhanced_entry.get("description", "").strip() and homebrew_client:
+        try:
+            homebrew_description = homebrew_client.get_package_description(package_name)
+            if homebrew_description:
+                enhanced_entry["description"] = homebrew_description
+                # Also get additional Homebrew data for tag generation
+                brew_data = homebrew_client.get_package_info(package_name)
+        except Exception as e:
+            print(f"Warning: Homebrew description lookup failed for {package_name}: {e}")
+            pass
 
     # Generate tags
     tags = generate_tags_for_package(
