@@ -155,7 +155,7 @@ def main():
     parser.add_argument("--toml", "-t", help="Path to package_mappings.toml file")
     parser.add_argument("--output", "-o", help="Output file path (default: overwrite input)")
     parser.add_argument(
-        "--max-tags-per-line", type=int, default=4, help="Maximum tags per line (default: 4)"
+        "--max-tags-per-line", type=int, default=1, help="Maximum tags per line (default: 1)"
     )
     parser.add_argument("--dry-run", action="store_true", help="Preview changes without writing")
 

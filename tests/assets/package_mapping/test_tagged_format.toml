@@ -1,0 +1,69 @@
+# Test fixture for tagged package format
+# Contains packages with new tagged format for testing
+
+[bat]
+description = "A cat clone with syntax highlighting"
+tags = [
+    "cat:cli-tool",
+    "os:linux",
+    "os:macos",
+    "pm:homebrew",
+    "pm:apt",
+    "pm:pacman",
+    "priority:recommended",
+    "role:development",
+    "scope:extended"
+]
+
+[gh]
+description = "GitHub CLI tool"
+tags = [
+    "cat:cli-tool",
+    "cat:vcs",
+    "os:linux", 
+    "os:macos",
+    "pm:homebrew",
+    "pm:apt",
+    "pm:pacman",
+    "priority:recommended",
+    "role:development",
+    "scope:extended"
+]
+
+[zellij]
+tags = [
+    "cat:cli-tool",
+    "cat:terminal",
+    "os:linux",
+    "os:macos", 
+    "pm:homebrew",
+    "pm:apt",
+    "pm:pacman",
+    "priority:optional",
+    "role:development",
+    "scope:workflow-specific"
+]
+
+[firefox]
+description = "Mozilla Firefox web browser"
+tags = [
+    "cat:browser",
+    "cat:cask",
+    "os:macos",
+    "pm:homebrew:darwin",
+    "priority:optional",
+    "role:desktop",
+    "scope:workflow-specific"
+]
+
+[single-tag-package]
+description = "Package with only one tag"
+tags = ["cat:utility"]
+
+[no-description-package]
+tags = [
+    "cat:system",
+    "os:linux",
+    "pm:pacman",
+    "priority:optional"
+]

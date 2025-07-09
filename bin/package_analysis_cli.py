@@ -115,15 +115,42 @@ def write_toml(data: dict, filepath: str) -> None:
             else:
                 f.write(f"[{package_name}]\n")
 
-            # Write fields in order
+            # Write fields in order - description first if it exists and is not empty
+            if "description" in entry and entry["description"]:
+                f.write(f'description = "{entry["description"]}"\n')
+            
+            # Then tags with proper formatting
+            if "tags" in entry and entry["tags"]:
+                tags = entry["tags"]
+                # Remove duplicates and sort tags alphabetically
+                sorted_tags = sorted(set(tags))
+                
+                # Format with one tag per line
+                if len(sorted_tags) == 1:
+                    # Single tag on one line
+                    f.write(f'tags = ["{sorted_tags[0]}"]\n')
+                else:
+                    # Multiple lines with one tag per line
+                    f.write(f"tags = [\n")
+                    for i, tag in enumerate(sorted_tags):
+                        if i < len(sorted_tags) - 1:
+                            f.write(f'    "{tag}",\n')
+                        else:
+                            f.write(f'    "{tag}"\n')
+                    f.write("]\n")
+            
+            # Write other fields (skip obsolete ones and defaults)
             for key, value in entry.items():
+                if key in ["description", "tags"]:
+                    continue  # Already handled above
                 if isinstance(value, bool):
-                    f.write(f"{key} = {str(value).lower()}\n")
+                    if value:  # Only write non-default booleans
+                        f.write(f"{key} = {str(value).lower()}\n")
                 elif isinstance(value, list):
                     if value:  # Only write non-empty lists
                         formatted_list = ", ".join([f'"{item}"' for item in value])
                         f.write(f"{key} = [{formatted_list}]\n")
-                elif value or value == "":  # Include empty strings
+                elif value:  # Only write non-empty strings
                     f.write(f'{key} = "{value}"\n')
             f.write("\n")
 
@@ -138,7 +165,6 @@ def create_basic_package_entry(package_name: str) -> dict:
         "brew-tap": "",
         "prefer_flatpak": False,
         "priority": "",
-        "description": f"TODO: Add description for {package_name}",
         "custom-install": "",
         "tags": [],
     }

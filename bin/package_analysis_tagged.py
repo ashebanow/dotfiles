@@ -368,6 +368,13 @@ def enhance_package_entry_with_tags(
         except:
             pass
 
+    # Update description from Repology data if available and no description exists
+    current_description = enhanced_entry.get("description", "")
+    if repology_data and not current_description:
+        repology_description = repology_data.get("description", "").strip()
+        if repology_description:
+            enhanced_entry["description"] = repology_description
+
     # Generate tags
     tags = generate_tags_for_package(
         package_name, enhanced_entry, repology_data=repology_data, brew_data=brew_data
