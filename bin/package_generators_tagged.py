@@ -285,12 +285,12 @@ class TaggedPackageFileGenerator:
         if self.platform.supports_homebrew():
             if self.platform.is_darwin:
                 # Regular packages
-                brew_packages = self.filter.filter_by_tags("pm:homebrew:darwin AND NOT cat:cask")
+                brew_packages = self.filter.filter_by_tags("(pm:homebrew AND os:macos) AND NOT cat:cask AND NOT pm:homebrew:cask")
                 if brew_packages:
                     files["Brewfile"] = self._generate_brewfile(brew_packages, include_casks=False)
 
                 # Casks
-                cask_packages = self.filter.filter_by_tags("pm:homebrew:darwin AND cat:cask")
+                cask_packages = self.filter.filter_by_tags("pm:homebrew:cask OR (cat:cask AND os:macos)")
                 if cask_packages:
                     files["Brewfile-darwin"] = self._generate_brewfile(
                         cask_packages, casks_only=True
@@ -379,12 +379,22 @@ class TaggedPackageFileGenerator:
     ) -> str:
         """Generate Brewfile content"""
         lines = []
+        
+        # Add taps from Brewfile.in if this is the main Brewfile
+        if not casks_only and Path("packages/Brewfile.in").exists():
+            with open("packages/Brewfile.in", "r") as f:
+                for line in f:
+                    line = line.strip()
+                    if line.startswith("tap "):
+                        lines.append(line)
+            if lines:
+                lines.append("")
 
         if not casks_only:
             lines.append("# Homebrew packages")
             for package_name in sorted(packages.keys()):
                 entry = packages[package_name]
-                if not self.filter.is_tag_set(package_name, "cat:cask"):
+                if not self.filter.is_tag_set(package_name, "cat:cask") and not self.filter.is_tag_set(package_name, "pm:homebrew:cask"):
                     brew_name = entry.get("brew-pkg", package_name)
                     lines.append(f'brew "{brew_name}"')
 
@@ -393,7 +403,7 @@ class TaggedPackageFileGenerator:
                 lines.append("")
             lines.append("# Homebrew casks")
             for package_name in sorted(packages.keys()):
-                if self.filter.is_tag_set(package_name, "cat:cask"):
+                if self.filter.is_tag_set(package_name, "cat:cask") or self.filter.is_tag_set(package_name, "pm:homebrew:cask"):
                     entry = packages[package_name]
                     brew_name = entry.get("brew-pkg", package_name)
                     lines.append(f'cask "{brew_name}"')

@@ -139,7 +139,7 @@ def create_basic_package_entry(package_name: str) -> dict:
         "tags": []
     }
 
-def analyze_packages(package_names: list, output_file: str = None, cache_file: str = None, 
+def analyze_packages(package_info: dict, output_file: str = None, cache_file: str = None, 
                     tag_cache_file: str = None, use_tag_cache: bool = True):
     """Analyze packages and generate TOML entries."""
     results = {}
@@ -163,11 +163,17 @@ def analyze_packages(package_names: list, output_file: str = None, cache_file: s
     cache_hits = 0
     cache_misses = 0
     
-    for package_name in package_names:
+    for package_name, metadata in package_info.items():
         print(f"Analyzing package: {package_name}")
         
         # Create basic entry
         entry = create_basic_package_entry(package_name)
+        
+        # Add cask tag if needed
+        if metadata.get("is_cask", False):
+            entry['tags'].append("pm:homebrew:cask")
+            entry['tags'].append("cat:cask")
+            entry['tags'].append("os:macos")  # Casks are macOS-only
         
         # Check tag cache first
         cached_tags = None
@@ -182,7 +188,9 @@ def analyze_packages(package_names: list, output_file: str = None, cache_file: s
             cached_tags = tag_cache.get_tags(package_name, repology_timestamp)
             
         if cached_tags is not None:
-            # Use cached tags
+            # Use cached tags but ensure cask tags are preserved
+            if metadata.get("is_cask", False):
+                cached_tags = list(set(cached_tags + ["pm:homebrew:cask", "cat:cask", "os:macos"]))
             entry['tags'] = cached_tags
             results[package_name] = entry
             cache_hits += 1
@@ -226,8 +234,8 @@ def analyze_packages(package_names: list, output_file: str = None, cache_file: s
                     print(f'{key} = "{value}"')
 
 def parse_package_lists(package_lists: list):
-    """Parse package list files and return set of package names."""
-    all_packages = set()
+    """Parse package list files and return dict of package names with metadata."""
+    all_packages = {}
     
     for package_list in package_lists:
         if not Path(package_list).exists():
@@ -239,7 +247,10 @@ def parse_package_lists(package_lists: list):
                 line = line.strip()
                 if line and not line.startswith('#'):
                     # Handle Brewfile format
-                    if line.startswith('brew "'):
+                    if line.startswith('tap "'):
+                        # Skip tap lines - they're repository references, not packages
+                        continue
+                    elif line.startswith('brew "'):
                         # Extract package name from brew "package-name"
                         start = line.find('"') + 1
                         end = line.find('"', start)
@@ -247,10 +258,17 @@ def parse_package_lists(package_lists: list):
                             package = line[start:end]
                             if '/' in package:
                                 package = package.split('/')[-1]
-                            all_packages.add(package)
+                            all_packages[package] = {"is_cask": False}
+                    elif line.startswith('cask "'):
+                        # Extract package name from cask "package-name"
+                        start = line.find('"') + 1
+                        end = line.find('"', start)
+                        if start > 0 and end > start:
+                            package = line[start:end]
+                            all_packages[package] = {"is_cask": True}
                     else:
                         # Simple package list format
-                        all_packages.add(line)
+                        all_packages[line] = {"is_cask": False}
     
     return all_packages
 
@@ -303,9 +321,10 @@ def main():
         return 1
     
     if args.package:
-        # Analyze specific packages
+        # Analyze specific packages - convert to dict format
+        package_info = {pkg: {"is_cask": False} for pkg in args.package}
         analyze_packages(
-            args.package, 
+            package_info, 
             args.output, 
             args.cache,
             tag_cache_file=args.tag_cache,
@@ -316,7 +335,7 @@ def main():
         all_packages = parse_package_lists(args.package_lists)
         if all_packages:
             analyze_packages(
-                list(all_packages), 
+                all_packages, 
                 args.output, 
                 args.cache,
                 tag_cache_file=args.tag_cache,
