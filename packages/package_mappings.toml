@@ -2,62 +2,86 @@
 description = "Run your GitHub Actions locally"
 tags = [
     "cat:cli-tool",
+    "os:linux",
+    "os:macos",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [act3]
 description = "Glance at the last 3 runs of your Github Actions"
 tags = [
     "cat:cli-tool",
+    "os:linux",
+    "os:macos",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [adobe-source-code-pro-fonts]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [antidote]
 description = "Plugin manager for zsh, inspired by antigen and antibody"
-tags = ["pm:homebrew", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "os:linux",
+    "os:macos",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Brewfile.in"]
+
+["app.ytmdesktop.ytmdesktop"]
+tags = [
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
+
+["app.zen_browser.zen"]
+tags = [
+    "cat:browser",
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
 
 [archlinux-keyring]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [atuin]
 description = "Improved shell history for zsh, bash, fish and nushell"
 tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [aylurs-gtk-shell]
 tags = [
@@ -65,533 +89,520 @@ tags = [
     "cat:shell",
     "cat:terminal",
     "de:gnome",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [bandwhich]
 description = "Terminal bandwidth utilization tool"
 tags = [
-    "cat:cli-tool",
-    "dist:arch",
+    "cat:terminal",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [base-devel]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [bat]
 description = "Clone of cat(1) with syntax highlighting and Git integration"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [bc]
 description = "Arbitrary precision numeric processing language"
 tags = [
     "cat:cli-tool",
     "cat:system",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [bibata-cursor-theme-bin]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [binsider]
 description = "Analyzes ELF binaries"
 tags = [
     "cat:development",
-    "dist:arch",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Brewfile.in"]
 
 [biome]
 description = "Toolchain of the web"
 tags = [
-    "dist:arch",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [bitwarden-cli]
 description = "Secure and free password manager for all of your devices"
 tags = [
     "cat:cli-tool",
     "cat:security",
-    "dist:arch",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:recommended",
+    "priority:optional",
     "role:security",
-    "scope:extended",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [blueman]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [bluez]
 description = "Bluetooth protocol stack for Linux"
 tags = [
     "dist:arch",
     "dist:debian",
-    "dist:fedora",
     "dist:ubuntu",
-    "os:linux",
-    "os:macos",
     "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:homebrew:darwin",
     "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [bluez-utils]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [breeze]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [brightnessctl]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [btop]
 description = "Resource monitor. C++ version and continuation of bashtop and bpytop"
 tags = [
     "cat:cli-tool",
-    "cat:network",
     "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [caddy]
 description = "Powerful, enterprise-ready, open source web server with automatic HTTPS"
 tags = [
     "cat:network",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [cava]
 description = "Console-based Audio Visualizer for ALSA"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [checkupdates-with-aur]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [chezmoi]
 description = "Manage your dotfiles across multiple diverse machines, securely"
 tags = [
-    "dist:arch",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [claude]
 description = "Anthropic's official Claude AI desktop app"
 tags = [
     "cat:cask",
     "os:macos",
+    "pm:homebrew",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+_is_cask = true
+source_files = ["Brewfile-darwin"]
 
 [cliphist]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
+
+["com.bitwarden.desktop"]
+tags = [
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
+
+["com.discordapp.Discord"]
+tags = [
+    "cat:communication",
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
+
+["com.getpostman.Postman"]
+tags = [
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
+
+["com.google.Chrome"]
+tags = [
+    "cat:browser",
+    "os:linux",
+    "pm:flatpak",
+    "priority:recommended",
+    "role:development",
+    "scope:extended"
+]
+source_files = ["Flatfile"]
+
+["com.logseq.Logseq"]
+tags = [
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
+
+["com.obsproject.Studio"]
+tags = [
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
+
+["com.parsecgaming.parsec"]
+tags = [
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
+
+["com.slack.Slack"]
+tags = [
+    "cat:communication",
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
 
 [coreutils]
 description = "GNU File, Shell, and Text utilities"
 tags = [
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [ctop]
 description = "Top-like interface for container metrics"
 tags = [
     "cat:cli-tool",
+    "os:linux",
+    "os:macos",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [curl]
 description = "Get a file from an HTTP, HTTPS or FTP server"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
+    "cat:network",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
     "priority:essential",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Brewfile.in"]
 
 [dart-sass]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [direnv]
 description = "Load/unload environment variables based on $PWD"
 tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [dive]
 description = "Tool for exploring each layer in a docker image"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [dolphin]
 description = "Emulator to play GameCube and Wii games"
 tags = [
     "cat:cask",
     "de:kde",
-    "os:macos",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "os:macos",
+    "pm:apt",
+    "pm:homebrew",
+    "pm:pacman",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+_is_cask = true
+source_files = ["Brewfile-darwin", "Archfile", "Aptfile"]
 
 [duf]
 description = "Disk Usage/Free Utility - a better 'df' alternative"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [dust]
 description = "More intuitive version of du in rust"
 tags = [
     "cat:cli-tool",
+    "os:linux",
+    "os:macos",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [eza]
 description = "Modern, maintained replacement for ls"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [fastfetch]
 description = "Like neofetch, but much faster because written mostly in C"
 tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [fd]
 description = "Simple, fast and user-friendly alternative to find"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [ffmpegthumbnailer]
 description = "Create thumbnails for your video files"
 tags = [
     "cat:development",
     "cat:multimedia",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:recommended",
     "role:content-creation",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [figlet]
 description = "Banner-like program prints strings as ASCII art"
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [figurine]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [findutils]
 description = "Collection of GNU find, xargs, and locate"
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [firefox]
 description = "Web browser"
@@ -599,260 +610,214 @@ tags = [
     "cat:browser",
     "cat:cask",
     "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:homebrew:darwin",
     "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
+    "priority:optional",
     "role:desktop",
-    "scope:extended",
+    "scope:workflow-specific"
 ]
+_is_cask = true
+source_files = ["Brewfile-darwin", "Archfile"]
 
 [fish]
 description = "User-friendly command-line shell for UNIX-like operating systems"
 tags = [
     "cat:cli-tool",
     "cat:shell",
+    "cat:system",
     "cat:terminal",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [flatpak]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [fonts-dejavu]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:apt",
-    "os:linux",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Aptfile"]
 
 [fonts-firacode]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:apt",
-    "os:linux",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Aptfile"]
 
 [fonts-font-awesome]
 tags = [
     "cat:cli-tool",
     "de:awesome",
-    "pm:homebrew",
-    "pm:apt",
-    "os:linux",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Aptfile"]
 
 [fonts-jetbrains-mono]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:apt",
-    "os:linux",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Aptfile"]
 
 [fonts-noto-cjk]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:apt",
-    "os:linux",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Aptfile"]
 
 [fonts-noto-color-emoji]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:apt",
-    "os:linux",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Aptfile"]
 
 [fonts-noto-extra]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:apt",
-    "os:linux",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Aptfile"]
 
 [foreman]
 description = "Manage Procfile-based applications"
 tags = [
-    "cat:aur",
-    "dist:arch",
     "os:linux",
+    "os:macos",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [fuse2]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [fzf]
 description = "Command-line fuzzy finder written in Go"
 tags = [
     "cat:cli-tool",
     "cat:filesystem",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [gcc]
 description = "GNU compiler collection"
 tags = [
     "cat:cli-tool",
     "cat:development",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Brewfile.in"]
 
 [gdu]
 description = "Disk usage analyzer with console interface written in Go"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [getnf]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [gh]
 description = "GitHub command-line tool"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [ghostty]
 description = "Terminal emulator that uses platform-native UI and GPU acceleration"
 tags = [
     "cat:cask",
+    "cat:terminal",
     "os:macos",
+    "pm:homebrew",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+_is_cask = true
+source_files = ["Brewfile-darwin"]
 
 [git]
 description = "Distributed revision control system"
@@ -860,284 +825,216 @@ tags = [
     "cat:cli-tool",
     "cat:system",
     "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Brewfile.in"]
 
 [git-delta]
 description = "Syntax-highlighting pager for git and diff output"
 tags = [
     "cat:cli-tool",
     "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Brewfile.in"]
 
 [git-lfs]
 description = "Git extension for versioning large files"
 tags = [
     "cat:cli-tool",
     "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Brewfile.in"]
 
 [gitleaks]
 description = "Audit git repos for secrets"
 tags = [
     "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Brewfile.in"]
 
 [gjs]
 description = "JavaScript Bindings for GNOME"
 tags = [
     "cat:cli-tool",
     "de:gnome",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [glances]
 description = "Alternative to top/htop"
 tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [glib2-devel]
 tags = [
     "cat:cli-tool",
     "de:gnome",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [glow]
 description = "Render markdown on the CLI"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [gnome-calculator]
 tags = [
     "cat:cli-tool",
     "de:gnome",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [gnome-system-monitor]
 tags = [
     "cat:cli-tool",
     "cat:system",
     "de:gnome",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [gnome-text-editor]
 tags = [
     "cat:cli-tool",
     "cat:editor",
     "de:gnome",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [gnu-units]
 description = "GNU unit conversion tool"
 tags = [
     "cat:cli-tool",
-    "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [gnupg]
 description = "GNU Pretty Good Privacy (PGP) package"
 tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [gobject-introspection]
 description = "Generate introspection data for GObject libraries"
 tags = [
     "cat:cli-tool",
-    "cat:system",
     "dist:arch",
     "dist:debian",
-    "dist:fedora",
     "dist:ubuntu",
-    "os:linux",
-    "os:macos",
     "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:homebrew:darwin",
     "pm:pacman",
-    "priority:essential",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [grim]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [grimblast]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [gtk-engine-murrine]
 tags = [
     "cat:cli-tool",
     "de:gnome",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [gtk-layer-shell]
 tags = [
@@ -1145,66 +1042,67 @@ tags = [
     "cat:shell",
     "cat:terminal",
     "de:gnome",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [gtk3]
 tags = [
     "cat:cli-tool",
     "de:gnome",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [gtk4]
 description = "Toolkit for creating graphical user interfaces"
 tags = [
     "cat:cli-tool",
     "de:gnome",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [gum]
 description = "Tool for glamorous shell scripts"
 tags = [
     "cat:cli-tool",
+    "os:linux",
+    "os:macos",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [gvfs]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [gvfs-mtp]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [htop]
 description = "Improved top (interactive process viewer)"
@@ -1213,189 +1111,161 @@ tags = [
     "cat:system",
     "dist:arch",
     "dist:debian",
-    "dist:fedora",
     "dist:ubuntu",
-    "os:linux",
-    "os:macos",
     "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:homebrew:darwin",
     "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [hyperfine]
 description = "Command-line benchmarking tool"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [hypridle]
 tags = [
     "de:hyprland",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [hyprland]
 tags = [
     "de:hyprland",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [hyprlock]
 tags = [
     "de:hyprland",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [hyprpanel]
 tags = [
     "de:hyprland",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [hyprpaper]
 tags = [
     "de:hyprland",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [hyprpicker]
 tags = [
     "de:hyprland",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [hyprpolkitagent]
 tags = [
     "de:hyprland",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [hyprshade]
 tags = [
     "de:hyprland",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [hyprshot]
 tags = [
     "de:hyprland",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [hyprsunset]
 tags = [
     "de:hyprland",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [imagemagick]
 description = "Tools and libraries to manipulate images in many formats"
 tags = [
     "cat:graphics",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [imv]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [inetutils]
 description = "GNU utilities for networking"
 tags = [
     "cat:network",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [inxi]
 description = "Full featured CLI system information tool"
@@ -1404,259 +1274,226 @@ tags = [
     "cat:system",
     "dist:arch",
     "dist:debian",
-    "dist:fedora",
     "dist:ubuntu",
-    "os:linux",
-    "os:macos",
     "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:homebrew:darwin",
     "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
+
+["it.mijorus.gearlever"]
+tags = [
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
 
 [jj]
 description = "Git-compatible distributed version control system"
 tags = [
     "cat:cli-tool",
+    "cat:system",
+    "os:linux",
+    "os:macos",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [jq]
 description = "Lightweight and flexible command-line JSON processor"
 tags = [
     "cat:cli-tool",
     "cat:system",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [jujutsu]
 description = "Git-compatible distributed version control system"
 tags = [
     "cat:system",
     "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:homebrew:darwin",
     "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [just]
 description = "Handy way to save and run project-specific commands"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [kitty]
 description = "GPU-based terminal emulator"
 tags = [
     "cat:cask",
-    "os:macos",
-    "pm:pacman",
-    "os:linux",
+    "cat:terminal",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "os:macos",
+    "pm:apt",
+    "pm:homebrew",
+    "pm:pacman",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+_is_cask = true
+source_files = ["Brewfile-darwin", "Archfile", "Aptfile"]
 
 [kvantum]
 tags = [
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [lazydocker]
 description = "Lazier way to manage everything docker"
 tags = [
-    "cat:aur",
     "cat:virtualization",
-    "dist:arch",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Brewfile.in"]
 
 [lazygit]
 description = "Simple terminal UI for git commands"
 tags = [
-    "cat:cli-tool",
+    "cat:terminal",
     "cat:vcs",
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Brewfile.in"]
 
 [lazyjj]
 description = "TUI for Jujutsu/jj"
 tags = [
-    "dist:arch",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [lazysql]
 description = "Cross-platform TUI database management tool"
 tags = [
-    "cat:aur",
     "cat:database-tools",
-    "dist:arch",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [lego]
 description = "Let's Encrypt client and ACME library"
 tags = [
     "cat:cli-tool",
     "cat:security",
-    "dist:arch",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
     "priority:recommended",
     "role:development",
     "role:security",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Brewfile.in"]
 
 [libadwaita]
 description = "Building blocks for modern adaptive GNOME applications"
 tags = [
     "de:gnome",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [libdbusmenu-gtk3]
 tags = [
     "cat:cli-tool",
     "de:gnome",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [libgtop]
 description = "Library for portably obtaining information about processes"
 tags = [
     "cat:system",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [libnotify]
 description = "Library that sends desktop notifications to a notification daemon"
 tags = [
-    "cat:gui",
     "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:homebrew:darwin",
     "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "role:desktop",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [libsoup3]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [libspng]
 description = "C library for reading and writing PNG format files"
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [llvm]
 description = "Next-gen compiler infrastructure"
@@ -1664,128 +1501,110 @@ tags = [
     "cat:cli-tool",
     "cat:development",
     "cat:virtualization",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Brewfile.in"]
 
 [loupe]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [lsd]
 description = "Clone of ls with colorful output, file type icons, and more"
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [man-pages]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [matugen]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [mercurial]
 description = "Scalable distributed version control system"
 tags = [
+    "cat:system",
     "cat:vcs",
     "dist:arch",
     "dist:debian",
-    "dist:fedora",
     "dist:ubuntu",
-    "os:linux",
-    "os:macos",
     "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:homebrew:darwin",
     "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [meson]
 description = "Fast and user friendly build system"
 tags = [
     "cat:system",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [mission-center]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [mousepad]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [mpv]
 description = "Media player based on MPlayer and mplayer2"
@@ -1793,59 +1612,51 @@ tags = [
     "cat:cli-tool",
     "dist:arch",
     "dist:debian",
-    "dist:fedora",
     "dist:ubuntu",
-    "os:linux",
-    "os:macos",
     "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:homebrew:darwin",
     "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [mpv-mpris]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [nano]
 description = "Free (GNU) replacement for the Pico text editor"
 tags = [
     "cat:cli-tool",
     "cat:editor",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [nautilus]
 tags = [
     "de:gnome",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [nautilus-open-any-terminal]
 tags = [
@@ -1853,1067 +1664,1066 @@ tags = [
     "cat:shell",
     "cat:terminal",
     "de:gnome",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [neovim]
 description = "Ambitious Vim-fork focused on extensibility and agility"
 tags = [
     "cat:editor",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Brewfile.in"]
+
+["net.davidotek.pupgui2"]
+tags = [
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
 
 [network-manager-applet]
 tags = [
     "cat:cli-tool",
     "cat:network",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [networkmanager]
 tags = [
     "cat:network",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [niri]
 tags = [
     "cat:cli-tool",
     "de:niri",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [nm-connection-editor]
 tags = [
     "cat:cli-tool",
     "cat:editor",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [noto-fonts]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [noto-fonts-cjk]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [noto-fonts-emoji]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [noto-fonts-extra]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [npm]
 description = "Platform built on V8 to build network applications"
 tags = [
     "cat:cli-tool",
     "cat:network",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [nvtop]
 description = "Interactive GPU process monitor"
 tags = [
     "cat:system",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [nwg-displays]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [nwg-dock-hyprland]
 tags = [
     "cat:cli-tool",
     "de:hyprland",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [nwg-look]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [orbstack]
 description = "Replacement for Docker Desktop"
 tags = [
     "cat:cask",
     "os:macos",
-    "pm:homebrew:macos",
+    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific",
+    "role:desktop",
+    "scope:workflow-specific"
 ]
+_is_cask = true
+source_files = ["Brewfile-darwin"]
+
+["org.gnome.DejaDup"]
+tags = [
+    "de:gnome",
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
+
+["org.gnome.SimpleScan"]
+tags = [
+    "de:gnome",
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
+
+["org.gnome.World.PikaBackup"]
+tags = [
+    "de:gnome",
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
+
+["org.gustavoperedo.FontDownloader"]
+tags = [
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
+
+["org.mozilla.firefox"]
+tags = [
+    "cat:browser",
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
+
+["org.signal.Signal"]
+tags = [
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
+
+["org.videolan.VLC"]
+tags = [
+    "cat:development",
+    "cat:multimedia",
+    "os:linux",
+    "pm:flatpak",
+    "priority:recommended",
+    "role:content-creation",
+    "role:development",
+    "scope:extended"
+]
+source_files = ["Flatfile"]
 
 [otf-font-awesome]
 tags = [
     "cat:cli-tool",
     "de:awesome",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [overmind]
 description = "Process manager for Procfile-based applications and tmux"
 tags = [
-    "cat:aur",
     "cat:system",
-    "dist:arch",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [pacman-contrib]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [pacseek]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [pamixer]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [papirus-icon-theme]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [parsec]
 description = "Remote desktop"
 tags = [
     "cat:cask",
     "os:macos",
+    "pm:homebrew",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+_is_cask = true
+source_files = ["Brewfile-darwin"]
 
 [pavucontrol]
 tags = [
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [pciutils]
 description = "PCI utilities"
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [pinta]
 description = "Simple Gtk# Paint Program"
 tags = [
-    "cat:aur",
     "cat:cask",
+    "de:gnome",
     "dist:arch",
-    "dist:fedora",
+    "dist:debian",
     "dist:ubuntu",
-    "os:linux",
     "os:macos",
     "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
     "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
+    "priority:optional",
     "role:desktop",
-    "scope:extended",
+    "scope:workflow-specific"
 ]
+_is_cask = true
+source_files = ["Brewfile-darwin", "Archfile", "Aptfile"]
 
 [pipewire]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [pipewire-alsa]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [pipewire-audio]
 tags = [
     "cat:cli-tool",
     "cat:multimedia",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
     "role:content-creation",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [pipewire-pulse]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [pixi]
 description = "Package management made easy"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [pkg-config]
 description = "Package compiler and linker metadata toolkit"
 tags = [
     "cat:cli-tool",
     "cat:development",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [playerctl]
 tags = [
     "cat:multimedia",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
     "role:content-creation",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [polkit-gnome]
 tags = [
     "cat:cli-tool",
     "de:gnome",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [power-profiles-daemon]
 tags = [
     "cat:cli-tool",
     "cat:filesystem",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [presenterm]
 description = "Terminal slideshow tool"
 tags = [
-    "cat:cli-tool",
     "cat:development",
-    "dist:arch",
+    "cat:terminal",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Brewfile.in"]
 
 [prettier]
 description = "Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML"
-tags = ["pm:homebrew", "priority:optional", "scope:workflow-specific"]
+tags = [
+    "os:linux",
+    "os:macos",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Brewfile.in"]
 
 [python]
 description = "Interpreted, interactive, object-oriented programming language"
 tags = [
     "cat:development",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [python-gobject]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Archfile"]
 
 [python-gpustat]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Archfile"]
 
 [python-pip]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Archfile"]
 
 [python-pyquery]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Archfile"]
 
 [python-pywalfox]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Archfile"]
 
 [python-requests]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Archfile"]
 
 [python-screeninfo]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Archfile"]
 
 [python3-gobject]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:apt",
-    "os:linux",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Aptfile"]
 
 [python3-pip]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:apt",
-    "os:linux",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Aptfile"]
 
 [python3-pyquery]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:apt",
-    "os:linux",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Aptfile"]
 
 [python3-requests]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:apt",
-    "os:linux",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Aptfile"]
 
 [python3-screeninfo]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:apt",
-    "os:linux",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Aptfile"]
 
 [pywal]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [qalculate-gtk]
 description = "Multi-purpose desktop calculator"
 tags = [
     "cat:cli-tool",
-    "cat:gui",
     "de:gnome",
     "dist:arch",
     "dist:debian",
-    "dist:fedora",
     "dist:ubuntu",
-    "os:linux",
-    "os:macos",
     "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:homebrew:darwin",
     "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "role:desktop",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [qt5-graphicaleffects]
 tags = [
     "cat:cli-tool",
     "de:kde",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [qt5-quickcontrols2]
 tags = [
     "cat:cli-tool",
     "de:kde",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [qt5-svg]
 tags = [
     "cat:cli-tool",
     "de:kde",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [qt5-wayland]
 tags = [
     "cat:cli-tool",
     "de:kde",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [qt5ct]
 tags = [
     "de:kde",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [qt6-5compat]
 tags = [
     "cat:cli-tool",
     "de:kde",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [qt6-declarative]
 tags = [
     "cat:cli-tool",
     "de:kde",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [qt6-svg]
 tags = [
     "cat:cli-tool",
     "de:kde",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [qt6-wayland]
 tags = [
     "cat:cli-tool",
     "de:kde",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [qt6ct]
 tags = [
     "de:kde",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [ripgrep]
 description = "Search tool like grep and The Silver Searcher"
 tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [rofi-wayland]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [rsync]
 description = "Utility that provides fast incremental file transfer"
 tags = [
     "cat:development",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Archfile"]
 
 [rust]
 description = "Safe, concurrent, practical language"
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Archfile"]
 
 [sddm]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [shellcheck]
 description = "Static analysis and lint tool, for (ba)sh scripts"
 tags = [
     "cat:shell",
     "cat:terminal",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [shfmt]
 description = "Autoformat shell script source code"
 tags = [
-    "dist:arch",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in", "Archfile", "Aptfile"]
 
 [signal]
 description = "Instant messaging application focusing on security"
 tags = [
     "cat:cask",
+    "cat:security",
     "os:macos",
+    "pm:homebrew",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific",
+    "role:security",
+    "scope:workflow-specific"
 ]
+_is_cask = true
+source_files = ["Brewfile-darwin"]
 
 [slurp]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [sof-firmware]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [starship]
 description = "Cross-shell prompt for astronauts"
 tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [swappy]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [swaync]
 tags = [
     "de:sway",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [swww]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [tailscale]
 description = "Easiest, most secure way to use WireGuard and 2FA"
 tags = [
-    "dist:arch",
-    "dist:fedora",
     "os:linux",
     "os:macos",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in", "Archfile"]
 
 [talosctl]
 description = "CLI for out-of-band management of Kubernetes nodes created by Talos"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [thefuck]
 description = "Programmatically correct mistyped console commands"
 tags = [
-    "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [thunar]
 tags = [
     "de:xfce",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [thunar-archive-plugin]
 tags = [
     "cat:cli-tool",
     "de:xfce",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [thunar-volman]
 tags = [
     "cat:cli-tool",
     "de:xfce",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [tlrc]
 description = "Official tldr client written in Rust"
 tags = [
-    "cat:aur",
     "cat:cli-tool",
-    "dist:arch",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [tmux]
 description = "Terminal multiplexer"
@@ -2921,260 +2731,242 @@ tags = [
     "cat:cli-tool",
     "cat:shell",
     "cat:terminal",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
     "priority:essential",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Brewfile.in"]
 
 [tpm]
 description = "Plugin manager for tmux"
 tags = [
-    "cat:aur",
     "cat:cli-tool",
-    "dist:arch",
     "os:linux",
+    "os:macos",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [tree]
 description = "Display directories as trees (with optional color/HTML output)"
 tags = [
     "cat:cli-tool",
+    "os:linux",
+    "os:macos",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [ttf-dejavu]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [ttf-droid]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [ttf-fantasque-nerd]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [ttf-fira-code]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [ttf-fira-sans]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [ttf-firacode-nerd]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [ttf-jetbrains-mono]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [ttf-jetbrains-mono-nerd]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [ttf-victor-mono]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [tumbler]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [typescript]
 description = "Language for application scale JavaScript development"
 tags = [
+    "cat:development",
     "dist:arch",
-    "dist:fedora",
-    "dist:ubuntu",
-    "os:linux",
-    "os:macos",
-    "pm:apt",
-    "pm:dnf",
-    "pm:homebrew",
-    "pm:homebrew:darwin",
     "pm:pacman",
-    "priority:essential",
     "priority:recommended",
-    "scope:extended",
+    "role:development",
+    "scope:extended"
 ]
+source_files = ["Archfile"]
 
 [ugrep]
 description = "Ultra fast grep with query UI, fuzzy search, archive search, and more"
 tags = [
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [umockdev]
 description = "Mock hardware devices for creating unit tests and bug reporting"
 tags = [
     "de:kde",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [unzip]
 description = "Extraction utility for .zip compressed archives"
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [upower]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
+
+["us.zoom.Zoom"]
+tags = [
+    "os:linux",
+    "pm:flatpak",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Flatfile"]
 
 [uwsm]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [vale]
 description = "Syntax-aware linter for prose"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [vim]
 description = "Vi 'workalike' with many additional features"
 tags = [
     "cat:cli-tool",
     "cat:editor",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Archfile"]
 
 [visual-studio-code]
 description = "Open-source code editor"
@@ -3182,318 +2974,288 @@ tags = [
     "cat:cask",
     "cat:cli-tool",
     "os:macos",
+    "pm:homebrew",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+_is_cask = true
+source_files = ["Brewfile-darwin"]
 
 [wallust]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [waybar]
 tags = [
     "de:sway",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [waypaper]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [wf-recorder]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [wget]
 description = "Internet file retriever"
 tags = [
     "cat:cli-tool",
-    "cat:network",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
     "priority:essential",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Brewfile.in"]
 
 [whiptail]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [wireplumber]
 tags = [
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [wishlist]
 description = "The SSH directory"
 tags = [
-    "cat:aur",
     "cat:network",
-    "dist:arch",
     "os:linux",
+    "os:macos",
     "pm:homebrew",
-    "pm:pacman",
-    "pm:apt",
-    "dist:debian",
-    "dist:ubuntu",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in", "Archfile", "Aptfile"]
 
 [wl-clipboard]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [wlogout]
 tags = [
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [wofi]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [xarchiver]
 tags = [
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [xclip]
 description = "Access X11 clipboards from the command-line"
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [xdg-desktop-portal-gtk]
 tags = [
     "cat:cli-tool",
     "de:gnome",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [xdg-desktop-portal-hyprland]
 tags = [
     "cat:cli-tool",
     "de:hyprland",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [xdg-user-dirs]
 tags = [
     "cat:cli-tool",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [xdg-utils]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [xz]
 description = "General-purpose data compression with high compression ratio"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [yad]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
-    "pm:apt",
     "dist:debian",
     "dist:ubuntu",
+    "pm:apt",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile", "Aptfile"]
 
 [yazi]
 description = "Blazing fast terminal file manager written in Rust, based on async I/O"
 tags = [
     "cat:cli-tool",
+    "cat:terminal",
     "dist:arch",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "pm:homebrew:darwin",
     "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [yq]
 description = "Process YAML, JSON, XML, CSV and properties documents from the CLI"
 tags = [
     "cat:cli-tool",
+    "cat:system",
+    "os:linux",
+    "os:macos",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [yt-dlp]
 description = "Feature-rich command-line audio/video downloader"
 tags = [
     "cat:cli-tool",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
+    "cat:development",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
     "priority:recommended",
-    "scope:extended",
+    "role:development",
+    "scope:extended"
 ]
+source_files = ["Brewfile.in"]
 
 [zellij]
 description = "Pluggable terminal workspace, with terminal multiplexer as the base feature"
 tags = [
-    "cat:cli-tool",
-    "dist:arch",
+    "cat:terminal",
     "os:linux",
     "os:macos",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:recommended",
-    "scope:extended",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
+source_files = ["Brewfile.in"]
 
 [zen]
 description = "Gecko based web browser"
@@ -3501,54 +3263,54 @@ tags = [
     "cat:cask",
     "cat:cli-tool",
     "os:macos",
+    "pm:homebrew",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+_is_cask = true
+source_files = ["Brewfile-darwin"]
 
 [zip]
 description = "Compression and file packaging/archive utility"
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:optional",
-    "scope:workflow-specific",
+    "scope:workflow-specific"
 ]
+source_files = ["Archfile"]
 
 [zoom]
 description = "Video communication and virtual meeting platform"
 tags = [
     "cat:cask",
     "cat:cli-tool",
+    "cat:development",
     "os:macos",
-    "priority:optional",
+    "pm:homebrew",
+    "priority:recommended",
     "role:desktop",
-    "scope:workflow-specific",
+    "role:development",
+    "scope:extended"
 ]
+_is_cask = true
+source_files = ["Brewfile-darwin"]
 
 [zoxide]
 description = "Shell extension to navigate your filesystem faster"
 tags = [
-    "cat:cli-tool",
     "cat:development",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
+    "cat:system",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
-    "priority:essential",
     "priority:recommended",
     "role:development",
-    "scope:extended",
+    "scope:extended"
 ]
+source_files = ["Brewfile.in", "Archfile", "Aptfile"]
 
 [zsh]
 description = "UNIX shell (command interpreter)"
@@ -3556,19 +3318,13 @@ tags = [
     "cat:cli-tool",
     "cat:shell",
     "cat:terminal",
-    "dist:arch",
-    "dist:debian",
-    "dist:fedora",
-    "dist:ubuntu",
     "os:linux",
     "os:macos",
-    "pm:apt",
-    "pm:dnf",
     "pm:homebrew",
-    "pm:pacman",
     "priority:essential",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Brewfile.in", "Archfile"]
 
 [zsh-completions]
 description = "Additional completion definitions for zsh"
@@ -3576,82 +3332,10 @@ tags = [
     "cat:cli-tool",
     "cat:shell",
     "cat:terminal",
-    "pm:homebrew",
-    "pm:pacman",
-    "os:linux",
     "dist:arch",
+    "pm:pacman",
     "priority:essential",
-    "scope:core",
+    "scope:core"
 ]
+source_files = ["Archfile"]
 
-[app.ytmdesktop.ytmdesktop]
-tags = ["priority:optional", "scope:workflow-specific"]
-
-[app.zen_browser.zen]
-tags = ["cat:browser", "priority:optional", "scope:workflow-specific"]
-
-[com.bitwarden.desktop]
-tags = ["priority:optional", "scope:workflow-specific"]
-
-[com.discordapp.Discord]
-tags = ["cat:communication", "priority:optional", "scope:workflow-specific"]
-
-[com.getpostman.Postman]
-tags = ["priority:optional", "scope:workflow-specific"]
-
-[com.google.Chrome]
-tags = [
-    "cat:browser",
-    "priority:recommended",
-    "role:development",
-    "scope:extended",
-]
-
-[com.logseq.Logseq]
-tags = ["priority:optional", "scope:workflow-specific"]
-
-[com.obsproject.Studio]
-tags = ["priority:optional", "scope:workflow-specific"]
-
-[com.parsecgaming.parsec]
-tags = ["priority:optional", "scope:workflow-specific"]
-
-[com.slack.Slack]
-tags = ["cat:communication", "priority:optional", "scope:workflow-specific"]
-
-[it.mijorus.gearlever]
-tags = ["priority:optional", "scope:workflow-specific"]
-
-[net.davidotek.pupgui2]
-tags = ["priority:optional", "scope:workflow-specific"]
-
-[org.gnome.DejaDup]
-tags = ["de:gnome", "priority:optional", "scope:workflow-specific"]
-
-[org.gnome.SimpleScan]
-tags = ["de:gnome", "priority:optional", "scope:workflow-specific"]
-
-[org.gustavoperedo.FontDownloader]
-tags = ["priority:optional", "scope:workflow-specific"]
-
-[org.mozilla.firefox]
-tags = ["cat:browser", "priority:optional", "scope:workflow-specific"]
-
-[org.signal.Signal]
-tags = ["priority:optional", "scope:workflow-specific"]
-
-[org.videolan.VLC]
-tags = [
-    "cat:development",
-    "cat:multimedia",
-    "priority:recommended",
-    "role:content-creation",
-    "role:development",
-    "scope:extended",
-]
-
-[us.zoom.Zoom]
-tags = ["priority:optional", "scope:workflow-specific"]
-
-[org.gnome.World.PikaBackup]
-tags = ["de:gnome", "priority:optional", "scope:workflow-specific"]

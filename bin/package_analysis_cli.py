@@ -177,9 +177,29 @@ def analyze_packages(
     cache_file: str = None,
     tag_cache_file: str = None,
     use_tag_cache: bool = True,
+    existing_toml_file: str = None,
 ):
     """Analyze packages and generate TOML entries."""
     results = {}
+    
+    # Load existing TOML data to preserve fields
+    existing_data = {}
+    if existing_toml_file and Path(existing_toml_file).exists():
+        try:
+            import tomllib
+            with open(existing_toml_file, "rb") as f:
+                existing_data = tomllib.load(f)
+            print(f"Loaded existing TOML data with {len(existing_data)} entries")
+        except ImportError:
+            try:
+                import toml
+                with open(existing_toml_file) as f:
+                    existing_data = toml.load(f)
+                print(f"Loaded existing TOML data with {len(existing_data)} entries")
+            except ImportError:
+                print("Warning: No TOML library available to load existing file")
+        except Exception as e:
+            print(f"Warning: Could not load existing TOML file: {e}")
 
     # Load Repology cache if available
     repology_client = None
@@ -216,50 +236,15 @@ def analyze_packages(
         # Create basic entry
         entry = create_basic_package_entry(package_name)
 
-        # Add appropriate tags based on source files and type
-        source_files = metadata.get("source_files", [])
+        # Only preserve essential metadata from source files
+        # Cask detection is needed for proper Homebrew API calls
         if metadata.get("is_cask", False):
-            # Casks are macOS-only GUI applications
-            entry["tags"].append("cat:cask")
-            entry["tags"].append("os:macos")
-        else:
-            # Add tags for each source file the package appears in
-            for source_file in source_files:
-                if source_file == "Brewfile.in":
-                    # Brewfile.in contains cross-platform homebrew packages
-                    if "pm:homebrew" not in entry["tags"]:
-                        entry["tags"].append("pm:homebrew")
-                elif source_file == "Brewfile-darwin":
-                    # Non-cask packages from Brewfile-darwin are macOS-only
-                    if "pm:homebrew:darwin" not in entry["tags"]:
-                        entry["tags"].append("pm:homebrew:darwin")
-                    if "os:macos" not in entry["tags"]:
-                        entry["tags"].append("os:macos")
-                elif source_file == "Archfile":
-                    # Packages from Archfile need pacman tags
-                    if "pm:pacman" not in entry["tags"]:
-                        entry["tags"].append("pm:pacman")
-                    if "os:linux" not in entry["tags"]:
-                        entry["tags"].append("os:linux")
-                    if "dist:arch" not in entry["tags"]:
-                        entry["tags"].append("dist:arch")
-                elif source_file == "Aptfile":
-                    # Packages from Aptfile need apt tags
-                    if "pm:apt" not in entry["tags"]:
-                        entry["tags"].append("pm:apt")
-                    if "os:linux" not in entry["tags"]:
-                        entry["tags"].append("os:linux")
-                    if "dist:debian" not in entry["tags"]:
-                        entry["tags"].append("dist:debian")
-                    if "dist:ubuntu" not in entry["tags"]:
-                        entry["tags"].append("dist:ubuntu")
-                elif source_file == "Flatfile":
-                    # Packages from Flatfile need flatpak tags
-                    if "pm:flatpak" not in entry["tags"]:
-                        entry["tags"].append("pm:flatpak")
-                    if "os:linux" not in entry["tags"]:
-                        entry["tags"].append("os:linux")
-        # Don't add default homebrew tags for non-homebrew sources
+            # Store cask info for enhance_package_entry_with_tags to use
+            entry["_is_cask"] = True
+        
+        # Preserve source_files for fallback tagging when no Repology data is available
+        if "source_files" in metadata:
+            entry["source_files"] = metadata["source_files"]
 
         # Check tag cache first
         cached_tags = None
@@ -274,8 +259,10 @@ def analyze_packages(
             cached_tags = tag_cache.get_tags(package_name, repology_timestamp)
 
         if cached_tags is not None:
-            # Use cached tags but ensure cask tags are preserved
+            # Use cached tags but ensure cask info is preserved for Homebrew API calls
             if metadata.get("is_cask", False):
+                entry["_is_cask"] = True
+                # Ensure cask tags are in cached tags (they should be from proper generation)
                 cached_tags = list(set(cached_tags + ["cat:cask", "os:macos"]))
             entry["tags"] = cached_tags
             
@@ -294,7 +281,13 @@ def analyze_packages(
                     except Exception as e:
                         print(f"Warning: Homebrew description lookup failed for {package_name}: {e}")
             
-            results[package_name] = entry
+            # Preserve existing fields from TOML file
+            if package_name in existing_data:
+                preserved_entry = existing_data[package_name].copy()
+                preserved_entry.update(entry)  # New data overwrites existing
+                results[package_name] = preserved_entry
+            else:
+                results[package_name] = entry
             cache_hits += 1
         else:
             # Compute tags
@@ -302,18 +295,35 @@ def analyze_packages(
                 enhanced_entry = enhance_package_entry_with_tags(
                     package_name, entry, repology_client=repology_client, homebrew_client=homebrew_client
                 )
-                results[package_name] = enhanced_entry
+                
+                # Preserve existing fields from TOML file
+                if package_name in existing_data:
+                    preserved_entry = existing_data[package_name].copy()
+                    preserved_entry.update(enhanced_entry)  # New data overwrites existing
+                    results[package_name] = preserved_entry
+                else:
+                    results[package_name] = enhanced_entry
                 cache_misses += 1
 
-                # Cache the computed tags
+                # Cache the computed tags (using final merged data)
                 if tag_cache:
+                    import time
+                    # Use current time as Homebrew timestamp if Homebrew was used for this package
+                    homebrew_timestamp = time.time() if homebrew_client else None
                     tag_cache.set_tags(
-                        package_name, enhanced_entry.get("tags", []), repology_timestamp
+                        package_name, results[package_name].get("tags", []), 
+                        repology_timestamp, homebrew_timestamp
                     )
 
             except Exception as e:
                 print(f"Warning: Could not enhance {package_name} with tags: {e}")
-                results[package_name] = entry
+                # Preserve existing fields even on error
+                if package_name in existing_data:
+                    preserved_entry = existing_data[package_name].copy()
+                    preserved_entry.update(entry)
+                    results[package_name] = preserved_entry
+                else:
+                    results[package_name] = entry
 
     # Save tag cache if modified
     if tag_cache:
@@ -399,7 +409,7 @@ def main():
         "--tag-cache", help="Tag cache file (defaults to tag_cache.json in same dir as --cache)"
     )
     parser.add_argument("--no-tag-cache", action="store_true", help="Disable tag caching")
-    parser.add_argument("--existing-toml", help="Existing TOML file (for compatibility, not used)")
+    parser.add_argument("--existing-toml", help="Existing TOML file to preserve fields from")
     parser.add_argument("--validate", action="store_true", help="Validate mode (not implemented)")
 
     args = parser.parse_args()
@@ -417,6 +427,7 @@ def main():
             args.cache,
             tag_cache_file=args.tag_cache,
             use_tag_cache=not args.no_tag_cache,
+            existing_toml_file=args.existing_toml,
         )
     elif args.package_lists:
         # Parse package lists and analyze all packages
@@ -428,6 +439,7 @@ def main():
                 args.cache,
                 tag_cache_file=args.tag_cache,
                 use_tag_cache=not args.no_tag_cache,
+                existing_toml_file=args.existing_toml,
             )
         else:
             print("No packages found in package lists")

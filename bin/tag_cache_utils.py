@@ -41,7 +41,7 @@ class TagCache:
                 print(f"Error saving tag cache: {e}")
 
     def get_tags(
-        self, package_name: str, repology_timestamp: Optional[float] = None
+        self, package_name: str, repology_timestamp: Optional[float] = None, homebrew_timestamp: Optional[float] = None
     ) -> Optional[List[str]]:
         """
         Get cached tags for a package if still fresh.
@@ -49,6 +49,7 @@ class TagCache:
         Args:
             package_name: Name of the package
             repology_timestamp: Timestamp of the Repology data (to detect if source data changed)
+            homebrew_timestamp: Timestamp of the Homebrew data (to detect if source data changed)
 
         Returns:
             List of tags if cache is fresh, None otherwise
@@ -67,10 +68,14 @@ class TagCache:
         if repology_timestamp and repology_timestamp > entry.get("_repology_timestamp", 0):
             return None
 
+        # Check if Homebrew data is newer than our cache
+        if homebrew_timestamp and homebrew_timestamp > entry.get("_homebrew_timestamp", 0):
+            return None
+
         return entry.get("tags", [])
 
     def set_tags(
-        self, package_name: str, tags: List[str], repology_timestamp: Optional[float] = None
+        self, package_name: str, tags: List[str], repology_timestamp: Optional[float] = None, homebrew_timestamp: Optional[float] = None
     ) -> None:
         """
         Cache tags for a package.
@@ -79,11 +84,13 @@ class TagCache:
             package_name: Name of the package
             tags: List of tags to cache
             repology_timestamp: Timestamp of the Repology data used
+            homebrew_timestamp: Timestamp of the Homebrew data used
         """
         self.cache[package_name] = {
             "tags": tags,
             "_timestamp": time.time(),
             "_repology_timestamp": repology_timestamp or 0,
+            "_homebrew_timestamp": homebrew_timestamp or 0,
         }
         self.modified = True
 

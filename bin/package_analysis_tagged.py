@@ -305,9 +305,12 @@ def generate_tags_for_package(
     """Generate comprehensive tags for a package"""
     tags = []
 
-    # Start with any existing tags
-    if "tags" in entry:
-        tags.extend(entry["tags"])
+    # Start with clean tags - only use authoritative Repology/Homebrew data
+    # Don't start with existing tags to avoid source-file-based tag pollution
+    
+    # Handle cask detection from source file metadata
+    if entry.get("_is_cask", False):
+        tags.extend(["cat:cask", "os:macos"])
 
     # Auto-categorize based on name and description
     if auto_categorize_package:
@@ -329,6 +332,26 @@ def generate_tags_for_package(
     if brew_data:
         brew_tags = analyze_homebrew_data_for_tags(brew_data)
         tags.extend(brew_tags)
+
+    # FALLBACK: If no Repology data is available, use source-file-based tags
+    # This ensures packages maintain basic PM/dist information until Repology cache is populated
+    # Note: We use this fallback even if Homebrew data exists, as Homebrew doesn't provide cross-platform PM info
+    if not repology_data:
+        # Check if package has source files metadata
+        source_files = entry.get("source_files", [])
+        for source_file in source_files:
+            if "Archfile" in source_file:
+                tags.extend(["pm:pacman", "dist:arch"])
+            elif "Aptfile" in source_file:
+                tags.extend(["pm:apt", "dist:debian", "dist:ubuntu"])
+            elif "Brewfile" in source_file:
+                tags.extend(["pm:homebrew"])
+                if entry.get("_is_cask", False):
+                    tags.extend(["os:macos"])
+                else:
+                    tags.extend(["os:macos", "os:linux"])
+            elif "Flatfile" in source_file:
+                tags.extend(["pm:flatpak", "os:linux"])
 
     # Generate platform tags from package availability
     if migrate_package_to_tags:
