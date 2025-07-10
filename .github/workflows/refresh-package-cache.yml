@@ -50,6 +50,9 @@ jobs:
     - name: Install Just
       uses: extractions/setup-just@v1
       
+    - name: Install Homebrew
+      uses: Homebrew/actions/setup-homebrew@master
+      
     - name: Determine cache segment to refresh
       id: segment
       run: |
@@ -97,6 +100,7 @@ jobs:
         # Import the package analysis functionality
         sys.path.insert(0, str(Path(__file__).parent))
         from package_analysis_cli import load_toml
+        from homebrew_client import HomebrewClient
         
         import requests
         
@@ -311,7 +315,7 @@ jobs:
                     print(f"Error saving cache: {e}")
         
         def refresh_cache_segment(cache_file: str, segment: int, total_segments: int = 7):
-            """Refresh the oldest 1/7 of cache entries."""
+            """Refresh the oldest 1/7 of cache entries with both Repology and Homebrew data."""
             print(f"Refreshing oldest cache entries (segment {segment})")
             
             # Load existing cache
@@ -379,35 +383,37 @@ jobs:
                     newest_age_days = newest_age / (24 * 60 * 60)
                     print(f"Age range: {oldest_age_days:.1f} - {newest_age_days:.1f} days old")
             
-            # Initialize Repology client
-            client = RepologyClient(cache_file)
+            # Initialize clients
+            repology_client = RepologyClient(cache_file)
+            homebrew_client = HomebrewClient()
             
             # Refresh selected packages
             refreshed_count = 0
             not_found_count = 0
             error_count = 0
+            homebrew_updated_count = 0
             
             for i, (package_name, age, old_timestamp) in enumerate(packages_to_refresh, 1):
                 age_days = age / (24 * 60 * 60) if age != float('inf') else 'never cached'
                 print(f"  [{i}/{len(packages_to_refresh)}] Refreshing {package_name} (age: {age_days})")
                 
                 # Force refresh by temporarily removing from cache (check both names)
-                if package_name in client.cache:
-                    del client.cache[package_name]
+                if package_name in repology_client.cache:
+                    del repology_client.cache[package_name]
                 # Also check mapped name
-                mapped_name = client.name_mappings.get(package_name)
-                if mapped_name and mapped_name in client.cache:
-                    del client.cache[mapped_name]
+                mapped_name = repology_client.name_mappings.get(package_name)
+                if mapped_name and mapped_name in repology_client.cache:
+                    del repology_client.cache[mapped_name]
                 
-                # Query package (will add back to cache with new timestamp)
-                result = client.query_package(package_name)
+                # Query Repology (will add back to cache with new timestamp)
+                result = repology_client.query_package(package_name)
                 if result is not None:
                     refreshed_count += 1
                 elif result is None:
                     # Check if this was a 404 (not found) vs other error
                     # The RepologyClient caches None results for 404s
-                    if package_name in client.cache:
-                        cache_entry = client.cache[package_name]
+                    if package_name in repology_client.cache:
+                        cache_entry = repology_client.cache[package_name]
                         # Check if all platforms are false (indicates not found)
                         if isinstance(cache_entry, dict) and 'platforms' in cache_entry:
                             platforms = cache_entry.get('platforms', {})
@@ -420,17 +426,49 @@ jobs:
                     else:
                         error_count += 1
                 
+                # Also refresh Homebrew metadata if available
+                if homebrew_client.is_available():
+                    try:
+                        homebrew_info = homebrew_client.get_package_info(package_name)
+                        if homebrew_info:
+                            # Update cache with Homebrew metadata
+                            cache_key = mapped_name if mapped_name else package_name
+                            if cache_key in repology_client.cache:
+                                cache_entry = repology_client.cache[cache_key]
+                                
+                                # Update Homebrew platform support
+                                if 'platforms' in cache_entry:
+                                    cache_entry['platforms']['homebrew'] = True
+                                
+                                # Update Homebrew metadata
+                                is_cask = homebrew_info.get('is_cask', False)
+                                cache_entry['brew-supports-darwin'] = homebrew_info.get('supports_darwin', True)
+                                cache_entry['brew-supports-linux'] = homebrew_info.get('supports_linux', not is_cask)
+                                cache_entry['brew-is-cask'] = is_cask
+                                
+                                # Update timestamp since we refreshed Homebrew data
+                                cache_entry['_timestamp'] = time.time()
+                                homebrew_updated_count += 1
+                                
+                                print(f"    ✅ Updated Homebrew metadata for {package_name}")
+                    except Exception as e:
+                        print(f"    ⚠️  Homebrew metadata update failed for {package_name}: {e}")
+                
                 # Rate limiting
                 time.sleep(2.1)  # Slightly more conservative than normal
+            
+            # Save updated cache
+            repology_client._save_cache()
             
             print(f"✅ Cache refresh complete:")
             print(f"   - Found data for {refreshed_count} packages")
             print(f"   - Not found in Repology: {not_found_count} packages") 
             print(f"   - API errors/timeouts: {error_count} packages")
+            print(f"   - Homebrew metadata updated: {homebrew_updated_count} packages")
             return True
         
         def refresh_all_cache(cache_file: str):
-            """Refresh the entire cache."""
+            """Refresh the entire cache with both Repology and Homebrew data."""
             print("Performing full cache refresh")
             
             # Load package list from TOML
@@ -449,22 +487,60 @@ jobs:
             if cache_path.exists():
                 cache_path.unlink()
             
-            # Initialize fresh client
-            client = RepologyClient(cache_file)
+            # Initialize fresh clients
+            repology_client = RepologyClient(cache_file)
+            homebrew_client = HomebrewClient()
             
             # Refresh all packages
             refreshed_count = 0
+            homebrew_updated_count = 0
+            
             for i, package_name in enumerate(package_names, 1):
                 print(f"  [{i}/{len(package_names)}] Refreshing {package_name}")
                 
-                result = client.query_package(package_name)
+                # Refresh Repology data
+                result = repology_client.query_package(package_name)
                 if result is not None:
                     refreshed_count += 1
+                
+                # Also refresh Homebrew metadata if available
+                if homebrew_client.is_available():
+                    try:
+                        homebrew_info = homebrew_client.get_package_info(package_name)
+                        if homebrew_info:
+                            # Update cache with Homebrew metadata
+                            mapped_name = repology_client.name_mappings.get(package_name)
+                            cache_key = mapped_name if mapped_name else package_name
+                            if cache_key in repology_client.cache:
+                                cache_entry = repology_client.cache[cache_key]
+                                
+                                # Update Homebrew platform support
+                                if 'platforms' in cache_entry:
+                                    cache_entry['platforms']['homebrew'] = True
+                                
+                                # Update Homebrew metadata
+                                is_cask = homebrew_info.get('is_cask', False)
+                                cache_entry['brew-supports-darwin'] = homebrew_info.get('supports_darwin', True)
+                                cache_entry['brew-supports-linux'] = homebrew_info.get('supports_linux', not is_cask)
+                                cache_entry['brew-is-cask'] = is_cask
+                                
+                                # Update timestamp since we refreshed Homebrew data
+                                cache_entry['_timestamp'] = time.time()
+                                homebrew_updated_count += 1
+                                
+                                print(f"    ✅ Updated Homebrew metadata for {package_name}")
+                    except Exception as e:
+                        print(f"    ⚠️  Homebrew metadata update failed for {package_name}: {e}")
                 
                 # Rate limiting
                 time.sleep(2.1)
             
-            print(f"✅ Refreshed {refreshed_count} packages")
+            # Save updated cache
+            repology_client._save_cache()
+            
+            print(f"✅ Full cache refresh complete:")
+            print(f"   - Refreshed {refreshed_count} packages")
+            print(f"   - Homebrew metadata updated: {homebrew_updated_count} packages")
             return True
         
         def main():
@@ -597,13 +673,14 @@ jobs:
         git add packages/repology_cache.json packages/package_mappings.toml packages/tag_cache.json
         git commit -m "🔄 ${{ steps.segment.outputs.description }}
 
-        Updated Repology package cache by refreshing oldest entries.
+        Updated package cache by refreshing oldest entries from both Repology and Homebrew.
         Uses age-based refresh strategy to keep cache optimally fresh.
         
         📊 Cache stats:
         - Total entries: $ENTRIES packages
         - Cache size: $CACHE_SIZE
         - Strategy: Refresh oldest 1/7 of entries daily
+        - Sources: Repology API + Homebrew CLI metadata
         - Updated: $(date -u '+%Y-%m-%d %H:%M:%S UTC')
         
         🤖 Automated update via GitHub Actions"
@@ -626,6 +703,7 @@ jobs:
         echo "- **Trigger**: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
         echo "- **Description**: ${{ steps.segment.outputs.description }}" >> $GITHUB_STEP_SUMMARY
         echo "- **Changes**: ${{ steps.check_changes.outputs.has_changes }}" >> $GITHUB_STEP_SUMMARY
+        echo "- **Sources**: Repology API + Homebrew CLI" >> $GITHUB_STEP_SUMMARY
         
         if [[ -f packages/repology_cache.json ]]; then
           ENTRIES=$(jq 'keys | length' packages/repology_cache.json)

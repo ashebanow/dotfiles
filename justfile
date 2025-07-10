@@ -14,7 +14,8 @@ regen-toml:
     uv run bin/package_analysis_cli.py \
         --package-lists packages/Brewfile.in packages/Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
         --output packages/package_mappings.toml.new \
-        --cache packages/repology_cache.json
+        --cache packages/repology_cache.json \
+        --tag-cache packages/tag_cache.json
     echo "Generated packages/package_mappings.toml.new"
     echo "Review changes with: diff packages/package_mappings.toml packages/package_mappings.toml.new"
     echo "Apply changes with: mv packages/package_mappings.toml.new packages/package_mappings.toml"
@@ -29,7 +30,8 @@ regen-toml-apply:
     uv run bin/package_analysis_cli.py \
         --package-lists packages/Brewfile.in packages/Brewfile-darwin tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
         --output packages/package_mappings.toml \
-        --cache packages/repology_cache.json
+        --cache packages/repology_cache.json \
+        --tag-cache packages/tag_cache.json
     echo "✓ Updated packages/package_mappings.toml"
 
 # Complete workflow: regenerate TOML and generate package lists
@@ -53,7 +55,8 @@ add-packages *packages:
     uv run bin/package_analysis_cli.py \
         --package {{packages}} \
         --output packages/temp_packages.toml \
-        --cache packages/repology_cache.json
+        --cache packages/repology_cache.json \
+        --tag-cache packages/tag_cache.json
     echo "Generated packages/temp_packages.toml with package data"
 
 # Add custom installation entry interactively
@@ -142,7 +145,9 @@ validate-roundtrip:
     echo "Validating package mapping roundtrip..."
     uv run bin/package_analysis_cli.py \
         --validate \
-        --package-lists packages/Brewfile.in tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile
+        --package-lists packages/Brewfile.in tests/assets/legacy_packages/Archfile tests/assets/legacy_packages/Aptfile tests/assets/legacy_packages/Flatfile \
+        --cache packages/repology_cache.json \
+        --tag-cache packages/tag_cache.json
 
 # ===== TESTING =====
 
@@ -217,7 +222,7 @@ format-and-lint:
 debug-package package:
     #!/usr/bin/env bash
     echo "Debugging package: {{package}}"
-    uv run bin/package_analysis_cli.py --package {{package}} --cache tests/debug_cache.json
+    uv run bin/package_analysis_cli.py --package {{package}} --cache tests/debug_cache.json --tag-cache packages/tag_cache.json
 
 # Show package mapping for specific package
 [group('debug')]
