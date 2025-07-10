@@ -216,20 +216,50 @@ def analyze_packages(
         # Create basic entry
         entry = create_basic_package_entry(package_name)
 
-        # Add appropriate homebrew tags based on source file and type
-        source_file = metadata.get("source_file", "")
+        # Add appropriate tags based on source files and type
+        source_files = metadata.get("source_files", [])
         if metadata.get("is_cask", False):
             # Casks are macOS-only GUI applications
             entry["tags"].append("cat:cask")
             entry["tags"].append("os:macos")
-        elif source_file == "Brewfile.in":
-            # Brewfile.in contains cross-platform homebrew packages
-            entry["tags"].append("pm:homebrew")
-        elif source_file == "Brewfile-darwin":
-            # Non-cask packages from Brewfile-darwin are macOS-only
-            entry["tags"].append("pm:homebrew:darwin")
-            entry["tags"].append("os:macos")
-        # Don't add default homebrew tags for non-homebrew sources (Archfile, Aptfile, etc.)
+        else:
+            # Add tags for each source file the package appears in
+            for source_file in source_files:
+                if source_file == "Brewfile.in":
+                    # Brewfile.in contains cross-platform homebrew packages
+                    if "pm:homebrew" not in entry["tags"]:
+                        entry["tags"].append("pm:homebrew")
+                elif source_file == "Brewfile-darwin":
+                    # Non-cask packages from Brewfile-darwin are macOS-only
+                    if "pm:homebrew:darwin" not in entry["tags"]:
+                        entry["tags"].append("pm:homebrew:darwin")
+                    if "os:macos" not in entry["tags"]:
+                        entry["tags"].append("os:macos")
+                elif source_file == "Archfile":
+                    # Packages from Archfile need pacman tags
+                    if "pm:pacman" not in entry["tags"]:
+                        entry["tags"].append("pm:pacman")
+                    if "os:linux" not in entry["tags"]:
+                        entry["tags"].append("os:linux")
+                    if "dist:arch" not in entry["tags"]:
+                        entry["tags"].append("dist:arch")
+                elif source_file == "Aptfile":
+                    # Packages from Aptfile need apt tags
+                    if "pm:apt" not in entry["tags"]:
+                        entry["tags"].append("pm:apt")
+                    if "os:linux" not in entry["tags"]:
+                        entry["tags"].append("os:linux")
+                    if "dist:debian" not in entry["tags"]:
+                        entry["tags"].append("dist:debian")
+                    if "dist:ubuntu" not in entry["tags"]:
+                        entry["tags"].append("dist:ubuntu")
+                elif source_file == "Flatfile":
+                    # Packages from Flatfile need flatpak tags
+                    if "pm:flatpak" not in entry["tags"]:
+                        entry["tags"].append("pm:flatpak")
+                    if "os:linux" not in entry["tags"]:
+                        entry["tags"].append("os:linux")
+        # Don't add default homebrew tags for non-homebrew sources
 
         # Check tag cache first
         cached_tags = None
@@ -336,17 +366,24 @@ def parse_package_lists(package_lists: list):
                             package = line[start:end]
                             if "/" in package:
                                 package = package.split("/")[-1]
-                            all_packages[package] = {"is_cask": False, "source_file": filename}
+                            # Track all source files for this package
+                            if package not in all_packages:
+                                all_packages[package] = {"is_cask": False, "source_files": []}
+                            all_packages[package]["source_files"].append(filename)
                     elif line.startswith('cask "'):
                         # Extract package name from cask "package-name"
                         start = line.find('"') + 1
                         end = line.find('"', start)
                         if start > 0 and end > start:
                             package = line[start:end]
-                            all_packages[package] = {"is_cask": True, "source_file": filename}
+                            if package not in all_packages:
+                                all_packages[package] = {"is_cask": True, "source_files": []}
+                            all_packages[package]["source_files"].append(filename)
                     else:
                         # Simple package list format
-                        all_packages[line] = {"is_cask": False, "source_file": filename}
+                        if line not in all_packages:
+                            all_packages[line] = {"is_cask": False, "source_files": []}
+                        all_packages[line]["source_files"].append(filename)
 
     return all_packages
 

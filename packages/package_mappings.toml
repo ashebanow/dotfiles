@@ -20,34 +20,23 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
 
 [antidote]
 description = "Plugin manager for zsh, inspired by antigen and antibody"
-tags = [
-    "pm:homebrew",
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
-[app.ytmdesktop.ytmdesktop]
-tags = [
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
-[app.zen_browser.zen]
-tags = [
-    "cat:browser",
-    "priority:optional",
-    "scope:workflow-specific",
-]
+tags = ["pm:homebrew", "priority:optional", "scope:workflow-specific"]
 
 [archlinux-keyring]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -76,6 +65,9 @@ tags = [
     "cat:shell",
     "cat:terminal",
     "de:gnome",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -96,6 +88,9 @@ tags = [
 [base-devel]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -125,6 +120,9 @@ tags = [
     "cat:cli-tool",
     "cat:system",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -132,6 +130,9 @@ tags = [
 [bibata-cursor-theme-bin]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -180,6 +181,12 @@ tags = [
 [blueman]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -207,6 +214,12 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -214,6 +227,12 @@ tags = [
 [breeze]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -221,6 +240,12 @@ tags = [
 [brightnessctl]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -287,6 +312,9 @@ tags = [
 [checkupdates-with-aur]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -316,58 +344,12 @@ tags = [
 [cliphist]
 tags = [
     "pm:homebrew",
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
-[com.bitwarden.desktop]
-tags = [
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
-[com.discordapp.Discord]
-tags = [
-    "cat:communication",
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
-[com.getpostman.Postman]
-tags = [
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
-[com.google.Chrome]
-tags = [
-    "cat:browser",
-    "priority:recommended",
-    "role:development",
-    "scope:extended",
-]
-
-[com.logseq.Logseq]
-tags = [
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
-[com.obsproject.Studio]
-tags = [
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
-[com.parsecgaming.parsec]
-tags = [
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
-[com.slack.Slack]
-tags = [
-    "cat:communication",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -422,6 +404,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -463,6 +448,12 @@ tags = [
     "cat:cask",
     "de:kde",
     "os:macos",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "role:desktop",
     "scope:workflow-specific",
@@ -558,6 +549,12 @@ tags = [
     "cat:development",
     "cat:multimedia",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:recommended",
     "role:content-creation",
     "role:development",
@@ -568,6 +565,9 @@ tags = [
 description = "Banner-like program prints strings as ASCII art"
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -575,6 +575,9 @@ tags = [
 [figurine]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -583,6 +586,9 @@ tags = [
 description = "Collection of GNU find, xargs, and locate"
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -633,6 +639,12 @@ tags = [
 [flatpak]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -641,6 +653,10 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:apt",
+    "os:linux",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -649,6 +665,10 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:apt",
+    "os:linux",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -658,6 +678,10 @@ tags = [
     "cat:cli-tool",
     "de:awesome",
     "pm:homebrew",
+    "pm:apt",
+    "os:linux",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -666,6 +690,10 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:apt",
+    "os:linux",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -674,6 +702,10 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:apt",
+    "os:linux",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -682,6 +714,10 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:apt",
+    "os:linux",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -690,6 +726,10 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:apt",
+    "os:linux",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -709,6 +749,9 @@ tags = [
 [fuse2]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -775,6 +818,9 @@ tags = [
 [getnf]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -895,6 +941,9 @@ tags = [
     "cat:cli-tool",
     "de:gnome",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -921,6 +970,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "de:gnome",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -949,6 +1001,12 @@ tags = [
     "cat:cli-tool",
     "de:gnome",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -959,6 +1017,12 @@ tags = [
     "cat:system",
     "de:gnome",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -969,6 +1033,12 @@ tags = [
     "cat:editor",
     "de:gnome",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1037,6 +1107,12 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1044,6 +1120,9 @@ tags = [
 [grimblast]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1053,6 +1132,9 @@ tags = [
     "cat:cli-tool",
     "de:gnome",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1063,6 +1145,9 @@ tags = [
     "cat:shell",
     "cat:terminal",
     "de:gnome",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1072,6 +1157,9 @@ tags = [
     "cat:cli-tool",
     "de:gnome",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1082,6 +1170,9 @@ tags = [
     "cat:cli-tool",
     "de:gnome",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1098,6 +1189,9 @@ tags = [
 [gvfs]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1105,6 +1199,9 @@ tags = [
 [gvfs-mtp]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1153,6 +1250,9 @@ tags = [
 tags = [
     "de:hyprland",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1161,6 +1261,9 @@ tags = [
 tags = [
     "de:hyprland",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1169,6 +1272,9 @@ tags = [
 tags = [
     "de:hyprland",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1177,6 +1283,9 @@ tags = [
 tags = [
     "de:hyprland",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1185,6 +1294,9 @@ tags = [
 tags = [
     "de:hyprland",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1193,6 +1305,9 @@ tags = [
 tags = [
     "de:hyprland",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1200,6 +1315,9 @@ tags = [
 [hyprpolkitagent]
 tags = [
     "de:hyprland",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1208,6 +1326,9 @@ tags = [
 tags = [
     "de:hyprland",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1216,6 +1337,9 @@ tags = [
 tags = [
     "de:hyprland",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1223,6 +1347,9 @@ tags = [
 [hyprsunset]
 tags = [
     "de:hyprland",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1232,6 +1359,9 @@ description = "Tools and libraries to manipulate images in many formats"
 tags = [
     "cat:graphics",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1240,6 +1370,12 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1280,12 +1416,6 @@ tags = [
     "priority:essential",
     "priority:recommended",
     "scope:extended",
-]
-
-[it.mijorus.gearlever]
-tags = [
-    "priority:optional",
-    "scope:workflow-specific",
 ]
 
 [jj]
@@ -1355,6 +1485,12 @@ description = "GPU-based terminal emulator"
 tags = [
     "cat:cask",
     "os:macos",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "role:desktop",
     "scope:workflow-specific",
@@ -1362,6 +1498,9 @@ tags = [
 
 [kvantum]
 tags = [
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1447,6 +1586,9 @@ description = "Building blocks for modern adaptive GNOME applications"
 tags = [
     "de:gnome",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1455,6 +1597,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "de:gnome",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1464,6 +1609,9 @@ description = "Library for portably obtaining information about processes"
 tags = [
     "cat:system",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1492,6 +1640,9 @@ tags = [
 [libsoup3]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1500,6 +1651,9 @@ tags = [
 description = "C library for reading and writing PNG format files"
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1529,6 +1683,12 @@ tags = [
 [loupe]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1538,6 +1698,12 @@ description = "Clone of ls with colorful output, file type icons, and more"
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1545,6 +1711,9 @@ tags = [
 [man-pages]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1552,6 +1721,9 @@ tags = [
 [matugen]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1581,6 +1753,12 @@ description = "Fast and user friendly build system"
 tags = [
     "cat:system",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1589,6 +1767,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1596,6 +1777,12 @@ tags = [
 [mousepad]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1623,6 +1810,12 @@ tags = [
 [mpv-mpris]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1633,6 +1826,9 @@ tags = [
     "cat:cli-tool",
     "cat:editor",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1641,6 +1837,12 @@ tags = [
 tags = [
     "de:gnome",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1651,6 +1853,9 @@ tags = [
     "cat:shell",
     "cat:terminal",
     "de:gnome",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1675,17 +1880,14 @@ tags = [
     "scope:extended",
 ]
 
-[net.davidotek.pupgui2]
-tags = [
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
 [network-manager-applet]
 tags = [
     "cat:cli-tool",
     "cat:network",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1694,6 +1896,9 @@ tags = [
 tags = [
     "cat:network",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1703,6 +1908,9 @@ tags = [
     "cat:cli-tool",
     "de:niri",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1711,6 +1919,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "cat:editor",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1719,6 +1930,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1726,6 +1940,9 @@ tags = [
 [noto-fonts-cjk]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1734,6 +1951,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1741,6 +1961,9 @@ tags = [
 [noto-fonts-extra]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1751,6 +1974,12 @@ tags = [
     "cat:cli-tool",
     "cat:network",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1760,6 +1989,12 @@ description = "Interactive GPU process monitor"
 tags = [
     "cat:system",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1768,6 +2003,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1776,6 +2014,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "de:hyprland",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1783,6 +2024,9 @@ tags = [
 [nwg-look]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1797,61 +2041,14 @@ tags = [
     "scope:workflow-specific",
 ]
 
-[org.gnome.DejaDup]
-tags = [
-    "de:gnome",
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
-[org.gnome.SimpleScan]
-tags = [
-    "de:gnome",
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
-[org.gnome.World.PikaBackup]
-tags = [
-    "de:gnome",
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
-[org.gustavoperedo.FontDownloader]
-tags = [
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
-[org.mozilla.firefox]
-tags = [
-    "cat:browser",
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
-[org.signal.Signal]
-tags = [
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
-[org.videolan.VLC]
-tags = [
-    "cat:development",
-    "cat:multimedia",
-    "priority:recommended",
-    "role:content-creation",
-    "role:development",
-    "scope:extended",
-]
-
 [otf-font-awesome]
 tags = [
     "cat:cli-tool",
     "de:awesome",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1874,6 +2071,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1881,6 +2081,9 @@ tags = [
 [pacseek]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1888,6 +2091,12 @@ tags = [
 [pamixer]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1895,6 +2104,12 @@ tags = [
 [papirus-icon-theme]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1911,6 +2126,12 @@ tags = [
 
 [pavucontrol]
 tags = [
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1919,6 +2140,9 @@ tags = [
 description = "PCI utilities"
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1946,6 +2170,12 @@ tags = [
 [pipewire]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1954,6 +2184,12 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1963,6 +2199,12 @@ tags = [
     "cat:cli-tool",
     "cat:multimedia",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "role:content-creation",
     "scope:workflow-specific",
@@ -1972,6 +2214,12 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -1995,6 +2243,12 @@ tags = [
     "cat:cli-tool",
     "cat:development",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:recommended",
     "role:development",
     "scope:extended",
@@ -2004,6 +2258,12 @@ tags = [
 tags = [
     "cat:multimedia",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "role:content-creation",
     "scope:workflow-specific",
@@ -2014,6 +2274,9 @@ tags = [
     "cat:cli-tool",
     "de:gnome",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2022,6 +2285,12 @@ tags = [
 tags = [
     "cat:cli-tool",
     "cat:filesystem",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2043,17 +2312,19 @@ tags = [
 
 [prettier]
 description = "Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML"
-tags = [
-    "pm:homebrew",
-    "priority:optional",
-    "scope:workflow-specific",
-]
+tags = ["pm:homebrew", "priority:optional", "scope:workflow-specific"]
 
 [python]
 description = "Interpreted, interactive, object-oriented programming language"
 tags = [
     "cat:development",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:essential",
     "role:development",
     "scope:core",
@@ -2063,6 +2334,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:essential",
     "role:development",
     "scope:core",
@@ -2072,6 +2346,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:essential",
     "role:development",
     "scope:core",
@@ -2081,6 +2358,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:essential",
     "role:development",
     "scope:core",
@@ -2090,6 +2370,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:essential",
     "role:development",
     "scope:core",
@@ -2099,6 +2382,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:essential",
     "role:development",
     "scope:core",
@@ -2108,6 +2394,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:essential",
     "role:development",
     "scope:core",
@@ -2117,6 +2406,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:essential",
     "role:development",
     "scope:core",
@@ -2126,6 +2418,10 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:apt",
+    "os:linux",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:recommended",
     "role:development",
     "scope:extended",
@@ -2135,6 +2431,10 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:apt",
+    "os:linux",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:recommended",
     "role:development",
     "scope:extended",
@@ -2144,6 +2444,10 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:apt",
+    "os:linux",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:recommended",
     "role:development",
     "scope:extended",
@@ -2153,6 +2457,10 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:apt",
+    "os:linux",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:recommended",
     "role:development",
     "scope:extended",
@@ -2162,6 +2470,10 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:apt",
+    "os:linux",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:recommended",
     "role:development",
     "scope:extended",
@@ -2170,6 +2482,9 @@ tags = [
 [pywal]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2201,6 +2516,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "de:kde",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2209,6 +2527,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "de:kde",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2217,6 +2538,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "de:kde",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2225,6 +2549,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "de:kde",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2233,6 +2560,12 @@ tags = [
 tags = [
     "de:kde",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2241,6 +2574,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "de:kde",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2249,6 +2585,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "de:kde",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2257,6 +2596,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "de:kde",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2265,6 +2607,12 @@ tags = [
 tags = [
     "cat:cli-tool",
     "de:kde",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2272,6 +2620,12 @@ tags = [
 [qt6ct]
 tags = [
     "de:kde",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2297,6 +2651,9 @@ tags = [
 [rofi-wayland]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2306,6 +2663,9 @@ description = "Utility that provides fast incremental file transfer"
 tags = [
     "cat:development",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:recommended",
     "role:development",
     "scope:extended",
@@ -2316,6 +2676,9 @@ description = "Safe, concurrent, practical language"
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:recommended",
     "role:development",
     "scope:extended",
@@ -2325,6 +2688,12 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2376,6 +2745,12 @@ tags = [
 [slurp]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2383,6 +2758,9 @@ tags = [
 [sof-firmware]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2406,6 +2784,9 @@ tags = [
 [swappy]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2414,6 +2795,9 @@ tags = [
 tags = [
     "de:sway",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2421,6 +2805,9 @@ tags = [
 [swww]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2476,6 +2863,12 @@ tags = [
 tags = [
     "de:xfce",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2484,6 +2877,12 @@ tags = [
 tags = [
     "cat:cli-tool",
     "de:xfce",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2492,6 +2891,12 @@ tags = [
 tags = [
     "cat:cli-tool",
     "de:xfce",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2556,6 +2961,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2563,6 +2971,9 @@ tags = [
 [ttf-droid]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2570,6 +2981,9 @@ tags = [
 [ttf-fantasque-nerd]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2578,6 +2992,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2586,6 +3003,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2593,6 +3013,9 @@ tags = [
 [ttf-firacode-nerd]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2601,6 +3024,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2608,6 +3034,9 @@ tags = [
 [ttf-jetbrains-mono-nerd]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2615,6 +3044,9 @@ tags = [
 [ttf-victor-mono]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2622,6 +3054,12 @@ tags = [
 [tumbler]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2666,6 +3104,12 @@ tags = [
 description = "Mock hardware devices for creating unit tests and bug reporting"
 tags = [
     "de:kde",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2674,6 +3118,9 @@ tags = [
 description = "Extraction utility for .zip compressed archives"
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2681,12 +3128,12 @@ tags = [
 [upower]
 tags = [
     "pm:homebrew",
-    "priority:optional",
-    "scope:workflow-specific",
-]
-
-[us.zoom.Zoom]
-tags = [
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2695,6 +3142,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2718,6 +3168,9 @@ tags = [
     "cat:cli-tool",
     "cat:editor",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:essential",
     "role:development",
     "scope:core",
@@ -2737,6 +3190,9 @@ tags = [
 [wallust]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2745,6 +3201,12 @@ tags = [
 tags = [
     "de:sway",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2752,6 +3214,9 @@ tags = [
 [waypaper]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2760,6 +3225,12 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2786,12 +3257,21 @@ tags = [
 [whiptail]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
 
 [wireplumber]
 tags = [
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2805,6 +3285,9 @@ tags = [
     "os:linux",
     "pm:homebrew",
     "pm:pacman",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:recommended",
     "scope:extended",
 ]
@@ -2813,12 +3296,24 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
 
 [wlogout]
 tags = [
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:recommended",
     "role:development",
     "scope:extended",
@@ -2828,6 +3323,12 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2835,6 +3336,12 @@ tags = [
 [xarchiver]
 tags = [
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2844,6 +3351,12 @@ description = "Access X11 clipboards from the command-line"
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2852,6 +3365,12 @@ tags = [
 tags = [
     "cat:cli-tool",
     "de:gnome",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2860,6 +3379,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "de:hyprland",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2867,6 +3389,9 @@ tags = [
 [xdg-user-dirs]
 tags = [
     "cat:cli-tool",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2875,6 +3400,9 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2902,6 +3430,12 @@ tags = [
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
+    "pm:apt",
+    "dist:debian",
+    "dist:ubuntu",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -2977,6 +3511,9 @@ description = "Compression and file packaging/archive utility"
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:optional",
     "scope:workflow-specific",
 ]
@@ -3040,7 +3577,81 @@ tags = [
     "cat:shell",
     "cat:terminal",
     "pm:homebrew",
+    "pm:pacman",
+    "os:linux",
+    "dist:arch",
     "priority:essential",
     "scope:core",
 ]
 
+[app.ytmdesktop.ytmdesktop]
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[app.zen_browser.zen]
+tags = ["cat:browser", "priority:optional", "scope:workflow-specific"]
+
+[com.bitwarden.desktop]
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[com.discordapp.Discord]
+tags = ["cat:communication", "priority:optional", "scope:workflow-specific"]
+
+[com.getpostman.Postman]
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[com.google.Chrome]
+tags = [
+    "cat:browser",
+    "priority:recommended",
+    "role:development",
+    "scope:extended",
+]
+
+[com.logseq.Logseq]
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[com.obsproject.Studio]
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[com.parsecgaming.parsec]
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[com.slack.Slack]
+tags = ["cat:communication", "priority:optional", "scope:workflow-specific"]
+
+[it.mijorus.gearlever]
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[net.davidotek.pupgui2]
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[org.gnome.DejaDup]
+tags = ["de:gnome", "priority:optional", "scope:workflow-specific"]
+
+[org.gnome.SimpleScan]
+tags = ["de:gnome", "priority:optional", "scope:workflow-specific"]
+
+[org.gustavoperedo.FontDownloader]
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[org.mozilla.firefox]
+tags = ["cat:browser", "priority:optional", "scope:workflow-specific"]
+
+[org.signal.Signal]
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[org.videolan.VLC]
+tags = [
+    "cat:development",
+    "cat:multimedia",
+    "priority:recommended",
+    "role:content-creation",
+    "role:development",
+    "scope:extended",
+]
+
+[us.zoom.Zoom]
+tags = ["priority:optional", "scope:workflow-specific"]
+
+[org.gnome.World.PikaBackup]
+tags = ["de:gnome", "priority:optional", "scope:workflow-specific"]
