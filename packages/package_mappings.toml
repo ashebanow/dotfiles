@@ -1,4 +1,5 @@
 [act]
+description = "Run your GitHub Actions locally"
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
@@ -7,6 +8,15 @@ tags = [
 ]
 
 [act3]
+description = "Glance at the last 3 runs of your Github Actions"
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[adobe-source-code-pro-fonts]
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
@@ -15,13 +25,38 @@ tags = [
 ]
 
 [antidote]
+description = "Plugin manager for zsh, inspired by antigen and antibody"
 tags = [
     "pm:homebrew",
     "priority:optional",
     "scope:workflow-specific"
 ]
 
+["app.ytmdesktop.ytmdesktop"]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+["app.zen_browser.zen"]
+tags = [
+    "cat:browser",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[archlinux-keyring]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [atuin]
+description = "Improved shell history for zsh, bash, fish and nushell"
 tags = [
     "dist:arch",
     "dist:debian",
@@ -36,9 +71,21 @@ tags = [
     "priority:essential",
     "priority:recommended",
     "scope:extended"
+]
+
+[aylurs-gtk-shell]
+tags = [
+    "cat:cli-tool",
+    "cat:shell",
+    "cat:terminal",
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
 ]
 
 [bandwhich]
+description = "Terminal bandwidth utilization tool"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -50,7 +97,16 @@ tags = [
     "scope:extended"
 ]
 
+[base-devel]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [bat]
+description = "Clone of cat(1) with syntax highlighting and Git integration"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -68,7 +124,26 @@ tags = [
     "scope:extended"
 ]
 
+[bc]
+description = "Arbitrary precision numeric processing language"
+tags = [
+    "cat:cli-tool",
+    "cat:system",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[bibata-cursor-theme-bin]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [binsider]
+description = "Analyzes ELF binaries"
 tags = [
     "cat:development",
     "dist:arch",
@@ -82,6 +157,7 @@ tags = [
 ]
 
 [biome]
+description = "Toolchain of the web"
 tags = [
     "dist:arch",
     "os:linux",
@@ -93,6 +169,7 @@ tags = [
 ]
 
 [bitwarden-cli]
+description = "Secure and free password manager for all of your devices"
 tags = [
     "cat:cli-tool",
     "cat:security",
@@ -106,8 +183,15 @@ tags = [
     "scope:extended"
 ]
 
+[blueman]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [bluez]
-description = "Object Exchange daemon for sharing content"
+description = "Bluetooth protocol stack for Linux"
 tags = [
     "dist:arch",
     "dist:debian",
@@ -125,7 +209,30 @@ tags = [
     "scope:extended"
 ]
 
+[bluez-utils]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[breeze]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[brightnessctl]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [btop]
+description = "Resource monitor. C++ version and continuation of bashtop and bpytop"
 tags = [
     "cat:cli-tool",
     "cat:network",
@@ -146,6 +253,7 @@ tags = [
 ]
 
 [caddy]
+description = "Powerful, enterprise-ready, open source web server with automatic HTTPS"
 tags = [
     "cat:network",
     "dist:arch",
@@ -164,6 +272,7 @@ tags = [
 ]
 
 [cava]
+description = "Console-based Audio Visualizer for ALSA"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -181,7 +290,16 @@ tags = [
     "scope:extended"
 ]
 
+[checkupdates-with-aur]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [chezmoi]
+description = "Manage your dotfiles across multiple diverse machines, securely"
 tags = [
     "dist:arch",
     "os:linux",
@@ -193,16 +311,84 @@ tags = [
 ]
 
 [claude]
+description = "Anthropic's official Claude AI desktop app"
 tags = [
     "cat:cask",
     "os:macos",
-    "pm:homebrew:macos",
     "priority:optional",
     "role:desktop",
     "scope:workflow-specific"
 ]
 
+[cliphist]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+["com.bitwarden.desktop"]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+["com.discordapp.Discord"]
+tags = [
+    "cat:communication",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+["com.getpostman.Postman"]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+["com.google.Chrome"]
+tags = [
+    "cat:browser",
+    "pm:homebrew",
+    "priority:recommended",
+    "role:development",
+    "scope:extended"
+]
+
+["com.logseq.Logseq"]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+["com.obsproject.Studio"]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+["com.parsecgaming.parsec"]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+["com.slack.Slack"]
+tags = [
+    "cat:communication",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [coreutils]
+description = "GNU File, Shell, and Text utilities"
 tags = [
     "cat:system",
     "dist:arch",
@@ -221,6 +407,7 @@ tags = [
 ]
 
 [ctop]
+description = "Top-like interface for container metrics"
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
@@ -229,6 +416,7 @@ tags = [
 ]
 
 [curl]
+description = "Get a file from an HTTP, HTTPS or FTP server"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -245,7 +433,16 @@ tags = [
     "scope:core"
 ]
 
+[dart-sass]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [direnv]
+description = "Load/unload environment variables based on $PWD"
 tags = [
     "dist:arch",
     "dist:debian",
@@ -263,6 +460,7 @@ tags = [
 ]
 
 [dive]
+description = "Tool for exploring each layer in a docker image"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -275,17 +473,18 @@ tags = [
 ]
 
 [dolphin]
+description = "Emulator to play GameCube and Wii games"
 tags = [
     "cat:cask",
     "de:kde",
     "os:macos",
-    "pm:homebrew:macos",
     "priority:optional",
     "role:desktop",
     "scope:workflow-specific"
 ]
 
 [duf]
+description = "Disk Usage/Free Utility - a better 'df' alternative"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -304,6 +503,7 @@ tags = [
 ]
 
 [dust]
+description = "More intuitive version of du in rust"
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
@@ -312,6 +512,7 @@ tags = [
 ]
 
 [eza]
+description = "Modern, maintained replacement for ls"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -330,6 +531,7 @@ tags = [
 ]
 
 [fastfetch]
+description = "Like neofetch, but much faster because written mostly in C"
 tags = [
     "dist:arch",
     "dist:debian",
@@ -347,6 +549,7 @@ tags = [
 ]
 
 [fd]
+description = "Simple, fast and user-friendly alternative to find"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -364,8 +567,43 @@ tags = [
     "scope:extended"
 ]
 
+[ffmpegthumbnailer]
+description = "Create thumbnails for your video files"
+tags = [
+    "cat:development",
+    "cat:multimedia",
+    "pm:homebrew",
+    "priority:recommended",
+    "role:content-creation",
+    "role:development",
+    "scope:extended"
+]
+
+[figlet]
+description = "Banner-like program prints strings as ASCII art"
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[figurine]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[findutils]
+description = "Collection of GNU find, xargs, and locate"
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [firefox]
-description = "Firefox web browser"
+description = "Web browser"
 tags = [
     "cat:browser",
     "cat:cask",
@@ -379,7 +617,6 @@ tags = [
     "pm:dnf",
     "pm:homebrew",
     "pm:homebrew:darwin",
-    "pm:homebrew:macos",
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
@@ -388,6 +625,7 @@ tags = [
 ]
 
 [fish]
+description = "User-friendly command-line shell for UNIX-like operating systems"
 tags = [
     "cat:cli-tool",
     "cat:shell",
@@ -407,7 +645,72 @@ tags = [
     "scope:extended"
 ]
 
+[flatpak]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[fonts-dejavu]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[fonts-firacode]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[fonts-font-awesome]
+tags = [
+    "cat:cli-tool",
+    "de:awesome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[fonts-jetbrains-mono]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[fonts-noto-cjk]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[fonts-noto-color-emoji]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[fonts-noto-extra]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [foreman]
+description = "Manage Procfile-based applications"
 tags = [
     "cat:aur",
     "dist:arch",
@@ -418,7 +721,15 @@ tags = [
     "scope:extended"
 ]
 
+[fuse2]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [fzf]
+description = "Command-line fuzzy finder written in Go"
 tags = [
     "cat:cli-tool",
     "cat:filesystem",
@@ -438,6 +749,7 @@ tags = [
 ]
 
 [gcc]
+description = "GNU compiler collection"
 tags = [
     "cat:cli-tool",
     "cat:development",
@@ -457,6 +769,7 @@ tags = [
 ]
 
 [gdu]
+description = "Disk usage analyzer with console interface written in Go"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -474,7 +787,15 @@ tags = [
     "scope:extended"
 ]
 
+[getnf]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [gh]
+description = "GitHub command-line tool"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -493,16 +814,17 @@ tags = [
 ]
 
 [ghostty]
+description = "Terminal emulator that uses platform-native UI and GPU acceleration"
 tags = [
     "cat:cask",
     "os:macos",
-    "pm:homebrew:macos",
     "priority:optional",
     "role:desktop",
     "scope:workflow-specific"
 ]
 
 [git]
+description = "Distributed revision control system"
 tags = [
     "cat:cli-tool",
     "cat:system",
@@ -523,6 +845,7 @@ tags = [
 ]
 
 [git-delta]
+description = "Syntax-highlighting pager for git and diff output"
 tags = [
     "cat:cli-tool",
     "cat:vcs",
@@ -542,6 +865,7 @@ tags = [
 ]
 
 [git-lfs]
+description = "Git extension for versioning large files"
 tags = [
     "cat:cli-tool",
     "cat:vcs",
@@ -561,6 +885,7 @@ tags = [
 ]
 
 [gitleaks]
+description = "Audit git repos for secrets"
 tags = [
     "cat:vcs",
     "dist:arch",
@@ -579,7 +904,18 @@ tags = [
     "scope:extended"
 ]
 
+[gjs]
+description = "JavaScript Bindings for GNOME"
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [glances]
+description = "Alternative to top/htop"
 tags = [
     "dist:arch",
     "dist:debian",
@@ -596,7 +932,17 @@ tags = [
     "scope:extended"
 ]
 
+[glib2-devel]
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [glow]
+description = "Render markdown on the CLI"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -614,7 +960,37 @@ tags = [
     "scope:extended"
 ]
 
+[gnome-calculator]
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[gnome-system-monitor]
+tags = [
+    "cat:cli-tool",
+    "cat:system",
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[gnome-text-editor]
+tags = [
+    "cat:cli-tool",
+    "cat:editor",
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [gnu-units]
+description = "GNU unit conversion tool"
 tags = [
     "cat:cli-tool",
     "cat:system",
@@ -634,6 +1010,7 @@ tags = [
 ]
 
 [gnupg]
+description = "GNU Pretty Good Privacy (PGP) package"
 tags = [
     "dist:arch",
     "dist:debian",
@@ -651,7 +1028,7 @@ tags = [
 ]
 
 [gobject-introspection]
-description = "Introspection system for GObject-based libraries"
+description = "Generate introspection data for GObject libraries"
 tags = [
     "cat:cli-tool",
     "cat:system",
@@ -672,7 +1049,78 @@ tags = [
     "scope:extended"
 ]
 
+[grim]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[grimblast]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[gtk-engine-murrine]
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[gtk-layer-shell]
+tags = [
+    "cat:cli-tool",
+    "cat:shell",
+    "cat:terminal",
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[gtk3]
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[gtk4]
+description = "Toolkit for creating graphical user interfaces"
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [gum]
+description = "Tool for glamorous shell scripts"
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[gvfs]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[gvfs-mtp]
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
@@ -681,7 +1129,7 @@ tags = [
 ]
 
 [htop]
-description = "Interactive process viewer"
+description = "Improved top (interactive process viewer)"
 tags = [
     "cat:cli-tool",
     "cat:system",
@@ -702,6 +1150,7 @@ tags = [
 ]
 
 [hyperfine]
+description = "Command-line benchmarking tool"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -719,7 +1168,105 @@ tags = [
     "scope:extended"
 ]
 
+[hypridle]
+tags = [
+    "de:hyprland",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[hyprland]
+tags = [
+    "de:hyprland",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[hyprlock]
+tags = [
+    "de:hyprland",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[hyprpanel]
+tags = [
+    "de:hyprland",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[hyprpaper]
+tags = [
+    "de:hyprland",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[hyprpicker]
+tags = [
+    "de:hyprland",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[hyprpolkitagent]
+tags = [
+    "de:hyprland",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[hyprshade]
+tags = [
+    "de:hyprland",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[hyprshot]
+tags = [
+    "de:hyprland",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[hyprsunset]
+tags = [
+    "de:hyprland",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[imagemagick]
+description = "Tools and libraries to manipulate images in many formats"
+tags = [
+    "cat:graphics",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[imv]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [inetutils]
+description = "GNU utilities for networking"
 tags = [
     "cat:network",
     "dist:arch",
@@ -736,7 +1283,7 @@ tags = [
 ]
 
 [inxi]
-description = "Fully featured CLI system information tool (documentation)"
+description = "Full featured CLI system information tool"
 tags = [
     "cat:cli-tool",
     "cat:system",
@@ -756,7 +1303,15 @@ tags = [
     "scope:extended"
 ]
 
+["it.mijorus.gearlever"]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [jj]
+description = "Git-compatible distributed version control system"
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
@@ -765,6 +1320,7 @@ tags = [
 ]
 
 [jq]
+description = "Lightweight and flexible command-line JSON processor"
 tags = [
     "cat:cli-tool",
     "cat:system",
@@ -798,6 +1354,7 @@ tags = [
 ]
 
 [just]
+description = "Handy way to save and run project-specific commands"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -816,16 +1373,24 @@ tags = [
 ]
 
 [kitty]
+description = "GPU-based terminal emulator"
 tags = [
     "cat:cask",
     "os:macos",
-    "pm:homebrew:macos",
     "priority:optional",
     "role:desktop",
     "scope:workflow-specific"
 ]
 
+[kvantum]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [lazydocker]
+description = "Lazier way to manage everything docker"
 tags = [
     "cat:aur",
     "cat:virtualization",
@@ -840,6 +1405,7 @@ tags = [
 ]
 
 [lazygit]
+description = "Simple terminal UI for git commands"
 tags = [
     "cat:cli-tool",
     "cat:vcs",
@@ -858,6 +1424,7 @@ tags = [
 ]
 
 [lazyjj]
+description = "TUI for Jujutsu/jj"
 tags = [
     "dist:arch",
     "os:linux",
@@ -869,6 +1436,7 @@ tags = [
 ]
 
 [lazysql]
+description = "Cross-platform TUI database management tool"
 tags = [
     "cat:aur",
     "cat:database-tools",
@@ -882,6 +1450,7 @@ tags = [
 ]
 
 [lego]
+description = "Let's Encrypt client and ACME library"
 tags = [
     "cat:cli-tool",
     "cat:security",
@@ -896,8 +1465,35 @@ tags = [
     "scope:extended"
 ]
 
+[libadwaita]
+description = "Building blocks for modern adaptive GNOME applications"
+tags = [
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[libdbusmenu-gtk3]
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[libgtop]
+description = "Library for portably obtaining information about processes"
+tags = [
+    "cat:system",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [libnotify]
-description = "Library for sending desktop notifications"
+description = "Library that sends desktop notifications to a notification daemon"
 tags = [
     "cat:gui",
     "dist:arch",
@@ -917,7 +1513,23 @@ tags = [
     "scope:extended"
 ]
 
+[libsoup3]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[libspng]
+description = "C library for reading and writing PNG format files"
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [llvm]
+description = "Next-gen compiler infrastructure"
 tags = [
     "cat:cli-tool",
     "cat:development",
@@ -938,8 +1550,39 @@ tags = [
     "scope:extended"
 ]
 
+[loupe]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[lsd]
+description = "Clone of ls with colorful output, file type icons, and more"
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[man-pages]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[matugen]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [mercurial]
-description = "A scalable distributed SCM tool"
+description = "Scalable distributed version control system"
 tags = [
     "cat:vcs",
     "dist:arch",
@@ -958,8 +1601,32 @@ tags = [
     "scope:extended"
 ]
 
+[meson]
+description = "Fast and user friendly build system"
+tags = [
+    "cat:system",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[mission-center]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[mousepad]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [mpv]
-description = "An improved fork of mplayer"
+description = "Media player based on MPlayer and mplayer2"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -978,7 +1645,45 @@ tags = [
     "scope:extended"
 ]
 
+[mpv-mpris]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[nano]
+description = "Free (GNU) replacement for the Pico text editor"
+tags = [
+    "cat:cli-tool",
+    "cat:editor",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[nautilus]
+tags = [
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[nautilus-open-any-terminal]
+tags = [
+    "cat:cli-tool",
+    "cat:shell",
+    "cat:terminal",
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [neovim]
+description = "Ambitious Vim-fork focused on extensibility and agility"
 tags = [
     "cat:editor",
     "dist:arch",
@@ -997,7 +1702,192 @@ tags = [
     "scope:extended"
 ]
 
+["net.davidotek.pupgui2"]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[network-manager-applet]
+tags = [
+    "cat:cli-tool",
+    "cat:network",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[networkmanager]
+tags = [
+    "cat:network",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[niri]
+tags = [
+    "cat:cli-tool",
+    "de:niri",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[nm-connection-editor]
+tags = [
+    "cat:cli-tool",
+    "cat:editor",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[noto-fonts]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[noto-fonts-cjk]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[noto-fonts-emoji]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[noto-fonts-extra]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[npm]
+description = "Platform built on V8 to build network applications"
+tags = [
+    "cat:cli-tool",
+    "cat:network",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[nvtop]
+description = "Interactive GPU process monitor"
+tags = [
+    "cat:system",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[nwg-displays]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[nwg-dock-hyprland]
+tags = [
+    "cat:cli-tool",
+    "de:hyprland",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[nwg-look]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+["org.gnome.DejaDup"]
+tags = [
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+["org.gnome.SimpleScan"]
+tags = [
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+["org.gnome.World.PikaBackup"]
+tags = [
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+["org.gustavoperedo.FontDownloader"]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+["org.mozilla.firefox"]
+tags = [
+    "cat:browser",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+["org.signal.Signal"]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+["org.videolan.VLC"]
+tags = [
+    "cat:development",
+    "cat:multimedia",
+    "pm:homebrew",
+    "priority:recommended",
+    "role:content-creation",
+    "role:development",
+    "scope:extended"
+]
+
+[otf-font-awesome]
+tags = [
+    "cat:cli-tool",
+    "de:awesome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [overmind]
+description = "Process manager for Procfile-based applications and tmux"
 tags = [
     "cat:aur",
     "cat:system",
@@ -1010,18 +1900,63 @@ tags = [
     "scope:extended"
 ]
 
+[pacman-contrib]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[pacseek]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[pamixer]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[papirus-icon-theme]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [parsec]
+description = "Remote desktop"
 tags = [
     "cat:cask",
     "os:macos",
-    "pm:homebrew:macos",
     "priority:optional",
     "role:desktop",
     "scope:workflow-specific"
 ]
 
+[pavucontrol]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[pciutils]
+description = "PCI utilities"
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [pinta]
-description = "An easy to use drawing and image editing program"
+description = "Simple Gtk# Paint Program"
 tags = [
     "cat:aur",
     "cat:cask",
@@ -1033,7 +1968,6 @@ tags = [
     "pm:apt",
     "pm:dnf",
     "pm:homebrew",
-    "pm:homebrew:macos",
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
@@ -1041,7 +1975,41 @@ tags = [
     "scope:extended"
 ]
 
+[pipewire]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[pipewire-alsa]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[pipewire-audio]
+tags = [
+    "cat:cli-tool",
+    "cat:multimedia",
+    "pm:homebrew",
+    "priority:optional",
+    "role:content-creation",
+    "scope:workflow-specific"
+]
+
+[pipewire-pulse]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [pixi]
+description = "Package management made easy"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -1053,7 +2021,46 @@ tags = [
     "scope:extended"
 ]
 
+[pkg-config]
+description = "Package compiler and linker metadata toolkit"
+tags = [
+    "cat:cli-tool",
+    "cat:development",
+    "pm:homebrew",
+    "priority:recommended",
+    "role:development",
+    "scope:extended"
+]
+
+[playerctl]
+tags = [
+    "cat:multimedia",
+    "pm:homebrew",
+    "priority:optional",
+    "role:content-creation",
+    "scope:workflow-specific"
+]
+
+[polkit-gnome]
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[power-profiles-daemon]
+tags = [
+    "cat:cli-tool",
+    "cat:filesystem",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [presenterm]
+description = "Terminal slideshow tool"
 tags = [
     "cat:cli-tool",
     "cat:development",
@@ -1068,6 +2075,132 @@ tags = [
 ]
 
 [prettier]
+description = "Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML"
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[python]
+description = "Interpreted, interactive, object-oriented programming language"
+tags = [
+    "cat:development",
+    "pm:homebrew",
+    "priority:essential",
+    "role:development",
+    "scope:core"
+]
+
+[python-gobject]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:essential",
+    "role:development",
+    "scope:core"
+]
+
+[python-gpustat]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:essential",
+    "role:development",
+    "scope:core"
+]
+
+[python-pip]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:essential",
+    "role:development",
+    "scope:core"
+]
+
+[python-pyquery]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:essential",
+    "role:development",
+    "scope:core"
+]
+
+[python-pywalfox]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:essential",
+    "role:development",
+    "scope:core"
+]
+
+[python-requests]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:essential",
+    "role:development",
+    "scope:core"
+]
+
+[python-screeninfo]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:essential",
+    "role:development",
+    "scope:core"
+]
+
+[python3-gobject]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:recommended",
+    "role:development",
+    "scope:extended"
+]
+
+[python3-pip]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:recommended",
+    "role:development",
+    "scope:extended"
+]
+
+[python3-pyquery]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:recommended",
+    "role:development",
+    "scope:extended"
+]
+
+[python3-requests]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:recommended",
+    "role:development",
+    "scope:extended"
+]
+
+[python3-screeninfo]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:recommended",
+    "role:development",
+    "scope:extended"
+]
+
+[pywal]
 tags = [
     "pm:homebrew",
     "priority:optional",
@@ -1075,7 +2208,7 @@ tags = [
 ]
 
 [qalculate-gtk]
-description = "GTK frontend for libqalculate"
+description = "Multi-purpose desktop calculator"
 tags = [
     "cat:cli-tool",
     "cat:gui",
@@ -1097,7 +2230,96 @@ tags = [
     "scope:extended"
 ]
 
+[qt5-graphicaleffects]
+tags = [
+    "cat:cli-tool",
+    "de:kde",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[qt5-quickcontrols2]
+tags = [
+    "cat:cli-tool",
+    "de:kde",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[qt5-svg]
+tags = [
+    "cat:cli-tool",
+    "de:kde",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[qt5-wayland]
+tags = [
+    "cat:cli-tool",
+    "de:kde",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[qt5ct]
+tags = [
+    "de:kde",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[qt6-5compat]
+tags = [
+    "cat:cli-tool",
+    "de:kde",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[qt6-declarative]
+tags = [
+    "cat:cli-tool",
+    "de:kde",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[qt6-svg]
+tags = [
+    "cat:cli-tool",
+    "de:kde",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[qt6-wayland]
+tags = [
+    "cat:cli-tool",
+    "de:kde",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[qt6ct]
+tags = [
+    "de:kde",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [ripgrep]
+description = "Search tool like grep and The Silver Searcher"
 tags = [
     "dist:arch",
     "dist:debian",
@@ -1114,7 +2336,44 @@ tags = [
     "scope:extended"
 ]
 
+[rofi-wayland]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[rsync]
+description = "Utility that provides fast incremental file transfer"
+tags = [
+    "cat:development",
+    "pm:homebrew",
+    "priority:recommended",
+    "role:development",
+    "scope:extended"
+]
+
+[rust]
+description = "Safe, concurrent, practical language"
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:recommended",
+    "role:development",
+    "scope:extended"
+]
+
+[sddm]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [shellcheck]
+description = "Static analysis and lint tool, for (ba)sh scripts"
 tags = [
     "cat:shell",
     "cat:terminal",
@@ -1134,6 +2393,7 @@ tags = [
 ]
 
 [shfmt]
+description = "Autoformat shell script source code"
 tags = [
     "dist:arch",
     "dist:ubuntu",
@@ -1147,16 +2407,32 @@ tags = [
 ]
 
 [signal]
+description = "Instant messaging application focusing on security"
 tags = [
     "cat:cask",
     "os:macos",
-    "pm:homebrew:macos",
     "priority:optional",
     "role:desktop",
     "scope:workflow-specific"
 ]
 
+[slurp]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[sof-firmware]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [starship]
+description = "Cross-shell prompt for astronauts"
 tags = [
     "dist:arch",
     "dist:debian",
@@ -1171,7 +2447,31 @@ tags = [
     "scope:extended"
 ]
 
+[swappy]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[swaync]
+tags = [
+    "de:sway",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[swww]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [tailscale]
+description = "Easiest, most secure way to use WireGuard and 2FA"
 tags = [
     "dist:arch",
     "dist:fedora",
@@ -1186,6 +2486,7 @@ tags = [
 ]
 
 [talosctl]
+description = "CLI for out-of-band management of Kubernetes nodes created by Talos"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -1198,6 +2499,7 @@ tags = [
 ]
 
 [thefuck]
+description = "Programmatically correct mistyped console commands"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -1215,7 +2517,34 @@ tags = [
     "scope:extended"
 ]
 
+[thunar]
+tags = [
+    "de:xfce",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[thunar-archive-plugin]
+tags = [
+    "cat:cli-tool",
+    "de:xfce",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[thunar-volman]
+tags = [
+    "cat:cli-tool",
+    "de:xfce",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [tlrc]
+description = "Official tldr client written in Rust"
 tags = [
     "cat:aur",
     "cat:cli-tool",
@@ -1229,6 +2558,7 @@ tags = [
 ]
 
 [tmux]
+description = "Terminal multiplexer"
 tags = [
     "cat:cli-tool",
     "cat:shell",
@@ -1248,6 +2578,7 @@ tags = [
 ]
 
 [tpm]
+description = "Plugin manager for tmux"
 tags = [
     "cat:aur",
     "cat:cli-tool",
@@ -1260,6 +2591,7 @@ tags = [
 ]
 
 [tree]
+description = "Display directories as trees (with optional color/HTML output)"
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
@@ -1267,8 +2599,87 @@ tags = [
     "scope:workflow-specific"
 ]
 
+[ttf-dejavu]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[ttf-droid]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[ttf-fantasque-nerd]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[ttf-fira-code]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[ttf-fira-sans]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[ttf-firacode-nerd]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[ttf-jetbrains-mono]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[ttf-jetbrains-mono-nerd]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[ttf-victor-mono]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[tumbler]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [typescript]
-description = "JavaScript with syntax for types"
+description = "Language for application scale JavaScript development"
 tags = [
     "dist:arch",
     "dist:fedora",
@@ -1286,6 +2697,7 @@ tags = [
 ]
 
 [ugrep]
+description = "Ultra fast grep with query UI, fuzzy search, archive search, and more"
 tags = [
     "dist:arch",
     "dist:debian",
@@ -1302,7 +2714,47 @@ tags = [
     "scope:extended"
 ]
 
+[umockdev]
+description = "Mock hardware devices for creating unit tests and bug reporting"
+tags = [
+    "de:kde",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[unzip]
+description = "Extraction utility for .zip compressed archives"
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[upower]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+["us.zoom.Zoom"]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[uwsm]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [vale]
+description = "Syntax-aware linter for prose"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -1314,18 +2766,60 @@ tags = [
     "scope:extended"
 ]
 
+[vim]
+description = "Vi 'workalike' with many additional features"
+tags = [
+    "cat:cli-tool",
+    "cat:editor",
+    "pm:homebrew",
+    "priority:essential",
+    "role:development",
+    "scope:core"
+]
+
 [visual-studio-code]
+description = "Open-source code editor"
 tags = [
     "cat:cask",
     "cat:cli-tool",
     "os:macos",
-    "pm:homebrew:macos",
     "priority:optional",
     "role:desktop",
     "scope:workflow-specific"
 ]
 
+[wallust]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[waybar]
+tags = [
+    "de:sway",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[waypaper]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[wf-recorder]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [wget]
+description = "Internet file retriever"
 tags = [
     "cat:cli-tool",
     "cat:network",
@@ -1343,7 +2837,22 @@ tags = [
     "scope:core"
 ]
 
+[whiptail]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[wireplumber]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [wishlist]
+description = "The SSH directory"
 tags = [
     "cat:aur",
     "cat:network",
@@ -1355,7 +2864,82 @@ tags = [
     "scope:extended"
 ]
 
+[wl-clipboard]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[wlogout]
+tags = [
+    "pm:homebrew",
+    "priority:recommended",
+    "role:development",
+    "scope:extended"
+]
+
+[wofi]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[xarchiver]
+tags = [
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[xclip]
+description = "Access X11 clipboards from the command-line"
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[xdg-desktop-portal-gtk]
+tags = [
+    "cat:cli-tool",
+    "de:gnome",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[xdg-desktop-portal-hyprland]
+tags = [
+    "cat:cli-tool",
+    "de:hyprland",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[xdg-user-dirs]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
+[xdg-utils]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [xz]
+description = "General-purpose data compression with high compression ratio"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -1373,6 +2957,14 @@ tags = [
     "scope:extended"
 ]
 
+[yad]
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [yazi]
 description = "Blazing fast terminal file manager written in Rust, based on async I/O"
 tags = [
@@ -1388,6 +2980,7 @@ tags = [
 ]
 
 [yq]
+description = "Process YAML, JSON, XML, CSV and properties documents from the CLI"
 tags = [
     "cat:cli-tool",
     "pm:homebrew",
@@ -1396,6 +2989,7 @@ tags = [
 ]
 
 [yt-dlp]
+description = "Feature-rich command-line audio/video downloader"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -1414,6 +3008,7 @@ tags = [
 ]
 
 [zellij]
+description = "Pluggable terminal workspace, with terminal multiplexer as the base feature"
 tags = [
     "cat:cli-tool",
     "dist:arch",
@@ -1426,28 +3021,38 @@ tags = [
 ]
 
 [zen]
+description = "Gecko based web browser"
 tags = [
     "cat:cask",
     "cat:cli-tool",
     "os:macos",
-    "pm:homebrew:macos",
     "priority:optional",
     "role:desktop",
     "scope:workflow-specific"
 ]
 
+[zip]
+description = "Compression and file packaging/archive utility"
+tags = [
+    "cat:cli-tool",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+
 [zoom]
+description = "Video communication and virtual meeting platform"
 tags = [
     "cat:cask",
     "cat:cli-tool",
     "os:macos",
-    "pm:homebrew:macos",
     "priority:optional",
     "role:desktop",
     "scope:workflow-specific"
 ]
 
 [zoxide]
+description = "Shell extension to navigate your filesystem faster"
 tags = [
     "cat:cli-tool",
     "cat:development",
@@ -1468,6 +3073,7 @@ tags = [
 ]
 
 [zsh]
+description = "UNIX shell (command interpreter)"
 tags = [
     "cat:cli-tool",
     "cat:shell",
@@ -1482,6 +3088,17 @@ tags = [
     "pm:dnf",
     "pm:homebrew",
     "pm:pacman",
+    "priority:essential",
+    "scope:core"
+]
+
+[zsh-completions]
+description = "Additional completion definitions for zsh"
+tags = [
+    "cat:cli-tool",
+    "cat:shell",
+    "cat:terminal",
+    "pm:homebrew",
     "priority:essential",
     "scope:core"
 ]
