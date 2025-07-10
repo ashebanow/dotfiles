@@ -371,9 +371,9 @@ def enhance_package_entry_with_tags(
     # Update description from Repology data if available and no description exists
     current_description = enhanced_entry.get("description", "")
     if repology_data and not current_description:
-        repology_description = repology_data.get("description", "").strip()
-        if repology_description:
-            enhanced_entry["description"] = repology_description
+        repology_desc = repology_data.get("description")
+        if repology_desc and repology_desc.strip():
+            enhanced_entry["description"] = repology_desc.strip()
 
     # Fall back to Homebrew if Repology didn't provide a description
     if not enhanced_entry.get("description", "").strip() and homebrew_client:

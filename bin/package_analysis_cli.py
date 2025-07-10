@@ -254,8 +254,9 @@ def analyze_packages(
             # Even with cached tags, we should try to get description if missing
             if not entry.get("description", "").strip():
                 # Try Repology first
-                if repology_data and repology_data.get("description", "").strip():
-                    entry["description"] = repology_data["description"].strip()
+                repology_desc = repology_data.get("description") if repology_data else None
+                if repology_desc and repology_desc.strip():
+                    entry["description"] = repology_desc.strip()
                 # Fall back to Homebrew if needed
                 elif homebrew_client:
                     try:
