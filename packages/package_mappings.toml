@@ -4,7 +4,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [act3]
@@ -13,7 +13,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [adobe-source-code-pro-fonts]
@@ -21,7 +21,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [antidote]
@@ -29,30 +29,27 @@ description = "Plugin manager for zsh, inspired by antigen and antibody"
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["app.ytmdesktop.ytmdesktop"]
+[app.ytmdesktop.ytmdesktop]
 tags = [
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["app.zen_browser.zen"]
+[app.zen_browser.zen]
 tags = [
     "cat:browser",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [archlinux-keyring]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [atuin]
@@ -70,7 +67,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [aylurs-gtk-shell]
@@ -79,9 +76,8 @@ tags = [
     "cat:shell",
     "cat:terminal",
     "de:gnome",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [bandwhich]
@@ -94,15 +90,14 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [base-devel]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [bat]
@@ -121,7 +116,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [bc]
@@ -131,15 +126,14 @@ tags = [
     "cat:system",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [bibata-cursor-theme-bin]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [binsider]
@@ -153,7 +147,7 @@ tags = [
     "pm:pacman",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [biome]
@@ -165,7 +159,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [bitwarden-cli]
@@ -180,14 +174,14 @@ tags = [
     "pm:pacman",
     "priority:recommended",
     "role:security",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [blueman]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [bluez]
@@ -206,7 +200,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [bluez-utils]
@@ -214,21 +208,21 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [breeze]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [brightnessctl]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [btop]
@@ -249,7 +243,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [caddy]
@@ -268,7 +262,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [cava]
@@ -287,15 +281,14 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [checkupdates-with-aur]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [chezmoi]
@@ -307,7 +300,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [claude]
@@ -317,74 +310,66 @@ tags = [
     "os:macos",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [cliphist]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["com.bitwarden.desktop"]
+[com.bitwarden.desktop]
 tags = [
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["com.discordapp.Discord"]
+[com.discordapp.Discord]
 tags = [
     "cat:communication",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["com.getpostman.Postman"]
+[com.getpostman.Postman]
 tags = [
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["com.google.Chrome"]
+[com.google.Chrome]
 tags = [
     "cat:browser",
-    "pm:homebrew",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
-["com.logseq.Logseq"]
+[com.logseq.Logseq]
 tags = [
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["com.obsproject.Studio"]
+[com.obsproject.Studio]
 tags = [
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["com.parsecgaming.parsec"]
+[com.parsecgaming.parsec]
 tags = [
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["com.slack.Slack"]
+[com.slack.Slack]
 tags = [
     "cat:communication",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [coreutils]
@@ -403,7 +388,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [ctop]
@@ -412,7 +397,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [curl]
@@ -430,7 +415,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:essential",
-    "scope:core"
+    "scope:core",
 ]
 
 [dart-sass]
@@ -438,7 +423,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [direnv]
@@ -456,7 +441,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [dive]
@@ -469,7 +454,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [dolphin]
@@ -480,7 +465,7 @@ tags = [
     "os:macos",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [duf]
@@ -499,7 +484,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [dust]
@@ -508,7 +493,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [eza]
@@ -527,7 +512,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [fastfetch]
@@ -545,7 +530,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [fd]
@@ -564,7 +549,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [ffmpegthumbnailer]
@@ -576,7 +561,7 @@ tags = [
     "priority:recommended",
     "role:content-creation",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [figlet]
@@ -584,14 +569,14 @@ description = "Banner-like program prints strings as ASCII art"
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [figurine]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [findutils]
@@ -599,7 +584,7 @@ description = "Collection of GNU find, xargs, and locate"
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [firefox]
@@ -621,7 +606,7 @@ tags = [
     "priority:essential",
     "priority:recommended",
     "role:desktop",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [fish]
@@ -642,14 +627,14 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [flatpak]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [fonts-dejavu]
@@ -657,7 +642,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [fonts-firacode]
@@ -665,7 +650,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [fonts-font-awesome]
@@ -674,7 +659,7 @@ tags = [
     "de:awesome",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [fonts-jetbrains-mono]
@@ -682,7 +667,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [fonts-noto-cjk]
@@ -690,7 +675,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [fonts-noto-color-emoji]
@@ -698,7 +683,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [fonts-noto-extra]
@@ -706,7 +691,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [foreman]
@@ -718,14 +703,14 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [fuse2]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [fzf]
@@ -745,7 +730,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [gcc]
@@ -765,7 +750,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core"
+    "scope:core",
 ]
 
 [gdu]
@@ -784,14 +769,14 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [getnf]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [gh]
@@ -810,7 +795,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [ghostty]
@@ -820,7 +805,7 @@ tags = [
     "os:macos",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [git]
@@ -841,7 +826,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core"
+    "scope:core",
 ]
 
 [git-delta]
@@ -861,7 +846,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core"
+    "scope:core",
 ]
 
 [git-lfs]
@@ -881,7 +866,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "role:development",
-    "scope:core"
+    "scope:core",
 ]
 
 [gitleaks]
@@ -901,7 +886,7 @@ tags = [
     "priority:essential",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [gjs]
@@ -911,7 +896,7 @@ tags = [
     "de:gnome",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [glances]
@@ -929,16 +914,15 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [glib2-devel]
 tags = [
     "cat:cli-tool",
     "de:gnome",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [glow]
@@ -957,7 +941,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [gnome-calculator]
@@ -966,7 +950,7 @@ tags = [
     "de:gnome",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [gnome-system-monitor]
@@ -976,7 +960,7 @@ tags = [
     "de:gnome",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [gnome-text-editor]
@@ -986,7 +970,7 @@ tags = [
     "de:gnome",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [gnu-units]
@@ -1006,7 +990,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [gnupg]
@@ -1024,7 +1008,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [gobject-introspection]
@@ -1046,7 +1030,7 @@ tags = [
     "priority:essential",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [grim]
@@ -1054,14 +1038,14 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [grimblast]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [gtk-engine-murrine]
@@ -1070,7 +1054,7 @@ tags = [
     "de:gnome",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [gtk-layer-shell]
@@ -1079,9 +1063,8 @@ tags = [
     "cat:shell",
     "cat:terminal",
     "de:gnome",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [gtk3]
@@ -1090,7 +1073,7 @@ tags = [
     "de:gnome",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [gtk4]
@@ -1100,7 +1083,7 @@ tags = [
     "de:gnome",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [gum]
@@ -1109,23 +1092,21 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [gvfs]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [gvfs-mtp]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [htop]
@@ -1146,7 +1127,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [hyperfine]
@@ -1165,7 +1146,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [hypridle]
@@ -1173,7 +1154,7 @@ tags = [
     "de:hyprland",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [hyprland]
@@ -1181,7 +1162,7 @@ tags = [
     "de:hyprland",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [hyprlock]
@@ -1189,7 +1170,7 @@ tags = [
     "de:hyprland",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [hyprpanel]
@@ -1197,7 +1178,7 @@ tags = [
     "de:hyprland",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [hyprpaper]
@@ -1205,7 +1186,7 @@ tags = [
     "de:hyprland",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [hyprpicker]
@@ -1213,15 +1194,14 @@ tags = [
     "de:hyprland",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [hyprpolkitagent]
 tags = [
     "de:hyprland",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [hyprshade]
@@ -1229,7 +1209,7 @@ tags = [
     "de:hyprland",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [hyprshot]
@@ -1237,15 +1217,14 @@ tags = [
     "de:hyprland",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [hyprsunset]
 tags = [
     "de:hyprland",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [imagemagick]
@@ -1254,7 +1233,7 @@ tags = [
     "cat:graphics",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [imv]
@@ -1262,7 +1241,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [inetutils]
@@ -1279,7 +1258,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [inxi]
@@ -1300,14 +1279,13 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
-["it.mijorus.gearlever"]
+[it.mijorus.gearlever]
 tags = [
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [jj]
@@ -1316,7 +1294,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [jq]
@@ -1336,7 +1314,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [jujutsu]
@@ -1350,7 +1328,7 @@ tags = [
     "pm:homebrew:darwin",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [just]
@@ -1369,7 +1347,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [kitty]
@@ -1379,14 +1357,13 @@ tags = [
     "os:macos",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [kvantum]
 tags = [
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [lazydocker]
@@ -1401,7 +1378,7 @@ tags = [
     "pm:pacman",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [lazygit]
@@ -1420,7 +1397,7 @@ tags = [
     "priority:essential",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [lazyjj]
@@ -1432,7 +1409,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [lazysql]
@@ -1446,7 +1423,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [lego]
@@ -1462,7 +1439,7 @@ tags = [
     "priority:recommended",
     "role:development",
     "role:security",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [libadwaita]
@@ -1471,16 +1448,15 @@ tags = [
     "de:gnome",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [libdbusmenu-gtk3]
 tags = [
     "cat:cli-tool",
     "de:gnome",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [libgtop]
@@ -1489,7 +1465,7 @@ tags = [
     "cat:system",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [libnotify]
@@ -1510,14 +1486,14 @@ tags = [
     "priority:essential",
     "priority:recommended",
     "role:desktop",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [libsoup3]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [libspng]
@@ -1525,7 +1501,7 @@ description = "C library for reading and writing PNG format files"
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [llvm]
@@ -1547,14 +1523,14 @@ tags = [
     "priority:essential",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [loupe]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [lsd]
@@ -1563,22 +1539,21 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [man-pages]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [matugen]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [mercurial]
@@ -1598,7 +1573,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [meson]
@@ -1607,7 +1582,7 @@ tags = [
     "cat:system",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [mission-center]
@@ -1615,14 +1590,14 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [mousepad]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [mpv]
@@ -1642,15 +1617,14 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [mpv-mpris]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [nano]
@@ -1660,7 +1634,7 @@ tags = [
     "cat:editor",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [nautilus]
@@ -1668,7 +1642,7 @@ tags = [
     "de:gnome",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [nautilus-open-any-terminal]
@@ -1677,9 +1651,8 @@ tags = [
     "cat:shell",
     "cat:terminal",
     "de:gnome",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [neovim]
@@ -1699,14 +1672,13 @@ tags = [
     "priority:essential",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
-["net.davidotek.pupgui2"]
+[net.davidotek.pupgui2]
 tags = [
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [network-manager-applet]
@@ -1715,7 +1687,7 @@ tags = [
     "cat:network",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [networkmanager]
@@ -1723,7 +1695,7 @@ tags = [
     "cat:network",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [niri]
@@ -1732,16 +1704,15 @@ tags = [
     "de:niri",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [nm-connection-editor]
 tags = [
     "cat:cli-tool",
     "cat:editor",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [noto-fonts]
@@ -1749,15 +1720,14 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [noto-fonts-cjk]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [noto-fonts-emoji]
@@ -1765,15 +1735,14 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [noto-fonts-extra]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [npm]
@@ -1783,7 +1752,7 @@ tags = [
     "cat:network",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [nvtop]
@@ -1792,7 +1761,7 @@ tags = [
     "cat:system",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [nwg-displays]
@@ -1800,81 +1769,82 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [nwg-dock-hyprland]
 tags = [
     "cat:cli-tool",
     "de:hyprland",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [nwg-look]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["org.gnome.DejaDup"]
+[orbstack]
+description = "Replacement for Docker Desktop"
+tags = [
+    "cat:cask",
+    "os:macos",
+    "pm:homebrew:macos",
+    "priority:optional",
+    "scope:workflow-specific",
+]
+
+[org.gnome.DejaDup]
 tags = [
     "de:gnome",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["org.gnome.SimpleScan"]
+[org.gnome.SimpleScan]
 tags = [
     "de:gnome",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["org.gnome.World.PikaBackup"]
+[org.gnome.World.PikaBackup]
 tags = [
     "de:gnome",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["org.gustavoperedo.FontDownloader"]
+[org.gustavoperedo.FontDownloader]
 tags = [
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["org.mozilla.firefox"]
+[org.mozilla.firefox]
 tags = [
     "cat:browser",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["org.signal.Signal"]
+[org.signal.Signal]
 tags = [
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["org.videolan.VLC"]
+[org.videolan.VLC]
 tags = [
     "cat:development",
     "cat:multimedia",
-    "pm:homebrew",
     "priority:recommended",
     "role:content-creation",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [otf-font-awesome]
@@ -1883,7 +1853,7 @@ tags = [
     "de:awesome",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [overmind]
@@ -1897,7 +1867,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [pacman-contrib]
@@ -1905,29 +1875,28 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [pacseek]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [pamixer]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [papirus-icon-theme]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [parsec]
@@ -1937,14 +1906,13 @@ tags = [
     "os:macos",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [pavucontrol]
 tags = [
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [pciutils]
@@ -1952,7 +1920,7 @@ description = "PCI utilities"
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [pinta]
@@ -1972,14 +1940,14 @@ tags = [
     "priority:essential",
     "priority:recommended",
     "role:desktop",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [pipewire]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [pipewire-alsa]
@@ -1987,7 +1955,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [pipewire-audio]
@@ -1997,7 +1965,7 @@ tags = [
     "pm:homebrew",
     "priority:optional",
     "role:content-creation",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [pipewire-pulse]
@@ -2005,7 +1973,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [pixi]
@@ -2018,7 +1986,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [pkg-config]
@@ -2029,7 +1997,7 @@ tags = [
     "pm:homebrew",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [playerctl]
@@ -2038,7 +2006,7 @@ tags = [
     "pm:homebrew",
     "priority:optional",
     "role:content-creation",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [polkit-gnome]
@@ -2047,16 +2015,15 @@ tags = [
     "de:gnome",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [power-profiles-daemon]
 tags = [
     "cat:cli-tool",
     "cat:filesystem",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [presenterm]
@@ -2071,7 +2038,7 @@ tags = [
     "pm:pacman",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [prettier]
@@ -2079,7 +2046,7 @@ description = "Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [python]
@@ -2089,7 +2056,7 @@ tags = [
     "pm:homebrew",
     "priority:essential",
     "role:development",
-    "scope:core"
+    "scope:core",
 ]
 
 [python-gobject]
@@ -2098,7 +2065,7 @@ tags = [
     "pm:homebrew",
     "priority:essential",
     "role:development",
-    "scope:core"
+    "scope:core",
 ]
 
 [python-gpustat]
@@ -2107,7 +2074,7 @@ tags = [
     "pm:homebrew",
     "priority:essential",
     "role:development",
-    "scope:core"
+    "scope:core",
 ]
 
 [python-pip]
@@ -2116,7 +2083,7 @@ tags = [
     "pm:homebrew",
     "priority:essential",
     "role:development",
-    "scope:core"
+    "scope:core",
 ]
 
 [python-pyquery]
@@ -2125,7 +2092,7 @@ tags = [
     "pm:homebrew",
     "priority:essential",
     "role:development",
-    "scope:core"
+    "scope:core",
 ]
 
 [python-pywalfox]
@@ -2134,7 +2101,7 @@ tags = [
     "pm:homebrew",
     "priority:essential",
     "role:development",
-    "scope:core"
+    "scope:core",
 ]
 
 [python-requests]
@@ -2143,7 +2110,7 @@ tags = [
     "pm:homebrew",
     "priority:essential",
     "role:development",
-    "scope:core"
+    "scope:core",
 ]
 
 [python-screeninfo]
@@ -2152,7 +2119,7 @@ tags = [
     "pm:homebrew",
     "priority:essential",
     "role:development",
-    "scope:core"
+    "scope:core",
 ]
 
 [python3-gobject]
@@ -2161,7 +2128,7 @@ tags = [
     "pm:homebrew",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [python3-pip]
@@ -2170,7 +2137,7 @@ tags = [
     "pm:homebrew",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [python3-pyquery]
@@ -2179,7 +2146,7 @@ tags = [
     "pm:homebrew",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [python3-requests]
@@ -2188,7 +2155,7 @@ tags = [
     "pm:homebrew",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [python3-screeninfo]
@@ -2197,14 +2164,14 @@ tags = [
     "pm:homebrew",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [pywal]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [qalculate-gtk]
@@ -2227,43 +2194,39 @@ tags = [
     "priority:essential",
     "priority:recommended",
     "role:desktop",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [qt5-graphicaleffects]
 tags = [
     "cat:cli-tool",
     "de:kde",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [qt5-quickcontrols2]
 tags = [
     "cat:cli-tool",
     "de:kde",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [qt5-svg]
 tags = [
     "cat:cli-tool",
     "de:kde",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [qt5-wayland]
 tags = [
     "cat:cli-tool",
     "de:kde",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [qt5ct]
@@ -2271,51 +2234,46 @@ tags = [
     "de:kde",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [qt6-5compat]
 tags = [
     "cat:cli-tool",
     "de:kde",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [qt6-declarative]
 tags = [
     "cat:cli-tool",
     "de:kde",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [qt6-svg]
 tags = [
     "cat:cli-tool",
     "de:kde",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [qt6-wayland]
 tags = [
     "cat:cli-tool",
     "de:kde",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [qt6ct]
 tags = [
     "de:kde",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [ripgrep]
@@ -2333,15 +2291,14 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [rofi-wayland]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [rsync]
@@ -2351,7 +2308,7 @@ tags = [
     "pm:homebrew",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [rust]
@@ -2361,7 +2318,7 @@ tags = [
     "pm:homebrew",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [sddm]
@@ -2369,7 +2326,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [shellcheck]
@@ -2389,7 +2346,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [shfmt]
@@ -2403,7 +2360,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [signal]
@@ -2413,22 +2370,21 @@ tags = [
     "os:macos",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [slurp]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [sof-firmware]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [starship]
@@ -2444,14 +2400,14 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [swappy]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [swaync]
@@ -2459,15 +2415,14 @@ tags = [
     "de:sway",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [swww]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [tailscale]
@@ -2482,7 +2437,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [talosctl]
@@ -2495,7 +2450,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [thefuck]
@@ -2514,7 +2469,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [thunar]
@@ -2522,25 +2477,23 @@ tags = [
     "de:xfce",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [thunar-archive-plugin]
 tags = [
     "cat:cli-tool",
     "de:xfce",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [thunar-volman]
 tags = [
     "cat:cli-tool",
     "de:xfce",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [tlrc]
@@ -2554,7 +2507,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [tmux]
@@ -2574,7 +2527,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:essential",
-    "scope:core"
+    "scope:core",
 ]
 
 [tpm]
@@ -2587,7 +2540,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [tree]
@@ -2596,7 +2549,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [ttf-dejavu]
@@ -2604,23 +2557,21 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [ttf-droid]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [ttf-fantasque-nerd]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [ttf-fira-code]
@@ -2628,7 +2579,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [ttf-fira-sans]
@@ -2636,15 +2587,14 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [ttf-firacode-nerd]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [ttf-jetbrains-mono]
@@ -2652,30 +2602,28 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [ttf-jetbrains-mono-nerd]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [ttf-victor-mono]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [tumbler]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [typescript]
@@ -2693,7 +2641,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [ugrep]
@@ -2711,16 +2659,15 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [umockdev]
 description = "Mock hardware devices for creating unit tests and bug reporting"
 tags = [
     "de:kde",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [unzip]
@@ -2728,21 +2675,20 @@ description = "Extraction utility for .zip compressed archives"
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [upower]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
-["us.zoom.Zoom"]
+[us.zoom.Zoom]
 tags = [
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [uwsm]
@@ -2750,7 +2696,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [vale]
@@ -2763,7 +2709,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [vim]
@@ -2774,7 +2720,7 @@ tags = [
     "pm:homebrew",
     "priority:essential",
     "role:development",
-    "scope:core"
+    "scope:core",
 ]
 
 [visual-studio-code]
@@ -2785,14 +2731,14 @@ tags = [
     "os:macos",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [wallust]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [waybar]
@@ -2800,14 +2746,14 @@ tags = [
     "de:sway",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [waypaper]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [wf-recorder]
@@ -2815,7 +2761,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [wget]
@@ -2834,21 +2780,20 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:essential",
-    "scope:core"
+    "scope:core",
 ]
 
 [whiptail]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [wireplumber]
 tags = [
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [wishlist]
@@ -2861,7 +2806,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [wl-clipboard]
@@ -2869,15 +2814,14 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [wlogout]
 tags = [
-    "pm:homebrew",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [wofi]
@@ -2885,14 +2829,14 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [xarchiver]
 tags = [
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [xclip]
@@ -2901,33 +2845,30 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [xdg-desktop-portal-gtk]
 tags = [
     "cat:cli-tool",
     "de:gnome",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [xdg-desktop-portal-hyprland]
 tags = [
     "cat:cli-tool",
     "de:hyprland",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [xdg-user-dirs]
 tags = [
     "cat:cli-tool",
-    "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [xdg-utils]
@@ -2935,7 +2876,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [xz]
@@ -2954,7 +2895,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [yad]
@@ -2962,7 +2903,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [yazi]
@@ -2976,7 +2917,7 @@ tags = [
     "pm:homebrew:darwin",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [yq]
@@ -2985,7 +2926,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [yt-dlp]
@@ -3004,7 +2945,7 @@ tags = [
     "pm:pacman",
     "priority:essential",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [zellij]
@@ -3017,7 +2958,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:recommended",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [zen]
@@ -3028,7 +2969,7 @@ tags = [
     "os:macos",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [zip]
@@ -3037,7 +2978,7 @@ tags = [
     "cat:cli-tool",
     "pm:homebrew",
     "priority:optional",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [zoom]
@@ -3048,7 +2989,7 @@ tags = [
     "os:macos",
     "priority:optional",
     "role:desktop",
-    "scope:workflow-specific"
+    "scope:workflow-specific",
 ]
 
 [zoxide]
@@ -3069,7 +3010,7 @@ tags = [
     "priority:essential",
     "priority:recommended",
     "role:development",
-    "scope:extended"
+    "scope:extended",
 ]
 
 [zsh]
@@ -3089,7 +3030,7 @@ tags = [
     "pm:homebrew",
     "pm:pacman",
     "priority:essential",
-    "scope:core"
+    "scope:core",
 ]
 
 [zsh-completions]
@@ -3100,6 +3041,6 @@ tags = [
     "cat:terminal",
     "pm:homebrew",
     "priority:essential",
-    "scope:core"
+    "scope:core",
 ]
 

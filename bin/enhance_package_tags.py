@@ -87,8 +87,7 @@ def enhance_package_tags(package_name, package_data, cache_data):
             new_tags.add("pm:homebrew:darwin")
         elif linux_support:
             new_tags.add("pm:homebrew:linux")
-        else:
-            new_tags.add("pm:homebrew")  # Default fallback
+        # Removed default fallback - only add homebrew tags when we have actual platform data
 
     if platforms.get("arch_official") or platforms.get("arch_aur"):
         new_tags.add("pm:pacman")

@@ -50,12 +50,22 @@ def analyze_repology_data_for_tags(repology_data: Dict[str, Any]) -> List[str]:
         tags.extend(["os:linux", "dist:fedora", "pm:dnf"])
 
     if platforms.get("homebrew"):
-        tags.append("pm:homebrew")
-        # Check if it's macOS specific
-        if repology_data.get("brew-supports-darwin", True):
+        # Only add homebrew tags if we have actual platform support data
+        darwin_support = repology_data.get("brew-supports-darwin", False)
+        linux_support = repology_data.get("brew-supports-linux", False)
+        
+        if darwin_support and linux_support:
+            tags.append("pm:homebrew")
             tags.append("os:macos")
-        if repology_data.get("brew-supports-linux", False):
             tags.append("os:linux")
+        elif darwin_support:
+            tags.append("pm:homebrew:darwin")
+            tags.append("os:macos")
+        elif linux_support:
+            tags.append("pm:homebrew:linux")
+            tags.append("os:linux")
+        # Don't add homebrew tags if platform support is unclear
+        
         if repology_data.get("brew-is-cask", False):
             tags.append("cat:cask")
 

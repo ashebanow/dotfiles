@@ -1,59 +1,121 @@
 #!/usr/bin/env python3
-"""Fix cask tags: remove pm:homebrew:cask, ensure cat:cask + os:macos + pm:homebrew:macos"""
+"""
+Automatically fix incorrect pm:homebrew tags without user interaction
+"""
 
-import toml
+import subprocess
+import sys
+from pathlib import Path
 
-# Load TOML
-print("Loading package_mappings.toml...")
-with open("packages/package_mappings.toml") as f:
-    toml_data = toml.load(f)
+# Add lib directory to path for imports
+sys.path.insert(0, str(Path(__file__).parent.parent / "lib"))
 
-fixes = []
+try:
+    import tomllib  # Python 3.11+
+    def load_toml(filepath):
+        with open(filepath, "rb") as f:
+            return tomllib.load(f)
+except ImportError:
+    try:
+        import toml
+        def load_toml(filepath):
+            with open(filepath) as f:
+                return toml.load(f)
+    except ImportError:
+        def load_toml(filepath):
+            raise ImportError("No TOML library available. Install with: pip install toml")
 
-for package_name, entry in toml_data.items():
-    tags = entry.get("tags", [])
-    original_tags = tags.copy()
 
-    # If package has pm:homebrew:cask, convert it properly
-    if "pm:homebrew:cask" in tags:
-        # Remove pm:homebrew:cask
-        tags.remove("pm:homebrew:cask")
-
-        # Ensure cat:cask is present
-        if "cat:cask" not in tags:
-            tags.append("cat:cask")
-
-        # Ensure os:macos is present
-        if "os:macos" not in tags:
-            tags.append("os:macos")
-
-        # Ensure pm:homebrew:macos is present
-        if "pm:homebrew:macos" not in tags:
-            tags.append("pm:homebrew:macos")
-
-    # If package has cat:cask, ensure it has proper homebrew macos tags
-    if "cat:cask" in tags:
-        # Ensure os:macos is present
-        if "os:macos" not in tags:
-            tags.append("os:macos")
-
-        # Ensure pm:homebrew:macos is present
-        if "pm:homebrew:macos" not in tags:
-            tags.append("pm:homebrew:macos")
-
-    # Update if changed
-    if tags != original_tags:
-        entry["tags"] = tags
-        fixes.append(package_name)
-        print(
-            f"Fixed {package_name}: ensured proper cask tags (cat:cask + os:macos + pm:homebrew:macos)"
+def check_homebrew_package(package_name):
+    """Check if a package exists in Homebrew"""
+    try:
+        result = subprocess.run(
+            ["brew", "search", package_name],
+            capture_output=True,
+            text=True,
+            timeout=10
         )
+        return "No formulae or casks found" not in result.stderr
+    except (subprocess.TimeoutExpired, subprocess.CalledProcessError, FileNotFoundError):
+        return False
 
-# Save updated TOML
-if fixes:
-    print(f"\nSaving {len(fixes)} fixes to package_mappings.toml...")
-    with open("packages/package_mappings.toml", "w") as f:
-        toml.dump(toml_data, f)
-    print("Done!")
-else:
-    print("\nNo fixes needed.")
+
+def fix_homebrew_tags():
+    """Fix incorrect pm:homebrew tags automatically"""
+    toml_file = "packages/package_mappings.toml"
+    
+    if not Path(toml_file).exists():
+        print(f"Error: {toml_file} not found")
+        return 1
+    
+    print(f"Fixing incorrect Homebrew tags in {toml_file}...")
+    
+    # Load TOML
+    toml_data = load_toml(toml_file)
+    
+    # Find packages with pm:homebrew tags
+    packages_with_homebrew = []
+    for package_name, entry in toml_data.items():
+        tags = entry.get("tags", [])
+        if any(tag.startswith("pm:homebrew") for tag in tags):
+            packages_with_homebrew.append(package_name)
+    
+    print(f"Found {len(packages_with_homebrew)} packages with pm:homebrew tags")
+    
+    # Check each package and fix
+    fixed_packages = []
+    
+    for i, package_name in enumerate(packages_with_homebrew, 1):
+        print(f"  [{i}/{len(packages_with_homebrew)}] Checking {package_name}...")
+        
+        if not check_homebrew_package(package_name):
+            entry = toml_data[package_name]
+            original_tags = entry.get("tags", [])
+            
+            # Remove all pm:homebrew tags
+            new_tags = [tag for tag in original_tags if not tag.startswith("pm:homebrew")]
+            
+            if len(new_tags) != len(original_tags):
+                entry["tags"] = new_tags
+                removed_tags = [tag for tag in original_tags if tag.startswith("pm:homebrew")]
+                print(f"    ✅ Fixed: Removed {removed_tags}")
+                fixed_packages.append(package_name)
+            else:
+                print(f"    ❌ NOT found in Homebrew but no changes needed")
+        else:
+            print(f"    ✅ Found in Homebrew - no changes needed")
+    
+    if fixed_packages:
+        # Write the fixed TOML
+        print(f"\n💾 Writing fixes to {toml_file}...")
+        
+        with open(toml_file, "w") as f:
+            for package_name, entry in toml_data.items():
+                f.write(f"[{package_name}]\n")
+                
+                # Write description if it exists
+                if "description" in entry and entry["description"]:
+                    f.write(f'description = "{entry["description"]}"\n')
+                
+                # Write tags
+                tags = entry.get("tags", [])
+                if tags:
+                    sorted_tags = sorted(set(tags))  # Remove duplicates and sort
+                    f.write("tags = [\n")
+                    for tag in sorted_tags:
+                        f.write(f'    "{tag}",\n')
+                    f.write("]\n")
+                
+                f.write("\n")
+        
+        print(f"✅ Fixed {len(fixed_packages)} packages:")
+        for package in fixed_packages:
+            print(f"   - {package}")
+    else:
+        print("No changes needed")
+    
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(fix_homebrew_tags())

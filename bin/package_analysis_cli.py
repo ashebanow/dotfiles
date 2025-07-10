@@ -229,9 +229,7 @@ def analyze_packages(
             # Non-cask packages from Brewfile-darwin are macOS-only
             entry["tags"].append("pm:homebrew:darwin")
             entry["tags"].append("os:macos")
-        else:
-            # Default to cross-platform homebrew
-            entry["tags"].append("pm:homebrew")
+        # Don't add default homebrew tags for non-homebrew sources (Archfile, Aptfile, etc.)
 
         # Check tag cache first
         cached_tags = None
