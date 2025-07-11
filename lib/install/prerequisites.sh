@@ -124,11 +124,6 @@ function setup_npm_paths {
         echo "$npm_bin_dir:\$PATH" >>~/.zshrc
     fi
 
-    # Update fish config if it exists and doesn't already contain the path
-    if [[ -f "/.config/fish/config.fish" ]] && ! grep -q ".npm-global/bin" ~/.config/fish/config.fish; then
-        echo "fish_add_path $npm_bin_dir" >>~/.config/fish/config.fish
-    fi
-
     # Update current session PATH. its ok if this gets toasted later,
     # since the shell init script(s) will add it more permanently.
     export PATH="$npm_bin_dir:$PATH"

@@ -6,7 +6,7 @@
   <string>dotfiles Logout Handler</string>
   <key>ProgramArguments</key>
   <array>
-    <string>/Users/ashebanow/.config/fish/mac_logout_handler.fish</string>
+    <string>/Users/ashebanow/.local/bin/mac_logout_handler.zsh</string>
   </array>
   <key>RunAtLoad</key>
   <true/>

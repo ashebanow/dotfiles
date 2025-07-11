@@ -9,6 +9,6 @@ root=false
 start_now=false
 additional_packages="git vim nodejs gum bitwarden bitwarden-cli"
 additional_packages="htop iftop iotop"
-additional_packages="zsh fish"
+additional_packages="zsh"
 ########## PRE-INIT HOOKS
 pre_init_hooks=curl -fsSL https://github.com/ashebanow/dotfiles/install.sh | bash;

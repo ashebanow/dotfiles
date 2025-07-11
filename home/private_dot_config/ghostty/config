@@ -42,7 +42,7 @@ mouse-hide-while-typing         = true
 # window-theme                  = ghostty
 window-vsync                    = true
 background-blur-radius          = 20
-shell-integration              = fish
+shell-integration              = zsh
 shell-integration-features     = no-cursor,sudo,title
 
 # Key bindings

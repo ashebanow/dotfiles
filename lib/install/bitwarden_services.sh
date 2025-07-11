@@ -28,11 +28,11 @@ function _bw_is_systemd_available {
 
 function _bw_install_shell_session_manager {
     log_info "Installing Bitwarden session management for shell environments..."
-    
+
     # Create a simple session management script
     local session_script="$HOME/.local/bin/bw-session-manager"
     mkdir -p "$(dirname "$session_script")"
-    
+
     cat > "$session_script" << 'EOF'
 #!/usr/bin/env bash
 # Bitwarden session manager for containers/non-systemd environments
@@ -96,9 +96,9 @@ case "${1:-check}" in
         ;;
 esac
 EOF
-    
+
     chmod +x "$session_script"
-    
+
     # Add session loading to shell configs
     local bw_session_snippet='
 # Bitwarden session management
@@ -111,36 +111,18 @@ if [[ -n "$PS1" ]] && command -v bw-session-manager >/dev/null 2>&1; then
     bw-session-manager check >/dev/null 2>&1
 fi
 '
-    
     # Add to .bashrc if it exists
     if [[ -f "$HOME/.bashrc" ]] && ! grep -q "bw-session-manager" "$HOME/.bashrc"; then
         echo "$bw_session_snippet" >> "$HOME/.bashrc"
         log_debug "Added Bitwarden session management to .bashrc"
     fi
-    
+
     # Add to .zshrc if it exists
     if [[ -f "$HOME/.zshrc" ]] && ! grep -q "bw-session-manager" "$HOME/.zshrc"; then
         echo "$bw_session_snippet" >> "$HOME/.zshrc"
         log_debug "Added Bitwarden session management to .zshrc"
     fi
-    
-    # Add to fish config if it exists
-    if [[ -f "$HOME/.config/fish/config.fish" ]] && ! grep -q "bw-session-manager" "$HOME/.config/fish/config.fish"; then
-        cat >> "$HOME/.config/fish/config.fish" << 'EOF'
 
-# Bitwarden session management
-if test -f "$HOME/.cache/bw_session"
-    set -gx BW_SESSION (cat "$HOME/.cache/bw_session" 2>/dev/null)
-end
-
-# Auto-check session on interactive shell startup
-if status is-interactive; and type -q bw-session-manager
-    bw-session-manager check >/dev/null 2>&1
-end
-EOF
-        log_debug "Added Bitwarden session management to fish config"
-    fi
-    
     log_info "Bitwarden shell session manager installed. Run 'bw-session-manager start' to enable background checks."
 }
 
@@ -173,7 +155,7 @@ function install_bitwarden_session_service_if_needed {
         if _bw_is_systemd_available; then
             local service_file="$HOME/.config/systemd/user/bitwarden-session.service"
             local timer_file="$HOME/.config/systemd/user/bitwarden-session.timer"
-            
+
             if [[ -f "$service_file" && -f "$timer_file" ]]; then
                 log_info "Installing Bitwarden session service (systemd)..."
                 systemctl --user daemon-reload 2>/dev/null || true
