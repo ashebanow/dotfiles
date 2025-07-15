@@ -4,7 +4,8 @@
 
 ###########################################################
 # Default shell
-command = /home/linuxbrew/.linuxbrew/bin/zsh --login --interactive
+# command = /home/linuxbrew/.linuxbrew/bin/zsh --login --interactive
+# command = /opt/homebrew/opt/zsh/bin/zsh --login --interactive
 
 ###########################################################
 # FONTS
