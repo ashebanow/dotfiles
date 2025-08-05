@@ -37,19 +37,14 @@ fi
 
 #############################################################################
 # Path Management
-function addToPathIfNeeded {
-  new_path="$1"
-  if [[ -d $new_path ]]; then
-    export PATH="$PATH:$new_path"
-  fi
-}
 
-addToPathIfNeeded "$HOME/.local/bin"
-addToPathIfNeeded "$HOME/go/bin"
-addToPathIfNeeded "$HOME/.cargo/bin"
-addToPathIfNeeded "$BUN_INSTALL/bin"
-addToPathIfNeeded "$HOME/.npm-global/bin"
-addToPathIfNeeded "$HOME/go/bin"
+source "$HOME/.local/bin/paths.zsh"
+
+add_to_path "$BUN_INSTALL/bin"
+add_to_path "$HOME/.cargo/bin"
+add_to_path "$HOME/.local/bin"
+add_to_path "$HOME/.npm-global/bin"
+add_to_path "$HOME/go/bin"
 
 #############################################################################
 # Password/Secret Management
