@@ -240,6 +240,8 @@ function bwunlock {
 
 source "$HOME/.local/bin/extract"
 
+. "$HOME/.cargo/env"
+
 #show fastfetch info on startup
 if command -v fastfetch &> /dev/null; then
   fastfetch
