@@ -2,11 +2,12 @@
 
 # first arg is the name of the project
 PROJECT=$1
+OWNER=${2:-ashebanow}
 
 # create a new directory for the repository
 mkdir "${PROJECT}" && cd "${PROJECT}"
 # glone the repository (bare) and hide it in a hidden direcotry
-git clone --bare git@github.com:ashebanow/"${PROJECT}".git .bare
+git clone --bare git@github.com:"${OWNER}"/"${PROJECT}".git .bare
 # create a `.git` file that points to the bare repo
 echo "gitdir: ./.bare" > .git
 
