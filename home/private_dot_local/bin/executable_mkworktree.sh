@@ -1,4 +1,4 @@
-#!/bin/env bash
+#!/usr/bin/env bash
 
 # first arg is the name of the project
 PROJECT=$1
@@ -9,7 +9,7 @@ mkdir "${PROJECT}" && cd "${PROJECT}"
 # glone the repository (bare) and hide it in a hidden direcotry
 git clone --bare git@github.com:"${OWNER}"/"${PROJECT}".git .bare
 # create a `.git` file that points to the bare repo
-echo "gitdir: ./.bare" > .git
+echo "gitdir: ./.bare" >.git
 
 git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'
 git fetch
