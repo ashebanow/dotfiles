@@ -54,7 +54,6 @@
       "provider": "anthropic",
       "model": "claude-sonnet-4-latest"
     },
-    "version": "2",
     // Whether the agent is enabled.
     "enabled": true,
     /// What completion mode to start new threads in, if available. Can be 'normal' or 'max'.
