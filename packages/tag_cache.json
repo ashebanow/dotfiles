@@ -1,8 +1,8 @@
 {
   "act": {
-    "_homebrew_timestamp": 1752171040.396568,
+    "_homebrew_timestamp": 1755987205.0954602,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171040.3965728,
+    "_timestamp": 1755987205.0954618,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -13,9 +13,9 @@
     ]
   },
   "act3": {
-    "_homebrew_timestamp": 1752171041.965119,
+    "_homebrew_timestamp": 1755987206.642833,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171041.965122,
+    "_timestamp": 1755987206.642834,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -26,9 +26,9 @@
     ]
   },
   "adobe-source-code-pro-fonts": {
-    "_homebrew_timestamp": 1752172476.897364,
+    "_homebrew_timestamp": 1755987368.298291,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172476.897368,
+    "_timestamp": 1755987368.298292,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -38,9 +38,9 @@
     ]
   },
   "antidote": {
-    "_homebrew_timestamp": 1752171043.5102348,
+    "_homebrew_timestamp": 1755987208.1824021,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171043.510237,
+    "_timestamp": 1755987208.182403,
     "tags": [
       "pm:homebrew",
       "os:macos",
@@ -50,9 +50,9 @@
     ]
   },
   "app.ytmdesktop.ytmdesktop": {
-    "_homebrew_timestamp": 1752172758.203307,
+    "_homebrew_timestamp": 1755987660.939073,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172758.2033122,
+    "_timestamp": 1755987660.939074,
     "tags": [
       "pm:flatpak",
       "os:linux",
@@ -61,9 +61,9 @@
     ]
   },
   "app.zen_browser.zen": {
-    "_homebrew_timestamp": 1752172759.80444,
+    "_homebrew_timestamp": 1755987662.618229,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172759.804446,
+    "_timestamp": 1755987662.61823,
     "tags": [
       "cat:browser",
       "pm:flatpak",
@@ -73,9 +73,9 @@
     ]
   },
   "archlinux-keyring": {
-    "_homebrew_timestamp": 1752172478.486135,
+    "_homebrew_timestamp": 1755987369.9349902,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172478.4861388,
+    "_timestamp": 1755987369.9349918,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -85,9 +85,9 @@
     ]
   },
   "atuin": {
-    "_homebrew_timestamp": 1752171045.061915,
+    "_homebrew_timestamp": 1755987209.733799,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171045.0619168,
+    "_timestamp": 1755987209.733802,
     "tags": [
       "pm:homebrew",
       "os:macos",
@@ -97,9 +97,9 @@
     ]
   },
   "aylurs-gtk-shell": {
-    "_homebrew_timestamp": 1752172480.065896,
+    "_homebrew_timestamp": 1755987371.613327,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172480.0659032,
+    "_timestamp": 1755987371.61333,
     "tags": [
       "cat:shell",
       "cat:terminal",
@@ -112,9 +112,9 @@
     ]
   },
   "bandwhich": {
-    "_homebrew_timestamp": 1752171046.6226041,
+    "_homebrew_timestamp": 1755987211.3115678,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171046.622606,
+    "_timestamp": 1755987211.311571,
     "tags": [
       "cat:terminal",
       "pm:homebrew",
@@ -125,9 +125,9 @@
     ]
   },
   "base-devel": {
-    "_homebrew_timestamp": 1752172481.622626,
+    "_homebrew_timestamp": 1755987373.284336,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172481.6226292,
+    "_timestamp": 1755987373.284338,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -137,9 +137,9 @@
     ]
   },
   "bat": {
-    "_homebrew_timestamp": 1752171048.181751,
+    "_homebrew_timestamp": 1755987212.890136,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171048.181752,
+    "_timestamp": 1755987212.8901389,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -150,9 +150,9 @@
     ]
   },
   "bc": {
-    "_homebrew_timestamp": 1752172483.1916668,
+    "_homebrew_timestamp": 1755987374.90853,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172483.191669,
+    "_timestamp": 1755987374.908531,
     "tags": [
       "cat:system",
       "cat:cli-tool",
@@ -163,9 +163,9 @@
     ]
   },
   "bibata-cursor-theme-bin": {
-    "_homebrew_timestamp": 1752172484.746044,
+    "_homebrew_timestamp": 1755987376.54601,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172484.746049,
+    "_timestamp": 1755987376.546012,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -175,9 +175,9 @@
     ]
   },
   "binsider": {
-    "_homebrew_timestamp": 1752171049.740493,
+    "_homebrew_timestamp": 1755987214.578031,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171049.740494,
+    "_timestamp": 1755987214.5780349,
     "tags": [
       "cat:development",
       "pm:homebrew",
@@ -189,9 +189,9 @@
     ]
   },
   "biome": {
-    "_homebrew_timestamp": 1752171051.321554,
+    "_homebrew_timestamp": 1755987216.173734,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171051.3215559,
+    "_timestamp": 1755987216.173737,
     "tags": [
       "pm:homebrew",
       "os:macos",
@@ -201,9 +201,9 @@
     ]
   },
   "bitwarden-cli": {
-    "_homebrew_timestamp": 1752171052.8812008,
+    "_homebrew_timestamp": 1755987217.752505,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171052.881203,
+    "_timestamp": 1755987217.752506,
     "tags": [
       "cat:security",
       "cat:cli-tool",
@@ -216,9 +216,9 @@
     ]
   },
   "blueman": {
-    "_homebrew_timestamp": 1752172486.3132448,
+    "_homebrew_timestamp": 1755987378.19214,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172486.31325,
+    "_timestamp": 1755987378.192142,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -230,9 +230,9 @@
     ]
   },
   "bluez": {
-    "_homebrew_timestamp": 1752172489.524019,
+    "_homebrew_timestamp": 1755987381.515212,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172489.524021,
+    "_timestamp": 1755987381.515213,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -244,9 +244,9 @@
     ]
   },
   "bluez-utils": {
-    "_homebrew_timestamp": 1752172487.945122,
+    "_homebrew_timestamp": 1755987379.919921,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172487.945129,
+    "_timestamp": 1755987379.9199219,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -259,9 +259,9 @@
     ]
   },
   "breeze": {
-    "_homebrew_timestamp": 1752172491.0833752,
+    "_homebrew_timestamp": 1755987383.106438,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172491.08338,
+    "_timestamp": 1755987383.1064389,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -273,9 +273,9 @@
     ]
   },
   "brightnessctl": {
-    "_homebrew_timestamp": 1752172492.65204,
+    "_homebrew_timestamp": 1755987385.191946,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172492.652045,
+    "_timestamp": 1755987385.191948,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -287,9 +287,9 @@
     ]
   },
   "btop": {
-    "_homebrew_timestamp": 1752171054.440892,
+    "_homebrew_timestamp": 1755987219.3249311,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171054.440893,
+    "_timestamp": 1755987219.324932,
     "tags": [
       "cat:system",
       "cat:cli-tool",
@@ -301,9 +301,9 @@
     ]
   },
   "caddy": {
-    "_homebrew_timestamp": 1752171056.015448,
+    "_homebrew_timestamp": 1755987220.950382,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171056.01545,
+    "_timestamp": 1755987220.9503832,
     "tags": [
       "cat:network",
       "pm:homebrew",
@@ -314,9 +314,9 @@
     ]
   },
   "cava": {
-    "_homebrew_timestamp": 1752171057.572865,
+    "_homebrew_timestamp": 1755987222.7018251,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171057.5728672,
+    "_timestamp": 1755987222.701826,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -327,9 +327,9 @@
     ]
   },
   "checkupdates-with-aur": {
-    "_homebrew_timestamp": 1752172494.225062,
+    "_homebrew_timestamp": 1755987386.880379,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172494.225067,
+    "_timestamp": 1755987386.880382,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -339,9 +339,9 @@
     ]
   },
   "chezmoi": {
-    "_homebrew_timestamp": 1752171059.130749,
+    "_homebrew_timestamp": 1755987224.453135,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171059.130751,
+    "_timestamp": 1755987224.453136,
     "tags": [
       "pm:homebrew",
       "os:macos",
@@ -351,9 +351,9 @@
     ]
   },
   "claude": {
-    "_homebrew_timestamp": 1752172440.521726,
+    "_homebrew_timestamp": 1755987330.832175,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172440.521736,
+    "_timestamp": 1755987330.832177,
     "tags": [
       "cat:cask",
       "os:macos",
@@ -364,9 +364,9 @@
     ]
   },
   "cliphist": {
-    "_homebrew_timestamp": 1752172495.8069701,
+    "_homebrew_timestamp": 1755987388.570453,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172495.806974,
+    "_timestamp": 1755987388.570455,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -378,9 +378,9 @@
     ]
   },
   "com.bitwarden.desktop": {
-    "_homebrew_timestamp": 1752172761.381135,
+    "_homebrew_timestamp": 1755987664.295608,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172761.381145,
+    "_timestamp": 1755987664.2956102,
     "tags": [
       "pm:flatpak",
       "os:linux",
@@ -389,9 +389,9 @@
     ]
   },
   "com.discordapp.Discord": {
-    "_homebrew_timestamp": 1752172762.9846559,
+    "_homebrew_timestamp": 1755987665.9876359,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172762.984663,
+    "_timestamp": 1755987665.987639,
     "tags": [
       "cat:communication",
       "pm:flatpak",
@@ -401,9 +401,9 @@
     ]
   },
   "com.getpostman.Postman": {
-    "_homebrew_timestamp": 1752172764.560439,
+    "_homebrew_timestamp": 1755987667.6753988,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172764.560446,
+    "_timestamp": 1755987667.675401,
     "tags": [
       "pm:flatpak",
       "os:linux",
@@ -412,9 +412,9 @@
     ]
   },
   "com.google.Chrome": {
-    "_homebrew_timestamp": 1752172766.1508,
+    "_homebrew_timestamp": 1755987669.371139,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172766.1508071,
+    "_timestamp": 1755987669.3711412,
     "tags": [
       "cat:browser",
       "pm:flatpak",
@@ -425,9 +425,9 @@
     ]
   },
   "com.logseq.Logseq": {
-    "_homebrew_timestamp": 1752172767.743472,
+    "_homebrew_timestamp": 1755987671.0554812,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172767.743478,
+    "_timestamp": 1755987671.0554829,
     "tags": [
       "pm:flatpak",
       "os:linux",
@@ -436,9 +436,9 @@
     ]
   },
   "com.obsproject.Studio": {
-    "_homebrew_timestamp": 1752172769.32062,
+    "_homebrew_timestamp": 1755987672.7209358,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172769.320626,
+    "_timestamp": 1755987672.720938,
     "tags": [
       "pm:flatpak",
       "os:linux",
@@ -447,9 +447,9 @@
     ]
   },
   "com.parsecgaming.parsec": {
-    "_homebrew_timestamp": 1752172770.939899,
+    "_homebrew_timestamp": 1755987674.3978481,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172770.939904,
+    "_timestamp": 1755987674.39785,
     "tags": [
       "pm:flatpak",
       "os:linux",
@@ -458,9 +458,9 @@
     ]
   },
   "com.slack.Slack": {
-    "_homebrew_timestamp": 1752172772.520694,
+    "_homebrew_timestamp": 1755987676.0823948,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172772.520702,
+    "_timestamp": 1755987676.082398,
     "tags": [
       "cat:communication",
       "pm:flatpak",
@@ -470,9 +470,9 @@
     ]
   },
   "coreutils": {
-    "_homebrew_timestamp": 1752171060.71156,
+    "_homebrew_timestamp": 1755987226.300759,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171060.711561,
+    "_timestamp": 1755987226.30076,
     "tags": [
       "pm:homebrew",
       "os:macos",
@@ -482,9 +482,9 @@
     ]
   },
   "ctop": {
-    "_homebrew_timestamp": 1752171062.2596312,
+    "_homebrew_timestamp": 1755987228.102274,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171062.259632,
+    "_timestamp": 1755987228.102274,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -495,9 +495,9 @@
     ]
   },
   "curl": {
-    "_homebrew_timestamp": 1752171063.820728,
+    "_homebrew_timestamp": 1755987229.843477,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171063.8207302,
+    "_timestamp": 1755987229.843478,
     "tags": [
       "cat:network",
       "cat:cli-tool",
@@ -509,9 +509,9 @@
     ]
   },
   "dart-sass": {
-    "_homebrew_timestamp": 1752172497.36382,
+    "_homebrew_timestamp": 1755987390.218524,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172497.3638248,
+    "_timestamp": 1755987390.218528,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -521,9 +521,9 @@
     ]
   },
   "direnv": {
-    "_homebrew_timestamp": 1752171065.374298,
+    "_homebrew_timestamp": 1755987231.570914,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171065.3743,
+    "_timestamp": 1755987231.570915,
     "tags": [
       "pm:homebrew",
       "os:macos",
@@ -533,9 +533,9 @@
     ]
   },
   "dive": {
-    "_homebrew_timestamp": 1752171066.9361012,
+    "_homebrew_timestamp": 1755987233.191149,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171066.9361029,
+    "_timestamp": 1755987233.191149,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -545,10 +545,40 @@
       "scope:workflow-specific"
     ]
   },
-  "dolphin": {
-    "_homebrew_timestamp": 1752172443.703532,
+  "docker": {
+    "_homebrew_timestamp": 1755987234.8058612,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172443.703538,
+    "_timestamp": 1755987234.805862,
+    "tags": [
+      "cat:virtualization",
+      "pm:homebrew",
+      "os:macos",
+      "os:linux",
+      "role:development",
+      "priority:recommended",
+      "scope:extended"
+    ]
+  },
+  "docker-compose": {
+    "_homebrew_timestamp": 1755987236.392997,
+    "_repology_timestamp": 0,
+    "_timestamp": 1755987236.392998,
+    "tags": [
+      "cat:development",
+      "cat:virtualization",
+      "cat:cli-tool",
+      "pm:homebrew",
+      "os:macos",
+      "os:linux",
+      "role:development",
+      "priority:recommended",
+      "scope:extended"
+    ]
+  },
+  "dolphin": {
+    "_homebrew_timestamp": 1755987334.080887,
+    "_repology_timestamp": 0,
+    "_timestamp": 1755987334.080889,
     "tags": [
       "cat:cask",
       "os:macos",
@@ -565,9 +595,9 @@
     ]
   },
   "duf": {
-    "_homebrew_timestamp": 1752171068.482927,
+    "_homebrew_timestamp": 1755987237.990832,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171068.482929,
+    "_timestamp": 1755987237.9908328,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -578,9 +608,9 @@
     ]
   },
   "dust": {
-    "_homebrew_timestamp": 1752171070.066196,
+    "_homebrew_timestamp": 1755987239.619345,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171070.066198,
+    "_timestamp": 1755987239.619346,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -591,9 +621,9 @@
     ]
   },
   "eza": {
-    "_homebrew_timestamp": 1752171071.643541,
+    "_homebrew_timestamp": 1755987241.218644,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171071.643543,
+    "_timestamp": 1755987241.218645,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -604,9 +634,9 @@
     ]
   },
   "fastfetch": {
-    "_homebrew_timestamp": 1752171073.189701,
+    "_homebrew_timestamp": 1755987242.830847,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171073.189703,
+    "_timestamp": 1755987242.830847,
     "tags": [
       "pm:homebrew",
       "os:macos",
@@ -616,9 +646,9 @@
     ]
   },
   "fd": {
-    "_homebrew_timestamp": 1752171074.755211,
+    "_homebrew_timestamp": 1755987244.422178,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171074.755213,
+    "_timestamp": 1755987244.422179,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -629,9 +659,9 @@
     ]
   },
   "ffmpegthumbnailer": {
-    "_homebrew_timestamp": 1752172498.9417899,
+    "_homebrew_timestamp": 1755987391.8259661,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172498.941792,
+    "_timestamp": 1755987391.825967,
     "tags": [
       "cat:development",
       "cat:multimedia",
@@ -647,9 +677,9 @@
     ]
   },
   "figlet": {
-    "_homebrew_timestamp": 1752172500.525975,
+    "_homebrew_timestamp": 1755987393.405673,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172500.5259762,
+    "_timestamp": 1755987393.405673,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -658,9 +688,9 @@
     ]
   },
   "figurine": {
-    "_homebrew_timestamp": 1752172502.08538,
+    "_homebrew_timestamp": 1755987394.991671,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172502.0853848,
+    "_timestamp": 1755987394.9916742,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -669,9 +699,9 @@
     ]
   },
   "findutils": {
-    "_homebrew_timestamp": 1752172503.6597471,
+    "_homebrew_timestamp": 1755987396.5702999,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172503.659748,
+    "_timestamp": 1755987396.5703008,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -680,9 +710,9 @@
     ]
   },
   "firefox": {
-    "_homebrew_timestamp": 1752172446.85392,
+    "_homebrew_timestamp": 1755987337.372917,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172446.853924,
+    "_timestamp": 1755987337.3729181,
     "tags": [
       "cat:cask",
       "os:macos",
@@ -712,9 +742,9 @@
     ]
   },
   "flatpak": {
-    "_homebrew_timestamp": 1752172505.2128582,
+    "_homebrew_timestamp": 1755987398.1501691,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172505.212863,
+    "_timestamp": 1755987398.1501708,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -726,9 +756,9 @@
     ]
   },
   "fonts-dejavu": {
-    "_homebrew_timestamp": 1752172739.0281541,
+    "_homebrew_timestamp": 1755987640.7052212,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172739.028161,
+    "_timestamp": 1755987640.7052212,
     "tags": [
       "cat:cli-tool",
       "pm:apt",
@@ -739,9 +769,9 @@
     ]
   },
   "fonts-firacode": {
-    "_homebrew_timestamp": 1752172740.634815,
+    "_homebrew_timestamp": 1755987642.385159,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172740.634822,
+    "_timestamp": 1755987642.38516,
     "tags": [
       "cat:cli-tool",
       "pm:apt",
@@ -752,9 +782,9 @@
     ]
   },
   "fonts-font-awesome": {
-    "_homebrew_timestamp": 1752172742.221291,
+    "_homebrew_timestamp": 1755987644.077569,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172742.2212968,
+    "_timestamp": 1755987644.0775712,
     "tags": [
       "cat:cli-tool",
       "de:awesome",
@@ -766,9 +796,9 @@
     ]
   },
   "fonts-jetbrains-mono": {
-    "_homebrew_timestamp": 1752172743.8151538,
+    "_homebrew_timestamp": 1755987645.774512,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172743.815161,
+    "_timestamp": 1755987645.774514,
     "tags": [
       "cat:cli-tool",
       "pm:apt",
@@ -779,9 +809,9 @@
     ]
   },
   "fonts-noto-cjk": {
-    "_homebrew_timestamp": 1752172745.423831,
+    "_homebrew_timestamp": 1755987647.439403,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172745.423838,
+    "_timestamp": 1755987647.439405,
     "tags": [
       "cat:cli-tool",
       "pm:apt",
@@ -792,9 +822,9 @@
     ]
   },
   "fonts-noto-color-emoji": {
-    "_homebrew_timestamp": 1752172747.020246,
+    "_homebrew_timestamp": 1755987649.1383018,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172747.020252,
+    "_timestamp": 1755987649.138305,
     "tags": [
       "cat:cli-tool",
       "pm:apt",
@@ -805,9 +835,9 @@
     ]
   },
   "fonts-noto-extra": {
-    "_homebrew_timestamp": 1752172748.620909,
+    "_homebrew_timestamp": 1755987650.810001,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172748.620915,
+    "_timestamp": 1755987650.810003,
     "tags": [
       "cat:cli-tool",
       "pm:apt",
@@ -818,9 +848,9 @@
     ]
   },
   "foreman": {
-    "_homebrew_timestamp": 1752171077.87402,
+    "_homebrew_timestamp": 1755987246.079015,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171077.874022,
+    "_timestamp": 1755987246.079016,
     "tags": [
       "pm:homebrew",
       "os:macos",
@@ -830,9 +860,9 @@
     ]
   },
   "fuse2": {
-    "_homebrew_timestamp": 1752172506.796294,
+    "_homebrew_timestamp": 1755987399.7296882,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172506.796297,
+    "_timestamp": 1755987399.7296908,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -841,9 +871,9 @@
     ]
   },
   "fzf": {
-    "_homebrew_timestamp": 1752171079.4469151,
+    "_homebrew_timestamp": 1755987247.6759639,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171079.446917,
+    "_timestamp": 1755987247.6759639,
     "tags": [
       "cat:filesystem",
       "cat:cli-tool",
@@ -855,9 +885,9 @@
     ]
   },
   "gcc": {
-    "_homebrew_timestamp": 1752171081.002648,
+    "_homebrew_timestamp": 1755987249.3086069,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171081.00265,
+    "_timestamp": 1755987249.3086069,
     "tags": [
       "cat:development",
       "cat:cli-tool",
@@ -870,9 +900,9 @@
     ]
   },
   "gdu": {
-    "_homebrew_timestamp": 1752171082.575072,
+    "_homebrew_timestamp": 1755987250.9589472,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171082.575074,
+    "_timestamp": 1755987250.9589472,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -883,9 +913,9 @@
     ]
   },
   "getnf": {
-    "_homebrew_timestamp": 1752172508.3851058,
+    "_homebrew_timestamp": 1755987401.3932412,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172508.385111,
+    "_timestamp": 1755987401.3932428,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -894,9 +924,9 @@
     ]
   },
   "gh": {
-    "_homebrew_timestamp": 1752171084.136683,
+    "_homebrew_timestamp": 1755987252.595917,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171084.1366851,
+    "_timestamp": 1755987252.595917,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -907,9 +937,9 @@
     ]
   },
   "ghostty": {
-    "_homebrew_timestamp": 1752172450.006088,
+    "_homebrew_timestamp": 1755987340.633687,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172450.006092,
+    "_timestamp": 1755987340.63369,
     "tags": [
       "cat:cask",
       "os:macos",
@@ -921,9 +951,9 @@
     ]
   },
   "git": {
-    "_homebrew_timestamp": 1752171088.804209,
+    "_homebrew_timestamp": 1755987257.37625,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171088.804211,
+    "_timestamp": 1755987257.376251,
     "tags": [
       "cat:vcs",
       "cat:system",
@@ -937,9 +967,9 @@
     ]
   },
   "git-delta": {
-    "_homebrew_timestamp": 1752171085.7034628,
+    "_homebrew_timestamp": 1755987254.171799,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171085.703465,
+    "_timestamp": 1755987254.1718001,
     "tags": [
       "cat:vcs",
       "cat:cli-tool",
@@ -952,9 +982,9 @@
     ]
   },
   "git-lfs": {
-    "_homebrew_timestamp": 1752171087.240711,
+    "_homebrew_timestamp": 1755987255.767106,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171087.240713,
+    "_timestamp": 1755987255.767107,
     "tags": [
       "cat:vcs",
       "cat:cli-tool",
@@ -967,9 +997,9 @@
     ]
   },
   "gitleaks": {
-    "_homebrew_timestamp": 1752171090.37579,
+    "_homebrew_timestamp": 1755987258.9475808,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171090.375792,
+    "_timestamp": 1755987258.9475808,
     "tags": [
       "cat:vcs",
       "pm:homebrew",
@@ -981,9 +1011,9 @@
     ]
   },
   "gjs": {
-    "_homebrew_timestamp": 1752172509.980408,
+    "_homebrew_timestamp": 1755987403.0170171,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172509.98041,
+    "_timestamp": 1755987403.0170171,
     "tags": [
       "cat:cli-tool",
       "de:gnome",
@@ -994,9 +1024,9 @@
     ]
   },
   "glances": {
-    "_homebrew_timestamp": 1752171091.9365041,
+    "_homebrew_timestamp": 1755987260.5793312,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171091.936506,
+    "_timestamp": 1755987260.5793312,
     "tags": [
       "pm:homebrew",
       "os:macos",
@@ -1006,9 +1036,9 @@
     ]
   },
   "glib2-devel": {
-    "_homebrew_timestamp": 1752172511.5315719,
+    "_homebrew_timestamp": 1755987404.5956008,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172511.531577,
+    "_timestamp": 1755987404.595602,
     "tags": [
       "cat:cli-tool",
       "de:gnome",
@@ -1019,9 +1049,9 @@
     ]
   },
   "glow": {
-    "_homebrew_timestamp": 1752171093.5162508,
+    "_homebrew_timestamp": 1755987262.205942,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171093.5162518,
+    "_timestamp": 1755987262.205943,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -1032,9 +1062,9 @@
     ]
   },
   "gnome-calculator": {
-    "_homebrew_timestamp": 1752172513.104446,
+    "_homebrew_timestamp": 1755987406.2273998,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172513.10445,
+    "_timestamp": 1755987406.227402,
     "tags": [
       "cat:cli-tool",
       "de:gnome",
@@ -1048,9 +1078,9 @@
     ]
   },
   "gnome-system-monitor": {
-    "_homebrew_timestamp": 1752172514.667785,
+    "_homebrew_timestamp": 1755987407.910718,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172514.667789,
+    "_timestamp": 1755987407.91072,
     "tags": [
       "cat:system",
       "cat:cli-tool",
@@ -1065,9 +1095,9 @@
     ]
   },
   "gnome-text-editor": {
-    "_homebrew_timestamp": 1752172516.236099,
+    "_homebrew_timestamp": 1755987409.527573,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172516.2361028,
+    "_timestamp": 1755987409.527575,
     "tags": [
       "cat:editor",
       "cat:cli-tool",
@@ -1082,9 +1112,9 @@
     ]
   },
   "gnu-units": {
-    "_homebrew_timestamp": 1752171095.086344,
+    "_homebrew_timestamp": 1755987263.8111172,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171095.086346,
+    "_timestamp": 1755987263.8111172,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -1095,9 +1125,9 @@
     ]
   },
   "gnupg": {
-    "_homebrew_timestamp": 1752171096.644602,
+    "_homebrew_timestamp": 1755987265.390887,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171096.6446028,
+    "_timestamp": 1755987265.390887,
     "tags": [
       "pm:homebrew",
       "os:macos",
@@ -1107,9 +1137,9 @@
     ]
   },
   "gobject-introspection": {
-    "_homebrew_timestamp": 1752172517.827979,
+    "_homebrew_timestamp": 1755987411.142586,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172517.827981,
+    "_timestamp": 1755987411.142586,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -1123,9 +1153,9 @@
     ]
   },
   "grim": {
-    "_homebrew_timestamp": 1752172519.4074812,
+    "_homebrew_timestamp": 1755987412.732518,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172519.407486,
+    "_timestamp": 1755987412.732519,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -1138,9 +1168,9 @@
     ]
   },
   "grimblast": {
-    "_homebrew_timestamp": 1752172520.996413,
+    "_homebrew_timestamp": 1755987414.367981,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172520.996416,
+    "_timestamp": 1755987414.367983,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -1149,9 +1179,9 @@
     ]
   },
   "gtk-engine-murrine": {
-    "_homebrew_timestamp": 1752172522.5707572,
+    "_homebrew_timestamp": 1755987416.053909,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172522.570766,
+    "_timestamp": 1755987416.053911,
     "tags": [
       "cat:cli-tool",
       "de:gnome",
@@ -1162,9 +1192,9 @@
     ]
   },
   "gtk-layer-shell": {
-    "_homebrew_timestamp": 1752172524.132258,
+    "_homebrew_timestamp": 1755987417.708695,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172524.132262,
+    "_timestamp": 1755987417.708698,
     "tags": [
       "cat:shell",
       "cat:terminal",
@@ -1177,9 +1207,9 @@
     ]
   },
   "gtk3": {
-    "_homebrew_timestamp": 1752172525.7040582,
+    "_homebrew_timestamp": 1755987419.365056,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172525.704061,
+    "_timestamp": 1755987419.3650591,
     "tags": [
       "cat:cli-tool",
       "de:gnome",
@@ -1190,9 +1220,9 @@
     ]
   },
   "gtk4": {
-    "_homebrew_timestamp": 1752172527.270685,
+    "_homebrew_timestamp": 1755987420.9860108,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172527.2706869,
+    "_timestamp": 1755987420.986012,
     "tags": [
       "cat:cli-tool",
       "de:gnome",
@@ -1203,9 +1233,9 @@
     ]
   },
   "gum": {
-    "_homebrew_timestamp": 1752171098.2251258,
+    "_homebrew_timestamp": 1755987266.996177,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171098.225128,
+    "_timestamp": 1755987266.996178,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -1216,9 +1246,9 @@
     ]
   },
   "gvfs": {
-    "_homebrew_timestamp": 1752172530.412586,
+    "_homebrew_timestamp": 1755987424.214587,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172530.41259,
+    "_timestamp": 1755987424.2145898,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -1228,9 +1258,9 @@
     ]
   },
   "gvfs-mtp": {
-    "_homebrew_timestamp": 1752172528.837077,
+    "_homebrew_timestamp": 1755987422.598829,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172528.8370821,
+    "_timestamp": 1755987422.5988328,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -1240,9 +1270,9 @@
     ]
   },
   "htop": {
-    "_homebrew_timestamp": 1752172531.98124,
+    "_homebrew_timestamp": 1755987425.8267589,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172531.9812422,
+    "_timestamp": 1755987425.82676,
     "tags": [
       "cat:system",
       "cat:cli-tool",
@@ -1256,9 +1286,9 @@
     ]
   },
   "hyperfine": {
-    "_homebrew_timestamp": 1752171099.789881,
+    "_homebrew_timestamp": 1755987268.575813,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171099.789883,
+    "_timestamp": 1755987268.575813,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -1269,9 +1299,9 @@
     ]
   },
   "hypridle": {
-    "_homebrew_timestamp": 1752172533.551865,
+    "_homebrew_timestamp": 1755987427.38899,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172533.551869,
+    "_timestamp": 1755987427.388993,
     "tags": [
       "de:hyprland",
       "pm:pacman",
@@ -1281,9 +1311,9 @@
     ]
   },
   "hyprland": {
-    "_homebrew_timestamp": 1752172535.233665,
+    "_homebrew_timestamp": 1755987429.0847318,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172535.233672,
+    "_timestamp": 1755987429.084734,
     "tags": [
       "de:hyprland",
       "pm:pacman",
@@ -1293,9 +1323,9 @@
     ]
   },
   "hyprlock": {
-    "_homebrew_timestamp": 1752172536.802009,
+    "_homebrew_timestamp": 1755987430.736605,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172536.8020139,
+    "_timestamp": 1755987430.736609,
     "tags": [
       "de:hyprland",
       "pm:pacman",
@@ -1305,9 +1335,9 @@
     ]
   },
   "hyprpanel": {
-    "_homebrew_timestamp": 1752172538.390612,
+    "_homebrew_timestamp": 1755987432.3726552,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172538.390615,
+    "_timestamp": 1755987432.3726568,
     "tags": [
       "de:hyprland",
       "pm:pacman",
@@ -1317,9 +1347,9 @@
     ]
   },
   "hyprpaper": {
-    "_homebrew_timestamp": 1752172539.961656,
+    "_homebrew_timestamp": 1755987434.001197,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172539.96166,
+    "_timestamp": 1755987434.0012002,
     "tags": [
       "de:hyprland",
       "pm:pacman",
@@ -1329,9 +1359,9 @@
     ]
   },
   "hyprpicker": {
-    "_homebrew_timestamp": 1752172541.5552351,
+    "_homebrew_timestamp": 1755987435.669186,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172541.5552378,
+    "_timestamp": 1755987435.6691892,
     "tags": [
       "de:hyprland",
       "pm:pacman",
@@ -1341,9 +1371,9 @@
     ]
   },
   "hyprpolkitagent": {
-    "_homebrew_timestamp": 1752172543.132267,
+    "_homebrew_timestamp": 1755987437.30169,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172543.132271,
+    "_timestamp": 1755987437.301692,
     "tags": [
       "de:hyprland",
       "pm:pacman",
@@ -1353,9 +1383,9 @@
     ]
   },
   "hyprshade": {
-    "_homebrew_timestamp": 1752172544.725386,
+    "_homebrew_timestamp": 1755987438.930215,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172544.7253911,
+    "_timestamp": 1755987438.930218,
     "tags": [
       "de:hyprland",
       "pm:pacman",
@@ -1365,9 +1395,9 @@
     ]
   },
   "hyprshot": {
-    "_homebrew_timestamp": 1752172546.285702,
+    "_homebrew_timestamp": 1755987440.57321,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172546.285707,
+    "_timestamp": 1755987440.5732129,
     "tags": [
       "de:hyprland",
       "pm:pacman",
@@ -1377,9 +1407,9 @@
     ]
   },
   "hyprsunset": {
-    "_homebrew_timestamp": 1752172547.861853,
+    "_homebrew_timestamp": 1755987442.192055,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172547.8618581,
+    "_timestamp": 1755987442.1920571,
     "tags": [
       "de:hyprland",
       "pm:pacman",
@@ -1389,9 +1419,9 @@
     ]
   },
   "imagemagick": {
-    "_homebrew_timestamp": 1752172549.428979,
+    "_homebrew_timestamp": 1755987443.781874,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172549.428981,
+    "_timestamp": 1755987443.781874,
     "tags": [
       "cat:graphics",
       "pm:pacman",
@@ -1401,9 +1431,9 @@
     ]
   },
   "imv": {
-    "_homebrew_timestamp": 1752172550.97824,
+    "_homebrew_timestamp": 1755987445.375798,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172550.978245,
+    "_timestamp": 1755987445.375799,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -1416,9 +1446,9 @@
     ]
   },
   "inetutils": {
-    "_homebrew_timestamp": 1752171101.350705,
+    "_homebrew_timestamp": 1755987270.1560771,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171101.350707,
+    "_timestamp": 1755987270.1560771,
     "tags": [
       "cat:network",
       "pm:homebrew",
@@ -1429,9 +1459,9 @@
     ]
   },
   "inxi": {
-    "_homebrew_timestamp": 1752172552.570226,
+    "_homebrew_timestamp": 1755987446.987669,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172552.5702279,
+    "_timestamp": 1755987446.98767,
     "tags": [
       "cat:system",
       "cat:cli-tool",
@@ -1445,9 +1475,9 @@
     ]
   },
   "it.mijorus.gearlever": {
-    "_homebrew_timestamp": 1752172774.121562,
+    "_homebrew_timestamp": 1755987677.7610712,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172774.121568,
+    "_timestamp": 1755987677.7610738,
     "tags": [
       "pm:flatpak",
       "os:linux",
@@ -1456,9 +1486,9 @@
     ]
   },
   "jj": {
-    "_homebrew_timestamp": 1752171102.9142778,
+    "_homebrew_timestamp": 1755987271.779378,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171102.91428,
+    "_timestamp": 1755987271.779378,
     "tags": [
       "cat:system",
       "cat:cli-tool",
@@ -1470,9 +1500,9 @@
     ]
   },
   "jq": {
-    "_homebrew_timestamp": 1752171104.474355,
+    "_homebrew_timestamp": 1755987273.372878,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171104.474356,
+    "_timestamp": 1755987273.372879,
     "tags": [
       "cat:system",
       "cat:cli-tool",
@@ -1484,9 +1514,9 @@
     ]
   },
   "jujutsu": {
-    "_homebrew_timestamp": 1752172554.139104,
+    "_homebrew_timestamp": 1755987448.542238,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172554.139105,
+    "_timestamp": 1755987448.542239,
     "tags": [
       "cat:system",
       "pm:pacman",
@@ -1496,9 +1526,9 @@
     ]
   },
   "just": {
-    "_homebrew_timestamp": 1752171106.032952,
+    "_homebrew_timestamp": 1755987274.946229,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171106.032953,
+    "_timestamp": 1755987274.94623,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -1509,9 +1539,9 @@
     ]
   },
   "kitty": {
-    "_homebrew_timestamp": 1752172453.1774201,
+    "_homebrew_timestamp": 1755987343.889463,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172453.177425,
+    "_timestamp": 1755987343.889465,
     "tags": [
       "cat:cask",
       "os:macos",
@@ -1528,9 +1558,9 @@
     ]
   },
   "kvantum": {
-    "_homebrew_timestamp": 1752172555.670675,
+    "_homebrew_timestamp": 1755987450.10346,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172555.670677,
+    "_timestamp": 1755987450.103462,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -1539,9 +1569,9 @@
     ]
   },
   "lazydocker": {
-    "_homebrew_timestamp": 1752171107.582675,
+    "_homebrew_timestamp": 1755987276.517079,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171107.582677,
+    "_timestamp": 1755987276.517079,
     "tags": [
       "cat:virtualization",
       "pm:homebrew",
@@ -1553,9 +1583,9 @@
     ]
   },
   "lazygit": {
-    "_homebrew_timestamp": 1752171109.136725,
+    "_homebrew_timestamp": 1755987278.1288168,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171109.136727,
+    "_timestamp": 1755987278.1288168,
     "tags": [
       "cat:vcs",
       "cat:terminal",
@@ -1568,9 +1598,9 @@
     ]
   },
   "lazyjj": {
-    "_homebrew_timestamp": 1752171110.696883,
+    "_homebrew_timestamp": 1755987279.737076,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171110.696885,
+    "_timestamp": 1755987279.737076,
     "tags": [
       "pm:homebrew",
       "os:macos",
@@ -1580,9 +1610,9 @@
     ]
   },
   "lazysql": {
-    "_homebrew_timestamp": 1752171112.263145,
+    "_homebrew_timestamp": 1755987281.327022,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171112.263147,
+    "_timestamp": 1755987281.327023,
     "tags": [
       "cat:database-tools",
       "pm:homebrew",
@@ -1593,9 +1623,9 @@
     ]
   },
   "lego": {
-    "_homebrew_timestamp": 1752171113.825996,
+    "_homebrew_timestamp": 1755987282.9503129,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171113.825998,
+    "_timestamp": 1755987282.950314,
     "tags": [
       "cat:security",
       "cat:cli-tool",
@@ -1609,9 +1639,9 @@
     ]
   },
   "libadwaita": {
-    "_homebrew_timestamp": 1752172557.233629,
+    "_homebrew_timestamp": 1755987451.7082298,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172557.23363,
+    "_timestamp": 1755987451.7082298,
     "tags": [
       "de:gnome",
       "pm:pacman",
@@ -1621,9 +1651,9 @@
     ]
   },
   "libdbusmenu-gtk3": {
-    "_homebrew_timestamp": 1752172558.790876,
+    "_homebrew_timestamp": 1755987453.3547242,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172558.790881,
+    "_timestamp": 1755987453.354727,
     "tags": [
       "cat:cli-tool",
       "de:gnome",
@@ -1634,9 +1664,9 @@
     ]
   },
   "libgtop": {
-    "_homebrew_timestamp": 1752172560.370634,
+    "_homebrew_timestamp": 1755987454.961619,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172560.370635,
+    "_timestamp": 1755987454.9616199,
     "tags": [
       "cat:system",
       "pm:pacman",
@@ -1646,9 +1676,9 @@
     ]
   },
   "libnotify": {
-    "_homebrew_timestamp": 1752172561.943008,
+    "_homebrew_timestamp": 1755987456.540042,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172561.9430091,
+    "_timestamp": 1755987456.540043,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -1657,9 +1687,9 @@
     ]
   },
   "libsoup3": {
-    "_homebrew_timestamp": 1752172563.502131,
+    "_homebrew_timestamp": 1755987458.133944,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172563.502136,
+    "_timestamp": 1755987458.133947,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -1668,9 +1698,9 @@
     ]
   },
   "libspng": {
-    "_homebrew_timestamp": 1752172565.089311,
+    "_homebrew_timestamp": 1755987459.738741,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172565.089312,
+    "_timestamp": 1755987459.738742,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -1679,9 +1709,9 @@
     ]
   },
   "llvm": {
-    "_homebrew_timestamp": 1752171115.384128,
+    "_homebrew_timestamp": 1755987284.542327,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171115.38413,
+    "_timestamp": 1755987284.542327,
     "tags": [
       "cat:development",
       "cat:virtualization",
@@ -1695,9 +1725,9 @@
     ]
   },
   "loupe": {
-    "_homebrew_timestamp": 1752172566.650166,
+    "_homebrew_timestamp": 1755987461.334788,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172566.65017,
+    "_timestamp": 1755987461.33479,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -1709,9 +1739,9 @@
     ]
   },
   "lsd": {
-    "_homebrew_timestamp": 1752172568.229866,
+    "_homebrew_timestamp": 1755987462.9262562,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172568.229868,
+    "_timestamp": 1755987462.9262562,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -1724,9 +1754,9 @@
     ]
   },
   "man-pages": {
-    "_homebrew_timestamp": 1752172569.792428,
+    "_homebrew_timestamp": 1755987464.5012329,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172569.7924328,
+    "_timestamp": 1755987464.5012338,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -1736,9 +1766,9 @@
     ]
   },
   "matugen": {
-    "_homebrew_timestamp": 1752172571.362095,
+    "_homebrew_timestamp": 1755987466.104692,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172571.362099,
+    "_timestamp": 1755987466.1046941,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -1747,9 +1777,9 @@
     ]
   },
   "mercurial": {
-    "_homebrew_timestamp": 1752172572.973941,
+    "_homebrew_timestamp": 1755987467.7073689,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172572.973943,
+    "_timestamp": 1755987467.7073689,
     "tags": [
       "cat:vcs",
       "cat:system",
@@ -1763,9 +1793,9 @@
     ]
   },
   "meson": {
-    "_homebrew_timestamp": 1752172574.5199978,
+    "_homebrew_timestamp": 1755987469.258322,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172574.520001,
+    "_timestamp": 1755987469.258322,
     "tags": [
       "cat:system",
       "pm:pacman",
@@ -1778,9 +1808,9 @@
     ]
   },
   "mission-center": {
-    "_homebrew_timestamp": 1752172576.0722601,
+    "_homebrew_timestamp": 1755987470.88214,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172576.072265,
+    "_timestamp": 1755987470.882142,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -1790,9 +1820,9 @@
     ]
   },
   "mousepad": {
-    "_homebrew_timestamp": 1752172577.645395,
+    "_homebrew_timestamp": 1755987472.519243,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172577.6454,
+    "_timestamp": 1755987472.5192451,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -1804,9 +1834,9 @@
     ]
   },
   "mpv": {
-    "_homebrew_timestamp": 1752172580.79634,
+    "_homebrew_timestamp": 1755987475.772162,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172580.796341,
+    "_timestamp": 1755987475.7721632,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -1819,9 +1849,9 @@
     ]
   },
   "mpv-mpris": {
-    "_homebrew_timestamp": 1752172579.215269,
+    "_homebrew_timestamp": 1755987474.1532211,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172579.215274,
+    "_timestamp": 1755987474.1532228,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -1834,9 +1864,9 @@
     ]
   },
   "nano": {
-    "_homebrew_timestamp": 1752172582.3932118,
+    "_homebrew_timestamp": 1755987477.3560588,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172582.393214,
+    "_timestamp": 1755987477.3560598,
     "tags": [
       "cat:editor",
       "cat:cli-tool",
@@ -1847,9 +1877,9 @@
     ]
   },
   "nautilus": {
-    "_homebrew_timestamp": 1752172585.540363,
+    "_homebrew_timestamp": 1755987480.580105,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172585.5403671,
+    "_timestamp": 1755987480.580108,
     "tags": [
       "de:gnome",
       "pm:pacman",
@@ -1862,9 +1892,9 @@
     ]
   },
   "nautilus-open-any-terminal": {
-    "_homebrew_timestamp": 1752172583.951957,
+    "_homebrew_timestamp": 1755987478.971779,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172583.951962,
+    "_timestamp": 1755987478.971781,
     "tags": [
       "cat:shell",
       "cat:terminal",
@@ -1877,9 +1907,9 @@
     ]
   },
   "neovim": {
-    "_homebrew_timestamp": 1752171116.941668,
+    "_homebrew_timestamp": 1755987286.146355,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171116.94167,
+    "_timestamp": 1755987286.1463559,
     "tags": [
       "cat:editor",
       "pm:homebrew",
@@ -1891,9 +1921,9 @@
     ]
   },
   "net.davidotek.pupgui2": {
-    "_homebrew_timestamp": 1752172775.716178,
+    "_homebrew_timestamp": 1755987679.4160519,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172775.7161868,
+    "_timestamp": 1755987679.416054,
     "tags": [
       "pm:flatpak",
       "os:linux",
@@ -1902,9 +1932,9 @@
     ]
   },
   "network-manager-applet": {
-    "_homebrew_timestamp": 1752172587.112442,
+    "_homebrew_timestamp": 1755987482.268808,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172587.112446,
+    "_timestamp": 1755987482.268811,
     "tags": [
       "cat:network",
       "cat:cli-tool",
@@ -1915,9 +1945,9 @@
     ]
   },
   "networkmanager": {
-    "_homebrew_timestamp": 1752172588.672388,
+    "_homebrew_timestamp": 1755987483.911168,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172588.672395,
+    "_timestamp": 1755987483.911171,
     "tags": [
       "cat:network",
       "pm:pacman",
@@ -1927,9 +1957,9 @@
     ]
   },
   "niri": {
-    "_homebrew_timestamp": 1752172590.265219,
+    "_homebrew_timestamp": 1755987485.551739,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172590.265223,
+    "_timestamp": 1755987485.551741,
     "tags": [
       "cat:cli-tool",
       "de:niri",
@@ -1940,9 +1970,9 @@
     ]
   },
   "nm-connection-editor": {
-    "_homebrew_timestamp": 1752172591.841919,
+    "_homebrew_timestamp": 1755987487.225337,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172591.8419242,
+    "_timestamp": 1755987487.22534,
     "tags": [
       "cat:editor",
       "cat:cli-tool",
@@ -1953,9 +1983,9 @@
     ]
   },
   "noto-fonts": {
-    "_homebrew_timestamp": 1752172598.1408708,
+    "_homebrew_timestamp": 1755987494.247435,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172598.140876,
+    "_timestamp": 1755987494.247437,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -1965,9 +1995,9 @@
     ]
   },
   "noto-fonts-cjk": {
-    "_homebrew_timestamp": 1752172593.422061,
+    "_homebrew_timestamp": 1755987489.0860019,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172593.422066,
+    "_timestamp": 1755987489.086004,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -1977,9 +2007,9 @@
     ]
   },
   "noto-fonts-emoji": {
-    "_homebrew_timestamp": 1752172594.9937248,
+    "_homebrew_timestamp": 1755987490.788453,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172594.99373,
+    "_timestamp": 1755987490.788455,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -1989,9 +2019,9 @@
     ]
   },
   "noto-fonts-extra": {
-    "_homebrew_timestamp": 1752172596.5629382,
+    "_homebrew_timestamp": 1755987492.560954,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172596.562942,
+    "_timestamp": 1755987492.560956,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2001,9 +2031,9 @@
     ]
   },
   "npm": {
-    "_homebrew_timestamp": 1752172599.7313018,
+    "_homebrew_timestamp": 1755987495.880393,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172599.731304,
+    "_timestamp": 1755987495.880393,
     "tags": [
       "cat:network",
       "cat:cli-tool",
@@ -2017,9 +2047,9 @@
     ]
   },
   "nvtop": {
-    "_homebrew_timestamp": 1752172601.300118,
+    "_homebrew_timestamp": 1755987497.468257,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172601.30012,
+    "_timestamp": 1755987497.4682581,
     "tags": [
       "cat:system",
       "pm:pacman",
@@ -2032,9 +2062,9 @@
     ]
   },
   "nwg-displays": {
-    "_homebrew_timestamp": 1752172602.861848,
+    "_homebrew_timestamp": 1755987499.123124,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172602.861852,
+    "_timestamp": 1755987499.123126,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2044,9 +2074,9 @@
     ]
   },
   "nwg-dock-hyprland": {
-    "_homebrew_timestamp": 1752172604.42296,
+    "_homebrew_timestamp": 1755987500.772598,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172604.422965,
+    "_timestamp": 1755987500.7726011,
     "tags": [
       "cat:cli-tool",
       "de:hyprland",
@@ -2057,9 +2087,9 @@
     ]
   },
   "nwg-look": {
-    "_homebrew_timestamp": 1752172606.023216,
+    "_homebrew_timestamp": 1755987502.4127219,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172606.023222,
+    "_timestamp": 1755987502.412725,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2069,9 +2099,9 @@
     ]
   },
   "org.gnome.DejaDup": {
-    "_homebrew_timestamp": 1752172777.2975192,
+    "_homebrew_timestamp": 1755987681.1206741,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172777.2975302,
+    "_timestamp": 1755987681.120676,
     "tags": [
       "de:gnome",
       "pm:flatpak",
@@ -2081,9 +2111,9 @@
     ]
   },
   "org.gnome.SimpleScan": {
-    "_homebrew_timestamp": 1752172778.880515,
+    "_homebrew_timestamp": 1755987682.791435,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172778.8805199,
+    "_timestamp": 1755987682.7914371,
     "tags": [
       "de:gnome",
       "pm:flatpak",
@@ -2093,9 +2123,9 @@
     ]
   },
   "org.gnome.World.PikaBackup": {
-    "_homebrew_timestamp": 1752172780.4716,
+    "_homebrew_timestamp": 1755987684.494228,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172780.471606,
+    "_timestamp": 1755987684.49423,
     "tags": [
       "de:gnome",
       "pm:flatpak",
@@ -2105,9 +2135,9 @@
     ]
   },
   "org.gustavoperedo.FontDownloader": {
-    "_homebrew_timestamp": 1752172782.074105,
+    "_homebrew_timestamp": 1755987686.1876822,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172782.074115,
+    "_timestamp": 1755987686.187684,
     "tags": [
       "pm:flatpak",
       "os:linux",
@@ -2116,9 +2146,9 @@
     ]
   },
   "org.mozilla.firefox": {
-    "_homebrew_timestamp": 1752172783.7561622,
+    "_homebrew_timestamp": 1755987687.8599591,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172783.756168,
+    "_timestamp": 1755987687.859961,
     "tags": [
       "cat:browser",
       "pm:flatpak",
@@ -2128,9 +2158,9 @@
     ]
   },
   "org.signal.Signal": {
-    "_homebrew_timestamp": 1752172785.3414478,
+    "_homebrew_timestamp": 1755987689.536263,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172785.341454,
+    "_timestamp": 1755987689.536266,
     "tags": [
       "pm:flatpak",
       "os:linux",
@@ -2139,9 +2169,9 @@
     ]
   },
   "org.videolan.VLC": {
-    "_homebrew_timestamp": 1752172786.940037,
+    "_homebrew_timestamp": 1755987691.232607,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172786.940043,
+    "_timestamp": 1755987691.23261,
     "tags": [
       "cat:development",
       "cat:multimedia",
@@ -2154,9 +2184,9 @@
     ]
   },
   "otf-font-awesome": {
-    "_homebrew_timestamp": 1752172607.614805,
+    "_homebrew_timestamp": 1755987504.095901,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172607.6148102,
+    "_timestamp": 1755987504.095903,
     "tags": [
       "cat:cli-tool",
       "de:awesome",
@@ -2167,9 +2197,9 @@
     ]
   },
   "overmind": {
-    "_homebrew_timestamp": 1752171118.5008562,
+    "_homebrew_timestamp": 1755987287.745499,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171118.500858,
+    "_timestamp": 1755987287.7454998,
     "tags": [
       "cat:system",
       "pm:homebrew",
@@ -2180,9 +2210,9 @@
     ]
   },
   "pacman-contrib": {
-    "_homebrew_timestamp": 1752172609.213134,
+    "_homebrew_timestamp": 1755987505.75151,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172609.2131379,
+    "_timestamp": 1755987505.751511,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2192,9 +2222,9 @@
     ]
   },
   "pacseek": {
-    "_homebrew_timestamp": 1752172610.835833,
+    "_homebrew_timestamp": 1755987507.37976,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172610.835837,
+    "_timestamp": 1755987507.379761,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -2203,9 +2233,9 @@
     ]
   },
   "pamixer": {
-    "_homebrew_timestamp": 1752172612.414305,
+    "_homebrew_timestamp": 1755987509.2597811,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172612.414314,
+    "_timestamp": 1755987509.259784,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -2217,9 +2247,9 @@
     ]
   },
   "papirus-icon-theme": {
-    "_homebrew_timestamp": 1752172614.08431,
+    "_homebrew_timestamp": 1755987510.9706419,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172614.0843148,
+    "_timestamp": 1755987510.970644,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2232,9 +2262,9 @@
     ]
   },
   "parsec": {
-    "_homebrew_timestamp": 1752172459.5195699,
+    "_homebrew_timestamp": 1755987347.14348,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172459.519575,
+    "_timestamp": 1755987347.143483,
     "tags": [
       "cat:cask",
       "os:macos",
@@ -2245,9 +2275,9 @@
     ]
   },
   "pavucontrol": {
-    "_homebrew_timestamp": 1752172615.682682,
+    "_homebrew_timestamp": 1755987512.621855,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172615.682687,
+    "_timestamp": 1755987512.621857,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -2259,9 +2289,9 @@
     ]
   },
   "pciutils": {
-    "_homebrew_timestamp": 1752172617.299051,
+    "_homebrew_timestamp": 1755987514.326431,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172617.299053,
+    "_timestamp": 1755987514.326431,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -2270,9 +2300,9 @@
     ]
   },
   "pinta": {
-    "_homebrew_timestamp": 1752172462.673385,
+    "_homebrew_timestamp": 1755987350.402017,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172462.673389,
+    "_timestamp": 1755987350.402019,
     "tags": [
       "cat:cask",
       "os:macos",
@@ -2289,9 +2319,9 @@
     ]
   },
   "pipewire": {
-    "_homebrew_timestamp": 1752172623.7766771,
+    "_homebrew_timestamp": 1755987520.9934878,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172623.776683,
+    "_timestamp": 1755987520.99349,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -2303,9 +2333,9 @@
     ]
   },
   "pipewire-alsa": {
-    "_homebrew_timestamp": 1752172618.853179,
+    "_homebrew_timestamp": 1755987515.948808,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172618.853185,
+    "_timestamp": 1755987515.948809,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2318,9 +2348,9 @@
     ]
   },
   "pipewire-audio": {
-    "_homebrew_timestamp": 1752172620.43303,
+    "_homebrew_timestamp": 1755987517.6616461,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172620.433036,
+    "_timestamp": 1755987517.661649,
     "tags": [
       "cat:multimedia",
       "cat:cli-tool",
@@ -2335,9 +2365,9 @@
     ]
   },
   "pipewire-pulse": {
-    "_homebrew_timestamp": 1752172622.1378849,
+    "_homebrew_timestamp": 1755987519.295558,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172622.137892,
+    "_timestamp": 1755987519.29556,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2350,9 +2380,9 @@
     ]
   },
   "pixi": {
-    "_homebrew_timestamp": 1752171120.1126988,
+    "_homebrew_timestamp": 1755987289.3416162,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171120.112701,
+    "_timestamp": 1755987289.3416169,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -2363,9 +2393,9 @@
     ]
   },
   "pkg-config": {
-    "_homebrew_timestamp": 1752172625.3750799,
+    "_homebrew_timestamp": 1755987522.626036,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172625.375082,
+    "_timestamp": 1755987522.626037,
     "tags": [
       "cat:development",
       "cat:cli-tool",
@@ -2380,9 +2410,9 @@
     ]
   },
   "playerctl": {
-    "_homebrew_timestamp": 1752172626.922314,
+    "_homebrew_timestamp": 1755987524.21904,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172626.92232,
+    "_timestamp": 1755987524.2190442,
     "tags": [
       "cat:multimedia",
       "pm:pacman",
@@ -2395,10 +2425,35 @@
       "scope:workflow-specific"
     ]
   },
-  "polkit-gnome": {
-    "_homebrew_timestamp": 1752172628.512039,
+  "podman": {
+    "_homebrew_timestamp": 1755987290.959432,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172628.5120451,
+    "_timestamp": 1755987290.959433,
+    "tags": [
+      "pm:homebrew",
+      "os:macos",
+      "os:linux",
+      "priority:optional",
+      "scope:workflow-specific"
+    ]
+  },
+  "podman-desktop": {
+    "_homebrew_timestamp": 1755987353.653461,
+    "_repology_timestamp": 0,
+    "_timestamp": 1755987353.6534631,
+    "tags": [
+      "cat:cli-tool",
+      "pm:homebrew",
+      "os:macos",
+      "os:linux",
+      "priority:optional",
+      "scope:workflow-specific"
+    ]
+  },
+  "polkit-gnome": {
+    "_homebrew_timestamp": 1755987525.931061,
+    "_repology_timestamp": 0,
+    "_timestamp": 1755987525.931063,
     "tags": [
       "cat:cli-tool",
       "de:gnome",
@@ -2409,9 +2464,9 @@
     ]
   },
   "power-profiles-daemon": {
-    "_homebrew_timestamp": 1752172630.102473,
+    "_homebrew_timestamp": 1755987527.574574,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172630.102478,
+    "_timestamp": 1755987527.5745761,
     "tags": [
       "cat:filesystem",
       "cat:cli-tool",
@@ -2425,9 +2480,9 @@
     ]
   },
   "presenterm": {
-    "_homebrew_timestamp": 1752171121.694945,
+    "_homebrew_timestamp": 1755987292.589329,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171121.694947,
+    "_timestamp": 1755987292.58933,
     "tags": [
       "cat:development",
       "cat:terminal",
@@ -2440,9 +2495,9 @@
     ]
   },
   "prettier": {
-    "_homebrew_timestamp": 1752171123.266091,
+    "_homebrew_timestamp": 1755987294.1583,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171123.266093,
+    "_timestamp": 1755987294.1583009,
     "tags": [
       "pm:homebrew",
       "os:macos",
@@ -2452,9 +2507,9 @@
     ]
   },
   "python": {
-    "_homebrew_timestamp": 1752172642.835716,
+    "_homebrew_timestamp": 1755987540.925437,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172642.835718,
+    "_timestamp": 1755987540.925438,
     "tags": [
       "cat:development",
       "pm:pacman",
@@ -2468,9 +2523,9 @@
     ]
   },
   "python-gobject": {
-    "_homebrew_timestamp": 1752172631.71146,
+    "_homebrew_timestamp": 1755987529.2335439,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172631.711466,
+    "_timestamp": 1755987529.233546,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2481,9 +2536,9 @@
     ]
   },
   "python-gpustat": {
-    "_homebrew_timestamp": 1752172633.291658,
+    "_homebrew_timestamp": 1755987530.879446,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172633.2916632,
+    "_timestamp": 1755987530.8794491,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2494,9 +2549,9 @@
     ]
   },
   "python-pip": {
-    "_homebrew_timestamp": 1752172634.882303,
+    "_homebrew_timestamp": 1755987532.556579,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172634.8823092,
+    "_timestamp": 1755987532.556582,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2507,9 +2562,9 @@
     ]
   },
   "python-pyquery": {
-    "_homebrew_timestamp": 1752172636.4869068,
+    "_homebrew_timestamp": 1755987534.1932092,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172636.486918,
+    "_timestamp": 1755987534.1932108,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2520,9 +2575,9 @@
     ]
   },
   "python-pywalfox": {
-    "_homebrew_timestamp": 1752172638.063991,
+    "_homebrew_timestamp": 1755987535.8452501,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172638.0639958,
+    "_timestamp": 1755987535.8452532,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2533,9 +2588,9 @@
     ]
   },
   "python-requests": {
-    "_homebrew_timestamp": 1752172639.662623,
+    "_homebrew_timestamp": 1755987537.559222,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172639.6626298,
+    "_timestamp": 1755987537.5592241,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2546,9 +2601,9 @@
     ]
   },
   "python-screeninfo": {
-    "_homebrew_timestamp": 1752172641.2416599,
+    "_homebrew_timestamp": 1755987539.243135,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172641.241666,
+    "_timestamp": 1755987539.2431371,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2559,9 +2614,9 @@
     ]
   },
   "python3-gobject": {
-    "_homebrew_timestamp": 1752172750.213126,
+    "_homebrew_timestamp": 1755987652.472756,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172750.21313,
+    "_timestamp": 1755987652.472759,
     "tags": [
       "cat:cli-tool",
       "pm:apt",
@@ -2573,9 +2628,9 @@
     ]
   },
   "python3-pip": {
-    "_homebrew_timestamp": 1752172751.8145049,
+    "_homebrew_timestamp": 1755987654.1443672,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172751.814511,
+    "_timestamp": 1755987654.1443698,
     "tags": [
       "cat:cli-tool",
       "pm:apt",
@@ -2587,9 +2642,9 @@
     ]
   },
   "python3-pyquery": {
-    "_homebrew_timestamp": 1752172753.3914618,
+    "_homebrew_timestamp": 1755987655.839755,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172753.391468,
+    "_timestamp": 1755987655.839757,
     "tags": [
       "cat:cli-tool",
       "pm:apt",
@@ -2601,9 +2656,9 @@
     ]
   },
   "python3-requests": {
-    "_homebrew_timestamp": 1752172754.9945228,
+    "_homebrew_timestamp": 1755987657.5312881,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172754.994529,
+    "_timestamp": 1755987657.531289,
     "tags": [
       "cat:cli-tool",
       "pm:apt",
@@ -2615,9 +2670,9 @@
     ]
   },
   "python3-screeninfo": {
-    "_homebrew_timestamp": 1752172756.594932,
+    "_homebrew_timestamp": 1755987659.251681,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172756.594938,
+    "_timestamp": 1755987659.251683,
     "tags": [
       "cat:cli-tool",
       "pm:apt",
@@ -2629,9 +2684,9 @@
     ]
   },
   "pywal": {
-    "_homebrew_timestamp": 1752172644.402672,
+    "_homebrew_timestamp": 1755987542.520473,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172644.402677,
+    "_timestamp": 1755987542.5204759,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -2640,9 +2695,9 @@
     ]
   },
   "qalculate-gtk": {
-    "_homebrew_timestamp": 1752172645.991487,
+    "_homebrew_timestamp": 1755987544.135276,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172645.991488,
+    "_timestamp": 1755987544.135276,
     "tags": [
       "cat:cli-tool",
       "de:gnome",
@@ -2656,9 +2711,9 @@
     ]
   },
   "qt5-graphicaleffects": {
-    "_homebrew_timestamp": 1752172647.581614,
+    "_homebrew_timestamp": 1755987545.819105,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172647.58162,
+    "_timestamp": 1755987545.819108,
     "tags": [
       "cat:cli-tool",
       "de:kde",
@@ -2669,9 +2724,9 @@
     ]
   },
   "qt5-quickcontrols2": {
-    "_homebrew_timestamp": 1752172649.183029,
+    "_homebrew_timestamp": 1755987547.512067,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172649.183035,
+    "_timestamp": 1755987547.51207,
     "tags": [
       "cat:cli-tool",
       "de:kde",
@@ -2682,9 +2737,9 @@
     ]
   },
   "qt5-svg": {
-    "_homebrew_timestamp": 1752172650.781397,
+    "_homebrew_timestamp": 1755987549.181121,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172650.7814028,
+    "_timestamp": 1755987549.1811252,
     "tags": [
       "cat:cli-tool",
       "de:kde",
@@ -2695,9 +2750,9 @@
     ]
   },
   "qt5-wayland": {
-    "_homebrew_timestamp": 1752172652.397036,
+    "_homebrew_timestamp": 1755987550.942283,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172652.397043,
+    "_timestamp": 1755987550.942285,
     "tags": [
       "cat:cli-tool",
       "de:kde",
@@ -2708,9 +2763,9 @@
     ]
   },
   "qt5ct": {
-    "_homebrew_timestamp": 1752172654.154212,
+    "_homebrew_timestamp": 1755987552.667904,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172654.154216,
+    "_timestamp": 1755987552.667905,
     "tags": [
       "de:kde",
       "pm:pacman",
@@ -2723,9 +2778,9 @@
     ]
   },
   "qt6-5compat": {
-    "_homebrew_timestamp": 1752172655.7688901,
+    "_homebrew_timestamp": 1755987554.354285,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172655.768896,
+    "_timestamp": 1755987554.354288,
     "tags": [
       "cat:cli-tool",
       "de:kde",
@@ -2736,9 +2791,9 @@
     ]
   },
   "qt6-declarative": {
-    "_homebrew_timestamp": 1752172657.360725,
+    "_homebrew_timestamp": 1755987556.258846,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172657.3607302,
+    "_timestamp": 1755987556.258849,
     "tags": [
       "cat:cli-tool",
       "de:kde",
@@ -2749,9 +2804,9 @@
     ]
   },
   "qt6-svg": {
-    "_homebrew_timestamp": 1752172658.9276092,
+    "_homebrew_timestamp": 1755987557.8870442,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172658.927614,
+    "_timestamp": 1755987557.8870459,
     "tags": [
       "cat:cli-tool",
       "de:kde",
@@ -2762,9 +2817,9 @@
     ]
   },
   "qt6-wayland": {
-    "_homebrew_timestamp": 1752172660.5159402,
+    "_homebrew_timestamp": 1755987559.540986,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172660.515946,
+    "_timestamp": 1755987559.540988,
     "tags": [
       "cat:cli-tool",
       "de:kde",
@@ -2778,9 +2833,9 @@
     ]
   },
   "qt6ct": {
-    "_homebrew_timestamp": 1752172662.141977,
+    "_homebrew_timestamp": 1755987561.179449,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172662.141983,
+    "_timestamp": 1755987561.179451,
     "tags": [
       "de:kde",
       "pm:pacman",
@@ -2793,9 +2848,9 @@
     ]
   },
   "ripgrep": {
-    "_homebrew_timestamp": 1752171124.8263528,
+    "_homebrew_timestamp": 1755987295.737941,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171124.826355,
+    "_timestamp": 1755987295.737941,
     "tags": [
       "pm:homebrew",
       "os:macos",
@@ -2805,9 +2860,9 @@
     ]
   },
   "rofi-wayland": {
-    "_homebrew_timestamp": 1752172663.7610822,
+    "_homebrew_timestamp": 1755987562.8282418,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172663.761088,
+    "_timestamp": 1755987562.828245,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2817,9 +2872,9 @@
     ]
   },
   "rsync": {
-    "_homebrew_timestamp": 1752172665.392664,
+    "_homebrew_timestamp": 1755987564.467998,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172665.392666,
+    "_timestamp": 1755987564.467999,
     "tags": [
       "cat:development",
       "pm:pacman",
@@ -2830,9 +2885,9 @@
     ]
   },
   "rust": {
-    "_homebrew_timestamp": 1752172666.9853818,
+    "_homebrew_timestamp": 1755987566.057817,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172666.9853828,
+    "_timestamp": 1755987566.057817,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2843,9 +2898,9 @@
     ]
   },
   "sddm": {
-    "_homebrew_timestamp": 1752172668.5903301,
+    "_homebrew_timestamp": 1755987567.652479,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172668.590334,
+    "_timestamp": 1755987567.652481,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2858,9 +2913,9 @@
     ]
   },
   "shellcheck": {
-    "_homebrew_timestamp": 1752171126.381142,
+    "_homebrew_timestamp": 1755987297.345518,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171126.381144,
+    "_timestamp": 1755987297.345519,
     "tags": [
       "cat:shell",
       "cat:terminal",
@@ -2872,36 +2927,41 @@
     ]
   },
   "shfmt": {
-    "_homebrew_timestamp": 1752171127.941379,
+    "_homebrew_timestamp": 1755987298.912319,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171127.9413812,
+    "_timestamp": 1755987298.91232,
     "tags": [
       "pm:homebrew",
       "os:macos",
       "os:linux",
+      "pm:pacman",
+      "dist:arch",
+      "pm:apt",
+      "dist:debian",
+      "dist:ubuntu",
       "priority:optional",
       "scope:workflow-specific"
     ]
   },
   "signal": {
-    "_homebrew_timestamp": 1752172465.857065,
+    "_homebrew_timestamp": 1755987356.892867,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172465.85707,
+    "_timestamp": 1755987356.89287,
     "tags": [
       "cat:cask",
       "os:macos",
       "cat:security",
       "pm:homebrew",
-      "role:security",
       "role:desktop",
+      "role:security",
       "priority:optional",
       "scope:workflow-specific"
     ]
   },
   "slurp": {
-    "_homebrew_timestamp": 1752172670.246899,
+    "_homebrew_timestamp": 1755987569.296166,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172670.2469041,
+    "_timestamp": 1755987569.2961679,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -2913,9 +2973,9 @@
     ]
   },
   "sof-firmware": {
-    "_homebrew_timestamp": 1752172671.866708,
+    "_homebrew_timestamp": 1755987571.1397738,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172671.866713,
+    "_timestamp": 1755987571.139777,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2925,9 +2985,9 @@
     ]
   },
   "starship": {
-    "_homebrew_timestamp": 1752171129.491422,
+    "_homebrew_timestamp": 1755987300.519886,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171129.491423,
+    "_timestamp": 1755987300.5198872,
     "tags": [
       "pm:homebrew",
       "os:macos",
@@ -2937,9 +2997,9 @@
     ]
   },
   "swappy": {
-    "_homebrew_timestamp": 1752172673.519681,
+    "_homebrew_timestamp": 1755987572.790308,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172673.519685,
+    "_timestamp": 1755987572.79031,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -2948,9 +3008,9 @@
     ]
   },
   "swaync": {
-    "_homebrew_timestamp": 1752172675.114093,
+    "_homebrew_timestamp": 1755987574.398695,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172675.114099,
+    "_timestamp": 1755987574.398697,
     "tags": [
       "de:sway",
       "pm:pacman",
@@ -2960,9 +3020,9 @@
     ]
   },
   "swww": {
-    "_homebrew_timestamp": 1752172676.825814,
+    "_homebrew_timestamp": 1755987576.09175,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172676.82582,
+    "_timestamp": 1755987576.091753,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -2972,21 +3032,23 @@
     ]
   },
   "tailscale": {
-    "_homebrew_timestamp": 1752171131.182949,
+    "_homebrew_timestamp": 1755987302.087492,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171131.1829572,
+    "_timestamp": 1755987302.087492,
     "tags": [
       "pm:homebrew",
       "os:macos",
       "os:linux",
+      "pm:pacman",
+      "dist:arch",
       "priority:optional",
       "scope:workflow-specific"
     ]
   },
   "talosctl": {
-    "_homebrew_timestamp": 1752171132.775695,
+    "_homebrew_timestamp": 1755987303.6786098,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171132.7756958,
+    "_timestamp": 1755987303.678611,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -2997,9 +3059,9 @@
     ]
   },
   "thefuck": {
-    "_homebrew_timestamp": 1752171134.356787,
+    "_homebrew_timestamp": 1755987305.271046,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171134.3567889,
+    "_timestamp": 1755987305.271046,
     "tags": [
       "pm:homebrew",
       "os:macos",
@@ -3009,9 +3071,9 @@
     ]
   },
   "thunar": {
-    "_homebrew_timestamp": 1752172681.64417,
+    "_homebrew_timestamp": 1755987581.0524302,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172681.6441758,
+    "_timestamp": 1755987581.052433,
     "tags": [
       "de:xfce",
       "pm:pacman",
@@ -3024,9 +3086,9 @@
     ]
   },
   "thunar-archive-plugin": {
-    "_homebrew_timestamp": 1752172678.432362,
+    "_homebrew_timestamp": 1755987577.747686,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172678.432367,
+    "_timestamp": 1755987577.747688,
     "tags": [
       "cat:cli-tool",
       "de:xfce",
@@ -3040,9 +3102,9 @@
     ]
   },
   "thunar-volman": {
-    "_homebrew_timestamp": 1752172680.043412,
+    "_homebrew_timestamp": 1755987579.4227579,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172680.0434182,
+    "_timestamp": 1755987579.42276,
     "tags": [
       "cat:cli-tool",
       "de:xfce",
@@ -3056,9 +3118,9 @@
     ]
   },
   "tlrc": {
-    "_homebrew_timestamp": 1752171135.9224372,
+    "_homebrew_timestamp": 1755987306.8593931,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171135.9224389,
+    "_timestamp": 1755987306.859394,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -3069,9 +3131,9 @@
     ]
   },
   "tmux": {
-    "_homebrew_timestamp": 1752171137.477643,
+    "_homebrew_timestamp": 1755987308.4655008,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171137.4776452,
+    "_timestamp": 1755987308.4655008,
     "tags": [
       "cat:shell",
       "cat:terminal",
@@ -3084,9 +3146,9 @@
     ]
   },
   "tpm": {
-    "_homebrew_timestamp": 1752171139.041143,
+    "_homebrew_timestamp": 1755987310.055584,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171139.041145,
+    "_timestamp": 1755987310.055585,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -3097,9 +3159,9 @@
     ]
   },
   "tree": {
-    "_homebrew_timestamp": 1752171140.631891,
+    "_homebrew_timestamp": 1755987311.698004,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171140.631893,
+    "_timestamp": 1755987311.698005,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -3110,9 +3172,9 @@
     ]
   },
   "ttf-dejavu": {
-    "_homebrew_timestamp": 1752172683.230455,
+    "_homebrew_timestamp": 1755987582.792834,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172683.23046,
+    "_timestamp": 1755987582.7928371,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3122,9 +3184,9 @@
     ]
   },
   "ttf-droid": {
-    "_homebrew_timestamp": 1752172684.874453,
+    "_homebrew_timestamp": 1755987584.503048,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172684.87446,
+    "_timestamp": 1755987584.503051,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3134,9 +3196,9 @@
     ]
   },
   "ttf-fantasque-nerd": {
-    "_homebrew_timestamp": 1752172686.464132,
+    "_homebrew_timestamp": 1755987586.221,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172686.464136,
+    "_timestamp": 1755987586.221001,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3146,9 +3208,9 @@
     ]
   },
   "ttf-fira-code": {
-    "_homebrew_timestamp": 1752172688.0714922,
+    "_homebrew_timestamp": 1755987587.917856,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172688.071497,
+    "_timestamp": 1755987587.9178581,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3158,9 +3220,9 @@
     ]
   },
   "ttf-fira-sans": {
-    "_homebrew_timestamp": 1752172689.673045,
+    "_homebrew_timestamp": 1755987589.633018,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172689.6730509,
+    "_timestamp": 1755987589.6330209,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3170,9 +3232,9 @@
     ]
   },
   "ttf-firacode-nerd": {
-    "_homebrew_timestamp": 1752172691.279053,
+    "_homebrew_timestamp": 1755987591.329791,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172691.279058,
+    "_timestamp": 1755987591.329794,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3182,9 +3244,9 @@
     ]
   },
   "ttf-jetbrains-mono": {
-    "_homebrew_timestamp": 1752172694.431245,
+    "_homebrew_timestamp": 1755987594.717949,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172694.431248,
+    "_timestamp": 1755987594.717951,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3194,9 +3256,9 @@
     ]
   },
   "ttf-jetbrains-mono-nerd": {
-    "_homebrew_timestamp": 1752172692.870712,
+    "_homebrew_timestamp": 1755987593.038347,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172692.8707159,
+    "_timestamp": 1755987593.0383492,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3206,9 +3268,9 @@
     ]
   },
   "ttf-victor-mono": {
-    "_homebrew_timestamp": 1752172695.995069,
+    "_homebrew_timestamp": 1755987596.43854,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172695.9950771,
+    "_timestamp": 1755987596.4385421,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3218,9 +3280,9 @@
     ]
   },
   "tumbler": {
-    "_homebrew_timestamp": 1752172697.591885,
+    "_homebrew_timestamp": 1755987598.121247,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172697.5918899,
+    "_timestamp": 1755987598.121249,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -3232,9 +3294,9 @@
     ]
   },
   "typescript": {
-    "_homebrew_timestamp": 1752172699.188805,
+    "_homebrew_timestamp": 1755987599.854957,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172699.188807,
+    "_timestamp": 1755987599.854958,
     "tags": [
       "cat:development",
       "pm:pacman",
@@ -3245,9 +3307,9 @@
     ]
   },
   "ugrep": {
-    "_homebrew_timestamp": 1752171142.204195,
+    "_homebrew_timestamp": 1755987313.297399,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171142.2041972,
+    "_timestamp": 1755987313.2974,
     "tags": [
       "pm:homebrew",
       "os:macos",
@@ -3257,9 +3319,9 @@
     ]
   },
   "umockdev": {
-    "_homebrew_timestamp": 1752172700.74778,
+    "_homebrew_timestamp": 1755987601.473723,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172700.747782,
+    "_timestamp": 1755987601.473724,
     "tags": [
       "de:kde",
       "pm:pacman",
@@ -3272,9 +3334,9 @@
     ]
   },
   "unzip": {
-    "_homebrew_timestamp": 1752172702.309602,
+    "_homebrew_timestamp": 1755987603.086476,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172702.3096042,
+    "_timestamp": 1755987603.086477,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -3283,9 +3345,9 @@
     ]
   },
   "upower": {
-    "_homebrew_timestamp": 1752172703.9055722,
+    "_homebrew_timestamp": 1755987604.7305112,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172703.905578,
+    "_timestamp": 1755987604.7305129,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -3297,9 +3359,9 @@
     ]
   },
   "us.zoom.Zoom": {
-    "_homebrew_timestamp": 1752172788.533856,
+    "_homebrew_timestamp": 1755987692.915122,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172788.5338619,
+    "_timestamp": 1755987692.915124,
     "tags": [
       "pm:flatpak",
       "os:linux",
@@ -3308,9 +3370,9 @@
     ]
   },
   "uwsm": {
-    "_homebrew_timestamp": 1752172705.504585,
+    "_homebrew_timestamp": 1755987606.3610141,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172705.504592,
+    "_timestamp": 1755987606.361016,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3320,9 +3382,9 @@
     ]
   },
   "vale": {
-    "_homebrew_timestamp": 1752171143.7741141,
+    "_homebrew_timestamp": 1755987314.902015,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171143.774115,
+    "_timestamp": 1755987314.902016,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -3333,9 +3395,9 @@
     ]
   },
   "vim": {
-    "_homebrew_timestamp": 1752172707.088715,
+    "_homebrew_timestamp": 1755987607.945739,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172707.088717,
+    "_timestamp": 1755987607.94574,
     "tags": [
       "cat:editor",
       "cat:cli-tool",
@@ -3347,9 +3409,9 @@
     ]
   },
   "visual-studio-code": {
-    "_homebrew_timestamp": 1752172468.998019,
+    "_homebrew_timestamp": 1755987360.122045,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172468.998024,
+    "_timestamp": 1755987360.12205,
     "tags": [
       "cat:cask",
       "os:macos",
@@ -3361,9 +3423,9 @@
     ]
   },
   "wallust": {
-    "_homebrew_timestamp": 1752172708.652541,
+    "_homebrew_timestamp": 1755987609.529675,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172708.6525471,
+    "_timestamp": 1755987609.5296772,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -3372,9 +3434,9 @@
     ]
   },
   "waybar": {
-    "_homebrew_timestamp": 1752172710.223273,
+    "_homebrew_timestamp": 1755987611.119848,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172710.223278,
+    "_timestamp": 1755987611.11985,
     "tags": [
       "de:sway",
       "pm:pacman",
@@ -3387,9 +3449,9 @@
     ]
   },
   "waypaper": {
-    "_homebrew_timestamp": 1752172711.828048,
+    "_homebrew_timestamp": 1755987612.781328,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172711.828053,
+    "_timestamp": 1755987612.781331,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -3398,9 +3460,9 @@
     ]
   },
   "wf-recorder": {
-    "_homebrew_timestamp": 1752172713.441252,
+    "_homebrew_timestamp": 1755987614.475033,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172713.441258,
+    "_timestamp": 1755987614.475035,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3413,9 +3475,9 @@
     ]
   },
   "wget": {
-    "_homebrew_timestamp": 1752171145.3373408,
+    "_homebrew_timestamp": 1755987316.45549,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171145.337342,
+    "_timestamp": 1755987316.45549,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -3426,9 +3488,9 @@
     ]
   },
   "whiptail": {
-    "_homebrew_timestamp": 1752172715.033758,
+    "_homebrew_timestamp": 1755987616.167687,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172715.0337658,
+    "_timestamp": 1755987616.16769,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -3437,9 +3499,9 @@
     ]
   },
   "wireplumber": {
-    "_homebrew_timestamp": 1752172716.649173,
+    "_homebrew_timestamp": 1755987617.810304,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172716.649179,
+    "_timestamp": 1755987617.810307,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -3451,22 +3513,27 @@
     ]
   },
   "wishlist": {
-    "_homebrew_timestamp": 1752171146.881095,
+    "_homebrew_timestamp": 1755987318.056422,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171146.881096,
+    "_timestamp": 1755987318.056422,
     "tags": [
       "cat:network",
       "pm:homebrew",
       "os:macos",
       "os:linux",
+      "pm:pacman",
+      "dist:arch",
+      "pm:apt",
+      "dist:debian",
+      "dist:ubuntu",
       "priority:optional",
       "scope:workflow-specific"
     ]
   },
   "wl-clipboard": {
-    "_homebrew_timestamp": 1752172718.249938,
+    "_homebrew_timestamp": 1755987619.450273,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172718.2499478,
+    "_timestamp": 1755987619.4502761,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3479,9 +3546,9 @@
     ]
   },
   "wlogout": {
-    "_homebrew_timestamp": 1752172719.8402848,
+    "_homebrew_timestamp": 1755987621.084212,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172719.840291,
+    "_timestamp": 1755987621.084214,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -3494,9 +3561,9 @@
     ]
   },
   "wofi": {
-    "_homebrew_timestamp": 1752172721.430793,
+    "_homebrew_timestamp": 1755987622.722599,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172721.4308,
+    "_timestamp": 1755987622.722601,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3509,9 +3576,9 @@
     ]
   },
   "xarchiver": {
-    "_homebrew_timestamp": 1752172723.025738,
+    "_homebrew_timestamp": 1755987624.3524852,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172723.0257459,
+    "_timestamp": 1755987624.352488,
     "tags": [
       "pm:pacman",
       "dist:arch",
@@ -3523,9 +3590,9 @@
     ]
   },
   "xclip": {
-    "_homebrew_timestamp": 1752172724.740073,
+    "_homebrew_timestamp": 1755987625.9780521,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172724.740074,
+    "_timestamp": 1755987625.9780521,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3538,9 +3605,9 @@
     ]
   },
   "xdg-desktop-portal-gtk": {
-    "_homebrew_timestamp": 1752172726.3451352,
+    "_homebrew_timestamp": 1755987627.6215591,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172726.34514,
+    "_timestamp": 1755987627.621561,
     "tags": [
       "cat:cli-tool",
       "de:gnome",
@@ -3554,9 +3621,9 @@
     ]
   },
   "xdg-desktop-portal-hyprland": {
-    "_homebrew_timestamp": 1752172727.963788,
+    "_homebrew_timestamp": 1755987629.310428,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172727.9637928,
+    "_timestamp": 1755987629.31043,
     "tags": [
       "cat:cli-tool",
       "de:hyprland",
@@ -3567,9 +3634,9 @@
     ]
   },
   "xdg-user-dirs": {
-    "_homebrew_timestamp": 1752172729.550591,
+    "_homebrew_timestamp": 1755987631.012497,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172729.550598,
+    "_timestamp": 1755987631.0124989,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3579,9 +3646,9 @@
     ]
   },
   "xdg-utils": {
-    "_homebrew_timestamp": 1752172731.15404,
+    "_homebrew_timestamp": 1755987632.6536808,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172731.154048,
+    "_timestamp": 1755987632.653683,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3591,9 +3658,9 @@
     ]
   },
   "xz": {
-    "_homebrew_timestamp": 1752171148.444552,
+    "_homebrew_timestamp": 1755987319.6451719,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171148.444554,
+    "_timestamp": 1755987319.645173,
     "tags": [
       "cat:cli-tool",
       "pm:homebrew",
@@ -3604,9 +3671,9 @@
     ]
   },
   "yad": {
-    "_homebrew_timestamp": 1752172732.774828,
+    "_homebrew_timestamp": 1755987634.2813172,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172732.774834,
+    "_timestamp": 1755987634.281319,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3619,9 +3686,9 @@
     ]
   },
   "yazi": {
-    "_homebrew_timestamp": 1752172734.361011,
+    "_homebrew_timestamp": 1755987635.915447,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172734.361013,
+    "_timestamp": 1755987635.915448,
     "tags": [
       "cat:cli-tool",
       "cat:terminal",
@@ -3632,9 +3699,9 @@
     ]
   },
   "yq": {
-    "_homebrew_timestamp": 1752171150.025003,
+    "_homebrew_timestamp": 1755987321.216456,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171150.025005,
+    "_timestamp": 1755987321.216456,
     "tags": [
       "cat:system",
       "cat:cli-tool",
@@ -3646,9 +3713,9 @@
     ]
   },
   "yt-dlp": {
-    "_homebrew_timestamp": 1752171151.607123,
+    "_homebrew_timestamp": 1755987322.793686,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171151.607125,
+    "_timestamp": 1755987322.793687,
     "tags": [
       "cat:development",
       "cat:cli-tool",
@@ -3661,9 +3728,9 @@
     ]
   },
   "zellij": {
-    "_homebrew_timestamp": 1752171153.167306,
+    "_homebrew_timestamp": 1755987324.387024,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171153.167308,
+    "_timestamp": 1755987324.387024,
     "tags": [
       "cat:terminal",
       "pm:homebrew",
@@ -3674,9 +3741,9 @@
     ]
   },
   "zen": {
-    "_homebrew_timestamp": 1752172472.166451,
+    "_homebrew_timestamp": 1755987363.361284,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172472.166456,
+    "_timestamp": 1755987363.361286,
     "tags": [
       "cat:cask",
       "os:macos",
@@ -3688,9 +3755,9 @@
     ]
   },
   "zip": {
-    "_homebrew_timestamp": 1752172735.924489,
+    "_homebrew_timestamp": 1755987637.498639,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172735.924491,
+    "_timestamp": 1755987637.4986398,
     "tags": [
       "cat:cli-tool",
       "pm:pacman",
@@ -3700,40 +3767,45 @@
     ]
   },
   "zoom": {
-    "_homebrew_timestamp": 1752172475.319826,
+    "_homebrew_timestamp": 1755987366.6323001,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172475.31983,
+    "_timestamp": 1755987366.632302,
     "tags": [
       "cat:cask",
       "os:macos",
       "cat:development",
       "cat:cli-tool",
       "pm:homebrew",
-      "role:desktop",
       "role:development",
+      "role:desktop",
       "priority:recommended",
       "scope:extended"
     ]
   },
   "zoxide": {
-    "_homebrew_timestamp": 1752171154.736929,
+    "_homebrew_timestamp": 1755987325.9559848,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171154.7369301,
+    "_timestamp": 1755987325.9559848,
     "tags": [
       "cat:development",
       "cat:system",
       "pm:homebrew",
       "os:macos",
       "os:linux",
+      "pm:pacman",
+      "dist:arch",
+      "pm:apt",
+      "dist:debian",
+      "dist:ubuntu",
       "role:development",
       "priority:recommended",
       "scope:extended"
     ]
   },
   "zsh": {
-    "_homebrew_timestamp": 1752171156.281151,
+    "_homebrew_timestamp": 1755987327.5352478,
     "_repology_timestamp": 0,
-    "_timestamp": 1752171156.281153,
+    "_timestamp": 1755987327.5352478,
     "tags": [
       "cat:shell",
       "cat:terminal",
@@ -3741,14 +3813,16 @@
       "pm:homebrew",
       "os:macos",
       "os:linux",
+      "pm:pacman",
+      "dist:arch",
       "priority:essential",
       "scope:core"
     ]
   },
   "zsh-completions": {
-    "_homebrew_timestamp": 1752172737.4786172,
+    "_homebrew_timestamp": 1755987639.098167,
     "_repology_timestamp": 0,
-    "_timestamp": 1752172737.4786189,
+    "_timestamp": 1755987639.098167,
     "tags": [
       "cat:shell",
       "cat:terminal",

@@ -81,6 +81,10 @@ if command -v chezmoi &> /dev/null; then
   alias ci='chezmoi init'
 fi
 
+if command -v podman &> /dev/null; then
+  export DOCKER_HOST="unix://`podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}'`"
+fi
+
 if command -v delta &> /dev/null; then
   alias diff='delta'
 fi
