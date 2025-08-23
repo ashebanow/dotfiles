@@ -2068,19 +2068,6 @@
       "scope:workflow-specific"
     ]
   },
-  "orbstack": {
-    "_homebrew_timestamp": 1752172456.3558211,
-    "_repology_timestamp": 0,
-    "_timestamp": 1752172456.355826,
-    "tags": [
-      "cat:cask",
-      "os:macos",
-      "pm:homebrew",
-      "role:desktop",
-      "priority:optional",
-      "scope:workflow-specific"
-    ]
-  },
   "org.gnome.DejaDup": {
     "_homebrew_timestamp": 1752172777.2975192,
     "_repology_timestamp": 0,
