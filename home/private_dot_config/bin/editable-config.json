@@ -1,0 +1,15 @@
+{
+    "default_path": "/Users/ashebanow/.local/bin",
+    "bins": {
+        "/Users/ashebanow/.local/bin/bin": {
+            "path": "/Users/ashebanow/.local/bin/bin",
+            "remote_name": "bin_0.23.1_darwin_arm64",
+            "version": "v0.23.1",
+            "hash": "6316d2124e9dd6c3fb14ac001e113e3c53bfd65acaf71af45bf7354a03282636",
+            "url": "github.com/marcosnils/bin",
+            "provider": "github",
+            "package_path": "",
+            "pinned": false
+        }
+    }
+}

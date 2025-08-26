@@ -68,6 +68,10 @@ if command -v bat &> /dev/null; then
   alias more='bat'
 fi
 
+if command -v bin &> /dev/null; then
+  eval $(bin completion zsh)
+fi
+
 if command -v chezmoi &> /dev/null; then
   alias c='chezmoi'
   alias ca='chezmoi apply'
