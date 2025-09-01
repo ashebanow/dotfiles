@@ -8,9 +8,8 @@ vim.pack.add({
     { src = "https://github.com/nvim-tree/nvim-tree.lua" },
     { src = "https://github.com/nvim-lua/plenary.nvim" },
     { src = "https://github.com/nvim-telescope/telescope.nvim" },
-    { src = "https://github.com/supermaven-inc/supermaven-nvim" },
     { src = "https://github.com/stevearc/conform.nvim" },
-    { src = "https://github.com/Saghen/blink.cmp",               version = "v1.6.0" },
+    { src = "https://github.com/Saghen/blink.cmp" },
     { src = "https://github.com/nvim-lualine/lualine.nvim" },
     { src = "https://github.com/echasnovski/mini.files" },
 })
@@ -20,7 +19,11 @@ vim.cmd.colorscheme "gruvbox"
 -- treesitter
 require('nvim-treesitter.configs').setup {
     -- A list of parser names, or "all" (the five listed parsers should always be installed)
-    ensure_installed = { "javascript", "typescript", "python", "c", "lua", "vim", "vimdoc", "query", "htmldjango" },
+    ensure_installed = {
+        "javascript", "typescript", "python", "c", "lua",
+        "vim", "vimdoc", "query", "markdown", "markdown_inline",
+        "rust", "ruby", "go", "java", "cpp"
+    },
     sync_install = false,
     auto_install = true,
     ignore_install = {},
@@ -58,7 +61,7 @@ require("blink.cmp").setup({
         sources = {
             default = { 'lsp', 'path', 'snippets', 'buffer' },
         },
-        fuzzy = { implementation = "rust_prefered" }
+        fuzzy = { implementation = "prefer_rust" }
     },
     opts_extend = { "sources.default" }
 })
@@ -102,10 +105,6 @@ vim.keymap.set('n', '<leader>sb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>sh', builtin.help_tags, {})
 vim.keymap.set('n', '<leader>sq', builtin.quickfix, {})
 vim.keymap.set('n', '<leader>sk', builtin.keymaps, {})
-
--- supermaven
-
-require("supermaven-nvim").setup({})
 
 -- conform
 
