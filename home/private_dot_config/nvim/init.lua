@@ -1,1 +1,3 @@
-require("ashebanow.setup")
+require("options")
+require("keymaps")
+require("plugins")

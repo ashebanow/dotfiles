@@ -6,7 +6,11 @@ setopt histignorealldups sharehistory
 
 typeset -U path cdpath fpath manpath
 
+# set up completion
+fpath+=~/.zfunc
+
 # Use modern completion system
+
 autoload -Uz compinit
 compinit
 
@@ -72,6 +76,10 @@ if command -v bin &> /dev/null; then
   eval $(bin completion zsh)
 fi
 
+if command -v bob &> /dev/null; then
+  bob complete zsh > ~/.zfunc/_bob
+fi
+
 if command -v chezmoi &> /dev/null; then
   alias c='chezmoi'
   alias ca='chezmoi apply'
@@ -83,10 +91,6 @@ if command -v chezmoi &> /dev/null; then
   alias ce='chezmoi edit'
   alias cea='chezmoi edit --apply'
   alias ci='chezmoi init'
-fi
-
-if command -v podman &> /dev/null; then
-  export DOCKER_HOST="unix://$(podman machine inspect --format '{{ "{{" }}.ConnectionInfo.PodmanSocket.Path{{ "}}" }}')"
 fi
 
 if command -v delta &> /dev/null; then
@@ -206,6 +210,10 @@ fi
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init zsh)"
   alias cd='z'
+fi
+
+if command -v podman &> /dev/null; then
+  export DOCKER_HOST="unix://`podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}'`"
 fi
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main cursor)

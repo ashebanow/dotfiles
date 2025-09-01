@@ -1,3 +1,13 @@
-# Neovim from Scratch
+## Neovim 0.12 config
 
-This neovim configuration is taken from Jakob Westhoff's excellent configuration, with minor edits. See his [dotfiles](https://github.com/jakobwesthoff/dotfiles) for more info.
+This is a neovim 0.12 config which utilizes the new integrated package manager.
+
+The config is kept as small as possible.
+
+Original URL: https://github.com/SvenBroeckling/nvim-0.12-config
+
+### Ideas
+
+- Replace blink.cmp with integrated completion
+
+GPLv3

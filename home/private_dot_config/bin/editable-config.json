@@ -10,6 +10,16 @@
             "provider": "github",
             "package_path": "",
             "pinned": false
+        },
+        "/Users/ashebanow/.local/bin/bob": {
+            "path": "/Users/ashebanow/.local/bin/bob",
+            "remote_name": "bob",
+            "version": "v4.1.2",
+            "hash": "db6f2663f3cd332d36757261d2fb1911af5db35989189762db835c58b029422c",
+            "url": "https://github.com/MordechaiHadad/bob",
+            "provider": "github",
+            "package_path": "bob-macos-arm-openssl/bob",
+            "pinned": false
         }
     }
 }
