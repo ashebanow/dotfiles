@@ -20,6 +20,16 @@
             "provider": "github",
             "package_path": "bob-macos-arm-openssl/bob",
             "pinned": false
+        },
+        "/Users/ashebanow/.local/bin/lazyssh": {
+            "path": "/Users/ashebanow/.local/bin/lazyssh",
+            "remote_name": "lazyssh",
+            "version": "v0.2.0",
+            "hash": "eedfdc2972d53a0e75340f8c2d2ee4ed78743769346b49d1423f8a6e9d49d33a",
+            "url": "https://github.com/Adembc/lazyssh",
+            "provider": "github",
+            "package_path": "lazyssh",
+            "pinned": false
         }
     }
 }
