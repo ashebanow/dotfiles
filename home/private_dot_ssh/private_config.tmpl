@@ -1,49 +1,27 @@
-
-########################################################
-# Defaults
+# Managed by lazyssh
 
 Host *
-    Compression no
-    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
-    KeepAlive yes
-    ProxyCommand none
-    ForwardAgent no
-    ForwardX11 no
-    Port 22
     User ashebanow
+    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
 
-########################################################
-# Github config, used for signing and auth, not login
-
-Host github.com github
-    Hostname ssh.github.com
-    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/github_ed25519
-    Port 443
-    User git
-
-########################################################
-# Unifi equipment
-
-# this is the Cloud Key 2 controller
-Host unifi unifi.lan
-  # IdentityFile {{ .chezmoi.homeDir -}}/.ssh/cattivi_unifi
-  User ubnt
-
-########################################################
-# Servers, including IPMI/ILO
-
-Host storage
-    User root
+Host bergamot
+    User ashebanow
+    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
 
 Host calamansi
     User root
-    HostName 10.40.0.58
+    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
 
 Host reverse-proxy
     User root
 
-# Example ILO4 config - needed for storage, virt1, virt2, virt3
-# Host 192.168.86.68
-#   Ciphers 3des-cbc
-#   KexAlgorithms +diffie-hellman-group1-sha1
-#
+Host unifi
+    User ubnt
+
+Host storage
+    User root
+
+Host github
+    HostName ssh.github.com
+    User git
+    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/github_ed25519

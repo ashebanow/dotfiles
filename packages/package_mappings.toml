@@ -493,6 +493,20 @@ tags = [
 ]
 source_files = ["Brewfile.in"]
 
+[docker-buildx]
+description = "Docker CLI plugin for extended build capabilities with BuildKit"
+tags = [
+    "cat:cli-tool",
+    "cat:virtualization",
+    "os:linux",
+    "os:macos",
+    "pm:homebrew",
+    "priority:recommended",
+    "role:development",
+    "scope:extended"
+]
+source_files = ["Brewfile.in"]
+
 [docker-compose]
 description = "Isolated development environments using Docker"
 tags = [
@@ -1431,6 +1445,22 @@ tags = [
 ]
 source_files = ["Brewfile.in"]
 
+[lazyssh]
+description = "A simple terminal UI for managing SSH connections."
+tags = [
+    "cat:network",
+    "cat:terminal",
+    "os:linux",
+    "os:macos",
+    "pm:homebrew",
+    "priority:optional",
+    "role:headless",
+    "role:security",
+    "role:server",
+    "scope:workflow-specific"
+]
+source_files = ["Brewfile.in"]
+
 [lego]
 description = "Let's Encrypt client and ACME library"
 tags = [
@@ -2146,18 +2176,6 @@ tags = [
     "scope:workflow-specific"
 ]
 source_files = ["Brewfile.in"]
-
-[podman-desktop]
-description = "Browse, manage, inspect containers and images"
-tags = [
-    "cat:cli-tool",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "priority:optional",
-    "scope:workflow-specific"
-]
-source_files = ["Brewfile-darwin"]
 
 [polkit-gnome]
 tags = [
@@ -3090,7 +3108,7 @@ tags = [
 source_files = ["Archfile", "Aptfile"]
 
 [wishlist]
-description = "The SSH directory"
+description = "Single entrypoint for multiple SSH endpoints"
 tags = [
     "cat:network",
     "dist:arch",

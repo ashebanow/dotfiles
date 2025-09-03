@@ -1,0 +1,28 @@
+{
+  "bergamot": {
+    "tags": [
+      "mac",
+      "m4 mini"
+    ],
+    "last_seen": "2025-09-03T15:39:31-07:00",
+    "pinned_at": "2025-09-03T15:26:57-07:00",
+    "ssh_count": 2
+  },
+  "calamansi": {
+    "tags": [
+      "proxmox",
+      "ms-01",
+      "docker",
+      "homelab"
+    ],
+    "pinned_at": "2025-09-03T15:26:59-07:00"
+  },
+  "github.com": {
+    "tags": [
+      "git",
+      "external",
+      "saas",
+      "test"
+    ]
+  }
+}

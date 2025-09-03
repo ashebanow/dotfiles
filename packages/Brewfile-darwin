@@ -1,3 +1,4 @@
+tap "adembc/homebrew-tap"
 tap "charmbracelet/tap"
 tap "dhth/tap"
 tap "jesseduffield/lazydocker"
