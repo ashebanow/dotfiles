@@ -21,7 +21,8 @@ Host unifi
 Host storage
     User root
 
-Host github
+Host github.com github
     HostName ssh.github.com
+    Port 443
     User git
     IdentityFile {{ .chezmoi.homeDir -}}/.ssh/github_ed25519
