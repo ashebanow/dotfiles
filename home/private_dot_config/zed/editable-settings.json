@@ -51,8 +51,8 @@
     // Version of this setting.
     "default_profile": "ask",
     "default_model": {
-      "provider": "anthropic",
-      "model": "claude-sonnet-4-latest"
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
     },
     // Whether the agent is enabled.
     "enabled": true,
@@ -70,7 +70,7 @@
     // When enabled, the agent will stream edits.
     "stream_edits": false,
     // When enabled, agent edits will be displayed in single-file editors for review
-    "single_file_review": true,
+    "single_file_review": false,
     "enable_feedback": true,
     "notify_when_agent_waiting": "primary_screen"
   }
