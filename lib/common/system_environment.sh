@@ -17,7 +17,12 @@ function check_platform_type {
     else
         source /etc/os-release
 
-        if [[ $ID == "arch" || (-n $ID_LIKE && $ID_LIKE == "arch") ]]; then
+        if [[ $ID == "arch" || \
+              $ID == "cachyos" || \
+              $ID == "endeavouros" || \
+              $ID == "garuda" || \
+              $ID == "manjaro" || \
+              (-n $ID_LIKE && $ID_LIKE == "arch") ]]; then
             is_arch_like=true
             package_manager=yay
         fi

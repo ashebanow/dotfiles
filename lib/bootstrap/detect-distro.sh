@@ -43,7 +43,7 @@ detect_base_os() {
             BOOTSTRAP_IS_MACOS=true
             ;;
         "Linux")
-            BOOTSTRAP_OS="linux" 
+            BOOTSTRAP_OS="linux"
             BOOTSTRAP_IS_LINUX=true
             ;;
         *)
@@ -62,9 +62,9 @@ detect_linux_distro() {
     # Check /etc/os-release first (most modern systems)
     if [[ -f /etc/os-release ]]; then
         source /etc/os-release
-        
+
         case "${ID:-}" in
-            "arch"|"manjaro"|"endeavouros"|"garuda")
+            "arch"|"manjaro"|"endeavouros"|"garuda"|"cachyos")
                 BOOTSTRAP_DISTRO="arch"
                 BOOTSTRAP_IS_ARCH_LIKE=true
                 ;;
@@ -88,7 +88,7 @@ detect_linux_distro() {
                         BOOTSTRAP_IS_DEBIAN_LIKE=true
                         ;;
                     *"fedora"*|*"rhel"*)
-                        BOOTSTRAP_DISTRO="fedora" 
+                        BOOTSTRAP_DISTRO="fedora"
                         BOOTSTRAP_IS_FEDORA_LIKE=true
                         ;;
                     *)
@@ -196,7 +196,7 @@ EOF
 # Run detection if script is executed directly
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     detect_platform
-    
+
     # Output variables for eval by calling script
     if [[ "${1:-}" == "--export" ]]; then
         export_variables
