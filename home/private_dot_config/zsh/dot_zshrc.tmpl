@@ -213,7 +213,8 @@ if command -v zoxide &> /dev/null; then
 fi
 
 if command -v podman &> /dev/null; then
-  export DOCKER_HOST="unix://`podman machine inspect --format '{{.ConnectionInfo.PodmanSocket.Path}}'`"
+  # export DOCKER_HOST="unix://`podman machine inspect --format '\{\{.ConnectionInfo.PodmanSocket.Path\}\}'`"
+  export DOCKER_HOST="`podman info -f json |jq -r '.host.remoteSocket.path'`"
 fi
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main cursor)
