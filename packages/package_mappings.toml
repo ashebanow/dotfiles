@@ -10,18 +10,6 @@ tags = [
 ]
 source_files = ["Brewfile.in"]
 
-[act3]
-description = "Glance at the last 3 runs of your Github Actions"
-tags = [
-    "cat:cli-tool",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "priority:optional",
-    "scope:workflow-specific"
-]
-source_files = ["Brewfile.in"]
-
 [adobe-source-code-pro-fonts]
 tags = [
     "cat:cli-tool",
@@ -1446,10 +1434,8 @@ tags = [
 source_files = ["Brewfile.in"]
 
 [lazyssh]
-description = "A simple terminal UI for managing SSH connections."
 tags = [
     "cat:network",
-    "cat:terminal",
     "os:linux",
     "os:macos",
     "pm:homebrew",
@@ -1713,19 +1699,6 @@ tags = [
     "scope:workflow-specific"
 ]
 source_files = ["Archfile"]
-
-[neovim]
-description = "Ambitious Vim-fork focused on extensibility and agility"
-tags = [
-    "cat:editor",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "priority:recommended",
-    "role:development",
-    "scope:extended"
-]
-source_files = ["Brewfile.in"]
 
 ["net.davidotek.pupgui2"]
 tags = [
@@ -2697,18 +2670,6 @@ tags = [
 ]
 source_files = ["Brewfile.in", "Archfile"]
 
-[talosctl]
-description = "CLI for out-of-band management of Kubernetes nodes created by Talos"
-tags = [
-    "cat:cli-tool",
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "priority:optional",
-    "scope:workflow-specific"
-]
-source_files = ["Brewfile.in"]
-
 [thefuck]
 description = "Programmatically correct mistyped console commands"
 tags = [
@@ -3270,6 +3231,18 @@ tags = [
     "scope:workflow-specific"
 ]
 source_files = ["Archfile"]
+
+[youtube-music]
+description = "YouTube Music Desktop App"
+tags = [
+    "cat:cli-tool",
+    "os:linux",
+    "os:macos",
+    "pm:homebrew",
+    "priority:optional",
+    "scope:workflow-specific"
+]
+source_files = ["Brewfile.in"]
 
 [yq]
 description = "Process YAML, JSON, XML, CSV and properties documents from the CLI"

@@ -1,8 +1,7 @@
 tap "adembc/homebrew-tap"
 tap "charmbracelet/tap"
-tap "dhth/tap"
 tap "jesseduffield/lazydocker"
-tap "siderolabs/tap"
+tap "th-ch/youtube-music"
 
 
 # Homebrew casks
