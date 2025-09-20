@@ -60,7 +60,8 @@ _validate_and_normalize_path() {
 
     # Check if directory exists
     if [[ ! -d "$expanded_dir" ]]; then
-        echo "Error: Directory '$target_dir' does not exist" >&2
+        # normally a silent error since its very common across systems
+        [[ "$debug" == "true" ]] && echo "Debug: Directory '$target_dir' does not exist" >&2
         return 1
     fi
 
