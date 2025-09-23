@@ -12,7 +12,7 @@ Environment=DOTFILES={{.chezmoi.homeDir}}/.local/share/chezmoi
 Environment=BITWARDEN_EMAIL=ephemeral@example.com
 {{- else }}
 {{- if .personal }}
-Environment=BITWARDEN_EMAIL={{- bitwarden "item" "bitwarden-email" }}
+Environment=BITWARDEN_EMAIL={{- (bitwarden "item" "bitwarden-email").login.username }}
 {{- end }}
 {{- end }}
 ExecStart=%h/.local/bin/bw-session-manager ensure
