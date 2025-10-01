@@ -55,7 +55,9 @@ keybind                        = ctrl+shift+h=new_split:left
 keybind                        = ctrl+shift+j=new_split:down
 keybind                        = ctrl+shift+k=new_split:up
 keybind                        = ctrl+shift+l=new_split:right
-keybind                        = super+shift+enter=new_split:auto
+keybind                        = super+shift+2=new_split:auto
 keybind                        = super+shift+i=inspector:toggle
 keybind                        = super+shift+r=reload_config
 keybind                        = super+t=new_tab
+# this keybind is for Shift-Enter to work correctly in Claude Code:
+keybind                        = shift+enter=text:\x1b\r
