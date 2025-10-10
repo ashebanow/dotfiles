@@ -31,7 +31,7 @@ window-inherit-font-size        = true
 ###########################################################
 # LOOK & FEEL
 
-theme                           = dark:catppuccin-mocha,light:catppuccino-light
+theme                           = dark:Gruvbox Dark Hard,light:Gruvbox Light Hard
 
 adjust-cursor-thickness         = 3
 adjust-underline-position       = 3
@@ -46,7 +46,9 @@ background-blur-radius          = 20
 shell-integration              = zsh
 shell-integration-features     = no-cursor,sudo,title
 
-# Key bindings
+###########################################################
+# KEY BINDINGS
+
 keybind                        = ctrl+h=goto_split:left
 keybind                        = ctrl+j=goto_split:bottom
 keybind                        = ctrl+k=goto_split:top
