@@ -8,6 +8,10 @@
 # - Handles symbolic links intelligently
 # - Provides informative feedback
 
+# make sure we don't get included twice
+[[ -n "$_PATHS_HELPERS_INCLUDED" ]] && return
+_PATHS_HELPERS_INCLUDED=1
+
 # Internal helper: Get canonical path
 _get_canonical_path() {
     local path="$1"
