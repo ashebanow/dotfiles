@@ -84,7 +84,7 @@ if ! bin list |grep -q bob ; then
     bin install github.com/MordechaiHadad/bob
 fi
 
-if ! bin list |grep -q devcockpit ; then
+if "$os" == "darwin" && ! bin list |grep -q devcockpit ; then
     echo "Installing devcockpit from github.com/caioricciuti/dev-cockpit"
     bin install github.com/caioricciuti/dev-cockpit
 fi
