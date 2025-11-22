@@ -74,6 +74,9 @@ fi
 
 if command -v bin &> /dev/null; then
   eval $(bin completion zsh)
+  if [[ -x ~/.local/bin/setup-bin-tool.sh ]]; then
+    ~/.local/bin/setup-bin-tool.sh
+  fi
 fi
 
 if command -v bob &> /dev/null; then
