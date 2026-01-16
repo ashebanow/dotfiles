@@ -48,6 +48,7 @@ add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/.npm-global/bin"
 add_to_path "$HOME/go/bin"
 add_to_path "$HOME/.amp/bin"
+add_to_path "$HOME/.local/share/bob/nvim-bin"
 
 #############################################################################
 # Password/Secret Management
@@ -90,11 +91,4 @@ fi
 export SSH_AUTH_SOCK="{{- .chezmoi.homeDir -}}/.bitwarden-ssh-agent.sock"
 if [ ! -S "${SSH_AUTH_SOCK}" ]; then
   # print -P "%F{$warning_color}WARNING: No SSH Agent socket at: ${SSH_AUTH_SOCK}%f\n"
-fi
-
-########################################################################
-# BOB
-echo "setting up bob...."
-if [ -f "$HOME/.local/share/bob/env/env.sh" ]; then
-  . "$HOME/.local/share/bob/env/env.sh"
 fi
