@@ -80,6 +80,7 @@ bw_get_secret() {
   fi
 }
 
+echo "setting up bitwarden...."
 # Set up secrets that other tools expect (only if in interactive environment)
 if [[ -n "${DISPLAY:-}${SSH_TTY:-}" ]]; then
   export ZED_GITHUB_PERSONAL_ACCESS_TOKEN="$(bw_get_secret zed_github_access_token)"
@@ -93,6 +94,7 @@ fi
 
 ########################################################################
 # BOB
+echo "setting up bob...."
 if [ -f "$HOME/.local/share/bob/env/env.sh" ]; then
   . "$HOME/.local/share/bob/env/env.sh"
 fi
