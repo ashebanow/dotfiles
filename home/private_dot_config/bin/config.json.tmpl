@@ -1,4 +1,24 @@
 {
     "default_path": "{{ .chezmoi.homeDir }}/.local/bin",
-    "bins": {}
-}
+    "bins": {
+        "{{ .chezmoi.homeDir }}/.local/bin/bin": {
+            "path": "{{ .chezmoi.homeDir }}/.local/bin/bin",
+            "remote_name": "bin_0.24.2_darwin_arm64",
+            "version": "v0.24.2",
+            "hash": "e49ac70cab086e95e4d7ee447ad7f9167888f80a95ad0a6869a22852b133ab8b",
+            "url": "github.com/marcosnils/bin",
+            "provider": "github",
+            "package_path": "",
+            "pinned": false
+        },
+        "{{ .chezmoi.homeDir }}/.local/bin/bob": {
+            "path": "{{ .chezmoi.homeDir }}/.local/bin/bob",
+            "remote_name": "bob",
+            "version": "v4.1.5",
+            "hash": "680d44050d1f66e30a4078d330e4e93fc6f1a9204cd871062699741790fd8658",
+            "url": "github.com/MordechaiHadad/bob",
+            "provider": "github",
+            "package_path": "bob-macos-arm-openssl/bob",
+            "pinned": false
+        }
+    }}
