@@ -1,65 +1,51 @@
-# ghostty +show-config --default --docs
-# ghostty +list-themes
-# ghostty +list-fonts
+# Font Configuration
+font-size = 12
 
-###########################################################
-# Default shell
-# command = /home/linuxbrew/.linuxbrew/bin/zsh --login --interactive
-# command = /opt/homebrew/opt/zsh/bin/zsh --login --interactive
+# Window Configuration
+window-decoration = false
+window-padding-x = 12
+window-padding-y = 12
+background-opacity = 1.0
+background-blur-radius = 32
 
-###########################################################
-# FONTS
+# Cursor Configuration
+cursor-style = block
+cursor-style-blink = true
 
-# first we clear the font list
-font-family                     = ""
-font-family                     = "MonaspiceAr NFM"
-font-family                     = "MonaspiceArNerdFontMono"
-font-family                     = "SauceCodePro NFM"
-font-family                     = "SauceCodeProNerdFontMono"
-font-family                     = "Symbols Nerd Font Mono"
-font-family                     = "SymbolsNerdFontMono"
+# Scrollback
+scrollback-limit = 3023
 
-font-size                       = 14
-font-thicken                    = false
-freetype-load-flags             = no-hinting
-freetype-load-flags             = no-force-autohint
-window-inherit-font-size        = true
-# font-feature                    = calt
-# font-feature                    = dlig
-# font-feature                    = ss05
+# Terminal features
+mouse-hide-while-typing = true
+copy-on-select = false
+confirm-close-surface = false
 
-###########################################################
-# LOOK & FEEL
+# Disable annoying copied to clipboard
+app-notifications = no-clipboard-copy,no-config-reload
 
-theme                           = dark:Gruvbox Dark Hard,light:Gruvbox Light Hard
+# Key bindings for common actions
+#keybind = ctrl+c=copy_to_clipboard
+#keybind = ctrl+v=paste_from_clipboard
+keybind = ctrl+shift+n=new_window
+keybind = ctrl+t=new_tab
+keybind = ctrl+plus=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+zero=reset_font_size
 
-adjust-cursor-thickness         = 3
-adjust-underline-position       = 3
-bold-is-bright                  = true
-link-url                        = true
-macos-titlebar-proxy-icon       = hidden
-macos-titlebar-style            = tabs
-mouse-hide-while-typing         = true
-# window-theme                  = ghostty
-window-vsync                    = true
-background-blur-radius          = 20
-shell-integration              = zsh
-shell-integration-features     = no-cursor,sudo,title
+# Material 3 UI elements
+unfocused-split-opacity = 0.7
+unfocused-split-fill = #44464f
 
-###########################################################
-# KEY BINDINGS
+# Tab configuration
+gtk-titlebar = false
 
-keybind                        = ctrl+h=goto_split:left
-keybind                        = ctrl+j=goto_split:bottom
-keybind                        = ctrl+k=goto_split:top
-keybind                        = ctrl+l=goto_split:right
-keybind                        = ctrl+shift+h=new_split:left
-keybind                        = ctrl+shift+j=new_split:down
-keybind                        = ctrl+shift+k=new_split:up
-keybind                        = ctrl+shift+l=new_split:right
-keybind                        = super+shift+2=new_split:auto
-keybind                        = super+shift+i=inspector:toggle
-keybind                        = super+shift+r=reload_config
-keybind                        = super+t=new_tab
-# this keybind is for Shift-Enter to work correctly in Claude Code:
-keybind                        = shift+enter=text:\x1b\r
+# Shell integration
+shell-integration = detect
+shell-integration-features = cursor,sudo,title,no-cursor
+keybind = shift+enter=text:\n
+
+# Rando stuff
+gtk-single-instance = true
+
+# Dank color generation
+theme = dankcolors
