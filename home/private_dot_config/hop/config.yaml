@@ -1,0 +1,61 @@
+version: 1
+defaults:
+    user: ashebanow
+    port: 22
+    identity_file: ~/.ssh/id_ed25519
+connections:
+    - id: aiy-aiy-aiy
+      host: aiy-aiy-aiy
+      user: ashebanow
+      port: 22
+      project: "desktops"
+      env: ""
+      identity_file: ""
+      tags: [windows]
+      options: {}
+    - id: bergamot
+      host: bergamot
+      user: ashebanow
+      port: 22
+      project: "desktops"
+      env: ""
+      identity_file: ""
+      tags: []
+      options: {}
+    - id: calamansi
+      host: calamansi
+      user: ashebanow
+      port: 22
+      project: "desktops"
+      env: ""
+      identity_file: ""
+      tags: []
+      options: {}
+    - id: yuzu
+      host: yuzu
+      user: ashebanow
+      port: 22
+      project: "desktops"
+      env: ""
+      identity_file: ""
+      tags: []
+      options: {}
+    - id: unifi
+      host: unifi
+      user: ubnt
+      port: 22
+      project: "infrastructure"
+      env: ""
+      identity_file: ""
+      tags: []
+      options: {}
+    - id: storage
+      host: storage
+      user: root
+      port: 22
+      project: "infrastructure"
+      env: ""
+      identity_file: ""
+      tags: []
+      options: {}
+groups: {}
