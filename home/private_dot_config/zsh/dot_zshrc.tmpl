@@ -273,3 +273,6 @@ source "$HOME/.local/bin/extract"
 if command -v fastfetch &> /dev/null; then
   fastfetch
 fi
+
+# worktrunk
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi
