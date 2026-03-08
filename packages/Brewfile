@@ -5,7 +5,6 @@ tap "th-ch/youtube-music"
 
 # Homebrew packages
 brew "act"
-brew "antidote"
 brew "atuin"
 brew "bandwhich"
 brew "bat"

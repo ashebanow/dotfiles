@@ -34,18 +34,6 @@ description = "TODO: Add description for adobe-source-code-pro-fonts"
 custom-install = ""
 tags = ["cat:cli-tool", "priority:optional", "scope:workflow-specific"]
 
-[antidote]
-arch-pkg = ""
-apt-pkg = ""
-fedora-pkg = ""
-flatpak-pkg = ""
-brew-tap = ""
-prefer_flatpak = false
-priority = ""
-description = "TODO: Add description for antidote"
-custom-install = ""
-tags = ["priority:optional", "scope:workflow-specific"]
-
 ["app.ytmdesktop.ytmdesktop"]
 arch-pkg = ""
 apt-pkg = ""
@@ -3441,4 +3429,3 @@ priority = ""
 description = "TODO: Add description for zsh-completions"
 custom-install = ""
 tags = ["cat:shell", "cat:terminal", "cat:cli-tool", "priority:essential", "scope:core"]
-

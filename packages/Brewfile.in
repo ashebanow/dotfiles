@@ -4,7 +4,6 @@ tap "jesseduffield/lazydocker"
 tap "th-ch/youtube-music"
 brew "adembc/homebrew-tap/lazyssh"
 brew "act"
-brew "antidote"
 brew "atuin", restart_service: :changed
 brew "bandwhich"
 brew "bat"

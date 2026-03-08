@@ -37,18 +37,6 @@
       "scope:workflow-specific"
     ]
   },
-  "antidote": {
-    "_homebrew_timestamp": 1758222685.999159,
-    "_repology_timestamp": 0,
-    "_timestamp": 1758222685.9991622,
-    "tags": [
-      "pm:homebrew",
-      "os:macos",
-      "os:linux",
-      "priority:optional",
-      "scope:workflow-specific"
-    ]
-  },
   "app.ytmdesktop.ytmdesktop": {
     "_homebrew_timestamp": 1758223179.036918,
     "_repology_timestamp": 0,

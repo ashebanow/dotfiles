@@ -20,17 +20,6 @@ tags = [
 ]
 source_files = ["Archfile"]
 
-[antidote]
-description = "Plugin manager for zsh, inspired by antigen and antibody"
-tags = [
-    "os:linux",
-    "os:macos",
-    "pm:homebrew",
-    "priority:optional",
-    "scope:workflow-specific"
-]
-source_files = ["Brewfile.in"]
-
 ["app.ytmdesktop.ytmdesktop"]
 tags = [
     "os:linux",
@@ -3371,4 +3360,3 @@ tags = [
     "scope:core"
 ]
 source_files = ["Archfile"]
-
