@@ -30,8 +30,8 @@
 
 {{- if not $ephemeral -}}
 {{-   if eq $hostname "bergamot" -}}
-{{-     $headless = true -}}
-{{-     $personal = false -}}
+{{-     $headless = false -}}
+{{-     $personal = true -}}
 {{-   else if eq $hostname "calamansi" -}}
 {{-     $headless = true -}}
 {{-     $personal = false -}}
