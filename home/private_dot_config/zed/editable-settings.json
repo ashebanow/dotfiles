@@ -7,7 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   // Vim settings
   "vim": {
     "toggle_relative_line_numbers": true
@@ -23,7 +23,6 @@
   },
   "context_servers": {
     "mcp-server-github": {
-      "source": "extension",
       "settings": {
         "github_personal_access_token": "$ZED_GITHUB_PERSONAL_ACCESS_TOKEN"
       }
@@ -66,7 +65,6 @@
     "default_width": 640,
     // Default height when the agent panel is docked to the bottom.
     "default_height": 320,
-    "always_allow_tool_actions": false,
     // When enabled, the agent will stream edits.
     "stream_edits": false,
     // When enabled, agent edits will be displayed in single-file editors for review
