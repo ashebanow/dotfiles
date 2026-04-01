@@ -6,12 +6,12 @@ systems.
 
 Currntly in the process of rearchitecting:
 
-* Switch to using plain Nix or even pixi. Pixi works better for
-some of these scenarios, since it doesn't require Home Manager to
-publish applications.
-* Rely on native package manager where possible for basic productivity
-tools. That means we need to filter the Brewfile(s) to omit things that
-are installed by the native package manager.
+- Switch to using plain Nix or even pixi. Pixi works better for
+  some of these scenarios, since it doesn't require Home Manager to
+  publish applications.
+- Rely on native package manager where possible for basic productivity
+  tools. That means we need to filter the Brewfile(s) to omit things that
+  are installed by the native package manager.
 
 Also note that the instructions aren't fully up to date. As I add
 more automation steps I'll make it all current and consistent.
@@ -26,13 +26,13 @@ more automation steps I'll make it all current and consistent.
 
 4. Click the `Show Apps` button in the doc, run `System Update`.
 
-    Alternatively, run `ujust update`.
+   Alternatively, run `ujust update`.
 
-    IRun `ujust bazzite-cli` or `ujust bluefin-cli` as appropriate.
+   IRun `ujust bazzite-cli` or `ujust bluefin-cli` as appropriate.
 
-    Reboot.
+   Reboot.
 
-6. Login to bitwarden-cli (`bw`) and github-cli ('gh')
+5. Login to bitwarden-cli (`bw`) and github-cli ('gh')
 
    ```bash
     bw login        # enter account email and master password
@@ -41,7 +41,7 @@ more automation steps I'll make it all current and consistent.
    After the login succeeds, copy the "export BW_SESSION=" line and then
    paste it into the terminal.
 
-7. To turn off password entry when using sudo, run the `sudo visudo` command, then search for the line that looks like:
+6. To turn off password entry when using sudo, run the `sudo visudo` command, then search for the line that looks like:
 
    ```bash
    #%wheel         ALL = (ALL) NOPASSWD: ALL
@@ -49,43 +49,43 @@ more automation steps I'll make it all current and consistent.
 
    Uncoment that line, then comment the one above it that says `ALL` instead of `NOPASSWORD: ALL`. Save and exit the editor.
 
-8. Copy ssh folder to your home directory. Set the permissions properly:
-    * the .ssh directory and the hosts directory should be 700
-    * all .pub files should be mode 644
-    * the `allowed_signers`, `authorized_keys`, `config`, and `known_hosts`
-      files should be 600
-    * all other files should be 400
+7. Copy ssh folder to your home directory. Set the permissions properly:
+   - the .ssh directory and the hosts directory should be 700
+   - all .pub files should be mode 644
+   - the `allowed_signers`, `authorized_keys`, `config`, and `known_hosts`
+     files should be 600
+   - all other files should be 400
 
-9. Install dotfiles:
+8. Install dotfiles:
 
-    ```bash
-    git clone git@github.com:ashebanow/dotfiles.git ~/.local/share/chezmoi
-    cd ~/.local/share/chezmoi
-    ./install.sh
-    ```
+   ```bash
+   git clone git@github.com:ashebanow/dotfiles.git ~/.local/share/chezmoi
+   cd ~/.local/share/chezmoi
+   ./install.sh
+   ```
 
-    You should also create our Development tree:
+   You should also create our Development tree:
 
-    ```bash
-    mkdir -p Development/{ricing,homelab,education}
-    mkdir -p Development/homelab/homelab-cattivi
-    cd Development/homelab/homelab-cattivi
-    git clone git@github.com:ashebanow/homelab.git main
-    cd main
-    git worktree ../lxc # as needed for active worktrees
-    ```
+   ```bash
+   mkdir -p Development/{ricing,homelab,education}
+   mkdir -p Development/homelab/homelab-cattivi
+   cd Development/homelab/homelab-cattivi
+   git clone git@github.com:ashebanow/homelab.git main
+   cd main
+   git worktree ../lxc # as needed for active worktrees
+   ```
 
-10. Run `ujust setup-luks-tpm-unlock` if you used data encryption above.
+9. Run `ujust setup-luks-tpm-unlock` if you used data encryption above.
 
-11. Run `gh auth login` to setup github. You'll need your ssh key from above (which may or may not be github specific) and an auth token. I keep mine in bitwarden.
+10. Run `gh auth login` to setup github. You'll need your ssh key from above (which may or may not be github specific) and an auth token. I keep mine in bitwarden.
 
-12. Setup Tailscale
+11. Setup Tailscale
 
     ```bash
     sudo tailscale up --ssh --accept-routes
     ```
 
-13. Create a distrobox instance. I use ubuntu to get coverage on both fedora and ubuntu stuff:
+12. Create a distrobox instance. I use ubuntu to get coverage on both fedora and ubuntu stuff:
 
     ```bash
     ujust distrobox-assemble
@@ -100,13 +100,13 @@ more automation steps I'll make it all current and consistent.
     exit     # to leave distrobox
     ```
 
-14. Initialize bat themes:
+13. Initialize bat themes:
 
     ```bash
     bat cache --build
     ```
 
-15. Reboot one last time, and you should have a basic desktop setup.
+14. Reboot one last time, and you should have a basic desktop setup.
 
 ## Examples of use of Bitwarden in chezmoi
 
@@ -126,7 +126,6 @@ github_public = {{ (bitwarden "github_ssh_key" "sshKey").publicKey }}
 
 bw get item "github_ssh_key" --raw | jq -r '.sshKey.publicKey'
 
-
 ## Linux Setup Instructions
 
 THESE ARE OLD, RANDOM NOTES FROM A LAND BEFORE TIME. IGNORE.
@@ -144,7 +143,7 @@ THESE ARE OLD, RANDOM NOTES FROM A LAND BEFORE TIME. IGNORE.
   sudo pacman -Syu yay
   pacman -Syu atuin bat coreutils curl eza fd fzf \
       github-cli git git-delta gnupg \
-      ripgrep tmux ugrep wget xz zoxide zsh
+      ripgrep television tmux ugrep wget xz zsh
   ```
 - use the Ventoy USB key to get ssh secrets & config from 'ssh' folder. Make sure you fix the permissions after the copy:
   ```bash
@@ -241,7 +240,6 @@ Here are the GitHub URLs for each Development/ subdirectory:
 ./homelab/nix-config: https://github.com/ashebanow/nix-config.git
 ```
 
-
 ### Proxmox
 
 #### New LXCs
@@ -251,7 +249,6 @@ Install, ideally via community script.
 Install tailscale in most cases, but not for things like iVentoy
 
 Add authorized_keys file containing our ssh public key.
-
 
 #### Add NAS mounts
 
@@ -278,8 +275,8 @@ Now add the mount of the ISOs folder, replacing the '108' in the command line wi
 pct set 108 -mp0 /mnt/storage-isos,mp=/mnt/storage-isos
 ```
 
-
 ## Misc Apps - Rough Notes
+
 distrobox
 
 atuin:
