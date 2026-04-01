@@ -11,12 +11,20 @@
     "bindings": {
       // "shift shift": "file_finder::Toggle"
       // "cmd-alt-c": ["agent::NewExternalAgentThread", { "agent": "claude_code" }]
+      "ctrl-p": [
+        "task::Spawn",
+        { "task_name": "Television File Finder", "reveal_target": "center" },
+      ],
     },
   },
   {
     "context": "Editor",
     "bindings": {
       // "j k": ["workspace::SendKeystrokes", "escape"]
+      "ctrl-p": [
+        "task::Spawn",
+        { "task_name": "Television File Finder", "reveal_target": "center" },
+      ],
     },
   },
 ]
