@@ -43,3 +43,7 @@ shell-integration-features     = cursor,sudo,title,no-cursor
 
 # this keybind is for Shift-Enter to work correctly in Claude Code:
 keybind                        = shift+enter=text:\x1b\r
+
+# for oh-my-pi:
+keybind = alt+backspace=text:\x1b\x7f
+#keybind = shift+enter=text:\n
