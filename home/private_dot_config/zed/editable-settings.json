@@ -7,6 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
   "relative_line_numbers": "enabled",
   // Vim settings
   "vim": {
@@ -42,7 +47,7 @@
     "font_size": 16
   },
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "Gruvbox Light Hard",
     "dark": "Gruvbox Dark Hard"
   },
