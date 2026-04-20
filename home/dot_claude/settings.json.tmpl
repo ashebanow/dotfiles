@@ -5,10 +5,10 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node \"$HOME/.claude/hooks/gsd-check-update.js\"",
-          },
-        ],
-      },
+            "command": "node \"$HOME/.claude/hooks/gsd-check-update.js\""
+          }
+        ]
+      }
     ],
     "PreToolUse": [
       {
@@ -16,24 +16,24 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/ashebanow/.claude/hooks/rtk-rewrite.sh",
+            "command": "/Users/ashebanow/.claude/hooks/rtk-rewrite.sh"
           },
           {
             "type": "command",
-            "command": "~/.claude/hooks/stash_command.sh",
-          },
-        ],
-      },
+            "command": "~/.claude/hooks/stash_command.sh"
+          }
+        ]
+      }
     ],
     "PostToolUse": [
       {
         "hooks": [
           {
             "type": "command",
-            "command": "node \"/Users/ashebanow/.claude/hooks/gsd-context-monitor.js\"",
-          },
-        ],
-      },
+            "command": "node \"/Users/ashebanow/.claude/hooks/gsd-context-monitor.js\""
+          }
+        ]
+      }
     ],
     "Notification": [
       {
@@ -41,10 +41,10 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/notify.sh needs_input",
-          },
-        ],
-      },
+            "command": "~/.claude/hooks/notify.sh needs_input"
+          }
+        ]
+      }
     ],
     "Stop": [
       {
@@ -52,49 +52,48 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/hooks/stash_command.sh",
-          },
-        ],
-      },
-    ],
+            "command": "~/.claude/hooks/stash_command.sh"
+          }
+        ]
+      }
+    ]
   },
   "sandbox": {
     "enabled": true,
-    "autoAllowBashIfSandboxed": true,
+    "autoAllowBashIfSandboxed": true
   },
   "permissions": {
     "deny": [
       "Read(.env*)",
       "Read(secrets/**)",
       "Read(~/.ssh/**)",
-      "Read(~/.aws/**)",
-    ],
+      "Read(~/.aws/**)"
+    ]
   },
   "statusLine": {
     "type": "command",
-    "command": "node \"$HOME/.claude/hooks/gsd-statusline.js\"",
+    "command": "node \"$HOME/.claude/hooks/gsd-statusline.js\""
   },
   "env": {
-    // TODO: extract this from Bitwarden using chezmoi template:
-    // "ANTHROPIC_AUTH_TOKEN": "{{- (bitwarden "item" "minimax API Key").notes -}}",
+    "ANTHROPIC_AUTH_TOKEN": "{{- (bitwarden "item" "minimax API Key").notes -}}",
+    "ANTHROPIC_BASE_URL": "https://api.minimax.io/anthropic",
+    "API_TIMEOUT_MS": "3000000",
+    "ANTHROPIC_MODEL": "MiniMax-M2.7-highspeed",
+    "ANTHROPIC_SMALL_FAST_MODEL": "MiniMax-M2.7-highspeed",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "MiniMax-M2.7-highspeed",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "MiniMax-M2.7-highspeed",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "MiniMax-M2.7-highspeed",
 
-    // "ANTHROPIC_BASE_URL": "https://api.minimax.io/anthropic",
-    // "API_TIMEOUT_MS": "3000000",
-    // "ANTHROPIC_MODEL": "MiniMax-M2.7-highspeed",
-    // "ANTHROPIC_SMALL_FAST_MODEL": "MiniMax-M2.7-highspeed",
-    // "ANTHROPIC_DEFAULT_SONNET_MODEL": "MiniMax-M2.7-highspeed",
-    // "ANTHROPIC_DEFAULT_OPUS_MODEL": "MiniMax-M2.7-highspeed",
-    // "ANTHROPIC_DEFAULT_HAIKU_MODEL": "MiniMax-M2.7-highspeed"
-    // "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1,
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1,
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
-    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0",
+    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0"
   },
   "enabledPlugins": {
     "pyright-lsp@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
-    "rust-analyzer-lsp@claude-plugins-official": true,
+    "rust-analyzer-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
-  "skipDangerousModePermissionPrompt": true,
+  "skipDangerousModePermissionPrompt": true
 }
