@@ -54,6 +54,11 @@ export MANPAGER='nvim +Man!'
 # MANUAL INITIALIZATION
 # -----------------------------------------------------
 
+{{ if eq .chezmoi.os "darwin" }}
+# pinentry, needed for rbw
+alias pinentry='pinentry-mac'
+{{- end }}
+
 ## NOTE: that the bling here is designed to be run from bash OR zsh.
 ### bling.sh source start
 test -f /usr/share/ublue-os/bluefin-cli/bling.sh && source /usr/share/ublue-os/bluefin-cli/bling.sh
