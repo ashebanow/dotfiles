@@ -7,31 +7,53 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "auto_install_extensions": {
+    "catppuccin": true,
+    "catppuccin-icons": true,
+    "dockerfile": true,
+    "docker-compose": true,
+    "gem": true,
+    "golangci-lint": true,
+    "html": true,
+    "java": true,
+    "jinja2": true,
+    "kdl": true,
+    "lua": true,
+    "make": true,
+    "mcp-server-github": true,
+    "nix": true,
+    "proto": true,
+    "ruby": true,
+    "rust": true,
+    "sql": true,
+    "svelte": true,
+    "toml": true,
+  },
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",
-    "dark": "Zed (Default)"
+    "dark": "Catppuccin Mocha",
   },
   "relative_line_numbers": "enabled",
   // Vim settings
   "vim": {
-    "toggle_relative_line_numbers": true
+    "toggle_relative_line_numbers": true,
   },
   "gutters": {
-    "min_line_number_digits": 3
+    "min_line_number_digits": 3,
   },
   "languages": {
     "Markdown": {
       "format_on_save": "on",
-      "remove_trailing_whitespace_on_save": true
-    }
+      "remove_trailing_whitespace_on_save": true,
+    },
   },
   "context_servers": {
     "mcp-server-github": {
       "settings": {
-        "github_personal_access_token": "$ZED_GITHUB_PERSONAL_ACCESS_TOKEN"
-      }
-    }
+        "github_personal_access_token": "$ZED_GITHUB_PERSONAL_ACCESS_TOKEN",
+      },
+    },
   },
   "base_keymap": "VSCode",
   "vim_mode": true,
@@ -44,19 +66,19 @@
   "terminal": {
     "font_family": "SauceCodePro Nerd Font",
     "font_fallbacks": ["Symbols Nerd Font"],
-    "font_size": 16
+    "font_size": 16,
   },
   "theme": {
     "mode": "dark",
     "light": "Gruvbox Light Hard",
-    "dark": "Gruvbox Dark Hard"
+    "dark": "Gruvbox Dark Hard",
   },
   "agent": {
     // Version of this setting.
     "default_profile": "ask",
     "default_model": {
       "provider": "zed.dev",
-      "model": "claude-sonnet-4"
+      "model": "claude-sonnet-4",
     },
     // Whether the agent is enabled.
     "enabled": true,
@@ -75,6 +97,6 @@
     // When enabled, agent edits will be displayed in single-file editors for review
     "single_file_review": false,
     "enable_feedback": true,
-    "notify_when_agent_waiting": "primary_screen"
-  }
+    "notify_when_agent_waiting": "primary_screen",
+  },
 }

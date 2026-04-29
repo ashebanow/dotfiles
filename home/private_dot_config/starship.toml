@@ -2,6 +2,7 @@
 
 format = """
 [](fg:green)\
+${env_var.ZMX_SESSION}\
 $os\
 $username\
 $hostname\
@@ -14,17 +15,19 @@ $directory\
 $git_branch\
 $git_status\
 [ ](fg:pink)\
-[](fg:blue)\
-${custom.nixlang}\
-$pixi\
-$ruby\
-$rust\
-$golang\
-$nodejs\
-$python\
-$c\
-[ ](fg:blue)\
 $line_break$character"""
+
+# languages section
+# [](fg:blue)\
+# ${custom.nixlang}\
+# $pixi\
+# $ruby\
+# $rust\
+# $golang\
+# $nodejs\
+# $python\
+# $c\
+# [ ](fg:blue)\
 
 palette = 'catppuccin_mocha'
 
@@ -93,6 +96,12 @@ style = "bg:green fg:crust"
 trim_at = '.'
 disabled = false
 format = '[@$hostname ]($style)'
+
+[env_var.ZMX_SESSION]
+symbol = " "
+format = "[$symbol$env_value ]($style)"
+description = "zmx session name"
+style = "bg:green fg:crust"
 
 [shell]
 disabled = false

@@ -215,6 +215,10 @@ if command -v tmux &> /dev/null; then
 {{ end }}
 fi
 
+if command -v zmx &> /dev/null; then
+  eval "$(zmx completions zsh)"
+fi
+
 # if command -v zoxide &> /dev/null; then
 #   eval "$(zoxide init zsh)"
 #   alias cd='z'
@@ -279,10 +283,10 @@ source "$HOME/.local/bin/extract"
 
 . "$HOME/.cargo/env"
 
-#show fastfetch info on startup
-if command -v fastfetch &> /dev/null; then
-  fastfetch
-fi
+# show fastfetch info on startup
+# if command -v fastfetch &> /dev/null; then
+#   fastfetch
+# fi
 
 # worktrunk
 if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init zsh)"; fi

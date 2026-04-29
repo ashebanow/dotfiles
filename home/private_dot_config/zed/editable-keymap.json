@@ -11,6 +11,7 @@
     "bindings": {
       // "shift shift": "file_finder::Toggle"
       // "cmd-alt-c": ["agent::NewExternalAgentThread", { "agent": "claude_code" }]
+      // "secondary-p": [
       "ctrl-p": [
         "task::Spawn",
         { "task_name": "Television File Finder", "reveal_target": "center" },
