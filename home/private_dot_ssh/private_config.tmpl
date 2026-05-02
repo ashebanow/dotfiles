@@ -8,12 +8,33 @@ Include ~/.orbstack/ssh/config
 Host *
     User ashebanow
     IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
+    ControlMaster auto
+    ControlPath ~/.ssh/controlmaster/%r@%h:%p
+    ControlPersist yes
 
-Host bergamot
+Host bergamot berg
     User ashebanow
     IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
 
-Host calamansi
+Host miraclemax mm
+    User ashebanow
+    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
+
+# this style of alias allows you to connect directly to a zmx session
+# Host mm.*
+#    HostName miraclemax
+#    RemoteCommand zmx attach %k
+#    RequestTTY yes
+
+Host aibot
+    User ashebanow
+    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
+
+Host limon li
+    User ashebanow
+    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
+
+Host calamansi cala
     User root
     IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
 
