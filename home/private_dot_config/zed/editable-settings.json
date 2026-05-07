@@ -7,6 +7,32 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "language_models": {
+    "openai_compatible": {
+      "MiniMax": {
+        "api_url": "https://api.minimax.io/v1",
+        "available_models": [
+          {
+            "name": "MiniMax-M2.7-highspeed",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false
+            }
+          }
+        ]
+      }
+    },
+    "lmstudio": {
+      "api_url": "http://localhost:1234/api/v0"
+    }
+  },
   "project_panel": {
     "dock": "right"
   },
@@ -39,34 +65,28 @@
     "rust": true,
     "sql": true,
     "svelte": true,
-    "toml": true,
+    "toml": true
   },
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",
-    "dark": "Catppuccin Mocha",
+    "dark": "Catppuccin Mocha"
   },
   "relative_line_numbers": "enabled",
   // Vim settings
   "vim": {
-    "toggle_relative_line_numbers": true,
+    "toggle_relative_line_numbers": true
   },
   "gutters": {
-    "min_line_number_digits": 3,
+    "min_line_number_digits": 3
   },
   "languages": {
     "Markdown": {
       "format_on_save": "on",
-      "remove_trailing_whitespace_on_save": true,
-    },
+      "remove_trailing_whitespace_on_save": true
+    }
   },
-  "context_servers": {
-    "mcp-server-github": {
-      "settings": {
-        "github_personal_access_token": "$ZED_GITHUB_PERSONAL_ACCESS_TOKEN",
-      },
-    },
-  },
+  "context_servers": {},
   "base_keymap": "VSCode",
   "vim_mode": true,
   "ui_font_size": 16,
@@ -78,20 +98,20 @@
   "terminal": {
     "font_family": "SauceCodePro Nerd Font",
     "font_fallbacks": ["Symbols Nerd Font"],
-    "font_size": 16,
+    "font_size": 16
   },
   "theme": {
     "mode": "dark",
     "light": "Gruvbox Light Hard",
-    "dark": "Gruvbox Dark Hard",
+    "dark": "Gruvbox Dark Hard"
   },
   "agent": {
     // Version of this setting.
     "default_profile": "ask",
     "default_model": {
       "enable_thinking": true,
-      "provider": "google",
-      "model": "gemini-2.5-flash",
+      "provider": "MiniMax",
+      "model": "MiniMax-M2.7-highspeed"
     },
     // Whether the agent is enabled.
     "enabled": true,
@@ -110,6 +130,6 @@
     // When enabled, agent edits will be displayed in single-file editors for review
     "single_file_review": false,
     "enable_feedback": true,
-    "notify_when_agent_waiting": "primary_screen",
-  },
+    "notify_when_agent_waiting": "primary_screen"
+  }
 }

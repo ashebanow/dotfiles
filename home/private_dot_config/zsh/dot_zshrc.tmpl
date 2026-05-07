@@ -228,6 +228,8 @@ if command -v zmx &> /dev/null; then
   short_host_names[yuzu]="yuzu"
   current_short_host_name="${short_host_names[`hostname -s`]:=`hostname -s`}"
   export ZMX_SESSION_PREFIX="${current_short_host_name}."
+
+  alias ash="autossh -M 0 -q"
 fi
 
 # if command -v zoxide &> /dev/null; then
