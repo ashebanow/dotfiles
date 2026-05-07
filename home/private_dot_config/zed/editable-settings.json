@@ -89,8 +89,9 @@
     // Version of this setting.
     "default_profile": "ask",
     "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-sonnet-4",
+      "enable_thinking": true,
+      "provider": "google",
+      "model": "gemini-2.5-flash",
     },
     // Whether the agent is enabled.
     "enabled": true,

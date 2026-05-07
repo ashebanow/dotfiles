@@ -1,0 +1,63 @@
+on bergamot:
+============
+
+brew uninstallahmedelgabri/git-wt/git-wt \
+siderolabs/tap/talosctl \
+ansible \
+oh-my-posh
+
+brew install age \
+cask \
+wishlist \
+code-server \
+cosign \
+docker-credential-helper \
+git \
+go \
+icu4c@77 \
+lazydocker \
+kind \
+make \
+minisign \
+oven-sh/bun/bun \
+pinentry-mac \
+pipx \
+rbw \
+ripgrep \
+rtk \
+shared-mime-info \
+sops \
+tokei \
+vjeantet/tap/alerter \
+worktrunk \
+xorriso
+
+On miraclemax:
+==============
+
+brew install anomalyco/tap/opencode \
+cargo-llvm-cov \
+cfssl \
+charmbracelet/tap/charm \
+charmbracelet/tap/crush \
+copyparty \
+docker-buildx \
+docker-compose \
+gofumpt \
+golangci-lint \
+gopls \
+libtool \
+llvm@15 \
+postgresql@17 \
+pre-commit \
+prettier \
+procs \
+python-lsp-server \
+rumdl \
+rust-analyzer \
+rustup \
+tree \
+tree-sitter \
+tree-sitter-cli \
+trivy \
+typescript-language-server
