@@ -1,10 +1,5 @@
 # Managed by lazyssh
 
-# Added by OrbStack: 'orb' SSH host for Linux machines
-# This only works if it's at the top of ssh_config (before any Host blocks).
-# This won't be added again if you remove it.
-Include ~/.orbstack/ssh/config
-
 Host *
     User ashebanow
     IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
@@ -13,30 +8,29 @@ Host *
     ControlPersist yes
 
 Host bergamot berg
-    User ashebanow
-    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
+
+Host berg.*
+    HostName bergamot
+    RemoteCommand zmx attach %k
+    RequestTTY yes
 
 Host miraclemax mm
-    User ashebanow
-    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
 
-# this style of alias allows you to connect directly to a zmx session
-# Host mm.*
-#    HostName miraclemax
-#    RemoteCommand zmx attach %k
-#    RequestTTY yes
+Host mm.*
+    HostName miraclemax
+    RemoteCommand zmx attach %k
+    RequestTTY yes
 
 Host aibot
-    User ashebanow
-    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
+
+Host aibot.*
+    HostName aibot
+    RemoteCommand zmx attach %k
+    RequestTTY yes
 
 Host limon li
-    User ashebanow
-    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
 
 Host calamansi cala
-    User root
-    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
 
 Host reverse-proxy
     User root
