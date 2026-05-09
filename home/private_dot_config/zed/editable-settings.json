@@ -33,6 +33,7 @@
       "api_url": "http://localhost:1234/api/v0"
     }
   },
+  "cli_default_open_behavior": "existing_window",
   "project_panel": {
     "dock": "right"
   },
