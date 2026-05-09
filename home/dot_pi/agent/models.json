@@ -1,0 +1,35 @@
+{
+  "providers": {
+    "aperture": {
+      "baseUrl": "https://aperture/v1",
+      "apiKey": "MY_API_KEY",
+      "api": "openai-completions",
+      "models": [
+        {
+          "id": "deepseek-v4-flash",
+          "reasoning": true
+        },
+        {
+          "id": "deepseek-v4-pro",
+          "reasoning": true
+        },
+        {
+          "id": "claude-opus-4-7",
+          "reasoning": true
+        },
+        {
+          "id": "claude-sonnet-4-6",
+          "reasoning": true
+        },
+        {
+          "id": "claude-haiku-4-5",
+          "reasoning": false
+        },
+        {
+          "id": "MiniMax-2.7-highspeed",
+          "reasoning": true
+        }
+      ]
+    }
+  }
+}

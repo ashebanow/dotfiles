@@ -1,0 +1,6 @@
+{
+  "lastChangelogVersion": "0.74.0",
+  "defaultProvider": "aperture",
+  "defaultModel": "MiniMax-2.7-highspeed",
+  "defaultThinkingLevel": "medium"
+}
