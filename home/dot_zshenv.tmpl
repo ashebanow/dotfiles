@@ -91,3 +91,6 @@ export SSH_AUTH_SOCK="{{- .chezmoi.homeDir -}}/.bitwarden-ssh-agent.sock"
 if [ ! -S "${SSH_AUTH_SOCK}" ]; then
   # print -P "%F{$warning_color}WARNING: No SSH Agent socket at: ${SSH_AUTH_SOCK}%f\n"
 fi
+
+export MINIMAX_API_KEY="$(bw get notes 'minimax API Key')"
+export MINIMAX_API_HOST="https://api.minimax.io"

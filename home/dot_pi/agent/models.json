@@ -2,7 +2,7 @@
   "providers": {
     "aperture": {
       "baseUrl": "https://aperture/v1",
-      "apiKey": "MY_API_KEY",
+      "apiKey": "not_needed",
       "api": "openai-completions",
       "models": [
         {
@@ -24,10 +24,6 @@
         {
           "id": "claude-haiku-4-5",
           "reasoning": false
-        },
-        {
-          "id": "MiniMax-2.7-highspeed",
-          "reasoning": true
         }
       ]
     }
