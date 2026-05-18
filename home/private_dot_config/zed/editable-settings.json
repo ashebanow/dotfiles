@@ -7,7 +7,6 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "cli_default_open_behavior": "new_window",
   "language_models": {
     "openai_compatible": {
       "MiniMax": {
@@ -24,28 +23,28 @@
               "parallel_tool_calls": false,
               "prompt_cache_key": false,
               "chat_completions": true,
-              "interleaved_reasoning": false
-            }
-          }
-        ]
-      }
+              "interleaved_reasoning": false,
+            },
+          },
+        ],
+      },
     },
     "lmstudio": {
-      "api_url": "http://localhost:1234/api/v0"
-    }
+      "api_url": "http://localhost:1234/api/v0",
+    },
   },
   "cli_default_open_behavior": "existing_window",
   "project_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "outline_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "collaboration_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "git_panel": {
-    "dock": "right"
+    "dock": "right",
   },
   "auto_install_extensions": {
     "catppuccin": true,
@@ -67,26 +66,26 @@
     "rust": true,
     "sql": true,
     "svelte": true,
-    "toml": true
+    "toml": true,
   },
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",
-    "dark": "Catppuccin Mocha"
+    "dark": "Catppuccin Mocha",
   },
   "relative_line_numbers": "enabled",
   // Vim settings
   "vim": {
-    "toggle_relative_line_numbers": true
+    "toggle_relative_line_numbers": true,
   },
   "gutters": {
-    "min_line_number_digits": 3
+    "min_line_number_digits": 3,
   },
   "languages": {
     "Markdown": {
       "format_on_save": "on",
-      "remove_trailing_whitespace_on_save": true
-    }
+      "remove_trailing_whitespace_on_save": true,
+    },
   },
   "context_servers": {},
   "base_keymap": "VSCode",
@@ -100,12 +99,12 @@
   "terminal": {
     "font_family": "SauceCodePro Nerd Font",
     "font_fallbacks": ["Symbols Nerd Font"],
-    "font_size": 16
+    "font_size": 16,
   },
   "theme": {
     "mode": "dark",
     "light": "Gruvbox Light Hard",
-    "dark": "Gruvbox Dark Hard"
+    "dark": "Gruvbox Dark Hard",
   },
   "agent": {
     // Version of this setting.
@@ -113,7 +112,7 @@
     "default_model": {
       "enable_thinking": true,
       "provider": "MiniMax",
-      "model": "MiniMax-M2.7-highspeed"
+      "model": "MiniMax-M2.7-highspeed",
     },
     // Whether the agent is enabled.
     "enabled": true,
@@ -132,6 +131,6 @@
     // When enabled, agent edits will be displayed in single-file editors for review
     "single_file_review": false,
     "enable_feedback": true,
-    "notify_when_agent_waiting": "primary_screen"
-  }
+    "notify_when_agent_waiting": "primary_screen",
+  },
 }
