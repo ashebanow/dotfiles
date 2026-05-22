@@ -1,0 +1,27 @@
+{
+  "model_profile": "balanced",
+  "commit_docs": true,
+  "workflow": {
+    "research": true,
+    "plan_check": true,
+    "verifier": true,
+    "auto_advance": false,
+    "nyquist_validation": true,
+    "pattern_mapper": true,
+    "ui_phase": true,
+    "ui_safety_gate": true,
+    "ai_integration_phase": true,
+    "tdd_mode": true,
+    "code_review": true,
+    "code_review_depth": "standard",
+    "ui_review": true,
+    "research_before_questions": true,
+    "skip_discuss": false
+  },
+  "intel": {
+    "enabled": false
+  },
+  "graphify": {
+    "enabled": true
+  }
+}
