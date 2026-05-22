@@ -1,0 +1,30 @@
+[Unit]
+Description=Mealie Recipe Manager
+After=network-online.target
+
+[Container]
+Image=ghcr.io/mealie-recipes/mealie:latest
+ContainerName=mealie
+
+# Storage: Map a local directory for persistent data
+# Replace /srv/mealie with your preferred path
+Volume=/srv/mealie:/app/data
+
+# Port Mapping (Host:Container)
+PublishPort=9925:9000
+
+# Environment Variables
+Environment=ALLOW_SIGNUP=true
+Environment=PUID=1000
+Environment=PGID=1000
+Environment=TZ=America/Los_Angeles
+Environment=MAX_WORKERS=1
+# Optional: If using OpenAI for TikTok/Instagram parsing
+# Environment=OPENAI_API_KEY=your_key_here
+
+[Service]
+Restart=always
+
+[Install]
+# Standard target to ensure it starts on boot
+WantedBy=multi-user.target default.target
