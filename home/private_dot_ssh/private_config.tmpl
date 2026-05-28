@@ -14,7 +14,22 @@ Host berg.*
     RemoteCommand zmx attach %k
     RequestTTY yes
 
+Host lumquat lum
+    User ashebanow
+    HostName lumquat
+
+Host lumquat-ts
+    User ashebanow
+    HostName 100.90.247.10
+    Port 22
+
+Host lum.*
+    HostName lumquat
+    RemoteCommand zmx attach %k
+    RequestTTY yes
+
 Host miraclemax mm
+    HostName miraclemax
 
 Host mm.*
     HostName miraclemax
@@ -29,8 +44,10 @@ Host aibot.*
     RequestTTY yes
 
 Host limon li
+    HostName limon
 
 Host calamansi cala
+    HostName calamansi
 
 Host reverse-proxy
     User root
