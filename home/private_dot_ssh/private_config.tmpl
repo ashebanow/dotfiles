@@ -1,43 +1,30 @@
 # Managed by lazyssh
 
-Host *
-    User ashebanow
-    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
-    ControlMaster auto
-    ControlPath ~/.ssh/controlmaster/%r@%h:%p
-    ControlPersist yes
-
 Host bergamot berg
+    HostName bergamot
 
 Host berg.*
     HostName bergamot
     RemoteCommand zmx attach %k
     RequestTTY yes
 
-Host lumquat lum
-    User podman
-    HostName lumquat
-
 Host lum.*
-    User podman
     HostName lumquat
+    User podman
     RemoteCommand zmx attach %k
     RequestTTY yes
 
-Host miraclemax mm
-    HostName miraclemax
+Host lumquat lum
+    HostName lumquat
+    User podman
 
 Host mm.*
     HostName miraclemax
     RemoteCommand zmx attach %k
     RequestTTY yes
 
-Host aibot
-
-Host aibot.*
-    HostName aibot
-    RemoteCommand zmx attach %k
-    RequestTTY yes
+Host miraclemax mm
+    HostName miraclemax
 
 Host limon li
     HostName limon
@@ -59,3 +46,10 @@ Host github.com github
     Port 443
     User git
     IdentityFile {{ .chezmoi.homeDir -}}/.ssh/github_ed25519
+
+Host *
+    User ashebanow
+    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
+    ControlMaster auto
+    ControlPath ~/.ssh/controlmaster/%r@%h:%p
+    ControlPersist yes
