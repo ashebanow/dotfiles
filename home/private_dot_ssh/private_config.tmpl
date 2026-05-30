@@ -15,15 +15,11 @@ Host berg.*
     RequestTTY yes
 
 Host lumquat lum
-    User ashebanow
+    User podman
     HostName lumquat
 
-Host lumquat-ts
-    User ashebanow
-    HostName 100.90.247.10
-    Port 22
-
 Host lum.*
+    User podman
     HostName lumquat
     RemoteCommand zmx attach %k
     RequestTTY yes
