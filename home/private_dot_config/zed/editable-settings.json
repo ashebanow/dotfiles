@@ -14,12 +14,10 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "/home/podman/nix-config/./"
-          ]
-        }
-      ]
-    }
+          "paths": ["/home/podman/nix-config/"],
+        },
+      ],
+    },
   ],
   "language_models": {
     "openai_compatible": {
@@ -28,6 +26,20 @@
         "available_models": [
           {
             "name": "MiniMax-M2.7-highspeed",
+            "max_tokens": 200000,
+            "max_output_tokens": 32000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false,
+            },
+          },
+          {
+            "name": "MiniMax-M3",
             "max_tokens": 200000,
             "max_output_tokens": 32000,
             "max_completion_tokens": 200000,
@@ -102,9 +114,10 @@
     },
   },
   "context_servers": {},
+  "load_direnv": "shell_hook",
   "base_keymap": "VSCode",
   "vim_mode": true,
-  "ui_font_size": 16,
+  "ui_font_size": 15,
   "buffer_font_family": "SauceCodePro Nerd Font",
   // Set the buffer text's font fallbacks, this will be merged with
   // the platform's default fallbacks.
@@ -146,5 +159,17 @@
     "single_file_review": false,
     "enable_feedback": true,
     "notify_when_agent_waiting": "primary_screen",
+  },
+  "lsp": {
+    "rust-analyzer": {
+      "binary": {
+        "path_lookup": true,
+      },
+    },
+    "nix": {
+      "binary": {
+        "path_lookup": true,
+      },
+    },
   },
 }
