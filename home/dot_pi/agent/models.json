@@ -57,8 +57,8 @@
         }
       ]
     },
-    "aperture": {
-      "baseUrl": "https://aperture/v1",
+    "qwen": {
+      "baseUrl": "https://qwen-35b-a3b.fluffy-walleye.ts.net/",
       "apiKey": "sk-empty-not-needed",
       "api": "openai-completions",
       "models": [
@@ -72,7 +72,14 @@
             "cacheWrite": 0.01
           },
           "contextWindow": 128000
-        },
+        }
+			]
+		},
+    "gemma": {
+      "baseUrl": "https://https://gemma-27b.fluffy-walleye.ts.net",
+      "apiKey": "sk-empty-not-needed",
+      "api": "openai-completions",
+      "models": [
         {
           "id": "unsloth/gemma-3-27b-it-GGUF:UD-Q5_K_XL",
           "name": "Local Gemma 3 27B via Aperture",
@@ -83,56 +90,6 @@
             "cacheWrite": 0.01
           },
           "contextWindow": 256000
-        },
-        {
-          "id": "deepseek-v4-pro",
-          "name": "DeepSeek V4 Pro",
-          "contextWindow": 1000000,
-          "maxTokens": 384000,
-          "input": ["text"],
-          "reasoning": true,
-          "cost": {
-            "input": 1.74,
-            "output": 3.48,
-            "cacheRead": 0.145,
-            "cacheWrite": 0.01
-          },
-          "compat": {
-            "requiresReasoningContentOnAssistantMessages": true,
-            "thinkingFormat": "deepseek",
-            "reasoningEffortMap": {
-              "minimal": "high",
-              "low": "high",
-              "medium": "high",
-              "high": "high",
-              "xhigh": "max"
-            }
-          }
-        },
-        {
-          "id": "deepseek-v4-flash",
-          "name": "DeepSeek V4 Flash",
-          "contextWindow": 1000000,
-          "maxTokens": 384000,
-          "input": ["text"],
-          "reasoning": true,
-          "cost": {
-            "input": 0.14,
-            "output": 0.28,
-            "cacheRead": 0.028,
-            "cacheWrite": 0.01
-          },
-          "compat": {
-            "requiresReasoningContentOnAssistantMessages": true,
-            "thinkingFormat": "deepseek",
-            "reasoningEffortMap": {
-              "minimal": "high",
-              "low": "high",
-              "medium": "high",
-              "high": "high",
-              "xhigh": "max"
-            }
-          }
         }
       ]
     }
