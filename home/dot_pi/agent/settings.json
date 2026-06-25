@@ -1,7 +1,9 @@
 {
-  "lastChangelogVersion": "0.75.4",
+  "lastChangelogVersion": "0.79.1",
   "defaultThinkingLevel": "high",
-  "defaultProvider": "aperture",
+  "defaultProvider": "deepseek",
   "defaultModel": "deepseek-v4-pro",
-  "packages": ["git:git@github.com:joshleblanc/pi-minimax"]
+  "packages": [
+    "git:git@github.com:joshleblanc/pi-minimax"
+  ]
 }
