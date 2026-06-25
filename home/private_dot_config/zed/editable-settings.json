@@ -158,7 +158,7 @@
     "default_model": {
       "enable_thinking": false,
       "provider": "MiniMax",
-      "model": "MiniMax-M2.7-highspeed"
+      "model": "MiniMax-M3"
     },
     // Whether the agent is enabled.
     "enabled": true,
