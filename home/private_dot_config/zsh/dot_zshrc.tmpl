@@ -255,6 +255,10 @@ if command -v uv &> /dev/null; then
 	eval "$(uvx --generate-shell-completion zsh)"
 fi
 
+if command -v determinate-nixd &> /dev/null; then
+  eval "$(determinate-nixd completion zsh)"
+fi
+
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main cursor)
 typeset -gA ZSH_HIGHLIGHT_STYLES
 if [[ -f $HOME/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh ]]; then
