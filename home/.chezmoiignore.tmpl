@@ -26,3 +26,12 @@
 .config/yay
 .local/share/fonts
 {{ end }}
+
+# nix.custom.conf: on non-NixOS, chezmoi manages it at ~/.config/nix/ and a
+# run_onchange_ script copies it to /etc/nix/. On NixOS, Nix manages config
+# centrally — suppress the file.
+{{ if eq .chezmoi.os "linux" }}
+{{   if eq .chezmoi.osRelease.id "nixos" }}
+.config/nix/nix.custom.conf
+{{   end }}
+{{ end }}

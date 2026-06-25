@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# NixOS manages nix config through the module system (nix.settings).
+# No external /etc/nix/nix.custom.conf to restart for.
+{{ if eq .chezmoi.os "linux" }}
+{{   if eq .chezmoi.osRelease.id "nixos" }}
+exit 0
+{{   end }}
+{{ end }}
+
+echo "nix.custom.conf changed — installing to /etc/nix/..."
+sudo cp "{{ .chezmoi.homeDir }}/.config/nix/nix.custom.conf" /etc/nix/nix.custom.conf
+
+# Ensure nix.conf includes nix.custom.conf (Determinate Nix has this already;
+# nix.org Nix needs it added). nix.conf supports !include since Nix 2.4.
+if ! grep -qF '!include nix.custom.conf' /etc/nix/nix.conf 2>/dev/null; then
+    echo "Adding !include nix.custom.conf to /etc/nix/nix.conf"
+    echo '!include nix.custom.conf' | sudo tee -a /etc/nix/nix.conf >/dev/null
+fi
+
+# ── macOS: launchd (Determinate Nix and nix.org Nix use different labels) ──
+if [[ "$(uname -s)" == "Darwin" ]]; then
+    # Determinate Nix label (list takes just the label, kickstart needs the domain)
+    if sudo launchctl list systems.determinate.nix-daemon &>/dev/null; then
+        sudo launchctl kickstart -k system/systems.determinate.nix-daemon
+        echo "nix-daemon restarted via launchctl (Determinate Nix)"
+    # nix.org Nix label
+    elif sudo launchctl list org.nixos.nix-daemon &>/dev/null; then
+        sudo launchctl kickstart -k system/org.nixos.nix-daemon
+        echo "nix-daemon restarted via launchctl (nix.org Nix)"
+    else
+        echo "No nix-daemon found in launchctl — single-user install?"
+    fi
+    exit 0
+fi
+
+# ── Linux (non-NixOS): systemd (both Determinate Nix and nix.org Nix) ──
+if command -v systemctl &>/dev/null; then
+    if systemctl is-active --quiet nix-daemon.service 2>/dev/null; then
+        sudo systemctl restart nix-daemon
+        echo "nix-daemon restarted via systemctl"
+    elif systemctl is-enabled --quiet nix-daemon.service 2>/dev/null; then
+        sudo systemctl start nix-daemon
+        echo "nix-daemon started via systemctl"
+    else
+        echo "nix-daemon.service not found — single-user install?"
+    fi
+else
+    echo "systemctl not found — daemon not restarted"
+fi
