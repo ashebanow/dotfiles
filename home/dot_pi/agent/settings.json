@@ -4,6 +4,7 @@
   "defaultProvider": "deepseek",
   "defaultModel": "deepseek-v4-pro",
   "packages": [
-    "git:git@github.com:joshleblanc/pi-minimax"
+    "git:git@github.com:joshleblanc/pi-minimax",
+    "npm:@feniix/pi-exa"
   ]
 }
