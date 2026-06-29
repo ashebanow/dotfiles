@@ -75,6 +75,7 @@
     headless = {{ $headless }}
     hostname = {{ $hostname | quote }}
     personal = {{ $personal }}
+    bwsAccessToken = {{ (bitwarden "item" "BWS Chezmoi Access Token").notes | quote }}
     osid = {{ $osID | quote }}
     zshPlugins = [
       "vi-mode",
