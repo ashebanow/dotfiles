@@ -77,15 +77,12 @@ if command -v bat &> /dev/null; then
   alias more='bat'
 fi
 
-if command -v bin &> /dev/null; then
-  eval $(bin completion zsh)
-  if [[ -x ~/.local/bin/setup-bin-tool.sh ]]; then
-    ~/.local/bin/setup-bin-tool.sh
-  fi
+# mise — runtime & tool manager (replaced bin + bob)
+if [[ -x ~/.local/bin/setup-mise.sh ]]; then
+  ~/.local/bin/setup-mise.sh
 fi
-
-if command -v bob &> /dev/null; then
-  bob complete zsh > ~/.zfunc/_bob
+if command -v mise &> /dev/null; then
+  eval "$(mise activate zsh)"
 fi
 
 if command -v chezmoi &> /dev/null; then
