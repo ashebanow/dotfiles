@@ -1,1 +1,1 @@
-{{ (bitwarden "item" "cattivi_unifi_admin_ssh_key").sshKey.publicKey }}
+{{ output "bws" "secret" "get" "7d5fcd2a-f8db-4c32-9647-b479014dd40d" | fromJson | index "value" }}

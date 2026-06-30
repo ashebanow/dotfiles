@@ -6,6 +6,6 @@ accept-flake-config = true
 auto-optimise-store = true
 cores = 8
 max-jobs = auto
-access-tokens = github.com={{- (bitwardenFields "item" "GitHub CLI Personal Access Token").token.value }}
+access-tokens = github.com={{ output "bws" "secret" "get" "5a333d5a-d7aa-46cb-98e1-b479014cd326" | fromJson | index "value" | trim }}
 
 extra-experimental-features = nix-command flakes

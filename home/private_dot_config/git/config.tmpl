@@ -48,7 +48,7 @@
 [user]
 	email = "ashebanow@gmail.com"
 	name = "Andrew Shebanow"
-	signingkey = "{{ (bitwarden "item" "github_ssh_key").sshKey.publicKey }}"
+	signingkey = "{{ output "bws" "secret" "get" "b84feb92-7f56-471d-b1a8-b479014b3475" | fromJson | index "value" | trim }}"
 
 [gpg]
 	format = "ssh"

@@ -1,2 +1,2 @@
-{{ (bitwarden "item" "ashebanow_ssh_key").sshKey.publicKey }}
-{{ (bitwarden "item" "github_ssh_key").sshKey.publicKey }}
+{{ output "bws" "secret" "get" "69405c5a-b7f2-4845-b7e2-b479014d1567" | fromJson | index "value" }}
+{{ output "bws" "secret" "get" "b84feb92-7f56-471d-b1a8-b479014b3475" | fromJson | index "value" }}

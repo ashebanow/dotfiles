@@ -1,1 +1,1 @@
-{{ (bitwarden "item" "github_ssh_key").sshKey.privateKey }}
+{{ output "bws" "secret" "get" "60ce8949-f4f6-4ad2-8683-b479014ac6da" | fromJson | index "value" }}

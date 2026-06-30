@@ -1,7 +1,7 @@
 github.com:
     users:
         ashebanow:
-            oauth_token: {{ (bitwardenFields "item" "GitHub CLI Personal Access Token").token.value }}
+            oauth_token: {{ output "bws" "secret" "get" "5a333d5a-d7aa-46cb-98e1-b479014cd326" | fromJson | index "value" | trim }}
     git_protocol: ssh
-    oauth_token: {{ (bitwardenFields "item" "GitHub CLI Personal Access Token").token.value }}
+    oauth_token: {{ output "bws" "secret" "get" "5a333d5a-d7aa-46cb-98e1-b479014cd326" | fromJson | index "value" | trim }}
     user: ashebanow
