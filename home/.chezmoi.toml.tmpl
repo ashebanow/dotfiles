@@ -76,6 +76,22 @@
     hostname = {{ $hostname | quote }}
     personal = {{ $personal }}
     bwsAccessToken = {{ (bitwarden "item" "BWS Chezmoi Access Token").notes | quote }}
+{{- $bwsToken := .bwsAccessToken -}}
+{{- $bwSecretID := "1cb8403e-118d-4c91-9877-b479004486f0" -}}
+{{- $bwsBin := printf "%s/.local/share/mise/installs/bitwarden-secrets-manager/latest/bws" .chezmoi.homeDir -}}
+{{- if $bwsToken -}}
+{{-   $bwsCmd := printf "BWS_ACCESS_TOKEN=%s %s secret get %s 2>/dev/null || echo '{}'" $bwsToken $bwsBin $bwSecretID -}}
+{{-   $secretJson := output "sh" "-c" $bwsCmd | fromJson -}}
+{{-   $rawValue := index $secretJson "value" -}}
+{{-   if $rawValue }}
+{{-     $awkIdCmd := "cat <<'ENDOFBWS' | awk '/^client_id:/{getline; print; exit}'\n%s\nENDOFBWS\n" -}}
+{{-     $clientId := output "sh" "-c" (printf $awkIdCmd $rawValue) | trim -}}
+{{-     $awkSecretCmd := "cat <<'ENDOFBWS' | awk '/^client_secret:/{getline; print; exit}'\n%s\nENDOFBWS\n" -}}
+{{-     $clientSecret := output "sh" "-c" (printf $awkSecretCmd $rawValue) | trim }}
+    bwClientId = {{ $clientId | quote }}
+    bwClientSecret = {{ $clientSecret | quote }}
+{{-   end -}}
+{{- end }}
     osid = {{ $osID | quote }}
     zshPlugins = [
       "vi-mode",

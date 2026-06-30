@@ -102,6 +102,23 @@ _bw_refresh_cache() {
   chmod 600 "$_BW_ENV_FILE"
 }
 
+# Ensure bw (Bitwarden CLI) is authenticated non-interactively.
+# Credentials from chezmoi data (age-encrypted at rest), fetched from BWS API
+# during chezmoi template evaluation — no runtime BWS dependency.
+_bw_ensure_api_login() {
+  command -v bw >/dev/null 2>&1 || return 0
+  bw status >/dev/null 2>&1 && return 0  # Already authenticated and unlocked
+
+  local client_id="{{ .bwClientId }}"
+  local client_secret="{{ .bwClientSecret }}"
+  [[ -n "$client_id" && -n "$client_secret" ]] || return 0
+
+  BW_CLIENTID="$client_id" BW_CLIENTSECRET="$client_secret" bw login --apikey >/dev/null 2>&1 || true
+}
+
+# Run in all shells (non-interactive safe — fast local check when already authenticated)
+_bw_ensure_api_login
+
 # Refresh cache on interactive shells, then source into current shell
 [[ -o interactive ]] && _bw_refresh_cache
 if [[ -f "$_BW_ENV_FILE" ]]; then
