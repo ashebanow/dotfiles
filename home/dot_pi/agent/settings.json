@@ -1,10 +1,11 @@
 {
-  "lastChangelogVersion": "0.79.1",
+  "lastChangelogVersion": "0.79.9",
   "defaultThinkingLevel": "high",
   "defaultProvider": "deepseek",
   "defaultModel": "deepseek-v4-pro",
   "packages": [
     "git:git@github.com:joshleblanc/pi-minimax",
     "npm:@feniix/pi-exa"
-  ]
+  ],
+  "theme": "dark"
 }
