@@ -32,13 +32,13 @@ fi
 # ── 2. Set up global tools (idempotent) ─────────────────────────
 
 # bws alias (bitwarden-secrets-manager provides the 'bws' binary)
-mise tool-alias set bws bitwarden-secrets-manager 2>/dev/null || true
+mise --quiet tool-alias set bws bitwarden-secrets-manager 2>/dev/null || true
 
-# Install and activate globally
-mise use -g bitwarden-secrets-manager 2>/dev/null || true
-mise use -g neovim 2>/dev/null || true
-mise use -g github:caioricciuti/dev-cockpit 2>/dev/null || true
-mise use -g github:micahkepe/jsongrep 2>/dev/null || true
+# Install and activate globally (--quiet suppresses the "tools:" info lines)
+mise --quiet use -g bitwarden-secrets-manager 2>/dev/null || true
+mise --quiet use -g neovim 2>/dev/null || true
+mise --quiet use -g github:caioricciuti/dev-cockpit 2>/dev/null || true
+mise --quiet use -g github:micahkepe/jsongrep 2>/dev/null || true
 
 # ── 3. Clean up stale bws cache (first-run only) ────────────────
 
