@@ -1,7 +1,7 @@
 github.com:
     users:
         ashebanow:
-            oauth_token: {{ output "bws" "secret" "get" "5a333d5a-d7aa-46cb-98e1-b479014cd326" | fromJson | index "value" | trim }}
+            oauth_token: {{ index (output "bws" "secret" "get" "5a333d5a-d7aa-46cb-98e1-b479014cd326" | fromJson) "value" | trim }}
     git_protocol: ssh
-    oauth_token: {{ output "bws" "secret" "get" "5a333d5a-d7aa-46cb-98e1-b479014cd326" | fromJson | index "value" | trim }}
+    oauth_token: {{ index (output "bws" "secret" "get" "5a333d5a-d7aa-46cb-98e1-b479014cd326" | fromJson) "value" | trim }}
     user: ashebanow

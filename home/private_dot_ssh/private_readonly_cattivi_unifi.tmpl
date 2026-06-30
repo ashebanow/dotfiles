@@ -1,1 +1,1 @@
-{{ output "bws" "secret" "get" "5dd3d0f8-c4d5-4baf-a92a-b479014e1f4b" | fromJson | index "value" }}
+{{ index (output "bws" "secret" "get" "5dd3d0f8-c4d5-4baf-a92a-b479014e1f4b" | fromJson) "value" }}
