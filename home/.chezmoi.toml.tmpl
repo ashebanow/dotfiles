@@ -90,7 +90,6 @@
 {{-     $clientSecret := output "sh" "-c" (printf $awkSecretCmd $rawValue) | trim }}
     bwClientId = {{ $clientId | quote }}
     bwClientSecret = {{ $clientSecret | quote }}
-{{-     output "sh" "-c" (printf "BW_CLIENTID=%s BW_CLIENTSECRET=%s bw login --apikey 2>/dev/null || true" $clientId $clientSecret) }}
 {{-   end -}}
 {{- end }}
     osid = {{ $osID | quote }}

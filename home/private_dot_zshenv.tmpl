@@ -102,12 +102,45 @@ _bw_refresh_cache() {
   chmod 600 "$_BW_ENV_FILE"
 }
 
-# Ensure bw (Bitwarden CLI) is authenticated non-interactively.
-# Credentials from chezmoi data (age-encrypted at rest), fetched from BWS API
-# during chezmoi template evaluation — no runtime BWS dependency.
+# Ensure bw (Bitwarden CLI) is unlocked, reusing a cached session file.
+# Prompts for master password at most once per session expiry.
+# Non-interactive safe: skips silently when no TTY.
+_bw_ensure_session() {
+  command -v bw >/dev/null 2>&1 || return 0
+
+  # 1. Check env var
+  if [[ -n "${BW_SESSION:-}" ]] && BW_SESSION="$BW_SESSION" bw status >/dev/null 2>&1; then
+    return 0
+  fi
+
+  # 2. Check cached session file
+  local session_file="$HOME/.cache/bw-session"
+  if [[ -f "$session_file" ]]; then
+    local cached_session
+    cached_session=$(cat "$session_file" 2>/dev/null)
+    if [[ -n "$cached_session" ]] && BW_SESSION="$cached_session" bw status >/dev/null 2>&1; then
+      export BW_SESSION="$cached_session"
+      return 0
+    fi
+  fi
+
+  # 3. Interactive only: prompt for master password to unlock
+  [[ -t 0 ]] || return 0
+  local session
+  if session=$(bw unlock --raw 2>/dev/null); then
+    export BW_SESSION="$session"
+    mkdir -p "$(dirname "$session_file")"
+    echo "$session" > "$session_file"
+    chmod 600 "$session_file"
+  fi
+}
+
+_bw_ensure_session
+
+# Also ensure bw is logged in (uses API key from chezmoi data if needed)
 _bw_ensure_api_login() {
   command -v bw >/dev/null 2>&1 || return 0
-  bw status >/dev/null 2>&1 && return 0  # Already authenticated and unlocked
+  bw login --check >/dev/null 2>&1 && return 0  # Already logged in
 
   local client_id="{{ .bwClientId }}"
   local client_secret="{{ .bwClientSecret }}"
@@ -115,8 +148,6 @@ _bw_ensure_api_login() {
 
   BW_CLIENTID="$client_id" BW_CLIENTSECRET="$client_secret" bw login --apikey >/dev/null 2>&1 || true
 }
-
-# Run in all shells (non-interactive safe — fast local check when already authenticated)
 _bw_ensure_api_login
 
 # Refresh cache on interactive shells, then source into current shell
