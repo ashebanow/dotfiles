@@ -44,7 +44,6 @@ fzf
 gdu
 gemini-cli
 gh
-git-delta
 git-lfs
 gitleaks
 gitnr

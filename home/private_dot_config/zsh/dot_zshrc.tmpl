@@ -98,10 +98,6 @@ if command -v chezmoi &> /dev/null; then
   alias ci='chezmoi init'
 fi
 
-if command -v delta &> /dev/null; then
-  alias diff='delta'
-fi
-
 if command -v devbox &> /dev/null; then
   eval "$(devbox completion zsh)"
 fi

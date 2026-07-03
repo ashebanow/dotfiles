@@ -142,7 +142,7 @@ THESE ARE OLD, RANDOM NOTES FROM A LAND BEFORE TIME. IGNORE.
   ```bash
   sudo pacman -Syu yay
   pacman -Syu atuin bat coreutils curl eza fd fzf \
-      github-cli git git-delta gnupg \
+      github-cli git gnupg \
       ripgrep television tmux ugrep wget xz zsh
   ```
 - use the Ventoy USB key to get ssh secrets & config from 'ssh' folder. Make sure you fix the permissions after the copy:
@@ -335,14 +335,6 @@ For ubuntu:
 
     curl -fsSL https://tailscale.com/install.sh | sh
     sudo tailscale completion zsh > "${fpath[1]}/_tailscale"
-
-### delta
-
-download current release .deb from [releases page](https://github.com/dandavison/delta/releases)
-
-```bash
-sudo dpkg -i ~/Downloads/git-delta_XXXX.deb
-```
 
 ### getnf
 
