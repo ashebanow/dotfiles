@@ -4,6 +4,8 @@ email = "ashebanow@gmail.com"
 
 [ui]
 default-command = "log"
+pager = ["hunk", "pager"]
+diff-formatter = ":git"
 
 [signing]
 behavior = "own"
