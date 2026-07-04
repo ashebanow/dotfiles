@@ -4,8 +4,12 @@
   "defaultProvider": "deepseek",
   "defaultModel": "deepseek-v4-pro",
   "packages": [
+    "npm:pi-ask-user",
     "git:git@github.com:joshleblanc/pi-minimax",
-    "npm:@feniix/pi-exa"
+    "npm:@feniix/pi-exa",
+    "npm:@tintinweb/pi-subagents",
+    "npm:pi-chrome",
+    "npm:pi-mcp-extension"
   ],
   "theme": "dark"
 }
