@@ -1,0 +1,26 @@
+# -----------------------------------------------------
+# System-level configs: pinentry, tailscale, podman
+# -----------------------------------------------------
+
+{{ if eq .chezmoi.os "darwin" }}
+# pinentry, needed for rbw
+alias pinentry='pinentry-mac'
+{{- end }}
+
+# tailscale
+if command -v tailscale &> /dev/null; then
+  eval "$(tailscale completion zsh)"
+  alias tsa='tailscale status --active'
+  alias tsb='tailscale status --web --active'
+fi
+
+# podman — container runtime
+if command -v podman &> /dev/null; then
+  # export DOCKER_HOST="`podman info -f json |jq -r '.host.remoteSocket.path'`"
+  # export DOCKER_HOST="unix://`podman machine inspect --format '.ConnectionInfo.PodmanSocket.Path'`"
+fi
+
+# fastfetch — system info on startup (disabled for now)
+# if command -v fastfetch &> /dev/null; then
+#   fastfetch
+# fi
