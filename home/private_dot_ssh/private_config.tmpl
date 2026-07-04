@@ -41,15 +41,22 @@ Host unifi
 Host storage
     User root
 
+Host *.ts.net 100.*
+    IdentitiesOnly no
+    # Tailscale SSH authenticates via TS identity, not SSH keys.
+    # Allow fallback to any available key/auth method.
+
 Host github.com github
     HostName ssh.github.com
     Port 443
     User git
-    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/github_ed25519
+    IdentitiesOnly yes
+    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/github_ed25519.pub
 
 Host *
     User ashebanow
-    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519
+    IdentitiesOnly yes
+    IdentityFile {{ .chezmoi.homeDir -}}/.ssh/id_ed25519.pub
     ControlMaster auto
     ControlPath ~/.ssh/controlmaster/%r@%h:%p
     ControlPersist yes
