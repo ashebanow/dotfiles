@@ -152,7 +152,7 @@
             "type": "theme",
             "key": "  󰉼",
             "keyColor": "bright_magenta",
-            "format": "Catppuccin-Mauve [GTK2/3/4]"
+            "format": "Gruvbox-Dark [GTK2/3/4]"
         },
         {
             "type": "icons",

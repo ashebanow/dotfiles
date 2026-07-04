@@ -29,36 +29,38 @@ $line_break$character"""
 # $c\
 # [ ](fg:blue)\
 
-palette = 'catppuccin_mocha'
+palette = 'gruvbox_dark'
 
-# see https://github.com/catppuccin/starship/blob/main/starship.toml
-[palettes.catppuccin_mocha]
-text = "#cdd6f4"
-subtext1 = "#bac2de"
-subtext0 = "#a6adc8"
-overlay2 = "#9399b2"
-overlay1 = "#7f849c"
-overlay0 = "#6c7086"
-surface2 = "#585b70"
-surface1 = "#45475a"
-surface0 = "#313244"
-base = "#1e1e2e"
-mantle = "#181825"
-crust = "#11111b"
-rosewater = "#f5e0dc"
-flamingo = "#f2cdcd"
-pink = "#f5c2e7"
-mauve = "#cba6f7"
-red = "#f38ba8"
-maroon = "#eba0ac"
-peach = "#fab387"
-yellow = "#f9e2af"
-green = "#a6e3a1"
-teal = "#94e2d5"
-sky = "#89dceb"
-sapphire = "#74c7ec"
-blue = "#89b4fa"
-lavender = "#b4befe"
+# Gruvbox Dark palette — blend approach:
+#   Accents: hue-preserving semantic mapping (e.g. green→bgreen)
+#   Neutrals: Euclidean RGB nearest-neighbor w/ collision resolution
+[palettes.gruvbox_dark]
+crust = "#1d2021"
+mantle = "#32302f"
+base = "#282828"
+surface0 = "#3c3836"
+surface1 = "#504945"
+surface2 = "#665c54"
+overlay0 = "#7c6f64"
+overlay1 = "#928374"
+overlay2 = "#a89984"
+subtext0 = "#bdae93"
+subtext1 = "#d5c4a1"
+text = "#fbf1c7"
+rosewater = "#fb4934"
+flamingo = "#fe8019"
+pink = "#d3869b"
+mauve = "#b16286"
+red = "#fb4934"
+maroon = "#cc241d"
+peach = "#fe8019"
+yellow = "#d5c4a1"
+green = "#8ec07c"
+teal = "#8ec07c"
+sky = "#83a598"
+sapphire = "#458588"
+blue = "#83a598"
+lavender = "#d3869b"
 
 [os]
 disabled = false

@@ -92,8 +92,6 @@
     "dock": "right"
   },
   "auto_install_extensions": {
-    "catppuccin": true,
-    "catppuccin-icons": true,
     "dockerfile": true,
     "docker-compose": true,
     "gem": true,
@@ -116,7 +114,7 @@
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",
-    "dark": "Catppuccin Mocha"
+    "dark": "Zed (Default)"
   },
   "relative_line_numbers": "enabled",
   // Vim settings
