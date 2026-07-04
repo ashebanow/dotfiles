@@ -10,3 +10,8 @@ typeset -U path cdpath fpath manpath
 for config_file ($ZDOTDIR/zshrc.d/*.zsh(N)); do
   source $config_file
 done
+
+# Compile .zshrc for faster startup
+if [[ ! -f ~/.zshrc.zwc || ~/.zshrc -nt ~/.zshrc.zwc ]]; then
+  zcompile ~/.zshrc
+fi

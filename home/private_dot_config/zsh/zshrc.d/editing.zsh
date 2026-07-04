@@ -36,6 +36,7 @@ if command -v fzf &> /dev/null; then
 fi
 
 # starship — prompt
+export STARSHIP_LOG=error
 if command -v starship &> /dev/null; then
   eval "$(starship init zsh)"
 fi
