@@ -7,6 +7,11 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "agent_servers": {
+    "pi-acp": {
+      "type": "registry"
+    }
+  },
   "ssh_connections": [
     {
       "host": "lumquat",
@@ -21,24 +26,16 @@
   ],
   "language_models": {
     "openai_compatible": {
-      "TailScale Aperture": {
-        "api_url": "https://aperture.fluffy-walleye.ts.net/api/v0",
+      "LiteLLM": {
+        "api_url": "https://litellm.fluffy-walleye.ts.net",
         "available_models": [
           {
-            "name": "local-qwen-36-35B/Qwen3.6-35B-A3B-MTP-GGUF",
-            "max_tokens": 200000,
-            "max_output_tokens": 32000,
-            "max_completion_tokens": 200000,
-            "capabilities": {
-              "tools": true,
-              "images": false,
-              "parallel_tool_calls": false,
-              "prompt_cache_key": false,
-              "chat_completions": true,
-              "interleaved_reasoning": false
-            }
+            "name": "unsloth/Qwen3.6-35B-A3B-MTP-GGUF",
+            "display_name": "Qwen 3.6 35B MOE",
+            "max_tokens": 196000
           }
-        ]
+        ],
+        "api_key": "sk-not-needed"
       },
       "MiniMax": {
         "api_url": "https://api.minimax.io/v1",
@@ -152,11 +149,42 @@
   },
   "agent": {
     // Version of this setting.
+    "favorite_models": [
+      {
+        "provider": "LiteLLM",
+        "model": "unsloth/Qwen3.6-35B-A3B-MTP-GGUF",
+        "enable_thinking": false
+      },
+      {
+        "provider": "MiniMax",
+        "model": "MiniMax-M3",
+        "enable_thinking": false
+      },
+      {
+        "provider": "deepseek",
+        "model": "deepseek-v4-flash",
+        "enable_thinking": true,
+        "effort": "high"
+      },
+      {
+        "provider": "deepseek",
+        "model": "deepseek-v4-pro",
+        "enable_thinking": true,
+        "effort": "high"
+      },
+      {
+        "provider": "google",
+        "model": "gemini-3.5-flash",
+        "enable_thinking": true,
+        "effort": "medium"
+      }
+    ],
     "default_profile": "ask",
     "default_model": {
-      "enable_thinking": false,
-      "provider": "MiniMax",
-      "model": "MiniMax-M3"
+      "effort": "high",
+      "enable_thinking": true,
+      "provider": "deepseek",
+      "model": "deepseek-v4-pro"
     },
     // Whether the agent is enabled.
     "enabled": true,

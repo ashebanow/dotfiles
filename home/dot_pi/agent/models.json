@@ -56,42 +56,6 @@
           }
         }
       ]
-    },
-    "qwen": {
-      "baseUrl": "https://qwen-35b-a3b.fluffy-walleye.ts.net/",
-      "apiKey": "sk-empty-not-needed",
-      "api": "openai-completions",
-      "models": [
-        {
-          "id": "unsloth/Qwen3.6-35B-A3B-MTP-GGUF",
-          "name": "Local Qwen 3.6 35B via Aperture",
-          "cost": {
-            "input": 0.01,
-            "output": 0.01,
-            "cacheRead": 0.01,
-            "cacheWrite": 0.01
-          },
-          "contextWindow": 128000
-        }
-			]
-		},
-    "gemma": {
-      "baseUrl": "https://https://gemma-27b.fluffy-walleye.ts.net",
-      "apiKey": "sk-empty-not-needed",
-      "api": "openai-completions",
-      "models": [
-        {
-          "id": "unsloth/gemma-3-27b-it-GGUF:UD-Q5_K_XL",
-          "name": "Local Gemma 3 27B via Aperture",
-          "cost": {
-            "input": 0.01,
-            "output": 0.01,
-            "cacheRead": 0.01,
-            "cacheWrite": 0.01
-          },
-          "contextWindow": 256000
-        }
-      ]
     }
   }
 }
