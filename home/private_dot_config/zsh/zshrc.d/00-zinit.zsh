@@ -15,9 +15,6 @@ fi
 
 source "$ZINIT_HOME/zinit.zsh"
 
-# Gruvbox dark theme for autosuggestions
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
-
 # Gruvbox dark theme for syntax-highlighting (set before plugin loads)
 typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[command]='fg=142,bold'               # bright green
@@ -47,9 +44,6 @@ zstyle ':autocomplete:*' verbose no
 # Must load first — synchronous
 zinit light marlonrichert/zsh-autocomplete
 
-# Async plugins (styles set above)
-zinit ice wait lucid
-zinit light zsh-users/zsh-autosuggestions
-
+# Async plugin (styles set above)
 zinit ice wait lucid
 zinit light zsh-users/zsh-syntax-highlighting
