@@ -8,22 +8,23 @@ error_color=red
 # environment variables
 
 export EDITOR=nvim
-export SHELL=`which zsh`
+export SHELL=$(which zsh)
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export DOTFILES=$HOME/.local/share/chezmoi
 export BUN_INSTALL="$HOME/.bun"
 export PERSONAL_WIKI="$HOME/Synced Files/personal_wiki"
+export LITELLM_URL="https://litellm.fluffy-walleye.ts.net"
 
 #############################################################################
 # INITIALIZE HOMEBREW (wherever it lives)
 
 if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 elif [[ -x /opt/homebrew/bin/brew ]]; then
-  eval "$(/opt/homebrew/bin/brew shellenv)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 else
-  print -P "%F{$warning_color}Homebrew not installed, but chezmoi should have installed it!%f\n"
+    print -P "%F{$warning_color}Homebrew not installed, but chezmoi should have installed it!%f\n"
 fi
 
 #############################################################################
@@ -31,9 +32,9 @@ fi
 
 NIX_PROFILE_FILE_SUFFIX="etc/profile.d/nix-daemon.sh"
 if [ -f "/nix/var/nix/profiles/default/${NIX_PROFILE_FILE_SUFFIX}" ]; then
-  source "/nix/var/nix/profiles/default/${NIX_PROFILE_FILE_SUFFIX}"
+    source "/nix/var/nix/profiles/default/${NIX_PROFILE_FILE_SUFFIX}"
 elif [ -f "$HOME/.nix-profile/${NIX_PROFILE_FILE_SUFFIX}" ]; then
-  source "$HOME/.nix-profile/${NIX_PROFILE_FILE_SUFFIX}"
+    source "$HOME/.nix-profile/${NIX_PROFILE_FILE_SUFFIX}"
 fi
 
 #############################################################################
@@ -60,99 +61,100 @@ add_to_path "$HOME/.lmstudio/bin"
 # Read BWS_ACCESS_TOKEN from OS keyring (never stored in plain text).
 # Falls back to env var (for CI/headless). Templates handle empty token gracefully.
 _bws_keyring_token() {
-  [[ -n "${BWS_ACCESS_TOKEN:-}" ]] && return 0
+    [[ -n "${BWS_ACCESS_TOKEN:-}" ]] && return 0
 
-  if [[ "$OSTYPE" == "darwin"* ]]; then
-    local token
-    token=$(security find-generic-password -a "$USER" -s "bws_access_token" -w 2>/dev/null)
-    if [[ -n "$token" ]]; then
-      export BWS_ACCESS_TOKEN="$token"
-      return 0
+    if [[ "$OSTYPE" == "darwin"* ]]; then
+        local token
+        token=$(security find-generic-password -a "$USER" -s "bws_access_token" -w 2>/dev/null)
+        if [[ -n "$token" ]]; then
+            export BWS_ACCESS_TOKEN="$token"
+            return 0
+        fi
+    elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+        if [[ -z "${DBUS_SESSION_BUS_ADDRESS:-}" && -e "/run/user/$UID/bus" ]]; then
+            export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$UID/bus"
+        fi
+        if command -v secret-tool >/dev/null 2>&1 && [[ -n "${DBUS_SESSION_BUS_ADDRESS:-}" ]]; then
+            local token
+            token=$(secret-tool lookup bws token 2>/dev/null)
+            if [[ -n "$token" ]]; then
+                export BWS_ACCESS_TOKEN="$token"
+                return 0
+            fi
+        fi
     fi
-  elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    if [[ -z "${DBUS_SESSION_BUS_ADDRESS:-}" && -e "/run/user/$UID/bus" ]]; then
-      export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$UID/bus"
-    fi
-    if command -v secret-tool >/dev/null 2>&1 && [[ -n "${DBUS_SESSION_BUS_ADDRESS:-}" ]]; then
-      local token
-      token=$(secret-tool lookup bws token 2>/dev/null)
-      if [[ -n "$token" ]]; then
-        export BWS_ACCESS_TOKEN="$token"
-        return 0
-      fi
-    fi
-  fi
-  return 1
+    return 1
 }
 _bws_keyring_token || true
 
 # Cache paths for BWS runtime secrets
 _BWS_CACHE="$HOME/.cache/env"
 _BWS_ENV_FILE="$_BWS_CACHE/bws_env.sh"
-_BWS_CACHE_MAX_AGE=28800  # 8 hours
+_BWS_CACHE_MAX_AGE=28800 # 8 hours
 
 # Populate API keys from BWS and write to cache file.
 # Only runs in interactive shells with a valid BWS token.
 _bws_refresh_cache() {
-  [[ -o interactive ]] || return 0
-  [[ -n "${BWS_ACCESS_TOKEN:-}" ]] || return 0
-  mkdir -p "$_BWS_CACHE"
+    [[ -o interactive ]] || return 0
+    [[ -n "${BWS_ACCESS_TOKEN:-}" ]] || return 0
+    mkdir -p "$_BWS_CACHE"
 
-  # Check if cache is fresh enough
-  if [[ -f "$_BWS_ENV_FILE" ]]; then
-    local mtime now
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-      mtime=$(stat -f %m "$_BWS_ENV_FILE" 2>/dev/null)
-    else
-      mtime=$(stat -c %Y "$_BWS_ENV_FILE" 2>/dev/null)
+    # Check if cache is fresh enough
+    if [[ -f "$_BWS_ENV_FILE" ]]; then
+        local mtime now
+        if [[ "$OSTYPE" == "darwin"* ]]; then
+            mtime=$(stat -f %m "$_BWS_ENV_FILE" 2>/dev/null)
+        else
+            mtime=$(stat -c %Y "$_BWS_ENV_FILE" 2>/dev/null)
+        fi
+        now=$(date +%s)
+        if ((now - mtime < _BWS_CACHE_MAX_AGE)); then
+            return 0
+        fi
     fi
-    now=$(date +%s)
-    if (( now - mtime < _BWS_CACHE_MAX_AGE )); then
-      return 0
-    fi
-  fi
 
-  # Fetch secrets from BWS. Each call is a network round-trip.
-  # Write to temp file and atomically rename to avoid partial reads.
-  {
-    echo "# Auto-generated by .zshenv — do not edit"
-    echo "export ZED_GITHUB_PERSONAL_ACCESS_TOKEN=\"$(bws secret get 2bc9244b-acf0-4620-8e29-b4770132e6f9 2>/dev/null | jq -r '.value' || true)\""
-    echo "export MINIMAX_API_KEY=\"$(bws secret get 3a5ac53a-8af5-4277-a86e-b47701341630 2>/dev/null | jq -r '.value' || true)\""
-    echo "export MINIMAX_API_HOST=\"https://api.minimax.io\""
-    echo "export DEEPSEEK_API_KEY=\"$(bws secret get fdf38fc5-3f26-446f-9808-b47701346a5d 2>/dev/null | jq -r '.value' || true)\""
-    echo "export EXA_API_KEY=\"$(bws secret get 52eba787-8cb2-41b7-87b1-b4770134b198 2>/dev/null | jq -r '.value' || true)\""
-    echo "export ANTHROPIC_API_KEY=\"$(bws secret get 28893b82-be1f-407c-aa2d-b4770134fcc1 2>/dev/null | jq -r '.value' || true)\""
-    echo "export GEMINI_API_KEY=\"$(bws secret get 3dbd4b26-485f-44d5-abc6-b477013544b4 2>/dev/null | jq -r '.value' || true)\""
-  } > "$_BWS_ENV_FILE.tmp" && mv "$_BWS_ENV_FILE.tmp" "$_BWS_ENV_FILE"
-  chmod 600 "$_BWS_ENV_FILE"
+    # Fetch secrets from BWS. Each call is a network round-trip.
+    # Write to temp file and atomically rename to avoid partial reads.
+    {
+        echo "# Auto-generated by .zshenv — do not edit"
+        echo "export ZED_GITHUB_PERSONAL_ACCESS_TOKEN=\"$(bws secret get 2bc9244b-acf0-4620-8e29-b4770132e6f9 2>/dev/null | jq -r '.value' || true)\""
+        echo "export LITELLM_URL=\"https://litellm.fluffy-walleye.ts.net\""
+        echo "export MINIMAX_API_KEY=\"$(bws secret get 3a5ac53a-8af5-4277-a86e-b47701341630 2>/dev/null | jq -r '.value' || true)\""
+        echo "export MINIMAX_API_HOST=\"https://api.minimax.io\""
+        echo "export DEEPSEEK_API_KEY=\"$(bws secret get fdf38fc5-3f26-446f-9808-b47701346a5d 2>/dev/null | jq -r '.value' || true)\""
+        echo "export EXA_API_KEY=\"$(bws secret get 52eba787-8cb2-41b7-87b1-b4770134b198 2>/dev/null | jq -r '.value' || true)\""
+        echo "export ANTHROPIC_API_KEY=\"$(bws secret get 28893b82-be1f-407c-aa2d-b4770134fcc1 2>/dev/null | jq -r '.value' || true)\""
+        echo "export GEMINI_API_KEY=\"$(bws secret get 3dbd4b26-485f-44d5-abc6-b477013544b4 2>/dev/null | jq -r '.value' || true)\""
+    } >"$_BWS_ENV_FILE.tmp" && mv "$_BWS_ENV_FILE.tmp" "$_BWS_ENV_FILE"
+    chmod 600 "$_BWS_ENV_FILE"
 }
 
 # Refresh cache on interactive shells, then source into current shell
 [[ -o interactive ]] && _bws_refresh_cache
 if [[ -f "$_BWS_ENV_FILE" ]]; then
-  source "$_BWS_ENV_FILE"
+    source "$_BWS_ENV_FILE"
 fi
 
 #############################################################################
 # SSH Key Management (agent-only, no private keys on disk)
 
 _bws_load_ssh_keys() {
-  [[ -n "${BWS_ACCESS_TOKEN:-}" ]] || return 0
-  [[ -f ~/.ssh/id_ed25519.pub ]] || return 0
+    [[ -n "${BWS_ACCESS_TOKEN:-}" ]] || return 0
+    [[ -f ~/.ssh/id_ed25519.pub ]] || return 0
 
-  # Skip if agent already has keys loaded
-  ssh-add -l &>/dev/null && return 0
+    # Skip if agent already has keys loaded
+    ssh-add -l &>/dev/null && return 0
 
-  # Migrate: remove stale private key files from old disk-based approach
-  rm -f ~/.ssh/id_ed25519 ~/.ssh/github_ed25519 ~/.ssh/cattivi_unifi
+    # Migrate: remove stale private key files from old disk-based approach
+    rm -f ~/.ssh/id_ed25519 ~/.ssh/github_ed25519 ~/.ssh/cattivi_unifi
 
-  # Load keys from BWS into ssh-agent (values piped via stdin, never touch disk)
-  local uuid
-  uuid="fcc83acf-0a54-471a-a237-b479014d6e5f"  # id_ed25519
-  bws secret get "$uuid" 2>/dev/null | jq -r '.value' | ssh-add - 2>/dev/null
-  uuid="60ce8949-f4f6-4ad2-8683-b479014ac6da"  # github_ed25519
-  bws secret get "$uuid" 2>/dev/null | jq -r '.value' | ssh-add - 2>/dev/null
-  uuid="5dd3d0f8-c4d5-4baf-a92a-b479014e1f4b"  # cattivi_unifi
-  bws secret get "$uuid" 2>/dev/null | jq -r '.value' | ssh-add - 2>/dev/null
+    # Load keys from BWS into ssh-agent (values piped via stdin, never touch disk)
+    local uuid
+    uuid="fcc83acf-0a54-471a-a237-b479014d6e5f" # id_ed25519
+    bws secret get "$uuid" 2>/dev/null | jq -r '.value' | ssh-add - 2>/dev/null
+    uuid="60ce8949-f4f6-4ad2-8683-b479014ac6da" # github_ed25519
+    bws secret get "$uuid" 2>/dev/null | jq -r '.value' | ssh-add - 2>/dev/null
+    uuid="5dd3d0f8-c4d5-4baf-a92a-b479014e1f4b" # cattivi_unifi
+    bws secret get "$uuid" 2>/dev/null | jq -r '.value' | ssh-add - 2>/dev/null
 }
 _bws_load_ssh_keys
