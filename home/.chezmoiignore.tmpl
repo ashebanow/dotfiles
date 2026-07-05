@@ -1,22 +1,33 @@
 {{ if ne .chezmoi.os "darwin" }}
 .chezmoiscripts/darwin/**
+.config/aerospace
+.config/homebrew
 .config/iterm2
 .config/karabiner
+.config/raycast
+.config/sketchybar
+.config/skhd
+.config/yabai
 {{ end }}
 
 {{ if ne .chezmoi.os "linux" }}
 .chezmoiscripts/linux/**
 .hushlogin
 .config/ags
+.config/DankMaterialShell
 .config/gtk-3.0
 .config/gtk-4.0
 .config/hypr
+.config/hyprpanel
+.config/niri
 .config/nwg-look
 .config/qt5ct
 .config/qt6ct
 .config/rofi
 .config/swappy
+.config/swaylock
 .config/swaync
+.config/systemd
 .config/Thunar
 .config/wallust
 .config/waybar
