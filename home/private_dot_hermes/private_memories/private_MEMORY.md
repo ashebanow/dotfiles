@@ -1,0 +1,9 @@
+When a Hermes gateway platform fails to connect, the main gateway.log only shows the generic "timed out after 30s" message. The real error (invalid token, missing intents, etc.) is always in gateway.error.log with full stack traces. Always check both logs.
+§
+Discord bot (Hermes Raindrop Bot#9563): DeepSeek provider direct (not aperture proxy). DISCORD_ALLOWED_USERS must be numeric user IDs. Bot only responds to direct user @mentions, not role pings. Gateway runs via launchd. For debugging: always check gateway.error.log — gateway.log only shows timeout surface.
+§
+User has a local LLM proxy at http://aperture/v1 that occasionally returns 404 for deepseek-v4-flash — use DeepSeek provider directly when reliability matters. Discord bot initially had Message Content Intent missing, then username resolution issues in DISCORD_ALLOWED_USERS (fixed by using numeric IDs).
+§
+Kanban dispatcher: spawner picks up READY cards only; triage cards are invisible to spawner. Two-tier guard for human-review cards: (1) use --triage on create (keeps cards out of ready status), (2) set kanban.auto_decompose=false (Manual mode) so decomposer doesn't auto-process triage cards into ready children. Status pipeline: triage → todo → ready → running → blocked → done.
+§
+Raindrop.io API: test token at app.raindrop.io/settings/integrations, also ~/.hermes/config.yaml as RAINDROP_TEST_TOKEN. Collections via GET /collections + /collections/childrens. Unsorted $id=-1. perpage=50 cap. _categorized-v2 only after ALL 3 phases. DELETE /raindrop/{id} = soft-delete. Tags never deleted; merge via kanban only. Repo: ~/Development/ai/raindrop-skills/. scan-batch.py: /raindrops/0 returns ALL bookmarks — break after first collection. no_agent cron failures: Discord says "provider timeout" but real error in ~/.hermes/cron/output/{job_id}/{timestamp}.md.
