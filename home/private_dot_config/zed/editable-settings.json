@@ -25,6 +25,9 @@
     }
   ],
   "language_models": {
+    "llama.cpp": {
+      "api_url": "http://localhost:8080"
+    },
     "openai_compatible": {
       "LiteLLM": {
         "api_url": "https://litellm.fluffy-walleye.ts.net",
@@ -184,7 +187,7 @@
       "effort": "high",
       "enable_thinking": true,
       "provider": "deepseek",
-      "model": "deepseek-v4-pro"
+      "model": "deepseek-v4-flash"
     },
     // Whether the agent is enabled.
     "enabled": true,
