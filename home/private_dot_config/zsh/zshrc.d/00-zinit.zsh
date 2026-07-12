@@ -39,12 +39,8 @@ ZSH_HIGHLIGHT_STYLES[default]='fg=223'                    # fg1
 ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=167,bold'         # bright red (errors)
 
 # Plugins
-zstyle ':autocomplete:*' verbose no
-zstyle ':autocomplete:*' async no
+zinit ice wait lucid
+zinit light zsh-users/zsh-autosuggestions
 
-# Must load first — synchronous
-zinit light marlonrichert/zsh-autocomplete
-
-# Async plugin (styles set above)
 zinit ice wait lucid
 zinit light zsh-users/zsh-syntax-highlighting
