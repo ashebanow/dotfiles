@@ -40,6 +40,7 @@ ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=167,bold'         # bright red (errors)
 
 # Plugins
 zstyle ':autocomplete:*' verbose no
+zstyle ':autocomplete:*' async no
 
 # Must load first — synchronous
 zinit light marlonrichert/zsh-autocomplete
