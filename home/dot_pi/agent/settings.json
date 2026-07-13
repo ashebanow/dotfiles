@@ -10,7 +10,8 @@
     "npm:@feniix/pi-exa",
     "npm:pi-mcp-extension",
     "git:git@github.com:joshleblanc/pi-minimax",
-    "npm:pi-provider-litellm"
+    "npm:pi-provider-litellm",
+    "npm:@ashebanow/pi-gotgenes-subagent"
   ],
   "theme": "gruvbox-hard"
 }
