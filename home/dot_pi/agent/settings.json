@@ -5,11 +5,12 @@
   "defaultModel": "deepseek-v4-pro",
   "packages": [
     "npm:pi-ask-user",
+    "npm:pi-background-tasks",
     "npm:pi-chrome",
     "npm:@feniix/pi-exa",
-    "npm:pi-provider-litellm",
     "npm:pi-mcp-extension",
     "git:git@github.com:joshleblanc/pi-minimax",
+    "npm:pi-provider-litellm",
     "npm:@tintinweb/pi-subagents"
   ],
   "theme": "gruvbox-hard"
