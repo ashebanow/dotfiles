@@ -16,27 +16,44 @@ fi
 source "$ZINIT_HOME/zinit.zsh"
 
 # Gruvbox dark theme for syntax-highlighting (set before plugin loads)
-typeset -A ZSH_HIGHLIGHT_STYLES
-ZSH_HIGHLIGHT_STYLES[command]='fg=142,bold'               # bright green
-ZSH_HIGHLIGHT_STYLES[builtin]='fg=142'                    # bright green
-ZSH_HIGHLIGHT_STYLES[alias]='fg=142'                      # bright green
-ZSH_HIGHLIGHT_STYLES[function]='fg=142'                   # bright green
-ZSH_HIGHLIGHT_STYLES[precommand]='fg=142'                 # bright green
-ZSH_HIGHLIGHT_STYLES[reserved-word]='fg=175'              # bright purple
-ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=214'       # bright yellow
-ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=214'       # bright yellow
-ZSH_HIGHLIGHT_STYLES[path]='fg=109,underline'             # bright blue
-ZSH_HIGHLIGHT_STYLES[path_prefix]='fg=109'                # bright blue
-ZSH_HIGHLIGHT_STYLES[globbing]='fg=108'                   # bright aqua
-ZSH_HIGHLIGHT_STYLES[single-quoted-argument]='fg=142'     # bright green (strings)
-ZSH_HIGHLIGHT_STYLES[double-quoted-argument]='fg=142'     # bright green (strings)
-ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]='fg=208' # bright orange
-ZSH_HIGHLIGHT_STYLES[back-double-quoted-argument]='fg=175'   # bright purple
-ZSH_HIGHLIGHT_STYLES[redirection]='fg=208'                # bright orange
-ZSH_HIGHLIGHT_STYLES[comment]='fg=245'                    # gray
-ZSH_HIGHLIGHT_STYLES[arg0]='fg=223'                       # fg1
-ZSH_HIGHLIGHT_STYLES[default]='fg=223'                    # fg1
-ZSH_HIGHLIGHT_STYLES[unknown-token]='fg=167,bold'         # bright red (errors)
+# Palette: morhetz/gruvbox — canonical bright colors
+# Style: matches hue (github.com/grugq/hue) gruvbox-dark theme
+local gb_fg='#ebdbb2' gb_fg2='#d5c4a1' gb_gray='#928374'
+local gb_red='#fb4934' gb_green='#b8bb26' gb_yellow='#fabd2f' gb_blue='#83a598'
+local gb_purple='#d3869b' gb_aqua='#8ec07c' gb_orange='#fe8019'
+
+typeset -gA ZSH_HIGHLIGHT_STYLES=(
+  default                       "fg=$gb_fg"
+  unknown-token                 "fg=$gb_red,bold"
+  reserved-word                 "fg=$gb_purple,bold"
+  command                       "fg=$gb_green,bold"
+  builtin                       "fg=$gb_aqua"
+  alias                         "fg=$gb_green"
+  function                      "fg=$gb_blue,bold"
+  hashed-command                "fg=$gb_green"
+  precommand                    "fg=$gb_aqua,bold"
+  path                          "fg=$gb_fg,underline"
+  path_pathseparator            "fg=$gb_gray"
+  globbing                      "fg=$gb_orange"
+  single-quoted-argument        "fg=$gb_yellow"
+  double-quoted-argument        "fg=$gb_yellow"
+  dollar-quoted-argument        "fg=$gb_yellow"
+  dollar-double-quoted-argument "fg=$gb_aqua"
+  back-quoted-argument          "fg=$gb_aqua"
+  single-hyphen-option          "fg=$gb_orange"
+  double-hyphen-option          "fg=$gb_orange"
+  commandseparator              "fg=$gb_purple"
+  redirection                   "fg=$gb_purple"
+  assign                        "fg=$gb_yellow"
+  history-expansion             "fg=$gb_purple,bold"
+  comment                       "fg=$gb_gray,italic"
+  bracket-error                 "fg=$gb_red,bold"
+  bracket-level-1               "fg=$gb_blue"
+  bracket-level-2               "fg=$gb_aqua"
+  bracket-level-3               "fg=$gb_purple"
+  bracket-level-4               "fg=$gb_orange"
+  cursor-matchingbracket        "standout"
+)
 
 # Plugins
 zinit ice wait lucid

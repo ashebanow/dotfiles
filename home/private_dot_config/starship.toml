@@ -31,36 +31,64 @@ $line_break$character"""
 
 palette = 'gruvbox_dark'
 
-# Gruvbox Dark palette — blend approach:
-#   Accents: hue-preserving semantic mapping (e.g. green→bgreen)
-#   Neutrals: Euclidean RGB nearest-neighbor w/ collision resolution
+# Gruvbox Dark Hard palette — canonical colors from morhetz/gruvbox
+# Old name mapping preserved for backward compat with format strings
 [palettes.gruvbox_dark]
-crust = "#1d2021"
-mantle = "#32302f"
-base = "#282828"
-surface0 = "#3c3836"
-surface1 = "#504945"
-surface2 = "#665c54"
-overlay0 = "#7c6f64"
-overlay1 = "#928374"
-overlay2 = "#a89984"
-subtext0 = "#bdae93"
-subtext1 = "#d5c4a1"
-text = "#fbf1c7"
-rosewater = "#fb4934"
-flamingo = "#fe8019"
-pink = "#d3869b"
-mauve = "#b16286"
+# Backgrounds
+bg_hard = "#1d2021"
+crust = "#1d2021"          # alias: bg_hard
+bg = "#282828"
+base = "#282828"            # alias: bg
+bg_soft = "#32302f"
+mantle = "#32302f"          # alias: bg_soft
+bg1 = "#3c3836"
+surface0 = "#3c3836"        # alias: bg1
+bg2 = "#504945"
+surface1 = "#504945"        # alias: bg2
+bg3 = "#665c54"
+surface2 = "#665c54"        # alias: bg3
+bg4 = "#7c6f64"
+overlay0 = "#7c6f64"        # alias: bg4
+# Grays / muted
+gray = "#928374"
+overlay1 = "#928374"        # alias: gray
+# Faded foregrounds
+fg4 = "#a89984"
+overlay2 = "#a89984"        # alias: fg4
+fg3 = "#bdae93"
+subtext0 = "#bdae93"        # alias: fg3
+fg2 = "#d5c4a1"
+subtext1 = "#d5c4a1"       # alias: fg2
+yellow = "#d5c4a1"          # alias: fg2 (maps to old yellow)
+fg1 = "#ebdbb2"
+fg0 = "#fbf1c7"
+text = "#fbf1c7"            # alias: fg0
+# Bright accents
 red = "#fb4934"
-maroon = "#cc241d"
-peach = "#fe8019"
-yellow = "#d5c4a1"
-green = "#8ec07c"
-teal = "#8ec07c"
-sky = "#83a598"
-sapphire = "#458588"
+rosewater = "#fb4934"       # alias: red
+green = "#a3be51"            # midpoint: gruvbox aqua ↔ green
+neutral_green = "#98971a"
+yellow_bright = "#fabd2f"
+orange = "#fe8019"
+flamingo = "#fe8019"         # alias: orange
+peach = "#fe8019"            # alias: orange
 blue = "#83a598"
-lavender = "#d3869b"
+sky = "#83a598"              # alias: blue
+neutral_blue = "#458588"
+sapphire = "#458588"         # alias: neutral_blue
+purple = "#d3869b"
+pink = "#83a598"             # alias: blue (muted light blue)
+lavender = "#83a598"         # alias: blue
+neutral_purple = "#b16286"
+mauve = "#b16286"            # alias: neutral_purple
+aqua = "#8ec07c"
+teal = "#8ec07c"             # alias: aqua (same as green)
+neutral_aqua = "#689d6a"
+# Neutral/faded accents
+neutral_red = "#cc241d"
+maroon = "#cc241d"           # alias: neutral_red
+neutral_yellow = "#d79921"
+neutral_orange = "#d65d0e"
 
 [os]
 disabled = false
