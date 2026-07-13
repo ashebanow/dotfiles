@@ -12,5 +12,5 @@
     "git:git@github.com:joshleblanc/pi-minimax",
     "npm:@tintinweb/pi-subagents"
   ],
-  "theme": "dark"
+  "theme": "gruvbox-hard"
 }
