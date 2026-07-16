@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# Re-run this script whenever nix.custom.conf changes:
+# nix.custom.conf hash: {{ include "private_dot_config/nix/nix.custom.conf" | sha256sum }}
+
 # NixOS manages nix config through the module system (nix.settings).
 # No external /etc/nix/nix.custom.conf to restart for.
 {{ if eq .chezmoi.os "linux" }}
