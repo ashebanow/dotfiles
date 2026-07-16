@@ -1,5 +1,5 @@
 # -----------------------------------------------------
-# Shell tools: bat, direnv, duf, fzf, starship, thefuck, tv, deja, dircolors
+# Shell tools: bat, direnv, duf, fzf, starship, thefuck, tv, dircolors
 # -----------------------------------------------------
 
 # bat — cat replacement
@@ -49,9 +49,4 @@ fi
 # tv — television (TUI tool)
 if command -v tv &> /dev/null; then
   eval "$(tv init zsh)"
-fi
-
-# deja — directory jumper
-if command -v deja &> /dev/null; then
-  eval "$(deja init zsh)"
 fi
