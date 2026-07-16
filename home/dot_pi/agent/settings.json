@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.80.6",
+  "lastChangelogVersion": "0.80.9",
   "defaultThinkingLevel": "high",
   "defaultProvider": "deepseek",
   "defaultModel": "deepseek-v4-pro",
@@ -13,5 +13,6 @@
     "npm:pi-provider-litellm",
     "npm:@ashebanow/pi-gotgenes-subagent"
   ],
-  "theme": "gruvbox-hard"
+  "theme": "gruvbox-hard",
+  "hideThinkingBlock": false
 }
