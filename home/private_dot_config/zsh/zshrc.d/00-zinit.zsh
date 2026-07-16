@@ -56,8 +56,8 @@ typeset -gA ZSH_HIGHLIGHT_STYLES=(
 )
 
 # Plugins
-zinit ice wait lucid
-zinit light zsh-users/zsh-autosuggestions
+zinit ice wait"0" lucid depth=1
+zinit light Giammarco-Ferranti/deja
 
 zinit ice wait lucid
 zinit light zsh-users/zsh-syntax-highlighting
