@@ -1,0 +1,16 @@
+# -----------------------------------------------------
+# .zprofile — login-shell setup (runs AFTER /etc/zprofile)
+# -----------------------------------------------------
+
+# On macOS, /etc/zprofile runs path_helper after ~/.zshenv, which moves
+# the system directories (/usr/local/bin, /usr/bin, /bin, ...) ahead of
+# everything we set up there (Homebrew, nix, mise shims, ~/.local/bin,
+# ...). Replay the recorded add_to_path calls (see paths.zsh) in their
+# original order to restore our intended priority; anything new that
+# path_helper added (e.g. /opt/podman/bin) stays, after our entries.
+if (( ${+functions[replay_path_adds]} )); then
+  replay_path_adds
+fi
+
+# OrbStack: command-line tools and integration (macOS; no-op elsewhere)
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :

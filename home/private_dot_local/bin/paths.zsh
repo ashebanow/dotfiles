@@ -12,6 +12,12 @@
 [[ -n "$_PATHS_HELPERS_INCLUDED" ]] && return
 _PATHS_HELPERS_INCLUDED=1
 
+# Ordered record of every add_to_path/add_to_path_end request made in
+# this shell. Replayed by replay_path_adds from $ZDOTDIR/.zprofile to
+# restore our intended ordering after macOS path_helper (/etc/zprofile)
+# reorders PATH behind our back.
+typeset -ga _path_adds _path_end_adds
+
 # Internal helper: Get canonical path
 _get_canonical_path() {
     local path="$1"
@@ -75,6 +81,12 @@ _validate_and_normalize_path() {
 
     [[ "$debug" == "true" ]] && echo "Debug: Canonical path: $canonical_dir" >&2
 
+    # Export results via global variables (set before the duplicate
+    # check so callers can still record already-present dirs for replay)
+    _validated_target_dir="$target_dir"
+    _validated_expanded_dir="$expanded_dir"
+    _validated_canonical_dir="$canonical_dir"
+
     # Check if already in PATH
     local -a _canonical_paths
     _get_canonical_path_array
@@ -85,11 +97,6 @@ _validate_and_normalize_path() {
         [[ "$debug" == "true" ]] && echo "Debug: Found duplicate at canonical path: $canonical_dir" >&2
         return 2  # Special return code for "already exists"
     fi
-
-    # Export results via global variables
-    _validated_target_dir="$target_dir"
-    _validated_expanded_dir="$expanded_dir"
-    _validated_canonical_dir="$canonical_dir"
 
     [[ "$debug" == "true" ]] && echo "Debug: Validation successful" >&2
 
@@ -125,8 +132,13 @@ add_to_path() {
     # Handle validation results
     case $validation_result in
         1) return 1 ;;  # Error occurred
-        2) return 0 ;;  # Already in PATH (silent success)
-        0) ;;           # Success, continue
+        2)              # Already in PATH: record for replay, no change
+            _path_adds+=("$_validated_expanded_dir")
+            return 0
+            ;;
+        0)              # Success: record for replay, then prepend
+            _path_adds+=("$_validated_expanded_dir")
+            ;;
     esac
 
     [[ "$debug" == "true" ]] && echo "Debug: Prepending to PATH: $_validated_expanded_dir" >&2
@@ -168,8 +180,13 @@ add_to_path_end() {
     # Handle validation results
     case $validation_result in
         1) return 1 ;;  # Error occurred
-        2) return 0 ;;  # Already in PATH (silent success)
-        0) ;;           # Success, continue
+        2)              # Already in PATH: record for replay, no change
+            _path_end_adds+=("$_validated_expanded_dir")
+            return 0
+            ;;
+        0)              # Success: record for replay, then append
+            _path_end_adds+=("$_validated_expanded_dir")
+            ;;
     esac
 
     [[ "$debug" == "true" ]] && echo "Debug: Appending to PATH: $_validated_expanded_dir" >&2
@@ -180,6 +197,26 @@ add_to_path_end() {
     [[ "$debug" == "true" ]] && echo "Debug: PATH updated successfully" >&2
 
     return 0
+}
+
+# Replay every recorded add_to_path/add_to_path_end call, in original
+# order, forcing entries to their intended position even when they are
+# already in PATH. Called from $ZDOTDIR/.zprofile, which runs after
+# macOS path_helper (/etc/zprofile) has demoted our .zshenv additions
+# behind the system directories. Replaying prepends in call order
+# reproduces exactly the ordering .zshenv originally built.
+# Usage: replay_path_adds
+replay_path_adds() {
+    local d
+    for d in "${_path_adds[@]}"; do
+        [[ -d "$d" ]] || continue
+        path=("$d" "${(@)path:#$d}")
+    done
+    for d in "${_path_end_adds[@]}"; do
+        [[ -d "$d" ]] || continue
+        path=("${(@)path:#$d}" "$d")
+    done
+    typeset -gU path
 }
 
 # Helper function to show current PATH in a readable format

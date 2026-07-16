@@ -8,13 +8,19 @@ error_color=red
 # environment variables
 
 export EDITOR=nvim
-export SHELL=$(which zsh)
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 export DOTFILES=$HOME/.local/share/chezmoi
 export BUN_INSTALL="$HOME/.bun"
 export PERSONAL_WIKI="$HOME/personal_wiki"
 export LITELLM_BASE_URL="https://litellm.fluffy-walleye.ts.net"
+
+#############################################################################
+# Path management helpers (add_to_path & friends)
+# Sourced before brew/nix so their dirs can be recorded for the
+# .zprofile replay (see replay_path_adds in paths.zsh).
+
+source "$HOME/.local/bin/paths.zsh"
 
 #############################################################################
 # INITIALIZE HOMEBREW (wherever it lives)
@@ -27,6 +33,13 @@ else
     print -P "%F{$warning_color}Homebrew not installed, but chezmoi should have installed it!%f\n"
 fi
 
+# brew shellenv already prepended these; record them so .zprofile can
+# replay their priority after macOS path_helper reorders PATH
+if [[ -n "$HOMEBREW_PREFIX" ]]; then
+    add_to_path "$HOMEBREW_PREFIX/sbin"
+    add_to_path "$HOMEBREW_PREFIX/bin"
+fi
+
 #############################################################################
 # INITIALIZE NIX
 
@@ -37,10 +50,16 @@ elif [ -f "$HOME/.nix-profile/${NIX_PROFILE_FILE_SUFFIX}" ]; then
     source "$HOME/.nix-profile/${NIX_PROFILE_FILE_SUFFIX}"
 fi
 
+# nix-daemon.sh already prepended these; record them for the .zprofile
+# replay (nix stays ahead of Homebrew, matching the init order above)
+add_to_path "/nix/var/nix/profiles/default/bin"
+add_to_path "$HOME/.nix-profile/bin"
+
+# Set after brew/nix init so we pick up their zsh (nix wins), not Apple's
+export SHELL=$(which zsh)
+
 #############################################################################
 # Path Management
-
-source "$HOME/.local/bin/paths.zsh"
 
 # mise shims — needed here (not just .zshrc) so tools like bws are
 # available when .zshenv runs before .zshrc
