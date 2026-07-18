@@ -151,6 +151,7 @@ _bws_refresh_cache() {
         echo "export DEEPSEEK_API_KEY=\"$(bws secret get fdf38fc5-3f26-446f-9808-b47701346a5d 2>/dev/null | jq -r '.value' || true)\""
         echo "export LITELLM_API_KEY=\"$(bws secret get 43962c1e-3259-41a2-bbd4-b47e01739fa6 2>/dev/null | jq -r '.value' || true)\""
         echo "export EXA_API_KEY=\"$(bws secret get 52eba787-8cb2-41b7-87b1-b4770134b198 2>/dev/null | jq -r '.value' || true)\""
+        echo "export PARALLEL_API_KEY=\"$(bws secret get 8fc4ed53-b8b9-4c67-9d7f-b48b002eefac 2>/dev/null | jq -r '.value' || true)\""
         echo "export ANTHROPIC_API_KEY=\"$(bws secret get 28893b82-be1f-407c-aa2d-b4770134fcc1 2>/dev/null | jq -r '.value' || true)\""
         echo "export GEMINI_API_KEY=\"$(bws secret get 3dbd4b26-485f-44d5-abc6-b477013544b4 2>/dev/null | jq -r '.value' || true)\""
     } >"$_BWS_ENV_FILE.tmp" && mv "$_BWS_ENV_FILE.tmp" "$_BWS_ENV_FILE"
