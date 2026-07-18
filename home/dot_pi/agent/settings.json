@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.80.9",
+  "lastChangelogVersion": "0.80.10",
   "defaultThinkingLevel": "high",
   "defaultProvider": "deepseek",
   "defaultModel": "deepseek-v4-pro",
@@ -11,8 +11,7 @@
     "npm:pi-mcp-extension",
     "git:git@github.com:joshleblanc/pi-minimax",
     "npm:pi-provider-litellm",
-    "npm:@ashebanow/pi-gotgenes-subagent",
-    "npm:@parallel-web/pi-extension"
+    "npm:@ashebanow/pi-gotgenes-subagent"
   ],
   "theme": "gruvbox-hard",
   "hideThinkingBlock": false
