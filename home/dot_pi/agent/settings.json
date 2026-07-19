@@ -4,7 +4,6 @@
   "defaultProvider": "deepseek",
   "defaultModel": "deepseek-v4-pro",
   "packages": [
-    "npm:pi-ask-user",
     "npm:pi-background-tasks",
     "npm:pi-chrome",
     "npm:@feniix/pi-exa",
