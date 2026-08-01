@@ -65,6 +65,9 @@ devenv.local.nix
 # direnv
 .direnv
 
+# Claude Code
+.claude/settings.local.json
+
 # pre-commit
 .pre-commit-config.yaml
 
