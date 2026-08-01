@@ -5,6 +5,9 @@
 # Man pages in neovim
 export MANPAGER='nvim +Man!'
 
+# make sure Claude Code doesn't get an API KEY
+alias ccode='ANTHROPIC_API_KEY= claude'
+
 # Basic safety aliases
 alias cls='clear'
 alias cp='cp -vi'
