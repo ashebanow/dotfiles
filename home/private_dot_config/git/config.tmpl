@@ -10,6 +10,10 @@
     # use as ```git squash-all -m "a brand new start"```
     # taken from https://stackoverflow.com/a/23486788/164655
     squash-all = "!f(){ git reset $(git commit-tree \"HEAD^{tree}\" \"$@\");};f"
+    # Mirror a vendor repo's tags into a namespace of their own, so a soft fork's
+    # upstream tags cannot collide with your own release tags.
+    # Use as ```git vendor-tags gotgenes``` -> populates refs/tags/gotgenes/*
+    vendor-tags = "!f(){ [ -n \"$1\" ] || { echo \"usage: git vendor-tags <remote>\" >&2; return 1; }; git fetch --no-tags --prune \"$1\" \"+refs/tags/*:refs/tags/$1/*\";};f"
 
 # Tool setttings
 # --------------
