@@ -135,3 +135,6 @@ dist
 # Anthropic Claude
 **/.claude/.cc-writes/
 **/.claude/settings.local.json
+
+**/.claude/.cc-writes/
+

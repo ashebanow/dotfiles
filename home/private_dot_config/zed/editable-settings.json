@@ -114,7 +114,7 @@
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",
-    "dark": "Zed (Default)"
+    "dark": "Material Icon Theme"
   },
   "relative_line_numbers": "enabled",
   // Vim settings
@@ -125,6 +125,20 @@
     "min_line_number_digits": 3
   },
   "languages": {
+    "Swift": {
+      "format_on_save": "on",
+      "remove_trailing_whitespace_on_save": true,
+      "language_servers": [
+        "sourcekit-lsp"
+      ]
+    },
+    "Python": {
+      "format_on_save": "on",
+      "remove_trailing_whitespace_on_save": true,
+      "language_servers": [
+        "basedpyright"
+      ]
+    },
     "Markdown": {
       "format_on_save": "on",
       "remove_trailing_whitespace_on_save": true
@@ -148,7 +162,7 @@
   "theme": {
     "mode": "dark",
     "light": "Gruvbox Light Hard",
-    "dark": "Gruvbox Dark Hard"
+    "dark": "Gruvbox Crisp Anysphere Blend Dark"
   },
   "agent": {
     // Version of this setting.
@@ -215,6 +229,11 @@
       }
     },
     "nix": {
+      "binary": {
+        "path_lookup": true
+      }
+    },
+    "sourcekit-lsp": {
       "binary": {
         "path_lookup": true
       }

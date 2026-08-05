@@ -1,10 +1,10 @@
 {
-  "lastChangelogVersion": "0.80.10",
+  "lastChangelogVersion": "0.83.0",
   "defaultThinkingLevel": "high",
   "defaultProvider": "deepseek",
-  "defaultModel": "deepseek-v4-pro",
+  "defaultModel": "deepseek-v4-flash",
   "packages": [
-    "npm:pi-background-tasks",
+    "npm:pi-background-tasks@latest",
     "npm:pi-chrome",
     "npm:@feniix/pi-exa",
     "npm:pi-mcp-extension",
