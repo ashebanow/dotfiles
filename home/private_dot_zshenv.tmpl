@@ -61,10 +61,6 @@ export SHELL=$(which zsh)
 #############################################################################
 # Path Management
 
-# mise shims — needed here (not just .zshrc) so tools like bws are
-# available when .zshenv runs before .zshrc
-add_to_path "$HOME/.local/share/mise/shims"
-
 add_to_path "$(brew --prefix postgresql@17)/bin"
 add_to_path "$BUN_INSTALL/bin"
 add_to_path "$HOME/.claude/local"
@@ -72,7 +68,6 @@ add_to_path "$HOME/.cargo/bin"
 add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/.npm-global/bin"
 add_to_path "$HOME/.lmstudio/bin"
-# nvim now managed by mise; bob path removed
 add_to_path "$HOME/.amp/bin"
 
 # Added by LM Studio CLI tool (lms)

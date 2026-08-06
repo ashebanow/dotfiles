@@ -1,14 +1,6 @@
 # -----------------------------------------------------
-# Development tools: nvm, mise, uv, devbox, nix, just, tmux, bling, WSL
+# Development tools: nvm, uv, devbox, nix, just, tmux, bling, WSL
 # -----------------------------------------------------
-
-# mise — runtime & tool manager (replaced bin + bob)
-if [[ -x ~/.local/bin/setup-mise.sh ]]; then
-  ~/.local/bin/setup-mise.sh
-fi
-if command -v mise &> /dev/null; then
-  eval "$(mise activate zsh)"
-fi
 
 # nvm — node version manager
 export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"

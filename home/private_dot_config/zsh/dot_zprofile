@@ -4,7 +4,7 @@
 
 # On macOS, /etc/zprofile runs path_helper after ~/.zshenv, which moves
 # the system directories (/usr/local/bin, /usr/bin, /bin, ...) ahead of
-# everything we set up there (Homebrew, nix, mise shims, ~/.local/bin,
+# everything we set up there (Homebrew, nix, ~/.local/bin,
 # ...). Replay the recorded add_to_path calls (see paths.zsh) in their
 # original order to restore our intended priority; anything new that
 # path_helper added (e.g. /opt/podman/bin) stays, after our entries.

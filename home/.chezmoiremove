@@ -1,0 +1,7 @@
+# Files chezmoi should remove from the target (~) even though it no
+# longer manages them, because chezmoi does not delete previously-managed
+# files just because their source was removed.
+
+# mise retired in favor of nix-managed packages (2026-08)
+.config/mise/config.toml
+.local/bin/setup-mise.sh
