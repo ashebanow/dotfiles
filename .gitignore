@@ -98,5 +98,13 @@ devenv.local.yaml
 # direnv
 .direnv
 
+# code coverage
+.coverage
+coverage.xml
+htmlcov/
+
 # pre-commit
 .pre-commit-config.yaml
+
+# Pi
+.pi/tasks/
