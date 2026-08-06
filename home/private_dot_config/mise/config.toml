@@ -1,0 +1,8 @@
+[tools]
+bitwarden-secrets-manager = "latest"
+"github:caioricciuti/dev-cockpit" = "latest"
+"github:micahkepe/jsongrep" = "latest"
+neovim = "latest"
+
+[tool_alias]
+bws = "bitwarden-secrets-manager"
