@@ -89,3 +89,14 @@ tests/output/
 tests/debug_cache.json
 tests/test_cache.json
 tests/validation_cache.json
+
+# Devenv
+.devenv*
+devenv.local.nix
+devenv.local.yaml
+
+# direnv
+.direnv
+
+# pre-commit
+.pre-commit-config.yaml
