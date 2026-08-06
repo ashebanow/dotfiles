@@ -53,7 +53,7 @@ def analyze_repology_data_for_tags(repology_data: Dict[str, Any]) -> List[str]:
         # Only add homebrew tags if we have actual platform support data
         darwin_support = repology_data.get("brew-supports-darwin", False)
         linux_support = repology_data.get("brew-supports-linux", False)
-        
+
         if darwin_support and linux_support:
             tags.append("pm:homebrew")
             tags.append("os:macos")
@@ -65,7 +65,7 @@ def analyze_repology_data_for_tags(repology_data: Dict[str, Any]) -> List[str]:
             tags.append("pm:homebrew:linux")
             tags.append("os:linux")
         # Don't add homebrew tags if platform support is unclear
-        
+
         if repology_data.get("brew-is-cask", False):
             tags.append("cat:cask")
 
@@ -307,7 +307,7 @@ def generate_tags_for_package(
 
     # Start with clean tags - only use authoritative Repology/Homebrew data
     # Don't start with existing tags to avoid source-file-based tag pollution
-    
+
     # Handle cask detection from source file metadata
     if entry.get("_is_cask", False):
         tags.extend(["cat:cask", "os:macos"])
@@ -386,7 +386,10 @@ def generate_tags_for_package(
 
 
 def enhance_package_entry_with_tags(
-    package_name: str, entry: Dict[str, Any], repology_client: Any = None, homebrew_client: Any = None
+    package_name: str,
+    entry: Dict[str, Any],
+    repology_client: Any = None,
+    homebrew_client: Any = None,
 ) -> Dict[str, Any]:
     """Enhance a package entry with auto-generated tags"""
     enhanced_entry = entry.copy()

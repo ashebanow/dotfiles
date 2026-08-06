@@ -119,13 +119,13 @@ def write_toml(data: dict, filepath: str) -> None:
             # Write fields in order - description first if it exists and is not empty
             if "description" in entry and entry["description"]:
                 f.write(f'description = "{entry["description"]}"\n')
-            
+
             # Then tags with proper formatting
             if "tags" in entry and entry["tags"]:
                 tags = entry["tags"]
                 # Remove duplicates and sort tags alphabetically
                 sorted_tags = sorted(set(tags))
-                
+
                 # Format with one tag per line
                 if len(sorted_tags) == 1:
                     # Single tag on one line
@@ -139,7 +139,7 @@ def write_toml(data: dict, filepath: str) -> None:
                         else:
                             f.write(f'    "{tag}"\n')
                     f.write("]\n")
-            
+
             # Write other fields (skip obsolete ones and defaults)
             for key, value in entry.items():
                 if key in ["description", "tags"]:
@@ -181,18 +181,20 @@ def analyze_packages(
 ):
     """Analyze packages and generate TOML entries."""
     results = {}
-    
+
     # Load existing TOML data to preserve fields
     existing_data = {}
     if existing_toml_file and Path(existing_toml_file).exists():
         try:
             import tomllib
+
             with open(existing_toml_file, "rb") as f:
                 existing_data = tomllib.load(f)
             print(f"Loaded existing TOML data with {len(existing_data)} entries")
         except ImportError:
             try:
                 import toml
+
                 with open(existing_toml_file) as f:
                     existing_data = toml.load(f)
                 print(f"Loaded existing TOML data with {len(existing_data)} entries")
@@ -241,7 +243,7 @@ def analyze_packages(
         if metadata.get("is_cask", False):
             # Store cask info for enhance_package_entry_with_tags to use
             entry["_is_cask"] = True
-        
+
         # Preserve source_files for fallback tagging when no Repology data is available
         if "source_files" in metadata:
             entry["source_files"] = metadata["source_files"]
@@ -265,7 +267,7 @@ def analyze_packages(
                 # Ensure cask tags are in cached tags (they should be from proper generation)
                 cached_tags = list(set(cached_tags + ["cat:cask", "os:macos"]))
             entry["tags"] = cached_tags
-            
+
             # Even with cached tags, we should try to get description if missing
             if not entry.get("description", "").strip():
                 # Try Repology first
@@ -279,8 +281,10 @@ def analyze_packages(
                         if homebrew_description:
                             entry["description"] = homebrew_description
                     except Exception as e:
-                        print(f"Warning: Homebrew description lookup failed for {package_name}: {e}")
-            
+                        print(
+                            f"Warning: Homebrew description lookup failed for {package_name}: {e}"
+                        )
+
             # Preserve existing fields from TOML file
             if package_name in existing_data:
                 preserved_entry = existing_data[package_name].copy()
@@ -293,9 +297,12 @@ def analyze_packages(
             # Compute tags
             try:
                 enhanced_entry = enhance_package_entry_with_tags(
-                    package_name, entry, repology_client=repology_client, homebrew_client=homebrew_client
+                    package_name,
+                    entry,
+                    repology_client=repology_client,
+                    homebrew_client=homebrew_client,
                 )
-                
+
                 # Preserve existing fields from TOML file
                 if package_name in existing_data:
                     preserved_entry = existing_data[package_name].copy()
@@ -308,11 +315,14 @@ def analyze_packages(
                 # Cache the computed tags (using final merged data)
                 if tag_cache:
                     import time
+
                     # Use current time as Homebrew timestamp if Homebrew was used for this package
                     homebrew_timestamp = time.time() if homebrew_client else None
                     tag_cache.set_tags(
-                        package_name, results[package_name].get("tags", []), 
-                        repology_timestamp, homebrew_timestamp
+                        package_name,
+                        results[package_name].get("tags", []),
+                        repology_timestamp,
+                        homebrew_timestamp,
                     )
 
             except Exception as e:

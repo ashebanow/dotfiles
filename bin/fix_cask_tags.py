@@ -19,10 +19,11 @@ try:
     def load_toml(filepath):
         with open(filepath, "rb") as f:
             return tomllib.load(f)
-            
+
     def dump_toml(data, filepath):
         # tomllib doesn't have a write function, use toml instead
         import toml
+
         with open(filepath, "w") as f:
             toml.dump(data, f)
 
@@ -33,7 +34,7 @@ except ImportError:
         def load_toml(filepath):
             with open(filepath) as f:
                 return toml.load(f)
-                
+
         def dump_toml(data, filepath):
             with open(filepath, "w") as f:
                 toml.dump(data, f)
@@ -46,10 +47,10 @@ except ImportError:
 def get_packages_from_file(filepath):
     """Extract package names from a package list file."""
     packages = set()
-    
+
     if not Path(filepath).exists():
         return packages
-        
+
     with open(filepath) as f:
         for line in f:
             line = line.strip()
@@ -72,7 +73,7 @@ def get_packages_from_file(filepath):
                 else:
                     # Simple package list format (Archfile, Aptfile, etc.)
                     packages.add(line)
-                    
+
     return packages
 
 
@@ -82,78 +83,82 @@ def main():
     if not toml_path.exists():
         print(f"Error: {toml_path} not found")
         sys.exit(1)
-        
+
     data = load_toml(toml_path)
-    
+
     # Get packages from each source
     brewfile_packages = get_packages_from_file("packages/Brewfile.in")
     archfile_packages = get_packages_from_file("tests/assets/legacy_packages/Archfile")
     aptfile_packages = get_packages_from_file("tests/assets/legacy_packages/Aptfile")
     flatfile_packages = get_packages_from_file("tests/assets/legacy_packages/Flatfile")
-    
+
     print(f"Found {len(brewfile_packages)} packages in Brewfile.in")
     print(f"Found {len(archfile_packages)} packages in Archfile")
     print(f"Found {len(aptfile_packages)} packages in Aptfile")
     print(f"Found {len(flatfile_packages)} packages in Flatfile")
-    
+
     # Find packages that need additional PM tags
     packages_fixed = 0
-    
+
     for package_name, entry in data.items():
         if package_name == "settings":  # Skip the settings section
             continue
-            
+
         tags = entry.get("tags", [])
         pm_tags = [tag for tag in tags if tag.startswith("pm:")]
-        
+
         # Check which package lists this package appears in
         needs_tags = []
-        
+
         if package_name in archfile_packages and "pm:pacman" not in tags:
             needs_tags.append("pm:pacman")
             needs_tags.append("os:linux")
             needs_tags.append("dist:arch")
-            
+
         if package_name in aptfile_packages and "pm:apt" not in tags:
             needs_tags.append("pm:apt")
             needs_tags.append("os:linux")
             needs_tags.append("dist:debian")
             needs_tags.append("dist:ubuntu")
-            
+
         if package_name in flatfile_packages and "pm:flatpak" not in tags:
             needs_tags.append("pm:flatpak")
             needs_tags.append("os:linux")
-            
-        if package_name in brewfile_packages and not any(tag.startswith("pm:homebrew") for tag in tags):
+
+        if package_name in brewfile_packages and not any(
+            tag.startswith("pm:homebrew") for tag in tags
+        ):
             # Only add generic homebrew tag if it's in Brewfile.in
             needs_tags.append("pm:homebrew")
-            
+
         if needs_tags:
             print(f"\nFixing {package_name}:")
             print(f"  Current PM tags: {pm_tags}")
             print(f"  Adding tags: {needs_tags}")
-            
+
             # Add new tags while preserving order and avoiding duplicates
             for tag in needs_tags:
                 if tag not in tags:
                     # Insert PM tags after category tags but before priority tags
                     insert_pos = len(tags)
                     for i, existing_tag in enumerate(tags):
-                        if existing_tag.startswith("priority:") or existing_tag.startswith("scope:"):
+                        if existing_tag.startswith("priority:") or existing_tag.startswith(
+                            "scope:"
+                        ):
                             insert_pos = i
                             break
                     tags.insert(insert_pos, tag)
-                    
+
             entry["tags"] = tags
             packages_fixed += 1
-    
+
     if packages_fixed > 0:
         # Save the updated TOML
         dump_toml(data, toml_path)
         print(f"\nFixed {packages_fixed} packages in {toml_path}")
     else:
         print("\nNo packages needed fixing")
-        
+
     # Specifically check zsh-completions
     if "zsh-completions" in data:
         print(f"\nzsh-completions tags: {data['zsh-completions'].get('tags', [])}")
