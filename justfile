@@ -299,8 +299,8 @@ check-deps:
 # Install Python dependencies
 [group('development')]
 install-deps:
-    @echo "Installing Python dependencies..."
-    @uv run -m pip install --user toml requests
+    @echo "Syncing Python dependencies into .venv..."
+    @uv sync
 
 # Fix SSL issues (common on macOS with LibreSSL)
 [group('development')]
