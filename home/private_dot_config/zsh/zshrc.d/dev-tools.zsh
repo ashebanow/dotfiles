@@ -31,6 +31,11 @@ if command -v determinate-nixd &> /dev/null; then
   eval "$(determinate-nixd completion zsh)"
 fi
 
+# devenv - nix-based dev environments
+if command -v devenv &> /dev/null; then
+  eval "$(devenv hook zsh)"
+fi
+
 # just — command runner
 if command -v just &> /dev/null; then
   alias gust='just -g'
