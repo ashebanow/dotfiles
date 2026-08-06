@@ -23,15 +23,3 @@ update-config:
 [group('Testing')]
 clear-chezmoi-script-state:
     chezmoi state delete-bucket --bucket=scriptState
-
-# Run the install-packages script
-[group('Testing')]
-run-chezmoi-package-install:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    sourceScriptFile="{{- .chezmoi.sourceDir -}}/.chezmoiscripts/all/run_onchange_100-install-packages.sh.tmpl"
-    installScriptFile=$(mktemp)
-    chezmoi execute-template -f "${sourceScriptFile}" > "${installScriptFile}"
-    chmod +x "${installScriptFile}"
-    "${installScriptFile}"
-    rm -f "${installScriptFile}"

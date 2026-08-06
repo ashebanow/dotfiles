@@ -61,47 +61,13 @@ tmbootpicker.efi
 # Devenv
 .devenv*
 devenv.local.nix
+devenv.local.yaml
 
 # direnv
 .direnv
 
 # Claude Code
 .claude/settings.local.json
-
-# pre-commit
-.pre-commit-config.yaml
-
-# miscellaneous install related files
-Aptfile.new
-
-# Python virtual environment
-.venv/
-
-# Package generation and caches
-packages/.package_generation.log
-packages/temp_packages.toml
-packages/package_mappings.toml.new
-bin/__pycache__/
-lib/__pycache__/
-tests/__pycache__/
-tests/generated_packages/
-tests/output/
-tests/debug_cache.json
-tests/test_cache.json
-tests/validation_cache.json
-
-# Devenv
-.devenv*
-devenv.local.nix
-devenv.local.yaml
-
-# direnv
-.direnv
-
-# code coverage
-.coverage
-coverage.xml
-htmlcov/
 
 # pre-commit
 .pre-commit-config.yaml

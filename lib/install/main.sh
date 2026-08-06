@@ -10,44 +10,10 @@ show_spinner \
     "${DOTFILES}/lib/install/prerequisites.sh" \
     "Installed required prerequisites."
 
-# install arch packages here if appropriate.
-# It is important that this be done early so that
-# homebrew knows we already have commands installed.
-# TODO: do the same for debian-like systems, and for
-# mutable fedora distributions.
-if $is_arch_like; then
-    show_spinner \
-        "Installing Arch packages..." \
-        "${DOTFILES}/lib/install/arch.sh" \
-        "Installed Arch packages."
-fi
-
-show_spinner \
-    "Installing homebrew packages..." \
-    "${DOTFILES}/lib/install/homebrew_packages.sh" \
-    "Installed homebrew packages."
-
 # show_spinner \
 # 	"Installing nix..." \
 #   "${DOTFILES}/lib/install/nix.sh"
 # 	"Installed nix."
-
-if ! $is_darwin; then
-    show_spinner \
-        "Installing Flatpak runtime if needed..." \
-        "${DOTFILES}/lib/install/flatpak_runtime.sh" \
-        "Installed Flatpak runtime if needed."
-
-    show_spinner \
-        "Installing Flatpak apps..." \
-        "${DOTFILES}/lib/install/flatpak_apps.sh" \
-        "Installed Flatpak apps."
-fi
-
-show_spinner \
-    "Installing custom packages..." \
-    "${DOTFILES}/lib/install/custom.sh" \
-    "Installed custom packages."
 
 show_spinner "Installing fonts..." \
     "${DOTFILES}/lib/install/fonts.sh" \

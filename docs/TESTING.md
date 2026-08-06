@@ -153,7 +153,7 @@ function test_command_parsing() {
 
 ## Recommended Approach
 
-1. **Keep unit tests** for parsing logic (like we have in `tests/lib/install/test_xcode_functions.sh`)
+1. **Keep unit tests** for parsing logic (like we have in `lib/install/tests/test_xcode_functions.sh`)
 2. **Add mock integration tests** that test the full execution path with fake commands
 3. **Add property-based tests** that verify command structure without execution
 4. **Use CI/CD with multiple platforms** - run real integration tests only on macOS runners
@@ -192,7 +192,7 @@ tests/
 │   ├── lib/
 │   │   ├── common/
 │   │   └── install/
-│   │       └── test_xcode_functions.sh
+│   │       └── test_xcode_functions.sh  # lib/install/tests/test_xcode_functions.sh
 ├── integration/             # Mock-based integration tests
 │   ├── lib/
 │   │   └── install/

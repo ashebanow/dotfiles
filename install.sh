@@ -22,7 +22,7 @@ DESCRIPTION:
 
     • Install chezmoi if not present
     • Set up prerequisites (Homebrew, Node.js, development tools)
-    • Install platform-specific packages (Arch, Flatpak, Homebrew)
+    • Install fonts
     • Configure development applications (VS Code, Zed, Claude Code)
     • Set up Bitwarden integration for secrets management
     • Apply dotfiles configuration templates
@@ -109,8 +109,6 @@ log_info "Initializing chezmoi..."
 
 # Run install scripts to set up dependencies
 export DOTFILES="$script_dir"
-# Set flag to prevent recursive calls from run_onchange scripts
-export DOTFILES_INSTALL_RUNNING=1
 log_info "Running installation scripts..."
 "$script_dir/lib/install/main.sh"
 
