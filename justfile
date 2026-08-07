@@ -41,14 +41,19 @@ nix-flake-check: _nix-host
     cd "{{nix_config_dir}}"
     nix flake check
 
-# Preview what darwin-rebuild switch would build, without applying it.
+# Preview what darwin-rebuild switch would change, without applying it.
 # Uses `darwin-rebuild build` rather than `switch --dry-run` — the
 # latter is broken under Determinate Nix (and upstream nix in general):
 # it refuses to plan the final darwin-system-* derivation because no
 # substituter has ever pre-built that exact config combination, even
 # though a real local build works fine. See NixOS/nix#13411. `build`
 # does a real local build into ./result without activating/switching,
-# so it needs no sudo — only nix-switch does.
+# so it needs no sudo — only nix-switch does. Once built, diffs
+# against /run/current-system (the active generation) to show what
+# would actually change. On a machine that's never had a successful
+# switch, /run/current-system doesn't exist yet — nix-darwin creates
+# it during activation — so there's no "before" to diff against; in
+# that case this lists what's declared instead.
 [group('nix')]
 nix-dry-run: _nix-host
     #!/usr/bin/env bash
@@ -59,6 +64,20 @@ nix-dry-run: _nix-host
         darwin-rebuild build --flake ".#${host}"
     else
         nix run nix-darwin -- build --flake ".#${host}"
+    fi
+    echo
+    if [[ -e /run/current-system ]]; then
+        echo "=== Changes vs. the currently active generation ==="
+        nix store diff-closures /run/current-system ./result
+    else
+        echo "=== No previous generation to diff against (first-ever switch on this machine) ==="
+        echo "Declared home.packages:"
+        nix eval --json ".#darwinConfigurations.${host}.config.home-manager.users.ashebanow.home.packages" \
+            --apply 'pkgs: map (p: p.pname or p.name) pkgs' | jq -r '.[]' | sort | sed 's/^/  - /'
+        echo "Declared Homebrew brews:"
+        nix eval --json ".#darwinConfigurations.${host}.config.homebrew.brews" | jq -r '.[].name' | sed 's/^/  - /'
+        echo "Declared Homebrew casks:"
+        nix eval --json ".#darwinConfigurations.${host}.config.homebrew.casks" | jq -r '.[].name' | sed 's/^/  - /'
     fi
 
 # Apply the nix-config flake for real (darwin-rebuild switch)
