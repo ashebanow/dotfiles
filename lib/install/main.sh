@@ -10,15 +10,6 @@ show_spinner \
     "${DOTFILES}/lib/install/prerequisites.sh" \
     "Installed required prerequisites."
 
-# show_spinner \
-# 	"Installing nix..." \
-#   "${DOTFILES}/lib/install/nix.sh"
-# 	"Installed nix."
-
-show_spinner "Installing fonts..." \
-    "${DOTFILES}/lib/install/fonts.sh" \
-    "Installed fonts..."
-
 show_spinner "Installing Claude Code..." \
     "${DOTFILES}/lib/install/claude_code.sh" \
     "Installed Claude Code."
@@ -27,9 +18,9 @@ show_spinner "Installing Zed..." \
     "${DOTFILES}/lib/install/zed.sh" \
     "Installed Zed."
 
-show_spinner "Installing VSCode and Extensions..." \
+show_spinner "Installing VSCode..." \
     "${DOTFILES}/lib/install/vscode.sh" \
-    "Installed VSCode and Extensions."
+    "Installed VSCode."
 
 #######################################################################
 # Phase 2: configuration and initialization

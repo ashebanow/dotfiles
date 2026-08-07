@@ -71,7 +71,7 @@ Package installation is manual — chezmoi apply no longer triggers it automatic
 
 - `main.sh` - entrypoint called by `install.sh`. Sources and runs the other scripts in this directory in order.
 - `prerequisites.sh` - basic system preparation
-- Component installers: `fonts.sh`, `vscode.sh`, `vscode_extensions_standalone.sh`, `zed.sh`, `chezmoi.sh`, `nix.sh`, `github.sh`, `claude_code.sh`, `bitwarden_services.sh`, `distroboxes.sh`, `xcodes_brew.sh`
+- Component installers: `vscode.sh`, `zed.sh`, `chezmoi.sh`, `github.sh`, `claude_code.sh`, `bitwarden_services.sh`, `xcodes_brew.sh`, `aria2c_brew.sh`
 
 ### Shared Utilities (`lib/common/`)
 

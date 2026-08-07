@@ -22,7 +22,6 @@ DESCRIPTION:
 
     • Install chezmoi if not present
     • Set up prerequisites (Homebrew, Node.js, development tools)
-    • Install fonts
     • Configure development applications (VS Code, Zed, Claude Code)
     • Set up Bitwarden integration for secrets management
     • Apply dotfiles configuration templates

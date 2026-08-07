@@ -5,3 +5,7 @@
 # mise retired in favor of nix-managed packages (2026-08)
 .config/mise/config.toml
 .local/bin/setup-mise.sh
+
+# lib/install/nix.sh (dead code, never active) removed; this was its
+# only consumer (2026-08)
+.local/share/nix/etc-nix-nix.conf
