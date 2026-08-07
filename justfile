@@ -41,7 +41,14 @@ nix-flake-check: _nix-host
     cd "{{nix_config_dir}}"
     nix flake check
 
-# Preview what darwin-rebuild switch would change, without applying it
+# Preview what darwin-rebuild switch would build, without applying it.
+# Uses `darwin-rebuild build` rather than `switch --dry-run` — the
+# latter is broken under Determinate Nix (and upstream nix in general):
+# it refuses to plan the final darwin-system-* derivation because no
+# substituter has ever pre-built that exact config combination, even
+# though a real local build works fine. See NixOS/nix#13411. `build`
+# does a real local build into ./result without activating/switching,
+# so it needs no sudo — only nix-switch does.
 [group('nix')]
 nix-dry-run: _nix-host
     #!/usr/bin/env bash
@@ -49,9 +56,9 @@ nix-dry-run: _nix-host
     host="$(hostname -s)"
     cd "{{nix_config_dir}}"
     if command -v darwin-rebuild >/dev/null 2>&1; then
-        darwin-rebuild switch --flake ".#${host}" --dry-run
+        darwin-rebuild build --flake ".#${host}"
     else
-        nix run nix-darwin -- switch --flake ".#${host}" --dry-run
+        nix run nix-darwin -- build --flake ".#${host}"
     fi
 
 # Apply the nix-config flake for real (darwin-rebuild switch)
