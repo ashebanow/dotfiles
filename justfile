@@ -60,8 +60,10 @@ nix-dry-run: _nix-host
     set -euo pipefail
     host="$(hostname -s)"
     cd "{{nix_config_dir}}"
-    if command -v darwin-rebuild >/dev/null 2>&1; then
-        darwin-rebuild build --flake ".#${host}"
+    if command -v nh >/dev/null 2>&1; then
+        nh darwin build ".#${host}"
+    elif command -v darwin-rebuild >/dev/null 2>&1; then
+        sudo darwin-rebuild build --flake ".#${host}"
     else
         nix run nix-darwin -- build --flake ".#${host}"
     fi
@@ -87,8 +89,10 @@ nix-switch: _nix-host
     set -euo pipefail
     host="$(hostname -s)"
     cd "{{nix_config_dir}}"
-    if command -v darwin-rebuild >/dev/null 2>&1; then
-        darwin-rebuild switch --flake ".#${host}"
+    if command -v nh >/dev/null 2>&1; then
+        nh darwin switch ".#${host}"
+    elif command -v darwin-rebuild >/dev/null 2>&1; then
+        sudo darwin-rebuild switch --flake ".#${host}"
     else
         nix run nix-darwin -- switch --flake ".#${host}"
     fi
