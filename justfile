@@ -54,17 +54,17 @@ nix-dry-run: _nix-host
     host="$(hostname -s)"
     cd "{{nix_config_dir}}"
     if command -v nh >/dev/null 2>&1; then
-        nh darwin build --hostname ${host}
+        nh darwin build --hostname ${host} .
     elif command -v darwin-rebuild >/dev/null 2>&1; then
         sudo darwin-rebuild build --flake ".#${host}"
     else
         nix run nix-darwin -- build --flake ".#${host}"
     fi
-    echo
-    if [[ -e /run/current-system ]]; then
-        echo "=== Changes vs. the currently active generation ==="
-        nix store diff-closures /run/current-system ./result
-    else
+    # nh darwin build prints its own closure diff vs /run/current-system,
+    # so no separate ./result diff step is needed here. On a first-ever
+    # switch there's no previous generation — list what the build declares
+    # instead.
+    if [[ ! -e /run/current-system ]]; then
         echo "=== No previous generation to diff against (first-ever switch on this machine) ==="
         echo "Declared home.packages:"
         nix eval --json ".#darwinConfigurations.${host}.config.home-manager.users.ashebanow.home.packages" \
@@ -83,7 +83,7 @@ nix-switch: _nix-host
     host="$(hostname -s)"
     cd "{{nix_config_dir}}"
     if command -v nh >/dev/null 2>&1; then
-        nh darwin switch --hostname ${host}
+        nh darwin switch --hostname ${host} .
     elif command -v darwin-rebuild >/dev/null 2>&1; then
         sudo darwin-rebuild switch --flake ".#${host}"
     else
