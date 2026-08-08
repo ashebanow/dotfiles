@@ -54,7 +54,7 @@ nix-dry-run: _nix-host
     host="$(hostname -s)"
     cd "{{nix_config_dir}}"
     if command -v nh >/dev/null 2>&1; then
-        nh darwin build ".#${host}"
+        nh darwin build --hostname ${host}
     elif command -v darwin-rebuild >/dev/null 2>&1; then
         sudo darwin-rebuild build --flake ".#${host}"
     else
@@ -83,7 +83,7 @@ nix-switch: _nix-host
     host="$(hostname -s)"
     cd "{{nix_config_dir}}"
     if command -v nh >/dev/null 2>&1; then
-        nh darwin switch ".#${host}"
+        nh darwin switch --hostname ${host}
     elif command -v darwin-rebuild >/dev/null 2>&1; then
         sudo darwin-rebuild switch --flake ".#${host}"
     else
