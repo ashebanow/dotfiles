@@ -9,3 +9,8 @@
 # lib/install/nix.sh (dead code, never active) removed; this was its
 # only consumer (2026-08)
 .local/share/nix/etc-nix-nix.conf
+
+# nix.custom.conf retired — daemon-side nix config is now owned by the
+# flake (nix.settings on NixOS, determinate module on nix-darwin), so
+# the chezmoi-managed copy is stale legacy (2026-08)
+.config/nix/nix.custom.conf

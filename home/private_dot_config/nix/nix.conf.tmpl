@@ -1,6 +1,9 @@
-# THIS LINE SHOULD BE IN /etc/nix/nix.custom.conf for Determinate
-# multiuser installs:
-# trusted-users = [ "root" "@wheel" "@admin" ];
+# User-level (client-side) nix config. Daemon-level settings like
+# trusted-users / substituters / experimental-features are managed
+# declaratively by the flake (nix.settings in modules/infra/nix/ on
+# NixOS, determinate module on nix-darwin) — don't duplicate them here.
+# This file also carries the GitHub access token (from bws) for
+# private flake inputs.
 
 accept-flake-config = true
 auto-optimise-store = true
