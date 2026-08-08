@@ -53,6 +53,8 @@ fi
 # nix-daemon.sh already prepended these; record them for the .zprofile
 # replay (nix stays ahead of Homebrew, matching the init order above)
 add_to_path "/nix/var/nix/profiles/default/bin"
+add_to_path "/run/current-system/sw/bin/"
+add_to_path "/etc/profiles/per-user/ashebanow/bin/"
 add_to_path "$HOME/.nix-profile/bin"
 
 # Set after brew/nix init so we pick up their zsh (nix wins), not Apple's
