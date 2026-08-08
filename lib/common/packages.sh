@@ -146,7 +146,6 @@ function pkg_installed() {
 #   pkg_install "gh" gh_packages  # Install with platform-specific names
 #
 #   declare -A tailscale_repos=(["darwin"]="tailscale/tap" ["debian"]='${JSON_CONFIG}')
-#   declare -A tailscale_pre=(["darwin"]="install_homebrew_if_needed")
 #   declare -A tailscale_post=(["arch"]="sudo systemctl enable --now tailscaled")
 #   pkg_install "tailscale" "" tailscale_repos tailscale_pre tailscale_post
 #
