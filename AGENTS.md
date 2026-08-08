@@ -71,7 +71,6 @@ Package installation is manual — chezmoi apply no longer triggers it automatic
 - `main.sh` - entrypoint called by `install.sh`. Runs the other scripts in this directory in order.
 - `prerequisites.sh` - basic system preparation. On the nix-managed hosts (nix-darwin macOS, NixOS servers) all CLI tools come from the nix flake (`modules/features/cli-*.nix` in the lumquat nix-config), so this only fills non-nix Linux gaps and macOS Xcode/Command Line Tools.
 - `bitwarden_services.sh` - Bitwarden session management (launchd/systemd/shell fallback)
-- `tests/` - unit tests for the install scripts
 
 ### Shared Utilities (`lib/common/`)
 

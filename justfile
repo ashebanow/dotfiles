@@ -8,13 +8,6 @@ nix_config_dir := env_var_or_default("NIX_CONFIG_DIR", env_var("HOME") + "/Devel
 default:
     @just --list
 
-# ===== TESTING =====
-
-# Run install script tests (if they exist)
-[group('testing')]
-test-install:
-    @./lib/testing/run_install_tests.sh
-
 # ===== NIX =====
 
 # Fail fast if this machine isn't a known host in the nix-config flake
