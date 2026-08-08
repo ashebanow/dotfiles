@@ -1,5 +1,13 @@
 # Instructions for Unusual Installs
 
+> **Note:** On the nix-managed hosts (macOS via nix-darwin + home-manager,
+> servers via NixOS) all CLI tools come from the nix flake
+> (`modules/features/cli-*.nix` in the lumquat nix-config), and Homebrew on
+> macOS is limited to the casks declared in `homebrew.casks`. `install.sh` /
+> `main.sh` no longer installs CLI tools on those hosts — it only fills
+> non-nix Linux gaps and macOS Xcode. The recipes below are for one-off /
+> manual installs where nix doesn't apply.
+
 Table of Contents:
 
 * [Nix](#nix)
@@ -28,7 +36,10 @@ sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --no-daem
 
 ## Homebrew
 
-Homebrew installs the same on Mac and Linux:
+On the nix hosts, Homebrew is installed and managed by nix-homebrew as part
+of the flake (and restricted to the declared casks — anything else gets
+uninstalled on the next `darwin-rebuild switch`). For a standalone install
+(legacy/non-nix setups):
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

@@ -37,9 +37,10 @@ EOF
     # Temporarily replace xcodes in PATH
     export PATH="${TMPDIR}:$PATH"
     
-    # Test the full show_spinner execution
+    # Test the full show_spinner execution (xcodes is nix-provided on
+    # macOS and called directly, no homebrew-env wrapper)
     if show_spinner "Test runtime install" \
-        "${DOTFILES}/lib/common/run_with_homebrew_env.sh $mock_xcodes runtimes" \
+        "$mock_xcodes runtimes" \
         "Test completed"; then
         assert_true "true" "Integration test with mock xcodes"
     fi
@@ -122,13 +123,13 @@ function setup_test_environment() {
 Test individual components that don't require full system modification:
 
 ```bash
-function test_homebrew_env_setup() {
-    # Test that the wrapper script can find brew and set up environment
-    local output
-    output=$("${DOTFILES}/lib/common/run_with_homebrew_env.sh" env | grep HOMEBREW)
-    
-    if [[ -n "$output" ]]; then
-        assert_true "true" "Homebrew environment setup works"
+function test_nix_provided_tool_available() {
+    # xcodes is nix-provided on macOS (cli-mac-only-tools.nix) and is
+    # called directly by prerequisites.sh — verify it's on PATH.
+    if command -v xcodes >/dev/null 2>&1; then
+        assert_true "true" "xcodes available (nix-provided)"
+    else
+        echo "xcodes not installed — run the nix setup (darwin-rebuild switch) first"
     fi
 }
 ```
@@ -139,12 +140,9 @@ Test that commands are properly formatted without executing them:
 
 ```bash
 function test_command_parsing() {
-    # Verify that commands can be parsed correctly
-    local cmd="${DOTFILES}/lib/common/run_with_homebrew_env.sh xcodes runtimes install 'iOS 17.5'"
-    
-    # Parse the command and verify components
-    local script_path="${cmd%% *}"
-    assert_true "[[ -x '$script_path' ]]" "Script is executable"
+    # Verify that commands can be parsed correctly (xcodes is called
+    # directly — nix-provided, no homebrew-env wrapper)
+    local cmd="xcodes runtimes install 'iOS 17.5'"
     
     # Test command structure
     assert_true "[[ '$cmd' =~ 'xcodes runtimes install' ]]" "Command structure is correct"

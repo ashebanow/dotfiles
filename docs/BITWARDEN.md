@@ -7,7 +7,7 @@ This document explains how the bitwarden session management system works during 
 When setting up a new machine (assuming curl, wget, git, nano/vim, and sshd are preinstalled with proper SSH/git configs):
 
 1. **Initial Setup**: Clone the repo and run the top-level `install.sh` file
-2. **Installation Process**: `install.sh` sources `bin/install_main.sh`, which in turn sources all `lib/install/*` files and runs everything in order
+2. **Installation Process**: `install.sh` sources `lib/install/main.sh`, which in turn runs the install scripts in `lib/install/` in order
 3. **Configuration Deployment**: After install scripts finish, `install.sh` runs `chezmoi apply`, copying service configs into `$HOME`
 4. **Service Activation**: The bitwarden session service is launched and will start running periodically (every 30 minutes on systemd, every 30 minutes on launchd)
 5. **First Password Prompt**: When the service first runs (2 minutes after boot on Linux, immediately on macOS), it will display a GUI password prompt for your Bitwarden master password

@@ -60,8 +60,7 @@ Package installation is manual — chezmoi apply no longer triggers it automatic
 # Bootstrap Homebrew (still automatic, via bootstrap.sh)
 ./bootstrap.sh
 
-# Run the remaining manual installers (fonts, VS Code, Zed, nix, GitHub CLI,
-# Claude Code, Bitwarden services, distroboxes, xcodes, etc.)
+# Run the remaining manual installers (Bitwarden services, etc.)
 ./install.sh
 ```
 
@@ -69,14 +68,15 @@ Package installation is manual — chezmoi apply no longer triggers it automatic
 
 ### Core Scripts (`lib/install/`)
 
-- `main.sh` - entrypoint called by `install.sh`. Sources and runs the other scripts in this directory in order.
-- `prerequisites.sh` - basic system preparation
-- Component installers: `vscode.sh`, `zed.sh`, `chezmoi.sh`, `github.sh`, `claude_code.sh`, `bitwarden_services.sh`, `xcodes_brew.sh`, `aria2c_brew.sh`
+- `main.sh` - entrypoint called by `install.sh`. Runs the other scripts in this directory in order.
+- `prerequisites.sh` - basic system preparation. On the nix-managed hosts (nix-darwin macOS, NixOS servers) all CLI tools come from the nix flake (`modules/features/cli-*.nix` in the lumquat nix-config), so this only fills non-nix Linux gaps and macOS Xcode/Command Line Tools.
+- `bitwarden_services.sh` - Bitwarden session management (launchd/systemd/shell fallback)
+- `tests/` - unit tests for the install scripts
 
 ### Shared Utilities (`lib/common/`)
 
-- `all.sh` - sources the rest of `lib/common/` (platform detection, logging, package-presence checks, Homebrew env setup)
-- `logging.sh`, `system_environment.sh`, `packages.sh`, `homebrew_utils.sh`, `run_with_homebrew_env.sh`
+- `all.sh` - sources the rest of `lib/common/` (platform detection, logging, package-presence checks)
+- `logging.sh`, `system_environment.sh`, `packages.sh`
 
 All install scripts source `lib/common/all.sh` and should use its logging/helper functions.
 

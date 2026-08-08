@@ -204,34 +204,16 @@ function test_platform_detection() {
 function test_command_construction() {
     echo "🧪 Testing command construction..."
     
-    # Test show_spinner command for runtime installation
-    local platform_name="iOS"
+    # xcodes is nix-provided on macOS (cli-mac-only-tools.nix) and is
+    # called directly, not through a homebrew-env wrapper.
     local latest_runtime="iOS 17.5"
-    local expected_cmd="bash -c '${DOTFILES}/lib/common/run_with_homebrew_env.sh xcodes runtimes install \"iOS 17.5\"'"
+    local expected_cmd="xcodes runtimes install \"iOS 17.5\""
     
     # This is what the command should look like (we can't easily test the actual show_spinner call)
     echo "   Expected command format: $expected_cmd"
     echo "✅ PASS: Command construction format verification"
     TESTS_RUN=$((TESTS_RUN + 1))
     TESTS_PASSED=$((TESTS_PASSED + 1))
-}
-
-# Test homebrew environment detection
-function test_homebrew_detection() {
-    echo "🧪 Testing homebrew detection..."
-    
-    # Source homebrew utils to test
-    source "${DOTFILES}/lib/common/homebrew_utils.sh"
-    
-    # Test find_brew_binary
-    local brew_path
-    if brew_path=$(find_brew_binary 2>/dev/null); then
-        echo "   Found brew at: $brew_path"
-        assert_true "true" "Homebrew binary detection"
-    else
-        echo "   Homebrew not found"
-        assert_false "true" "Homebrew binary detection (not installed)"
-    fi
 }
 
 # Test empty input handling
@@ -301,18 +283,9 @@ function test_latest_of_multiple_versions() {
 function test_command_validation() {
     echo "🧪 Testing command validation..."
     
-    # Test that wrapper script exists and is executable
-    local wrapper_script="${DOTFILES}/lib/common/run_with_homebrew_env.sh"
-    assert_true "[[ -f '$wrapper_script' ]]" "Wrapper script exists"
-    assert_true "[[ -x '$wrapper_script' ]]" "Wrapper script is executable"
-    
-    # Test that homebrew utils exist
-    local homebrew_utils="${DOTFILES}/lib/common/homebrew_utils.sh"
-    assert_true "[[ -f '$homebrew_utils' ]]" "Homebrew utils exist"
-    
     # Test command construction with special characters
     local special_runtime="iOS 17.5 (Special Edition)"
-    local cmd_with_special="${DOTFILES}/lib/common/run_with_homebrew_env.sh xcodes runtimes install \"$special_runtime\""
+    local cmd_with_special="xcodes runtimes install \"$special_runtime\""
     assert_true "[[ \"\$cmd_with_special\" =~ \"Special Edition\" ]]" "Command handles special characters"
 }
 
@@ -328,8 +301,6 @@ function run_tests() {
     test_platform_detection
     echo
     test_command_construction
-    echo
-    test_homebrew_detection
     echo
     test_xcode_cli_detection
     echo

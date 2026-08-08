@@ -15,10 +15,28 @@ if [[ ! "${BASH_SOURCE[0]}" -ef "$0" ]]; then
 fi
 
 #--------------------------------------------------------------------
+# NOTES ON PLATFORM COVERAGE
+#--------------------------------------------------------------------
+#
+# On the nix-managed hosts — macOS (nix-darwin + home-manager) and
+# servers (NixOS) — every CLI tool this script used to install (node,
+# gum, jq, bitwarden-cli, aria2, xcodes, tailscale, ...) now comes
+# from the nix flake in the lumquat nix-config (modules/features/
+# cli-*.nix, access.nix). Homebrew on macOS is limited to the casks
+# declared in homebrew.casks, and nix-darwin's
+# homebrew.onActivation.cleanup = "uninstall" removes anything not
+# declared — so brew-installing these from here would just get
+# uninstalled at the next darwin-rebuild switch.
+#
+# Consequently, on macOS this script only handles what nix doesn't:
+# Xcode + Command Line Tools. The install functions below skip macOS
+# (nix owns those tools) and only fall back to distro package
+# managers (apt/pacman/dnf) on non-nix Linux.
+
+#--------------------------------------------------------------------
 # CHECK FOR REQUIRED TOOLS
 #--------------------------------------------------------------------
 
-need_brew=false
 need_flatpak=false
 need_node=false
 need_gum=false
@@ -29,10 +47,6 @@ need_jq=false
 need_xcode=false
 
 function checkNeededPrerequisites() {
-    if ! pkg_installed "brew"; then
-        need_brew=true
-    fi
-
     if ! pkg_installed "flatpak"; then
         need_flatpak=true
     fi
@@ -77,8 +91,9 @@ function checkNeededPrerequisites() {
         fi
     fi
 
-    # Check for Tailscale
-    if ! pkg_installed "tailscale"; then
+    # Check for Tailscale (Linux only — macOS uses the official .pkg
+    # installer, NixOS hosts get it from services.tailscale)
+    if ! $is_darwin && ! pkg_installed "tailscale"; then
         need_tailscale=true
     fi
 
@@ -87,131 +102,50 @@ function checkNeededPrerequisites() {
         if ! is_xcode_command_line_tools_installed || ! is_xcode_app_installed; then
             need_xcode=true
         fi
-
-        # Check for xcodes and aria2c (needed for Xcode management)
-        if ! command -v xcodes >/dev/null 2>&1 || ! command -v aria2c >/dev/null 2>&1; then
-            need_xcode=true
-        fi
     fi
-}
-
-#--------------------------------------------------------------------
-# INSTALL HOMEBREW
-#--------------------------------------------------------------------
-
-function install_homebrew_if_needed {
-    if ! $need_brew; then
-        return
-    fi
-
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 }
 
 #--------------------------------------------------------------------
 # INSTALL NODE & NPM
 #--------------------------------------------------------------------
 
-function setup_npm_paths {
-    local npm_bin_dir="\$HOME/.npm-global/bin"
-
-    # Update .bashrc if it exists and doesn't already contain the path
-    if [[ -f ~/.bashrc ]] && ! grep -q ".npm-global/bin" ~/.bashrc; then
-        echo "$npm_bin_dir:\$PATH" >>~/.bashrc
-    fi
-
-    # Update .zshrc if it exists and doesn't already contain the path
-    if [[ -f ~/.zshrc ]] && ! grep -q ".npm-global/bin" ~/.zshrc; then
-        echo "$npm_bin_dir:\$PATH" >>~/.zshrc
-    fi
-
-    # Update current session PATH. its ok if this gets toasted later,
-    # since the shell init script(s) will add it more permanently.
-    export PATH="$npm_bin_dir:$PATH"
-}
-
-function setup_npm_global_directory {
-    # Create ~/.npm-global directory
-    mkdir -p ~/.npm-global
-
-    # Configure npm to use the new directory
-    npm config set prefix ~/.npm-global
-}
-
-function migrate_existing_npm_packages {
-    # Save existing global packages before migration
-    if command -v npm >/dev/null 2>&1; then
-        log_info "Saving existing global npm packages list..."
-        npm list -g --depth=0 >~/npm-global-packages-backup.txt 2>/dev/null || true
-
-        # Extract package names (excluding npm itself and path info)
-        if [[ -f ~/npm-global-packages-backup.txt ]]; then
-            grep -E '^[├└]─' ~/npm-global-packages-backup.txt |
-                sed 's/[├└─ ]//g' |
-                sed 's/@[0-9].*//' |
-                grep -v '^npm$' >~/npm-packages-to-reinstall.txt 2>/dev/null || true
-
-            # Reinstall packages in new location if any exist
-            if [[ -f ~/npm-packages-to-reinstall.txt ]] && [[ -s ~/npm-packages-to-reinstall.txt ]]; then
-                log_info "Reinstalling global packages in ~/.npm-global..."
-                while read -r package; do
-                    [[ -n "$package" ]] && npm install -g "$package" 2>/dev/null || true
-                done <~/npm-packages-to-reinstall.txt
-            fi
-        fi
-    fi
-}
-
+# node/npm on macOS come from nix (cli-build-essentials.nix). This
+# only installs on non-nix Linux distros.
 function install_node_if_needed {
     if ! $need_node; then
-        # Check if npm is using ~/.npm-global prefix
-        local current_prefix
-        current_prefix=$(npm config get prefix 2>/dev/null || echo "")
-        if [[ "$current_prefix" != "$HOME/.npm-global" ]]; then
-            log_info "Node/npm found but not using ~/.npm-global prefix. Setting up..."
-            setup_npm_global_directory
-            setup_npm_paths
-            migrate_existing_npm_packages
-        fi
+        return
+    fi
+
+    if $is_darwin; then
+        log_warning "node/npm not found on macOS — run the nix setup (darwin-rebuild switch) first; nix provides nodejs via home-manager (cli-build-essentials.nix)."
         return
     fi
 
     log_info "Installing Node.js and npm..."
 
-    # Set up the npm global directory structure BEFORE installing Node/npm
-    # This way npm will use the correct prefix from the start
-    mkdir -p ~/.npm-global
-
-    if $is_darwin; then
-        install_homebrew_if_needed
-        brew install node
-    else
-        if is_arch_like; then
-            sudo pacman -S --needed --noconfirm nodejs npm
-        elif is_debian_like; then
-            # Install Node.js 20.x LTS (or whatever the current lts is)
-            curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
-            sudo apt-get install -y nodejs
-        elif is_fedora_like; then
-            if command -v dnf5; then
-                sudo dnf5 install nodejs npm
-            else
-                sudo dnf install nodejs npm
-            fi
+    if is_arch_like; then
+        sudo pacman -S --needed --noconfirm nodejs npm
+    elif is_debian_like; then
+        # Install Node.js 20.x LTS (or whatever the current lts is)
+        curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
+        sudo apt-get install -y nodejs
+    elif is_fedora_like; then
+        if command -v dnf5; then
+            sudo dnf5 install nodejs npm
         else
-            log_error "Unsupported OS for Node.js installation."
-            exit 1
+            sudo dnf install nodejs npm
         fi
+    else
+        log_error "Unsupported OS for Node.js installation."
+        exit 1
     fi
-
-    # Configure npm to use ~/.npm-global immediately after installation
-    npm config set prefix ~/.npm-global
 }
 
 #--------------------------------------------------------------------
 # INSTALL FLATPAK RUNTIME
 #--------------------------------------------------------------------
 
-# Flatpak runtime installation functions
+# Flatpak runtime installation functions (Linux only — macOS returns early)
 function install_flatpak_if_needed {
     if $is_darwin; then
         return
@@ -247,6 +181,10 @@ function install_flatpak_if_needed {
 # INSTALL BITWARDEN CLI
 #--------------------------------------------------------------------
 
+# bw on macOS comes from nix (cli-security-tools.nix) and the desktop
+# app from the flake's homebrew.casks — nothing is installed from
+# here on macOS. The functions below only serve non-nix Linux.
+
 function arch_install_bitwarden_cli {
     # Make sure yay is installed
     if ! command -v yay >/dev/null 2>&1; then
@@ -273,12 +211,6 @@ function install_bitwarden_cli_if_needed {
         return
     fi
 
-    declare -a bw_packages=(
-        ["darwin"]="bitwarden-cli"
-        ["arch"]="bitwarden-cli"
-        ["fedora"]="bitwarden-cli"
-    )
-
     if is_arch_like; then
         arch_install_bitwarden_cli
     else
@@ -290,18 +222,13 @@ function install_bitwarden_cli_if_needed {
 # INSTALL BITWARDEN DESKTOP
 #--------------------------------------------------------------------
 
-# Bitwarden Desktop installation functions
-function darwin_install_bitwarden_desktop {
-    brew update
-    brew install --cask bitwarden
-}
-
+# Bitwarden Desktop installation functions (Linux only)
 function arch_install_bitwarden_desktop {
     # Make sure yay is installed
     if ! command -v yay >/dev/null 2>&1; then
         log_info "Installing yay..."
         sudo pacman -Sq --needed --noconfirm git base-devel >/dev/null 2>&1
-        pushd /tmp || exit 1 || exit 1
+        pushd /tmp || exit 1
         rm -rf /tmp/yay
         git clone https://aur.archlinux.org/yay.git
         cd yay || exit 1
@@ -318,21 +245,27 @@ function linux_native_install_bitwarden_desktop {
 
 function install_bitwarden_desktop_if_needed {
     if $is_darwin; then
-        darwin_install_bitwarden_desktop
+        log_debug "Bitwarden desktop is a declared cask in the nix flake — skipping"
+        return
+    fi
+
+    if is_arch_like; then
+        arch_install_bitwarden_desktop
+    elif is_debian_like || is_fedora_like; then
+        linux_native_install_bitwarden_desktop
     else
-        if is_arch_like; then
-            arch_install_bitwarden_desktop
-        elif is_debian_like || is_fedora_like; then
-            linux_native_install_bitwarden_desktop
-        else
-            log_error "Unsupported OS for Bitwarden desktop installation."
-            exit 1
-        fi
+        log_error "Unsupported OS for Bitwarden desktop installation."
+        exit 1
     fi
 }
 
 function install_bitwarden_if_needed {
     if ! $need_bitwarden; then
+        return
+    fi
+
+    if $is_darwin; then
+        log_warning "bw not found on macOS — run the nix setup (darwin-rebuild switch) first; nix provides bitwarden-cli via home-manager (cli-security-tools.nix)."
         return
     fi
 
@@ -375,10 +308,17 @@ function install_keyring_tools_if_needed() {
 # INSTALL GUM
 #--------------------------------------------------------------------
 
+# gum on macOS comes from nix (cli-productivity-tools.nix).
 function install_gum_if_needed() {
     if ! $need_gum; then
         return
     fi
+
+    if $is_darwin; then
+        log_warning "gum not found on macOS — run the nix setup (darwin-rebuild switch) first; nix provides gum via home-manager (cli-productivity-tools.nix)."
+        return
+    fi
+
     pkg_install "gum"
 }
 
@@ -386,16 +326,28 @@ function install_gum_if_needed() {
 # INSTALL JQ
 #--------------------------------------------------------------------
 
+# jq on macOS comes from nix (cli-productivity-tools.nix).
 function install_jq_if_needed() {
     if ! $need_jq; then
         return
     fi
+
+    if $is_darwin; then
+        log_warning "jq not found on macOS — run the nix setup (darwin-rebuild switch) first; nix provides jq via home-manager (cli-productivity-tools.nix)."
+        return
+    fi
+
     pkg_install "jq"
 }
 
 #--------------------------------------------------------------------
 # INSTALL XCODE AND COMMAND LINE TOOLS
 #--------------------------------------------------------------------
+
+# xcodes and aria2c are nix-provided on macOS (cli-mac-only-tools.nix,
+# cli-network-tools.nix) and are expected to be on PATH; this section
+# only installs what nix can't: the Command Line Tools and the full
+# Xcode.app (via xcodes).
 
 function is_xcode_command_line_tools_installed() {
     if ! $is_darwin; then
@@ -462,49 +414,6 @@ function is_xcode_app_installed() {
     else
         log_debug "Full Xcode.app not found"
         return 1
-    fi
-}
-
-
-function install_xcodes_if_needed() {
-    if ! $is_darwin; then
-        return
-    fi
-
-    local need_xcodes=false
-    local need_aria2c=false
-
-    if ! command -v xcodes >/dev/null 2>&1; then
-        need_xcodes=true
-    else
-        log_debug "xcodes command line tool already installed"
-    fi
-
-    if ! command -v aria2c >/dev/null 2>&1; then
-        need_aria2c=true
-    else
-        log_debug "aria2c already installed"
-    fi
-
-    if ! $need_xcodes && ! $need_aria2c; then
-        return
-    fi
-
-    # Ensure homebrew is installed first
-    install_homebrew_if_needed
-
-    if $need_xcodes; then
-        log_info "Installing xcodes (Xcode version manager)..."
-        show_spinner "Installing xcodes via Homebrew" \
-            "${DOTFILES}/lib/install/xcodes_brew.sh" \
-            "xcodes installed successfully"
-    fi
-
-    if $need_aria2c; then
-        log_info "Installing aria2c (fast downloader)..."
-        show_spinner "Installing aria2c via Homebrew" \
-            "${DOTFILES}/lib/install/aria2c_brew.sh" \
-            "aria2c installed successfully"
     fi
 }
 
@@ -599,9 +508,9 @@ function install_xcode_app() {
         return
     fi
 
-    # xcodes should already be installed at this point
+    # xcodes is nix-provided and should already be on PATH at this point
     if ! command -v xcodes >/dev/null 2>&1; then
-        log_error "xcodes command line tool not found. Please ensure it's installed first."
+        log_error "xcodes command line tool not found. Please ensure the nix setup has been run (nix provides xcodes via cli-mac-only-tools.nix)."
         return 1
     fi
 
@@ -617,7 +526,7 @@ function install_xcode_app() {
 
         # xcodes signin will use XCODES_USERNAME and XCODES_PASSWORD environment variables
         if ! show_spinner "Signing into Apple Developer account" \
-            "${DOTFILES}/lib/common/run_with_homebrew_env.sh xcodes signin" \
+            "xcodes signin" \
             "Apple Developer authentication completed"; then
             local apple_id_user="${APPLE_ID_USER:-ashebanow}"
             local bitwarden_key="${apple_id_user}_apple_id"
@@ -635,9 +544,9 @@ function install_xcode_app() {
         log_debug "Already authenticated with Apple Developer"
     fi
 
-    # Install Xcode using xcodes with aria2c for faster downloads
+    # Install Xcode using xcodes (aria2c from nix speeds up the download)
     show_spinner "Installing Xcode (this may take a while)" \
-        "${DOTFILES}/lib/common/run_with_homebrew_env.sh xcodes install --latest XCode --experimental-unxip" \
+        "xcodes install --latest XCode --experimental-unxip" \
         "Installed XCode."
 
     # Verify installation
@@ -680,13 +589,13 @@ function install_simulator_runtime() {
 
     # Find latest stable runtime for the platform
     local latest_runtime
-    latest_runtime=$("${DOTFILES}/lib/common/run_with_homebrew_env.sh" xcodes runtimes | grep "$platform_name" | grep -v "Beta" | grep -v "^--" | tail -1)
+    latest_runtime=$(xcodes runtimes | grep "$platform_name" | grep -v "Beta" | grep -v "^--" | tail -1)
     log_debug "Latest runtime: $latest_runtime"
 
     if [[ -n "$latest_runtime" ]]; then
         log_info "Installing $display_name runtime: $latest_runtime"
         show_spinner "Installing $latest_runtime runtime" \
-            "${DOTFILES}/lib/common/run_with_homebrew_env.sh xcodes runtimes install \"$latest_runtime\"" \
+            "xcodes runtimes install \"$latest_runtime\"" \
             "$display_name runtime installation completed"
     else
         log_debug "No $display_name runtimes available or already installed"
@@ -737,6 +646,11 @@ function mac_install_xcode_if_needed() {
 # INSTALL TAILSCALE
 #--------------------------------------------------------------------
 
+# Tailscale on macOS uses the official .pkg installer (the flake's
+# cli-network-tools.nix deliberately avoids nix/homebrew builds — the
+# MAS build is sandboxed and the nixpkgs build won't start on macOS),
+# and NixOS hosts get it from services.tailscale (access.nix). This
+# only installs on non-nix Linux distros.
 function install_tailscale_if_needed() {
     if ! $need_tailscale; then
         return
@@ -754,89 +668,16 @@ function install_tailscale_if_needed() {
         ["fedora"]="https://pkgs.tailscale.com/stable/fedora/tailscale.repo"
     )
 
-    # Define pre-install hooks
-    declare -a tailscale_pre=(
-        ["darwin"]="install_homebrew_if_needed"
-    )
-
     # Define post-install hooks
     declare -a tailscale_post=(
         ["arch"]="sudo systemctl enable --now tailscaled"
         ["fedora"]="sudo systemctl enable --now tailscaled"
-        ["darwin"]="brew services start tailscale"
     )
 
     # Install using the unified pkg_install function
-    pkg_install "tailscale" "" tailscale_repos tailscale_pre tailscale_post
+    pkg_install "tailscale" "" tailscale_repos "" tailscale_post
 
     log_info "Tailscale installed successfully"
-}
-
-function activate_tailscale() {
-    # Automatically detect headless mode based on system environment
-    local headless_mode="false"
-    if $is_virtualized || [[ -z "${DISPLAY:-}" ]]; then
-        headless_mode="true"
-    fi
-
-    # Check if Tailscale is already connected
-    if tailscale status >/dev/null 2>&1 && tailscale status | grep -q "logged in"; then
-        log_info "Tailscale is already activated and connected"
-        return 0
-    fi
-
-    log_info "Activating Tailscale..."
-
-    if [[ "$headless_mode" == "true" ]]; then
-        # Headless mode using Bitwarden auth key
-        log_info "Using headless mode with Bitwarden auth key..."
-
-        # Get auth key from Bitwarden
-        local auth_key
-        auth_key=$(bw get password "tailscale-homelab-ephemeral" 2>/dev/null)
-
-        if [[ -z "$auth_key" ]]; then
-            log_error "Failed to retrieve Tailscale auth key from Bitwarden"
-            log_error "Please ensure 'tailscale-homelab-ephemeral' exists in Bitwarden"
-            return 1
-        fi
-
-        # Create secure temporary file for auth key
-        local temp_key_file
-        temp_key_file=$(mktemp)
-        chmod 600 "$temp_key_file"
-
-        # Write auth key to temporary file
-        echo "$auth_key" > "$temp_key_file"
-
-        # Use auth key file for headless setup
-        sudo tailscale up --authkey="file:$temp_key_file" --ssh --accept-routes
-        local result=$?
-
-        # Clean up temporary file
-        rm -f "$temp_key_file"
-
-        if [[ $result -eq 0 ]]; then
-            log_info "Tailscale activated successfully in headless mode"
-        else
-            log_error "Failed to activate Tailscale in headless mode"
-            return 1
-        fi
-    else
-        # Interactive mode
-        log_info "Activating Tailscale in interactive mode..."
-        log_info "This will open a browser for authentication"
-
-        sudo tailscale up --ssh --accept-routes
-        if [[ $? -eq 0 ]]; then
-            log_info "Tailscale activation initiated"
-            log_warning "Note: Activation won't be complete until a Tailscale admin approves this device"
-            log_warning "Have an admin approve the new device in the admin console."
-        else
-            log_error "Failed to initiate Tailscale activation"
-            return 1
-        fi
-    fi
 }
 
 #--------------------------------------------------------------------
@@ -845,19 +686,17 @@ function activate_tailscale() {
 
 function install_prerequisites() {
     checkNeededPrerequisites
-    # Install XCode Command Line Tools first (required for Homebrew)
+    # Install XCode Command Line Tools first (required for nix on macOS)
     mac_install_cmd_line_tools_if_needed
-    install_homebrew_if_needed
     install_flatpak_if_needed
-    # Install Bitwarden early so we can use it for Apple ID authentication
     install_bitwarden_if_needed
     install_node_if_needed
     install_keyring_tools_if_needed
     install_jq_if_needed
     install_gum_if_needed
     install_tailscale_if_needed
-    # Install xcodes and Xcode at the end (requires Bitwarden for authentication)
-    install_xcodes_if_needed
+    # Install Xcode at the end (requires xcodes from nix and Bitwarden
+    # for Apple ID authentication)
     mac_install_xcode_if_needed
 }
 
