@@ -151,6 +151,7 @@ _bws_refresh_cache() {
         echo "export PARALLEL_API_KEY=\"$(bws secret get 8fc4ed53-b8b9-4c67-9d7f-b48b002eefac 2>/dev/null | jq -r '.value' || true)\""
         echo "export ANTHROPIC_API_KEY=\"$(bws secret get 28893b82-be1f-407c-aa2d-b4770134fcc1 2>/dev/null | jq -r '.value' || true)\""
         echo "export GEMINI_API_KEY=\"$(bws secret get 3dbd4b26-485f-44d5-abc6-b477013544b4 2>/dev/null | jq -r '.value' || true)\""
+        echo "export FLAKEHUB_TOKEN=\"$(bws secret get 0c678df8-84e4-4a1b-90db-b4a101071ee3 2>/dev/null | jq -r '.value' || true)\""
     } >"$_BWS_ENV_FILE.tmp" && mv "$_BWS_ENV_FILE.tmp" "$_BWS_ENV_FILE"
     chmod 600 "$_BWS_ENV_FILE"
 }
@@ -160,6 +161,45 @@ _bws_refresh_cache() {
 if [[ -f "$_BWS_ENV_FILE" ]]; then
     source "$_BWS_ENV_FILE"
 fi
+
+#############################################################################
+# FlakeHub auth (determinate-nixd)
+#
+# Feed the FlakeHub token (BWS secret flakehub_bergamot_token) to
+# determinate-nixd so cache.flakehub.com / private flakes authenticate.
+# nixd stores it via its daemon socket (no sudo). Runs only when the token
+# hash differs from the last successful login, so steady-state shells are
+# quiet and make no network calls.
+
+_bws_flakehub_login() {
+    [[ -o interactive ]] || return 0
+    [[ -n "${FLAKEHUB_TOKEN:-}" ]] || return 0
+    command -v determinate-nixd >/dev/null 2>&1 || return 0
+
+    local sentinel="$HOME/.cache/env/flakehub-login"
+    local h
+    h=$(printf '%s' "$FLAKEHUB_TOKEN" | cksum | awk '{print $1}') || return 0
+    [[ -n "$h" ]] || return 0
+
+    # Already logged in with this exact token?
+    if [[ -f "$sentinel" ]] && [[ "$(cat "$sentinel" 2>/dev/null)" == "$h" ]]; then
+        return 0
+    fi
+
+    # Feed the token to determinate-nixd via a 0600 temp file
+    local tmp
+    tmp=$(mktemp) || return 1
+    chmod 600 "$tmp"
+    printf '%s' "$FLAKEHUB_TOKEN" > "$tmp"
+    if determinate-nixd auth login token --token-file "$tmp" >/dev/null 2>&1; then
+        printf '%s' "$h" > "$sentinel"
+        chmod 600 "$sentinel"
+    else
+        echo "[bws] FlakeHub: determinate-nixd login failed (token invalid or nixd not running)" >&2
+    fi
+    rm -f "$tmp"
+}
+_bws_flakehub_login
 
 #############################################################################
 # SSH Key Management (agent-only, no private keys on disk)
