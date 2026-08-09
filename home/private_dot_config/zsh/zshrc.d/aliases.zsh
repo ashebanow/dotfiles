@@ -22,7 +22,7 @@ alias vi='nvim'
 # cd to commonly used directories
 alias cdwiki="cd \"$PERSONAL_WIKI\""
 alias cdsecret="cd ~/Development/nix/secretspec/main.bitwarden-provider"
-alias cdlumq="cd ~/Development/nix/nix-config/lumquat"
+alias cdnix="cd ~/Development/nix/nix-config/main"
 alias cdzsh="cd ~/.local/share/chezmoi/home/private_dot_config/zsh"
 alias cdrds="cd ~/Development/ai/raindrop-skills"
 alias cdsuwiki="cd ~/Development/ai/suwiki/main"

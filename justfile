@@ -2,7 +2,7 @@
 
 # Path to the nix-config flake (lumquat) that manages this machine's
 # packages, if it's a known host. Override with NIX_CONFIG_DIR.
-nix_config_dir := env_var_or_default("NIX_CONFIG_DIR", env_var("HOME") + "/Development/nix/nix-config/lumquat")
+nix_config_dir := env_var_or_default("NIX_CONFIG_DIR", env_var("HOME") + "/Development/nix/nix-config/main")
 
 # Default recipe to show available commands
 default:
