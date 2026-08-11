@@ -124,16 +124,27 @@ _bws_refresh_cache() {
     # since the cache generation logic may have changed.
     if [[ -f "$_BWS_ENV_FILE" ]]; then
         local cache_mtime now zshenv_mtime
-        if [[ "$OSTYPE" == "darwin"* ]]; then
+        # Prefer zsh's builtin zstat (portable across BSD/GNU stat, and
+        # immune to GNU coreutils shadowing macOS's stat on nix systems).
+        if zmodload zsh/stat 2>/dev/null; then
+            cache_mtime=$(zstat -F %s +mtime "$_BWS_ENV_FILE" 2>/dev/null)
+            zshenv_mtime=$(zstat -F %s +mtime "$HOME/.zshenv" 2>/dev/null)
+        elif stat -f %m "$_BWS_ENV_FILE" >/dev/null 2>&1; then
+            # BSD stat (system macOS)
             cache_mtime=$(stat -f %m "$_BWS_ENV_FILE" 2>/dev/null)
             zshenv_mtime=$(stat -f %m "$HOME/.zshenv" 2>/dev/null)
         else
+            # GNU stat (Linux, or nix/brew coreutils on macOS)
             cache_mtime=$(stat -c %Y "$_BWS_ENV_FILE" 2>/dev/null)
             zshenv_mtime=$(stat -c %Y "$HOME/.zshenv" 2>/dev/null)
         fi
-        now=$(date +%s)
-        if ((now - cache_mtime < _BWS_CACHE_MAX_AGE && cache_mtime >= zshenv_mtime)); then
-            return 0
+        # Guard against empty mtimes so the arithmetic below can't be fed
+        # non-numeric garbage (e.g. GNU stat's filesystem listing).
+        if [[ -n "$cache_mtime" && -n "$zshenv_mtime" ]]; then
+            now=$(date +%s)
+            if ((now - cache_mtime < _BWS_CACHE_MAX_AGE && cache_mtime >= zshenv_mtime)); then
+                return 0
+            fi
         fi
     fi
 
