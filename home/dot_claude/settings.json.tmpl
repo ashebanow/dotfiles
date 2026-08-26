@@ -1,7 +1,17 @@
 {
   "sandbox": {
     "enabled": true,
-    "autoAllowBashIfSandboxed": true
+    "autoAllowBashIfSandboxed": true,
+    "network": {
+        "allowedDomains": [
+          "github.com",
+          "*.github.com",
+          "*.githubusercontent.com",
+          "vault.bitwarden.com",
+          "*.vault.bitwarden.com"
+        ],
+        "allowUnixSockets": [ ]
+      }
   },
   "mcpServers": {
     "linear": {
