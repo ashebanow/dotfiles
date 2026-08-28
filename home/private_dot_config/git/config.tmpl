@@ -44,6 +44,13 @@
 	trustExitCode = true
 [mergetool]
 	prompt = false
+{{ else }}
+[diff]
+	tool = hunk
+[difftool "hunk"]
+	cmd = hunk difftool \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+[difftool]
+	prompt = false
 {{ end }}
 
 [init]
