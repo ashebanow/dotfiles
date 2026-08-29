@@ -74,3 +74,10 @@ devenv.local.yaml
 
 # Pi
 .pi/tasks/
+
+# python
+bin/__pycache__/
+lib/__pycache__/
+tests/__pycache__/
+tests/test_cache.json
+tests/validation_cache.json
