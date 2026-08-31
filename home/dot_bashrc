@@ -8,15 +8,15 @@ fi
 # User specific PATH additions. Care taken to ensure we don't add
 # the same path to PATH more than once.
 fullpath="$(realpath ~/bin)"
-if ! [[ "$PATH" =~ "$fullpath ]]; then
+if ! [[ "$PATH" =~ "$fullpath" ]]; then
   PATH="$fullpath:$PATH"
 fi
 fullpath="$(realpath ~/.local/bin)"
-if ! [[ "$PATH" =~ "$fullpath ]]; then
+if ! [[ "$PATH" =~ "$fullpath" ]]; then
   PATH="$fullpath:$PATH"
 fi
 fullpath="$(realpath ~/.npm-global/bin)"
-if ! [[ "$PATH" =~ "$fullpath ]]; then
+if ! [[ "$PATH" =~ "$fullpath" ]]; then
   PATH="$fullpath:$PATH"
 fi
 
