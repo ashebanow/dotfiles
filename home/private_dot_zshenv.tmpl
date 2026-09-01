@@ -10,19 +10,23 @@ export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 
 #############################################################################
 # Path management helpers (add_to_path & friends)
-# Sourced before env.sh so zsh keeps the replay-recording version of
+# Sourced before paths.sh so zsh keeps the replay-recording version of
 # add_to_path (see replay_path_adds in paths.zsh).
 
-source "$HOME/.local/bin/paths.zsh"
+source "$ZDOTDIR/paths.zsh"
 
 #############################################################################
-# Shared environment — exports, brew/nix init, PATH adds. bash sources this
-# too via .bashrc.
+# Shared environment — exports only. bash sources this too via .bashrc.
 
 source "$HOME/.config/shell/env.sh"
 
+# Shared PATH machinery — add_to_path (no-op: paths.zsh defined it), nix
+# init, shared user bins. bash sources this too via .bashrc.
+
+source "$HOME/.config/shell/paths.sh"
+
 #############################################################################
-# Set after brew/nix init (inside env.sh) so we pick up their zsh (nix wins),
+# Set after nix init (in paths.sh) so we pick up nix's zsh (nix wins),
 # not Apple's. zsh-intent: NOT in env.sh (bash must keep SHELL=bash).
 
 export SHELL=$(which zsh)
