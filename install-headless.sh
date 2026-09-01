@@ -182,7 +182,9 @@ run_as_root() {
     if [[ "$(id -u)" -eq 0 ]]; then
         "$@"
     elif command -v sudo >/dev/null 2>&1; then
-        sudo "$@"
+        # -n: never prompt — the script is non-interactive by contract; a
+        # password-requiring sudo must fail loudly, not block on input.
+        sudo -n "$@"
     else
         log_error "This step needs root, but we are not root and sudo is not installed: $*"
         return 1
@@ -620,7 +622,7 @@ step_shell_note() {
     log_step "Step 6: Checking the login shell (never switching it)..."
 
     local shell_path=""
-    shell_path="$(getent passwd "$(id -un)" 2>/dev/null | cut -d: -f7)"
+    shell_path="$(command -v getent >/dev/null 2>&1 && getent passwd "$(id -un)" 2>/dev/null | cut -d: -f7 || true)"
     [[ -z "$shell_path" ]] && shell_path="${SHELL:-}"
 
     if [[ -z "$shell_path" ]]; then
