@@ -14,8 +14,8 @@ export _SHELL_NAME=bash
 . "$HOME/.config/shell/rc.sh"
 
 # Per-shell extras
-if [ -d ~/.bashrc.d ]; then
-  for rc in ~/.bashrc.d/*; do
+if [ -d ~/.config/bashrc.d ]; then
+  for rc in ~/.config/bashrc.d/*; do
     if [ -f "$rc" ]; then
       . "$rc"
     fi
