@@ -5,10 +5,15 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
-# Shared environment: exports, brew/nix init, PATH adds (BASH_UPGRADE Phase 2)
+export _SHELL_NAME=bash
+
+# Shared environment: exports, brew/nix init, PATH adds (Phase 2)
 . "$HOME/.config/shell/env.sh"
 
-# User specific aliases and functions
+# Portable aliases/functions (shared with zsh) (Phase 3)
+. "$HOME/.config/shell/rc.sh"
+
+# Per-shell extras
 if [ -d ~/.bashrc.d ]; then
   for rc in ~/.bashrc.d/*; do
     if [ -f "$rc" ]; then
@@ -18,12 +23,5 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-. "$HOME/.cargo/env"
-
-## NOTE: that the bling here is designed to be run from bash OR zsh.
-### bling.sh source start
-test -f /usr/share/ublue-os/bluefin-cli/bling.sh && source /usr/share/ublue-os/bluefin-cli/bling.sh
-### bling.sh source end
-
-# worktrunk
-if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init bash)"; fi
+# Tool init, keyed on $_SHELL_NAME (Phase 3)
+. "$HOME/.config/shell/hooks.sh"

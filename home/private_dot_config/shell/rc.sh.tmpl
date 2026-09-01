@@ -1,0 +1,203 @@
+# ~/.config/shell/rc.sh — portable aliases/functions shared by zsh and bash
+# (chezmoi template: carries the darwin pinentry conditional)
+
+# -----------------------------------------------------
+# General aliases, navigation, and utility functions
+# -----------------------------------------------------
+
+# Man pages in neovim
+export MANPAGER='nvim +Man!'
+
+# make sure Claude Code doesn't get an API KEY
+alias ccode='ANTHROPIC_API_KEY= claude'
+
+# Basic safety aliases
+alias cls='clear'
+alias cp='cp -vi'
+alias cpv='rsync -avh --info=progress2'
+alias diskspace='df -hl'
+alias gst='git status -sb'
+alias mkdir='mkdir -pv'
+alias mv='mv -vi'
+alias nano='vi'
+alias vi='nvim'
+
+# cd to commonly used directories
+alias cdwiki="cd \"$PERSONAL_WIKI\""
+alias cdsecret="cd ~/Development/nix/secretspec/main.bitwarden-provider"
+alias cdnix="cd ~/Development/nix/nix-config/main"
+alias cdshell="cd ~/.local/share/chezmoi/home/private_dot_config/zsh" # was cdzsh (shared layer is no longer zsh-only)
+alias cdrds="cd ~/Development/ai/raindrop-skills"
+alias cdsuwiki="cd ~/Development/boxboworg/suwiki/main"
+
+# -----------------------------------------------------
+# chezmoi — dotfiles manager
+# -----------------------------------------------------
+
+if command -v chezmoi &> /dev/null; then
+  alias c='chezmoi'
+  alias ca='chezmoi apply'
+  alias cadd='chezmoi add'
+  alias cdc="cd $HOME/.local/share/chezmoi"
+  alias cdccfg="cd $HOME/.local/share/chezmoi/home/private_dot_config"
+  alias cdclocal="cd $HOME/.local/share/chezmoi/home/private_dot_local"
+  alias cdiff='chezmoi diff'
+  alias ce='chezmoi edit'
+  alias cea='chezmoi edit --apply'
+  alias ci='chezmoi init'
+fi
+
+# -----------------------------------------------------
+# Development tools: nvm, just, tmux, bling, WSL, rust
+# -----------------------------------------------------
+
+# nvm — node version manager
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# just — command runner
+if command -v just &> /dev/null; then
+  alias gust='just -g'
+  if command -v ujust &> /dev/null; then
+    alias ujc='ujust --choose'
+  fi
+fi
+
+# tmux
+if command -v tmux &> /dev/null; then
+  if [[ "$OSTYPE" == "linux-gnu"* ]] && grep -q '^ID_LIKE=.*arch' /etc/os-release 2>/dev/null; then
+    export TMUX_PLUGIN_MANAGER_PATH="/usr/share/tmux-plugin-manager"
+  else
+    # on fedora, darwin, etc assume brew for now...
+    export TMUX_PLUGIN_MANAGER_PATH="$(brew --prefix tpm)/share/tpm"
+  fi
+fi
+
+# Bluefin/Bazzite CLI bling
+### bling.sh source start
+test -f /usr/share/ublue-os/bluefin-cli/bling.sh && source /usr/share/ublue-os/bluefin-cli/bling.sh
+### bling.sh source end
+
+# WSL — VS Code Insiders alias (portable test: bash 3.2 on macOS lacks
+# `[[ -v ]]`, so use -n instead)
+if [[ -n "${WSL_DISTRO_NAME-}" ]]; then
+  alias code="/mnt/c/Users/A\ Shebanow/AppData/Local/Programs/Microsoft\ VS\ Code\ Insiders/bin/code-insiders"
+fi
+
+# Rust toolchain
+. "$HOME/.cargo/env"
+
+# -----------------------------------------------------
+# Shell tools: bat, dircolors, duf, fzf opts, starship log
+# -----------------------------------------------------
+
+# bat — cat replacement
+if command -v bat &> /dev/null; then
+  alias cat='bat --paging=never --style=plain'
+  alias more='bat'
+fi
+
+# Custom dircolors
+if [[ -f $HOME/.dircolors/dircolors ]]; then
+  eval $(dircolors $HOME/.dircolors/dircolors)
+fi
+
+# duf — disk usage
+if command -v duf &> /dev/null; then
+  alias df='duf --only local'
+fi
+
+# fzf — fuzzy finder (init itself is in hooks.sh, keyed on $_SHELL_NAME)
+export FZF_DEFAULT_OPTS=" \
+  --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+  --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+
+alias v="fd --type f --hidden --exclude .git | fzf --preview 'bat {1}' | xargs vi"
+
+# starship — prompt (init in hooks.sh)
+export STARSHIP_LOG=error
+
+# -----------------------------------------------------
+# eza — modern ls replacement.
+# Normal aliases here; zsh's global-alias variants redefine these names
+# in zshrc.d/eza.zsh (sourced later, so the -g forms win in zsh). Bash
+# gets the plain command aliases (decided: equivalents where possible).
+# -----------------------------------------------------
+
+if command -v eza &> /dev/null; then
+  alias eza='eza --icons --group-directories-first'
+  alias ls='eza'
+  alias la='eza -a'
+  alias ll='eza -l'
+  alias lla='eza -al'
+  alias ldot='eza -d .??*'
+  alias ldd='eza -D --sort=mod'
+  alias ldn='eza -Dr'
+  alias lsD='eza -r --sort=mod'
+  alias lsN='eza -r'
+  alias lsS='eza -r --sort=size'
+  alias lsd='eza --sort=mod'
+  alias lsn='eza'
+  alias lss='eza --sort=size'
+  alias lst='eza --tree --level=2'
+fi
+
+# -----------------------------------------------------
+# jj — Jujutsu version control (completions in hooks.sh)
+# -----------------------------------------------------
+
+if command -v jj &> /dev/null; then
+  alias jjdesc='jj describe'
+  alias jjfetch='jj git fetch'
+  alias jjlog='jj log'
+  alias jjmain='jj bookmark set main --allow-backwards -r @'
+  alias jjmainback='jj bookmark set main --allow-backwards -r @-'
+  alias jjmark='jj bookmark'
+  alias jjmarknew='jj bookmark new'
+  alias jjmarkset='jj bookmark set'
+  alias jjnew='jj new'
+  alias jjpush='jj git push'
+  alias jjst='jj st'
+fi
+
+# -----------------------------------------------------
+# Utility functions
+# -----------------------------------------------------
+
+# do sudo, or sudo the last command if no argument given
+s() {
+  if [[ $# == 0 ]]; then
+    sudo $(fc -ln -1)
+  else
+    sudo "$@"
+  fi
+}
+
+# Archive extraction helper
+source "$HOME/.local/bin/extract"
+
+# -----------------------------------------------------
+# System-level configs: pinentry, tailscale, podman
+# -----------------------------------------------------
+
+{{ if eq .chezmoi.os "darwin" }}
+# pinentry, needed for rbw
+alias pinentry='pinentry-mac'
+{{- end }}
+
+# tailscale (completions in hooks.sh)
+if command -v tailscale &> /dev/null; then
+  alias tsa='tailscale status --active'
+  alias tsb='tailscale status --web --active'
+fi
+
+# podman — container runtime (DOCKER_HOST wiring needs podman machine; disabled)
+# if command -v podman &> /dev/null; then
+#   export DOCKER_HOST="`podman info -f json |jq -r '.host.remoteSocket.path'`"
+#   export DOCKER_HOST="unix://`podman machine inspect --format '.ConnectionInfo.PodmanSocket.Path'`"
+# fi
+
+# autossh (tmux session helper)
+alias ash="autossh -M 0 -q"

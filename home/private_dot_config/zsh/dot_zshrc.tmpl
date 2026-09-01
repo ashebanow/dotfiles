@@ -1,15 +1,24 @@
 # -----------------------------------------------------
 # .zshrc — Main zsh configuration
-# Per-topic configs are sourced from zshrc.d/
+# Shared layer (rc.sh/hooks.sh) + zshrc.d/ per-topic zsh-only configs
 # -----------------------------------------------------
 
 # Ensure path arrays are unique
 typeset -U path cdpath fpath manpath
 
-# Source all modular configs
+export _SHELL_NAME=zsh
+
+# Portable aliases/functions (shared with bash)
+source ~/.config/shell/rc.sh
+
+# Per-topic zsh-only configs (zinit, completions, history, eza -g, zmx)
 for config_file ($ZDOTDIR/zshrc.d/*.zsh(N)); do
   source $config_file
 done
+
+# Tool init (after zshrc.d: compinit in 01-completions must precede
+# the compdef-driving evals)
+source ~/.config/shell/hooks.sh
 
 # Compile .zshrc for faster startup
 if [[ ! -f ~/.zshrc.zwc || ~/.zshrc -nt ~/.zshrc.zwc ]]; then
