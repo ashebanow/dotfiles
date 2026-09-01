@@ -41,6 +41,12 @@ CHEZMOI_VERSION="v2.72.0"
 # Minimum chezmoi required by this repo (see .chezmoiversion).
 MIN_CHEZMOI_VERSION="2.48.1"
 
+# ── Intentional standalone copy ──────────────────────────────────────────
+# This logger is duplicated from bootstrap.sh on purpose: this script must
+# run pre-clone via curl|bash, so it cannot source lib/common (which is
+# gum-based anyway, and gum isn't guaranteed on a minimal VPS). Keep this
+# block in sync with bootstrap.sh's logger.
+# ─────────────────────────────────────────────────────────────────────────
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
