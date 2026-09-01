@@ -201,3 +201,27 @@ fi
 
 # autossh (tmux session helper)
 alias ash="autossh -M 0 -q"
+
+# -----------------------------------------------------
+# zmx — tmux session manager host-name map (portable case function, no
+# zsh assoc array; bash gets ZMX_SESSION_PREFIX too). Completions live in
+# hooks.sh. Function, not an inline `case` inside $( ): macOS bash 3.2
+# cannot parse `case` inside a command substitution in double quotes.
+# -----------------------------------------------------
+
+_zmx_short_host() {
+  case "$(hostname -s)" in
+    miraclemax) printf %s mmax ;;
+    aibot) printf %s aibot ;;
+    bergamot) printf %s bmot ;;
+    calamansi) printf %s cala ;;
+    limon) printf %s lim ;;
+    liquidity) printf %s liq ;;
+    yuzu) printf %s yuzu ;;
+    *) hostname -s ;;
+  esac
+}
+
+if command -v zmx &> /dev/null; then
+  export ZMX_SESSION_PREFIX="$(_zmx_short_host)."
+fi
