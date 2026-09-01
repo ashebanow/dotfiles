@@ -13,7 +13,7 @@ export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 # Sourced before paths.sh so zsh keeps the replay-recording version of
 # add_to_path (see replay_path_adds in paths.zsh).
 
-source "$ZDOTDIR/paths.zsh"
+[ -f "$ZDOTDIR/paths.zsh" ] && source "$ZDOTDIR/paths.zsh"  # headless: .config/zsh is ignored
 
 #############################################################################
 # Shared environment — exports only. bash sources this too via .bashrc.
