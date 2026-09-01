@@ -19,7 +19,9 @@
 # --------------
 
 [core]
+{{- if not .headless }}
 	pager = "hunk pager"
+{{- end }}
 
 [credential "https://gist.github.com"]
 	helper = 
@@ -45,12 +47,14 @@
 [mergetool]
 	prompt = false
 {{ else }}
+{{- if not .headless }}
 [diff]
 	tool = hunk
 [difftool "hunk"]
 	cmd = hunk difftool \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 [difftool]
 	prompt = false
+{{- end }}
 {{ end }}
 
 [init]
@@ -73,10 +77,13 @@
     recurse = true
 
 [user]
-	email = "ashebanow@gmail.com"
-	name = "Andrew Shebanow"
+	email = {{ .email | quote }}
+	name = {{ .gitName | quote }}
+{{- if not .headless }}
 	signingkey = "{{ index (output "bws" "secret" "get" "b84feb92-7f56-471d-b1a8-b479014b3475" | fromJson) "value" | trim }}"
+{{- end }}
 
+{{- if not .headless }}
 [gpg]
 	format = "ssh"
 
@@ -85,6 +92,7 @@
 
 [commit]
 	gpgsign = true
+{{- end }}
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
