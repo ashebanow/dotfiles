@@ -9,6 +9,8 @@ accept-flake-config = true
 auto-optimise-store = true
 cores = 8
 max-jobs = auto
+{{- if not .headless }}
 access-tokens = github.com={{ index (output "bws" "secret" "get" "5a333d5a-d7aa-46cb-98e1-b479014cd326" | fromJson) "value" | trim }}
+{{- end }}
 
 extra-experimental-features = nix-command flakes

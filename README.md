@@ -16,6 +16,36 @@ Currntly in the process of rearchitecting:
 Also note that the instructions aren't fully up to date. As I add
 more automation steps I'll make it all current and consistent.
 
+## Headless machines (VPS, containers, cloud VMs)
+
+For a NON-NixOS headless machine (Debian/Ubuntu/Fedora/Alpine VPS, container,
+or cloud VM — no screen/keyboard, no personal secrets):
+
+```bash
+bash <(curl -fsSL https://raw.githubusercontent.com/ashebanow/dotfiles/main/install-headless.sh)
+```
+
+or clone the repo and run it:
+
+```bash
+git clone https://github.com/ashebanow/dotfiles.git
+cd dotfiles
+./install-headless.sh
+```
+
+What it does (details in the script header):
+
+- Installs chezmoi if missing (distro package manager, else the pinned static
+  binary v2.72.0), plus git and curl/wget when needed.
+- Runs `chezmoi init --apply --force --no-tty` — non-TTY hosts render
+  `headless = true` with no prompt, so no Bitwarden/BWS session is needed
+  (the headless `.chezmoiignore` excludes the personal-secret templates).
+- Never switches shells (`chsh`), never installs Homebrew, never touches the GUI.
+- Keeps the repo at `~/.local/share/chezmoi`; maintain with periodic
+  `chezmoi update` / `chezmoi apply --force`.
+
+NixOS machines are managed by nix-config instead (see CONTEXT.md).
+
 ## Bluefin-DX or Bazzite/Bazzite-DX
 
 1. Install your preferred image and boot into it. Be sure to use the -nvidia variant if appropriate. I recommend using encrypted BTRFS.
