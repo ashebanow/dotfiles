@@ -1,81 +1,33 @@
 #echo "Evaluating ~/.zshenv"
 #set -x
 
-warning_color=yellow
-error_color=red
-
 #############################################################################
-# environment variables
+# zsh bootstrap (must run before anything reads ZDOTDIR)
 
-export EDITOR=nvim
+# XDG_CONFIG_HOME is re-set idempotently in env.sh (bash needs it there).
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
-export DOTFILES=$HOME/.local/share/chezmoi
-export BUN_INSTALL="$HOME/.bun"
-export PERSONAL_WIKI="$HOME/personal_wiki"
-export LITELLM_BASE_URL="https://litellm.fluffy-walleye.ts.net"
 
 #############################################################################
 # Path management helpers (add_to_path & friends)
-# Sourced before brew/nix so their dirs can be recorded for the
-# .zprofile replay (see replay_path_adds in paths.zsh).
+# Sourced before env.sh so zsh keeps the replay-recording version of
+# add_to_path (see replay_path_adds in paths.zsh).
 
 source "$HOME/.local/bin/paths.zsh"
 
 #############################################################################
-# INITIALIZE HOMEBREW (wherever it lives)
+# Shared environment — exports, brew/nix init, PATH adds. bash sources this
+# too via .bashrc.
 
-if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-elif [[ -x /opt/homebrew/bin/brew ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-    print -P "%F{$warning_color}Homebrew not installed, but chezmoi should have installed it!%f\n"
-fi
-
-# brew shellenv already prepended these; record them so .zprofile can
-# replay their priority after macOS path_helper reorders PATH
-if [[ -n "$HOMEBREW_PREFIX" ]]; then
-    add_to_path "$HOMEBREW_PREFIX/sbin"
-    add_to_path "$HOMEBREW_PREFIX/bin"
-fi
+source "$HOME/.config/shell/env.sh"
 
 #############################################################################
-# INITIALIZE NIX
+# Set after brew/nix init (inside env.sh) so we pick up their zsh (nix wins),
+# not Apple's. zsh-intent: NOT in env.sh (bash must keep SHELL=bash).
 
-NIX_PROFILE_FILE_SUFFIX="etc/profile.d/nix-daemon.sh"
-if [ -f "/nix/var/nix/profiles/default/${NIX_PROFILE_FILE_SUFFIX}" ]; then
-    source "/nix/var/nix/profiles/default/${NIX_PROFILE_FILE_SUFFIX}"
-elif [ -f "$HOME/.nix-profile/${NIX_PROFILE_FILE_SUFFIX}" ]; then
-    source "$HOME/.nix-profile/${NIX_PROFILE_FILE_SUFFIX}"
-fi
-
-# nix-daemon.sh already prepended these; record them for the .zprofile
-# replay (nix stays ahead of Homebrew, matching the init order above)
-add_to_path "~/Applications/Home\ Manager\ Apps/" 
-add_to_path "/nix/var/nix/profiles/default/bin"
-add_to_path "/run/current-system/sw/bin/"
-add_to_path "/etc/profiles/per-user/ashebanow/bin/"
-add_to_path "$HOME/.nix-profile/bin"
-
-# Set after brew/nix init so we pick up their zsh (nix wins), not Apple's
 export SHELL=$(which zsh)
 
 #############################################################################
-# Path Management
-
-add_to_path "$(brew --prefix postgresql@17)/bin"
-add_to_path "$BUN_INSTALL/bin"
-add_to_path "$HOME/.claude/local"
-add_to_path "$HOME/.cargo/bin"
-add_to_path "$HOME/.local/bin"
-add_to_path "$HOME/.npm-global/bin"
-add_to_path "$HOME/.lmstudio/bin"
-add_to_path "$HOME/.amp/bin"
-
-# Added by LM Studio CLI tool (lms)
-add_to_path "$HOME/.lmstudio/bin"
-
-#############################################################################
+# Secrets (BWS/SSH) — shared with bash via ~/.config/bashrc.d/999_secrets.sh
 
 source "$HOME/.config/shell/secrets.sh"

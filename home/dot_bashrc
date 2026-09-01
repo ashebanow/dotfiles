@@ -5,25 +5,8 @@ if [ -f /etc/bashrc ]; then
   . /etc/bashrc
 fi
 
-# User specific PATH additions. Care taken to ensure we don't add
-# the same path to PATH more than once.
-fullpath="$(realpath ~/bin)"
-if ! [[ "$PATH" =~ "$fullpath" ]]; then
-  PATH="$fullpath:$PATH"
-fi
-fullpath="$(realpath ~/.local/bin)"
-if ! [[ "$PATH" =~ "$fullpath" ]]; then
-  PATH="$fullpath:$PATH"
-fi
-fullpath="$(realpath ~/.npm-global/bin)"
-if ! [[ "$PATH" =~ "$fullpath" ]]; then
-  PATH="$fullpath:$PATH"
-fi
-
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
-
-export EDITOR=vim
+# Shared environment: exports, brew/nix init, PATH adds (BASH_UPGRADE Phase 2)
+. "$HOME/.config/shell/env.sh"
 
 # User specific aliases and functions
 if [ -d ~/.bashrc.d ]; then
