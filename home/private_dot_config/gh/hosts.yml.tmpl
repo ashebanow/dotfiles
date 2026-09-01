@@ -1,11 +1,11 @@
 github.com:
     users:
         ashebanow:
-{{- if not .headless }}
+{{- if env "BWS_ACCESS_TOKEN" }}
             oauth_token: {{ index (output "bws" "secret" "get" "5a333d5a-d7aa-46cb-98e1-b479014cd326" | fromJson) "value" | trim }}
 {{- end }}
     git_protocol: ssh
-{{- if not .headless }}
+{{- if env "BWS_ACCESS_TOKEN" }}
     oauth_token: {{ index (output "bws" "secret" "get" "5a333d5a-d7aa-46cb-98e1-b479014cd326" | fromJson) "value" | trim }}
 {{- end }}
     user: ashebanow
