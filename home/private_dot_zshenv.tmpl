@@ -1,238 +1,33 @@
 #echo "Evaluating ~/.zshenv"
 #set -x
 
-warning_color=yellow
-error_color=red
-
 #############################################################################
-# environment variables
+# zsh bootstrap (must run before anything reads ZDOTDIR)
 
-export EDITOR=nvim
+# XDG_CONFIG_HOME is re-set idempotently in env.sh (bash needs it there).
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
-export DOTFILES=$HOME/.local/share/chezmoi
-export BUN_INSTALL="$HOME/.bun"
-export PERSONAL_WIKI="$HOME/personal_wiki"
-export LITELLM_BASE_URL="https://litellm.fluffy-walleye.ts.net"
 
 #############################################################################
 # Path management helpers (add_to_path & friends)
-# Sourced before brew/nix so their dirs can be recorded for the
-# .zprofile replay (see replay_path_adds in paths.zsh).
+# Sourced before env.sh so zsh keeps the replay-recording version of
+# add_to_path (see replay_path_adds in paths.zsh).
 
 source "$HOME/.local/bin/paths.zsh"
 
 #############################################################################
-# INITIALIZE HOMEBREW (wherever it lives)
+# Shared environment — exports, brew/nix init, PATH adds. bash sources this
+# too via .bashrc.
 
-if [[ -x /home/linuxbrew/.linuxbrew/bin/brew ]]; then
-    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-elif [[ -x /opt/homebrew/bin/brew ]]; then
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-else
-    print -P "%F{$warning_color}Homebrew not installed, but chezmoi should have installed it!%f\n"
-fi
-
-# brew shellenv already prepended these; record them so .zprofile can
-# replay their priority after macOS path_helper reorders PATH
-if [[ -n "$HOMEBREW_PREFIX" ]]; then
-    add_to_path "$HOMEBREW_PREFIX/sbin"
-    add_to_path "$HOMEBREW_PREFIX/bin"
-fi
+source "$HOME/.config/shell/env.sh"
 
 #############################################################################
-# INITIALIZE NIX
+# Set after brew/nix init (inside env.sh) so we pick up their zsh (nix wins),
+# not Apple's. zsh-intent: NOT in env.sh (bash must keep SHELL=bash).
 
-NIX_PROFILE_FILE_SUFFIX="etc/profile.d/nix-daemon.sh"
-if [ -f "/nix/var/nix/profiles/default/${NIX_PROFILE_FILE_SUFFIX}" ]; then
-    source "/nix/var/nix/profiles/default/${NIX_PROFILE_FILE_SUFFIX}"
-elif [ -f "$HOME/.nix-profile/${NIX_PROFILE_FILE_SUFFIX}" ]; then
-    source "$HOME/.nix-profile/${NIX_PROFILE_FILE_SUFFIX}"
-fi
-
-# nix-daemon.sh already prepended these; record them for the .zprofile
-# replay (nix stays ahead of Homebrew, matching the init order above)
-add_to_path "~/Applications/Home\ Manager\ Apps/" 
-add_to_path "/nix/var/nix/profiles/default/bin"
-add_to_path "/run/current-system/sw/bin/"
-add_to_path "/etc/profiles/per-user/ashebanow/bin/"
-add_to_path "$HOME/.nix-profile/bin"
-
-# Set after brew/nix init so we pick up their zsh (nix wins), not Apple's
 export SHELL=$(which zsh)
 
 #############################################################################
-# Path Management
+# Secrets (BWS/SSH) — shared with bash via ~/.config/bashrc.d/999_secrets.sh
 
-add_to_path "$(brew --prefix postgresql@17)/bin"
-add_to_path "$BUN_INSTALL/bin"
-add_to_path "$HOME/.claude/local"
-add_to_path "$HOME/.cargo/bin"
-add_to_path "$HOME/.local/bin"
-add_to_path "$HOME/.npm-global/bin"
-add_to_path "$HOME/.lmstudio/bin"
-add_to_path "$HOME/.amp/bin"
-
-# Added by LM Studio CLI tool (lms)
-add_to_path "$HOME/.lmstudio/bin"
-
-#############################################################################
-# Password/Secret Management
-
-# Read BWS_ACCESS_TOKEN from OS keyring (never stored in plain text).
-# Falls back to env var (for CI/headless). Templates handle empty token gracefully.
-_bws_keyring_token() {
-    [[ -n "${BWS_ACCESS_TOKEN:-}" ]] && return 0
-
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        local token
-        token=$(security find-generic-password -a "$USER" -s "bws_access_token" -w 2>/dev/null)
-        if [[ -n "$token" ]]; then
-            export BWS_ACCESS_TOKEN="$token"
-            return 0
-        fi
-    elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        if [[ -z "${DBUS_SESSION_BUS_ADDRESS:-}" && -e "/run/user/$UID/bus" ]]; then
-            export DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$UID/bus"
-        fi
-        if command -v secret-tool >/dev/null 2>&1 && [[ -n "${DBUS_SESSION_BUS_ADDRESS:-}" ]]; then
-            local token
-            token=$(secret-tool lookup bws token 2>/dev/null)
-            if [[ -n "$token" ]]; then
-                export BWS_ACCESS_TOKEN="$token"
-                return 0
-            fi
-        fi
-    fi
-    return 1
-}
-_bws_keyring_token || true
-
-# Cache paths for BWS runtime secrets
-_BWS_CACHE="$HOME/.cache/env"
-_BWS_ENV_FILE="$_BWS_CACHE/bws_env.sh"
-_BWS_CACHE_MAX_AGE=28800 # 8 hours
-
-# Populate API keys from BWS and write to cache file.
-# Only runs in interactive shells with a valid BWS token.
-_bws_refresh_cache() {
-    [[ -o interactive ]] || return 0
-    [[ -n "${BWS_ACCESS_TOKEN:-}" ]] || return 0
-    mkdir -p "$_BWS_CACHE"
-
-    # Check if cache is fresh enough. Also invalidate if .zshenv was
-    # updated (e.g. via chezmoi apply) more recently than the cache,
-    # since the cache generation logic may have changed.
-    if [[ -f "$_BWS_ENV_FILE" ]]; then
-        local cache_mtime now zshenv_mtime
-        # Prefer zsh's builtin zstat (portable across BSD/GNU stat, and
-        # immune to GNU coreutils shadowing macOS's stat on nix systems).
-        if zmodload zsh/stat 2>/dev/null; then
-            cache_mtime=$(zstat -F %s +mtime "$_BWS_ENV_FILE" 2>/dev/null)
-            zshenv_mtime=$(zstat -F %s +mtime "$HOME/.zshenv" 2>/dev/null)
-        elif stat -f %m "$_BWS_ENV_FILE" >/dev/null 2>&1; then
-            # BSD stat (system macOS)
-            cache_mtime=$(stat -f %m "$_BWS_ENV_FILE" 2>/dev/null)
-            zshenv_mtime=$(stat -f %m "$HOME/.zshenv" 2>/dev/null)
-        else
-            # GNU stat (Linux, or nix/brew coreutils on macOS)
-            cache_mtime=$(stat -c %Y "$_BWS_ENV_FILE" 2>/dev/null)
-            zshenv_mtime=$(stat -c %Y "$HOME/.zshenv" 2>/dev/null)
-        fi
-        # Guard against empty mtimes so the arithmetic below can't be fed
-        # non-numeric garbage (e.g. GNU stat's filesystem listing).
-        if [[ -n "$cache_mtime" && -n "$zshenv_mtime" ]]; then
-            now=$(date +%s)
-            if ((now - cache_mtime < _BWS_CACHE_MAX_AGE && cache_mtime >= zshenv_mtime)); then
-                return 0
-            fi
-        fi
-    fi
-
-    # Fetch secrets from BWS. Each call is a network round-trip.
-    # Write to temp file and atomically rename to avoid partial reads.
-    {
-        echo "# Auto-generated by .zshenv — do not edit"
-        echo "export ZED_GITHUB_PERSONAL_ACCESS_TOKEN=\"$(bws secret get 2bc9244b-acf0-4620-8e29-b4770132e6f9 2>/dev/null | jq -r '.value' || true)\""
-        echo "export LITELLM_BASE_URL=\"https://litellm.fluffy-walleye.ts.net\""
-        echo "export MINIMAX_API_KEY=\"$(bws secret get 3a5ac53a-8af5-4277-a86e-b47701341630 2>/dev/null | jq -r '.value' || true)\""
-        echo "export MINIMAX_API_HOST=\"https://api.minimax.io\""
-        echo "export DEEPSEEK_API_KEY=\"$(bws secret get fdf38fc5-3f26-446f-9808-b47701346a5d 2>/dev/null | jq -r '.value' || true)\""
-        echo "export LITELLM_API_KEY=\"$(bws secret get 43962c1e-3259-41a2-bbd4-b47e01739fa6 2>/dev/null | jq -r '.value' || true)\""
-        echo "export EXA_API_KEY=\"$(bws secret get 52eba787-8cb2-41b7-87b1-b4770134b198 2>/dev/null | jq -r '.value' || true)\""
-        echo "export PARALLEL_API_KEY=\"$(bws secret get 8fc4ed53-b8b9-4c67-9d7f-b48b002eefac 2>/dev/null | jq -r '.value' || true)\""
-        echo "export ANTHROPIC_API_KEY=\"$(bws secret get 28893b82-be1f-407c-aa2d-b4770134fcc1 2>/dev/null | jq -r '.value' || true)\""
-        echo "export GEMINI_API_KEY=\"$(bws secret get 3dbd4b26-485f-44d5-abc6-b477013544b4 2>/dev/null | jq -r '.value' || true)\""
-        echo "export FLAKEHUB_TOKEN=\"$(bws secret get 0c678df8-84e4-4a1b-90db-b4a101071ee3 2>/dev/null | jq -r '.value' || true)\""
-    } >"$_BWS_ENV_FILE.tmp" && mv "$_BWS_ENV_FILE.tmp" "$_BWS_ENV_FILE"
-    chmod 600 "$_BWS_ENV_FILE"
-}
-
-# Refresh cache on interactive shells, then source into current shell
-[[ -o interactive ]] && _bws_refresh_cache
-if [[ -f "$_BWS_ENV_FILE" ]]; then
-    source "$_BWS_ENV_FILE"
-fi
-
-#############################################################################
-# FlakeHub auth (determinate-nixd)
-#
-# Feed the FlakeHub token (BWS secret flakehub_bergamot_token) to
-# determinate-nixd so cache.flakehub.com / private flakes authenticate.
-# nixd stores it via its daemon socket (no sudo). Runs only when the token
-# hash differs from the last successful login, so steady-state shells are
-# quiet and make no network calls.
-
-_bws_flakehub_login() {
-    [[ -o interactive ]] || return 0
-    [[ -n "${FLAKEHUB_TOKEN:-}" ]] || return 0
-    command -v determinate-nixd >/dev/null 2>&1 || return 0
-
-    local sentinel="$HOME/.cache/env/flakehub-login"
-    local h
-    h=$(printf '%s' "$FLAKEHUB_TOKEN" | cksum | awk '{print $1}') || return 0
-    [[ -n "$h" ]] || return 0
-
-    # Already logged in with this exact token?
-    if [[ -f "$sentinel" ]] && [[ "$(cat "$sentinel" 2>/dev/null)" == "$h" ]]; then
-        return 0
-    fi
-
-    # Feed the token to determinate-nixd via a 0600 temp file
-    local tmp
-    tmp=$(mktemp) || return 1
-    chmod 600 "$tmp"
-    printf '%s' "$FLAKEHUB_TOKEN" > "$tmp"
-    if determinate-nixd auth login token --token-file "$tmp" >/dev/null 2>&1; then
-        printf '%s' "$h" > "$sentinel"
-        chmod 600 "$sentinel"
-    else
-        echo "[bws] FlakeHub: determinate-nixd login failed (token invalid or nixd not running)" >&2
-    fi
-    rm -f "$tmp"
-}
-_bws_flakehub_login
-
-#############################################################################
-# SSH Key Management (agent-only, no private keys on disk)
-
-_bws_load_ssh_keys() {
-    [[ -n "${BWS_ACCESS_TOKEN:-}" ]] || return 0
-    [[ -f ~/.ssh/id_ed25519.pub ]] || return 0
-
-    # Skip if agent already has keys loaded
-    ssh-add -l &>/dev/null && return 0
-
-    # Migrate: remove stale private key files from old disk-based approach
-    rm -f ~/.ssh/id_ed25519 ~/.ssh/github_ed25519 ~/.ssh/cattivi_unifi
-
-    # Load keys from BWS into ssh-agent (values piped via stdin, never touch disk)
-    local uuid
-    uuid="fcc83acf-0a54-471a-a237-b479014d6e5f" # id_ed25519
-    bws secret get "$uuid" 2>/dev/null | jq -r '.value' | ssh-add - 2>/dev/null
-    uuid="60ce8949-f4f6-4ad2-8683-b479014ac6da" # github_ed25519
-    bws secret get "$uuid" 2>/dev/null | jq -r '.value' | ssh-add - 2>/dev/null
-    uuid="5dd3d0f8-c4d5-4baf-a92a-b479014e1f4b" # cattivi_unifi
-    bws secret get "$uuid" 2>/dev/null | jq -r '.value' | ssh-add - 2>/dev/null
-}
-_bws_load_ssh_keys
+source "$HOME/.config/shell/secrets.sh"

@@ -1,6 +1,6 @@
 # BASH_UPGRADE — A mostly-shared zsh/bash configuration
 
-**Status:** Proposal for review. Nothing here is implemented yet.
+**Status:** **Implemented** on branch `bash-upgrade` (Phases 0–5, 2026-09-01; not yet merged to `main`). Decisions were locked via the wayfinder map (BOX-108) and folded into this doc; it is the spec as built. Deviations from the sketch below are marked in place (env.sh does not chain secrets; 999_secrets.sh stays as the bash secrets entry).
 **Scope:** Consolidate the ~900 lines of zsh config (238 `.zshenv` + 265 `paths.zsh` + 366 `zshrc.d/` + rc/profile) and ~110 lines of bash config
 that currently exist as two separate universes in this repo into one shared core
 plus two small per-shell layers.
@@ -262,8 +262,9 @@ add_to_path "$(brew --prefix postgresql@17)/bin"
 add_to_path "$BUN_INSTALL/bin"
 # … etc — replaces .bashrc's inline dedupe AND .zshenv's add_to_path calls
 
-# Secrets (shared, §3)
-source ~/.config/shell/secrets.sh
+# NOTE: secrets are NOT chained here — sourcing secrets.sh from both env.sh
+# and 999_secrets.sh would double-load it. Each entrypoint sources secrets
+# exactly once: .zshenv (zsh) and ~/.config/bashrc.d/999_secrets.sh (bash).
 ```
 
 **Why the `command -v add_to_path` guard instead of a shell check:** it's a
@@ -403,6 +404,13 @@ No plugin system, no source-tracking, no dispatch layer.
 ---
 
 ## 8. Migration plan (phased, each phase independently shippable)
+
+**Status (2026-09-01): Phases 0–5 implemented on `bash-upgrade`, verified live.**
+Phase 0 = baseline doc; Phase 1 = secrets; Phase 2 = env; Phase 3 = rc/hooks;
+Phase 4 = bashrc.d move + bash history; Phase 5 = portable zmx. Machine
+cleanups done alongside: dropped `001_bob_vim.sh` (obsolete on nix) and the
+unmanaged stale `completion.zsh` (zsh-autocomplete-era duplicate compinit),
+both backed up under `/tmp/bash-upgrade-baseline/removed/`.
 
 1. **Phase 0 — baseline:** feature branch; `chezmoi diff` snapshot; record
    current zsh startup time.
