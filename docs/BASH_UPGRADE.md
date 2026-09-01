@@ -303,14 +303,14 @@ Notes:
 - This collapses **~15 call sites spread across 6 zshrc.d files + `.bashrc`**
   into one file. `.bashrc`'s existing `wt config shell init bash` line disappears.
 - All 16 tool lines verified for both shells (audit 2026-09-01:
-  `docs/research/hooks-bash-audit.md`, branch `research/hooks-bash-audit`).
+  `docs/research/hooks-bash-audit.md`).
 - `gh copilot alias` guard **corrected by the audit**: the old zshrc.d guard was
   inverted (eval'd when the gh-copilot extension was _absent_) and spammed
   stderr when the Copilot CLI wasn't installed. Use:
   `command -v gh && gh copilot --version >/dev/null 2>&1 && eval "$(gh copilot alias -- "$_SHELL_NAME")"`
 - The fzf line: `eval "$(fzf --zsh)"` is **PTY-verified byte-equivalent** to
   `source <(fzf --zsh)` in interactive zsh (fzf 0.74.3 / zsh 5.9.2 harness —
-  `docs/research/fzf-eval-test.md`, branch `research/fzf-eval-test`), so the
+  `docs/research/fzf-eval-test.md`), so the
   line is the shared substitution `command -v fzf && eval "$(fzf --$_SHELL_NAME)"`
   — **zero shell branches anywhere**. Caveat: equivalence is per-fzf-version;
   re-run the harness if fzf's generated script ever starts emitting
