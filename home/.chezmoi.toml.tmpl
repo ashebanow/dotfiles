@@ -32,6 +32,12 @@
 {{-   if eq $hostname "bergamot" -}}
 {{-     $headless = false -}}
 {{-     $personal = true -}}
+{{-   else if or (eq $hostname "miracle_max") (eq $hostname "miraclemax") -}}
+{{-     $headless = false -}}
+{{-     $personal = true -}}
+{{-   else if eq $hostname "lumquat" -}}
+{{-     $headless = true -}}
+{{-     $personal = false -}}
 {{-   else if eq $hostname "calamansi" -}}
 {{-     $headless = true -}}
 {{-     $personal = false -}}
