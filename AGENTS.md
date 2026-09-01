@@ -28,7 +28,7 @@ The system detects and configures for:
 Uses chezmoi's templating with platform detection:
 
 - `.chezmoi.toml.tmpl` - Main configuration template
-- Feature flags: `ephemeral`, `headless`, `personal`, `wsl`
+- Feature flag: `headless` (machines with no screen/keyboard get minimal config; see `CONTEXT.md`)
 - Platform variables: `arch`, `debian`, `fedora`, `darwin`
 
 ## Development Commands
