@@ -1,37 +1,14 @@
-#echo "Evaluating ~/.zshenv"
-#set -x
+# ~/.zshenv — bootstrap for the FIRST shell (ZDOTDIR not yet set in the
+# environment). The real content lives at $ZDOTDIR/.zshenv: a nested shell
+# spawned from a parent that already exported ZDOTDIR reads that file
+# directly (zsh looks up .zshenv in $ZDOTDIR), so it never sees this one —
+# hence this file only sets the two vars and hands off.
+#
+# Fresh shell: ZDOTDIR unset -> zsh reads this file -> sets ZDOTDIR ->
+# sources $ZDOTDIR/.zshenv.
+# Nested shell: ZDOTDIR inherited -> zsh reads $ZDOTDIR/.zshenv directly.
 
-#############################################################################
-# zsh bootstrap (must run before anything reads ZDOTDIR)
-
-# XDG_CONFIG_HOME is re-set idempotently in env.sh (bash needs it there).
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export ZDOTDIR=$XDG_CONFIG_HOME/zsh
 
-#############################################################################
-# Path management helpers (add_to_path & friends)
-# Sourced before paths.sh so zsh keeps the replay-recording version of
-# add_to_path (see replay_path_adds in paths.zsh).
-
-[ -f "$ZDOTDIR/paths.zsh" ] && source "$ZDOTDIR/paths.zsh"  # headless: .config/zsh is ignored
-
-#############################################################################
-# Shared environment — exports only. bash sources this too via .bashrc.
-
-source "$HOME/.config/shell/env.sh"
-
-# Shared PATH machinery — add_to_path (no-op: paths.zsh defined it), nix
-# init, shared user bins. bash sources this too via .bashrc.
-
-source "$HOME/.config/shell/paths.sh"
-
-#############################################################################
-# Set after nix init (in paths.sh) so we pick up nix's zsh (nix wins),
-# not Apple's. zsh-intent: NOT in env.sh (bash must keep SHELL=bash).
-
-export SHELL=$(which zsh)
-
-#############################################################################
-# Secrets (BWS/SSH) — shared with bash via ~/.config/bashrc.d/999_secrets.sh
-
-source "$HOME/.config/shell/secrets.sh"
+[ -f "$ZDOTDIR/.zshenv" ] && source "$ZDOTDIR/.zshenv"
