@@ -1,0 +1,47 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+  . /etc/bashrc
+fi
+
+export _SHELL_NAME=bash
+
+# Shared environment: exports only (no secrets, no PATH logic)
+. "$HOME/.config/shell/env.sh"
+
+# Shared PATH machinery: add_to_path + nix init + shared user bins
+. "$HOME/.config/shell/paths.sh"
+
+# Portable aliases/functions (shared with zsh, every machine class)
+. "$HOME/.config/shell/core.sh"
+{{ if not .headless }}
+# Personal dev tools (brew/nvm/cargo/bling/tmux plugin manager) — headless
+# machines skip this, which keeps the brew warning off them
+. "$HOME/.config/shell/devtools.sh"
+{{ end }}
+{{ if not .headless }}
+# Personal cd shortcuts — headless machines skip these
+. "$HOME/.config/shell/shortcuts.sh"
+{{ end }}
+# Shell productivity tools (bat/eza/duf/fzf)
+. "$HOME/.config/shell/productivity.sh"
+
+# Version-control aliases (jj/just)
+. "$HOME/.config/shell/version-control.sh"
+
+# Utility functions (extract/dircolors/zmx/tailscale)
+. "$HOME/.config/shell/utility.sh"
+
+# Per-shell extras
+if [ -d ~/.config/bashrc.d ]; then
+  for rc in ~/.config/bashrc.d/*; do
+    if [ -f "$rc" ]; then
+      . "$rc"
+    fi
+  done
+fi
+unset rc
+
+# Tool init, keyed on $_SHELL_NAME
+. "$HOME/.config/shell/hooks.sh"

@@ -1,0 +1,74 @@
+# ~/.config/shell/core.sh — portable aliases/functions shared by zsh and bash
+# and by every machine class (chezmoi template: carries the darwin pinentry
+# conditional — the only conditional in a chunk). Plain POSIX shell; no
+# zsh-vs-bash branches.
+
+# -----------------------------------------------------
+# General aliases, navigation, and utility functions
+# -----------------------------------------------------
+
+# Man pages in neovim
+export MANPAGER='nvim +Man!'
+
+# ccode = Claude Code without an API-key override, so it uses the owner's
+# subscription (passing a key would make claude ignore it). Other tools
+# invoke 'ccode' by name, so it must be defined everywhere — including
+# headless machines.
+alias ccode='ANTHROPIC_API_KEY= claude'
+
+# Basic safety aliases
+alias cls='clear'
+alias cp='cp -vi'
+alias cpv='rsync -avh --info=progress2'
+alias diskspace='df -hl'
+alias gst='git status -sb'
+alias mkdir='mkdir -pv'
+alias mv='mv -vi'
+alias nano='vi'
+alias vi='nvim'
+
+# cd to the shared shell config (was cdzsh; the shared layer is no longer
+# zsh-only)
+alias cdshell="cd ~/.local/share/chezmoi/home/private_dot_config/shell"
+
+# -----------------------------------------------------
+# chezmoi — dotfiles manager
+# -----------------------------------------------------
+
+if command -v chezmoi &> /dev/null; then
+  alias c='chezmoi'
+  alias ca='chezmoi apply'
+  alias cadd='chezmoi add'
+  alias cdc="cd $HOME/.local/share/chezmoi"
+  alias cdccfg="cd $HOME/.local/share/chezmoi/home/private_dot_config"
+  alias cdclocal="cd $HOME/.local/share/chezmoi/home/private_dot_local"
+  alias cdiff='chezmoi diff'
+  alias ce='chezmoi edit'
+  alias cea='chezmoi edit --apply'
+  alias ci='chezmoi init'
+fi
+
+# -----------------------------------------------------
+# Utility functions
+# -----------------------------------------------------
+
+# do sudo, or sudo the last command if no argument given
+s() {
+  if [[ $# == 0 ]]; then
+    sudo $(fc -ln -1)
+  else
+    sudo "$@"
+  fi
+}
+
+# starship — prompt (init in hooks.sh)
+export STARSHIP_LOG=error
+
+# -----------------------------------------------------
+# System-level configs: pinentry (darwin only; needed for rbw)
+# -----------------------------------------------------
+
+{{ if eq .chezmoi.os "darwin" }}
+# pinentry, needed for rbw
+alias pinentry='pinentry-mac'
+{{- end }}
