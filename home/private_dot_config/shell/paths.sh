@@ -59,3 +59,15 @@ add_to_path "$HOME/.amp/bin"
 
 # Added by LM Studio CLI tool (lms)
 add_to_path "$HOME/.lmstudio/bin"
+
+# NixOS: /etc/set-environment puts /run/wrappers/bin (the setuid sudo
+# wrapper) on PATH, but the add_to_path calls above re-prepend
+# nix/sw/bin/etc. after it, burying the wrapper below
+# /run/current-system/sw/bin — whose store sudo binary has no setuid, so
+# every `sudo` invocation fails. add_to_path is add-if-absent, so move the
+# wrapper dir to the front explicitly. Existence-guarded: no-op on
+# macOS/other platforms (BOX-126).
+if [ -d /run/wrappers/bin ]; then
+  PATH="$(printf '%s' "$PATH" | tr ':' '\n' | sed '\#^/run/wrappers/bin$#d' | paste -sd: -)"
+  PATH="/run/wrappers/bin${PATH:+:$PATH}"
+fi
