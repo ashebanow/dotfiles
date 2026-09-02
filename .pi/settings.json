@@ -1,0 +1,20 @@
+{
+  "defaultProvider": "deepseek",
+  "defaultModel": "deepseek-v4-flash",
+  "defaultThinkingLevel": "high",
+  "hideThinkingBlock": false,
+  "theme": "gruvbox-hard",
+  "extensions": ["extensions/hunk.ts"],
+  "themes": ["themes/gruvbox-hard.json"],
+  "packages": [
+    "npm:pi-background-tasks@latest",
+    "npm:@feniix/pi-exa",
+    "npm:pi-mcp-extension",
+    "git:git@github.com:joshleblanc/pi-minimax",
+    "npm:@ashebanow/pi-gotgenes-subagent",
+    "npm:@alasano/pi-linear"
+  ],
+  "pi-exa": {
+    "enabledTools": ["web_search_exa", "web_fetch_exa", "web_answer_exa"]
+  }
+}
