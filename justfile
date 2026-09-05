@@ -15,9 +15,11 @@ import "~/.justfile"
 # Build the dotfiles: apply this repo's managed files to the current
 # machine (chezmoi apply). Same as update-config, kept under the name you
 # reach for when developing this repo.
+[group('chezmoi')]
 build:
     chezmoi apply
 
 # For testing, make chezmoi forget about script run state
+[group('chezmoi')]
 clear-chezmoi-script-state:
     chezmoi state delete-bucket --bucket=scriptState

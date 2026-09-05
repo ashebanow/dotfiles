@@ -28,10 +28,7 @@ export nix_config_dir := env_var_or_default("NIX_CONFIG_DIR", `for d in "$HOME/D
 default:
     @just --list
 
-# Update dotfiles using chezmoi
-[group('Chezmoi')]
-update-config:
-    chezmoi apply
+# ===== PI AGENT =====
 
 [group('pi')]
 pi-update:
