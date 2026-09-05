@@ -3,9 +3,9 @@ name = "Andrew Shebanow"
 email = "ashebanow@gmail.com"
 
 [ui]
-default-command = "log"
-pager = ["hunk", "pager"]
-diff-formatter = ":git"
+default-command = "status"
+# Use Difftastic by default
+diff-formatter = ["difft", "--color=always", "$left", "$right"]
 
 [signing]
 behavior = "own"
