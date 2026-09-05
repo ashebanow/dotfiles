@@ -6,6 +6,7 @@ email = "ashebanow@gmail.com"
 default-command = "status"
 # Use Difftastic by default
 diff-formatter = ["difft", "--color=always", "$left", "$right"]
+merge-editor = "mergiraf"
 
 [signing]
 behavior = "own"
