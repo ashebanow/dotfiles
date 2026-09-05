@@ -18,11 +18,6 @@
 # Tool setttings
 # --------------
 
-[core]
-{{- if not .headless }}
-	pager = "hunk pager"
-{{- end }}
-
 [credential "https://gist.github.com"]
 	helper =
 	helper = !gh auth git-credential
@@ -34,17 +29,15 @@
 # We like our diff/merge tools!
 {{- if not .headless }}
 [diff]
-	tool=difftastic
+	tool = difftastic
 [difftool]
 	prompt = false
-[difftool "hunk"]
-	cmd = hunk difftool \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 [difftool "difftastic"]
     # See `man git-difftool` for a description of MERGED, LOCAL and REMOTE.
     cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
 
 [merge]
-	tool=mergiraf
+	tool = mergiraf
 [mergetool]
 	prompt = false
 [merge "mergiraf"]
