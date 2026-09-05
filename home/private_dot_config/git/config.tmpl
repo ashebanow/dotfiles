@@ -31,9 +31,10 @@
 	helper =
 	helper = !gh auth git-credential
 
+# We like our diff/merge tools!
 {{- if not .headless }}
 [diff]
-	tool = difftastic
+	tool=difftastic
 [difftool]
 	prompt = false
 [difftool "hunk"]
@@ -43,7 +44,7 @@
     cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
 
 [merge]
-	tool = mergiraf
+	tool=mergiraf
 [mergetool]
 	prompt = false
 [merge "mergiraf"]
