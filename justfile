@@ -99,9 +99,3 @@ nix-mas-sync *args: _nix-host
     set -euo pipefail
     host="$(hostname -s)"
     "{{nix_config_dir}}/scripts/darwin-migration/mas-sync.sh" "$host" {{args}}
-
-[group('pi')]
-pi-update:
-    @echo "Updating Pi Agent and extensions..."
-    pi update --all -a
-    @echo "Pi Agent update complete."

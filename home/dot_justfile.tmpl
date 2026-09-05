@@ -8,18 +8,18 @@ import "/usr/share/ublue-os/justfile"
 default:
     @just --list
 
-# Update homebrew
-[group('Maintenance')]
-update-brew:
-    brew update
-    brew upgrade
-
 # Update dotfiles using chezmoi
-[group('Maintenance')]
+[group('Chezmoi')]
 update-config:
     chezmoi apply
 
 # For testing, make chezmoi forget about script run state
-[group('Testing')]
+[group('Chezmoi')]
 clear-chezmoi-script-state:
     chezmoi state delete-bucket --bucket=scriptState
+
+[group('pi')]
+pi-update:
+    @echo "Updating Pi Agent and extensions..."
+    pi update --all -a
+    @echo "Pi Agent update complete."
