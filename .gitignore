@@ -73,7 +73,9 @@ devenv.local.yaml
 .pre-commit-config.yaml
 
 # Pi
+.pi/git/
 .pi/tasks/
+.pi/npm/
 
 # python
 bin/__pycache__/
