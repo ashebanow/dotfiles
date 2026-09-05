@@ -11,6 +11,3 @@
 if (( ${+functions[replay_path_adds]} )); then
   replay_path_adds
 fi
-
-# OrbStack: command-line tools and integration (macOS; no-op elsewhere)
-source ~/.orbstack/shell/init.zsh 2>/dev/null || :
