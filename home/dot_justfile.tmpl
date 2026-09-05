@@ -4,7 +4,27 @@ set shell := ["bash", "-uc"]
 import "/usr/share/ublue-os/justfile"
 {{- end }}
 
-# default recipe to display help information
+# ── Global justfile (chezmoi installs this as ~/.justfile) ──────────────
+# `just` searches upward from the current directory, so this file is found
+# from anywhere under $HOME. It therefore carries the recipes that should
+# be runnable on any machine:
+#   - chezmoi dotfile maintenance   (update-config)
+#   - pi agent updates              (pi-update)
+#   - machine-agnostic nix-config maintenance (clean / dry-run / switch /
+#     build-hm / nix-flake-check / nix-mas-sync), driven by the current
+#     hostname — they work on the nix-darwin Macs and the NixOS hosts
+#     alike (nh darwin vs nh os).
+# Recipes that only make sense inside a specific repo live in that repo's
+# own justfile, which shadows this one while you're in it. The nix-config
+# repo's justfile imports this file so both sets show up there.
+
+# Path to the nix-config flake checkout that manages this machine. On the
+# Macs it lives at ~/Development/nix/nix-config/main; on NixOS hosts it's
+# usually ~/nix-config. Override with NIX_CONFIG_DIR when it's elsewhere.
+# Exported so bash recipe bodies can read $nix_config_dir.
+export nix_config_dir := env_var_or_default("NIX_CONFIG_DIR", `for d in "$HOME/Development/nix/nix-config/main" "$HOME/nix-config"; do [[ -d "$d" ]] && { printf '%s' "$d"; exit 0; }; done; printf '%s' ""`)
+
+# Default recipe to show available commands
 default:
     @just --list
 
@@ -13,13 +33,228 @@ default:
 update-config:
     chezmoi apply
 
-# For testing, make chezmoi forget about script run state
-[group('Chezmoi')]
-clear-chezmoi-script-state:
-    chezmoi state delete-bucket --bucket=scriptState
-
 [group('pi')]
 pi-update:
     @echo "Updating Pi Agent and extensions..."
     pi update --all -a
     @echo "Pi Agent update complete."
+
+# ===== NIX =====
+
+# Fail fast if this isn't a known nix-config host (or no nix-config
+# checkout was found — set NIX_CONFIG_DIR in that case)
+[group('nix')]
+[private]
+_nix-host:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if [[ -z "${nix_config_dir:-}" ]]; then
+        echo "error: no nix-config checkout found (~/Development/nix/nix-config/main or ~/nix-config) — set NIX_CONFIG_DIR" >&2
+        exit 1
+    fi
+    # hostname -s reads the actual configured HostName. scutil --get
+    # LocalHostName is deliberately not used — it's the Bonjour/mDNS
+    # name and often just the factory "MacBook-Pro" default even when
+    # HostName has been customized.
+    host="$(hostname -s)"
+    if [[ ! -d "$nix_config_dir/hosts/$host" ]]; then
+        echo "error: no hosts/$host under $nix_config_dir — this machine isn't a known nix-config host" >&2
+        exit 1
+    fi
+
+# Validate the nix-config flake (nix flake check)
+[group('nix')]
+nix-flake-check: _nix-host
+    #!/usr/bin/env bash
+    set -euo pipefail
+    cd "$nix_config_dir"
+    nix flake check
+
+# Build the Home Manager configuration for this machine. On NixOS hosts
+# the standalone homeConfigurations.<user> output is built (nh home build
+# when available); on darwin hosts Home Manager runs inside the nix-darwin
+# configuration, so this builds just the current host's home-manager
+# activation package as a quick HM-only check.
+[group('nix')]
+build-hm: _nix-host
+    #!/usr/bin/env bash
+    set -euo pipefail
+    host="$(hostname -s)"
+    cd "$nix_config_dir"
+    case "$(uname -s)" in
+      Darwin)
+        # HM is darwin-managed here (users.ashebanow in darwin-builder.nix).
+        nix build ".#darwinConfigurations.${host}.config.home-manager.users.ashebanow.home.activationPackage"
+        ;;
+      Linux)
+        if [[ ! -e /etc/NIXOS ]]; then
+            echo "error: this Linux machine isn't NixOS — nothing to build" >&2
+            exit 1
+        fi
+        # NixOS host: standalone homeConfigurations.podman (see
+        # nixos-builder.nix).
+        if command -v nh >/dev/null 2>&1; then
+            nh home build . --configuration podman
+        else
+            nix build .#homeConfigurations.podman.activationPackage
+        fi
+        ;;
+      *)
+        echo "error: unsupported platform $(uname -s)" >&2
+        exit 1
+        ;;
+    esac
+
+# Preview what a switch would change, without applying it. Builds this
+# machine's configuration (no sudo needed — only activation needs it).
+#
+# On darwin this uses `darwin-rebuild build` rather than
+# `switch --dry-run` — the latter is broken under Determinate Nix (and
+# upstream nix in general): it refuses to plan the final darwin-system-*
+# derivation because no substituter has ever pre-built that exact config
+# combination, even though a real local build works fine. See NixOS/nix#13411.
+# `build` does a real local build into ./result without activating. nh
+# prints its own closure diff vs /run/current-system. On a machine that's
+# never had a successful switch there's no "before" to diff against, so
+# darwin hosts list what's declared instead.
+[group('nix')]
+dry-run: _nix-host
+    #!/usr/bin/env bash
+    set -euo pipefail
+    host="$(hostname -s)"
+    cd "$nix_config_dir"
+    case "$(uname -s)" in
+      Darwin)
+        if command -v nh >/dev/null 2>&1; then
+            nh darwin build --hostname "${host}" .
+        elif command -v darwin-rebuild >/dev/null 2>&1; then
+            sudo darwin-rebuild build --flake ".#${host}"
+        else
+            nix run nix-darwin -- build --flake ".#${host}"
+        fi
+        # nh darwin build prints its own closure diff vs /run/current-system,
+        # so no separate ./result diff step is needed here. On a first-ever
+        # switch there's no previous generation — list what the build declares
+        # instead.
+        if [[ ! -e /run/current-system ]]; then
+            echo "=== No previous generation to diff against (first-ever switch on this machine) ==="
+            echo "Declared home.packages:"
+            nix eval --json ".#darwinConfigurations.${host}.config.home-manager.users.ashebanow.home.packages" \
+                --apply 'pkgs: map (p: p.pname or p.name) pkgs' | jq -r '.[]' | sort | sed 's/^/  - /'
+            echo "Declared Homebrew brews:"
+            nix eval --json ".#darwinConfigurations.${host}.config.homebrew.brews" | jq -r '.[].name' | sed 's/^/  - /'
+            echo "Declared Homebrew casks:"
+            nix eval --json ".#darwinConfigurations.${host}.config.homebrew.casks" | jq -r '.[].name' | sed 's/^/  - /'
+        fi
+        ;;
+      Linux)
+        if [[ ! -e /etc/NIXOS ]]; then
+            echo "error: this Linux machine isn't NixOS — nothing to dry-run" >&2
+            exit 1
+        fi
+        if command -v nh >/dev/null 2>&1; then
+            nh os build .#"${host}"
+        elif command -v nixos-rebuild >/dev/null 2>&1; then
+            nixos-rebuild build --flake .#"${host}"
+        else
+            nix build .#nixosConfigurations.${host}.config.system.build.toplevel
+        fi
+        echo
+        # Only meaningful when run on the host itself: /run/current-system
+        # is the active generation there.
+        if [[ -e /run/current-system ]]; then
+            echo "=== Changes vs. the currently active generation ==="
+            nix store diff-closures /run/current-system ./result
+        else
+            echo "=== No active generation to diff against (not run on the target host, or never switched) ==="
+        fi
+        ;;
+      *)
+        echo "error: unsupported platform $(uname -s)" >&2
+        exit 1
+        ;;
+    esac
+
+# Build and activate this machine's configuration for real, and make it
+# the boot default. Must run on the machine you're switching; from another
+# machine use the nix-config repo's `deploy` instead. Extra flags (e.g.
+# --impure) are forwarded to nh.
+[group('nix')]
+switch *FLAGS: _nix-host
+    #!/usr/bin/env bash
+    set -euo pipefail
+    host="$(hostname -s)"
+    cd "$nix_config_dir"
+    case "$(uname -s)" in
+      Darwin)
+        if command -v nh >/dev/null 2>&1; then
+            nh darwin switch --hostname "${host}" {{ "{{ FLAGS }}" }} .
+        elif command -v darwin-rebuild >/dev/null 2>&1; then
+            sudo darwin-rebuild switch --flake ".#${host}"
+        else
+            nix run nix-darwin -- switch --flake ".#${host}"
+        fi
+        ;;
+      Linux)
+        if [[ ! -e /etc/NIXOS ]]; then
+            echo "error: this Linux machine isn't NixOS — nothing to switch" >&2
+            exit 1
+        fi
+        if command -v nh >/dev/null 2>&1; then
+            nh os switch {{ "{{ FLAGS }}" }} .#"${host}"
+        elif command -v nixos-rebuild >/dev/null 2>&1; then
+            sudo nixos-rebuild switch --flake ".#${host}"
+        else
+            nix run nixpkgs#nixos-rebuild -- switch --flake ".#${host}"
+        fi
+        ;;
+      *)
+        echo "error: unsupported platform $(uname -s)" >&2
+        exit 1
+        ;;
+    esac
+
+# Garbage-collect the Nix store: old system generations plus unreachable
+# store paths. nh clean all when available; platform-appropriate fallbacks
+# otherwise (NixOS hosts prune via nix-env generations, darwin via
+# nix-collect-garbage).
+[group('nix')]
+clean: _nix-host
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if command -v nh >/dev/null 2>&1; then
+        nh clean all
+        exit 0
+    fi
+    case "$(uname -s)" in
+      Darwin)
+        nix-collect-garbage -d
+        ;;
+      Linux)
+        if [[ ! -e /etc/NIXOS ]]; then
+            echo "error: this Linux machine isn't NixOS — nothing to clean" >&2
+            exit 1
+        fi
+        sudo nix-env --delete-generations 14d
+        nix store gc
+        ;;
+      *)
+        echo "error: unsupported platform $(uname -s)" >&2
+        exit 1
+        ;;
+    esac
+
+# Install declared-but-missing Mac App Store apps (macOS only; install-only,
+# never uninstalls). Defaults to --dry-run; pass --execute to actually
+# install:
+#   just nix-mas-sync -- --execute
+[group('nix')]
+nix-mas-sync *args: _nix-host
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if [[ "$(uname -s)" != "Darwin" ]]; then
+        echo "error: nix-mas-sync is macOS-only (this is $(uname -s))" >&2
+        exit 1
+    fi
+    host="$(hostname -s)"
+    "$nix_config_dir/scripts/darwin-migration/mas-sync.sh" "$host" {{ "{{args}}" }}
