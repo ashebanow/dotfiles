@@ -24,37 +24,47 @@
 {{- end }}
 
 [credential "https://gist.github.com"]
-	helper = 
+	helper =
 	helper = !gh auth git-credential
 
 [credential "https://github.com"]
-	helper = 
+	helper =
 	helper = !gh auth git-credential
 
-{{ if eq .chezmoi.os "darwin" }}
+{{- if not .headless }}
 [diff]
-	tool = Kaleidoscope
+	tool = difftastic
+[difftool]
+	prompt = false
+[difftool "hunk"]
+	cmd = hunk difftool \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
+[difftool "difftastic"]
+    # See `man git-difftool` for a description of MERGED, LOCAL and REMOTE.
+    cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
+
+[merge]
+	tool = mergiraf
+[mergetool]
+	prompt = false
+[merge "mergiraf"]
+    name = mergiraf
+    driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L
+
+[pager]
+    # Use a pager if the difftool output is larger than one screenful,
+    # consistent with the behaviour of `git diff`.
+    difftool = true
+{{- end }}
+
+{{ if eq .chezmoi.os "darwin" }}
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
 	trustExitCode = true
-[merge]
-	tool = Kaleidoscope
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
-[mergetool]
-	prompt = false
-{{ else }}
-{{- if not .headless }}
-[diff]
-	tool = hunk
-[difftool "hunk"]
-	cmd = hunk difftool \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
-[difftool]
-	prompt = false
-{{- end }}
 {{ end }}
 
 [init]
