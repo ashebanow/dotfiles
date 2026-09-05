@@ -211,6 +211,37 @@ switch *FLAGS: _nix-host
         ;;
     esac
 
+# Build and activate this machine's configuration WITHOUT making it the
+# boot default — a true test of a new generation. NixOS-only: nix-darwin /
+# macOS has no boot-default concept and darwin-rebuild has no test mode, so
+# on a Mac use `dry-run` (preview) or `switch` (activate + set boot
+# default) instead. Must run on the host itself.
+[group('nix')]
+test: _nix-host
+    #!/usr/bin/env bash
+    set -euo pipefail
+    host="$(hostname -s)"
+    cd "$nix_config_dir"
+    case "$(uname -s)" in
+      Linux)
+        if [[ ! -e /etc/NIXOS ]]; then
+            echo "error: this Linux machine isn't NixOS — nothing to test" >&2
+            exit 1
+        fi
+        if command -v nh >/dev/null 2>&1; then
+            nh os test .#"${host}"
+        elif command -v nixos-rebuild >/dev/null 2>&1; then
+            sudo nixos-rebuild test --flake .#"${host}"
+        else
+            nix run nixpkgs#nixos-rebuild -- test --flake .#"${host}"
+        fi
+        ;;
+      *)
+        echo "error: 'test' (activate without setting boot default) is NixOS-only — this is $(uname -s); use 'dry-run' or 'switch' instead" >&2
+        exit 1
+        ;;
+    esac
+
 # Garbage-collect the Nix store: old system generations plus unreachable
 # store paths. nh clean all when available; platform-appropriate fallbacks
 # otherwise (NixOS hosts prune via nix-env generations, darwin via
