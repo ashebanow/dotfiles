@@ -48,7 +48,6 @@
     # Use a pager if the difftool output is larger than one screenful,
     # consistent with the behaviour of `git diff`.
     difftool = true
-{{- end }}
 
 {{ if eq .chezmoi.os "darwin" }}
 [difftool "Kaleidoscope"]
@@ -60,6 +59,8 @@
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
 {{ end }}
+
+{{- end }}
 
 [init]
 	defaultBranch = "main"
