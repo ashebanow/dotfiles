@@ -115,7 +115,7 @@
 # The closing cap is a [SEP] with no bg -- the one separator meant to show
 # terminal background behind it. It is NOT static any more: env_var.alert_cap
 # supplies it (fg:color_bg1) when the alert block rendered, env_var.alert_none
-# supplies it (fg:color_muddy_green) when it did not. See the ALERT GATE
+# supplies it (fg:color_blue) when it did not. See the ALERT GATE
 # section near the bottom of this file.
 format = """
 [](color_orange)\
@@ -140,7 +140,9 @@ $golang\
 $nodejs\
 $python\
 $package\
-[](fg:color_blue bg:color_muddy_green)\
+${custom.nixlang}\
+${custom.devenv}\
+${custom.secretspec}\
 $docker_context\
 ${env_var.alert_open}\
 $cmd_duration\
@@ -307,6 +309,29 @@ read_only_style = "fg:color_fg0 bg:color_yellow"
 "Developer" = "󰲋 "
 "Code" = "󰲋 "
 
+# AI GATE: robot badge when the folder carries agent instructions.
+# These two modules are exact complements and between them always emit the
+# separator that leads into the battery block -- env_var.ai supplies it via
+# its own section, env_var.ai_none supplies it bare. That keeps the chevron
+# chain intact whichever way the condition falls, which a single conditional
+# module in mid-bar cannot do.
+#
+# Same mechanism as the ALERT GATE below: _starship_prompt_gates in
+# ~/.dotfiles/.zshrc sets exactly one of STARSHIP_AI / STARSHIP_AI_NONE from
+# a builtin [[ -f ]] check, and env_var renders on set/unset for free. This
+# used to be a [custom] pair whose `when` forked `test` on every prompt; the
+# file-check semantics (CURRENT directory only, AGENTS.md or CLAUDE.md, no
+# ancestor walk) now live in the hook, not here.
+#
+# NEVER ADD `default` TO EITHER -- see the ALERT GATE note below.
+[env_var.ai]
+variable = "STARSHIP_AI"
+format = '[](fg:color_yellow bg:color_faded_green)[ 󰚩 ](fg:color_fg0 bg:color_faded_green)[](fg:color_faded_green bg:color_faded_purple)'
+
+[env_var.ai_none]
+variable = "STARSHIP_AI_NONE"
+format = '[](fg:color_yellow bg:color_faded_purple)'
+
 # ---------------------------------------------------------------------------
 # Always renders (on a laptop), which is what lets the bar keep a stable shape.
 # The chevron into this block is supplied by the env_var.ai / env_var.ai_none
@@ -402,55 +427,33 @@ style = "bg:color_blue"
 format = '[[ $symbol ](fg:color_fg0 bg:color_blue)]($style)'
 
 [package]
-disabled = false
+disabled = true
 symbol = "󰏗"
 style = "bg:color_blue"
 format = '[[ $symbol $version ](fg:color_fg0 bg:color_blue)]($style)'
 
-# ---------------------------------------------------------------------------
-# MUDDY_GREEN BLOCK -- container / cluster context. None of these tools are
-# installed on this machine (no docker, kubectl or helm), so this block is
-# normally just a chevron; it is kept for portability to other machines.
-# fg is color_bg0 (near-black) because muddy_green is light -- cream on it is
-# only 1.5:1.
+[custom.nixlang]
+# command = "nix --version | awk '{ print $NF }'"
+detect_files = ['flake.nix', 'default.nix', 'shell.nix', 'configuration.nix', 'home.nix']
+# detect_extensions = ['nix']
+format = '[ 󱄅 ]($style)'
+style = "fg:color_fg0 bg:color_blue"
+symbol = '󱄅'
+
+[custom.devenv]
+detect_files = ['devenv.nix']
+format = "[  ]($style)"
+style = "fg:color_fg0 bg:color_blue"
+
+[custom.secretspec]
+detect_files = ['secretspec.toml']
+format = "[  ]($style)"
+style = "fg:color_fg0 bg:color_blue"
+
 [docker_context]
 symbol = ""
-style = "bg:color_muddy_green"
-format = '[ $symbol( $context) ](fg:color_bg0 bg:color_muddy_green)'
-
-[conda]
-symbol = "󱔎"
-style = "bg:color_muddy_green"
-format = '[ $symbol( $environment) ](fg:color_bg0 bg:color_muddy_green)'
-
-[kubernetes]
-disabled = false
-style = "bg:color_muddy_green"
-format = '[ 󱃾 $context( \($namespace\)) ](fg:color_bg0 bg:color_muddy_green)'
-detect_files = ["kustomization.yaml", "Chart.yaml", "helmfile.yaml"]
-
-# AI GATE: robot badge when the folder carries agent instructions.
-# These two modules are exact complements and between them always emit the
-# separator that leads into the battery block -- env_var.ai supplies it via
-# its own section, env_var.ai_none supplies it bare. That keeps the chevron
-# chain intact whichever way the condition falls, which a single conditional
-# module in mid-bar cannot do.
-#
-# Same mechanism as the ALERT GATE below: _starship_prompt_gates in
-# ~/.dotfiles/.zshrc sets exactly one of STARSHIP_AI / STARSHIP_AI_NONE from
-# a builtin [[ -f ]] check, and env_var renders on set/unset for free. This
-# used to be a [custom] pair whose `when` forked `test` on every prompt; the
-# file-check semantics (CURRENT directory only, AGENTS.md or CLAUDE.md, no
-# ancestor walk) now live in the hook, not here.
-#
-# NEVER ADD `default` TO EITHER -- see the ALERT GATE note below.
-[env_var.ai]
-variable = "STARSHIP_AI"
-format = '[](fg:color_yellow bg:color_faded_green)[ 󰚩 ](fg:color_fg0 bg:color_faded_green)[](fg:color_faded_green bg:color_faded_purple)'
-
-[env_var.ai_none]
-variable = "STARSHIP_AI_NONE"
-format = '[](fg:color_yellow bg:color_faded_purple)'
+style = "bg:color_blue"
+format = '[ $symbol( $context) ](fg:color_fg0 bg:color_blue)'
 
 # ---------------------------------------------------------------------------
 # The prompt character sits alone on line two, so the bar above it is never
@@ -559,7 +562,7 @@ format = '[ $symbol( $number) ](fg:color_bright_orange bg:color_bg1)'
 # either side.
 [env_var.alert_open]
 variable = "STARSHIP_ALERT"
-format = '[](fg:color_muddy_green bg:color_bg1)'
+format = '[](fg:color_blue bg:color_bg1)'
 
 [env_var.alert_cap]
 variable = "STARSHIP_ALERT"
@@ -567,7 +570,7 @@ format = '[](fg:color_bg1)'
 
 [env_var.alert_none]
 variable = "STARSHIP_NOALERT"
-format = '[](fg:color_muddy_green)'
+format = '[](fg:color_blue)'
 
 # Always renders. Together with [battery] this guarantees the middle of the
 # bar is never empty.
