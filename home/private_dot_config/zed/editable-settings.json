@@ -150,11 +150,9 @@
   },
   "context_servers": {
     "linear": {
-      "command": {
-        "path": "npx",
-        "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"],
-        "env": {}
-      },
+      "command": "npx",
+      "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"],
+      "env": {},
       "settings": {}
     }
   },
