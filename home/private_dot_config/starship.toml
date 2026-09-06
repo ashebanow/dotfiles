@@ -1,151 +1,303 @@
+# =============================================================================
+#  starship.toml  --  gruvbox powerline prompt
+#  BASED HEAVILY ON:
+#     https://github.com/russmckendrick/dotfiles/blob/main/starship.toml
+# =============================================================================
+#
+#  Loaded via STARSHIP_CONFIG in ~/.dotfiles/.zshrc, and initialised by the
+#  oh-my-zsh `starship` plugin (plugins=(... starship ...)). The explicit
+#  `eval "$(starship init zsh)"` in .zshrc is commented out on purpose --
+#  running both would initialise the prompt twice.
+#
+#  Requires a Nerd Font. Terminal is set to HackNFM-Regular (Hack Nerd Font
+#  Mono); every symbol below is verified present in that font. Written for
+#  starship 1.26.
+#
+# -- EDITING THIS FILE --------------------------------------------------------
+#
+#  1. Most symbols are Unicode Private Use Area glyphs (U+E0xx powerline
+#     separators, U+F0xxx Nerd Font icons). They look blank or like boxes in
+#     most tools. NEVER retype one from memory or copy it through something
+#     that might normalise it -- edit around them, or script the change using
+#     chr(0x...) escapes. Silently losing a separator turns every powerline
+#     chevron into a flat edge and the config still parses fine.
+#
+#  2. A malformed format string does not fail loudly. An unbalanced bracket
+#     makes starship log `[WARN] Error in module ...` and skip that module
+#     entirely -- easy to miss for a module that rarely renders. After editing
+#     a format string, force the module to render and confirm you see it.
+#
+#  3. `starship print-config` exits 0 even with unknown keys; it prints
+#     warnings to stderr. Check stderr, not just the exit code.
+#
+# -- HOW THE POWERLINE CHAIN WORKS --------------------------------------------
+#
+#  Blocks are joined by separator glyphs written directly into `format`:
+#
+#      [SEP](fg:<colour of block on the LEFT> bg:<colour of block on the RIGHT>)
+#
+#  The separator is ordinary static text, so it renders whether or not the
+#  module beside it produced any output. A block whose modules are all empty
+#  therefore collapses to its separators alone, leaving a one-character
+#  coloured chevron stub. Two regimes deal with that:
+#
+#  1. STATIC SEPARATORS, for blocks that always render (identity, directory,
+#     battery, time) and for the two that are cheap to leave stubbed -- the
+#     blue language block and the muddy_green container block. Their chevrons
+#     are written straight into `format` below.
+#
+#  2. A GATED COMPLEMENT PAIR, for a block that has to vanish without a
+#     trace. Two mutually exclusive modules supply the separators around it:
+#     one renders the full "chevron in ... cap out" when the block is there,
+#     the other renders a bare cap when it is not. env_var.ai / env_var.ai_none
+#     do this for the robot badge; env_var.alert_* do it for the alert block.
+#     Both pairs are driven by flags that _starship_prompt_gates in
+#     ~/.dotfiles/.zshrc computes shell-natively, so neither costs a fork.
+#
+#  Folding separators into EVERY module instead was tried and rejected: it
+#  forces optional segments to be self-closing, which leaves a visible gap of
+#  terminal background between them and the bar. That failure does not apply
+#  to the alert block, because it sits at the END of the bar and its three
+#  modules share ONE background -- so the group needs a single colour
+#  transition in and a single cap out, never a transition between its members.
+#
+#  Which is also why the alert block is one colour. A run of CONSECUTIVE
+#  optional blocks cannot each keep its own colour AND vanish cleanly: every
+#  separator hardcodes both of its neighbours, and no module can see whether
+#  the one beside it rendered. The AI pair only works because directory and
+#  battery, either side of it, are always present.
+#
+# -- THE LAYOUT CONTRACT ------------------------------------------------------
+#
+#  The rules every change to the bar must respect:
+#
+#  1. Static separators may sit ONLY between blocks that always render (or
+#     that are acceptable as a bare chevron stub when empty).
+#  2. Every optional coloured segment needs a mutually exclusive fallback
+#     path -- a complement pair where exactly one side always renders.
+#  3. A gated GROUP of modules must share one background and take one chevron
+#     in and one cap out; never a transition between its members.
+#  4. Any threshold the zsh hook tests must match its starship module
+#     equivalent. The named variables in .zshrc are the source of truth and
+#     ./check-starship.sh enforces the mirror.
+#
+#  Checklist for adding a conditional segment between two anchors (the
+#  "optional between" pattern -- TOML cannot abstract it, so walk it by hand):
+#    - VISIBLE case: which module emits the chevron in, the body, the cap out?
+#    - ABSENT case: which complement module emits the bare separator joining
+#      the two anchors directly?
+#    - SEPARATOR OWNERSHIP: no separator for this segment may remain in
+#      `format` -- the pair owns all of them.
+#    - TEST both states (and both edges if the anchors differ in colour)
+#      before committing; a broken format string fails SILENTLY (see above).
+#
+# =============================================================================
 "$schema" = 'https://starship.rs/config-schema.json'
 
+# -- BAR LAYOUT ---------------------------------------------------------------
+# Order matters twice over: it is the visual left-to-right order, AND each
+# separator hardcodes the colours of its neighbours. Moving a block means
+# re-deriving the fg/bg of the separators either side of it.
+#
+# Block colours, left to right:
+#   orange       os + user + shlvl + sudo    identity
+#   yellow       directory                    where am I
+#   faded_green  env_var.ai                   robot badge (conditional pair)
+#   faded_purple battery                      always present
+#   faded_blue   time                         always present
+#   aqua         git                          branch / status / state / metrics
+#   blue         languages + package
+#   muddy_green  kubernetes / docker / conda
+#   bg1          cmd_duration + status + jobs  the alert block: one charcoal
+#                                              block gated on $STARSHIP_ALERT,
+#                                              absent entirely when idle
+#
+# The closing cap is a [SEP] with no bg -- the one separator meant to show
+# terminal background behind it. It is NOT static any more: env_var.alert_cap
+# supplies it (fg:color_bg1) when the alert block rendered, env_var.alert_none
+# supplies it (fg:color_muddy_green) when it did not. See the ALERT GATE
+# section near the bottom of this file.
 format = """
-[](fg:green)\
-${env_var.ZMX_SESSION}\
+[](color_orange)\
 $os\
 $username\
 $hostname\
-[ ](fg:green)\
-[](fg:yellow)\
-$shell\
+$shlvl\
+$sudo\
+[](bg:color_yellow fg:color_orange)\
 $directory\
-[ ](fg:yellow)\
-[](fg:pink)\
+${env_var.ai}\
+${env_var.ai_none}\
+$battery\
+[](fg:color_faded_purple bg:color_aqua)\
 $git_branch\
 $git_status\
-[ ](fg:pink)\
+$git_state\
+$git_metrics\
+[](fg:color_aqua bg:color_blue)\
+$rust\
+$golang\
+$nodejs\
+$python\
+$package\
+[](fg:color_blue bg:color_muddy_green)\
+$docker_context\
+${env_var.alert_open}\
+$cmd_duration\
+$status\
+$jobs\
+${env_var.alert_cap}\
+${env_var.alert_none}\
 $line_break$character"""
 
-# languages section
-# [](fg:blue)\
-# ${custom.nixlang}\
-# $pixi\
-# $ruby\
-# $rust\
-# $golang\
-# $nodejs\
-# $python\
-# $c\
-# [ ](fg:blue)\
+# No blank line before the prompt -- the bar sits directly under the previous
+# command output.
+add_newline = false
 
+# Deliberately empty. A right prompt (RPROMPT) attaches to the LAST line of the
+# prompt, which here is the `$character` line -- so it renders one row below
+# the bar and can never sit level with it. Everything lives in `format`.
+right_format = ""
+
+# scan_timeout: per-module filesystem scan budget (default 30ms).
+# command_timeout: budget for modules that shell out (package, git_metrics).
+# `starship timings` shows the real cost per module -- git_metrics (~20-30ms,
+# runs `git diff --shortstat`) and package are the expensive ones, plus one
+# fork for [sudo]. The two gates add no fork at all: [env_var] modules only
+# read the environment, and the flags themselves are computed inside the
+# precmd hook zsh already runs (_starship_prompt_gates in
+# ~/.dotfiles/.zshrc). Keep it that way -- a [custom] `when` here costs a
+# fork per prompt, which is why custom.ai_none was retired.
+scan_timeout = 35
+command_timeout = 700
+
+# ---------------------------------------------------------------------------
 palette = 'gruvbox_dark'
 
-# Gruvbox Dark Hard palette — canonical colors from morhetz/gruvbox
-# Old name mapping preserved for backward compat with format strings
+# Three gruvbox families are in play:
+#   neutral  (#cc241d, #98971a, #d79921 ...)  mid-luminance, the main blocks
+#   bright   (#fb4934, #b8bb26, #fabd2f ...)  accents, need a DARK background
+#   faded    (#9d0006, #79740e, #b57614 ...)  dark and rich, cream text on top
+#
+# Contrast rule learned the hard way: a bright accent (#fb4934 red especially)
+# is unreadable on any mid-luminance background -- 1.9:1 on the gruvbox greys,
+# 1.2:1 on purple. Either put bright accents on something near-black, or use
+# the faded set as a background with cream text. This config does the latter.
+#
+# NOTE color_bg1..bg4 and several bright_* entries are currently unreferenced.
+# They are kept so the palette is a complete gruvbox reference for future edits.
 [palettes.gruvbox_dark]
-# Backgrounds
-bg_hard = "#1d2021"
-crust = "#1d2021"          # alias: bg_hard
-bg = "#282828"
-base = "#282828"            # alias: bg
-bg_soft = "#32302f"
-mantle = "#32302f"          # alias: bg_soft
-bg1 = "#3c3836"
-surface0 = "#3c3836"        # alias: bg1
-bg2 = "#504945"
-surface1 = "#504945"        # alias: bg2
-bg3 = "#665c54"
-surface2 = "#665c54"        # alias: bg3
-bg4 = "#7c6f64"
-overlay0 = "#7c6f64"        # alias: bg4
-# Grays / muted
-gray = "#928374"
-overlay1 = "#928374"        # alias: gray
-# Faded foregrounds
-fg4 = "#a89984"
-overlay2 = "#a89984"        # alias: fg4
-fg3 = "#bdae93"
-subtext0 = "#bdae93"        # alias: fg3
-fg2 = "#d5c4a1"
-subtext1 = "#d5c4a1"       # alias: fg2
-yellow = "#d5c4a1"          # alias: fg2 (maps to old yellow)
-fg1 = "#ebdbb2"
-fg0 = "#fbf1c7"
-text = "#fbf1c7"            # alias: fg0
-# Bright accents
-red = "#fb4934"
-rosewater = "#fb4934"       # alias: red
-green = "#a3be51"            # midpoint: gruvbox aqua ↔ green
-neutral_green = "#98971a"
-yellow_bright = "#fabd2f"
-orange = "#fe8019"
-flamingo = "#fe8019"         # alias: orange
-peach = "#fe8019"            # alias: orange
-blue = "#83a598"
-sky = "#83a598"              # alias: blue
-neutral_blue = "#458588"
-sapphire = "#458588"         # alias: neutral_blue
-purple = "#d3869b"
-pink = "#83a598"             # alias: blue (muted light blue)
-lavender = "#83a598"         # alias: blue
-neutral_purple = "#b16286"
-mauve = "#b16286"            # alias: neutral_purple
-aqua = "#8ec07c"
-teal = "#8ec07c"             # alias: aqua (same as green)
-neutral_aqua = "#689d6a"
-# Neutral/faded accents
-neutral_red = "#cc241d"
-maroon = "#cc241d"           # alias: neutral_red
-neutral_yellow = "#d79921"
-neutral_orange = "#d65d0e"
+color_fg0 = '#fbf1c7'
+color_fg1 = '#ebdbb2'
+color_bg0 = '#282828'
+color_bg1 = '#3c3836'
+color_bg2 = '#504945'
+color_bg3 = '#665c54'
+color_bg4 = '#7c6f64'
+color_blue = '#458588'
+color_aqua = '#689d6a'
+color_green = '#98971a'
+color_orange = '#d65d0e'
+color_purple = '#b16286'
+color_red = '#cc241d'
+color_yellow = '#d79921'
+color_bright_red = '#fb4934'
+color_bright_green = '#41FF00'
+color_bright_yellow = '#fabd2f'
+color_bright_blue = '#83a598'
+color_bright_purple = '#d3869b'
+color_bright_aqua = '#8ec07c'
+color_bright_orange = '#fe8019'
+color_light_grey = '#a89984'
+# gruvbox 'faded' set — darker and richer than the neutral tones, so
+# cream text sits on them at 4.4:1 or better. Drives the status tail.
+color_faded_red = '#9d0006'
+color_faded_green = '#79740e'
+color_faded_yellow = '#b57614'
+color_faded_blue = '#076678'
+color_faded_purple = '#8f3f71'
+color_faded_aqua = '#427b58'
+color_faded_orange = '#af3a03'
+color_muddy_green = '#8ec07c'
+# git metric tints. The aqua block is mid-luminance (0.281), so a foreground
+# only clears 3:1 if it is almost white -- pure white is the ceiling at 3.17:1.
+# These are the brightest tints that still read as green / red rather than
+# white. See the note above [git_metrics] for the numbers.
+color_metric_add = '#eaffb0'
+color_metric_del = '#ffefef'
 
+# ---------------------------------------------------------------------------
+# ORANGE BLOCK -- identity. os + username always render; shlvl and sudo are
+# conditional but sit INSIDE the block, so they need no separators and leave
+# nothing behind when absent.
 [os]
 disabled = false
-style = "bg:green fg:crust"
-format = '[$symbol ]($style)'
+style = "bg:color_orange fg:color_fg0"
+format = '[$symbol]($style)'
 
 [os.symbols]
-Alpine = ""
-Android = ""
-Arch = ""
-CentOS = ""
-Debian = ""
-EndeavourOS = ""
-Fedora = ""
-Linux = ""
-Macos = ""
+Alpine = "🏔️ "
+Amazon = "🙂 "
+Android = "🤖 "
+Arch = " "
+Bluefin = "🐟 "
+CachyOS = "🎗️ "
+CentOS = "💠 "
+Debian = "🌀 "
+EndeavourOS = "🚀 "
+Fedora = "🎩 "
+FreeBSD = "😈 "
+Garuda = "🦅 "
+Gentoo = "🗜️ "
+Ios = " "
+Kali = "🐉 "
+Linux = "🐧 "
+Macos = " "
+Manjaro = "🥭 "
+Mint = "🌿 "
+NetBSD = "🚩 "
 NixOS = ""
-Pop = ""
-RedHatEnterprise = ""
-Redhat = ""
-SUSE = ""
-Ubuntu = ""
-Windows = ""
+Nobara = "🎩 "
+OpenBSD = "🐡 "
+openSUSE = "🦎 "
+Pop = "🍭 "
+Redhat = "🎩 "
+RedHatEnterprise = "🎩 "
+RockyLinux = "💠 "
+SUSE = "🦎 "
+Ubuntu = "🎯 "
+Unknown = "❓ "
+Void = " "
+Windows = "🪟 "
+Zorin = "🔹 "
 
 [username]
 show_always = true
-style_user = "bg:green fg:crust"
-style_root = "bg:green fg:red"
+style_user = "bg:color_orange fg:color_fg0"
+style_root = "bg:color_orange fg:color_black"
 format = '[$user]($style)'
 
 [hostname]
+disabled = false
 ssh_only = false
 ssh_symbol = '@'
-style = "bg:green fg:crust"
+style = "bg:color_orange fg:color_fg0"
 trim_at = '.'
-disabled = false
 format = '[@$hostname ]($style)'
 
-[env_var.ZMX_SESSION]
-symbol = " "
-format = "[$symbol$env_value ]($style)"
-description = "zmx session name"
-style = "bg:green fg:crust"
-
-[shell]
-disabled = false
-style = "fg:crust bg:yellow"
-bash_indicator = 'B\$'
-fish_indicator = 'F\$'
-zsh_indicator = 'Z\$'
-format = "[$indicator ]($style)"
-
+# ---------------------------------------------------------------------------
+# YELLOW BLOCK -- path. truncate_to_repo means inside a repo you see the repo
+# name rather than the full path; git_branch supplies the missing context.
+# read_only uses the padlock U+F023 -- do NOT reuse that glyph for [sudo],
+# they mean different things and shared it once by accident.
 [directory]
-style = "fg:crust bg:yellow"
+style = "fg:color_fg0 bg:color_yellow"
 format = "[ $path ]($style)"
 truncation_length = 3
-truncation_symbol = "…/"
+truncation_symbol = " "
+truncate_to_repo = true
+read_only = " "
+read_only_style = "fg:color_fg0 bg:color_yellow"
 
 [directory.substitutions]
 "Documents" = "󰈙 "
@@ -153,71 +305,289 @@ truncation_symbol = "…/"
 "Music" = "󰝚 "
 "Pictures" = " "
 "Developer" = "󰲋 "
+"Code" = "󰲋 "
 
+# ---------------------------------------------------------------------------
+# Always renders (on a laptop), which is what lets the bar keep a stable shape.
+# The chevron into this block is supplied by the env_var.ai / env_var.ai_none
+# pair, not by `format`.
+[battery]
+disabled = false
+full_symbol = "󰁹"
+charging_symbol = "󰂄"
+discharging_symbol = "󰂃"
+unknown_symbol = "󰁽"
+empty_symbol = "󰂎"
+format = '[ $symbol $percentage ]($style)'
+
+[[battery.display]]
+# Below 20% the TEXT turns bright yellow; the block keeps its faded_purple
+# background so the chevron chain either side stays correct. Repainting the
+# background here would desync it from the separators in `format`.
+threshold = 20
+style = 'fg:color_bright_yellow bg:color_faded_purple'
+
+[[battery.display]]
+threshold = 100
+style = 'fg:color_fg0 bg:color_faded_purple'
+
+# ---------------------------------------------------------------------------
+# AQUA BLOCK -- git. All four modules share bg:color_aqua so they read as one
+# block with no internal separators.
 [git_branch]
 symbol = ""
-style = "bg:pink"
-format = '[[ $symbol $branch ](fg:crust bg:pink)]($style)'
+style = "bg:color_aqua"
+format = '[[ $symbol $branch ](fg:color_fg0 bg:color_aqua)]($style)'
+truncation_length = 24
 
 [git_status]
-style = "bg:pink"
-format = '[[($all_status$ahead_behind )](fg:crust bg:pink)]($style)'
+style = "bg:color_aqua"
+format = '[[($all_status$ahead_behind )](fg:color_fg0 bg:color_aqua)]($style)'
 
+[git_state]
+style = "bg:color_aqua"
+format = '[[ $state( $progress_current/$progress_total) ](fg:color_fg0 bg:color_aqua)]($style)'
+
+# Each half is wrapped in a conditional group ( ... ) so it only renders when
+# that variable is non-empty. Without them a clean repo printed a bare "+/-"
+# with no digits, because $added/$deleted come back EMPTY rather than "0".
+# The halves are space-separated, not slash-separated: a slash cannot live in
+# either group without rendering orphaned ("/-20") on a deletions-only diff.
+#
+# CONTRAST: aqua sits at luminance 0.281, which caps any lighter foreground
+# at 3.17:1 (pure white). The old bright_yellow/bright_orange pair was 1.87:1
+# and 1.26:1 -- the deleted count was effectively invisible. The tints now
+# used are 2.94:1 and 2.85:1: a 2.3x improvement on the worst case, and about
+# as bright as they can get while still reading as green and red rather than
+# as plain white. Clearing 3:1 outright would mean either pure white for both
+# (losing the colour coding) or darkening this block, both rejected.
+[git_metrics]
+disabled = false
+added_style = "fg:color_metric_add bg:color_aqua"
+deleted_style = "fg:color_metric_del bg:color_aqua"
+format = '[([+$added]($added_style) )([-$deleted]($deleted_style) )](fg:color_fg0 bg:color_aqua)'
+
+# ---------------------------------------------------------------------------
+# BLUE BLOCK -- languages + package. Version numbers are hidden on purpose:
+# only the symbol shows, so the bar stays short. [package] is the exception
+# and the slowest module of the group.
 [nodejs]
-symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:crust bg:blue)]($style)'
+symbol = ""
+style = "bg:color_blue"
+format = '[[ $symbol ](fg:color_fg0 bg:color_blue)]($style)'
 
 [c]
-symbol = " "
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:crust bg:blue)]($style)'
+symbol = ""
+style = "bg:color_blue"
+format = '[[ $symbol ](fg:color_fg0 bg:color_blue)]($style)'
 
-[custom.nixlang]
-command = "nix --version | awk '{ print $NF }'"
-detect_extensions = ['nix']
-format = '[ $symbol $output ]($style)'
-style = "fg:crust bg:blue"
-symbol = '󱄅'
-
-[pixi]
-style = "fg:crust bg:blue"
-format = '[ $symbol$environment ]($style)'
+[cpp]
+symbol = ""
+style = "bg:color_blue"
+format = '[[ $symbol ](fg:color_fg0 bg:color_blue)]($style)'
 
 [rust]
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:crust bg:blue)]($style)'
-
-[ruby]
-symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:crust bg:blue)]($style)'
+style = "bg:color_blue"
+format = '[[ $symbol ](fg:color_fg0 bg:color_blue)]($style)'
 
 [golang]
-symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:crust bg:blue)]($style)'
+symbol = "󰟓"
+style = "bg:color_blue"
+format = '[[ $symbol ](fg:color_fg0 bg:color_blue)]($style)'
 
 [python]
 symbol = ""
-style = "bg:blue"
-format = '[[ $symbol( $version) ](fg:crust bg:blue)]($style)'
+style = "bg:color_blue"
+format = '[[ $symbol ](fg:color_fg0 bg:color_blue)]($style)'
 
-[time]
+[package]
 disabled = false
-time_format = "%R"
-style = "bg:base"
-format = '[[  $time ](fg:crust bg:base)]($style)'
+symbol = "󰏗"
+style = "bg:color_blue"
+format = '[[ $symbol $version ](fg:color_fg0 bg:color_blue)]($style)'
 
+# ---------------------------------------------------------------------------
+# MUDDY_GREEN BLOCK -- container / cluster context. None of these tools are
+# installed on this machine (no docker, kubectl or helm), so this block is
+# normally just a chevron; it is kept for portability to other machines.
+# fg is color_bg0 (near-black) because muddy_green is light -- cream on it is
+# only 1.5:1.
+[docker_context]
+symbol = ""
+style = "bg:color_muddy_green"
+format = '[ $symbol( $context) ](fg:color_bg0 bg:color_muddy_green)'
+
+[conda]
+symbol = "󱔎"
+style = "bg:color_muddy_green"
+format = '[ $symbol( $environment) ](fg:color_bg0 bg:color_muddy_green)'
+
+[kubernetes]
+disabled = false
+style = "bg:color_muddy_green"
+format = '[ 󱃾 $context( \($namespace\)) ](fg:color_bg0 bg:color_muddy_green)'
+detect_files = ["kustomization.yaml", "Chart.yaml", "helmfile.yaml"]
+
+# AI GATE: robot badge when the folder carries agent instructions.
+# These two modules are exact complements and between them always emit the
+# separator that leads into the battery block -- env_var.ai supplies it via
+# its own section, env_var.ai_none supplies it bare. That keeps the chevron
+# chain intact whichever way the condition falls, which a single conditional
+# module in mid-bar cannot do.
+#
+# Same mechanism as the ALERT GATE below: _starship_prompt_gates in
+# ~/.dotfiles/.zshrc sets exactly one of STARSHIP_AI / STARSHIP_AI_NONE from
+# a builtin [[ -f ]] check, and env_var renders on set/unset for free. This
+# used to be a [custom] pair whose `when` forked `test` on every prompt; the
+# file-check semantics (CURRENT directory only, AGENTS.md or CLAUDE.md, no
+# ancestor walk) now live in the hook, not here.
+#
+# NEVER ADD `default` TO EITHER -- see the ALERT GATE note below.
+[env_var.ai]
+variable = "STARSHIP_AI"
+format = '[](fg:color_yellow bg:color_faded_green)[ 󰚩 ](fg:color_fg0 bg:color_faded_green)[](fg:color_faded_green bg:color_faded_purple)'
+
+[env_var.ai_none]
+variable = "STARSHIP_AI_NONE"
+format = '[](fg:color_yellow bg:color_faded_purple)'
+
+# ---------------------------------------------------------------------------
+# The prompt character sits alone on line two, so the bar above it is never
+# pushed around by how long the prompt is.
 [line_break]
 disabled = false
 
 [character]
 disabled = false
-success_symbol = '[](bold fg:green)'
-error_symbol = '[](bold fg:red)'
-vimcmd_symbol = '[](bold fg:green)'
-vimcmd_replace_one_symbol = '[](bold fg:purple)'
-vimcmd_replace_symbol = '[](bold fg:purple)'
-vimcmd_visual_symbol = '[](bold fg:yellow)'
+success_symbol = '[](bold fg:color_bright_green)'
+error_symbol = '[](bold fg:color_bright_red)'
+vimcmd_symbol = '[](bold fg:color_bright_green)'
+vimcmd_replace_one_symbol = '[](bold fg:color_purple)'
+vimcmd_replace_symbol = '[](bold fg:color_purple)'
+vimcmd_visual_symbol = '[](bold fg:color_yellow)'
+
+# ---------------------------------------------------------------------------
+# ALERT BLOCK -- cmd_duration + status + jobs.
+#
+# All three share one charcoal background and sit next to each other with no
+# separators between them, so they read as a single block however many of them
+# render at once. That is what lets the whole group be gated by one complement
+# pair -- one chevron in, one cap out. See ALERT GATE below.
+#
+# color_bg1 is the only near-black background in the bar, which is exactly
+# what the palette's contrast note says bright accents need: bright_red is
+# 1.9:1 on the gruvbox mid-tones and 3.4:1 here. Cream duration is 10.2:1,
+# bright_orange jobs 4.6:1. If the red ever reads washed out, color_bg0
+# (#282828) lifts it to 4.3:1, at the cost of the block sitting closer to the
+# terminal background. Changing this background means changing it in all three
+# formats AND in env_var.alert_open and env_var.alert_cap.
+#
+# map_symbol is false ON PURPOSE. With it true the mapped symbols are
+# double-width emoji (not-executable, not-found, SIGINT, signal) which break
+# a fixed-width powerline segment. recognize_signal_code with
+# $common_meaning$signal_name$maybe_int still gives "INT" instead of "130",
+# with no emoji. $maybe_int prints the bare code only when there is no name.
+[status]
+disabled = false
+recognize_signal_code = true
+map_symbol = false
+format = '[ ✖ $common_meaning$signal_name$maybe_int ](fg:color_bright_red bg:color_bg1)'
+
+# Reports the PREVIOUS command's runtime, so it appears on the prompt after a
+# slow command and is gone on the next fast one -- that is expected.
+# show_notifications fires a desktop notification past 45s (useful for the
+# video-processing helpers in .zshrc); macOS needs notification permission
+# granted to the terminal app the first time.
+[cmd_duration]
+min_time = 2000
+show_notifications = true
+min_time_to_notify = 45000
+format = '[  $duration ](fg:color_fg0 bg:color_bg1)'
+
+# $number is wrapped in a conditional group because starship only fills it in
+# past number_threshold (2) -- with a single job it comes back EMPTY, and an
+# unguarded "$symbol $number" then leaves a stray double space in the middle
+# of the alert block. Same trick as [git_metrics] and [kubernetes] above.
+[jobs]
+threshold = 1
+symbol = ""
+format = '[ $symbol( $number) ](fg:color_bright_orange bg:color_bg1)'
+
+# ---------------------------------------------------------------------------
+# ALERT GATE -- makes the block above disappear completely when idle.
+#
+# Static separators would leave a one-character stub behind, so the chevron
+# leading into the alert block and the cap that closes the bar are supplied by
+# these three modules instead of by `format`:
+#
+#   STARSHIP_ALERT set    ->  alert_open  chevron muddy_green -> bg1
+#                             ... the block ...
+#                             alert_cap   cap fg:bg1
+#   STARSHIP_NOALERT set  ->  alert_none  cap fg:muddy_green, nothing else
+#
+# Exactly one of the two variables is ever set. _starship_prompt_gates in
+# ~/.dotfiles/.zshrc does that from a precmd hook.
+#
+# WHY TWO VARIABLES AND NOT ONE on|off VALUE: env_var renders on set/unset
+# and can never test what the value IS. Collapsing the pair into a single
+# STARSHIP_ALERT=on|off would force both branches onto [custom] modules with
+# shell `when` predicates -- two forks per prompt. The boolean-as-two-vars
+# encoding is the price of staying fork-free.
+#
+# WHY A SHELL HOOK: starship cannot test this condition itself. The exit
+# status, command duration and job count arrive as CLI ARGUMENTS (--status,
+# --cmd-duration, --jobs). The zsh integration keeps them in
+# STARSHIP_CMD_STATUS / STARSHIP_DURATION / STARSHIP_JOBS_COUNT, which are
+# plain shell variables and are never exported -- so a [custom] `when` cannot
+# see them either.
+#
+# WHY env_var AND NOT custom: an [env_var] module renders nothing at all when
+# its variable is unset and no `default` is given. Same conditional behaviour
+# as a [custom] `when`, with no subshell fork per prompt.
+#
+# NEVER ADD `default` TO THESE THREE. A `default` makes the module render
+# unconditionally, which pins the stub back on permanently and can put two
+# caps on the bar at once. Not printing $env_value is deliberate too -- the
+# variable is a flag, the format is the whole payload.
+#
+# THRESHOLDS ARE MIRRORED, AND THE HOOK IS THE SOURCE OF TRUTH. The values
+# behind cmd_duration.min_time and jobs.threshold below are named in .zshrc
+# as STARSHIP_DURATION_THRESHOLD_MS and STARSHIP_JOBS_THRESHOLD. If they
+# drift, the block opens around nothing -- or hides something it should have
+# shown. ./check-starship.sh fails on any mismatch; run it after touching
+# either side.
+[env_var.alert_open]
+variable = "STARSHIP_ALERT"
+format = '[](fg:color_muddy_green bg:color_bg1)'
+
+[env_var.alert_cap]
+variable = "STARSHIP_ALERT"
+format = '[](fg:color_bg1)'
+
+[env_var.alert_none]
+variable = "STARSHIP_NOALERT"
+format = '[](fg:color_muddy_green)'
+
+# Always renders. Together with [battery] this guarantees the middle of the
+# bar is never empty.
+[time]
+disabled = false
+time_format = "%R"
+format = '[ 󰥔 $time ](fg:color_fg0 bg:color_faded_blue)'
+
+# threshold=3, not the default 2: oh-my-zsh/tmux/editor terminals often start
+# at SHLVL=2, which would pin this segment on permanently.
+[shlvl]
+disabled = false
+threshold = 3
+repeat = false
+symbol = " "
+format = '[[ $symbol$shlvl ](fg:color_fg0 bg:color_orange)]($style)'
+
+# Note: forks `sudo -n -v` on every prompt render. Drop it if `starship timings`
+# shows it hurting.
+[sudo]
+disabled = false
+symbol = " "
+format = '[[ $symbol ](fg:color_fg0 bg:color_orange)]($style)'
