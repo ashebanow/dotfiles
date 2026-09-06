@@ -136,8 +136,9 @@ style = "bg:green fg:crust"
 [shell]
 disabled = false
 style = "fg:crust bg:yellow"
-fish_indicator = '🐟'
-zsh_indicator = ''
+bash_indicator = 'B\$'
+fish_indicator = 'F\$'
+zsh_indicator = 'Z\$'
 format = "[$indicator ]($style)"
 
 [directory]
