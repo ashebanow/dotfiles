@@ -19,29 +19,38 @@ _PATHS_HELPERS_INCLUDED=1
 typeset -ga _path_adds _path_end_adds
 
 # Internal helper: Get canonical path
+#
+# zsh-native (${1:A}: absolute path with symlinks resolved) instead of
+# forking `realpath`. This function is called once per EXISTING PATH entry
+# on every add_to_path/add_to_path_end, so with realpath it cost one
+# external fork per entry -- in nix/devenv shells the inherited PATH is
+# tens of entries long and paths.sh's ~14 add calls ballooned a fresh zsh
+# to >1s of startup. That broke starship's [custom.*] modules, which spawn
+# a fresh `zsh -c` per prompt and hit command_timeout (blank path block in
+# devenv shells). Callers already guard with [[ -d ]] first, so the native
+# modifier behaves identically to realpath on every path we hand it.
 _get_canonical_path() {
-    local path="$1"
-    if command -v realpath >/dev/null 2>&1; then
-        realpath "$path"
-    else
-        # Fallback for systems without realpath
-        (cd "$path" && pwd -P)
-    fi
+    print -r -- "${1:A}"
 }
 
 # Internal helper: Get array of canonical paths currently in PATH
+#
+# Hot path: called on EVERY add_to_path/add_to_path_end with the full PATH
+# of the moment, so per-entry costs multiply out. Canonicalization is done
+# with the native ${p:A} modifier INLINE -- the earlier version routed each
+# entry through a $( ) command substitution (one subshell fork per PATH
+# entry), which was the dominant startup cost in nix/devenv shells. Keeps
+# the [[ -d ]] existence guard, so the result is the same array.
 _get_canonical_path_array() {
-    local -a current_paths
-    local -a canonical_paths
-    local path_component canonical_component
+    local -a current_paths canonical_paths
+    local p c
 
     IFS=':' read -A current_paths <<< "$PATH"
 
-    for path_component in "${current_paths[@]}"; do
-        if [[ -d "$path_component" ]]; then
-            canonical_component=$(_get_canonical_path "$path_component" 2>/dev/null)
-            [[ -n "$canonical_component" ]] && canonical_paths+=("$canonical_component")
-        fi
+    for p in "${current_paths[@]}"; do
+        [[ -d "$p" ]] || continue
+        c=${p:A}
+        [[ -n "$c" ]] && canonical_paths+=("$c")
     done
 
     # Return array via global variable (zsh limitation)
