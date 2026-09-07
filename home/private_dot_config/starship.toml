@@ -140,7 +140,7 @@ $golang\
 $nodejs\
 $python\
 $package\
-${custom.nixlang}\
+${nix_shell}\
 ${custom.devenv}\
 ${custom.secretspec}\
 $docker_context\
@@ -297,7 +297,7 @@ style = "fg:color_fg0 bg:color_yellow"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = " "
-truncate_to_repo = true
+# truncate_to_repo = true
 read_only = " "
 read_only_style = "fg:color_fg0 bg:color_yellow"
 
@@ -306,8 +306,7 @@ read_only_style = "fg:color_fg0 bg:color_yellow"
 "Downloads" = " "
 "Music" = "󰝚 "
 "Pictures" = " "
-"Developer" = "󰲋 "
-"Code" = "󰲋 "
+"Development" = "󰲋 "
 
 # AI GATE: robot badge when the folder carries agent instructions.
 # These two modules are exact complements and between them always emit the
@@ -432,11 +431,12 @@ symbol = "󰏗"
 style = "bg:color_blue"
 format = '[[ $symbol $version ](fg:color_fg0 bg:color_blue)]($style)'
 
-[custom.nixlang]
-# command = "nix --version | awk '{ print $NF }'"
-detect_files = ['flake.nix', 'default.nix', 'shell.nix', 'configuration.nix', 'home.nix']
-# detect_extensions = ['nix']
-format = '[ 󱄅 ]($style)'
+[nix_shell]
+disabled = false
+format = '[$symbol$state ]($style)'
+impure_msg = '[i](fg:color_bright_red bg:color_blue)'
+pure_msg = '[p](fg:color_bright_green bg:color_blue)'
+unknown_msg = ''
 style = "fg:color_fg0 bg:color_blue"
 symbol = '󱄅'
 
@@ -451,7 +451,7 @@ format = "[  ]($style)"
 style = "fg:color_fg0 bg:color_blue"
 
 [docker_context]
-symbol = ""
+symbol = " "
 style = "bg:color_blue"
 format = '[ $symbol( $context) ](fg:color_fg0 bg:color_blue)'
 
