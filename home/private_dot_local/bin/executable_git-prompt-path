@@ -12,5 +12,29 @@ if top_level=$(git rev-parse --show-toplevel 2>/dev/null); then
     echo "$repo_name"
   fi
 else
-  echo "${PWD/#$HOME/~}"
+  # Normal (non-repo) directory: show at most the last two segments,
+  # abbreviating $HOME as ~ (zsh %2~ style). /Users/ashebanow/Documents/
+  # Synced Files renders as Documents/Synced Files; ~/x stays ~/x.
+  #
+  # Build the display path with [[ ]] compares, NOT ${PWD/#$HOME/~}:
+  # bash tilde-expands the replacement string there when running
+  # non-interactively (shebang / bash -c, i.e. the starship spawn),
+  # turning ~ back into $HOME and silently leaving the path unchanged.
+  if [[ "$PWD" == "$HOME" ]]; then
+    p="~"
+  elif [[ "$PWD" == "$HOME/"* ]]; then
+    p="~${PWD#"$HOME"}"
+  else
+    p="$PWD"
+  fi
+  # Drop one leading / so absolute paths count segments correctly;
+  # only truncate when there are >= 3 (q has >= 2 slashes).
+  q="${p#/}"
+  if [[ "$q" != */*/* ]]; then
+    echo "$p"
+  else
+    last="${q##*/}"
+    second="${q%/*}"; second="${second##*/}"
+    echo "$second/$last"
+  fi
 fi
