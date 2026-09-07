@@ -1,4 +1,6 @@
 # 🌟 Starship prompt gates
+#  BASED HEAVILY ON GATE DESIGN/IMPLEMENTATION IN:
+#     https://github.com/russmckendrick/dotfiles/blob/main/starship.toml
 # Drives the conditional segments of the prompt bar: the charcoal
 # duration/status/jobs "alert" block at the end, and the robot badge shown in
 # folders that carry agent instructions. Each one vanishes completely when its
