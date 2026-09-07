@@ -3,8 +3,10 @@ inputs:
   nixpkgs:
     url: github:cachix/devenv-nixpkgs/rolling
 
-# don't use file watching/shell hook for devenv cd/reload
+# don't use file watching/shell hook for devenv cd/reload, and don't prepend
+# (devenv) to prompt since starship takes care of this.
 reload: false
+prompt_prefix: false
 
 shell: zsh
 
