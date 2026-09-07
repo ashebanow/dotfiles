@@ -125,7 +125,7 @@ $hostname\
 $shlvl\
 $sudo\
 [](bg:color_yellow fg:color_orange)\
-$directory\
+${custom.path_formatter}\
 ${env_var.ai}\
 ${env_var.ai_none}\
 $battery\
@@ -292,21 +292,12 @@ format = '[@$hostname ]($style)'
 # name rather than the full path; git_branch supplies the missing context.
 # read_only uses the padlock U+F023 -- do NOT reuse that glyph for [sudo],
 # they mean different things and shared it once by accident.
-[directory]
-style = "fg:color_fg0 bg:color_yellow"
-format = "[ $path ]($style)"
-truncation_length = 3
-truncation_symbol = " "
-# truncate_to_repo = true
-read_only = " "
-read_only_style = "fg:color_fg0 bg:color_yellow"
 
-[directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Pictures" = " "
-"Development" = "󰲋 "
+[custom.path_formatter]
+command = "git-prompt-path"
+when = true
+format = "[ $output ]($style)"
+style = "fg:color_fg0 bg:color_yellow"
 
 # AI GATE: robot badge when the folder carries agent instructions.
 # These two modules are exact complements and between them always emit the

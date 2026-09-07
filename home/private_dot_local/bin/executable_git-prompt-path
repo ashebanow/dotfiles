@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+# Ensure common binary paths are available in non-interactive Starship shells
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+
+if top_level=$(git rev-parse --show-toplevel 2>/dev/null); then
+  repo_name=$(basename "$top_level")
+  if [[ "$repo_name" =~ ^(main|master|dev|src)$ ]]; then
+    parent_name=$(basename "$(dirname "$top_level")")
+    echo "$parent_name/$repo_name"
+  else
+    echo "$repo_name"
+  fi
+else
+  echo "${PWD/#$HOME/~}"
+fi
