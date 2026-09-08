@@ -1,0 +1,37 @@
+# Template for providers.yaml
+#
+# You can add any OpenAI API compatible provider to the "providers" list.
+# For each provider you must also specify a list of models, along with model abilities.
+#
+# All fields are required unless marked as optional.
+#
+# Refer to your provider's API documentation for specific
+# details such as model identifiers, capabilities etc
+#
+# Note: Since the OpenAI API is not a standard we can't guarantee that all
+# providers will work correctly with Raycast AI.
+#
+# To use this template rename as `providers.yaml`
+#
+providers:
+  - id: litellm
+    name: LiteLLM
+    base_url: http://localhost:4000
+    # Optionally send the signed-in Raycast user's email as an `X-User-Email`
+    # header with every request, e.g. for per-user attribution or quotas on a
+    # shared gateway. Off unless explicitly set to true.
+    include_user_email: true
+    # No `api_keys` - authentication is provided by the LiteLLM config
+    models:
+      - id: anthropic/claude-sonnet-4-5-20250929
+        name: "Claude Sonnet 4.5"
+        context: 200000
+        abilities:
+          temperature:
+            supported: true
+          vision:
+            supported: true
+          system_message:
+            supported: true
+          tools:
+            supported: true
