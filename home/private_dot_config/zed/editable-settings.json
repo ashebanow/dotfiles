@@ -118,7 +118,7 @@
   "icon_theme": {
     "mode": "dark",
     "light": "Zed (Default)",
-    "dark": "Material Icon Theme"
+    "dark": "Zed (Default)"
   },
   "relative_line_numbers": "enabled",
   // Vim settings
