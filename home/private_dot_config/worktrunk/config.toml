@@ -1,0 +1,20 @@
+[list]
+json-schema = 2
+
+[projects."github.com/ashebanow/nix-config"]
+worktree-path = "{{ repo_path }}/../{{ branch | sanitize }}"
+
+[projects."github.com/boxboworg/docs"]
+worktree-path = "{{ repo_path }}/../{{ branch | sanitize }}"
+
+[projects."github.com/boxboworg/ingestion"]
+worktree-path = "{{ repo_path }}/../{{ branch | sanitize }}"
+
+[projects."github.com/boxboworg/pakage-cli"]
+worktree-path = "{{ repo_path }}/../{{ branch | sanitize }}"
+
+[projects."github.com/boxboworg/repofind"]
+worktree-path = "{{ repo_path }}/../{{ branch | sanitize }}"
+
+[projects."github.com/ashebanow/suwiki"]
+worktree-path = "{{ repo_path }}/../{{ branch | sanitize }}"
