@@ -4,7 +4,6 @@
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": false,
   "theme": "gruvbox-hard",
-  "extensions": ["extensions/hunk.ts"],
   "themes": ["themes/gruvbox-hard.json"],
   "packages": [
     "npm:pi-background-tasks@latest",
