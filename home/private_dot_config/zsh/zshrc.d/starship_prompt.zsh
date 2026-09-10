@@ -94,9 +94,15 @@ _starship_alert_gate() {
 # sourced in bash too (see .config/bashrc.d/starship-gate.sh).
 source "$HOME/.config/shell/starship-nix-gate.sh"
 
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd _starship_alert_gate
-add-zsh-hook precmd _starship_nix_gate
 # Seed the nix gate for the environment the shell started in, so the first
 # prompt is correct before any precmd has run.
 _starship_nix_gate
+
+# NOTE: the gates are NOT registered here with `add-zsh-hook precmd`. This file
+# is sourced from zshrc.d, which runs BEFORE hooks.sh (where `starship init`
+# registers prompt_starship_precmd). add-zsh-hook appends, so registering here
+# would put the gates BEFORE starship's precmd, and they would read a stale
+# STARSHIP_CMD_STATUS -- one prompt behind. On a failed command that set
+# NOALERT (blue cap) while [status] still drew a red ERROR. hooks.sh wraps
+# prompt_starship_precmd instead, so the ordering is structural. Do not add
+# add-zsh-hook lines back here.
