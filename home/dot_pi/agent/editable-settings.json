@@ -4,18 +4,18 @@
   "defaultModel": "deepseek-v4-flash",
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": false,
-  "theme" : "gruvbox-hard",
-
+  "theme": "gruvbox-hard",
   "packages": [
     "npm:pi-background-tasks@latest",
     "npm:@feniix/pi-exa",
     "npm:pi-mcp-extension",
     "git:git@github.com:joshleblanc/pi-minimax",
     "npm:@ashebanow/pi-gotgenes-subagent",
-    "npm:@alasano/pi-linear"
+    "npm:@alasano/pi-linear",
+    "https://github.com/ayghri/i-have-adhd"
   ],
-  "pi-exa" : {
-    "enabledTools" : [
+  "pi-exa": {
+    "enabledTools": [
       "web_search_exa",
       "web_fetch_exa",
       "web_answer_exa"
