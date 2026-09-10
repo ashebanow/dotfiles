@@ -107,8 +107,7 @@
 #   faded_purple battery                      always present
 #   faded_blue   time                         always present
 #   aqua         git                          branch / status / state / metrics
-#   blue         languages + package + the robot badge (custom.ai)
-#   muddy_green  kubernetes / docker / conda
+#   blue         the robot badge (custom.ai) + nix + devenv + secretspec + docker
 #   bg1          cmd_duration + status + jobs  the alert block: one charcoal
 #                                              block gated on $STARSHIP_ALERT,
 #                                              absent entirely when idle
@@ -136,11 +135,6 @@ $git_state\
 $git_metrics\
 [](fg:color_aqua bg:color_blue)\
 ${custom.ai}\
-$rust\
-$golang\
-$nodejs\
-$python\
-$package\
 ${env_var.nix}\
 ${custom.devenv}\
 ${custom.secretspec}\
@@ -393,41 +387,6 @@ format = '[([+$added]($added_style) )([-$deleted]($deleted_style) )](fg:color_fg
 # literal still renders, widening the bare blue chevron stub by one cell (blue
 # on blue, no terminal-background leak); that stub is accepted per the layout
 # contract above.
-[nodejs]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol](fg:color_fg0 bg:color_blue)]($style)'
-
-[c]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol](fg:color_fg0 bg:color_blue)]($style)'
-
-[cpp]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol](fg:color_fg0 bg:color_blue)]($style)'
-
-[rust]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol](fg:color_fg0 bg:color_blue)]($style)'
-
-[golang]
-symbol = "󰟓"
-style = "bg:color_blue"
-format = '[[ $symbol](fg:color_fg0 bg:color_blue)]($style)'
-
-[python]
-symbol = ""
-style = "bg:color_blue"
-format = '[[ $symbol](fg:color_fg0 bg:color_blue)]($style)'
-
-[package]
-disabled = true
-symbol = "󰏗"
-style = "bg:color_blue"
-format = '[[ $symbol $version](fg:color_fg0 bg:color_blue)]($style)'
 
 [nix_shell]
 disabled = true
