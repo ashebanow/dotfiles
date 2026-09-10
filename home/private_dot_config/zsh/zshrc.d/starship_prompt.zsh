@@ -1,43 +1,50 @@
-# 🌟 Starship prompt gates
+# 🌟 Starship prompt gates (zsh side)
 #  BASED HEAVILY ON GATE DESIGN/IMPLEMENTATION IN:
 #     https://github.com/russmckendrick/dotfiles/blob/main/starship.toml
-# Drives the conditional segments of the prompt bar: the charcoal
-# duration/status/jobs "alert" block at the end, and the robot badge shown in
-# folders that carry agent instructions. Each one vanishes completely when its
-# condition is off.
 #
-# starship receives the exit status, command duration and job count as CLI
-# arguments (--status, --cmd-duration, --jobs). The zsh integration keeps them
-# in STARSHIP_CMD_STATUS / STARSHIP_DURATION / STARSHIP_JOBS_COUNT, which are
-# plain shell variables and are never exported -- so no starship module can
-# test them. These hooks export flags instead, and the [env_var.*] modules in
-# starship.toml key off them at no cost (env_var forks nothing).
+# This file holds the ZSH registration of the starship prompt gates. The
+# logic lives in shared files so BOTH shells run it -- `nix develop` spawns a
+# BASH shell, so a zsh-only gate never fires inside one and the nix glyph
+# silently disappears.
 #
-# Each gate is a PAIR of mutually exclusive variables, not one on|off value,
-# because that is the only shape env_var can consume: it renders on set/unset
-# and can never test a VALUE. Testing a value needs a [custom] module with a
-# shell `when`, which forks per prompt -- the exact cost these hooks exist to
-# avoid. Exactly one variable of each pair is set at any time.
+# Gates covered here:
+#   - the ALERT gate (zsh-ONLY, defined below): the charcoal
+#     duration/status/jobs block at the end. It reads STARSHIP_DURATION, which
+#     zsh's starship precmd computes in place but bash's computes only at the
+#     END of starship_precmd -- long after any user hook runs. So the alert
+#     gate cannot see duration in bash without forking, and it stays zsh-only.
+#   - the NIX gate (shared, sourced below): the nix glyph in the blue block,
+#     env-based (IN_NIX_SHELL && !DEVENV_CMDLINE). Portable, so it lives in
+#     shell/starship-nix-gate.sh and is registered here for zsh and in
+#     bashrc.d/ for bash.
+#   - (The robot badge / AI gate were retired -- [custom.ai] is a plain recipe
+#     now.)
+#
+# The ALERT gate's input cannot be read by starship: exit status / duration /
+# jobs arrive as CLI arguments (--status, --cmd-duration, --jobs), which the
+# zsh integration keeps in STARSHIP_CMD_STATUS / STARSHIP_DURATION /
+# STARSHIP_JOBS_COUNT -- plain shell variables, never exported. This hook
+# exports a flag instead, and the [env_var.*] modules in starship.toml key off
+# it at no cost (env_var forks nothing).
+#
+# The alert gate is a PAIR of mutually exclusive variables, not one on|off
+# value, because that is the only shape env_var can consume: it renders on
+# set/unset and can never test a VALUE. Testing a value needs a [custom]
+# module with a shell `when`, which forks per prompt -- the exact cost this
+# hook exists to avoid. Exactly one variable of the pair is set at any time.
 #
 # THE HOOKS MUST STAY SHELL-NATIVE: builtins, arithmetic and [[ ]] only -- no
-# command substitutions, no external binaries. The alert gate runs before
-# every prompt, so a single fork there would cancel out everything the
-# env_var scheme saves.
+# command substitutions, no external binaries. These gates run before every
+# prompt, so a single fork there would cancel out everything the env_var
+# scheme saves.
 #
-# Two hooks, split by how often their input changes:
-#   - _starship_alert_gate (precmd): exit status / duration / jobs change on
-#     every command, so this must run before every prompt.
-#   - _starship_ai_gate (chpwd): AGENTS.md / CLAUDE.md only change when the
-#     directory changes, so it runs once per cd -- never on an ordinary
-#     prompt -- and is seeded once at load for the directory the shell starts
-#     in. This removes the only syscall (the [[ -f ]] stat) from the
-#     per-prompt path. The price: if a marker file is created/removed in the
-#     CURRENT directory without a cd, the badge goes stale until the next cd.
+# _starship_alert_gate (precmd): exit status / duration / jobs change on every
+# command, so this must run before every prompt.
 #
-# Both gates skip their export/unset pair entirely when the state did not
-# change since the last run. A stable prompt costs zero environment mutations;
-# only a flip rewrites the environ. (The variables are pre-exported below so
-# the "off" state needs no work on the first prompt either.)
+# The gate skips its export/unset pair entirely when the state did not change
+# since the last run. A stable prompt costs zero environment mutations; only a
+# flip rewrites the environ. (The variables are pre-exported below so the
+# "off" state needs no work on the first prompt either.)
 #
 # add-zsh-hook appends, and oh-my-zsh's starship plugin registered its own
 # precmd back at `source $ZSH/oh-my-zsh.sh`, so the alert gate runs AFTER the
@@ -49,14 +56,13 @@
 STARSHIP_DURATION_THRESHOLD_MS=2000
 STARSHIP_JOBS_THRESHOLD=1
 
-# Establish the clean "off" state for both pairs. `unset` the "on" variables
-# too: they may be inherited from a parent shell (a nested zsh, a tmux pane,
-# or a starship run that exported them), and the state-transition guards
-# below assume exactly one variable of each pair starts unset. `unset` on an
+# Establish the clean "off" state. For the alert PAIR, `unset` the "on"
+# variable too: it may be inherited from a parent shell (a nested zsh, a tmux
+# pane, or a starship run that exported it), and the state-transition guard
+# below assumes exactly one variable of the pair starts unset. `unset` on an
 # already-unset variable is a harmless no-op, so this is always safe.
 export STARSHIP_NOALERT=1
-export STARSHIP_AI_NONE=1
-unset STARSHIP_ALERT STARSHIP_AI
+unset STARSHIP_ALERT
 
 # Alert gate (precmd): open the block when the last command failed, ran long,
 # or left background jobs.
@@ -83,28 +89,14 @@ _starship_alert_gate() {
   fi
 }
 
-# AI gate (chpwd): robot badge when the CURRENT directory (deliberately not
-# any ancestor -- a parent repo's AGENTS.md should not light it up) has agent
-# instructions. [[ -f ]] is a builtin, so this replaces the `test` fork the
-# old custom.ai_none module paid on every prompt; hooking it to chpwd removes
-# the stat from the per-prompt path entirely.
-_starship_ai_gate() {
-  if [[ -f AGENTS.md || -f CLAUDE.md ]]; then
-    if [[ -z ${STARSHIP_AI:-} ]]; then
-      export STARSHIP_AI=1
-      unset STARSHIP_AI_NONE
-    fi
-  else
-    if [[ -z ${STARSHIP_AI_NONE:-} ]]; then
-      export STARSHIP_AI_NONE=1
-      unset STARSHIP_AI
-    fi
-  fi
-}
+# Shared nix gate (env-based, both shells): defines _starship_nix_gate and the
+# clean STARSHIP_NIX off-state. `nix develop` spawns bash, so this MUST be
+# sourced in bash too (see .config/bashrc.d/starship-gate.sh).
+source "$HOME/.config/shell/starship-nix-gate.sh"
 
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd _starship_alert_gate
-add-zsh-hook chpwd _starship_ai_gate
-# Seed the AI gate for the directory the shell starts in, so the first prompt
-# is correct before any cd has fired chpwd.
-_starship_ai_gate
+add-zsh-hook precmd _starship_nix_gate
+# Seed the nix gate for the environment the shell started in, so the first
+# prompt is correct before any precmd has run.
+_starship_nix_gate
