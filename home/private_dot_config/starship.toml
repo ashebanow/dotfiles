@@ -4,10 +4,11 @@
 #     https://github.com/russmckendrick/dotfiles/blob/main/starship.toml
 # =============================================================================
 #
-#  Loaded via STARSHIP_CONFIG in ~/.dotfiles/.zshrc, and initialised by the
-#  oh-my-zsh `starship` plugin (plugins=(... starship ...)). The explicit
-#  `eval "$(starship init zsh)"` in .zshrc is commented out on purpose --
-#  running both would initialise the prompt twice.
+#  Found at the default location (STARSHIP_CONFIG is not set) and initialised
+#  by `eval "$(starship init "$_SHELL_NAME")"` in shell/hooks.sh, which both
+#  .zshrc and .bashrc source. That is the only initialisation -- there is no
+#  oh-my-zsh starship plugin and no second `starship init` in .zshrc, so the
+#  prompt is not set up twice.
 #
 #  Requires a Nerd Font. Terminal is set to HackNFM-Regular (Hack Nerd Font
 #  Mono); every symbol below is verified present in that font. Written for
@@ -42,9 +43,9 @@
 #  coloured chevron stub. Two regimes deal with that:
 #
 #  1. STATIC SEPARATORS, for blocks that always render (identity, directory,
-#     battery, time) and for the two that are cheap to leave stubbed -- the
-#     blue language block and the muddy_green container block. Their chevrons
-#     are written straight into `format` below.
+#     battery) and for the blue block, which is cheap to leave stubbed when
+#     none of its optional modules match. Their chevrons are written straight
+#     into `format` below.
 #
 #  2. A GATED COMPLEMENT PAIR, for a block that has to vanish without a
 #     trace. Two mutually exclusive modules supply the separators around it:
@@ -53,8 +54,10 @@
 #     for the alert block -- the only remaining pair. (The robot badge used
 #     to be one, but it moved INSIDE the always-shaped blue block as a plain
 #     [custom] recipe, where a single conditional module is enough.) The
-#     pair is driven by a flag that _starship_alert_gate in
-#     ~/.dotfiles/.zshrc computes shell-natively, so it costs no fork.
+#     pair is driven by a flag that _starship_alert_gate computes
+#     shell-natively, so it costs no fork. The gate is defined in
+#     zshrc.d/starship_prompt.zsh and invoked from the wrap around
+#     prompt_starship_precmd in shell/hooks.sh.
 #
 #  Folding separators into EVERY module instead was tried and rejected: it
 #  forces optional segments to be self-closing, which leaves a visible gap of
@@ -80,8 +83,8 @@
 #  3. A gated GROUP of modules must share one background and take one chevron
 #     in and one cap out; never a transition between its members.
 #  4. Any threshold the zsh hook tests must match its starship module
-#     equivalent. The named variables in .zshrc are the source of truth and
-#     ./check-starship.sh enforces the mirror.
+#     equivalent. The named variables in zshrc.d/starship_prompt.zsh are the
+#     source of truth; update both sides together (there is no checker script).
 #
 #  Checklist for adding a conditional segment between two anchors (the
 #  "optional between" pattern -- TOML cannot abstract it, so walk it by hand):
@@ -105,12 +108,13 @@
 #   orange       os + user + shlvl + sudo    identity
 #   yellow       directory                    where am I
 #   faded_purple battery                      always present
-#   faded_blue   time                         always present
 #   aqua         git                          branch / status / state / metrics
-#   blue         the robot badge (custom.ai) + nix + devenv + secretspec + docker
+#   blue         the robot badge (custom.ai) + nix + devenv + secretspec +
+#                docker                       the last always-shaped block
 #   bg1          cmd_duration + status + jobs  the alert block: one charcoal
 #                                              block gated on $STARSHIP_ALERT,
 #                                              absent entirely when idle
+# (A [time] module is defined below but deliberately not in `format`.)
 #
 # The closing cap is a [SEP] with no bg -- the one separator meant to show
 # terminal background behind it. It is NOT static any more: env_var.alert_cap
@@ -158,15 +162,14 @@ add_newline = false
 right_format = ""
 
 # scan_timeout: per-module filesystem scan budget (default 30ms).
-# command_timeout: budget for modules that shell out (package, git_metrics).
+# command_timeout: budget for modules that shell out (git_metrics).
 # `starship timings` shows the real cost per module -- git_metrics (~20-30ms,
-# runs `git diff --shortstat`) and package are the expensive ones, plus one
-# fork for [sudo]. The one remaining gate adds no fork: [env_var] modules only
-# read the environment, and the alert flag is computed inside the precmd hook
-# zsh already runs (_starship_alert_gate in ~/.dotfiles/.zshrc). Keep it that
-# way -- a [custom] `when` here costs a fork per prompt. The [custom.ai] badge
-# uses detect_files instead (a current-dir scan, no fork), so it slots into
-# the blue block at zero per-prompt cost.
+# runs `git diff --shortstat`) is the expensive one, plus one fork for [sudo].
+# The gates add no fork: [env_var] modules only read the environment, and the
+# alert/nix flags are computed in shell-native hooks (see shell/hooks.sh and
+# zshrc.d/starship_prompt.zsh). Keep it that way -- a [custom] `when` here
+# costs a fork per prompt. The [custom.ai] badge uses detect_files instead (a
+# current-dir scan, no fork), so it slots into the blue block at zero cost.
 scan_timeout = 35
 command_timeout = 700
 
@@ -298,7 +301,7 @@ style = "fg:color_fg0 bg:color_yellow"
 
 # AI BADGE: robot glyph when the folder carries agent instructions.
 # A plain [custom] recipe like [custom.devenv] / [custom.secretspec]: it sits
-# INSIDE the blue language block, so it needs no separators of its own -- the
+# INSIDE the blue block, so it needs no separators of its own -- the
 # block already owns the chevron in and out, and the badge simply renders or
 # not as one more element. detect_files is a current-directory scan (no
 # ancestor walk), which matches the old gate's semantics exactly.
@@ -374,9 +377,11 @@ deleted_style = "fg:color_bg0 bg:color_aqua"
 format = '[([+$added]($added_style) )([-$deleted]($deleted_style) )](fg:color_fg0 bg:color_aqua)'
 
 # ---------------------------------------------------------------------------
-# BLUE BLOCK -- languages + package. Version numbers are hidden on purpose:
-# only the symbol shows, so the bar stays short. [package] is the exception
-# and the slowest module of the group.
+# BLUE BLOCK -- per-project status icons: the AI badge (robot) when the folder
+# carries AGENTS.md/CLAUDE.md, the nix glyph, devenv, secretspec, and the docker
+# context. Every module is optional, so the block may render empty (a bare
+# chevron stub) -- it is the last always-shaped block before the gated alert
+# block. Icons only; no version numbers, so the bar stays short.
 #
 # Every element here is a leading-space span concatenated with no separator,
 # so exactly one space separates consecutive elements. The LAST element is
@@ -401,10 +406,10 @@ symbol = '󱄅'
 # `nix shell` environment -- and NOT inside a devenv shell. We disabled the
 # builtin [nix_shell] above because it fires on IN_NIX_SHELL=impure, which
 # devenv also sets, so in a devenv project it lit up redundantly next to the
-# custom.devenv glyph. The shell hook (_starship_nix_gate in
-# ~/.dotfiles/.zshrc) exports STARSHIP_NIX from the builtin [[ ]] combination
-# (IN_NIX_SHELL set && DEVENV_CMDLINE unset), and env_var renders on set/unset
-# for free.
+# custom.devenv glyph. The shell hook (_starship_nix_gate, defined in
+# shell/starship-nix-gate.sh and invoked from the prompt wrap in shell/hooks.sh)
+# exports STARSHIP_NIX from the builtin [[ ]] combination (IN_NIX_SHELL set &&
+# DEVENV_CMDLINE unset), and env_var renders on set/unset for free.
 #
 # A SINGLE [env_var.nix] is enough here, not a complement pair: the glyph is
 # INSIDE the always-shaped blue block, so it needs no separator shepherding
@@ -503,13 +508,14 @@ format = '[ $symbol( $number) ](fg:color_bright_orange bg:color_bg1)'
 # leading into the alert block and the cap that closes the bar are supplied by
 # these three modules instead of by `format`:
 #
-#   STARSHIP_ALERT set    ->  alert_open  chevron muddy_green -> bg1
+#   STARSHIP_ALERT set    ->  alert_open  chevron blue -> bg1
 #                             ... the block ...
 #                             alert_cap   cap fg:bg1
-#   STARSHIP_NOALERT set  ->  alert_none  cap fg:muddy_green, nothing else
+#   STARSHIP_NOALERT set  ->  alert_none  cap fg:blue, nothing else
 #
-# Exactly one of the two variables is ever set. _starship_prompt_gates in
-# ~/.dotfiles/.zshrc does that from a precmd hook.
+# Exactly one of the two variables is ever set. _starship_alert_gate (defined
+# in zshrc.d/starship_prompt.zsh, invoked from the wrap around
+# prompt_starship_precmd in shell/hooks.sh) does that before every prompt.
 #
 # WHY TWO VARIABLES AND NOT ONE on|off VALUE: env_var renders on set/unset
 # and can never test what the value IS. Collapsing the pair into a single
@@ -534,11 +540,10 @@ format = '[ $symbol( $number) ](fg:color_bright_orange bg:color_bg1)'
 # variable is a flag, the format is the whole payload.
 #
 # THRESHOLDS ARE MIRRORED, AND THE HOOK IS THE SOURCE OF TRUTH. The values
-# behind cmd_duration.min_time and jobs.threshold below are named in .zshrc
-# as STARSHIP_DURATION_THRESHOLD_MS and STARSHIP_JOBS_THRESHOLD. If they
-# drift, the block opens around nothing -- or hides something it should have
-# shown. ./check-starship.sh fails on any mismatch; run it after touching
-# either side.
+# behind cmd_duration.min_time and jobs.threshold above are named in
+# zshrc.d/starship_prompt.zsh as STARSHIP_DURATION_THRESHOLD_MS and
+# STARSHIP_JOBS_THRESHOLD. If they drift, the block opens around nothing -- or
+# hides something it should have shown. Update both sides together.
 [env_var.alert_open]
 variable = "STARSHIP_ALERT"
 format = '[](fg:color_blue bg:color_bg1)'
