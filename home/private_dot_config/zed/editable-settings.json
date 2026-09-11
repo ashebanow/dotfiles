@@ -325,10 +325,33 @@
     ],
     "default_profile": "ask",
     "default_model": {
-      "effort": "high",
+      "effort": "medium",
       "enable_thinking": true,
       "provider": "Bifrost",
-      "model": "deepseek-v4-pro"
+      "model": "qwen-latest"
+    },
+    // Background features are pinned rather than left to inherit default_model.
+    // Unset, they follow it -- which cuts both ways: point the default at a
+    // pricier model and every commit message and thread title gets more
+    // expensive, point it at the local qwen and a 94K-token thread title takes
+    // ~4 minutes to prefill. Neither should happen as a side effect of picking a
+    // model to chat with.
+    //
+    // Thinking is left off (the default for a selection): measured ~1s with no
+    // reasoning tokens against ~2-4s with, and none of these tasks need it.
+    //
+    // BOX-162 moves all three to Gemini once BOX-151 lands Gemini on the gateway.
+    "commit_message_model": {
+      "provider": "Bifrost",
+      "model": "deepseek-v4-flash"
+    },
+    "thread_summary_model": {
+      "provider": "Bifrost",
+      "model": "deepseek-v4-flash"
+    },
+    "inline_assistant_model": {
+      "provider": "Bifrost",
+      "model": "deepseek-v4-flash"
     },
     // Whether the agent is enabled.
     "enabled": true,
