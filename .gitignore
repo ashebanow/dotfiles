@@ -79,6 +79,7 @@ AGENTS.override.md
 .pi/npm/
 .pi/state/
 .pi/sessions/
+.pi/delegate/
 
 # Ensure project-specific instructions and skills ARE tracked
 !AGENTS.md
