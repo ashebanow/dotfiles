@@ -60,6 +60,7 @@
           {
             "name": "deepseek-v4-flash",
             "display_name": "DeepSeek V4 Flash",
+            "reasoning_effort": "medium",
             "max_tokens": 1000000,
             "max_output_tokens": 393216,
             "max_completion_tokens": 1000000,
@@ -75,6 +76,7 @@
           {
             "name": "deepseek-v4-pro",
             "display_name": "DeepSeek V4 Pro",
+            "reasoning_effort": "high",
             "max_tokens": 1000000,
             "max_output_tokens": 393216,
             "max_completion_tokens": 1000000,
@@ -90,6 +92,7 @@
           {
             "name": "claude-sonnet-5",
             "display_name": "Claude Sonnet 5",
+            "reasoning_effort": "high",
             "max_tokens": 1000000,
             "max_output_tokens": 128000,
             "max_completion_tokens": 1000000,
@@ -105,6 +108,7 @@
           {
             "name": "claude-opus-5",
             "display_name": "Claude Opus 5",
+            "reasoning_effort": "high",
             "max_tokens": 1000000,
             "max_output_tokens": 128000,
             "max_completion_tokens": 1000000,
@@ -120,6 +124,7 @@
           {
             "name": "claude-haiku-4-5-20251001",
             "display_name": "Claude Haiku 4.5",
+            "reasoning_effort": "medium",
             "max_tokens": 200000,
             "max_output_tokens": 64000,
             "max_completion_tokens": 200000,
@@ -135,6 +140,7 @@
           {
             "name": "claude-fable-5-1",
             "display_name": "Claude Fable 5.1",
+            "reasoning_effort": "high",
             "max_tokens": 1000000,
             "max_output_tokens": 128000,
             "max_completion_tokens": 1000000,
@@ -153,6 +159,7 @@
           {
             "name": "MiniMax-M2.1",
             "display_name": "MiniMax M2.1",
+            "reasoning_effort": "medium",
             "max_tokens": 200000,
             "max_output_tokens": 32000,
             "max_completion_tokens": 200000,
@@ -168,6 +175,7 @@
           {
             "name": "MiniMax-M2",
             "display_name": "MiniMax M2",
+            "reasoning_effort": "medium",
             "max_tokens": 200000,
             "max_output_tokens": 32000,
             "max_completion_tokens": 200000,
@@ -284,7 +292,7 @@
         "provider": "Bifrost",
         "model": "deepseek-v4-flash",
         "enable_thinking": true,
-        "effort": "high"
+        "effort": "medium"
       },
       {
         "provider": "Bifrost",
@@ -315,7 +323,7 @@
     ],
     "default_profile": "ask",
     "default_model": {
-      "effort": "high",
+      "effort": "medium",
       "enable_thinking": true,
       "provider": "Bifrost",
       "model": "deepseek-v4-flash"
