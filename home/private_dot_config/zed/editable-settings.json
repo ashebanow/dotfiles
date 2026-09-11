@@ -188,6 +188,22 @@
               "chat_completions": true,
               "interleaved_reasoning": false
             }
+          },
+          {
+            "name": "gemini-3.5-flash-lite",
+            "display_name": "Gemini 3.5 Flash Lite",
+            "reasoning_effort": "medium",
+            "max_tokens": 1114112,
+            "max_output_tokens": 65536,
+            "max_completion_tokens": 1114112,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false
+            }
           }
         ]
       }
@@ -337,21 +353,25 @@
     // ~4 minutes to prefill. Neither should happen as a side effect of picking a
     // model to chat with.
     //
-    // Thinking is left off (the default for a selection): measured ~1s with no
-    // reasoning tokens against ~2-4s with, and none of these tasks need it.
+    // Gemini's free tier makes these cost nothing, and they are the calls nobody
+    // watches. flash-lite measured fastest of the Gemini flash models (0.6s) and,
+    // unlike 3.5-flash, produced correct output with thinking both on and off.
     //
-    // BOX-162 moves all three to Gemini once BOX-151 lands Gemini on the gateway.
+    // Thinking is left off (the default for a selection). For Gemini that only
+    // takes effect because the model entry declares reasoning_effort: without it
+    // Zed sends no parameter and the model thinks by default, which truncated
+    // output at modest token budgets when measured.
     "commit_message_model": {
       "provider": "Bifrost",
-      "model": "deepseek-v4-flash"
+      "model": "gemini-3.5-flash-lite"
     },
     "thread_summary_model": {
       "provider": "Bifrost",
-      "model": "deepseek-v4-flash"
+      "model": "gemini-3.5-flash-lite"
     },
     "inline_assistant_model": {
       "provider": "Bifrost",
-      "model": "deepseek-v4-flash"
+      "model": "gemini-3.5-flash-lite"
     },
     // Whether the agent is enabled.
     "enabled": true,
