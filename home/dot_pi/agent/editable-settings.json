@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "0.85.1",
-  "defaultProvider": "deepseek",
+  "defaultProvider": "bifrost",
   "defaultModel": "deepseek-v4-flash",
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": false,
