@@ -162,3 +162,20 @@ Use chezmoi conditionals in templates:
 - Feature branches for major changes
 
 Always test changes on development systems before merging to main.
+
+## Agent skills
+
+### Issue tracker
+
+Issues for this repo live in Linear — team Boxbow, project Chezmoi. GitHub is code-only.
+See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Boxbow models triage as a category label (`Feature` / `Bug` / `Improvement`) plus a state
+label (`Ready For Agent`, `Deferred`), not the five canonical role strings; the remaining
+roles resolve to Linear workflow states. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context: one `CONTEXT.md` at the repo root plus `docs/adr/`. See `docs/agents/domain.md`.
