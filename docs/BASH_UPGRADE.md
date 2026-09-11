@@ -234,8 +234,6 @@ export EDITOR=nvim
 export DOTFILES=$HOME/.local/share/chezmoi
 export BUN_INSTALL="$HOME/.bun"
 export PERSONAL_WIKI="$HOME/personal_wiki"
-# Was LITELLM_BASE_URL="https://litellm.fluffy-walleye.ts.net" until the gateway
-# cutover (BOX-159). The LiteLLM stack is gone; this points at its replacement.
 export AI_BASE_URL="https://ai.fluffy-walleye.ts.net"
 
 # Homebrew init (portable eval; plain-echo warning — see §7)
