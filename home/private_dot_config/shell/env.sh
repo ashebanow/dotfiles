@@ -15,4 +15,8 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export EDITOR=nvim
 export DOTFILES=$HOME/.local/share/chezmoi
 export PERSONAL_WIKI="$HOME/personal_wiki"
-export LITELLM_BASE_URL="https://litellm.fluffy-walleye.ts.net"
+# Base URL of the LLM gateway, for anything that wants to reach models. Named
+# for what it does rather than for a product, so a future gateway swap does not
+# move the endpoint. Provider API keys are deliberately not exported: clients
+# reach models through the gateway, which holds the keys.
+export AI_BASE_URL="https://ai.fluffy-walleye.ts.net"
