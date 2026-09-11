@@ -36,7 +36,11 @@
       // actually declares -- compose/llm/bifrost-config.json is the authority.
       "Bifrost": {
         "api_url": "https://ai.fluffy-walleye.ts.net/v1",
-        "api_key": "sk-not-needed",
+        // No `api_key` here: OpenAiCompatibleSettingsContent accepts only
+        // api_url, available_models and custom_headers. An unknown field made
+        // the whole provider block fail to load. Zed takes OpenAI-compatible
+        // credentials from the keychain or from <PROVIDER_ID>_API_KEY
+        // (BIFROST_API_KEY) instead -- and the gateway enforces no key anyway.
         "available_models": [
           {
             "name": "qwen-latest",
