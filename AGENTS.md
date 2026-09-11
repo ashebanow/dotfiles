@@ -155,6 +155,26 @@ Use chezmoi conditionals in templates:
 {{- end }}
 ```
 
+### Editable Client Configs (symlink pattern)
+
+Apps that rewrite their own config file (Claude Code, pi, Zed, VS Code) are not
+managed as ordinary chezmoi targets: chezmoi would read the app's rewrite as a
+user edit and stop to ask, and `apply --force` would discard it. Instead the
+config lives in the source tree as a git-tracked `editable-<name>.json` file —
+ignored by chezmoi via a `.chezmoiignore` in the same directory — and the target
+is a symlink to it:
+
+```
+home/dot_claude/editable-settings.json        # the real file, tracked in git
+home/dot_claude/.chezmoiignore                # contains: editable-settings.json
+home/dot_claude/symlink_settings.json.tmpl    # {{ .chezmoi.sourceDir }}/dot_claude/editable-settings.json
+```
+
+The app's edits then land in the tracked file and appear as a git diff. Used for
+`~/.claude/settings.json`, `~/.pi/agent/{settings,models,trust}.json`,
+`~/.config/zed/{settings,keymap}.json`, and VS Code's `settings.json` and
+`keybindings.json`.
+
 ## Branch Strategy
 
 - `main` - Stable configuration
