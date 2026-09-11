@@ -43,7 +43,7 @@
         "available_models": [
           {
             "name": "qwen-latest",
-            "display_name": "Qwen 3.8 27B (local)",
+            "display_name": "Qwen (local)",
             "max_tokens": 262144,
             "max_output_tokens": 32768,
             "max_completion_tokens": 262144,

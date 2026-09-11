@@ -51,7 +51,7 @@ providers:
           tools:
             supported: true
       - id: qwen-latest
-        name: "Qwen 3.8 27B (local)"
+        name: "Qwen (local)"
         context: 262144
         abilities:
           temperature:
