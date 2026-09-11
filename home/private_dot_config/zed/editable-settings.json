@@ -45,6 +45,7 @@
           {
             "name": "qwen-latest",
             "display_name": "Qwen (local)",
+            "reasoning_effort": "medium",
             "max_tokens": 262144,
             "max_output_tokens": 32768,
             "max_completion_tokens": 262144,
@@ -303,7 +304,8 @@
       {
         "provider": "Bifrost",
         "model": "qwen-latest",
-        "enable_thinking": false
+        "enable_thinking": true,
+        "effort": "medium"
       },
       {
         "provider": "Bifrost",
@@ -323,10 +325,10 @@
     ],
     "default_profile": "ask",
     "default_model": {
-      "effort": "medium",
+      "effort": "high",
       "enable_thinking": true,
       "provider": "Bifrost",
-      "model": "deepseek-v4-flash"
+      "model": "deepseek-v4-pro"
     },
     // Whether the agent is enabled.
     "enabled": true,
