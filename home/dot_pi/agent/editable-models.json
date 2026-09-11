@@ -125,34 +125,6 @@
           }
         },
         {
-          "id": "MiniMax-M2.1",
-          "name": "MiniMax M2.1",
-          "contextWindow": 200000,
-          "maxTokens": 32000,
-          "input": ["text"],
-          "reasoning": true,
-          "cost": {
-            "input": 0.3,
-            "output": 1.2,
-            "cacheRead": 0.03,
-            "cacheWrite": 0.375
-          }
-        },
-        {
-          "id": "MiniMax-M2",
-          "name": "MiniMax M2",
-          "contextWindow": 200000,
-          "maxTokens": 32000,
-          "input": ["text"],
-          "reasoning": true,
-          "cost": {
-            "input": 0.3,
-            "output": 1.2,
-            "cacheRead": 0.03,
-            "cacheWrite": 0.375
-          }
-        },
-        {
           "id": "gemini-3.7-flash",
           "name": "Gemini 3.7 Flash",
           "contextWindow": 1114112,
@@ -206,6 +178,41 @@
             "output": 2.5,
             "cacheRead": 0,
             "cacheWrite": 0
+          }
+        }
+      ]
+    },
+    "minimax": {
+      "baseUrl": "https://api.minimax.io/v1",
+      "api": "openai-completions",
+      "apiKey": "$MINIMAX_API_KEY",
+      "models": [
+        {
+          "id": "MiniMax-M2.1",
+          "name": "MiniMax M2.1",
+          "contextWindow": 200000,
+          "maxTokens": 32000,
+          "input": ["text"],
+          "reasoning": true,
+          "cost": {
+            "input": 0.3,
+            "output": 1.2,
+            "cacheRead": 0.03,
+            "cacheWrite": 0.375
+          }
+        },
+        {
+          "id": "MiniMax-M2",
+          "name": "MiniMax M2",
+          "contextWindow": 200000,
+          "maxTokens": 32000,
+          "input": ["text"],
+          "reasoning": true,
+          "cost": {
+            "input": 0.3,
+            "output": 1.2,
+            "cacheRead": 0.03,
+            "cacheWrite": 0.375
           }
         }
       ]

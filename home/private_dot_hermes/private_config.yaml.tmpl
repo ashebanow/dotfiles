@@ -11,19 +11,21 @@ model:
 fallback_providers: []
 providers:
   # The gateway's model listing enumerates only its native providers (anthropic,
-  # deepseek). qwen and MiniMax are custom providers there, so they never appear
-  # in it and would silently go missing from the picker. Pin them explicitly, and
-  # set discover_models false so live discovery can't overwrite the list.
+  # deepseek, gemini). qwen is a custom provider there, so it never appears in
+  # that listing and would silently go missing from the picker. Pin it
+  # explicitly, and set discover_models false so live discovery can't overwrite
+  # the list.
   #
-  # MiniMax is listed but not usable yet: streaming it through the gateway stalls
-  # for ~8 minutes (BOX-160). Non-streaming works.
+  # MiniMax is deliberately absent. The gateway no longer serves it: its
+  # custom-provider streaming path never terminates (BOX-160), and bifrost's
+  # native MiniMax provider is still an unmerged upstream PR. pi and Zed reach
+  # MiniMax directly on the same account credits instead; hermes has no direct
+  # provider set up, so MiniMax is simply unavailable here for now.
   bifrost:
     base_url: https://ai.fluffy-walleye.ts.net/v1
     discover_models: false
     models:
       - qwen-latest
-      - MiniMax-M2.1
-      - MiniMax-M2
 toolsets:
   - hermes-cli
 agent:

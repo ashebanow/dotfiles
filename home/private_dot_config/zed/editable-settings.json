@@ -158,6 +158,33 @@
           // streaming MiniMax through the gateway stalls for ~8 minutes
           // (BOX-160). Deliberately not in favorite_models.
           {
+            "name": "gemini-3.5-flash-lite",
+            "display_name": "Gemini 3.5 Flash Lite",
+            "reasoning_effort": "medium",
+            "max_tokens": 1114112,
+            "max_output_tokens": 65536,
+            "max_completion_tokens": 1114112,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false
+            }
+          }
+        ]
+      },
+      // MiniMax is reached directly, not through the gateway: bifrost's
+      // custom-provider streaming path never terminates (BOX-160) and the native
+      // provider is still an unmerged upstream PR. Zed takes the credential from
+      // the keychain (LLM Providers, keyed by api_url) -- there is no api_key
+      // field in this schema, and putting one here made the whole provider fail
+      // to load (BOX-158).
+      "MiniMax": {
+        "api_url": "https://api.minimax.io/v1",
+        "available_models": [
+          {
             "name": "MiniMax-M2.1",
             "display_name": "MiniMax M2.1",
             "reasoning_effort": "medium",
@@ -180,22 +207,6 @@
             "max_tokens": 200000,
             "max_output_tokens": 32000,
             "max_completion_tokens": 200000,
-            "capabilities": {
-              "tools": true,
-              "images": false,
-              "parallel_tool_calls": false,
-              "prompt_cache_key": false,
-              "chat_completions": true,
-              "interleaved_reasoning": false
-            }
-          },
-          {
-            "name": "gemini-3.5-flash-lite",
-            "display_name": "Gemini 3.5 Flash Lite",
-            "reasoning_effort": "medium",
-            "max_tokens": 1114112,
-            "max_output_tokens": 65536,
-            "max_completion_tokens": 1114112,
             "capabilities": {
               "tools": true,
               "images": false,
@@ -344,7 +355,7 @@
       "effort": "medium",
       "enable_thinking": true,
       "provider": "Bifrost",
-      "model": "qwen-latest"
+      "model": "deepseek-v4-flash"
     },
     // Background features are pinned rather than left to inherit default_model.
     // Unset, they follow it -- which cuts both ways: point the default at a
