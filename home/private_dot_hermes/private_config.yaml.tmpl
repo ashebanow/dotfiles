@@ -1,9 +1,29 @@
 
 model:
-  base_url: https://api.deepseek.com/v1
+  # Reaches DeepSeek through the bifrost gateway rather than straight to
+  # api.deepseek.com. The `deepseek` provider profile is kept deliberately: it
+  # carries DeepSeek's reasoning wire shape (extra_body.thinking plus a top-level
+  # reasoning_effort), which is what keeps the reasoning-content contract intact
+  # across tool calls. Verified working through the gateway.
+  base_url: https://ai.fluffy-walleye.ts.net/v1
   default: deepseek-v4-pro
   provider: deepseek
 fallback_providers: []
+providers:
+  # The gateway's model listing enumerates only its native providers (anthropic,
+  # deepseek). qwen and MiniMax are custom providers there, so they never appear
+  # in it and would silently go missing from the picker. Pin them explicitly, and
+  # set discover_models false so live discovery can't overwrite the list.
+  #
+  # MiniMax is listed but not usable yet: streaming it through the gateway stalls
+  # for ~8 minutes (BOX-160). Non-streaming works.
+  bifrost:
+    base_url: https://ai.fluffy-walleye.ts.net/v1
+    discover_models: false
+    models:
+      - qwen-latest
+      - MiniMax-M2.1
+      - MiniMax-M2
 toolsets:
   - hermes-cli
 agent:
