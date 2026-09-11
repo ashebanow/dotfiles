@@ -14,23 +14,50 @@
 # To use this template rename as `providers.yaml`
 #
 providers:
-  - id: litellm
-    name: LiteLLM
-    base_url: http://localhost:4000
-    # Optionally send the signed-in Raycast user's email as an `X-User-Email`
-    # header with every request, e.g. for per-user attribution or quotas on a
-    # shared gateway. Off unless explicitly set to true.
+  # The bifrost gateway. Model ids are bare: this entry is already the provider
+  # namespace. Every model listed here must be one the gateway actually serves --
+  # compose/llm/bifrost-config.json is the source of truth for the catalogue, and
+  # this list is a deliberate subset, not the whole catalogue.
+  - id: bifrost
+    name: Bifrost
+    base_url: https://ai.fluffy-walleye.ts.net/v1
+    # Sends X-User-Email with each request. The gateway records it, and this is the
+    # only client whose config can identify its own traffic (BOX-149).
     include_user_email: true
-    # No `api_keys` - authentication is provided by the LiteLLM config
+    # No `api_keys` - the gateway enforces no key on inference.
     models:
-      - id: anthropic/claude-sonnet-4-5-20250929
-        name: "Claude Sonnet 4.5"
-        context: 200000
+      - id: deepseek-v4-flash
+        name: "DeepSeek V4 Flash"
+        context: 1000000
         abilities:
           temperature:
             supported: true
           vision:
+            supported: false
+          system_message:
             supported: true
+          tools:
+            supported: true
+      - id: deepseek-v4-pro
+        name: "DeepSeek V4 Pro"
+        context: 1000000
+        abilities:
+          temperature:
+            supported: true
+          vision:
+            supported: false
+          system_message:
+            supported: true
+          tools:
+            supported: true
+      - id: qwen-latest
+        name: "Qwen 3.8 27B (local)"
+        context: 262144
+        abilities:
+          temperature:
+            supported: true
+          vision:
+            supported: false
           system_message:
             supported: true
           tools:
