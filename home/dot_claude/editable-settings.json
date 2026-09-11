@@ -1,25 +1,4 @@
 {
-  "sandbox": {
-    "enabled": true,
-    "autoAllowBashIfSandboxed": true,
-    "enableWeakerNetworkIsolation": true,
-    "network": {
-        "allowedDomains": [
-          "github.com",
-          "*.github.com",
-          "*.githubusercontent.com",
-          "vault.bitwarden.com",
-          "*.vault.bitwarden.com"
-        ],
-        "allowUnixSockets": [ ]
-      }
-  },
-  "mcpServers": {
-    "linear": {
-      "type": "http",
-      "url": "https://mcp.linear.app/mcp"
-    }
-  },
   "permissions": {
     "deny": [
       "Read(.env*)",
@@ -29,17 +8,45 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "sonnet",
+  "model": "opus",
   "skillOverrides": {
     "dg": "off"
   },
   "enabledPlugins": {
     "mattpocock-skills@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true
+    "frontend-design@claude-plugins-official": true,
+    "worktrunk@worktrunk": true
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "network": {
+      "allowedDomains": [
+        "github.com",
+        "*.github.com",
+        "*.githubusercontent.com",
+        "vault.bitwarden.com",
+        "*.vault.bitwarden.com"
+      ],
+      "allowUnixSockets": []
+    },
+    "enableWeakerNetworkIsolation": true
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
+  "modelSettings": {
+    "claude-opus-5": {
+      "effortLevel": "high"
+    }
+  },
   "askUserQuestionTimeout": "never",
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "agentPushNotifEnabled": true,
+  "mcpServers": {
+    "linear": {
+      "type": "http",
+      "url": "https://mcp.linear.app/mcp"
+    }
+  }
 }
