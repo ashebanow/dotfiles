@@ -1,6 +1,6 @@
 {
   "lastChangelogVersion": "0.85.1",
-  "defaultProvider": "deepseek",
+  "defaultProvider": "bifrost",
   "defaultModel": "deepseek-v4-flash",
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": false,
@@ -9,7 +9,6 @@
     "npm:pi-background-tasks@latest",
     "npm:@feniix/pi-exa",
     "npm:pi-mcp-extension",
-    "git:git@github.com:joshleblanc/pi-minimax",
     "npm:@ashebanow/pi-gotgenes-subagent",
     "npm:@alasano/pi-linear",
     "https://github.com/ayghri/i-have-adhd"

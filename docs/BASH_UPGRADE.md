@@ -234,7 +234,7 @@ export EDITOR=nvim
 export DOTFILES=$HOME/.local/share/chezmoi
 export BUN_INSTALL="$HOME/.bun"
 export PERSONAL_WIKI="$HOME/personal_wiki"
-export LITELLM_BASE_URL="https://litellm.fluffy-walleye.ts.net"
+export AI_BASE_URL="https://ai.fluffy-walleye.ts.net"
 
 # Homebrew init (portable eval; plain-echo warning — see §7)
 if [ -x /home/linuxbrew/.linuxbrew/bin/brew ]; then eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

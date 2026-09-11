@@ -29,26 +29,165 @@
     }
   ],
   "language_models": {
-    "llama.cpp": {
-      "api_url": "http://localhost:8080"
-    },
     "openai_compatible": {
-      "LiteLLM": {
-        "api_url": "https://litellm.fluffy-walleye.ts.net",
+      // The bifrost gateway. Model ids are bare here: this entry is already the
+      // provider namespace, so a prefixed id would nest namespace inside
+      // namespace. The catalogue must stay a subset of what the gateway
+      // actually declares -- compose/llm/bifrost-config.json is the authority.
+      "Bifrost": {
+        "api_url": "https://ai.fluffy-walleye.ts.net/v1",
+        // No `api_key` here: OpenAiCompatibleSettingsContent accepts only
+        // api_url, available_models and custom_headers. An unknown field made
+        // the whole provider block fail to load. Zed takes OpenAI-compatible
+        // credentials from the keychain or from <PROVIDER_ID>_API_KEY
+        // (BIFROST_API_KEY) instead -- and the gateway enforces no key anyway.
         "available_models": [
           {
-            "name": "unsloth/Qwen3.6-35B-A3B-MTP-GGUF",
-            "display_name": "Qwen 3.6 35B MOE",
-            "max_tokens": 196000
+            "name": "qwen-latest",
+            "display_name": "Qwen (local)",
+            "reasoning_effort": "medium",
+            "max_tokens": 262144,
+            "max_output_tokens": 32768,
+            "max_completion_tokens": 262144,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false
+            }
+          },
+          {
+            "name": "deepseek-v4-flash",
+            "display_name": "DeepSeek V4 Flash",
+            "reasoning_effort": "medium",
+            "max_tokens": 1000000,
+            "max_output_tokens": 393216,
+            "max_completion_tokens": 1000000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false
+            }
+          },
+          {
+            "name": "deepseek-v4-pro",
+            "display_name": "DeepSeek V4 Pro",
+            "reasoning_effort": "high",
+            "max_tokens": 1000000,
+            "max_output_tokens": 393216,
+            "max_completion_tokens": 1000000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false
+            }
+          },
+          {
+            "name": "claude-sonnet-5",
+            "display_name": "Claude Sonnet 5",
+            "reasoning_effort": "high",
+            "max_tokens": 1000000,
+            "max_output_tokens": 128000,
+            "max_completion_tokens": 1000000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false
+            }
+          },
+          {
+            "name": "claude-opus-5",
+            "display_name": "Claude Opus 5",
+            "reasoning_effort": "high",
+            "max_tokens": 1000000,
+            "max_output_tokens": 128000,
+            "max_completion_tokens": 1000000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false
+            }
+          },
+          {
+            "name": "claude-haiku-4-5-20251001",
+            "display_name": "Claude Haiku 4.5",
+            "reasoning_effort": "medium",
+            "max_tokens": 200000,
+            "max_output_tokens": 64000,
+            "max_completion_tokens": 200000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false
+            }
+          },
+          {
+            "name": "claude-fable-5-1",
+            "display_name": "Claude Fable 5.1",
+            "reasoning_effort": "high",
+            "max_tokens": 1000000,
+            "max_output_tokens": 128000,
+            "max_completion_tokens": 1000000,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false
+            }
+          },
+          // Listed because the gateway serves them, but not usable in Zed yet:
+          // streaming MiniMax through the gateway stalls for ~8 minutes
+          // (BOX-160). Deliberately not in favorite_models.
+          {
+            "name": "gemini-3.5-flash-lite",
+            "display_name": "Gemini 3.5 Flash Lite",
+            "reasoning_effort": "medium",
+            "max_tokens": 1114112,
+            "max_output_tokens": 65536,
+            "max_completion_tokens": 1114112,
+            "capabilities": {
+              "tools": true,
+              "images": false,
+              "parallel_tool_calls": false,
+              "prompt_cache_key": false,
+              "chat_completions": true,
+              "interleaved_reasoning": false
+            }
           }
-        ],
-        "api_key": "sk-not-needed"
+        ]
       },
+      // MiniMax is reached directly, not through the gateway: bifrost's
+      // custom-provider streaming path never terminates (BOX-160) and the native
+      // provider is still an unmerged upstream PR. Zed takes the credential from
+      // the keychain (LLM Providers, keyed by api_url) -- there is no api_key
+      // field in this schema, and putting one here made the whole provider fail
+      // to load (BOX-158).
       "MiniMax": {
         "api_url": "https://api.minimax.io/v1",
         "available_models": [
           {
-            "name": "MiniMax-M2.7-highspeed",
+            "name": "MiniMax-M2.1",
+            "display_name": "MiniMax M2.1",
+            "reasoning_effort": "medium",
             "max_tokens": 200000,
             "max_output_tokens": 32000,
             "max_completion_tokens": 200000,
@@ -62,7 +201,9 @@
             }
           },
           {
-            "name": "MiniMax-M3",
+            "name": "MiniMax-M2",
+            "display_name": "MiniMax M2",
+            "reasoning_effort": "medium",
             "max_tokens": 200000,
             "max_output_tokens": 32000,
             "max_completion_tokens": 200000,
@@ -77,9 +218,6 @@
           }
         ]
       }
-    },
-    "lmstudio": {
-      "api_url": "http://localhost:1234/api/v0"
     }
   },
   "cli_default_open_behavior": "existing_window",
@@ -179,29 +317,34 @@
     // Version of this setting.
     "favorite_models": [
       {
-        "provider": "LiteLLM",
-        "model": "unsloth/Qwen3.6-35B-A3B-MTP-GGUF",
-        "enable_thinking": false
-      },
-      {
-        "provider": "MiniMax",
-        "model": "MiniMax-M3",
-        "enable_thinking": false
-      },
-      {
-        "provider": "deepseek",
+        "provider": "Bifrost",
         "model": "deepseek-v4-flash",
         "enable_thinking": true,
-        "effort": "high"
+        "effort": "medium"
       },
       {
-        "provider": "deepseek",
+        "provider": "Bifrost",
         "model": "deepseek-v4-pro",
         "enable_thinking": true,
         "effort": "high"
       },
       {
-        "provider": "google",
+        "provider": "Bifrost",
+        "model": "qwen-latest",
+        "enable_thinking": true,
+        "effort": "medium"
+      },
+      {
+        "provider": "Bifrost",
+        "model": "claude-sonnet-5",
+        "enable_thinking": true,
+        "effort": "high"
+      },
+      // Kept on Zed's own cloud rather than the gateway: the gateway serves no
+      // Gemini, so this is the only family where zed.dev is not duplicating a
+      // path the gateway already covers. BOX-151 moves it onto the gateway.
+      {
+        "provider": "zed.dev",
         "model": "gemini-3.5-flash",
         "enable_thinking": true,
         "effort": "medium"
@@ -209,10 +352,37 @@
     ],
     "default_profile": "ask",
     "default_model": {
-      "effort": "high",
+      "effort": "medium",
       "enable_thinking": true,
-      "provider": "deepseek",
+      "provider": "Bifrost",
       "model": "deepseek-v4-flash"
+    },
+    // Background features are pinned rather than left to inherit default_model.
+    // Unset, they follow it -- which cuts both ways: point the default at a
+    // pricier model and every commit message and thread title gets more
+    // expensive, point it at the local qwen and a 94K-token thread title takes
+    // ~4 minutes to prefill. Neither should happen as a side effect of picking a
+    // model to chat with.
+    //
+    // Gemini's free tier makes these cost nothing, and they are the calls nobody
+    // watches. flash-lite measured fastest of the Gemini flash models (0.6s) and,
+    // unlike 3.5-flash, produced correct output with thinking both on and off.
+    //
+    // Thinking is left off (the default for a selection). For Gemini that only
+    // takes effect because the model entry declares reasoning_effort: without it
+    // Zed sends no parameter and the model thinks by default, which truncated
+    // output at modest token budgets when measured.
+    "commit_message_model": {
+      "provider": "Bifrost",
+      "model": "gemini-3.5-flash-lite"
+    },
+    "thread_summary_model": {
+      "provider": "Bifrost",
+      "model": "gemini-3.5-flash-lite"
+    },
+    "inline_assistant_model": {
+      "provider": "Bifrost",
+      "model": "gemini-3.5-flash-lite"
     },
     // Whether the agent is enabled.
     "enabled": true,

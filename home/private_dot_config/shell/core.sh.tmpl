@@ -10,11 +10,11 @@
 # Man pages in neovim
 export MANPAGER='nvim +Man!'
 
-# ccode = Claude Code without an API-key override, so it uses the owner's
-# subscription (passing a key would make claude ignore it). Other tools
-# invoke 'ccode' by name, so it must be defined everywhere — including
-# headless machines.
-alias ccode='ANTHROPIC_API_KEY= claude'
+# Claude Code runs on the owner's OAuth subscription and never an API key: the
+# subscription is materially cheaper, and its terms forbid third-party tooling.
+# There is no `ccode` alias any more — it existed only to blank the
+# ANTHROPIC_API_KEY that secrets.sh used to export, and nothing exports a
+# provider key now. Verified no other tool invoked it by name.
 
 # Basic safety aliases
 alias cls='clear'
