@@ -92,12 +92,12 @@ _bws_refresh_cache() {
         # MiniMax is reached directly, not through the gateway. The gateway's
         # custom-provider streaming path never terminates (BOX-160), so MiniMax
         # was removed there and bifrost's native provider is still an unmerged
-        # upstream PR. pi's MiniMax extension requires this key in its
-        # environment, and pi and Zed talk to the API directly on the same
-        # account credits. Temporary: drop these again when the native provider
-        # ships and MiniMax returns to the gateway.
+        # upstream PR. pi's `minimax` provider and Zed's direct MiniMax provider
+        # both use this key against the same account credits. Temporary: drop it
+        # again when the native provider ships and MiniMax returns to the
+        # gateway. MINIMAX_API_HOST is not exported -- nothing reads it, now that
+        # the pi-minimax extension is gone.
         echo "export MINIMAX_API_KEY=\"$(bws secret get 3a5ac53a-8af5-4277-a86e-b47701341630 2>/dev/null | jq -r '.value' || true)\""
-        echo "export MINIMAX_API_HOST=\"https://api.minimax.io\""
         echo "export EXA_API_KEY=\"$(bws secret get 52eba787-8cb2-41b7-87b1-b4770134b198 2>/dev/null | jq -r '.value' || true)\""
         echo "export PARALLEL_API_KEY=\"$(bws secret get 8fc4ed53-b8b9-4c67-9d7f-b48b002eefac 2>/dev/null | jq -r '.value' || true)\""
         echo "export FLAKEHUB_TOKEN=\"$(bws secret get 0c678df8-84e4-4a1b-90db-b4a101071ee3 2>/dev/null | jq -r '.value' || true)\""
