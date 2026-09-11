@@ -73,9 +73,16 @@ devenv.local.yaml
 .pre-commit-config.yaml
 
 # Pi
+AGENTS.override.md
 .pi/git/
 .pi/tasks/
 .pi/npm/
+.pi/state/
+.pi/sessions/
+
+# Ensure project-specific instructions and skills ARE tracked
+!AGENTS.md
+!.pi/skills/
 
 # python
 bin/__pycache__/
