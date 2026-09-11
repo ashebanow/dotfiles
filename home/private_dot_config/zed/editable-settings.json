@@ -29,9 +29,6 @@
     }
   ],
   "language_models": {
-    "llama.cpp": {
-      "api_url": "http://localhost:8080"
-    },
     "openai_compatible": {
       // The bifrost gateway. Model ids are bare here: this entry is already the
       // provider namespace, so a prefixed id would nest namespace inside
@@ -181,9 +178,6 @@
           }
         ]
       }
-    },
-    "lmstudio": {
-      "api_url": "http://localhost:1234/api/v0"
     }
   },
   "cli_default_open_behavior": "existing_window",
@@ -304,6 +298,15 @@
         "model": "claude-sonnet-5",
         "enable_thinking": true,
         "effort": "high"
+      },
+      // Kept on Zed's own cloud rather than the gateway: the gateway serves no
+      // Gemini, so this is the only family where zed.dev is not duplicating a
+      // path the gateway already covers. BOX-151 moves it onto the gateway.
+      {
+        "provider": "zed.dev",
+        "model": "gemini-3.5-flash",
+        "enable_thinking": true,
+        "effort": "medium"
       }
     ],
     "default_profile": "ask",
