@@ -43,12 +43,13 @@
 # nix.settings in the flake on NixOS, so there's nothing for chezmoi
 # to manage.
 
-{{ if .headless }}
-# ── headless machines: no desktop, no personal secrets/dev tools ──
-# (BOX-123; our headless = none of ashebanow's personal secrets — server
-# secrets via BWS/secretspec are unaffected. Exclusions are revisitable:
-# the ignore is the easy place to re-admit something later.)
-# Desktop / GUI (Linux desktop trees; macOS-only trees are OS-gated above)
+{{ if not .desktop }}
+# ── hosts with no graphical session: desktop-session machinery only ──
+# (BOX-169/170. `desktop` is its own axis, independent of `headless`: these
+# are trees that are *useless without a graphical session*, as opposed to
+# trees whose tool is simply not installed here. Membership test: if this
+# host had a screen and the tool were installed, would the file matter?
+# No → it belongs here. macOS-only trees are OS-gated above.)
 .config/DankMaterialShell
 .config/cava
 .config/code-flags.conf
@@ -56,42 +57,80 @@
 .config/gtk-3.0
 .config/gtk-4.0
 .config/hypr
+.config/hyprpanel
 .config/keymaps
 .config/niri
 .config/nwg-look
-.config/oh-my-posh
 .config/qt5ct
 .config/qt6ct
-.config/rslsync
+.config/rofi
 .config/swappy
 .config/swaylock
 .config/swaync
-.config/syncthingtray
-.config/topgrade
+.config/Thunar
+.config/wallust
 .config/waybar
 .config/wlogout
 .config/xfce4
 .config/xsettingsd
 .config/yay
-.config/zathura
 .gtkrc-2.0
-# Terminal / app configs not in the headless toolset
+.local/share/fonts
+{{ end }}
+
+{{ if .headless }}
+# ── headless machines: no personal secrets/dev tools, minimal toolset ──
+# (BOX-123, revised by BOX-169/170. The positive rule: a managed file is kept
+# iff the tool it configures is installed on this host at ANY tier, devshell
+# included. The check is nix-config's inventory, never a remembered list —
+# see CONTEXT.md "installed-tool rule" and docs/adr/0001. This block is
+# therefore the residue: files whose tool is absent at every tier here, plus
+# secret machinery and personal tooling. Desktop-session trees are gated on
+# `not .desktop` above, not here.)
+#
+# Deliberately NOT here, with reasons (do not "tidy" these in):
+#   .config/ghostty       — ghostty.terminfo is tier 1 on lumquat (system-wide,
+#                           for terminfo); only the config file is GUI.
+#   .config/worktrunk     — tier 3 (nix develop) devshell tool; Q9b.
+#   .config/{btop,nvim}   — tier 1/2, interactive TUIs. Interactive ≠ GUI.
+#   .config/fastfetch     — tier 2, invoked from the login path.
+# Terminal / app configs whose tool is not installed on this host
 .config/ghostty
 .config/hop
 .config/kitty
 .config/lazygit
-.config/obsidian
+.config/oh-my-posh
+.config/rslsync
+.config/syncthingtray.ini
 .config/television
 .config/tmux
+.config/topgrade
 .config/warp-terminal
 .config/wezterm
 .config/zed
+.config/zathura
 .config/atuin
 .config/jj
-.config/starship.toml
 .local/share/warp-terminal
-# zsh config (headless = bash)
+# Trees no pattern mentioned before BOX-170 — same defect class as above:
+# tool absent at every tier, and (for the GUI two) desktop-only anyway.
+.config/.obsidian
+.config/YouTube Music
+.config/Code
+# zsh is not on headless (login shell is bash) — exclude both the config tree
+# and the top-level .zshenv entrypoint, which would otherwise source it.
 .config/zsh
+.zshenv
+# Dead prompt machinery — nothing on headless initializes starship, and
+# nothing sources the nix gate (it exists only to feed starship's prompt).
+# NOTE: these two are *excluded*, not retired — they are live on the desktops.
+# Do not delete them from the source tree.
+.config/bashrc.d/starship-gate.sh
+.config/shell/starship-nix-gate.sh
+# Secret machinery: BWS/keyring plumbing, not tool config. A tool config that
+# merely *references* a secret is guarded, not excluded (see ~/.pi).
+.config/shell/secrets.sh
+.config/bashrc.d/999_secrets.sh
 # Personal (ashebanow's) secrets & identity — headless carries none
 .claude
 .gnupg
@@ -101,6 +140,10 @@
 # Personal/dev tooling
 Development
 .rumdl.toml
+# Tool-absent targets (BOX-170; judged against the installed-tool rule)
+.config/devenv
+.config/zennotes
+.local/bin/mac_logout_handler.zsh
 # macOS-only tree (would otherwise land on a linux headless host)
 Library
 {{ end }}

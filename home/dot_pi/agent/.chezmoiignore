@@ -2,5 +2,6 @@ editable-models.json
 editable-settings.json
 editable-trust.json
 extensions/editable-worktrunk.ts
+extensions/worktrunk.ts
 git
 npm

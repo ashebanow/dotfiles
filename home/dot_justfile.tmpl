@@ -32,9 +32,11 @@ default:
 
 [group('pi')]
 pi-update:
-    @echo "Updating Pi Agent and extensions..."
+{{ if not .headless }}    @echo "Updating Pi Agent and extensions..."
     pi update --all -a
     @echo "Pi Agent update complete."
+{{ else }}    @echo "pi-update is disabled on headless machines (no interactive pi)."
+{{ end }}
 
 # ===== NIX =====
 

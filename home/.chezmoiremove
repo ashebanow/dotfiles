@@ -14,3 +14,24 @@
 # flake (nix.settings on NixOS, determinate module on nix-darwin), so
 # the chezmoi-managed copy is stale legacy (2026-08)
 .config/nix/nix.custom.conf
+
+# BOX-170 pruning pass. Every entry below is gated on the SAME predicate as
+# the exclusion that stops it being managed — .chezmoiremove is NOT itself
+# machine-gated, so an ungated path here deletes the file everywhere.
+# (Target paths, not source paths.)
+{{ if not .desktop }}
+.config/systemd/user/sunset.service
+.config/systemd/user/sunset.timer
+{{ end }}
+{{ if .headless }}
+.config/systemd/user/tmux.service
+.config/containers/systemd/mealie.container
+.config/devenv/config.yaml
+.config/zennotes/config.toml
+.local/bin/mac_logout_handler.zsh
+.config/.obsidian
+.config/syncthingtray.ini
+.config/YouTube Music
+.config/Code
+.zshenv
+{{ end }}
