@@ -1,10 +1,5 @@
 {
   "lastChangelogVersion": "0.85.1",
-  "defaultProvider": "bifrost",
-  "defaultModel": "deepseek-v4-flash",
-  "defaultThinkingLevel": "high",
-  "hideThinkingBlock": false,
-  "theme": "gruvbox-hard",
   "compaction": {
     "enabled": true,
     "reserveTokens": 64000,
@@ -13,15 +8,23 @@
   "contextShake": {
     "autoShake": true,
     "dropThinking": true,
-    "dropRawToolOutput": ["linear"]
+    "dropRawToolOutput": [
+      "linear"
+    ]
   },
+  "defaultProvider": "bifrost",
+  "defaultModel": "deepseek-v4-flash",
+  "defaultThinkingLevel": "high",
+  "hideThinkingBlock": false,
   "packages": [
-    "npm:pi-background-tasks@latest",
-    "npm:@feniix/pi-exa",
-    "npm:pi-mcp-extension",
-    "npm:@ashebanow/pi-gotgenes-subagent",
+    "https://github.com/ayghri/i-have-adhd",
     "npm:@alasano/pi-linear",
-    "https://github.com/ayghri/i-have-adhd"
+    "npm:@ashebanow/pi-gotgenes-subagent",
+    "npm:@feniix/pi-exa",
+    "npm:pi-background-tasks@latest",
+    "npm:pi-context-shake",
+    "npm:pi-context-view",
+    "npm:pi-mcp-extension"
   ],
   "pi-exa": {
     "enabledTools": [
@@ -29,5 +32,6 @@
       "web_fetch_exa",
       "web_answer_exa"
     ]
-  }
+  },
+  "theme": "gruvbox-hard"
 }
