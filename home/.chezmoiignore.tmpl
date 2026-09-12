@@ -148,6 +148,15 @@ Development
 # installed on the desktops, where this script is live — exclude, do NOT
 # retire). Same argument as the two prompt-gate files above.
 .local/bin/git-prompt-path
+# Personal / desktop helpers with no caller in the repo (BOX-170).
+.local/bin/list-cloudflare-ips
+.local/bin/nerdfont-smoke-test
+# Keyring plumbing: dead on lumquat twice over — the Linux branch needs
+# secret-tool AND a live DBUS_SESSION_BUS_ADDRESS (an SSH session has
+# neither), and its fallback is apt/dnf/pacman, none of which is NixOS. Its
+# only reader is shell/secrets.sh, itself excluded above. Not retired: the
+# desktops use it.
+.local/bin/setup-bws-keyring.sh
 # macOS-only tree (would otherwise land on a linux headless host)
 Library
 {{ end }}

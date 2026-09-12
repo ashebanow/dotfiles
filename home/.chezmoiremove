@@ -30,6 +30,9 @@
 .config/zennotes/config.toml
 .local/bin/mac_logout_handler.zsh
 .local/bin/git-prompt-path
+.local/bin/list-cloudflare-ips
+.local/bin/nerdfont-smoke-test
+.local/bin/setup-bws-keyring.sh
 .config/.obsidian
 .config/syncthingtray.ini
 .config/YouTube Music
