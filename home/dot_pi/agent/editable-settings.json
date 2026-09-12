@@ -5,6 +5,16 @@
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": false,
   "theme": "gruvbox-hard",
+  "compaction": {
+    "enabled": true,
+    "reserveTokens": 64000,
+    "keepRecentTokens": 15000
+  },
+  "contextShake": {
+    "autoShake": true,
+    "dropThinking": true,
+    "dropRawToolOutput": ["linear"]
+  },
   "packages": [
     "npm:pi-background-tasks@latest",
     "npm:@feniix/pi-exa",
