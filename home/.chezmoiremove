@@ -29,6 +29,7 @@
 .config/devenv/config.yaml
 .config/zennotes/config.toml
 .local/bin/mac_logout_handler.zsh
+.local/bin/git-prompt-path
 .config/.obsidian
 .config/syncthingtray.ini
 .config/YouTube Music
