@@ -41,6 +41,16 @@ denylist produced two defect classes in one pass.
   once (`sunset.service`, whose `ExecStart` points into `.config/hypr/**` — a
   tree the ignore block excludes, so the unit targets a path absent by our own
   decision).
+- **A new `[data]` key is not free.** `~/.config/chezmoi/chezmoi.toml` is
+  rendered once and is *not* regenerated on an existing host — `hm-infra.nix`
+  runs `chezmoi init` only when the source repo is absent — so a key added to
+  `.chezmoi.toml.tmpl` is absent from every already-provisioned machine. An
+  unguarded reference to it aborts template rendering, which aborts
+  `apply --force`, which fails silently inside `home.activation`: the box keeps
+  its old file set while `nh os switch` looks successful. Guard every new key
+  with `hasKey` and pick its absent-means default deliberately. (chezmoi's
+  `get` cannot help: it is a nested-path accessor, not sprig's
+  missing-key-safe `get`.)
 - **The exception channel is "not this server's job"**, for a personal toy that
   passes the installed-tool rule because its *runtime* is installed (`podman`
   is installed; a recipe-manager quadlet is still not the server's job).
