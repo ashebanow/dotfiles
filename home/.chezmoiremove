@@ -19,7 +19,7 @@
 # the exclusion that stops it being managed — .chezmoiremove is NOT itself
 # machine-gated, so an ungated path here deletes the file everywhere.
 # (Target paths, not source paths.)
-{{ if not .desktop }}
+{{ if not (and (hasKey . "desktop") .desktop) }}
 .config/systemd/user/sunset.service
 .config/systemd/user/sunset.timer
 {{ end }}

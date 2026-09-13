@@ -43,13 +43,23 @@
 # nix.settings in the flake on NixOS, so there's nothing for chezmoi
 # to manage.
 
-{{ if not .desktop }}
+{{ if not (and (hasKey . "desktop") .desktop) }}
 # ── hosts with no graphical session: desktop-session machinery only ──
 # (BOX-169/170. `desktop` is its own axis, independent of `headless`: these
 # are trees that are *useless without a graphical session*, as opposed to
 # trees whose tool is simply not installed here. Membership test: if this
 # host had a screen and the tool were installed, would the file matter?
 # No → it belongs here. macOS-only trees are OS-gated above.)
+#
+# `hasKey` rather than a bare `.desktop`: ~/.config/chezmoi/chezmoi.toml is
+# rendered ONCE and is not regenerated on an existing host (hm-infra.nix only
+# runs `chezmoi init` when the source repo is absent), so a host that predates
+# this key has no `desktop` entry. An unguarded `.desktop` aborts template
+# rendering, which aborts `apply --force` — silently leaving the box on its old
+# file set. (NB: chezmoi's `get` does NOT help — it is a nested-path accessor,
+# not sprig's missing-key-safe `get`, and errors on both a missing key and a
+# non-map value.) Absent means no graphical session, the same answer the key
+# would have had; it converges on the next `chezmoi init`.
 .config/DankMaterialShell
 .config/cava
 .config/code-flags.conf
