@@ -21,16 +21,23 @@ Terms used across this repo and its planning docs (wayfinder maps). Sharpened
   a file whose tool is absent at every tier is wrong, desktop-shaped or not.
   **Exception:** "not this server's job" overrides it for a personal toy
   (BOX-169 Q1b), recorded per file rather than as a flag.
-- **personal secret** — a secret tied to ashebanow's personal identity or
-  accounts: SSH keys, GPG signing key, personal API keys (hermes, claude).
-  Headless machines carry none of these; the `personal` *flag* is retired, but
-  the concept lives as the file-gating predicate (`{{ if not .headless }}`
-  excludes).
-- **server secret** — a secret a server needs to operate: tailscale auth
-  keys, DB passwords, service tokens. Headless machines *do* carry these;
-  BWS is the secrets backend (nix-config delivers them via secretspec +
-  bootstrap token → `LoadCredential`; chezmoi-managed files use chezmoi's
-  built-in BWS).
+- **personal secret** — a secret whose compromise exposes ashebanow's sensitive
+  personal information or accounts *as a person*: SSH private keys, the GPG
+  signing key, anything reaching payment or identity. Classified by **blast
+  radius, not by owner or consumer** — every production secret is also "owned
+  by ashebanow", so ownership is useless as a test (sharpened 2026-09-14, Linear
+  CLI cutover). Personal secrets never live in BWS and never reach a headless
+  host; the `personal` *flag* is retired, but the concept lives as the
+  file-gating predicate (`{{ if not .headless }}` excludes).
+- **production secret** — any secret in BWS; all of it is there for production
+  use, including keys that bill ashebanow's accounts (LLM providers, Linear).
+  Supersedes the older term *server secret*. Delivery rules: the fewest secrets
+  per host and per process; secretspec is the channel wherever it can be
+  (nix-config); chezmoi's built-in BWS reading for chezmoi-managed files; shell
+  `export`s only where a tool refuses anything but an env var; RAM-only
+  (process env, tmpfs) whenever possible. A headless host may carry production
+  secrets. The test an agent applies: *in BWS?* → production; *would it expose
+  ashebanow as a person?* → personal.
 - **personal machine** — a machine that is ashebanow's own, as opposed to one
   he provisions. Used as shorthand for *not headless* when gating files; there
   is no `personal` data flag, and BOX-169 declined to mint one (nothing would
