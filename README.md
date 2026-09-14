@@ -16,10 +16,65 @@ Currntly in the process of rearchitecting:
 Also note that the instructions aren't fully up to date. As I add
 more automation steps I'll make it all current and consistent.
 
-## Headless machines (VPS, containers, cloud VMs)
+## Headless machines
 
-For a NON-NixOS headless machine (Debian/Ubuntu/Fedora/Alpine VPS, container,
-or cloud VM — no screen/keyboard, no personal secrets):
+A **headless** machine is one you only ever reach over SSH: no screen and
+keyboard, none of Andrew's personal secrets, minimal toolset (see `CONTEXT.md`).
+There are two machine classes, and they deploy differently — **pick the right
+one before running anything**, because `install-headless.sh` refuses to run on
+NixOS and the NixOS path does not use it.
+
+### NixOS headless (lumquat) — managed by nix-config
+
+The fleet's live headless host is **lumquat**, which is NixOS. NixOS machines
+are delivered by [nix-config](https://github.com/ashebanow/nix-config), not by a
+script in this repo: `modules/infra/hm-infra.nix` installs chezmoi and runs a
+guarded `chezmoi init` + `chezmoi apply --force` as a `home.activation` entry.
+
+> **When the chezmoi step actually runs.** Home Manager activation is a NixOS
+> oneshot — on lumquat, `home-manager-podman.service` (named for the `podman`
+> user), `RemainAfterExit=yes`. `nh os switch` restarts it only when the
+> home-manager generation changes (i.e. when nix-config's own files change), not
+> on every switch; on an unchanged closure the switch is a no-op and this step
+> does not run. So the answer to "did my dotfiles deploy?" is *not* "the switch
+> exited 0": check the activation log (system-scope unit, so prefix with `sudo`
+> if your user is not in `systemd-journal`) —
+> `sudo journalctl -u home-manager-<user>.service | grep chezmoiApply` — or run
+> `chezmoi diff` / apply by hand. Delivery for an already-provisioned host is
+> therefore: change nix-config (or bounce the unit) to run the activation, or
+> `chezmoi apply --force` directly.
+
+Redeploy from a checkout of nix-config (on lumquat that is `~/nix-config`):
+
+```bash
+cd ~/nix-config && just switch
+```
+
+`switch` is a recipe in `home/dot_justfile.tmpl` — chezmoi installs that file as
+`~/.justfile`, and nix-config's own justfile does `import "~/.justfile"` so the
+recipe is reachable there. It `cd`s to `$NIX_CONFIG_DIR` (falling back to
+`~/Development/nix/nix-config/main`, then `~/nix-config`), then dispatches on
+`uname`: on a NixOS host it prefers `nh os switch .#<hostname>`, falling back to
+`sudo nixos-rebuild switch --flake` and then `nix run nixpkgs#nixos-rebuild` when
+`nh` is absent; on macOS, `nh darwin switch`. The NixOS branch activates the new
+generation; whether that runs the chezmoi step is exactly the caveat above.
+Nothing in the path is headless-specific — the machine's rendered data
+(`headless = true`, `desktop = false`) selects which files apply.
+
+Maintaining the dotfiles on lumquat, as the `podman` user:
+
+```bash
+chezmoi diff                 # what a switch would change
+chezmoi apply --force        # converge now, without a system switch
+chezmoi update               # pull the latest dotfiles and re-apply
+```
+
+The repo is kept on disk at `~/.local/share/chezmoi`.
+
+### Non-NixOS headless (VPS, containers, cloud VMs)
+
+For a **non-NixOS** headless machine — a Debian/Ubuntu/Fedora/Alpine VPS,
+container, or cloud VM:
 
 ```bash
 bash <(curl -fsSL https://raw.githubusercontent.com/ashebanow/dotfiles/main/install-headless.sh)
@@ -44,7 +99,12 @@ What it does (details in the script header):
 - Keeps the repo at `~/.local/share/chezmoi`; maintain with periodic
   `chezmoi update` / `chezmoi apply --force`.
 
-NixOS machines are managed by nix-config instead (see CONTEXT.md).
+> **Status:** `install-headless.sh` is prototype-quality (BOX-122) and
+> **unexercised on real hardware** — this class is deliberately out of scope for
+> the current headless effort, whose only live target is lumquat. It is kept
+> because it is the only documented path for the class, not because it is
+> known-good. Treat any failure here as expected, and fix the script rather than
+> assuming the dotfiles are wrong.
 
 ## Bluefin-DX or Bazzite/Bazzite-DX
 

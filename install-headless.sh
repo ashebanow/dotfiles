@@ -26,6 +26,14 @@
 # No Homebrew, no chsh, no GUI assumptions. Non-interactive: any step that
 # would need input fails loudly instead of prompting.
 #
+# STATUS — prototype-quality and UNEXERCISED (BOX-122, restated BOX-171).
+# Its target class (non-NixOS headless) is deliberately out of scope for the
+# current headless effort, whose only live target is lumquat — a NixOS host,
+# which this script refuses to touch. It is kept as the only documented path
+# for the class, not because it is known-good; treat a failure here as expected
+# and fix the script. Do NOT run it on NixOS: the machine is managed by
+# nix-config (see README "Headless machines").
+#
 # BOX-122. Part of the HEADLESS effort (BOX-118).
 
 set -euo pipefail
