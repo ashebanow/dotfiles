@@ -42,11 +42,5 @@
   },
   "askUserQuestionTimeout": "never",
   "skipDangerousModePermissionPrompt": true,
-  "agentPushNotifEnabled": true,
-  "mcpServers": {
-    "linear": {
-      "type": "http",
-      "url": "https://mcp.linear.app/mcp"
-    }
-  }
+  "agentPushNotifEnabled": true
 }

@@ -12,7 +12,6 @@
   "hideThinkingBlock": false,
   "packages": [
     "https://github.com/ayghri/i-have-adhd",
-    "npm:@alasano/pi-linear",
     "npm:@ashebanow/pi-gotgenes-subagent",
     "npm:@feniix/pi-exa",
     "npm:pi-background-tasks@latest",

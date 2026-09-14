@@ -286,14 +286,6 @@
       "remove_trailing_whitespace_on_save": true
     }
   },
-  "context_servers": {
-    "linear": {
-      "command": "npx",
-      "args": ["-y", "mcp-remote", "https://mcp.linear.app/mcp"],
-      "env": {},
-      "settings": {}
-    }
-  },
   "load_direnv": "shell_hook",
   "base_keymap": "VSCode",
   "vim_mode": true,
