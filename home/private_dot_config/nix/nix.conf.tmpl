@@ -2,15 +2,15 @@
 # trusted-users / substituters / experimental-features are managed
 # declaratively by the flake (nix.settings in modules/infra/nix/ on
 # NixOS, determinate module on nix-darwin) — don't duplicate them here.
-# This file also carries the GitHub access token (from bws) for
-# private flake inputs.
+#
+# (The GitHub access-token line that used to live here was deleted in
+# BOX-170: it did nothing, because no private flake input exists and a
+# user-level nix.conf is never forwarded to the daemon. See
+# docs/research/nix-config-github-token-redundancy.md.)
 
 accept-flake-config = true
 auto-optimise-store = true
 cores = 8
 max-jobs = auto
-{{- if env "BWS_ACCESS_TOKEN" }}
-access-tokens = github.com={{ index (output "bws" "secret" "get" "5a333d5a-d7aa-46cb-98e1-b479014cd326" | fromJson) "value" | trim }}
-{{- end }}
 
 extra-experimental-features = nix-command flakes

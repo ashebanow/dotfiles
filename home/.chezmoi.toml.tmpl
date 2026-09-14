@@ -3,6 +3,7 @@
 
 {{/* boolean feature tag */}}
 {{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
+{{- $desktop := false -}}{{/* true if this host has a graphical session (BOX-169) */}}
 {{- "" -}}
 
 {{- $osID := .chezmoi.os -}}
@@ -24,6 +25,21 @@
 {{-   $headless = true -}}
 {{- end -}}
 
+{{/* Desktop axis (BOX-169): independent of headless. A host has a graphical
+     session if someone actually logs into a screen on it. Known personal
+     hosts are desktop; known servers are not; anything else is asked, and a
+     non-interactive run on an unknown host gets the conservative answer
+     (false = no desktop), matching how $headless defaults on unknown hosts. */}}
+{{- if not $headless -}}
+{{-   if or (eq $hostname "bergamot") (eq $hostname "miracle_max") (eq $hostname "miraclemax") (eq $hostname "yuzu") (eq $hostname "liquidity-ubuntu-wsl") (eq $hostname "limon") -}}
+{{-     $desktop = true -}}
+{{-   else if or (eq $hostname "lumquat") (eq $hostname "calamansi") (eq $hostname "kumquat") (eq $hostname "rangpur") (eq $hostname "tangelo") -}}
+{{-     "" -}}{{/* known server — no graphical session */}}
+{{-   else if stdinIsATTY -}}
+{{-     $desktop = promptBoolOnce . "desktop" "desktop" -}}
+{{-   end -}}
+{{- end -}}
+
 {{- if not $headless -}}
 {{-   if or (eq $hostname "lumquat") (eq $hostname "calamansi") (eq $hostname "kumquat") (eq $hostname "rangpur") (eq $hostname "tangelo") -}}
 {{-     $headless = true -}}
@@ -40,6 +56,7 @@
 
 [data]
     email = {{ $email | quote }}
+    desktop = {{ $desktop }}
     gitName = "Andrew Shebanow"
     headless = {{ $headless }}
     hostname = {{ $hostname | quote }}

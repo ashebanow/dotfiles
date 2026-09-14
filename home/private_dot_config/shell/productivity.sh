@@ -32,9 +32,10 @@ alias v="fd --type f --hidden --exclude .git | fzf --preview 'bat {1}' | xargs v
 
 # -----------------------------------------------------
 # eza — modern ls replacement.
-# Normal aliases here; zsh's global-alias variants redefine these names
-# in zshrc.d/eza.zsh (sourced later, so the -g forms win in zsh). Bash
-# gets the plain command aliases (decided: equivalents where possible).
+# Plain aliases, shared by zsh and bash on every machine class. (The zsh-only
+# `alias -g` global forms were deleted: they only differ by firing in argument
+# position, which is never how anyone invokes a listing — and `-g` expands
+# inside quoted strings and heredocs, so they were a small footgun for no gain.)
 # -----------------------------------------------------
 
 if command -v eza &> /dev/null; then
