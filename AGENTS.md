@@ -187,8 +187,8 @@ Always test changes on development systems before merging to main.
 
 ### Issue tracker
 
-Issues for this repo live in Linear — team Boxbow, project Chezmoi. GitHub is code-only.
-See `docs/agents/issue-tracker.md`.
+Issues for this repo live in Linear — team Boxbow, project Chezmoi — reached through the
+`linear` CLI (never an MCP). GitHub is code-only. See `docs/agents/issue-tracker.md`.
 
 ### Triage labels
 
