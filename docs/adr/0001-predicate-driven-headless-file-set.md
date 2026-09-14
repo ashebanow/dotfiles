@@ -41,6 +41,17 @@ denylist produced two defect classes in one pass.
   once (`sunset.service`, whose `ExecStart` points into `.config/hypr/**` — a
   tree the ignore block excludes, so the unit targets a path absent by our own
   decision).
+- **`.chezmoiremove` removes only what chezmoi *currently manages*.** It is
+  "stop managing and delete", not "delete this path" — so an entry fires only in
+  the apply that first de-manages the target. Once an exclusion has taken a file
+  off the managed set, a later `.chezmoiremove` entry for it is a silent no-op
+  and the target survives on disk indefinitely. On lumquat this left 11 stale
+  pre-prune files behind after an otherwise-clean apply (including
+  `shell/secrets.sh`, `999_secrets.sh` and `.zshenv` — the very secret machinery
+  the prune existed to remove), requiring manual deletion. The entry and the
+  exclusion it mirrors must land in the *same* apply; when a pruning pass is
+  split across applies, check the targets by hand afterwards rather than trusting
+  a clean `chezmoi diff`.
 - **A new `[data]` key is not free.** `~/.config/chezmoi/chezmoi.toml` is
   rendered once and is *not* regenerated on an existing host — `hm-infra.nix`
   runs `chezmoi init` only when the source repo is absent — so a key added to
