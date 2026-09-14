@@ -2,15 +2,9 @@
   "lastChangelogVersion": "0.85.1",
   "compaction": {
     "enabled": true,
-    "reserveTokens": 64000,
-    "keepRecentTokens": 15000
-  },
-  "contextShake": {
-    "autoShake": true,
-    "dropThinking": true,
-    "dropRawToolOutput": [
-      "linear"
-    ]
+    "reserveTokens": 32000,
+    "keepRecentTokens": 15000,
+    "methodOrder": ["shake", "summarize"]
   },
   "defaultProvider": "bifrost",
   "defaultModel": "deepseek-v4-flash",
