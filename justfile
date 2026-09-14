@@ -23,3 +23,35 @@ build:
 [group('chezmoi')]
 clear-chezmoi-script-state:
     chezmoi state delete-bucket --bucket=scriptState
+
+# Re-vendor the linear-cli agent skill from an upstream release tag into
+# home/dot_agents/skills/linear-cli (deployed to ~/.agents/skills/linear-cli,
+# which pi scans natively; ~/.claude/skills symlinks to it). The skill must
+# match the binary nix-config installs — `just linear-bump <tag>` over in
+# nix-config bumps both; run this alone only to repair the vendored copy.
+# Drops upstream's SKILL.template.md and scripts/ (doc-generation inputs,
+# not skill content) and records the provenance in VENDORED.md.
+[group('agents')]
+linear-vendor-skill tag:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    tag="{{tag}}"; ver="${tag#v}"
+    dest="home/dot_agents/skills/linear-cli"
+    tmp="$(mktemp -d)"; trap 'rm -rf "$tmp"' EXIT
+    curl -sSfL "https://github.com/schpet/linear-cli/archive/refs/tags/v${ver}.tar.gz" | tar xz -C "$tmp"
+    src="$tmp/linear-cli-${ver}/skills/linear-cli"
+    [[ -f "$src/SKILL.md" ]] || { echo "no skills/linear-cli/SKILL.md in v${ver}" >&2; exit 1; }
+    rm -rf "$dest"; mkdir -p "$dest"
+    cp "$src/SKILL.md" "$dest/"
+    cp -R "$src/references" "$dest/references"
+    {
+      echo "# Vendored from schpet/linear-cli"
+      echo
+      echo "- Tag: v${ver}"
+      echo "- Source path: skills/linear-cli (SKILL.md + references/; SKILL.template.md and scripts/ dropped)"
+      echo "- Vendored: $(date +%Y-%m-%d) via \`just linear-vendor-skill v${ver}\`"
+      echo
+      echo "Must match the linear-cli version pinned in nix-config's lib/overlays/linear-cli.nix."
+      echo "Do not edit by hand; re-run the recipe."
+    } > "$dest/VENDORED.md"
+    echo "vendored linear-cli skill v${ver} -> $dest"

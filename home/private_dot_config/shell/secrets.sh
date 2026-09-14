@@ -101,6 +101,11 @@ _bws_refresh_cache() {
         echo "export EXA_API_KEY=\"$(bws secret get 52eba787-8cb2-41b7-87b1-b4770134b198 2>/dev/null | jq -r '.value' || true)\""
         echo "export PARALLEL_API_KEY=\"$(bws secret get 8fc4ed53-b8b9-4c67-9d7f-b48b002eefac 2>/dev/null | jq -r '.value' || true)\""
         echo "export FLAKEHUB_TOKEN=\"$(bws secret get 0c678df8-84e4-4a1b-90db-b4a101071ee3 2>/dev/null | jq -r '.value' || true)\""
+        # linear CLI (replaces the Linear MCP, BOX-176). A production secret
+        # per CONTEXT.md; this cache is the Darwin delivery path, lumquat
+        # reads /run/secrets/linear-api-key through the nix wrapper instead.
+        # BWS item keeps its historical name `linear-mcp-api-key`.
+        echo "export LINEAR_API_KEY=\"$(bws secret get d3c9dba0-ea88-4774-bd62-b4a9001c6d9a 2>/dev/null | jq -r '.value' || true)\""
     } >"$_BWS_ENV_FILE.tmp" && mv "$_BWS_ENV_FILE.tmp" "$_BWS_ENV_FILE"
     chmod 600 "$_BWS_ENV_FILE"
 }
