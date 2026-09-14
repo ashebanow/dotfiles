@@ -89,7 +89,7 @@
 {{ end }}
 
 {{ if .headless }}
-# ── headless machines: no personal secrets/dev tools, minimal toolset ──
+# ── headless machines: no personal secrets, no interactive dev tooling ──
 # (BOX-123, revised by BOX-169/170. The positive rule: a managed file is kept
 # iff the tool it configures is installed on this host at ANY tier, devshell
 # included. The check is nix-config's inventory, never a remembered list —
@@ -139,9 +139,16 @@
 .config/shell/starship-nix-gate.sh
 # Secret machinery: BWS/keyring plumbing, not tool config. A tool config that
 # merely *references* a secret is guarded, not excluded (see ~/.pi).
+# This is a TOOLSET exclusion, not a secrecy one: headless hosts do carry
+# production secrets (CONTEXT.md), but they get them from secretspec /
+# /run/secrets in nix-config, not from an interactive shell's BWS cache —
+# there is no keyring, no BWS token in the user session, and no login shell
+# that should be paying for the fetch.
 .config/shell/secrets.sh
 .config/bashrc.d/999_secrets.sh
-# Personal (ashebanow's) secrets & identity — headless carries none
+# Personal (ashebanow's) secrets & identity — headless carries none. These
+# are personal secrets in CONTEXT.md's sense (blast radius reaches him as a
+# person), unlike the production secrets above.
 .claude
 .gnupg
 .hermes

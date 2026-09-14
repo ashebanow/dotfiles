@@ -1,0 +1,14 @@
+# linear-cli (schpet/linear-cli) user config. One Linear team everywhere, so
+# this is the only copy — no per-repo .linear.toml.
+#
+# There is deliberately no project here: the CLI has no `project` key. Every
+# `linear issue create` / `issue query` names its project explicitly
+# (`--project Chezmoi`, `--project Nix-Config`, ...); see each repo's
+# docs/agents/issue-tracker.md.
+#
+# Not gated on headless: the dev shell installs `linear` at every tier
+# (installed-tool rule). The API key is not here either — LINEAR_API_KEY
+# comes from secrets.sh (Darwin) or /run/secrets via the nix wrapper
+# (lumquat).
+team_id = "BOX"
+workspace = "boxbow"
