@@ -1,0 +1,263 @@
+#!/usr/bin/env bash
+#
+# agents-skills-sync — re-vendor the upstream skill sets into the chezmoi
+# source tree, then redeploy them.
+#
+# WHY THIS EXISTS
+#
+# `npx skills add <source>` has no destination flag. `parseAddOptions` in
+# skills/dist/cli.mjs knows only -g/--global, -y/--yes, -l/--list, --all,
+# -a/--agent, -s/--skill, --metadata, --full-depth, --json, --copy and
+# --subagent. Anything else that does not start with "-" is treated as a
+# *source* argument, so `--dir home` is silently discarded and `home` is
+# silently ignored. Destination is chosen solely by getAgentBaseDir:
+#
+#     baseDir = global ? homedir() : cwd
+#
+# So the installer's idea of "install" is to write into live agent
+# directories under $HOME — the *deployed* files, not the chezmoi source.
+# This script instead runs the installer project-scope inside a throwaway
+# sandbox directory and copies the result into the source tree. Nothing
+# touches the live agent directories; `chezmoi apply` is what deploys,
+# exactly as for every other managed file.
+#
+# WHY .pi/skills IS THE STAGER
+#
+# With explicit -a flags the universal-agent fan-out does not run, so the
+# installer never writes an .agents tree at all — verified: it produces only
+# <cwd>/.claude/skills and <cwd>/.pi/skills. home/dot_agents/skills
+# therefore cannot be installer output and must be assembled here. Of the two
+# trees the installer does write, .pi/skills is the stager because
+# ~/.claude is excluded entirely on headless hosts by .chezmoiignore.tmpl;
+# staging out of a tree that is absent on some hosts is a trap.
+#
+# The two trees are byte-identical (verified: `diff -r` clean, 37/37 per-skill
+# hashes match) because agent identity selects only the destination path — the
+# installer copies upstream files verbatim and never transforms content. That
+# equivalence holds for mattpocock/skills today; it is not guaranteed by the
+# CLI's design, so this script asserts it rather than assuming it.
+#
+# Scope: --only limits agents (default: claude-code, pi), and -s '*' takes all
+# skills. -a MUST be repeated per agent — the parser reads the value with
+# `while (!nextArg.startsWith("-"))`, so "claude-code,pi" is one token and
+# fails with `Invalid agents:`.
+#
+# Exit codes: 0 ok, 1 failure, 2 usage.
+
+set -euo pipefail
+
+readonly DEFAULT_SOURCE="mattpocock/skills"
+readonly DEFAULT_AGENTS=(claude-code pi)
+
+# Chezmoi source root (this script lives in <root>/home/private_dot_local/bin).
+readonly SRC_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../../.." && pwd -P)"
+readonly SKILLS_DEST="$SRC_ROOT/home/dot_agents/skills"
+readonly CLAUDE_LINKS="$SRC_ROOT/home/dot_claude/skills"
+readonly PI_LINKS="$SRC_ROOT/home/dot_pi/agent/skills"
+
+# Entries in the destination that belong to this repo, not to any upstream
+# source, and must survive a sync. README.md documents the provenance
+# categories; linear-cli and afk-loop are first-party skills.
+readonly KEEP=(README.md linear-cli afk-loop)
+
+DRY_RUN=0
+SKIP_APPLY=0
+SOURCE="$DEFAULT_SOURCE"
+AGENTS=("${DEFAULT_AGENTS[@]}")
+
+usage() {
+    cat <<'EOF'
+Usage: agents-skills-sync [options]
+
+Vendor an upstream skill set into home/dot_agents/skills and refresh the
+claude/pi symlink trees, then `chezmoi apply`.
+
+Options:
+  --source <owner/repo>   Upstream source (default: mattpocock/skills).
+  --agents <a,b>          Comma-separated agents to install (default:
+                          claude-code,pi). Each is passed as its own -a flag.
+  --dry-run               Show what would change; write nothing.
+  --no-apply              Stage changes but do not run `chezmoi apply`.
+  -h, --help              This message.
+EOF
+}
+
+log()  { printf '\033[36m==>\033[0m %s\n' "$*"; }
+warn() { printf '\033[33m warn:\033[0m %s\n' "$*" >&2; }
+die()  { printf '\033[31mERROR:\033[0m %s\n' "$*" >&2; exit 1; }
+
+while (($#)); do
+    case "$1" in
+        --source)  SOURCE="${2:-}"; [[ -n "$SOURCE" ]] || die "--source needs a value"; shift 2 ;;
+        --agents)  IFS=',' read -r -a AGENTS <<<"${2:-}"
+                   [[ ${#AGENTS[@]} -gt 0 && -n "${AGENTS[0]}" ]] || die "--agents needs a value"
+                   shift 2 ;;
+        --dry-run) DRY_RUN=1; shift ;;
+        --no-apply) SKIP_APPLY=1; shift ;;
+        -h|--help) usage; exit 0 ;;
+        *)         usage >&2; exit 2 ;;
+    esac
+done
+
+run() { if ((DRY_RUN)); then printf '  [dry-run] %s\n' "$*"; else "$@"; fi; }
+
+((EUID == 0)) && die "run as your normal user, not root (chezmoi is per-user)"
+[[ -d "$SRC_ROOT/home" ]] || die "not a chezmoi source root: $SRC_ROOT"
+[[ -d "$SKILLS_DEST" ]] || die "missing $SKILLS_DEST"
+command -v npx   >/dev/null || die "npx not found on PATH"
+command -v rsync >/dev/null || die "rsync not found on PATH"
+
+WORK=""
+cleanup() {
+    # NB: must return 0. A trap's status becomes the script's exit status on a
+    # normal exit, so a failed test here would turn success into exit 1.
+    if [[ -n "$WORK" && -d "$WORK" ]]; then rm -rf "$WORK"; fi
+    return 0
+}
+trap cleanup EXIT
+
+# ---------------------------------------------------------------- fetch -----
+WORK="$(mktemp -d "${TMPDIR:-/tmp}/agents-skills-sync.XXXXXX")"
+SANDBOX="$WORK/work"
+STAGE="$WORK/stage"
+mkdir -p "$SANDBOX" "$STAGE"
+
+agent_flags=()
+for a in "${AGENTS[@]}"; do agent_flags+=(-a "$a"); done
+
+log "fetching $SOURCE (agents: ${AGENTS[*]}) into a sandbox"
+log "  sandbox: $SANDBOX"
+if ((DRY_RUN)); then
+    printf '  [dry-run] (cd %s && npx -y skills@latest add %s -s "*" %s --copy -y)\n' \
+        "$SANDBOX" "$SOURCE" "${agent_flags[*]}"
+else
+    if ! ( cd "$SANDBOX" && npx -y skills@latest add "$SOURCE" \
+            -s '*' "${agent_flags[@]}" --copy -y ) >"$WORK/npx.log" 2>&1; then
+        tail -40 "$WORK/npx.log" >&2
+        die "npx skills add failed (full log: $WORK/npx.log)"
+    fi
+fi
+
+# --------------------------------------------------------------- locate -----
+# The stager is the pi tree; fall back to claude if pi was not requested.
+STAGER=""
+for cand in "$SANDBOX/.pi/skills" "$SANDBOX/.claude/skills"; do
+    [[ -d "$cand" ]] && { STAGER="$cand"; break; }
+done
+if [[ -z "$STAGER" ]]; then
+    if ((DRY_RUN)); then
+        warn "no staged tree (dry-run); skipping stage/link/apply"
+        STAGER=""
+    else
+        die "installer produced no skills tree; see $WORK/npx.log"
+    fi
+fi
+
+if [[ -n "$STAGER" ]]; then
+    count="$(find "$STAGER" -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')"
+    log "staged $count skills from ${STAGER#"$SANDBOX"/}"
+    ((count > 0)) || die "staged tree is empty: $STAGER"
+
+    # Assert the staging choice is sound: if a claude tree also exists it must
+    # be byte-identical to the tree we are about to adopt.
+    other="$SANDBOX/.claude/skills"
+    if [[ "$STAGER" != "$other" && -d "$other" ]]; then
+        if ! diff -r "$other" "$STAGER" >/dev/null 2>&1; then
+            die "claude and pi trees differ; refusing to pick one silently.
+  diff them and decide which is authoritative: diff -r '$other' '$STAGER'"
+        fi
+    fi
+fi
+
+# ---------------------------------------------------------------- stage -----
+if [[ -n "$STAGER" ]] && ((!DRY_RUN)); then
+    cp -R "$STAGER/." "$STAGE/"
+    # Layer this repo's own entries on top so the rsync below cannot delete
+    # them. Guard each with an existence check: an upstream rename that
+    # collides with a keeper would otherwise be a silent `cp -R` into an
+    # existing directory.
+    for keep in "${KEEP[@]}"; do
+        if [[ -e "$SKILLS_DEST/$keep" ]]; then
+            cp -R "$SKILLS_DEST/$keep" "$STAGE/$keep"
+            log "  preserved: $keep"
+        fi
+    done
+    # The sandbox lock is the installer's bookkeeping for a throwaway tree;
+    # the repo-root skills-lock.json is the provenance record. Never stage the
+    # former over the latter.
+    rm -f "$STAGE/.skill-lock.json" "$STAGE/skills-lock.json"
+
+    log "syncing into $SKILLS_DEST"
+    rsync -a --delete \
+        --exclude '/README.md' \
+        --exclude '/linear-cli/' \
+        --exclude '/afk-loop/' \
+        "$STAGE/" "$SKILLS_DEST/"
+fi
+
+# ---------------------------------------------------------------- links -----
+# claude and pi read their own skill directories and are not served by
+# .agents/skills, so each needs a per-skill relative symlink. Relative targets
+# keep working wherever the tree is mounted. Note: the existing link files have
+# NO trailing newline, so mk() writes none either.
+sync_links() {
+    local dir="$1" prefix="$2" name target
+
+    if [[ ! -d "$dir" ]]; then
+        run mkdir -p "$dir"
+        ((DRY_RUN)) && { log "  (dry-run: $dir would be created)"; return 0; }
+    fi
+
+    local -a want=()
+    while IFS= read -r name; do
+        [[ -n "$name" ]] || continue
+        want+=("$name")
+        target="${prefix}${name}"
+        if [[ -f "$dir/symlink_$name" ]] && [[ "$(cat "$dir/symlink_$name")" == "$target" ]]; then
+            continue
+        fi
+        if ((DRY_RUN)); then
+            printf '  [dry-run] link %s/symlink_%s -> %s\n' "$dir" "$name" "$target"
+        else
+            printf '%s' "$target" > "$dir/symlink_$name"
+        fi
+    done < <(cd "$SKILLS_DEST" && find . -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
+
+    # Drop links whose skill is gone upstream.
+    while IFS= read -r existing; do
+        name="${existing##*/symlink_}"
+        local found=0 w
+        for w in "${want[@]}"; do
+            if [[ "$w" == "$name" ]]; then found=1; break; fi
+        done
+        if ((found == 0)); then
+            if ((DRY_RUN)); then printf '  [dry-run] rm %s\n' "$existing"
+            else rm -f "$existing"; fi
+        fi
+    done < <(find "$dir" -maxdepth 1 -name 'symlink_*' 2>/dev/null | sort)
+}
+
+log "refreshing symlink trees"
+sync_links "$CLAUDE_LINKS" '../../.agents/skills/'
+sync_links "$PI_LINKS"     '../../../.agents/skills/'
+
+# ---------------------------------------------------------------- apply -----
+if ((SKIP_APPLY)) || ((DRY_RUN)); then
+    log "skipping chezmoi apply"
+else
+    log "applying ~/.agents/skills ~/.claude/skills ~/.pi/agent/skills"
+    # --force: chezmoi's recorded mode for some vendored files disagrees with
+    # disk, and a mismatch makes apply prompt on /dev/tty, which aborts.
+    chezmoi apply --force ~/.agents/skills ~/.claude/skills ~/.pi/agent/skills
+fi
+
+# ---------------------------------------------------------------- report ----
+if ((DRY_RUN)); then log "dry run complete; nothing written"; exit 0; fi
+
+log "source tree status:"
+git -C "$SRC_ROOT" status --short -- \
+    home/dot_agents home/dot_claude home/dot_pi "$SRC_ROOT/skills-lock.json" || true
+
+echo
+log "done. Review the diff, then commit. Run 'chezmoi apply' on other hosts."
+exit 0
