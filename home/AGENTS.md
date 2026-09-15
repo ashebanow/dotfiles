@@ -4,18 +4,28 @@ These rules apply to all repositories unless a project's own `AGENTS.md`
 explicitly overrides them (project rules win — e.g. a project that mandates
 pushing at session end).
 
-## Pushing — THE most important rule
+## Pushing
 
-**NEVER `git push` without explicit confirmation from me.**
+**Feature branches: commit AND push freely. No confirmation needed.**
 
-- I often squash/reword local commits with `git rebase -i` before they go
-  public. An early push makes that history rewriting painful.
-- Committing locally is fine and encouraged; pushing is a separate,
-  user-approved step.
-- At the end of a work session, report any unpushed commits (hash + subject)
-  and ask whether to push.
-- Never force-push (`--force`/`--force-with-lease`) without explicit
-  confirmation, even on branches you created.
+Once work is on a branch you created, pushing it is routine — that's what
+branches are for. Don't stop to ask.
+
+**Ask first for exactly two things:**
+
+1. **Anything that touches `main`** — direct commits or pushes to `main`, and
+   merges into it.
+2. **Opening or updating a PR.** Drafting the branch is free; publishing it
+   for review is the approval step.
+
+**Never, ever, without explicit confirmation:**
+
+- `git push --force` / `--force-with-lease`, on any branch, including yours.
+- Rewriting history that has already been pushed (e.g. `git rebase -i` on a
+  branch with a PR). Local squashing before pushing is fine — that's exactly
+  why an unwanted early push is costly.
+
+At session end, still report the branch and its commits so the state is clear.
 
 ## Commits
 
@@ -42,8 +52,12 @@ pushing at session end).
 
 ## GitHub
 
-- Use the `gh` CLI to inspect issues and PRs (`gh issue view N --repo
-  owner/repo`, `gh pr view`), not web search.
+- **Issues live in Linear, not on GitHub.** Use the `linear` CLI (`linear issue
+  view BOX-123`, `linear issue list --team BOX`) — never `gh issue`, and never
+  web search. GitHub is code-only: PRs, branches, releases.
+- A "GitHub issue" in the commit-message convention below is usually a Linear
+  reference in practice; put the Linear ID (`BOX-123`) in the commit body.
+- Use `gh pr view` / `gh pr list` for pull requests.
 - Don't merge, close, or comment on PRs/issues without being asked.
 
 ## Secrets & hygiene
