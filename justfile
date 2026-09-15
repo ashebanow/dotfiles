@@ -24,6 +24,28 @@ build:
 clear-chezmoi-script-state:
     chezmoi state delete-bucket --bucket=scriptState
 
+# Re-vendor the Matt Pocock skill set into home/dot_agents/skills from
+# mattpocock/skills, refresh the claude/pi symlink trees, and deploy.
+#
+# The installer has no destination flag (see the script's header for the
+# proof), so it cannot write into the chezmoi source directly; the script runs
+# it in a throwaway sandbox and copies the result in. Repo-local entries in
+# that directory (README.md, linear-cli, afk-loop) are preserved.
+#
+# Defaults to a dry run; pass `apply` to actually do it. Upstream changes
+# arrive as ordinary git diffs -- review them before committing.
+[group('agents')]
+agents-skills-sync action="dry-run":
+    #!/usr/bin/env bash
+    set -euo pipefail
+    script="home/private_dot_local/bin/executable_agents-skills-sync"
+    case "{{action}}" in
+      dry-run) "$script" --dry-run ;;
+      stage)   "$script" --no-apply ;;
+      apply)   "$script" ;;
+      *) echo "usage: just agents-skills-sync [dry-run|stage|apply]" >&2; exit 2 ;;
+    esac
+
 # Re-vendor the linear-cli agent skill from an upstream release tag into
 # home/dot_agents/skills/linear-cli (deployed to ~/.agents/skills/linear-cli,
 # which pi scans natively; ~/.claude/skills symlinks to it). The skill must
