@@ -18,6 +18,42 @@ Who reads this directory:
 
 Vendored third-party skills carry a `VENDORED.md` with tag and provenance and
 a `just` recipe that refreshes them (see the repo justfile); never hand-edit.
+First-party skills are the opposite — see below.
+
+## Three provenance categories
+
+Everything here is one of these. Know which before editing anything:
+
+| Category | Example | Rule |
+|---|---|---|
+| **First-party** | `afk-loop` | Authored here. Edit freely — see below. |
+| **Vendored** | `linear-cli` | Has `VENDORED.md` + a `just` refresh recipe. Never hand-edit. |
+| **Bulk-vendored** | the Matt Pocock set | Provenance in the repo-root `skills-lock.json`. Never hand-edit; refresh as a set. |
+| **npx-managed** | `find-skills` | Installed by `npx skills`; tracked in `~/.agents/.skill-lock.json`, not by chezmoi. |
+
+The "never hand-edit" rule below applies to the vendored categories only.
+Applying it to a first-party skill would be wrong — those are yours to change.
+
+## First-party skills
+
+Skills this repo authors rather than vendors, currently `afk-loop`. They are
+edited here directly and take effect on the next `chezmoi apply`.
+
+A first-party skill may deploy more than the one directory. `afk-loop` also
+owns generated per-harness agent files (`home/dot_pi/agent/agents/`,
+`home/dot_claude/agents/`) whose prose lives once in the skill's
+`personas/*.body.md` and is stapled under a harness-specific frontmatter cover
+sheet by a chezmoi template. Edit the `.body.md`, never the generated file.
+
+Note the two harnesses need genuinely different frontmatter — pi reads
+`thinking:` and lowercase builtin tool names with no Skill tool, Claude reads
+`effort:` and capitalised names including Skill — so the split cannot be
+collapsed into one shared file or a symlink.
+
+Also note: an agent file's `model:` is resolved differently on each harness.
+On pi it *silently* falls back to the orchestrator's model unless the value is
+a `provider/modelId` pair present and authenticated in the registry, which is
+why `afk-loop`'s SKILL.md tells the orchestrator to pass `model` per call.
 
 ## The Matt Pocock engineering skills
 

@@ -26,7 +26,7 @@ Read the config before doing anything else, and take every repo-specific value f
 | `[review]` | `as` = `app`\|`user`; `fallback` when minting fails |
 | `[merge]` | `as` = `app`\|`user`; `strategy`; `delete_branch` |
 | `[tracker]` | `kind` = `linear`\|`github`; `doc`; `labels_doc`; `ready_label` |
-| `[worktree]` | where worktrees go, how they are made, `doc` |
+| `[worktree]` | `sibling`; `symlink_node_modules`; `doc` |
 | `[skills]` | the umbrella skills the personas lean on |
 
 **If the repo has no `.afk.toml`, say so before you start.** The loop will run without an App, reviews land as plain comments, and every merge needs a human. That is a degraded mode, not a failure — name it up front rather than silently discovering it at the merge step.
@@ -39,6 +39,8 @@ The implementor and reviewer roles are fixed personas with their model and effor
 
 - **Claude Code**: `~/.claude/agents/afk-implementor.md` and `afk-reviewer.md`. Spawn them by `subagent_type` name (`afk-implementor` / `afk-reviewer`). Their frontmatter pins `model` and `effort`; their body is the full persona. **New or edited agent files only take effect in a fresh session** — if a `subagent_type` lookup fails with "not found" mid-session, a persona file changed since this session started; fall back to a `general-purpose` subagent with an explicit `model` override, pasting that file's body in as the system-prompt portion of the launch prompt, and tell the user a session restart will re-enable spawning it by name.
 - **pi**: `~/.pi/agent/agents/afk-implementor.md` and `afk-reviewer.md`, loaded by the subagent extension. Spawn them the same way, by `subagent_type` name. pi has no `effort` field — the equivalent is `thinking`, already set in the file.
+
+  **pi caveat — pass `model` explicitly on every spawn.** pi resolves an agent file's `model:` only when it is written `provider/modelId` *and* that pair is present and authenticated in the registry; anything else — most importantly a bare id — falls through and runs the subagent on **your** model, with no warning. The per-call `model` parameter does not have that failure mode: it resolves fuzzily, accepts a bare id, and fails loudly with the available list when it cannot match. So on pi, treat the agent file's `model:` as a declaration of intent and pass `model` on the call as the thing that actually takes effect. This is also how you size the model to the issue's estimate, as 4c asks.
 
 Both harnesses generate their copies from one source: the personas' prose lives once, at `~/.agents/skills/afk-loop/personas/*.body.md`, and each harness's file is a thin frontmatter cover sheet over that shared body. If a persona needs to be read directly (for instance when falling back to `general-purpose`), read the `.body.md` file — it is runtime-agnostic and carries no frontmatter.
 
@@ -79,7 +81,7 @@ Move the issue to the tracker's "in progress" state (Linear: **In Progress**; Gi
 
 #### 4b. Isolate
 
-Create a git worktree as a **sibling** of the checkout, never nested inside it — that is the repo's worktree convention, documented at the config's `[worktree] doc`, and it is a hard convention, not a suggestion: `git worktree add ../<short-name> -b <branch>`. Symlink `node_modules` in from the primary checkout rather than reinstalling. This worktree is the implementor's entire world for this issue.
+Create a git worktree per the config's `[worktree]` block, honoring both of its booleans. With `sibling = true` (the default) it goes as a **sibling** of the checkout, never nested inside it — that is the usual repo convention, documented at `[worktree] doc`, and where the repo states it, it is a hard convention rather than a suggestion: `git worktree add ../<short-name> -b <branch>`. With `symlink_node_modules = true`, symlink `node_modules` in from the primary checkout rather than reinstalling. This worktree is the implementor's entire world for this issue.
 
 #### 4c. Implement (fresh `afk-implementor`, TDD)
 
@@ -114,7 +116,7 @@ On a verified APPROVE with a green suite, merge the PR. **Exactly one merge path
 
 ```
 GH_TOKEN=$(<expanded mint command>) \
-  gh pr merge <n> --<merge strategy> --delete-branch=false
+  gh pr merge <n> --<[merge] strategy> --delete-branch=<[merge] delete_branch>
 ```
 
 Three parts of that command are load-bearing:
