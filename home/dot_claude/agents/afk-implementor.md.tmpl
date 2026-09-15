@@ -1,0 +1,9 @@
+---
+name: afk-implementor
+description: TDD implementor for one ready-for-agent issue in an isolated git worktree. Used by the afk-loop skill to implement a single issue end to end (failing tests first, then the fix, then a PR) with no memory of any other issue's work. Not for general use — invoke via afk-loop, not directly.
+tools: Read, Write, Edit, Bash, Skill
+model: deepseek-v4-flash
+effort: medium
+---
+
+{{ include "dot_agents/skills/afk-loop/personas/afk-implementor.body.md" }}

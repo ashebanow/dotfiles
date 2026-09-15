@@ -1,0 +1,99 @@
+# afk.default.toml — fallback config for the afk-loop skill.
+#
+# Used only when the repo being worked on has no `.afk.toml` at its root.
+# Every value here is the safe, no-privileges choice: no GitHub App, reviews
+# posted as ordinary comments, and the merge left to a human. A repo that
+# wants the loop to run fully unattended opts in with its own `.afk.toml`
+# plus a provisioned App — see the `[app]` block below.
+#
+# This file is instruction for the orchestrating agent, not input to a
+# program. There is no parser to satisfy; read it and follow it.
+
+version = 1
+
+[repo]
+# owner/name as GitHub knows it. Empty means "work it out with
+# `gh repo view --json nameWithOwner`".
+slug = ""
+# Paths that must never be committed on a feature branch — generated output
+# the repo's own hooks produce on the default branch. Repos that generate a
+# wiki or a dependency graph list them here.
+never_commit = []
+
+[identity]
+# The `gh` account the loop authors commits and PRs as. This is also the
+# account the merge guard checks PRs against: the App will only ever merge
+# PRs authored by this account, never an outside contributor's.
+author = ""
+# Magic word that links a commit or PR to its tracker issue, with {id} for
+# the issue identifier. Linear and GitHub Issues both honour these.
+#   Linear: `fixes BOX-58`   GitHub: `fixes #58`
+commit_magic = "fixes {id}"
+
+# The GitHub App used for review and merge when a repo opts into it.
+# A repo with no App leaves `review.as` and `merge.as` as "user".
+[app]
+# App slug as it appears in review authors and token-minting scripts.
+name = ""
+# Script that mints a short-lived installation token and prints it on stdout.
+# Invoke it as `bash <script>`, never by bare path: a terminal emulator's
+# shebang-confirmation dialog can hang an unattended round indefinitely.
+script = ""
+# How to mint the token. {phase} is "review" or "merge"; {script} is the
+# value above. The token must exist only inside the command's environment —
+# it is never written to disk.
+mint = ""
+# Where the App's one-time provisioning is documented, so a failure can
+# point at the fix rather than just reporting an error.
+setup_doc = ""
+
+[review]
+# Who posts the review: "app" or "user".
+#
+# This is usually not a preference. GitHub rejects an APPROVE or
+# REQUEST_CHANGES review from the PR's own author as self-review, and the
+# loop authors PRs as `identity.author`. Reviewing as that same account
+# therefore degrades to a comment. An App is a separate principal, so its
+# review is accepted and the PR gets a real approval.
+as = "user"
+# What to do when the App cannot be used: "comment" posts the verdict as a
+# plain PR comment with the verdict stated up front, and says the formal
+# review state was blocked. Never present a comment as a granted approval.
+fallback = "comment"
+
+[merge]
+# Who merges: "app" or "user". Set to "app" only when the App is a bypass
+# actor on the base branch's ruleset — that is what lets it merge without a
+# human approval. With "user", stop after a verified APPROVE and hand the
+# PR to the human; do not merge on your own initiative.
+as = "user"
+strategy = "squash"
+delete_branch = false
+
+[tracker]
+# "linear" or "github". One Linear instance can back many repos; some older
+# repos and forks still use GitHub Issues. The loop must not assume.
+kind = "github"
+# Repo-relative docs describing how to read/write the tracker and how the
+# canonical triage roles map onto this tracker's real labels. Optional —
+# when absent, work from the tracker's own UI/CLI and say what you assumed.
+doc = ""
+labels_doc = ""
+# The label that admits an issue to the queue.
+ready_label = "ready-for-agent"
+
+[worktree]
+# Create the worktree as a sibling of the checkout, never nested inside it.
+sibling = true
+# Symlink the primary checkout's node_modules in rather than reinstalling.
+symlink_node_modules = true
+# Repo doc describing worktree hygiene. The worktree is the implementor's
+# entire world for its issue, so this convention matters.
+doc = "AGENTS.md"
+
+[skills]
+# The umbrella skills the two personas lean on. These live in the base
+# harness (~/.agents/skills/), so they are present in every repo.
+tdd = "/tdd"
+implement = "/implement"
+code_review = "/code-review"
