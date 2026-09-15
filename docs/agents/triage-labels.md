@@ -16,9 +16,10 @@ express the role as described below — do **not** invent a label to fill the ga
 
 ## Why four of the five roles have no label
 
-Boxbow models triage state in Linear **workflow states**, not labels. The workspace labels are:
+Boxbow has no label for four of the five triage roles; it models them in Linear **workflow
+states**, or a comment where no state applies. The workspace labels are:
 
-- **Category**: `Feature`, `Bug`, `Improvement` — pair exactly one with the state label
+- **Category**: `Feature`, `Bug`, `Improvement` — pick one per issue
 - **State**: `Ready For Agent`
 - **Parking**: `Deferred`
 
@@ -26,7 +27,7 @@ The four roles without a label resolve like this:
 
 | Role              | How it is expressed                                                            |
 | ----------------- | ------------------------------------------------------------------------------ |
-| `needs-triage`    | The issue is simply unlabeled — the skill's own "Unlabeled" bucket             |
+| `needs-triage`    | Simply unlabeled — the skill's own "Unlabeled" bucket; post nothing             |
 | `needs-info`      | No label and no state change; post triage notes as a comment                   |
 | `ready-for-human` | Expressed by the **absence** of `Ready For Agent`; post the brief as a comment |
 | `wontfix`         | The `Won't Fix` canceled state, or `Canceled`                                  |
@@ -34,5 +35,5 @@ The four roles without a label resolve like this:
 ## Triage labels are orthogonal to workflow states
 
 Linear tracks board state via statuses (`Todo`, `In Progress`, `Done`, …) and `/triage` applies
-the role labels above. Both namespaces coexist on the same issue; don't conflate
+the role mapping above. Both namespaces coexist on the same issue; don't conflate
 `Ready For Agent` with the `Todo` status (triage role vs. workflow state).

@@ -192,9 +192,10 @@ Issues for this repo live in Linear — team Boxbow, project Chezmoi — reached
 
 ### Triage labels
 
-Boxbow models triage as a category label (`Feature` / `Bug` / `Improvement`) plus a state
-label (`Ready For Agent`, `Deferred`), not the five canonical role strings; the remaining
-roles resolve to Linear workflow states. See `docs/agents/triage-labels.md`.
+Boxbow has no labels for four of the five canonical triage roles. Triage shows up as a
+category label (`Feature` / `Bug` / `Improvement`) plus the `Ready For Agent` and `Deferred`
+labels; the remaining roles resolve to Linear workflow states or a comment. See
+`docs/agents/triage-labels.md`.
 
 ### Domain docs
 
