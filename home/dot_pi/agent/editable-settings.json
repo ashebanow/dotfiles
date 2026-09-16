@@ -12,6 +12,7 @@
   "hideThinkingBlock": false,
   "packages": [
     "https://github.com/ayghri/i-have-adhd",
+    "git:https://github.com/joshleblanc/pi-minimax",
     "npm:@alasano/pi-linear",
     "npm:@ashebanow/pi-gotgenes-subagent",
     "npm:@feniix/pi-exa",
