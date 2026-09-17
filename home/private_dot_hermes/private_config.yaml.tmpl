@@ -8,6 +8,35 @@ model:
   base_url: https://ai.fluffy-walleye.ts.net/v1
   default: deepseek-v4-pro
   provider: deepseek
+  # Per-client attribution (BOX-197, parent BOX-149). hermes sends the virtual
+  # key on `x-bf-vk` so the gateway records `virtual_key_name: hermes` on every
+  # log row, making its traffic filterable by client instead of anonymous.
+  #
+  # `x-bf-vk`, not `Authorization`: bifrost accepts a virtual key on
+  # Authorization only while auth-on-inference is disabled -- the exact
+  # condition BOX-193 flips. `x-bf-vk` works in both modes.
+  #
+  # This lives at model level, not under providers.bifrost, because hermes'
+  # per-provider `extra_headers` is matched by base_url equality
+  # (`get_custom_provider_extra_headers`, hermes_cli/config.py) while the
+  # primary turn runs as provider `deepseek` -- so a header hung on the
+  # `bifrost` entry never applied, and the request went out unattributed.
+  # `model.extra_headers` is applied unconditionally to the main client and to
+  # auxiliary calls, which is correct here: every hermes request goes to this
+  # one gateway regardless of which provider profile selected the model.
+  #
+  # The ticket's open question -- whether hermes has a provider-level key field
+  # -- resolves to `extra_headers`/`key_env`, which ARE known keys on
+  # providers.<name> entries (`_normalize_custom_provider_entry`). `api_key` is
+  # known too but feeds the OpenAI SDK's Bearer token, the header that stops
+  # working at the enforcement flip.
+  #
+  # The value arrives via the `hermes` shell function in
+  # ~/.config/shell/attribution.sh, which runs `secretspec run -S bifrost` and
+  # so resolves the same BWS item the gateway reads. `${VK_HERMES}` is expanded
+  # recursively by `_expand_env_vars` at load time, so no value is written here.
+  extra_headers:
+    x-bf-vk: "${VK_HERMES}"
 fallback_providers: []
 providers:
   # The gateway's model listing enumerates only its native providers (anthropic,
@@ -21,6 +50,9 @@ providers:
   # native MiniMax provider is still an unmerged upstream PR. pi and Zed reach
   # MiniMax directly on the same account credits instead; hermes has no direct
   # provider set up, so MiniMax is simply unavailable here for now.
+  # Per-client attribution (BOX-197) rides model.extra_headers above, not this
+  # entry -- see the note there for why base_url matching makes a header on
+  # this block ineffective for the primary provider.
   bifrost:
     base_url: https://ai.fluffy-walleye.ts.net/v1
     discover_models: false

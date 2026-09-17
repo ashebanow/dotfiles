@@ -21,10 +21,28 @@ providers:
   - id: bifrost
     name: Bifrost
     base_url: https://ai.fluffy-walleye.ts.net/v1
-    # Sends X-User-Email with each request. The gateway records it, and this is the
-    # only client whose config can identify its own traffic (BOX-149).
+    # Per-client attribution (BOX-200, parent BOX-149). The gateway records this
+    # virtual key as `virtual_key_name` on every log row, so Raycast's traffic
+    # is filterable by client instead of anonymous. `api_keys` is a map of alias
+    # -> key; the alias is arbitrary and the first one is the default.
+    #
+    # Rendered by chezmoi via `bitwardenSecrets` at apply time, which is the only
+    # mechanism available: Raycast is a hotkey-launched GUI app, so `secretspec
+    # run` cannot reach it, and providers.yaml was converted from a plain tracked
+    # file to a .tmpl for exactly this. The value comes from the same BWS item the
+    # gateway reads, so the two sides cannot drift. Nothing in git holds it.
+    #
+    # Rides `Authorization: Bearer` (OpenAI-compatible convention). Like Zed,
+    # Raycast is on the header BOX-193 must revisit: a virtual key is accepted
+    # there only while auth-on-inference is false. `x-bf-vk` is not expressible
+    # here -- `include_user_email` is the only header knob, and `additional_
+    # parameters` are request-body fields, not headers.
+    api_keys:
+      bifrost: {{ (bitwardenSecrets "86a032e3-d3c3-4e26-a38e-b4c7013065ef").value }}
+    # Sends X-User-Email with each request, landing in the log's User field
+    # (user_id/user_name) -- a different column from virtual_key_name, so this is
+    # a complementary per-human signal, not a duplicate of the key. Kept (D8).
     include_user_email: true
-    # No `api_keys` - the gateway enforces no key on inference.
     models:
       - id: deepseek-v4-flash
         name: "DeepSeek V4 Flash"
