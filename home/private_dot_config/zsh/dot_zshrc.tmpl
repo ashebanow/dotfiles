@@ -34,6 +34,12 @@ for config_file ($ZDOTDIR/zshrc.d/*.zsh(N)); do
   source $config_file
 done
 
+# Per-client gateway attribution (BOX-149) — the `pi` wrapper. Sourced *after*
+# devtools.sh (which loads nvm) so the function shadows the nvm `pi` binary
+# rather than the reverse; functions win the lookup regardless of order, but
+# keeping it here makes the intent readable.
+source ~/.config/shell/attribution.sh
+
 # Tool init (after zshrc.d: compinit in 01-completions must precede
 # the compdef-driving evals)
 source ~/.config/shell/hooks.sh
