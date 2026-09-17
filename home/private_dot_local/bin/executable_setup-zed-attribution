@@ -1,0 +1,148 @@
+#!/usr/bin/env bash
+# setup-zed-attribution — install Zed's gateway virtual key into the macOS
+# keychain, so Zed's requests are attributable in the bifrost log view.
+#
+# Why this is a script and not a chezmoi template:
+#   Zed stores OpenAI-compatible credentials in the system keychain, keyed by
+#   the provider's api_url, and reads them in the order <PROVIDER_ID>_API_KEY
+#   then keychain. There is nowhere in settings.json to put a value: Zed does
+#   not interpolate environment variables in settings (zed-industries/zed#26043)
+#   and the config is chezmoi's editable-symlink target, tracked in git
+#   untemplated -- a literal there would be a committed plaintext credential.
+#   So the value has to be written to the keychain, which needs an interactive
+#   keychain operation and cannot be done by `chezmoi apply`.
+#
+# This is macOS-only by construction. On Linux, Zed reads the Secret Service
+# (gnome-keyring / KWallet) instead of the login keychain, which is a different
+# program, a different key namespace, and -- with no Secret Service provider --
+# no persistence at all (Zed keeps the key for the session only). Rather than
+# pretend to handle that, this script fails loudly on Linux.
+#
+# The eventual fix is not a Linux branch of this script: it is factorseal
+# (BOX-205), a hardware-backed vault that abstracts the platform keychain and
+# already exposes a SecretSpec provider -- so the key would stop living in a
+# per-machine keychain entry at all. This script should be deleted, not
+# extended, when that lands.
+#
+# The value is read from BWS at run time via secretspec and never written to
+# disk. Safe to re-run: it overwrites the entry in place.
+
+set -euo pipefail
+
+# BWS item for the `zed` virtual key. The gateway resolves the same item as
+# VK_ZED, so the two sides cannot drift.
+VK_ITEM="c48323b6-e112-4033-9f6a-b4c7013064fc"
+
+# Must match the provider's api_url exactly in
+# ~/.config/zed/editable-settings.json -- that string is how Zed keys the
+# credential lookup. Account is always `Bearer`.
+ZED_API_URL="https://ai.fluffy-walleye.ts.net/v1"
+ZED_ACCOUNT="Bearer"
+
+# Confirmation probe: a request the gateway will log against `zed`.
+GATEWAY_URL="${ZED_API_URL%/v1}"
+
+die() { printf 'setup-zed-attribution: %s\n' "$*" >&2; exit 1; }
+say() { printf 'setup-zed-attribution: %s\n' "$*"; }
+
+# ---------------------------------------------------------------- platform
+
+# Deliberately a hard failure, not a skip. A silent no-op would leave Zed
+# unattributed with no signal; the failure mode we want is "you know this
+# didn't work". BOX-205 owns adding Linux support.
+if [[ "$(uname -s)" != "Darwin" ]]; then
+  die "$(uname -s) is not supported.
+
+Zed reads credentials from the macOS login keychain on Darwin, but from the
+Secret Service (gnome-keyring / KWallet) on Linux. That is a different
+mechanism, not a different command. Rather than grow a second implementation
+here, this script covers only the platform it can do correctly.
+
+Until then, Zed on this host sends NO virtual key: requests are served and
+logged as anonymous. (Not broken -- a *missing* key falls through to
+anonymous; only a *wrong* key is rejected with 401.)
+
+The real fix is factorseal (BOX-205), which abstracts the platform keychain and
+would remove this script rather than extend it."
+fi
+
+command -v security >/dev/null 2>&1 || die "the 'security' tool is missing; not a normal macOS environment"
+
+# ------------------------------------------------------------- read the key
+
+# Prefer secretspec (the repo's channel: it resolves the same BWS item the
+# gateway uses). Fall back to the bws CLI directly for a machine that has a
+# token but no manifest checkout.
+read_vk() {
+  local manifest=""
+  for candidate in "$HOME/Development/nix/nix-config/main/secretspec.toml" \
+                   "$HOME/nix-config/secretspec.toml"; do
+    [[ -f "$candidate" ]] && manifest="$candidate" && break
+  done
+
+  if [[ -n "$manifest" ]] && command -v secretspec >/dev/null 2>&1; then
+    SECRETSPEC_FILE="$manifest" secretspec run -P production -S bifrost -- \
+      sh -c 'printf %s "$VK_ZED"'
+    return
+  fi
+
+  command -v bws >/dev/null 2>&1 || die "neither secretspec (+ secretspec.toml) nor bws is available to read VK_ZED"
+  bws secret get "$VK_ITEM" 2>/dev/null | jq -r '.value'
+}
+
+say "reading the zed virtual key from BWS..."
+VK="$(read_vk || true)"
+
+[[ -n "$VK" ]] || die "could not resolve VK_ZED from BWS (is BWS_ACCESS_TOKEN set?)"
+[[ "$VK" == sk-bf-* ]] || die "resolved value does not look like a virtual key (expected an 'sk-bf-' prefix); refusing to store it"
+say "resolved a virtual key (${VK:0:7}..., ${#VK} chars)"
+
+# --------------------------------------------------------- write keychain
+
+# -U updates in place when the item already exists, rather than adding a
+# duplicate. Duplicates matter: a second item under the same service would
+# reset the ACL and make macOS re-prompt on every read.
+say "writing the keychain entry for $ZED_API_URL ..."
+security add-internet-password -U \
+  -s "$ZED_API_URL" \
+  -a "$ZED_ACCOUNT" \
+  -w "$VK" \
+  || die "failed to write the keychain entry"
+
+# ------------------------------------------------------------- verify
+
+# Read back what is actually stored. This is the check that catches a typo'd
+# value before Zed does -- a wrong key is a 401, not a degraded anonymous
+# request, so a silent bad write would take Zed's assistant down.
+stored="$(security find-internet-password -s "$ZED_API_URL" -a "$ZED_ACCOUNT" -w 2>/dev/null || true)"
+if [[ "$stored" != "$VK" ]]; then
+  die "keychain read-back does not match the key just written; the entry is not usable"
+fi
+say "keychain read-back verified"
+
+# Round-trip a request the way Zed will send it. This proves the *gateway*
+# accepts the key -- i.e. that this value is a real virtual key and not a stale
+# or revoked one -- which the keychain read-back cannot tell us.
+if command -v curl >/dev/null 2>&1; then
+  say "probing the gateway..."
+  body='{"model":"qwen-latest","messages":[{"role":"user","content":"setup-zed-attribution probe"}],"max_tokens":1}'
+  code="$(curl -s -o /dev/null -w '%{http_code}' --max-time 60 \
+    -H 'Content-Type: application/json' \
+    -H "Authorization: Bearer $VK" \
+    -d "$body" \
+    "$ZED_API_URL/chat/completions" || true)"
+
+  case "$code" in
+    200) say "gateway accepted the key (HTTP 200); Zed requests will be attributed to 'zed'" ;;
+    401) die "gateway rejected the key with 401 (unknown or revoked virtual key).
+
+The entry IS in the keychain and Zed WILL send it, so Zed will fail with 401
+until this is fixed -- this is not a silent de-attribution. Check that the BWS
+item '$VK_ITEM' holds the value the gateway declared as env.VK_ZED, then
+re-run this script." ;;
+    000) say "could not reach the gateway (offline?) -- the key is stored, but the probe did not run" ;;
+    *)   say "gateway returned HTTP $code for the probe; the key is stored but this is unexpected" ;;
+  esac
+fi
+
+say "done. Restart Zed if it is already running, so it re-reads the credential."
