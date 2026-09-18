@@ -38,9 +38,28 @@
         "api_url": "https://ai.fluffy-walleye.ts.net/v1",
         // No `api_key` here: OpenAiCompatibleSettingsContent accepts only
         // api_url, available_models and custom_headers. An unknown field made
-        // the whole provider block fail to load. Zed takes OpenAI-compatible
-        // credentials from the keychain or from <PROVIDER_ID>_API_KEY
-        // (BIFROST_API_KEY) instead -- and the gateway enforces no key anyway.
+        // the whole provider block fail to load (BOX-158).
+        //
+        // Per-client attribution (BOX-198, parent BOX-149) is delivered from
+        // the macOS keychain, not from this file. Zed stores OpenAI-compatible
+        // credentials in the keychain keyed by api_url (entry service
+        // `https://ai.fluffy-walleye.ts.net/v1`, account `Bearer`), and reads
+        // them in preference order: <PROVIDER_ID>_API_KEY env var, then
+        // keychain. There is no way to put a value in this file: Zed does not
+        // interpolate environment variables in settings.json (open feature
+        // request, zed-industries/zed#26043) and this file is chezmoi's
+        // editable-symlink target, tracked in git untemplated -- a literal here
+        // would be a committed plaintext credential.
+        //
+        // Known cost, accepted: this rides Authorization: Bearer, because Zed
+        // manages that header itself and refuses to let `custom_headers`
+        // override a provider-managed header. bifrost accepts a virtual key on
+        // Authorization only while auth-on-inference is false, so Zed is the
+        // client BOX-193 must revisit. `x-bf-vk` via custom_headers would be
+        // durable, but has nowhere to get its value from. Zed's keychain item
+        // also carries no ACL, so macOS cannot persist an Always Allow grant
+        // and re-prompts on access; that is a per-machine manual step, the same
+        // trade D5 took for the keychain decision itself.
         "available_models": [
           {
             "name": "qwen-latest",

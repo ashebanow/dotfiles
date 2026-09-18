@@ -4,6 +4,9 @@
       "baseUrl": "https://ai.fluffy-walleye.ts.net/v1",
       "api": "openai-completions",
       "apiKey": "sk-bifrost-dummy",
+      "headers": {
+        "x-bf-vk": "$VK_PI"
+      },
       "compat": {
         "supportsDeveloperRole": false
       },
