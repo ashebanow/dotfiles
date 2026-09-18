@@ -18,90 +18,39 @@ fi
 # NOTES ON PLATFORM COVERAGE
 #--------------------------------------------------------------------
 #
-# On the nix-managed hosts — macOS (nix-darwin + home-manager) and
-# servers (NixOS) — every CLI tool this script used to install (node,
-# gum, jq, bitwarden-cli, aria2, xcodes, tailscale, ...) now comes
-# from the nix flake in the lumquat nix-config (modules/features/
-# cli-*.nix, access.nix). Homebrew on macOS is limited to the casks
-# declared in homebrew.casks, and nix-darwin's
+# On the nix-managed hosts — macOS (nix-darwin + home-manager), servers
+# (NixOS), and non-NixOS Linux running nix — every CLI tool this script
+# used to install (node, gum, jq, bitwarden-cli, aria2, xcodes,
+# tailscale, ...) now comes from the nix flake in the lumquat nix-config
+# (modules/features/cli-*.nix, access.nix). Homebrew on macOS is limited
+# to the casks declared in homebrew.casks, and nix-darwin's
 # homebrew.onActivation.cleanup = "uninstall" removes anything not
 # declared — so brew-installing these from here would just get
 # uninstalled at the next darwin-rebuild switch.
 #
-# Consequently, on macOS this script only handles what nix doesn't:
-# Xcode + Command Line Tools. The install functions below skip macOS
-# (nix owns those tools) and only fall back to distro package
-# managers (apt/pacman/dnf) on non-nix Linux.
+# This repo therefore has NO package-installation mechanism: the
+# hand-rolled cross-distro package manager (lib/common/packages.sh) was
+# deleted in BOX-192. install_prerequisites() only handles what nix
+# cannot supply on macOS: Xcode + Command Line Tools, which need the
+# Xcode.app installer and Apple ID credentials. The per-distro install
+# functions below are retained as historical bodies but are no longer
+# called by install_prerequisites(); do not add call sites — nix owns
+# package installation now.
 
 #--------------------------------------------------------------------
 # CHECK FOR REQUIRED TOOLS
 #--------------------------------------------------------------------
 
-need_flatpak=false
-need_node=false
-need_gum=false
-need_bitwarden=false
-need_keyring_tools=false
 need_tailscale=false
-need_jq=false
-need_xcode=false
 
+# Sets the need_* flags consumed by install_prerequisites(). Only one remains:
+# every other tool this used to check for is nix's responsibility, and this
+# repo installs nothing (see the platform-coverage note above).
 function checkNeededPrerequisites() {
-    if ! pkg_installed "flatpak"; then
-        need_flatpak=true
-    fi
-
-    if ! pkg_installed "gum"; then
-        need_gum=true
-    fi
-
-    if ! pkg_installed "jq"; then
-        need_jq=true
-    fi
-
-    # Bitwarden CLI has different package names on different platforms
-    declare -a bw_packages=(
-        ["darwin"]="bitwarden-cli"
-        ["arch"]="bitwarden-cli"
-        ["fedora"]="bitwarden-cli"
-    )
-    if ! pkg_installed "bw" bw_packages; then
-        need_bitwarden=true
-    fi
-
-    if ! pkg_installed "node" || ! pkg_installed "npm"; then
-        need_node=true
-    fi
-
-    # Check for keyring tools (Linux only)
-    if ! $is_darwin; then
-        # secret-tool package mapping
-        declare -a secret_tool_packages=(
-            ["arch"]="libsecret"
-            ["debian"]="libsecret-tools"
-            ["fedora"]="libsecret"
-        )
-        if ! pkg_installed "secret-tool" secret_tool_packages; then
-            need_keyring_tools=true
-        fi
-
-        # zenity is optional for GUI environments
-        if [[ -n "${DISPLAY:-}" ]] && ! pkg_installed "zenity"; then
-            need_keyring_tools=true
-        fi
-    fi
-
     # Check for Tailscale (Linux only — macOS uses the official .pkg
     # installer, NixOS hosts get it from services.tailscale)
-    if ! $is_darwin && ! pkg_installed "tailscale"; then
+    if ! $is_darwin && ! command -v tailscale >/dev/null 2>&1; then
         need_tailscale=true
-    fi
-
-    # Check for XCode (macOS only)
-    if $is_darwin; then
-        if ! is_xcode_command_line_tools_installed || ! is_xcode_app_installed; then
-            need_xcode=true
-        fi
     fi
 }
 
@@ -649,35 +598,16 @@ function mac_install_xcode_if_needed() {
 # Tailscale on macOS uses the official .pkg installer (the flake's
 # cli-network-tools.nix deliberately avoids nix/homebrew builds — the
 # MAS build is sandboxed and the nixpkgs build won't start on macOS),
-# and NixOS hosts get it from services.tailscale (access.nix). This
-# only installs on non-nix Linux distros.
+# and NixOS hosts get it from services.tailscale (access.nix). Nothing
+# installs it from here; this only reports a missing install on a host
+# that is not managed by nix.
 function install_tailscale_if_needed() {
     if ! $need_tailscale; then
         return
     fi
 
-    log_info "Installing Tailscale..."
-
-    # Define Tailscale repository configurations
-    declare -a tailscale_repos=(
-        ["debian"]='{
-            "base_url": "https://pkgs.tailscale.com/stable/debian",
-            "version_name": "auto",
-            "key_url": "https://pkgs.tailscale.com/stable/debian/bookworm.noarmor.gpg"
-        }'
-        ["fedora"]="https://pkgs.tailscale.com/stable/fedora/tailscale.repo"
-    )
-
-    # Define post-install hooks
-    declare -a tailscale_post=(
-        ["arch"]="sudo systemctl enable --now tailscaled"
-        ["fedora"]="sudo systemctl enable --now tailscaled"
-    )
-
-    # Install using the unified pkg_install function
-    pkg_install "tailscale" "" tailscale_repos "" tailscale_post
-
-    log_info "Tailscale installed successfully"
+    log_warning "tailscale not found. This repo no longer installs it — nix owns package installation on managed hosts (services.tailscale on NixOS, cli-network-tools.nix on macOS)."
+    log_warning "For a non-nix Linux host, follow https://tailscale.com/download/linux"
 }
 
 #--------------------------------------------------------------------
@@ -686,18 +616,17 @@ function install_tailscale_if_needed() {
 
 function install_prerequisites() {
     checkNeededPrerequisites
-    # Install XCode Command Line Tools first (required for nix on macOS)
+
+    # Package installation is owned by nix on every host this repo targets
+    # (nix-darwin on macOS, NixOS servers, and nix on non-NixOS Linux). What
+    # remains here is the macOS residue nix cannot supply: the Command Line
+    # Tools that nix itself needs, and Xcode.app + simulators, which have no
+    # nix expression. The macOS functions below are no-ops elsewhere.
     mac_install_cmd_line_tools_if_needed
-    install_flatpak_if_needed
-    install_bitwarden_if_needed
-    install_node_if_needed
-    install_keyring_tools_if_needed
-    install_jq_if_needed
-    install_gum_if_needed
-    install_tailscale_if_needed
-    # Install Xcode at the end (requires xcodes from nix and Bitwarden
-    # for Apple ID authentication)
     mac_install_xcode_if_needed
+
+    # Report-only check for a tool nix is expected to have provided.
+    install_tailscale_if_needed
 }
 
 if [ -z "$sourced_install_prerequisites" ]; then

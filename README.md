@@ -20,9 +20,8 @@ more automation steps I'll make it all current and consistent.
 
 A **headless** machine is one you only ever reach over SSH: no screen and
 keyboard, none of Andrew's personal secrets, minimal toolset (see `CONTEXT.md`).
-There are two machine classes, and they deploy differently — **pick the right
-one before running anything**, because `install-headless.sh` refuses to run on
-NixOS and the NixOS path does not use it.
+Delivery is nix-first on every machine class — this repo ships *configuration*,
+not provisioning, and installs no software.
 
 ### NixOS headless (lumquat) — managed by nix-config
 
@@ -73,38 +72,29 @@ The repo is kept on disk at `~/.local/share/chezmoi`.
 
 ### Non-NixOS headless (VPS, containers, cloud VMs)
 
-For a **non-NixOS** headless machine — a Debian/Ubuntu/Fedora/Alpine VPS,
-container, or cloud VM:
+Non-NixOS headless machines get nix too — nix is not NixOS, and it runs fine on
+a Debian/Ubuntu/Fedora VPS, container, or cloud VM. The intended path is the
+**remote bootstrap** (planned, not yet built): a script that SSHes into a
+machine, installs the nix-config and dotfiles repos, and bootstraps it from
+there — handling NixOS and non-NixOS hosts, likely in different ways.
 
-```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/ashebanow/dotfiles/main/install-headless.sh)
-```
+Until that exists, bootstrap such a machine by hand:
 
-or clone the repo and run it:
+1. Install nix — the multi-user Determinate Systems installer (see
+   `lib/install/README.md` for the single-user variant used in containers):
 
-```bash
-git clone https://github.com/ashebanow/dotfiles.git
-cd dotfiles
-./install-headless.sh
-```
+   ```bash
+   curl -fsSL https://install.determinate.systems/nix | sh -s -- install --determinate
+   ```
 
-What it does (details in the script header):
+2. Provision from [nix-config](https://github.com/ashebanow/nix-config). Its
+   activation installs chezmoi and applies the dotfiles, exactly as on NixOS.
+   A non-TTY host renders `headless = true` with no prompt, so no Bitwarden/BWS
+   session is needed (the headless `.chezmoiignore` excludes the personal-secret
+   templates).
 
-- Installs chezmoi if missing (distro package manager, else the pinned static
-  binary v2.72.0), plus git and curl/wget when needed.
-- Runs `chezmoi init --apply --force --no-tty` — non-TTY hosts render
-  `headless = true` with no prompt, so no Bitwarden/BWS session is needed
-  (the headless `.chezmoiignore` excludes the personal-secret templates).
-- Never switches shells (`chsh`), never installs Homebrew, never touches the GUI.
-- Keeps the repo at `~/.local/share/chezmoi`; maintain with periodic
-  `chezmoi update` / `chezmoi apply --force`.
-
-> **Status:** `install-headless.sh` is prototype-quality (BOX-122) and
-> **unexercised on real hardware** — this class is deliberately out of scope for
-> the current headless effort, whose only live target is lumquat. It is kept
-> because it is the only documented path for the class, not because it is
-> known-good. Treat any failure here as expected, and fix the script rather than
-> assuming the dotfiles are wrong.
+The repo is kept on disk at `~/.local/share/chezmoi`; maintain with periodic
+`chezmoi update` / `chezmoi apply --force`.
 
 ## Bluefin-DX or Bazzite/Bazzite-DX
 

@@ -57,10 +57,7 @@ chezmoi init --apply https://github.com/ashebanow/dotfiles.git
 Package installation is manual — chezmoi apply no longer triggers it automatically.
 
 ```bash
-# Bootstrap Homebrew (still automatic, via bootstrap.sh)
-./bootstrap.sh
-
-# Run the remaining manual installers (Bitwarden services, etc.)
+# Run the manual installers (macOS Xcode residue + Bitwarden services)
 ./install.sh
 ```
 
@@ -74,8 +71,13 @@ Package installation is manual — chezmoi apply no longer triggers it automatic
 
 ### Shared Utilities (`lib/common/`)
 
-- `all.sh` - sources the rest of `lib/common/` (platform detection, logging, package-presence checks)
-- `logging.sh`, `system_environment.sh`, `packages.sh`
+- `all.sh` - sources the rest of `lib/common/` (platform detection, logging)
+- `logging.sh`, `system_environment.sh`
+
+This repo contains **no package-installation mechanism**. Package installation
+is owned by nix (nix-darwin on macOS, NixOS on servers, nix on non-NixOS Linux),
+as are Homebrew casks on macOS. `prerequisites.sh` only handles the macOS
+residue nix cannot supply (Xcode + Command Line Tools).
 
 All install scripts source `lib/common/all.sh` and should use its logging/helper functions.
 

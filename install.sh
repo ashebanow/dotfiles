@@ -86,18 +86,14 @@ export APPLE_ID_USER="${USER_NAME:-ashebanow}"
 # POSIX way to get script's dir: https://stackoverflow.com/a/29834779/12156188
 script_dir="$(cd -P -- "$(dirname -- "$(command -v -- "$0")")" && pwd -P)"
 
-# Install chezmoi if not available
+# Require chezmoi on PATH. Whatever put it there (nix on a managed host) is
+# the system that owns package installation; this repo does not install it.
 if [ ! "$(command -v chezmoi)" ]; then
-  bin_dir="$HOME/.local/bin"
-  chezmoi="$bin_dir/chezmoi"
-  if [ "$(command -v curl)" ]; then
-    sh -c "$(curl -fsSL https://git.io/chezmoi)" -- -b "$bin_dir"
-  elif [ "$(command -v wget)" ]; then
-    sh -c "$(wget -qO- https://git.io/chezmoi)" -- -b "$bin_dir"
-  else
-    log_error "To install chezmoi, you must have curl or wget installed."
-    exit 1
-  fi
+  log_error "chezmoi not found on PATH."
+  log_error "On the nix-managed hosts, chezmoi is provided by the nix flake —"
+  log_error "run the nix setup (darwin-rebuild switch / nixos-rebuild switch)"
+  log_error "or \`nh os switch\` first."
+  exit 1
 else
   chezmoi=chezmoi
 fi

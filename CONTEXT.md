@@ -68,6 +68,22 @@ Terms used across this repo and its planning docs (wayfinder maps). Sharpened
 - **ephemeral** — *retired* flag for temporary cloud/VM instances. Its
   detection logic (containers, codespaces, generic cloud usernames) now feeds
   `headless` only.
+- **nix owns package installation** — the rule that this repo installs no
+  software. Package installation is the nix flake's job on every host class:
+  nix-darwin on macOS, NixOS on servers, and nix on non-NixOS Linux; Homebrew
+  on macOS is limited to the casks declared in the flake. The dotfiles repo
+  ships *configuration*, not provisioning — the one residue is the macOS
+  Xcode + Command Line Tools work in `lib/install/prerequisites.sh`, which nix
+  cannot supply (Command Line Tools are nix's own prerequisite, and Xcode.app
+  has no nix expression). Consequences: command-presence checks are plain
+  `command -v` (there is no package-name mapping, since that only matters to an
+  installer), and a missing tool is reported rather than installed. Replaced the
+  pre-nix layer deleted in BOX-192 (`bootstrap.sh`, `lib/bootstrap/`,
+  `lib/common/packages.sh`) — a bespoke cross-distro package manager whose
+  installs nix then removed — and `install-headless.sh`, the local pre-nix
+  bootstrap for non-NixOS headless hosts, which the planned remote bootstrap
+  (nix-config-owned, via SSH) supersedes. The non-NixOS headless path is now
+  nix-first: install nix, then provision from nix-config.
 - **shared shell layer** — the BASH_UPGRADE consolidation: one portable shell
   core shared by zsh and bash, with thin per-shell entrypoints. Two separate
   rules govern how it splits, and they must not be conflated (BOX-169 Q9):
