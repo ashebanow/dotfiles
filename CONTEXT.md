@@ -80,9 +80,10 @@ Terms used across this repo and its planning docs (wayfinder maps). Sharpened
   installer), and a missing tool is reported rather than installed. Replaced the
   pre-nix layer deleted in BOX-192 (`bootstrap.sh`, `lib/bootstrap/`,
   `lib/common/packages.sh`) — a bespoke cross-distro package manager whose
-  installs nix then removed, and `install-headless.sh`, the local pre-nix
+  installs nix then removed — and `install-headless.sh`, the local pre-nix
   bootstrap for non-NixOS headless hosts, which the planned remote bootstrap
-  (nix-config-owned, via SSH) supersedes.
+  (nix-config-owned, via SSH) supersedes. The non-NixOS headless path is now
+  nix-first: install nix, then provision from nix-config.
 - **shared shell layer** — the BASH_UPGRADE consolidation: one portable shell
   core shared by zsh and bash, with thin per-shell entrypoints. Two separate
   rules govern how it splits, and they must not be conflated (BOX-169 Q9):
