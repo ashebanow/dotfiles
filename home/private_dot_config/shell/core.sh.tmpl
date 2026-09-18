@@ -49,6 +49,22 @@ if command -v chezmoi &> /dev/null; then
 fi
 
 # -----------------------------------------------------
+# nix aliases
+# -----------------------------------------------------
+
+if [[ -d ~/Development/nix/nix-config/main ]]; then
+  alias cdnix="cd ~/Development/nix/nix-config/main"
+elif [[ -d ~/nix-config/ ]]; then
+  alias cdnix="cd ~/nix-config/"
+else
+  alias cdnix="cd /etc/nixos"
+fi
+
+alias nhossw='nh os switch'
+alias nhdwsw='nh darwin switch'
+alias nhhmsw='nh home switch'
+
+# -----------------------------------------------------
 # Utility functions
 # -----------------------------------------------------
 
