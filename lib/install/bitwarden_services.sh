@@ -127,13 +127,9 @@ fi
 }
 
 function install_bitwarden_session_service_if_needed {
-    # Only install if bitwarden is available
-    declare -A bw_packages=(
-        ["darwin"]="bitwarden-cli"
-        ["arch"]="bitwarden-cli"
-        ["fedora"]="bitwarden-cli"
-    )
-    if ! pkg_installed "bw" bw_packages; then
+    # Only install if bitwarden is available. This is a plain command
+    # check — nothing on any supported host installs packages from here.
+    if ! command -v bw >/dev/null 2>&1; then
         log_debug "Bitwarden CLI not found, skipping session service setup"
         return
     fi

@@ -28,9 +28,7 @@ mapping, platform detection, the `headless` machine class, and the BWS/secretspe
 ├── home/                             ← chezmoi target root (dot_*, private_*, *.tmpl)
 ├── lib/install/                      ← manual installers, run by install.sh
 ├── lib/common/                       ← shared shell helpers sourced by the installers
-├── lib/bootstrap/
-├── bootstrap.sh · install.sh · install-headless.sh
-└── docs/                             ← upgrade + architecture notes
+└── install.sh · docs/                ← entrypoint + upgrade/architecture notes
 ```
 
 ## ADRs are created lazily
