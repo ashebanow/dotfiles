@@ -1,0 +1,53 @@
+#!/bin/sh
+# Require the BWS token as a precondition for every chezmoi apply, on every
+# platform (BOX-174).
+#
+# Why this exists: several templates resolve their value by shelling out to
+# `bws secret get` (gh hosts.yml, the Linear credentials, the git signingkey,
+# the .ssh public keys). Those templates are guarded, so a token-less apply
+# does not error -- it renders EMPTY values. A hand-run `chezmoi apply` on a
+# host whose token the invocation did not supply therefore silently blanks
+# ~/.config/gh/hosts.yml's oauth_token and the Linear API keys, destroying
+# credentials a correct apply had installed.
+#
+# Checking the token once, here, makes that impossible: a `run_before` script
+# that exits non-zero aborts the whole apply before any template is rendered,
+# so no template can ever write a degraded value. Doing it here also means the
+# individual templates need no token guard of their own.
+#
+# The token reaches the environment differently per host class, but the rule is
+# identical on both: if it is not available, fail.
+#   - headless: the Home Manager activation (home-manager-podman.service)
+#     delivers it via LoadCredential and reads it from $CREDENTIALS_DIRECTORY.
+#   - desktop/macOS: ~/.config/shell/secrets.sh reads it from the login
+#     keychain. Note that a token that is *absent* is a failure here too: the
+#     normal source is the keychain, so absence means either the keychain has
+#     no entry or the shell never sourced secrets.sh.
+{{ if .headless -}}
+if [ -z "${BWS_ACCESS_TOKEN:-}" ]; then
+    cat >&2 <<'MSG'
+FATAL: BWS_ACCESS_TOKEN is not set — refusing to apply.
+
+This is a headless host; the token is delivered by the Home Manager
+activation. Apply through it:
+
+    just switch
+MSG
+    exit 1
+fi
+{{ else -}}
+if [ -z "${BWS_ACCESS_TOKEN:-}" ]; then
+    cat >&2 <<'MSG'
+FATAL: BWS_ACCESS_TOKEN is not set — refusing to apply.
+
+The token normally comes from the login keychain via
+~/.config/shell/secrets.sh. Its absence means either the keychain has no
+`bws_access_token` entry, or this shell never sourced secrets.sh.
+
+Repopulate the keychain entry, then apply from an interactive shell:
+
+    ~/.local/bin/setup-bws-keyring.sh
+MSG
+    exit 1
+fi
+{{ end -}}
