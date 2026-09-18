@@ -23,7 +23,7 @@ there is no login step and no OAuth.
 - **lumquat** (headless): the `linear` wrapper reads `/run/secrets/linear-api-key`, written at
   boot by `host-secrets-populate.service`. If `whoami` fails, check
   `systemctl status host-secrets-populate` and that the file is `0400 podman`. `linear auth
-  login` is the wrong fix there — it needs a keyring the host does not have.
+login` is the wrong fix there — it needs a keyring the host does not have.
 
 ## Conventions
 
@@ -35,19 +35,19 @@ Design decisions are recorded in the ticket body — treat the body as the spec.
 through `--description-file` / `--body-file`, never inline `-d`/`-b`, so nothing is
 shell-mangled.
 
-| Operation | Command |
-| --- | --- |
-| Fetch a ticket | `linear issue view BOX-<n> --json` (fields: `description`, `state.name`, `labels.nodes[].name`, `parent`, `children.nodes[]`, `assignee`) |
-| Read its history | `linear issue comment list BOX-<n> --json` (`.nodes[]`, newest first: `body`, `user`, `createdAt`) |
-| List tickets | `linear issue query --team BOX --project Chezmoi --state unstarted --state started --json --limit 0` — `--state` takes state **types** (`triage`, `backlog`, `unstarted`, `started`, `completed`, `canceled`), never names; repeat it to union |
-| Create a ticket | `linear issue create --no-interactive --project Chezmoi --title "…" --description-file body.md` (`--label <name>` repeatable; `--parent BOX-<n>` for a sub-issue; `--state Todo`) |
-| Comment | `linear issue comment add BOX-<n> --body-file note.md` |
-| Labels | `linear issue update BOX-<n> --add-label "Ready For Agent"` / `--remove-label …` (by name; `--label` *replaces* the whole set). Inventory: `linear label list` |
-| Change state | `linear issue update BOX-<n> --state "In Progress"` (by name; `linear team states` lists them) |
-| Close | `linear issue update BOX-<n> --state Done` — or `Canceled` / `"Won't Fix"` / `"Can't Reproduce"` / `Duplicate`, with a comment saying why |
-| Claim / assign | `linear issue update BOX-<n> --assignee self` (`--unassign` to release) |
-| Block | `linear issue relation add BOX-<a> blocked-by BOX-<b>` (also `blocks`, `related`, `duplicate`); `linear issue relation list BOX-<a>` to inspect |
-| Anything else | `linear api` with a heredoc GraphQL query (`linear schema` for the types) |
+| Operation        | Command                                                                                                                                                                                                                                        |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Fetch a ticket   | `linear issue view BOX-<n> --json` (fields: `description`, `state.name`, `labels.nodes[].name`, `parent`, `children.nodes[]`, `assignee`)                                                                                                      |
+| Read its history | `linear issue comment list BOX-<n> --json` (`.nodes[]`, newest first: `body`, `user`, `createdAt`)                                                                                                                                             |
+| List tickets     | `linear issue query --team BOX --project Chezmoi --state unstarted --state started --json --limit 0` — `--state` takes state **types** (`triage`, `backlog`, `unstarted`, `started`, `completed`, `canceled`), never names; repeat it to union |
+| Create a ticket  | `linear issue create --no-interactive --project Chezmoi --title "…" --description-file body.md` (`--label <name>` repeatable; `--parent BOX-<n>` for a sub-issue; `--state Todo`)                                                              |
+| Comment          | `linear issue comment add BOX-<n> --body-file note.md`                                                                                                                                                                                         |
+| Labels           | `linear issue update BOX-<n> --add-label "Ready For Agent"` / `--remove-label …` (by name; `--label` _replaces_ the whole set). Inventory: `linear label list`                                                                                 |
+| Change state     | `linear issue update BOX-<n> --state "In Progress"` (by name; `linear team states` lists them)                                                                                                                                                 |
+| Close            | `linear issue update BOX-<n> --state Done` — or `Canceled` / `"Won't Fix"` / `"Can't Reproduce"` / `Duplicate`, with a comment saying why                                                                                                      |
+| Claim / assign   | `linear issue update BOX-<n> --assignee self` (`--unassign` to release)                                                                                                                                                                        |
+| Block            | `linear issue relation add BOX-<a> blocked-by BOX-<b>` (also `blocks`, `related`, `duplicate`); `linear issue relation list BOX-<a>` to inspect                                                                                                |
+| Anything else    | `linear api` with a heredoc GraphQL query (`linear schema` for the types)                                                                                                                                                                      |
 
 **Labels and states.** The workspace labels are `Ready For Agent`, `Deferred`, `Feature`,
 `Bug`, `Improvement`, plus the team's `wayfinder:*`. Triage roles map through
@@ -55,6 +55,21 @@ shell-mangled.
 in workflow **states**: `Backlog`, `Icebox`, `Todo`, `In Progress`, `In Review`, `Ready to
 Merge`, `Done`, `Canceled`, `Won't Fix`, `Can't Reproduce`, `Duplicate`. Prefer a state where
 one matches; use labels only for roles with no matching state.
+
+## Generating issue markdown
+
+When generating markdown for an issue, PR, etc. be mindful of word wrapping. Markdown can be read as plain text or as formatted markdown. In the former case, word wrapping matters. Linear wraps at about 50 or so columns, and the formatting starts looking like:
+
+```
+this is a very long line of text that will wrap
+around
+and then do a long line, and then it will wrap
+again.
+```
+
+Best not to use newlines in the middle of prose paragraphs, or wrap at 50 columns if that isn't practical.
+
+Code and such in blocks is different, it doesn't wrap.
 
 ## When a skill says "publish to the issue tracker"
 
@@ -80,7 +95,7 @@ Used by `/wayfinder`. The **map** is one issue; **child** tickets are its Linear
   body. `linear issue view BOX-<map> --json` lists its children under `children.nodes[]`
   (identifier, title, state name).
 - **Child ticket**: `linear issue create --no-interactive --project Chezmoi --parent
-  BOX-<map> --label wayfinder:<type> --title "…" --description-file …` with `<type>` one of
+BOX-<map> --label wayfinder:<type> --title "…" --description-file …` with `<type>` one of
   `research` / `prototype` / `grilling` / `task`.
 - **Blocking**: `linear issue relation add BOX-<child> blocked-by BOX-<other>`.
 - **Frontier query** — open, unblocked, unclaimed children, in one call:
@@ -103,7 +118,8 @@ Used by `/wayfinder`. The **map** is one issue; **child** tickets are its Linear
   A child is on the frontier when `state.type` is `unstarted`/`started`/`backlog`/`triage`,
   `assignee` is null, and no `inverseRelations` node has `type == "blocks"` with an `issue`
   whose `state.type` is outside `completed`/`canceled`. `children.nodes` comes back newest
-  first; map order is the reverse, so take the *last* frontier match.
+  first; map order is the reverse, so take the _last_ frontier match.
+
 - **Claim**: `linear issue update BOX-<child> --assignee self --state "In Progress"` — the
   session's first write.
 - **Resolve**: `linear issue comment add BOX-<child> --body-file answer.md`, then
