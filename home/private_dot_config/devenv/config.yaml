@@ -1,7 +1,8 @@
 version: 1
+
 shell:
   prompt_prefix: false
-  reload: false
+
 tui:
   statusline:
     enabled: false
