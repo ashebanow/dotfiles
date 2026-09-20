@@ -4,7 +4,10 @@
     "enabled": true,
     "reserveTokens": 32000,
     "keepRecentTokens": 15000,
-    "methodOrder": ["shake", "summarize"]
+    "methodOrder": [
+      "shake",
+      "summarize"
+    ]
   },
   "defaultProvider": "bifrost",
   "defaultModel": "deepseek-v4-flash",
@@ -19,7 +22,8 @@
     "npm:pi-background-tasks@latest",
     "npm:pi-context-shake",
     "npm:pi-context-view",
-    "npm:pi-mcp-extension"
+    "npm:pi-mcp-extension",
+    "npm:@firstpick/pi-extension-cd"
   ],
   "pi-exa": {
     "enabledTools": [
