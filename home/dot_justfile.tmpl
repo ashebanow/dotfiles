@@ -90,12 +90,15 @@ build-hm: _nix-host
             echo "error: this Linux machine isn't NixOS — nothing to build" >&2
             exit 1
         fi
-        # NixOS host: standalone homeConfigurations.podman (see
-        # nixos-builder.nix).
+        # NixOS host: the standalone homeConfigurations output is keyed by the
+        # host's primary user (my.baseUsername — podman on lumquat, ashebanow
+        # on yuzu; see nixos-builder.nix), so derive it from the host config
+        # instead of hardcoding one machine's user.
+        hm_user="$(nix eval --raw ".#nixosConfigurations.${host}.config.my.baseUsername")"
         if command -v nh >/dev/null 2>&1; then
-            nh home build . --configuration podman
+            nh home build . --configuration "$hm_user"
         else
-            nix build .#homeConfigurations.podman.activationPackage
+            nix build ".#homeConfigurations.${hm_user}.activationPackage"
         fi
         ;;
       *)
