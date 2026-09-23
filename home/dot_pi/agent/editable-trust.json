@@ -3,5 +3,6 @@
   "/Users/ashebanow/Development/ai/pi-gotgenes": true,
   "/Users/ashebanow/Development/boxboworg/suwiki": true,
   "/Users/ashebanow/Development/nix/nix-config/main": true,
-  "/Users/ashebanow/Development/worktrunk-fix": true
+  "/Users/ashebanow/Development/worktrunk-fix": true,
+  "/etc/nixos": true
 }
