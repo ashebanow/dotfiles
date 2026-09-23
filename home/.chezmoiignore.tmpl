@@ -1,3 +1,12 @@
+# ── retired desktop trees, kept as a record ──
+# niri and DankMaterialShell moved into nix-config (docs/adr/0003): the packages
+# and the generated config are Nix/Home-Manager's now. The old trees stay in the
+# source with a `.bak` suffix — kept for reference, and applied nowhere. This
+# block is deliberately *not* host-gated, unlike the machine-class blocks below:
+# they are retired for every host, not just for this class of host.
+.config/niri.bak
+.config/DankMaterialShell.bak
+
 {{ if ne .chezmoi.os "darwin" }}
 .chezmoiscripts/darwin/**
 .config/aerospace
