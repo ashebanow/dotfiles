@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# pre-commit — refuse a commit that would add a credential (BOX-212).
+#
+# Wired by core.hooksPath, set from .chezmoiscripts/run_onchange_100-git-hooks.sh
+# on every `chezmoi apply`. Git hooks under .git/hooks are not versioned, so the
+# script lives here in .githooks/ (tracked) and git is pointed at the directory.
+#
+# The check itself is ~/.local/bin/secrets-guard, because that is the copy
+# chezmoi deploys and keeps in sync; this hook is the two-line adapter that
+# makes it run without anyone having to remember to invoke it.
+#
+# Why a hook and not just the `just secrets-guard` recipe: the accident this
+# guards against is a credential copied into a tracked file by a `chezmoi add`
+# or a broad `git add` at the wrong moment. That is precisely the kind of thing
+# nobody remembers to check for, so a check that only runs on request is the
+# wrong shape. A hook runs on every commit regardless.
+#
+# `exec` so the exit status is the guard's own, which git reads as allow/deny.
+
+set -euo pipefail
+
+guard="${HOME}/.local/bin/secrets-guard"
+if [[ ! -x "$guard" ]]; then
+  # Do NOT fail the commit: a missing helper should not make the repo
+  # uncommittable before the first `chezmoi apply` on a fresh machine. Say so
+  # loudly instead, so the gap is visible rather than silently permissive.
+  printf 'pre-commit: %s is missing or not executable — secret check SKIPPED\n' "$guard" >&2
+  printf 'pre-commit: run `chezmoi apply` to deploy it. (BOX-212)\n' >&2
+  exit 0
+fi
+
+exec "$guard"

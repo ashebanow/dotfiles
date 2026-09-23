@@ -1,0 +1,59 @@
+#!/bin/sh
+# Point this repo's git at .githooks/, so the committed hooks actually run
+# (BOX-212).
+#
+# Why this script exists: git hooks are not versioned. `.git/hooks/` is local
+# to a clone, so a hook committed anywhere is inert until something points
+# `core.hooksPath` at it. That something cannot be the hook itself, and it
+# should not be a step a human has to remember on a fresh clone -- so it is a
+# chezmoi run_onchange script, which makes it declarative and idempotent:
+# `chezmoi apply` converges a clone to a state where the hooks are live.
+#
+# `run_onchange_` (not `run_before_`): this is a convergence action, and chezmoi
+# re-runs it only when the script's rendered contents change -- which they do
+# when the hook hash below changes, and not otherwise.
+#
+# Fails loudly but does not fail the apply. A clone without a working git
+# config (a tarball export, a read-only checkout) is unusual but not broken,
+# and `chezmoi apply` has plenty of other work to do; a non-zero exit here
+# would abort the whole run over a guard rail. The warning is the point.
+#
+# hook-sha256: {{ include "../.githooks/pre-commit" | sha256sum }}
+
+set -eu
+
+# CHEZMOI_COMMAND_DIR is the directory chezmoi was invoked from, which for this
+# repo is the git root (.local/share/chezmoi), NOT the source subdir (.chezmoiroot
+# is `home`, so the tracked content lives one level down). Verified at runtime.
+repo="${CHEZMOI_COMMAND_DIR:-}"
+
+if [ -z "$repo" ]; then
+    echo "git-hooks: CHEZMOI_COMMAND_DIR is unset; cannot locate the repo" >&2
+    exit 0
+fi
+
+# Only act on a real git checkout that actually has the hook directory.
+if [ ! -d "$repo/.git" ]; then
+    echo "git-hooks: $repo is not a git checkout; skipping" >&2
+    exit 0
+fi
+
+if [ ! -f "$repo/.githooks/pre-commit" ]; then
+    echo "git-hooks: $repo/.githooks/pre-commit is missing; skipping" >&2
+    exit 0
+fi
+
+# The hook must be executable or git silently ignores it.
+chmod +x "$repo/.githooks/pre-commit" 2>/dev/null || true
+
+current="$(git -C "$repo" config --get core.hooksPath 2>/dev/null || true)"
+if [ "$current" = ".githooks" ]; then
+    exit 0
+fi
+
+if git -C "$repo" config core.hooksPath .githooks 2>/dev/null; then
+    echo "git-hooks: core.hooksPath set to .githooks in $repo"
+else
+    echo "git-hooks: could not set core.hooksPath in $repo" >&2
+    exit 0
+fi
