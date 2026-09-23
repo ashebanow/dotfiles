@@ -71,14 +71,14 @@ command -v security >/dev/null 2>&1 || die "the 'security' tool is missing; not 
 # ------------------------------------------------------------- read the key
 
 # Prefer secretspec (the repo's channel: it resolves the same BWS item the
-# gateway uses). Fall back to the bws CLI directly for a machine that has a
-# token but no manifest checkout.
+# gateway uses). The manifest is found through NIX_CONFIG_DIR, exported by
+# ~/.config/shell/core.sh from ~/.local/bin/nix-config-dir. Fall back to the
+# bws CLI directly for a machine that has a token but no manifest checkout.
 read_vk() {
   local manifest=""
-  for candidate in "$HOME/Development/nix/nix-config/main/secretspec.toml" \
-                   "$HOME/nix-config/secretspec.toml"; do
-    [[ -f "$candidate" ]] && manifest="$candidate" && break
-  done
+  if [[ -n "${NIX_CONFIG_DIR:-}" ]]; then
+    manifest="$NIX_CONFIG_DIR/secretspec.toml"
+  fi
 
   if [[ -n "$manifest" ]] && command -v secretspec >/dev/null 2>&1; then
     SECRETSPEC_FILE="$manifest" secretspec run -P production -S bifrost -- \

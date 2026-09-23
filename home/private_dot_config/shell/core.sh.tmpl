@@ -52,13 +52,18 @@ fi
 # nix aliases
 # -----------------------------------------------------
 
-if [[ -d ~/Development/nix/nix-config/main ]]; then
-  alias cdnix="cd ~/Development/nix/nix-config/main"
-elif [[ -d ~/nix-config/ ]]; then
-  alias cdnix="cd ~/nix-config/"
-else
-  alias cdnix="cd /etc/nixos"
-fi
+# Where the nix-config flake that manages this machine lives. Resolved once at
+# shell start by ~/.local/bin/nix-config-dir — the one place that knows the
+# candidate locations (macOS dev layout, ~/nix-config, /etc/nixos) — and exported
+# so `just`, the pi/hermes gateway wrapper (attribution.sh) and
+# setup-zed-attribution read the same answer instead of each carrying its own
+# copy of the list. A NIX_CONFIG_DIR set in the environment or by a parent
+# process wins, so a worktree can be pointed at without editing this file.
+export NIX_CONFIG_DIR="$("$HOME/.local/bin/nix-config-dir" 2>/dev/null || true)"
+
+# Single-quoted so the variable expands at *use* time: an unset or empty
+# NIX_CONFIG_DIR then fails with this message rather than cd-ing nowhere.
+alias cdnix='cd "${NIX_CONFIG_DIR:?no nix-config checkout found — set NIX_CONFIG_DIR}"'
 
 alias nhossw='nh os switch'
 alias nhdwsw='nh darwin switch'

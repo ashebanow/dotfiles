@@ -28,27 +28,26 @@ _gateway_client() {
   local tool="$1"
   shift
 
-  local manifest="${SECRETSPEC_FILE:-}"
-  # The manifest is repo-local; resolve it from the known checkouts rather than
-  # assuming a cwd. Every host that runs these clients keeps one of them.
-  if [[ -z "$manifest" ]]; then
-    local candidate
-    for candidate in "$HOME/Development/nix/nix-config/main/secretspec.toml" \
-                     "$HOME/nix-config/secretspec.toml"; do
-      [[ -f "$candidate" ]] && manifest="$candidate" && break
-    done
-  fi
+  # The manifest is repo-local. NIX_CONFIG_DIR is exported by core.sh, which
+  # sources it before this file and resolves it with ~/.local/bin/nix-config-dir
+  # — the one list of where a checkout may live. SECRETSPEC_FILE still overrides,
+  # for running against a different tree deliberately.
+  local manifest="${SECRETSPEC_FILE:-${NIX_CONFIG_DIR:+$NIX_CONFIG_DIR/secretspec.toml}}"
 
   # No manifest, or no secretspec, means the tool would launch unattributed.
   # That is a silent loss of attribution rather than a failure, so the tool is
   # still run -- but say so, rather than letting it rot invisibly.
   if [[ ! -f "$manifest" ]] || ! command -v secretspec >/dev/null 2>&1; then
-    printf '%s\n' "$tool: attribution disabled — secretspec or secretspec.toml not found (BOX-149)" >&2
+    printf '%s\n' "$tool: attribution disabled — no manifest at ${manifest:-<NIX_CONFIG_DIR unset>} and/or no secretspec on PATH (BOX-149)" >&2
     command "$tool" "$@"
     return $?
   fi
 
-  SECRETSPEC_FILE="$manifest" secretspec run -P production -S bifrost -- command "$tool" "$@"
+  # No `command` prefix here, unlike the unattributed branch above: it is a shell
+  # builtin, needed there only to stop `$tool` resolving back to this function.
+  # secretspec execs argv[0] itself, so passing `command` through asks it to exec
+  # a builtin and fails with "Failed to run command".
+  SECRETSPEC_FILE="$manifest" secretspec run -P production -S bifrost -- "$tool" "$@"
 }
 
 pi() {

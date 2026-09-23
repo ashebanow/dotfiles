@@ -18,11 +18,13 @@ import "/usr/share/ublue-os/justfile"
 # own justfile, which shadows this one while you're in it. The nix-config
 # repo's justfile imports this file so both sets show up there.
 
-# Path to the nix-config flake checkout that manages this machine. On the
-# Macs it lives at ~/Development/nix/nix-config/main; on NixOS hosts it's
-# usually ~/nix-config. Override with NIX_CONFIG_DIR when it's elsewhere.
+# Path to the nix-config flake checkout that manages this machine. The shell
+# layer exports NIX_CONFIG_DIR from ~/.local/bin/nix-config-dir (the one place
+# that knows the candidate locations), so a `just` run from a shell needs no
+# lookup at all. The fallback calls that same script, for a `just` run from a
+# context that never sourced a shell rc.
 # Exported so bash recipe bodies can read $nix_config_dir.
-export nix_config_dir := env_var_or_default("NIX_CONFIG_DIR", `for d in "$HOME/Development/nix/nix-config/main" "$HOME/nix-config"; do [[ -d "$d" ]] && { printf '%s' "$d"; exit 0; }; done; printf '%s' ""`)
+export nix_config_dir := env_var_or_default("NIX_CONFIG_DIR", `"$HOME/.local/bin/nix-config-dir" 2>/dev/null || true`)
 
 # Default recipe to show available commands
 default:
@@ -48,7 +50,7 @@ _nix-host:
     #!/usr/bin/env bash
     set -euo pipefail
     if [[ -z "${nix_config_dir:-}" ]]; then
-        echo "error: no nix-config checkout found (~/Development/nix/nix-config/main or ~/nix-config) — set NIX_CONFIG_DIR" >&2
+        echo "error: no nix-config checkout found (see ~/.local/bin/nix-config-dir for the locations tried) — set NIX_CONFIG_DIR" >&2
         exit 1
     fi
     # hostname -s reads the actual configured HostName. scutil --get

@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# nix-config-dir — print the path to the nix-config flake checkout that manages
+# this machine.
+#
+# This is the *only* place that knows where a checkout may live. Everything that
+# needs the path reads it from NIX_CONFIG_DIR, which ~/.config/shell/core.sh
+# exports from this script at shell start — the cdnix alias, the pi/hermes
+# gateway wrapper (.config/shell/attribution.sh), setup-zed-attribution, and the
+# global ~/.justfile. Before this existed, each of those carried its own copy of
+# the list, so a host whose checkout was at a location the list did not know
+# (yuzu, /etc/nixos) silently lost attribution and could not run `just switch`.
+#
+# Prints the directory and exits 0. Prints nothing and exits 1 when there is no
+# checkout, which callers turn into their own message (the justfile errors; the
+# pi wrapper runs unattributed and says so).
+#
+# NIX_CONFIG_DIR set beforehand wins outright, so a worktree or an unusual
+# location only has to be exported once, by the caller rather than in here.
+
+set -euo pipefail
+
+if [[ -n "${NIX_CONFIG_DIR:-}" ]]; then
+  printf '%s\n' "$NIX_CONFIG_DIR"
+  exit 0
+fi
+
+# In order:
+#   ~/Development/nix/nix-config/main — the macOS development layout
+#   ~/nix-config                     — lumquat (operator account is `podman`,
+#                                      so this is /home/podman/nix-config)
+#   /etc/nixos                       — yuzu, at NixOS's default flake location
+for candidate in "$HOME/Development/nix/nix-config/main" \
+                 "$HOME/nix-config" \
+                 /etc/nixos; do
+  if [[ -f "$candidate/flake.nix" ]]; then
+    printf '%s\n' "$candidate"
+    exit 0
+  fi
+done
+
+exit 1
