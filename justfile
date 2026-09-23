@@ -77,3 +77,26 @@ linear-vendor-skill tag:
       echo "Do not edit by hand; re-run the recipe."
     } > "$dest/VENDORED.md"
     echo "vendored linear-cli skill v${ver} -> $dest"
+
+# ===== SECRET HYGIENE =====
+
+# Refuse to commit a credential into this repo (BOX-212).
+#
+# The tree is managed, not secret-free: home/dot_pi/agent/private_auth.json is
+# tracked so chezmoi creates a 0600 placeholder at ~/.pi/agent/auth.json on a
+# fresh machine. The `private_` prefix sets *permissions*; it does nothing to
+# keep content out of git, and .gitignore does not cover that path. pi writes
+# real credentials into the live file on `/login`, so a `chezmoi add` at the
+# wrong moment would copy a key into a tracked file. Real secrets belong in
+# BWS, resolved at launch by `secretspec run` (see attribution.sh).
+#
+# Default checks the staged index — the content about to become a commit.
+[group('secrets')]
+secrets-guard:
+    @home/private_dot_local/bin/executable_secrets-guard
+
+# Same check over every tracked file, not just the index. For a periodic audit
+# or CI.
+[group('secrets')]
+secrets-guard-all:
+    @home/private_dot_local/bin/executable_secrets-guard --all
