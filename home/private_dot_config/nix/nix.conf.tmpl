@@ -3,6 +3,29 @@
 # declaratively by the flake (nix.settings in modules/infra/nix/ on
 # NixOS, determinate module on nix-darwin) — don't duplicate them here.
 #
+# `auto-optimise-store` is a *restricted* setting, which normally means it
+# should not live in a user-level (client) config: a client that sends it
+# without being trusted gets every store operation prefixed with "warning:
+# ignoring the client-specified setting 'auto-optimise-store', because it is a
+# restricted setting and you are not a trusted user" — once per connection,
+# which is where the flood in `nix develop` came from.
+#
+# It is nonetheless set below on purpose, because this file is the ONLY channel
+# that reaches the macOS hosts. There, nix-darwin's own nix module is
+# force-disabled and Determinate Nixd owns /etc/nix/nix.conf outright, so the
+# flake's nix.settings do NOT apply (modules/infra/nix/* registers only as
+# my.modules.nixos; see the header comment in modules/infra/darwin-builder.nix).
+# On those hosts ashebanow is listed explicitly in
+# determinateNix.customSettings.trusted-users, so the setting is accepted —
+# no warning, and it takes effect.
+#
+# On the NixOS hosts the flake declares it daemon-side
+# (modules/infra/nix/nix.nix), which is what actually governs store
+# operations there. The line below is then accepted too (wheel is trusted via
+# nix.settings.trusted-users) and agrees with the daemon, so it is harmless.
+# Do not delete it as "duplication": that would silently drop the setting on
+# macOS, where this file is the only way to set it.
+#
 # (The GitHub access-token line that used to live here was deleted in
 # BOX-170: it did nothing, because no private flake input exists and a
 # user-level nix.conf is never forwarded to the daemon. See
