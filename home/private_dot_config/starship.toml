@@ -124,10 +124,10 @@
 format = """
 [](color_orange)\
 $os\
+$sudo\
 $username\
 $hostname\
 $shlvl\
-$sudo\
 [](bg:color_yellow fg:color_orange)\
 ${custom.path_formatter}\
 [](fg:color_yellow bg:color_faded_purple)\
@@ -234,8 +234,8 @@ color_metric_del = '#ffefef'
 # nothing behind when absent.
 [os]
 disabled = false
-style = "bg:color_orange fg:color_fg0"
-format = '[$symbol]($style)'
+style = "bg:color_orange fg:color_bg0"
+format = '[$symbol ]($style)'
 
 [os.symbols]
 Alpine = "🏔️ "
@@ -275,17 +275,33 @@ Zorin = "🔹 "
 
 [username]
 show_always = true
-style_user = "bg:color_orange fg:color_fg0"
-style_root = "bg:color_orange fg:color_black"
+style_user = "bg:color_orange fg:color_bg0"
+style_root = "bg:color_bg0 fg:color_red"
 format = '[$user]($style)'
 
 [hostname]
 disabled = false
 ssh_only = false
 ssh_symbol = '@'
-style = "bg:color_orange fg:color_fg0"
+style = "bg:color_orange fg:color_bg0"
 trim_at = '.'
 format = '[@$hostname ]($style)'
+
+# threshold=3, not the default 2: oh-my-zsh/tmux/editor terminals often start
+# at SHLVL=2, which would pin this segment on permanently.
+[shlvl]
+disabled = true
+threshold = 3
+repeat = false
+symbol = " "
+format = '[[$symbol$shlvl ](fg:color_bg0 bg:color_orange)]($style)'
+
+# Note: forks `sudo -n -v` on every prompt render. Drop it if `starship timings`
+# shows it hurting.
+[sudo]
+disabled = false
+symbol = "󰿗"
+format = '[[$symbol ](fg:color_bg0 bg:color_orange)]($style)'
 
 # ---------------------------------------------------------------------------
 # YELLOW BLOCK -- path. truncate_to_repo means inside a repo you see the repo
@@ -297,7 +313,7 @@ format = '[@$hostname ]($style)'
 command = "git-prompt-path"
 when = true
 format = "[ $output ]($style)"
-style = "fg:color_fg0 bg:color_yellow"
+style = "fg:color_bg0 bg:color_yellow"
 
 # AI BADGE: robot glyph when the folder carries agent instructions.
 # A plain [custom] recipe like [custom.devenv] / [custom.secretspec]: it sits
@@ -562,19 +578,3 @@ format = '[](fg:color_blue)'
 disabled = false
 time_format = "%R"
 format = '[ 󰥔 $time ](fg:color_fg0 bg:color_faded_blue)'
-
-# threshold=3, not the default 2: oh-my-zsh/tmux/editor terminals often start
-# at SHLVL=2, which would pin this segment on permanently.
-[shlvl]
-disabled = false
-threshold = 3
-repeat = false
-symbol = " "
-format = '[[ $symbol$shlvl ](fg:color_fg0 bg:color_orange)]($style)'
-
-# Note: forks `sudo -n -v` on every prompt render. Drop it if `starship timings`
-# shows it hurting.
-[sudo]
-disabled = false
-symbol = " "
-format = '[[ $symbol ](fg:color_fg0 bg:color_orange)]($style)'
