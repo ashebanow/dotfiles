@@ -314,14 +314,14 @@
     }
   },
   "load_direnv": "shell_hook",
-  "base_keymap": "VSCode",
+  "base_keymap": "Zed",
   "vim_mode": true,
-  "ui_font_size": 15,
-  "buffer_font_family": "CommitMono Nerd Font",
+  "ui_font_size": 16,
+  "buffer_font_family": "SauceCodePro Nerd Font",
   // Set the buffer text's font fallbacks, this will be merged with
   // the platform's default fallbacks.
   "buffer_font_fallbacks": ["Symbols Nerd Font"],
-  "buffer_font_size": 16.0,
+  "buffer_font_size": 18.0,
   "terminal": {
     "font_family": "SauceCodePro Nerd Font",
     "font_fallbacks": ["Symbols Nerd Font"],
@@ -371,10 +371,10 @@
     ],
     "default_profile": "ask",
     "default_model": {
-      "effort": "medium",
+      "effort": "high",
       "enable_thinking": true,
-      "provider": "Bifrost",
-      "model": "deepseek-v4-flash"
+      "provider": "zed.dev",
+      "model": "claude-sonnet-5"
     },
     // Background features are pinned rather than left to inherit default_model.
     // Unset, they follow it -- which cuts both ways: point the default at a
