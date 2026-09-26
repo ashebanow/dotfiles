@@ -140,7 +140,7 @@ $git_metrics\
 [](fg:color_aqua bg:color_blue)\
 ${custom.ai}\
 ${env_var.nix}\
-${custom.devenv}\
+${env_var.devenv}\
 ${custom.secretspec}\
 $docker_context\
 [ ](fg:color_fg0 bg:color_blue)\
@@ -316,7 +316,7 @@ format = "[ $output ]($style)"
 style = "fg:color_bg0 bg:color_yellow"
 
 # AI BADGE: robot glyph when the folder carries agent instructions.
-# A plain [custom] recipe like [custom.devenv] / [custom.secretspec]: it sits
+# A plain [custom] recipe like [custom.secretspec]: it sits
 # INSIDE the blue block, so it needs no separators of its own -- the
 # block already owns the chevron in and out, and the badge simply renders or
 # not as one more element. detect_files is a current-directory scan (no
@@ -401,7 +401,7 @@ format = '[([+$added]($added_style) )([-$deleted]($deleted_style) )](fg:color_fg
 #
 # Every element here is a leading-space span concatenated with no separator,
 # so exactly one space separates consecutive elements. The LAST element is
-# dynamic (docker_context, else custom.secretspec, else custom.devenv, ...),
+# dynamic (docker_context, else custom.secretspec, else env_var.devenv, ...),
 # and none carries a trailing space, so the closing side gets its one space
 # from the literal [ ](bg:color_blue) in `format` -- which also keeps the space
 # on the blue background with no gap. When the whole block is empty that
@@ -422,7 +422,7 @@ symbol = '󱄅'
 # `nix shell` environment -- and NOT inside a devenv shell. We disabled the
 # builtin [nix_shell] above because it fires on IN_NIX_SHELL=impure, which
 # devenv also sets, so in a devenv project it lit up redundantly next to the
-# custom.devenv glyph. The shell hook (_starship_nix_gate, defined in
+# env_var.devenv glyph. The shell hook (_starship_nix_gate, defined in
 # shell/starship-nix-gate.sh and invoked from the prompt wrap in shell/hooks.sh)
 # exports STARSHIP_NIX from the builtin [[ ]] combination (IN_NIX_SHELL set &&
 # DEVENV_CMDLINE unset), and env_var renders on set/unset for free.
@@ -440,10 +440,21 @@ symbol = '󱄅'
 variable = "STARSHIP_NIX"
 format = '[ 󱄅](fg:color_fg0 bg:color_blue)'
 
-[custom.devenv]
-detect_files = ['devenv.nix']
-format = "[ ]($style)"
-style = "fg:color_fg0 bg:color_blue"
+# DEVENV BADGE: show only when a devenv shell is ACTIVE, not merely
+# available. Entering a devenv shell exports DEVENV_ROOT, so an [env_var]
+# module tests exactly that -- and, like [env_var.nix], costs no fork. The
+# old detect_files = ['devenv.nix'] also fired on any directory that merely
+# CONTAINED a devenv.nix (a plain checkout, no shell entered), which is the
+# behaviour being replaced.
+#
+# It is the same shape as [env_var.nix] above: the glyph sits INSIDE the
+# always-shaped blue block, so one conditional module is enough -- no
+# complement pair, no separator shepherding.
+#
+# NEVER ADD `default` HERE -- see the ALERT GATE note below.
+[env_var.devenv]
+variable = "DEVENV_ROOT"
+format = "[ ](fg:color_fg0 bg:color_blue)"
 
 [custom.secretspec]
 detect_files = ['secretspec.toml']
