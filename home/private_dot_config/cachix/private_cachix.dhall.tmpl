@@ -1,4 +1,28 @@
-{ authToken = "CACHIX_AUTH_TOKEN"
+-- ~/.config/cachix/cachix.dhall — the Cachix CLI's own config file.
+--
+-- `authToken` is resolved from Bitwarden Secrets Manager (BWS) at `chezmoi
+-- apply` time. It previously held the literal string "CACHIX_AUTH_TOKEN" — a
+-- placeholder, not a token — which silently broke every consumer that reads
+-- this file, including devenv's documented keyring -> cachix.dhall fallback.
+--
+-- Which token to use here: the BWS item is cache-scoped (`"scopes": "cache"`)
+-- and authenticates against the caches we actually pull from (cattivi-public,
+-- devenv, pi, nix-community all return 200). Do not substitute the token that
+-- lives in the macOS keychain under
+-- secretspec/devenv-cachix/default/CACHIX_AUTH_TOKEN: that one is `"scopes":
+-- "tx"` and 401s on the same endpoints, so it grants nothing. If a token here
+-- ever starts 401ing, check the scope claim in its JWT payload before assuming
+-- the file is wrong.
+--
+-- This item ID is BWS key `CACHIX_AUTH_TOKEN`. The value is read through
+-- chezmoi's `bitwardenSecrets` template function, the same mechanism the
+-- Raycast and Hermes templates use, so nothing in git holds the secret.
+--
+-- Dhall needs the quotes: authToken is a Text field.
+{ authToken = "{{ (bitwardenSecrets "7d5939fa-cb7f-4c77-bfe8-b4b4010442e8").value }}"
 , hostname = "https://cachix.org"
+-- binaryCaches holds per-cache signing keys for *pushing* to a cache. Empty
+-- means we push with no key of our own; pulls authenticate via authToken above
+-- plus the public keys already declared in modules/infra/nix/caches.nix.
 , binaryCaches = [] : List { name : Text, secretKey : Text }
 }
