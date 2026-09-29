@@ -75,6 +75,14 @@ _validate_and_normalize_path() {
     local expanded_dir
     expanded_dir=$(eval echo "$target_dir")
 
+    # Strip trailing slashes (except a bare "/"): the duplicate check below
+    # compares canonical paths, so an unslashed twin already in PATH would
+    # otherwise be judged distinct and both would be prepended -- making
+    # every lookup print a doubled separator (e.g. bin//bat).
+    case "$expanded_dir" in
+        */) expanded_dir="${expanded_dir%/}" ;;
+    esac
+
     [[ "$debug" == "true" ]] && echo "Debug: Expanded path: $expanded_dir" >&2
 
     # Check if directory exists

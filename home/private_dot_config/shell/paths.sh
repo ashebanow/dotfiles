@@ -17,6 +17,12 @@ if ! command -v add_to_path >/dev/null 2>&1; then
     [ -n "$target" ] || { echo "Usage: add_to_path [-d|--debug] <dir>" >&2; return 1; }
     d=$(eval echo "$target")
     [ -d "$d" ] || return 1
+    # Normalize trailing slashes (except a bare "/"): a trailing slash makes
+    # the string compare unequal to the unslashed entry, so both land in PATH
+    # and every lookup prints a doubled separator (e.g. bin//bat).
+    case "$d" in
+      */) d="${d%/}" ;;
+    esac
     case ":$PATH:" in *":$d:"*) return 0 ;; esac
     export PATH="$d:$PATH"
   }
@@ -35,8 +41,8 @@ fi
 # nix-daemon.sh already prepended these; record them for the .zprofile
 # replay (nix stays ahead of Homebrew, matching the init order above)
 add_to_path "/nix/var/nix/profiles/default/bin"
-add_to_path "/run/current-system/sw/bin/"
-add_to_path "/etc/profiles/per-user/ashebanow/bin/"
+add_to_path "/run/current-system/sw/bin"
+add_to_path "/etc/profiles/per-user/ashebanow/bin"
 add_to_path "$HOME/.nix-profile/bin"
 
 #############################################################################
