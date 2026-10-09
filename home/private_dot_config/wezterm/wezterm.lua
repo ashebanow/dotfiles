@@ -11,12 +11,12 @@ if wezterm.config_builder then
 end
 
 -- For example, changing the color scheme:
-config.color_scheme = "Catppuccin Macchiato"
+config.color_scheme = "GruvboxDarkHard"
 config.font =
-    wezterm.font("SauceCodePro NF")
+    wezterm.font("SauceCodePro Nerd Font")
 config.font_size = 16
 
-config.window_decorations = "RESIZE"
+config.window_decorations = "TITLE | RESIZE"
 
 -- tmux
 config.leader = { key = "q", mods = "ALT", timeout_milliseconds = 2000 }
@@ -104,9 +104,9 @@ end
 
 -- tab bar
 config.hide_tab_bar_if_only_one_tab = false
-config.tab_bar_at_bottom = true
-config.use_fancy_tab_bar = false
-config.tab_and_split_indices_are_zero_based = true
+config.tab_bar_at_bottom = false
+config.use_fancy_tab_bar = true
+config.tab_and_split_indices_are_zero_based = false
 
 -- tmux status
 wezterm.on("update-right-status", function(window, _)
@@ -133,4 +133,3 @@ end)
 
 -- and finally, return the configuration to wezterm
 return config
-
