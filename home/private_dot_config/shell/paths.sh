@@ -55,7 +55,14 @@ add_to_path "$HOME/bin"
 export BUN_INSTALL="$HOME/.bun"
 add_to_path "$BUN_INSTALL/bin"
 
-add_to_path "$HOME/.claude/local"
+# No ~/.claude/local here on purpose: it was Claude Code's old "local install"
+# directory. Claude Code comes from nix-config now (lib/overlays/claude-code.nix
+# pins it to Anthropic's release channel and shims `claude update`), and any
+# binary left under ~/.claude/local would win this lookup and silently shadow
+# the Nix build — exactly how a stray native install under ~/.local/bin ended
+# up running a different version than the one the config declared. Don't
+# re-add it; `just update-claude-code` in nix-config is the upgrade path.
+
 add_to_path "$HOME/.cargo/bin"
 add_to_path "$HOME/.local/bin"
 add_to_path "$HOME/.npm-global/bin"
