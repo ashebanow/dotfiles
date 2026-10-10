@@ -18,6 +18,19 @@ import "/usr/share/ublue-os/justfile"
 # own justfile, which shadows this one while you're in it. The nix-config
 # repo's justfile imports this file so both sets show up there.
 
+# Every `nh` call below passes --no-nom. TEMPORARY WORKAROUND, not a
+# preference: Determinate Nix 3.23.1 (Nix 2.35.2) emits JSON activity type
+# 10113, which nix-output-monitor's parser rejects, so every build scrolls
+# a wall of `ParseNixJSONMessageError ... invalid activity type: 10113`.
+# The errors are cosmetic — nom drops the lines it cannot classify and the
+# build still succeeds (verified: `nh darwin build` exits 0 and prints a
+# correct closure diff) — but they bury the real output and read as failure.
+# There is nothing to upgrade to: nom's newest release IS the 2.2.0 we run,
+# and the fix is still an open PR. Drop this flag once it lands and nom is
+# bumped; nom's progress rendering is the thing we're giving up here.
+#   https://github.com/maralorn/nix-output-monitor/issues/320  (the bug)
+#   https://github.com/maralorn/nix-output-monitor/pull/321    (the fix)
+
 # Path to the nix-config flake checkout that manages this machine. The shell
 # layer exports NIX_CONFIG_DIR from ~/.local/bin/nix-config-dir (the one place
 # that knows the candidate locations), so a `just` run from a shell needs no
@@ -98,7 +111,7 @@ build-hm: _nix-host
         # instead of hardcoding one machine's user.
         hm_user="$(nix eval --raw ".#nixosConfigurations.${host}.config.my.baseUsername")"
         if command -v nh >/dev/null 2>&1; then
-            nh home build . --configuration "$hm_user"
+            nh home build --no-nom . --configuration "$hm_user"
         else
             nix build ".#homeConfigurations.${hm_user}.activationPackage"
         fi
@@ -130,7 +143,7 @@ dry-run: _nix-host
     case "$(uname -s)" in
       Darwin)
         if command -v nh >/dev/null 2>&1; then
-            nh darwin build --hostname "${host}" .
+            nh darwin build --no-nom --hostname "${host}" .
         elif command -v darwin-rebuild >/dev/null 2>&1; then
             sudo darwin-rebuild build --flake ".#${host}"
         else
@@ -157,7 +170,7 @@ dry-run: _nix-host
             exit 1
         fi
         if command -v nh >/dev/null 2>&1; then
-            nh os build .#"${host}"
+            nh os build --no-nom .#"${host}"
         elif command -v nixos-rebuild >/dev/null 2>&1; then
             nixos-rebuild build --flake .#"${host}"
         else
@@ -192,7 +205,7 @@ switch *FLAGS: _nix-host
     case "$(uname -s)" in
       Darwin)
         if command -v nh >/dev/null 2>&1; then
-            nh darwin switch --hostname "${host}" {{ "{{ FLAGS }}" }} .
+            nh darwin switch --no-nom --hostname "${host}" {{ "{{ FLAGS }}" }} .
         elif command -v darwin-rebuild >/dev/null 2>&1; then
             sudo darwin-rebuild switch --flake ".#${host}"
         else
@@ -205,7 +218,7 @@ switch *FLAGS: _nix-host
             exit 1
         fi
         if command -v nh >/dev/null 2>&1; then
-            nh os switch {{ "{{ FLAGS }}" }} .#"${host}"
+            nh os switch --no-nom {{ "{{ FLAGS }}" }} .#"${host}"
         elif command -v nixos-rebuild >/dev/null 2>&1; then
             sudo nixos-rebuild switch --flake ".#${host}"
         else
@@ -236,7 +249,7 @@ test: _nix-host
             exit 1
         fi
         if command -v nh >/dev/null 2>&1; then
-            nh os test .#"${host}"
+            nh os test --no-nom .#"${host}"
         elif command -v nixos-rebuild >/dev/null 2>&1; then
             sudo nixos-rebuild test --flake .#"${host}"
         else
