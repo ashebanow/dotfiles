@@ -47,7 +47,12 @@ _gateway_client() {
   # builtin, needed there only to stop `$tool` resolving back to this function.
   # secretspec execs argv[0] itself, so passing `command` through asks it to exec
   # a builtin and fails with "Failed to run command".
-  SECRETSPEC_FILE="$manifest" secretspec run -P production -S bifrost -- "$tool" "$@"
+  #
+  # --reason is mandatory since secretspec 0.21: require_reason defaults to
+  # "agents", and its agent detection matches TERM_PROGRAM=WarpTerminal (and
+  # CLAUDECODE etc.), so without it every launch from Warp is refused.
+  SECRETSPEC_FILE="$manifest" secretspec run -P production -S bifrost \
+    --reason "$tool: bifrost gateway attribution key (BOX-149)" -- "$tool" "$@"
 }
 
 pi() {

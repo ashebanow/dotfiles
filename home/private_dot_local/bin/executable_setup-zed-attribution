@@ -81,7 +81,8 @@ read_vk() {
   fi
 
   if [[ -n "$manifest" ]] && command -v secretspec >/dev/null 2>&1; then
-    SECRETSPEC_FILE="$manifest" secretspec run -P production -S bifrost -- \
+    SECRETSPEC_FILE="$manifest" secretspec run -P production -S bifrost \
+      --reason "setup-zed-attribution: read VK_ZED for Zed's bifrost provider" -- \
       sh -c 'printf %s "$VK_ZED"'
     return
   fi
