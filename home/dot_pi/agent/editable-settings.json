@@ -10,7 +10,7 @@
     ]
   },
   "defaultProvider": "bifrost",
-  "defaultModel": "deepseek-v4-flash",
+  "defaultModel": "deepseek-flash",
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": false,
   "packages": [
@@ -23,7 +23,8 @@
     "npm:pi-context-shake",
     "npm:pi-context-view",
     "npm:pi-mcp-extension",
-    "npm:@firstpick/pi-extension-cd"
+    "npm:@firstpick/pi-extension-cd",
+    "npm:@amaster.ai/pi-image-gen"
   ],
   "pi-exa": {
     "enabledTools": [
@@ -32,5 +33,9 @@
       "web_answer_exa"
     ]
   },
-  "theme": "gruvbox-hard"
+  "theme": "gruvbox-hard",
+  "pi-image-gen": {
+    "defaultModel": "gemini/gemini-nano-banana-2.1",
+    "outputDir": ".pi/images"
+  }
 }
