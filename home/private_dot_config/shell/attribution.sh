@@ -21,12 +21,32 @@
 # The `--` is load-bearing: without it, an option-shaped argument to the tool
 # would be parsed by secretspec instead.
 #
-# _gateway_client <tool> — shared body for the CLI clients on the gateway.
-# Resolves the manifest, then runs the tool under the bifrost scope so the
-# virtual key lands in the child's environment and nowhere else.
+# _gateway_client <tool> <var> — shared body for the CLI clients on the gateway.
+#
+# Two delivery paths, matching ADR 0001 (nix-config/docs/adr/0001):
+#   1. NixOS hosts (/run/secrets/vk-<tool> populated at boot by
+#      host-secrets-populate.service from the `dev` scope, 0400 owned by the
+#      operator user): read the tmpfs file directly into <var> for the child
+#      process. Headless hosts (lumquat) have no user-level BWS_ACCESS_TOKEN or
+#      keyring by design, so `secretspec run` cannot reach BWS there.
+#   2. Workstations with a user-level BWS_ACCESS_TOKEN (macOS keychain via
+#      secrets.sh): resolve the `dev` scope via `secretspec run` so the
+#      virtual key lands in the child's environment and nowhere else (without
+#      exposing the gateway's own provider keys in the `bifrost` scope).
 _gateway_client() {
   local tool="$1"
-  shift
+  local var="$2"
+  shift 2
+
+  local secret_file="/run/secrets/vk-$tool"
+  if [[ -r "$secret_file" ]]; then
+    local vk
+    vk="$(<"$secret_file")"
+    if [[ -n "$vk" ]]; then
+      env "$var=$vk" "$tool" "$@"
+      return $?
+    fi
+  fi
 
   # The manifest is repo-local. NIX_CONFIG_DIR is exported by core.sh, which
   # sources it before this file and resolves it with ~/.local/bin/nix-config-dir
@@ -51,12 +71,12 @@ _gateway_client() {
   # --reason is mandatory since secretspec 0.21: require_reason defaults to
   # "agents", and its agent detection matches TERM_PROGRAM=WarpTerminal (and
   # CLAUDECODE etc.), so without it every launch from Warp is refused.
-  SECRETSPEC_FILE="$manifest" secretspec run -P production -S bifrost \
+  SECRETSPEC_FILE="$manifest" secretspec run -P production -S dev \
     --reason "$tool: bifrost gateway attribution key (BOX-149)" -- "$tool" "$@"
 }
 
 pi() {
-  _gateway_client pi "$@"
+  _gateway_client pi VK_PI "$@"
 }
 
 # hermes (BOX-197) via the same mechanism. Its config lives in a chezmoi
@@ -64,5 +84,5 @@ pi() {
 # to disk -- so this keeps the key in the process env instead, matching pi and
 # giving both clients one mechanism to reason about.
 hermes() {
-  _gateway_client hermes "$@"
+  _gateway_client hermes VK_HERMES "$@"
 }
