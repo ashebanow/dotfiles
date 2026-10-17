@@ -201,30 +201,44 @@
       "apiKey": "$MINIMAX_API_KEY",
       "models": [
         {
-          "id": "MiniMax-M2.1",
-          "name": "MiniMax M2.1",
-          "contextWindow": 200000,
-          "maxTokens": 32000,
-          "input": ["text"],
+          "id": "MiniMax-M3.1-Flash-Preview",
+          "name": "MiniMax M3.1 Flash Preview",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "input": ["text", "image"],
           "reasoning": true,
           "cost": {
-            "input": 0.3,
-            "output": 1.2,
-            "cacheRead": 0.03,
-            "cacheWrite": 0.375
+            "input": 0,
+            "output": 0,
+            "cacheRead": 0,
+            "cacheWrite": 0
           }
         },
         {
-          "id": "MiniMax-M2",
-          "name": "MiniMax M2",
-          "contextWindow": 200000,
-          "maxTokens": 32000,
-          "input": ["text"],
+          "id": "MiniMax-M3",
+          "name": "MiniMax M3",
+          "contextWindow": 1000000,
+          "maxTokens": 131072,
+          "input": ["text", "image"],
           "reasoning": true,
           "cost": {
             "input": 0.3,
             "output": 1.2,
-            "cacheRead": 0.03,
+            "cacheRead": 0.06,
+            "cacheWrite": 0
+          }
+        },
+        {
+          "id": "MiniMax-M2.7-highspeed",
+          "name": "MiniMax M2.7 Highspeed",
+          "contextWindow": 204800,
+          "maxTokens": 65536,
+          "input": ["text"],
+          "reasoning": true,
+          "cost": {
+            "input": 0.6,
+            "output": 2.4,
+            "cacheRead": 0.06,
             "cacheWrite": 0.375
           }
         }
