@@ -7,9 +7,12 @@
 # and held in BWS. Nothing here or anywhere in git holds a value.
 #
 # Why a shell function and not a wrapper on PATH:
-#   `pi` is installed by nvm, whose bin dir is *prepended* late in .zshrc —
-#   after ~/.local/bin — so a wrapper script in ~/.local/bin does not win the
-#   PATH lookup. A shell function does, in both shells, regardless of ordering.
+#   PATH setup is not predictable enough to win: a node/nvm-style install can
+#   prepend its bin dir late in .zshrc, after ~/.local/bin, so a wrapper script
+#   there loses the lookup. A shell function wins in both shells, regardless of
+#   ordering. (The earlier note here claimed `pi` came from nvm; that is not
+#   true of any current host — pi is either a pi-nix build in the dev shell's
+#   store, or absent.)
 #
 # Why `secretspec run` and not a shell export:
 #   secrets.sh is interactive-only, so an `export VK_PI=…` there silently
