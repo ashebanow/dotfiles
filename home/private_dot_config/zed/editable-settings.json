@@ -428,9 +428,16 @@
         "path_lookup": true
       }
     },
-    "nix": {
+    "nil": {
       "binary": {
         "path_lookup": true
+      },
+      "initialization_options": {
+        "nix": {
+          "flake": {
+            "autoArchive": true
+          }
+        }
       }
     },
     "sourcekit-lsp": {
