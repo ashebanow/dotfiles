@@ -26,7 +26,6 @@
 {{ if .headless }}
 .config/systemd/user/tmux.service
 .config/containers/systemd/mealie.container
-.config/devenv/config.yaml
 .config/zennotes/config.toml
 .local/bin/mac_logout_handler.zsh
 .local/bin/git-prompt-path

@@ -10,32 +10,28 @@ prompt_prefix: false
 
 shell: zsh
 
-secretspec:
-  enable: true
-  # Bitwarden Secrets Manager, addressed by full URI — the bare provider name
-  # `bws` is NOT enough. devenv fails with "BWS project ID is required. Use
-  # format: bws://project-uuid" and aborts the shell, so the org UUID has to be
-  # in the URI. This is the same route ~/.config/secretspec/config.toml uses as
-  # its global default; keeping them identical means the CLI and devenv cannot
-  # resolve the Cachix token from different vaults.
-  #
-  # Why not `keyring`: the macOS login-keychain item under
-  # secretspec/devenv-cachix/default/CACHIX_AUTH_TOKEN is created by an
-  # adhoc/linker-signed nix binary with no Team ID, so macOS pins its ACL to a
-  # raw cdhash and writes an EMPTY change_acl list (applications (0)). Nothing
-  # can amend that ACL, so `Always Allow` is silently discarded and every
-  # devenv version bump re-prompts twice per `cd`. Recreating the item only
-  # produces a fresh sealed ACL — it is structural, not a stale-state problem.
-  # Routing through BWS removes the keychain from the path entirely, and with it
-  # any dependence on devenv's version, signature, or store path.
-  #
-  # BWS_ACCESS_TOKEN is resolved non-interactively: ~/.zshenv sources
-  # ~/.config/shell/secrets.sh, which reads it from the login keychain and
-  # exports it on every zsh — including the hook-spawned subshell that runs
-  # `devenv shell` for auto-activation. So the direnv/`devenv allow` path works
-  # with no prompt. (Verified: a child zsh with the var stripped recovers it.)
-  provider: "bws://vault.bitwarden.com@c0473754-981b-4e40-bc87-b2700012ef52"
-  cachix_auth_token: true
+# There is deliberately NO `secretspec:` block here. Enabling the integration
+# makes devenv invoke secretspec during `devenv shell` evaluation on every `cd`
+# into this repo:
+#   - On headless NixOS (lumquat), the operator's shell has no BWS_ACCESS_TOKEN
+#     (per SECRET_SYNC.md and ADR 0001, the bootstrap token at
+#     /var/lib/secrets/bws-access-token is root-only and delivered only to
+#     systemd units via LoadCredential), so auto-activation fails with
+#     "BWS access_token credential is not set".
+#   - Under Warp or agent harnesses, SecretSpec's `require_reason` policy
+#     rejects the hook's evaluation because `devenv shell` has no `--reason`
+#     flag.
+#
+# The integration was only ever here for devenv's built-in Cachix secret, and
+# that token is already provisioned at ~/.config/cachix/cachix.dhall by
+# `chezmoi apply` (via `bitwardenSecrets`, which on lumquat runs under
+# `home-manager-podman.service` with `LoadCredential`). devenv's native
+# fallback reads ~/.config/cachix/cachix.dhall directly without invoking
+# secretspec or BWS at shell entry.
+
+# secretspec:
+#   enable: true
+#   cachix_auth_token: true
 
 # If you're using non-OSS software, you can set allow_unfree to true.
 allow_unfree: true
