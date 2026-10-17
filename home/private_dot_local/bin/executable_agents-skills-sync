@@ -127,15 +127,14 @@ for a in "${AGENTS[@]}"; do agent_flags+=(-a "$a"); done
 
 log "fetching $SOURCE (agents: ${AGENTS[*]}) into a sandbox"
 log "  sandbox: $SANDBOX"
-if ((DRY_RUN)); then
-    printf '  [dry-run] (cd %s && npx -y skills@latest add %s -s "*" %s --copy -y)\n' \
-        "$SANDBOX" "$SOURCE" "${agent_flags[*]}"
-else
-    if ! ( cd "$SANDBOX" && npx -y skills@latest add "$SOURCE" \
-            -s '*' "${agent_flags[@]}" --copy -y ) >"$WORK/npx.log" 2>&1; then
-        tail -40 "$WORK/npx.log" >&2
-        die "npx skills add failed (full log: $WORK/npx.log)"
-    fi
+# The fetch ALWAYS runs, including under --dry-run. A dry run that hypothesises
+# about a tree it never fetched cannot report what upstream actually changed,
+# which is the only question a dry run is asked. Everything after this point is
+# what --dry-run suppresses.
+if ! ( cd "$SANDBOX" && npx -y skills@latest add "$SOURCE" \
+        -s '*' "${agent_flags[@]}" --copy -y ) >"$WORK/npx.log" 2>&1; then
+    tail -40 "$WORK/npx.log" >&2
+    die "npx skills add failed (full log: $WORK/npx.log)"
 fi
 
 # --------------------------------------------------------------- locate -----
@@ -144,14 +143,7 @@ STAGER=""
 for cand in "$SANDBOX/.pi/skills" "$SANDBOX/.claude/skills"; do
     [[ -d "$cand" ]] && { STAGER="$cand"; break; }
 done
-if [[ -z "$STAGER" ]]; then
-    if ((DRY_RUN)); then
-        warn "no staged tree (dry-run); skipping stage/link/apply"
-        STAGER=""
-    else
-        die "installer produced no skills tree; see $WORK/npx.log"
-    fi
-fi
+[[ -n "$STAGER" ]] || die "installer produced no skills tree; see $WORK/npx.log"
 
 if [[ -n "$STAGER" ]]; then
     count="$(find "$STAGER" -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')"
@@ -195,6 +187,45 @@ if [[ -n "$STAGER" ]] && ((!DRY_RUN)); then
         "$STAGE/" "$SKILLS_DEST/"
 fi
 
+# --------------------------------------------------------------- preview ----
+# What --dry-run exists to answer: which skills are new, which changed, which
+# would be deleted. Computed from the fetched sandbox against the source tree,
+# so it reflects real upstream content rather than a guess.
+if ((DRY_RUN)) && [[ -n "$STAGER" ]]; then
+    log "comparing fetched upstream against $SKILLS_DEST"
+    tmpdiff="$WORK/preview"
+    mkdir -p "$tmpdiff"
+    cp -R "$STAGER/." "$tmpdiff/"
+    for keep in "${KEEP[@]}"; do
+        [[ -e "$SKILLS_DEST/$keep" ]] && cp -R "$SKILLS_DEST/$keep" "$tmpdiff/$keep"
+    done
+    rm -f "$tmpdiff/.skill-lock.json" "$tmpdiff/skills-lock.json"
+
+    new_count=0 change_count=0
+    while IFS= read -r name; do
+        [[ -d "$SKILLS_DEST/$name" ]] || { printf '  + new:     %s\n' "$name"; new_count=$((new_count + 1)); continue; }
+        if ! diff -r "$SKILLS_DEST/$name" "$tmpdiff/$name" >/dev/null 2>&1; then
+            printf '  ~ changed: %s\n' "$name"
+            change_count=$((change_count + 1))
+        fi
+    done < <(cd "$tmpdiff" && find . -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
+
+    rm_count=0
+    while IFS= read -r name; do
+        [[ -e "$tmpdiff/$name" ]] && continue
+        keep=0
+        for k in "${KEEP[@]}"; do [[ "$k" == "$name" ]] && { keep=1; break; }; done
+        ((keep)) && continue
+        printf '  - deleted: %s\n' "$name"
+        rm_count=$((rm_count + 1))
+    done < <(cd "$SKILLS_DEST" && find . -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
+
+    log "summary: $new_count new, $change_count changed, $rm_count would be deleted"
+    if ((new_count + change_count + rm_count == 0)); then
+        log "source tree already matches upstream; nothing to stage"
+    fi
+fi
+
 # ---------------------------------------------------------------- links -----
 # claude and pi read their own skill directories and are not served by
 # .agents/skills, so each needs a per-skill relative symlink. Relative targets
@@ -203,9 +234,15 @@ fi
 sync_links() {
     local dir="$1" prefix="$2" name target
 
+    # Explicit if/fi rather than `((DRY_RUN)) && { ...; return 0; }`: as the last
+    # command in a function body, a false test would return 1 and kill the
+    # script under `set -e` if the `return 0` ever moved.
     if [[ ! -d "$dir" ]]; then
-        run mkdir -p "$dir"
-        ((DRY_RUN)) && { log "  (dry-run: $dir would be created)"; return 0; }
+        if ((DRY_RUN)); then
+            log "  (dry-run: $dir would be created)"
+            return 0
+        fi
+        mkdir -p "$dir"
     fi
 
     local -a want=()
@@ -227,7 +264,7 @@ sync_links() {
     while IFS= read -r existing; do
         name="${existing##*/symlink_}"
         local found=0 w
-        for w in "${want[@]}"; do
+        for w in ${want[@]+"${want[@]}"}; do
             if [[ "$w" == "$name" ]]; then found=1; break; fi
         done
         if ((found == 0)); then
@@ -246,13 +283,19 @@ if ((SKIP_APPLY)) || ((DRY_RUN)); then
     log "skipping chezmoi apply"
 else
     log "applying ~/.agents/skills ~/.claude/skills ~/.pi/agent/skills"
-    # --force: chezmoi's recorded mode for some vendored files disagrees with
-    # disk, and a mismatch makes apply prompt on /dev/tty, which aborts.
+    # --force: the live files were written by `npx skills add` too, so chezmoi's
+    # recorded state disagrees with disk and would otherwise prompt on
+    # /dev/tty, which aborts. The repo is authoritative: overwrite the live
+    # copies with what we just staged. This is the whole point of the script —
+    # a direct install to $HOME is discarded, not adopted.
     chezmoi apply --force ~/.agents/skills ~/.claude/skills ~/.pi/agent/skills
 fi
 
 # ---------------------------------------------------------------- report ----
-if ((DRY_RUN)); then log "dry run complete; nothing written"; exit 0; fi
+if ((DRY_RUN)); then
+    log "dry run complete; nothing written to $SKILLS_DEST or the symlink trees"
+    exit 0
+fi
 
 log "source tree status:"
 git -C "$SRC_ROOT" status --short -- \

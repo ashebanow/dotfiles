@@ -35,15 +35,18 @@ clear-chezmoi-script-state:
 # Defaults to a dry run; pass `apply` to actually do it. Upstream changes
 # arrive as ordinary git diffs -- review them before committing.
 [group('agents')]
-agents-skills-sync action="dry-run":
+agents-skills-sync action="stage" *args:
     #!/usr/bin/env bash
     set -euo pipefail
     script="home/private_dot_local/bin/executable_agents-skills-sync"
     case "{{action}}" in
-      dry-run) "$script" --dry-run ;;
-      stage)   "$script" --no-apply ;;
-      apply)   "$script" ;;
-      *) echo "usage: just agents-skills-sync [dry-run|stage|apply]" >&2; exit 2 ;;
+      dry-run|stage|apply) ;;
+      *) echo "usage: just agents-skills-sync [dry-run|stage|apply] [-- <options>]" >&2; exit 2 ;;
+    esac
+    case "{{action}}" in
+      dry-run) exec "$script" --dry-run {{args}} ;;
+      stage)   exec "$script" --no-apply {{args}} ;;
+      apply)   exec "$script" {{args}} ;;
     esac
 
 # Re-vendor the linear-cli agent skill from an upstream release tag into
