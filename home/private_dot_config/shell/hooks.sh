@@ -45,3 +45,10 @@ command -v zmx >/dev/null 2>&1              && eval "$(zmx completions "$_SHELL_
 command -v jj >/dev/null 2>&1               && eval "$(COMPLETE="$_SHELL_NAME" jj)"
 command -v thefuck >/dev/null 2>&1          && eval "$(thefuck --alias)"
 command -v fzf >/dev/null 2>&1              && eval "$(fzf --$_SHELL_NAME)"
+
+# Dux Shell and Dux Search. Both emit cobra-style completions on the zsh/bash
+# `completion` subcommand, the same shape as the entries above. `dsearch` is
+# spelled `dsearch` even though its config dir is `danksearch` — see
+# nix-config's modules/features/dank-material-shell.nix.
+command -v dms >/dev/null 2>&1              && eval "$(dms completion "$_SHELL_NAME")"
+command -v dsearch >/dev/null 2>&1          && eval "$(dsearch completion "$_SHELL_NAME")"
