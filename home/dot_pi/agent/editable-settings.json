@@ -14,16 +14,11 @@
   "defaultThinkingLevel": "high",
   "hideThinkingBlock": false,
   "packages": [
-    "https://github.com/ayghri/i-have-adhd",
     "git:https://github.com/joshleblanc/pi-minimax",
     "npm:@alasano/pi-linear",
     "npm:@ashebanow/pi-gotgenes-subagent",
     "npm:@feniix/pi-exa",
     "npm:pi-background-tasks@latest",
-    "npm:pi-context-shake",
-    "npm:pi-context-view",
-    "npm:pi-mcp-extension",
-    "npm:@firstpick/pi-extension-cd",
     "npm:@amaster.ai/pi-image-gen"
   ],
   "pi-exa": {
