@@ -76,6 +76,35 @@ _nix-host:
         exit 1
     fi
 
+# Every .nix file in the checkout must be valid UTF-8. Called by the recipes
+# that build, before they build.
+#
+# Why this exists: a single U+FFFD replacement character (ef bf bd) was
+# committed into a box-drawing comment in modules/features/niri.nix. niri's own
+# parser skips comments before it cares about encoding, so `niri validate`
+# passed, the build passed, and the session started fine — but Dux Shell shells
+# out to `dms keybinds show niri`, whose KDL scanner is strict and aborted the
+# whole parse with `scan failed: invalid UTF8 input at line 54, column 66`.
+# The visible symptom was an empty keybind overlay, three layers away from the
+# cause. Nothing else in the pipeline notices, so this does.
+#
+# Runs over the source rather than the generated config: the build produces
+# that file, and `nh os switch` builds and activates in one step with no hook
+# in between. Checking sources costs milliseconds and fails before a
+# multi-minute build instead of after it.
+#
+# python3 is the dependency that is actually present everywhere this runs (it
+# is in the base package set on both the NixOS hosts and the Macs); iconv and
+# file are not guaranteed. The decode is strict on purpose — that is the whole
+# check.
+_utf8-check:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    # U+FFFD is valid UTF-8, so an encoding check alone misses it; dms's KDL
+    # scanner is the only thing that rejects it, and it fails as an empty
+    # keybind overlay. The logic and the story live in the script itself.
+    nix-config-utf8-guard "$nix_config_dir"
+
 # Validate the nix-config flake (nix flake check)
 [group('nix')]
 nix-flake-check: _nix-host
@@ -105,6 +134,7 @@ build-hm: _nix-host
             echo "error: this Linux machine isn't NixOS — nothing to build" >&2
             exit 1
         fi
+        just _utf8-check
         # NixOS host: the standalone homeConfigurations output is keyed by the
         # host's primary user (my.baseUsername — podman on lumquat, ashebanow
         # on yuzu; see nixos-builder.nix), so derive it from the host config
@@ -169,6 +199,7 @@ dry-run: _nix-host
             echo "error: this Linux machine isn't NixOS — nothing to dry-run" >&2
             exit 1
         fi
+        just _utf8-check
         if command -v nh >/dev/null 2>&1; then
             nh os build --no-nom .#"${host}"
         elif command -v nixos-rebuild >/dev/null 2>&1; then
@@ -217,6 +248,7 @@ switch *FLAGS: _nix-host
             echo "error: this Linux machine isn't NixOS — nothing to switch" >&2
             exit 1
         fi
+        just _utf8-check
         if command -v nh >/dev/null 2>&1; then
             nh os switch --no-nom {{ "{{ FLAGS }}" }} .#"${host}"
         elif command -v nixos-rebuild >/dev/null 2>&1; then
@@ -248,6 +280,7 @@ test: _nix-host
             echo "error: this Linux machine isn't NixOS — nothing to test" >&2
             exit 1
         fi
+        just _utf8-check
         if command -v nh >/dev/null 2>&1; then
             nh os test --no-nom .#"${host}"
         elif command -v nixos-rebuild >/dev/null 2>&1; then

@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+# nix-config-utf8-guard — refuse a .nix tree that will break a config parser.
+#
+# Why this exists: a single U+FFFD REPLACEMENT CHARACTER (ef bf bd) was
+# committed into a box-drawing comment in modules/features/niri.nix. The
+# resulting ~/.config/niri/config.kdl was *valid UTF-8* — U+FFFD decodes
+# without error — so:
+#
+#   niri validate -c ~/.config/niri/config.kdl   -> "config is valid"
+#   nixos-rebuild / just switch                  -> succeeded
+#   the niri session                             -> started, ran fine
+#
+# but Dux Shell builds its keybind overlay by shelling out to
+# `dms keybinds show niri`, whose KDL scanner is strict and rejected the
+# character outright:
+#
+#   failed to parse KDL: scan failed: invalid UTF8 input at line 54, column 66
+#
+# The visible symptom was an empty "no keybinds found" overlay, three layers
+# away from a comment banner. Nothing else in the pipeline notices this, so
+# this script does — before the build, in milliseconds, instead of after a
+# multi-minute rebuild that succeeds and still ships the bug.
+#
+# Two distinct checks, because they catch different accidents:
+#   1. bytes that are not valid UTF-8 at all (latin-1 paste, truncated edit)
+#   2. U+FFFD, which IS valid UTF-8 and sails past check 1
+#
+# Usage:  nix-config-utf8-guard [DIR]     # default: $PWD, else NIX_CONFIG_DIR
+# Exit 0 clean, 1 on any finding with file:line:column.
+#
+# Wired as `just _utf8-check`, which `dry-run`, `switch`, `test` and
+# `build-hm` all call before invoking nh.
+
+set -euo pipefail
+
+root="${1:-${nix_config_dir:-$PWD}}"
+
+if [[ ! -d "$root" ]]; then
+  echo "nix-config-utf8-guard: no such directory: $root" >&2
+  exit 1
+fi
+
+# find, not globstar: works the same on the macOS bash 3.2 the dotfiles target.
+# -path .../.git -prune keeps .git out without a second -name test.
+mapfile_cmd() { :; }  # placeholder for macOS bash 3.2, which has no mapfile
+
+bad=0
+count=0
+
+while IFS= read -r -d '' f; do
+  count=$((count + 1))
+  if out="$(python3 -c '
+import sys
+path = sys.argv[1]
+try:
+    text = open(path, encoding="utf-8").read()
+except UnicodeDecodeError as e:
+    print("not valid UTF-8 (%s)" % e)
+    sys.exit(1)
+for lineno, line in enumerate(text.splitlines(), 1):
+    idx = line.find("\ufffd")
+    if idx != -1:
+        print("line %d, column %d: U+FFFD REPLACEMENT CHARACTER"
+              % (lineno, idx + 1))
+        sys.exit(1)
+sys.exit(0)
+' "$f" 2>&1)"; then
+    :
+  else
+    printf 'FAIL: %s\n      %s\n' "${f#$root/}" "$out" >&2
+    bad=1
+  fi
+done < <(find "$root" -path "$root/.git" -prune -o -type f -name '*.nix' -print0)
+
+if (( bad )); then
+  cat >&2 <<'MSG'
+
+Refusing to build a tree that will produce an unusable config.
+
+U+FFFD is technically valid UTF-8, which is exactly why this is easy to miss:
+niri and nixos-rebuild both accept it and the session works. Only the parsers
+that Dux Shell uses on the *generated* config reject it, and they fail
+silently from the user's point of view (an empty keybind overlay).
+
+The usual cause is a lost round-trip through an editor or clipboard, which
+mangles the multi-byte box-drawing characters in comment banners. Rewriting
+that comment line in plain ASCII, or with correct bytes, is the fix.
+
+To find them:   grep -rn $'\ufffd' --include='*.nix' .
+MSG
+  exit 1
+fi
+
+printf 'nix-config-utf8-guard: clean (%d .nix files under %s)\n' "$count" "$root"
