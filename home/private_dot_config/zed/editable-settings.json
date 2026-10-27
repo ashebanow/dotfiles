@@ -390,10 +390,10 @@
     ],
     "default_profile": "ask",
     "default_model": {
-      "effort": "high",
+      "effort": "medium",
       "enable_thinking": true,
-      "provider": "zed.dev",
-      "model": "claude-sonnet-5"
+      "provider": "Bifrost",
+      "model": "deepseek-v4-flash"
     },
     // Background features are pinned rather than left to inherit default_model.
     // Unset, they follow it -- which cuts both ways: point the default at a
