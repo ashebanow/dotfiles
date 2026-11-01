@@ -1,0 +1,86 @@
+default_key_modifier = "ctrl-alt"
+show_cheatsheet_on_modifier_hold = true
+
+[layout]
+default_column_width = 1.0
+preset_column_widths = [0.33, 0.50, 0.66, 0.80]
+center_focused_column = "on-overflow"
+always_center_single_column = true
+gaps = 6
+# reserved_top = 0
+# reserved_bottom = 0
+
+[workspaces]
+names = ["dev", "web", "tools"]
+default = "dev"
+# monitors = { tools = 2 }
+
+[menu_bar]
+enabled = true
+
+[animation]
+enabled = true
+
+[overview]
+# zoom = 0.5
+# window_previews = false
+# window_corner_radius = 12
+
+[decorations.borders]
+# enabled = true
+# width = 4
+# color = "#FFC099FF"
+# inactive_enabled = false
+# inactive_color = "#66C099FF"
+# capture_enabled = false
+# placement = "outside"
+
+[keys]
+# "ctrl-alt-left" = "focus-column left"
+# "ctrl-alt-right" = "focus-column right"
+# "ctrl-alt-j" = "focus-window down"
+# "ctrl-alt-k" = "focus-window up"
+# "ctrl-alt-up" = "focus-workspace up"
+# "ctrl-alt-down" = "focus-workspace down"
+# "ctrl-alt-o" = "toggle-overview"
+# "ctrl-alt-leftbracket" = "focus-column first"
+# "ctrl-alt-rightbracket" = "focus-column last"
+#
+# "ctrl-alt-shift-left" = "move-column left"
+# "ctrl-alt-shift-right" = "move-column right"
+# "ctrl-alt-shift-j" = "move-window down"
+# "ctrl-alt-shift-k" = "move-window up"
+# "ctrl-alt-shift-up" = "move-column-to-workspace up"
+# "ctrl-alt-shift-down" = "move-column-to-workspace down"
+# "ctrl-alt-shift-leftbracket" = "move-column first"
+# "ctrl-alt-shift-rightbracket" = "move-column last"
+#
+# "ctrl-alt-1" = "focus-workspace-position 1"
+# # ... through ctrl-alt-9
+# "ctrl-alt-shift-1" = "move-column-to-workspace-position 1"
+# # ... through ctrl-alt-shift-9
+#
+# "ctrl-cmd-left" = "focus-monitor left"
+# "ctrl-cmd-right" = "focus-monitor right"
+# "ctrl-cmd-up" = "focus-monitor up"
+# "ctrl-cmd-down" = "focus-monitor down"
+# "ctrl-cmd-shift-left" = "move-column-to-monitor left"
+# "ctrl-cmd-shift-right" = "move-column-to-monitor right"
+# "ctrl-cmd-shift-up" = "move-column-to-monitor up"
+# "ctrl-cmd-shift-down" = "move-column-to-monitor down"
+# "ctrl-cmd-alt-left" = "move-workspace-to-monitor left"
+# "ctrl-cmd-alt-right" = "move-workspace-to-monitor right"
+# "ctrl-cmd-alt-up" = "move-workspace-to-monitor up"
+# "ctrl-cmd-alt-down" = "move-workspace-to-monitor down"
+#
+# "ctrl-alt-minus" = "cycle-width previous"
+# "ctrl-alt-equal" = "cycle-width next"
+# "ctrl-alt-f" = "maximize-column"
+# "ctrl-alt-c" = "center-column"
+# "ctrl-alt-backslash" = "toggle-floating"
+# "ctrl-alt-shift-backslash" = "activate-floating"
+# "ctrl-alt-comma" = "focus-floating previous"
+# "ctrl-alt-period" = "focus-floating next"
+# "ctrl-alt-semicolon" = "join-window left"
+# "ctrl-alt-quote" = "join-window right"
+# "ctrl-alt-r" = "unjoin-windows"
