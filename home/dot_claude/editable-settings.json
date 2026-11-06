@@ -8,7 +8,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus",
+  "model": "opus[1m]",
   "skillOverrides": {
     "dg": "off"
   },
@@ -51,11 +51,5 @@
   },
   "askUserQuestionTimeout": "never",
   "skipDangerousModePermissionPrompt": true,
-  "agentPushNotifEnabled": true,
-  "mcpServers": {
-    "linear": {
-      "type": "http",
-      "url": "https://mcp.linear.app/mcp"
-    }
-  }
+  "agentPushNotifEnabled": true
 }
