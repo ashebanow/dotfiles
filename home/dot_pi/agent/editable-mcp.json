@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "nixos": {
+      "command": "mcp-nixos",
+      "args": [],
+      "exposure": "deferred",
+      "description": "Query nixpkgs packages, options, flakes, and NixOS/home-manager modules."
+    }
+  }
+}
