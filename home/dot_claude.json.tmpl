@@ -1,0 +1,22 @@
+{{- /*
+~/.claude.json — Claude Code's user-scope state file.
+
+Claude Code's user-scope MCP servers live here, NOT in ~/.claude/settings.json:
+`claude mcp add -s user` writes to this file, and `claude mcp list` reads only
+this file. A "mcpServers" block in settings.json is silently inert, which is
+what the dotfiles previously had (a "linear" entry that never took effect).
+
+The rest of the file (firstStartTime, machineID, userID, migration flags,
+seenNotifications, per-project entries) is written and rewritten by Claude Code
+itself. It is per-machine and must not be clobbered, so it is read from
+whatever already exists and only "mcpServers" is imposed on top.
+*/ -}}
+{{- $path := joinPath .chezmoi.homeDir ".claude.json" -}}
+{{- $existing := dict -}}
+{{- if stat $path -}}
+{{-   $existing = fromJson (include $path) -}}
+{{- end -}}
+{{- $mcp := fromJson (include (joinPath .chezmoi.sourceDir "dot_claude/editable-mcp-servers.json")) -}}
+{{- /* merge is recursive and right-biased: $mcp wins on the mcpServers keys it
+       defines, and everything $existing has that $mcp lacks survives. */ -}}
+{{- toPrettyJson (merge $mcp $existing) }}
