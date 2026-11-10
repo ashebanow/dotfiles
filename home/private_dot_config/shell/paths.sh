@@ -72,6 +72,10 @@ add_to_path "$HOME/.amp/bin"
 # Added by LM Studio CLI tool (lms)
 add_to_path "$HOME/.lmstudio/bin"
 
+# on mac, the Rex app has the rex server embedded in it, so we need to expose it
+# TODO: do the equivalent for linux if needed once the linux app/server is available
+add_to_path "/Applications/Rex\ Beta.app/Contents/Helpers/Rex\ Server.rex/Contents/MacOS"
+
 # NixOS: /etc/set-environment puts /run/wrappers/bin (the setuid sudo
 # wrapper) on PATH, but the add_to_path calls above re-prepend
 # nix/sw/bin/etc. after it, burying the wrapper below
