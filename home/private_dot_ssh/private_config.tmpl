@@ -1,3 +1,16 @@
+# Rex's ssh guard. Managed here rather than appended by `rex terminfo
+# setup`, so chezmoi stays the single writer of this file. The target is
+# written by rex; `rex terminfo status` reports the guard as already in
+# effect. Missing file is fine: ssh ignores an Include that does not resolve,
+# so this is a no-op until `rex terminfo setup` has run. It must not be group-
+# or world-writable, though — ssh refuses such a file ("Bad owner or
+# permissions") and drops the guard.
+#
+# FIRST in the file, deliberately: it is a Match block, which ssh only honours
+# before the first Host block, and ssh keeps the earliest value for a setting,
+# so this SetEnv TERM must precede "Host *" below.
+Include "{{ .chezmoi.homeDir -}}/.config/rex/ssh_config"
+
 # Managed by lazyssh
 
 Host bergamot berg
