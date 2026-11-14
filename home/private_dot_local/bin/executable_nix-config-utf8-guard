@@ -44,12 +44,43 @@ fi
 # -path .../.git -prune keeps .git out without a second -name test.
 mapfile_cmd() { :; }  # placeholder for macOS bash 3.2, which has no mapfile
 
+# Resolve python3 rather than assuming it is on PATH.
+#
+# It is NOT in the base package set on any of these machines — not on the NixOS
+# hosts (lumquat is deliberately minimal and takes its tools from the dev
+# shell), and not on the Macs. `just switch` on yuzu therefore failed with
+# "python3: command not found" *before* the build, which is the guard failing
+# open in the one situation it exists to catch. It also reads like a code
+# problem rather than a missing dependency, which is how it went unnoticed.
+#
+# Order: an already-working python3 (a dev shell, or /usr/bin on a Mac with the
+# command line tools), then nix, which is guaranteed wherever this runs.
+# Resolved once, outside the loop — `nix build` is cached, but not free per file.
+#
+# If neither works, exit 2 and say so plainly. A distinct status beats silently
+# reporting the tree as clean: "nothing bad found" and "the check never ran"
+# must not look the same, which is exactly what went wrong before.
+python3_bin=""
+if python3 -c 'import sys' >/dev/null 2>&1; then
+  python3_bin="python3"
+elif command -v nix >/dev/null 2>&1; then
+  if p="$(nix build --no-link --print-out-paths --extra-experimental-features 'nix-command flakes' nixpkgs#python3 2>/dev/null)" && [ -x "$p/bin/python3" ]; then
+    python3_bin="$p/bin/python3"
+  fi
+fi
+
+if [ -z "$python3_bin" ]; then
+  echo "nix-config-utf8-guard: no python3 and no usable nix — cannot run the check." >&2
+  echo "  The tree is UNCHECKED, not clean." >&2
+  exit 2
+fi
+
 bad=0
 count=0
 
 while IFS= read -r -d '' f; do
   count=$((count + 1))
-  if out="$(python3 -c '
+  if out="$("$python3_bin" -c '
 import sys
 path = sys.argv[1]
 try:

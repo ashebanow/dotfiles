@@ -93,10 +93,17 @@ _nix-host:
 # in between. Checking sources costs milliseconds and fails before a
 # multi-minute build instead of after it.
 #
-# python3 is the dependency that is actually present everywhere this runs (it
-# is in the base package set on both the NixOS hosts and the Macs); iconv and
-# file are not guaranteed. The decode is strict on purpose — that is the whole
-# check.
+# python3 is the one external dependency. It is NOT in the base package set on
+# any of these machines — not on the NixOS hosts (lumquat is deliberately
+# minimal; its tools come from the dev shell), and not on the Macs. That old
+# claim here was wrong and made the script fail with "python3: command not
+# found" inside the very shell that runs this recipe. Two fixes went in
+# together: python3 is now in the nix-config dev shell, and the script itself
+# resolves a fallback interpreter via `nix build nixpkgs#python3`, exiting 2
+# ("The tree is UNCHECKED, not clean") when neither is available. iconv and
+# file are still not guaranteed.
+#
+# The decode is strict on purpose — that is the whole check.
 _utf8-check:
     #!/usr/bin/env bash
     set -euo pipefail
