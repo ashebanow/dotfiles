@@ -4,5 +4,6 @@
   "/Users/ashebanow/Development/boxboworg/suwiki": true,
   "/Users/ashebanow/Development/nix/nix-config/main": true,
   "/Users/ashebanow/Development/worktrunk-fix": true,
-  "/etc/nixos": true
+  "/etc/nixos": true,
+  "/home/podman/nix-config": true
 }
