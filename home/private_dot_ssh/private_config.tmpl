@@ -1,5 +1,27 @@
 # Managed by lazyssh
 
+# Rex's ssh guard (installed by home-manager's programs.rex).
+#
+# Inside a Rex terminal, ssh would otherwise forward TERM=xterm-rex to hosts
+# that have no such terminfo entry, where curses programs (vim, less, htop)
+# refuse to start. The guard rewrites TERM to xterm-256color for those hosts.
+# To send xterm-rex to a host that does have the entry, add its name to
+# ~/.config/rex/terminfo-hosts.
+#
+# The file is written by `rex terminfo setup` — not managed by chezmoi, because
+# Rex appends to it as hosts are learned. Outer `~` is expanded by ssh itself
+# in Include lines; the inner one is expanded by the guard's own /bin/sh.
+#
+# Missing file is fine: ssh silently ignores an Include that does not resolve,
+# so this is a no-op until `rex terminfo setup` has run. It must not be group-
+# or world-writable, though — ssh refuses to read such a file ("Bad owner or
+# permissions") and drops the guard.
+#
+# FIRST in the file, deliberately: it is a Match block, which ssh only honours
+# before the first Host block, and ssh keeps the earliest value for a setting,
+# so this SetEnv TERM must precede "Host *" below.
+Include ~/.config/rex/ssh_config
+
 Host bergamot berg
     HostName bergamot
 
