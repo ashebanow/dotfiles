@@ -23,13 +23,21 @@ command -v starship >/dev/null 2>&1         && eval "$(starship init "$_SHELL_NA
 # Gate definitions live in zshrc.d/starship_prompt.zsh (alert) and
 # shell/starship-nix-gate.sh (nix), both sourced before this file. Keep the
 # wrap shell-native (no subshell) so it costs no fork per prompt.
-if [[ "$_SHELL_NAME" == "zsh" ]] && (( $+functions[prompt_starship_precmd] )); then
-  functions[_starship_precmd_orig]=$functions[prompt_starship_precmd]
-  prompt_starship_precmd() {
-    _starship_precmd_orig
-    _starship_alert_gate
-    _starship_nix_gate
-  }
+#
+# Two NESTED ifs, not `[[ ... ]] && (( ... ))`: this file is shared with bash, and
+# bash still runs the right-hand side of && as a command. `(( $+functions[x] ))`
+# is zsh's function-exists idiom, so under bash it aborts with "arithmetic syntax
+# error: operand expected" on every shell start. `(( ))` is ordinary runtime
+# syntax for both shells (not a parse error), so nesting leaves it unrun under bash.
+if [[ "$_SHELL_NAME" == "zsh" ]]; then
+  if (( $+functions[prompt_starship_precmd] )); then
+    functions[_starship_precmd_orig]=$functions[prompt_starship_precmd]
+    prompt_starship_precmd() {
+      _starship_precmd_orig
+      _starship_alert_gate
+      _starship_nix_gate
+    }
+  fi
 fi
 command -v tv >/dev/null 2>&1               && eval "$(tv init "$_SHELL_NAME")"
 command -v gh >/dev/null 2>&1               && eval "$(gh completion -s "$_SHELL_NAME")"
