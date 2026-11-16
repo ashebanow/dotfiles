@@ -74,10 +74,10 @@ add_to_path "$HOME/.lmstudio/bin"
 
 # on mac, the Rex app has the rex server embedded in it, so we need to expose it
 # TODO: do the equivalent for linux if needed once the linux app/server is available
-# Quote, don't backslash-escape the spaces: this file is sourced by bash too,
-# where add_to_path's `eval echo` drops the backslashes and word-splits the
-# path into two args, so `export PATH=$d:$PATH` sees >1 word and bash aborts
-# the export ("not a valid identifier").
+# Quote, don't backslash-escape the spaces: paths.sh is shared with bash, and
+# quoting is the form both shells read identically. (The escaped form happens to
+# also work -- add_to_path's `eval echo` unescapes it and its export is quoted --
+# so this is consistency, not a fix.)
 add_to_path "/Applications/Rex Beta.app/Contents/Helpers/Rex Server.rex/Contents/MacOS"
 
 # NixOS: /etc/set-environment puts /run/wrappers/bin (the setuid sudo
