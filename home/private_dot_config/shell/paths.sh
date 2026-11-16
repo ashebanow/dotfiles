@@ -74,7 +74,11 @@ add_to_path "$HOME/.lmstudio/bin"
 
 # on mac, the Rex app has the rex server embedded in it, so we need to expose it
 # TODO: do the equivalent for linux if needed once the linux app/server is available
-add_to_path "/Applications/Rex\ Beta.app/Contents/Helpers/Rex\ Server.rex/Contents/MacOS"
+# Quote, don't backslash-escape the spaces: this file is sourced by bash too,
+# where add_to_path's `eval echo` drops the backslashes and word-splits the
+# path into two args, so `export PATH=$d:$PATH` sees >1 word and bash aborts
+# the export ("not a valid identifier").
+add_to_path "/Applications/Rex Beta.app/Contents/Helpers/Rex Server.rex/Contents/MacOS"
 
 # NixOS: /etc/set-environment puts /run/wrappers/bin (the setuid sudo
 # wrapper) on PATH, but the add_to_path calls above re-prepend
