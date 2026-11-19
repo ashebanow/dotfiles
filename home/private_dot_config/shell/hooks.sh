@@ -50,6 +50,7 @@ command -v devenv >/dev/null 2>&1           && eval "$(devenv hook "$_SHELL_NAME
 command -v tailscale >/dev/null 2>&1        && eval "$(tailscale completion "$_SHELL_NAME")"
 command -v wt >/dev/null 2>&1               && eval "$(command wt config shell init "$_SHELL_NAME")"
 command -v zmx >/dev/null 2>&1              && eval "$(zmx completions "$_SHELL_NAME")"
+command -v rex >/dev/null 2>&1              && eval "$(rex completion "$_SHELL_NAME")"
 command -v jj >/dev/null 2>&1               && eval "$(COMPLETE="$_SHELL_NAME" jj)"
 command -v thefuck >/dev/null 2>&1          && eval "$(thefuck --alias)"
 command -v fzf >/dev/null 2>&1              && eval "$(fzf --$_SHELL_NAME)"

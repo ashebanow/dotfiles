@@ -293,6 +293,7 @@ command -v devenv           && eval "$(devenv hook "$_SHELL_NAME")"
 command -v tailscale        && eval "$(tailscale completion "$_SHELL_NAME")"
 command -v wt               && eval "$(command wt config shell init "$_SHELL_NAME")"
 command -v zmx              && eval "$(zmx completions "$_SHELL_NAME")"
+command -v rex              && eval "$(rex completion "$_SHELL_NAME")"
 command -v jj               && eval "$(COMPLETE="$_SHELL_NAME" jj)"
 command -v thefuck          && eval "$(thefuck --alias)"   # same for both shells
 
