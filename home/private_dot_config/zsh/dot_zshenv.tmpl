@@ -32,6 +32,22 @@ source "$HOME/.config/shell/paths.sh"
 export SHELL=$(which zsh)
 
 #############################################################################
-# Secrets (BWS/SSH) — shared with bash via ~/.config/bashrc.d/999_secrets.sh
+# SSH agent socket (BOX-298)
+
+# gcr-ssh-agent's socket. Desktop sessions export it themselves; shells whose
+# parent is not the desktop session do not — Rex terminals under
+# XDG_RUNTIME_DIR=/run/rex inherit nothing, and the failure is silent until git
+# tries to sign: ssh-keygen -Y sign cannot reach an agent, so the commit aborts
+# with "Couldn't get agent socket?" before git writes the object.
+#
+# Only fills an EMPTY value: a session that already points at an agent (1Password,
+# a forwarded socket, a custom ssh-agent) keeps it. The -S test makes this a
+# no-op on macOS and on headless hosts, which have no gcr.
+if [[ -z "${SSH_AUTH_SOCK:-}" && -S "/run/user/$UID/gcr/.ssh" ]]; then
+  export SSH_AUTH_SOCK="/run/user/$UID/gcr/.ssh"
+fi
+
+#############################################################################
+# Secrets (BWS) — shared with bash via ~/.config/bashrc.d/999_secrets.sh
 
 source "$HOME/.config/shell/secrets.sh"
