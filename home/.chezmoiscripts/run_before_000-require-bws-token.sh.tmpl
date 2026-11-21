@@ -19,19 +19,46 @@
 # identical on both: if it is not available, fail.
 #   - headless: the Home Manager activation (home-manager-podman.service)
 #     delivers it via LoadCredential and reads it from $CREDENTIALS_DIRECTORY.
+#     An operator shell cannot obtain it at all, so a hand-run `chezmoi apply`
+#     is permanently impossible here -- the diagnostic must say so rather than
+#     point at a command that does not help (BOX-302). Keep the two host
+#     classes' advice distinct: on headless the remedy is "apply *as* the
+#     activation", never "apply from this shell".
 #   - desktop/macOS: ~/.config/shell/secrets.sh reads it from the login
 #     keychain. Note that a token that is *absent* is a failure here too: the
 #     normal source is the keychain, so absence means either the keychain has
-#     no entry or the shell never sourced secrets.sh.
+#     no entry or the shell never sourced secrets.sh. Unlike headless, the
+#     remedy below is real: a shell *can* hold this token.
 {{ if .headless -}}
 if [ -z "${BWS_ACCESS_TOKEN:-}" ]; then
     cat >&2 <<'MSG'
 FATAL: BWS_ACCESS_TOKEN is not set — refusing to apply.
 
-This is a headless host; the token is delivered by the Home Manager
-activation. Apply through it:
+Nothing has been copied: this check runs before chezmoi renders or writes
+any file, so no credential was blanked and no dotfile was touched.
 
-    just switch
+This is expected on a headless host, not a misconfiguration. There is no
+interactive token here and no way to give this shell one: the token is
+root-only at /var/lib/secrets/bws-access-token and is handed to the Home
+Manager activation as a systemd credential. The keyring plumbing that
+would normally populate a shell ($BWS_ACCESS_TOKEN) is deliberately not
+installed on headless hosts.
+
+So a bare `chezmoi apply` cannot be made to work here — running it again
+will fail exactly like this. Do not export a token by hand to get around
+it; that is the silent-degradation path this guard exists to prevent.
+
+Dotfiles are applied by the Home Manager activation itself, which runs on
+every switch and supplies the token:
+
+    just switch                 # full system switch; also applies dotfiles
+
+To apply dotfiles only, without a full switch, re-run that activation:
+
+    sudo systemctl restart home-manager-podman.service
+
+Either way the apply happens as the activation, with the credential in
+scope — not as this shell.
 MSG
     exit 1
 fi
