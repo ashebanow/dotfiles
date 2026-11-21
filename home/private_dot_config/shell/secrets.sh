@@ -156,25 +156,20 @@ _bws_flakehub_login() {
 _bws_flakehub_login
 
 #############################################################################
-# SSH Key Management (agent-only, no private keys on disk)
-
-_bws_load_ssh_keys() {
-    [[ -n "${BWS_ACCESS_TOKEN:-}" ]] || return 0
-    [[ -f ~/.ssh/id_ed25519.pub ]] || return 0
-
-    # Skip if agent already has keys loaded
-    ssh-add -l &>/dev/null && return 0
-
-    # Migrate: remove stale private key files from old disk-based approach
-    rm -f ~/.ssh/id_ed25519 ~/.ssh/github_ed25519 ~/.ssh/cattivi_unifi
-
-    # Load keys from BWS into ssh-agent (values piped via stdin, never touch disk)
-    local uuid
-    uuid="fcc83acf-0a54-471a-a237-b479014d6e5f" # id_ed25519
-    bws secret get "$uuid" 2>/dev/null | jq -r '.value' | ssh-add - 2>/dev/null
-    uuid="60ce8949-f4f6-4ad2-8683-b479014ac6da" # github_ed25519
-    bws secret get "$uuid" 2>/dev/null | jq -r '.value' | ssh-add - 2>/dev/null
-    uuid="5dd3d0f8-c4d5-4baf-a92a-b479014e1f4b" # cattivi_unifi
-    bws secret get "$uuid" 2>/dev/null | jq -r '.value' | ssh-add - 2>/dev/null
-}
-_bws_load_ssh_keys
+# SSH keys: deliberately NOT loaded here (BOX-301)
+#
+# This file used to define _bws_load_ssh_keys(), which piped three private
+# keys from BWS into ssh-add on every interactive shell and, before doing so,
+# ran `rm -f ~/.ssh/{id_ed25519,github_ed25519,cattivi_unifi}`. Two problems:
+#
+#   1. The rm came AFTER the `ssh-add -l` early return, so it only fired when
+#      the agent had no keys — exactly the state you are in while diagnosing a
+#      broken agent. It deleted keys on the failure path, silently, before any
+#      replacement had been loaded.
+#   2. Loading signing keys into an agent per shell is the surface we are
+#      removing. Desktops use the single gcr agent (see .zshenv); headless
+#      hosts do not sign at all and must not hold these keys (CONTEXT.md,
+#      "personal secret").
+#
+# Do not re-add a loader here. A host that genuinely needs keys in an agent
+# gets an explicit, host-scoped opt-in, not a shared shell function.
