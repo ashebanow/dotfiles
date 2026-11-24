@@ -231,8 +231,12 @@ fi
 # .agents/skills, so each needs a per-skill relative symlink. Relative targets
 # keep working wherever the tree is mounted. Note: the existing link files have
 # NO trailing newline, so mk() writes none either.
+#
+# Any names after the prefix restrict the tree to those skills; with none, it
+# links every skill in $SKILLS_DEST. Links outside the wanted set are removed.
 sync_links() {
     local dir="$1" prefix="$2" name target
+    shift 2
 
     # Explicit if/fi rather than `((DRY_RUN)) && { ...; return 0; }`: as the last
     # command in a function body, a false test would return 1 and kill the
@@ -258,9 +262,9 @@ sync_links() {
         else
             printf '%s' "$target" > "$dir/symlink_$name"
         fi
-    done < <(cd "$SKILLS_DEST" && find . -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort)
+    done < <(if (($#)); then printf '%s\n' "$@"; else cd "$SKILLS_DEST" && find . -mindepth 1 -maxdepth 1 -type d -exec basename {} \; | sort; fi)
 
-    # Drop links whose skill is gone upstream.
+    # Drop links whose skill is gone upstream, or is outside the wanted set.
     while IFS= read -r existing; do
         name="${existing##*/symlink_}"
         local found=0 w
@@ -275,7 +279,15 @@ sync_links() {
 }
 
 log "refreshing symlink trees"
-sync_links "$CLAUDE_LINKS" '../../.agents/skills/'
+# Claude Code gets the Matt Pocock set from the mattpocock-skills plugin, so its
+# tree links only this repo's first-party skills (the KEEP dirs). Linking the
+# vendored set too would install every skill twice, and the plugin and this
+# vendored copy are free to drift apart.
+claude_skills=()
+for keep in "${KEEP[@]}"; do
+    [[ -d "$SKILLS_DEST/$keep" ]] && claude_skills+=("$keep")
+done
+sync_links "$CLAUDE_LINKS" '../../.agents/skills/' "${claude_skills[@]}"
 sync_links "$PI_LINKS"     '../../../.agents/skills/'
 
 # ---------------------------------------------------------------- apply -----
