@@ -1,4 +1,8 @@
 {
+  "env": {
+    "NODE_EXTRA_CA_CERTS": "/etc/ssl/certs/ca-certificates.crt",
+    "CLAUDE_CODE_CERT_STORE": "bundled,system"
+  },
   "permissions": {
     "deny": [
       "Read(.env*)",
@@ -8,9 +12,22 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
+  "model": "opus",
   "skillOverrides": {
     "dg": "off"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/sh -c 'rex __internal session-start --agent claude --feature-session-naming=false 2>/dev/null || true'",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
   },
   "enabledPlugins": {
     "mattpocock-skills@claude-plugins-official": true,
@@ -43,7 +60,13 @@
         "*.github.com",
         "*.githubusercontent.com",
         "vault.bitwarden.com",
-        "*.vault.bitwarden.com"
+        "*.vault.bitwarden.com",
+        "api.anthropic.com",
+        "claude.ai",
+        "claude.com",
+        "platform.claude.com",
+        "*.anthropic.com",
+        "*.sentry.io"
       ],
       "allowUnixSockets": []
     },
@@ -54,22 +77,12 @@
   "modelSettings": {
     "claude-opus-5": {
       "effortLevel": "high"
+    },
+    "claude-opus-5-5": {
+      "autoCompactWindow": 400000
     }
   },
   "askUserQuestionTimeout": "never",
   "skipDangerousModePermissionPrompt": true,
-  "agentPushNotifEnabled": true,
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/bin/sh -c 'rex __internal session-start --agent claude --feature-session-naming=false 2>/dev/null || true'",
-            "timeout": 5
-          }
-        ]
-      }
-    ]
-  }
+  "agentPushNotifEnabled": true
 }
