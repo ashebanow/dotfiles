@@ -57,7 +57,7 @@ why `afk-loop`'s SKILL.md tells the orchestrator to pass `model` per call.
 
 ## The Matt Pocock engineering skills
 
-The 37-skill [Matt Pocock engineering set](https://github.com/mattpocock/skills)
+The [Matt Pocock engineering set](https://github.com/mattpocock/skills)
 lives here as a bulk vendored drop. It does **not** follow the per-skill
 `VENDORED.md` convention: provenance (upstream source path and a content hash
 per skill) is recorded once in the repo-root `skills-lock.json`, which was the
@@ -65,11 +65,15 @@ manifest `npx skills` used to install them into individual repos before this
 set was promoted to the base harness. Do not hand-edit these skills — refresh
 the whole set at once and update the hashes.
 
-Both harnesses get this set without symlinks: pi reads `~/.agents/skills/`
-natively, and Claude Code reads the `mattpocock-skills@claude-plugins-official`
-plugin (enabled in `editable-settings.json` for Claude). The plugin currently
-ships 35 of the 37 — it omits `implement-spec` and `retro`, which upstream
-files under `skills/in-progress/`.
+pi reads this set from `~/.agents/skills/`. Claude Code does **not**: it reads
+the `mattpocock-skills@claude-plugins-official` plugin (enabled in
+`editable-settings.json` for Claude), so `~/.claude/skills/` carries no links to
+these skills. Linking them as well installs every skill twice (`/to-tickets`
+beside `/mattpocock-skills:to-tickets`), and the plugin and this vendored copy
+are free to drift apart, so each harness keeps the copy its authors ship for it.
+`agents-skills-sync` enforces this: its Claude link tree holds only the
+first-party skills, and `.chezmoiremove` deletes the old links on every host.
+As of plugin 1.3.1 the plugin and this drop carry the same 38 skills.
 
 These were formerly vendored per-repo (`<repo>/.agents/skills/`, with matching
 `.pi/skills/` and `.claude/skills/` symlinks). That pattern is gone: pi resolves
