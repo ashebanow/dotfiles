@@ -1,7 +1,7 @@
 # Rex: switching from the downloaded app to the nix flake
 
 Current state on miraclemax: Rex is installed manually as
-`/Applications/Rex Beta.app`. The plan is to replace that with the flake's
+`/Applications/Rex.app`. The plan is to replace that with the flake's
 `my.rexClient` flag. This file records what that means and what to check.
 
 This is separate, later work — nothing here is needed for `~/.ssh/config` to
@@ -17,7 +17,7 @@ So switching away from the app is a matter of:
 
 1. Building with the flake (`darwin-rebuild switch` / `nh darwin switch`) and
    confirming `rex` resolves to the nix store rather than the app bundle.
-2. Removing `/Applications/Rex Beta.app` once the flake build is confirmed, so
+2. Removing `/Applications/Rex.app` once the flake build is confirmed, so
    a stale bundle cannot shadow the nix binary.
 
 ## No activation script is needed for `rex terminfo setup`
