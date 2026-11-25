@@ -72,13 +72,39 @@ add_to_path "$HOME/.amp/bin"
 # Added by LM Studio CLI tool (lms)
 add_to_path "$HOME/.lmstudio/bin"
 
-# on mac, the Rex app has the rex server embedded in it, so we need to expose it
+# On macOS the Rex app ships both halves of Rex — the server and the CLI — as
+# one binary inside the app bundle, so there is nothing to install and nothing
+# to keep in step with a Nix build. This puts that binary on PATH.
+#
+# The path names `Rex`, not `Rex Beta`: upstream renamed the app bundle very
+# recently, and this line still carried the beta name, so it added a directory
+# that did not exist and `rex` silently resolved to the Nix package instead.
+# That is a live risk while Rex is prerelease — the bundle can move again — so
+# this is the one line to check if the app's CLI ever stops being found.
+#
+# When Rex ships properly it should arrive in Homebrew and nixpkgs, at which
+# point the app installs itself and this line goes away entirely.
+#
+# The bundle is "Rex Server.rex", which is what the app uses for the helper —
+# not a typo for a .app suffix.
+#
 # TODO: do the equivalent for linux if needed once the linux app/server is available
 # Quote, don't backslash-escape the spaces: paths.sh is shared with bash, and
 # quoting is the form both shells read identically. (The escaped form happens to
 # also work -- add_to_path's `eval echo` unescapes it and its export is quoted --
 # so this is consistency, not a fix.)
-add_to_path "/Applications/Rex Beta.app/Contents/Helpers/Rex Server.rex/Contents/MacOS"
+# Guarded because Rex is prerelease: the bundle name has moved once already
+# (Rex Beta.app -> Rex.app) and may move again. -d, not -f: Rex.app is a bundle
+# directory, so `-f` never matches and the guard would silently never add the
+# path -- the same class of bug as the stale name it protects against.
+#
+# The guard is belt-and-braces rather than load-bearing: add_to_path already
+# returns early on a non-directory, which is why the wrong name was harmless
+# instead of an error. What it adds is visibility -- an `if` reading a real path
+# says "this is a thing that can promise to exist" where a bare call does not.
+if [ -d "/Applications/Rex.app" ]; then
+  add_to_path "/Applications/Rex.app/Contents/Helpers/Rex Server.rex/Contents/MacOS"
+fi
 
 # NixOS: /etc/set-environment puts /run/wrappers/bin (the setuid sudo
 # wrapper) on PATH, but the add_to_path calls above re-prepend
