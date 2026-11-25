@@ -76,3 +76,58 @@ At session end, still report the branch and its commits so the state is clear.
   `checkout -- .`, branch deletion) on uncommitted work without confirmation.
 - If a rebase/merge conflict appears mid-operation, pause and summarize
   rather than resolving blindly.
+
+## Delegation
+
+Use a subagent for work that is independent of the current conversation.
+
+### Which mechanism
+
+| Running in | Use |
+| --- | --- |
+| **Rex** (`$REX_SESSION` is set) | the delegation extension — `subagent` with `access:` / `background:` |
+| **Anything else** (plain terminal, ssh, CI, a nested child) | pi's builtin `subagent` tool |
+
+The extension assumes a Rex server; outside Rex it has nothing to talk to. Do
+not reach for it from a non-Rex session just because its API is more
+expressive. Inside Rex, prefer the extension: its children are tracked in the
+session, so they keep running while you switch tabs and their output lands
+somewhere a human can see.
+
+### Use project agents
+
+**Both mechanisms read `.pi/agents/<name>.md`.** Define a project agent before
+hand-rolling a generic prompt, and pass its name as the agent type —
+`.pi/agents/` names work the same as the builtin ones.
+
+A project agent is the only place repo conventions cost nothing: its system
+prompt carries them once, so each delegation is the task plus its deltas
+instead of a re-explanation of the project. **If a prompt keeps repeating the
+same context, that context belongs in an agent file.**
+
+Builtin agents are the fallback, not the default:
+
+- `explore` — read-only investigation. Use it *before* implementing, so the
+  implementer does not spend its budget rediscovering known facts.
+- `plan` — design questions, no edits.
+- `reviewer` — independent verification of a diff. Do not self-review your own
+  merge.
+- `general-purpose` — last resort, when no project agent fits.
+
+### Give each child the right access
+
+With the extension, the access level is set by you and the default is `write`:
+
+- Broad read-only research or code surveys → `access: "read"`, `background: true`.
+- Reviews or diagnostics that need a shell but must not edit → `access: "inspect"`.
+- Parallel implementation → `access: "write"`, one child per worktree (pass
+  `cwd`); never two writers in one checkout.
+
+Pi picks the level when you leave it out, and the default is write. Saying
+`read` or `inspect` for research and reviews is what buys the safety margin.
+
+### Briefing a child
+
+A child cannot see the conversation. Give it a complete, self-contained task,
+and say explicitly what it may not touch. Ask for a short final report and have
+bulk output written to a file rather than pasted back.
