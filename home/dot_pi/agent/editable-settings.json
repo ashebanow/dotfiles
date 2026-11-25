@@ -15,9 +15,8 @@
   "hideThinkingBlock": false,
   "packages": [
     "git:https://github.com/joshleblanc/pi-minimax",
-    "npm:@ashebanow/pi-gotgenes-subagent",
     "npm:@feniix/pi-exa",
-    "npm:pi-background-tasks@latest",
+    "npm:pi-rex-subagents",
     "npm:@amaster.ai/pi-image-gen"
   ],
   "pi-exa": {

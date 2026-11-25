@@ -194,11 +194,31 @@ Issues for this repo live in Linear — team Boxbow, project Chezmoi — reached
 
 ### Triage labels
 
-Boxbow has no labels for four of the five canonical triage roles. Triage shows up as a
-category label (`Feature` / `Bug` / `Improvement`) plus the `Ready For Agent` and `Deferred`
-labels; the remaining roles resolve to Linear workflow states or a comment. See
-`docs/agents/triage-labels.md`.
+Boxbow has no labels for four of the five canonical triage roles.
+Triage shows up as a category label (`Feature` / `Bug` /
+`Improvement`) plus the `Ready For Agent` and `Deferred`
+labels; the remaining roles resolve to Linear workflow states
+or a comment. See `docs/agents/triage-labels.md`.
 
 ### Domain docs
 
 Single-context: one `CONTEXT.md` at the repo root plus `docs/adr/`. See `docs/agents/domain.md`.
+
+## Delegation
+
+Use the `subagent` tool for work that is independent of the current conversation:
+
+- Broad read-only research or code surveys →
+  `access: "read"`, `background: true`.
+- Reviews or diagnostics that need a shell but must not
+  edit → `access: "inspect"`.
+- Parallel implementation → `access: "write"`, one child per
+  worktree (pass `cwd`); never two writers in one checkout.
+
+Give each child a complete, self-contained task (it can't see this
+conversation) and ask for a short final report, with bulk output
+written to a file.
+
+The policy is worth adding mainly for access. Pi picks it, and the
+default is write. Telling Pi to use read or inspect for research and
+reviews is what gets you the security benefits I described earlier.
