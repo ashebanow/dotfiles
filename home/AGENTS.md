@@ -91,8 +91,15 @@ Use a subagent for work that is independent of the current conversation.
 The extension assumes a Rex server; outside Rex it has nothing to talk to. Do
 not reach for it from a non-Rex session just because its API is more
 expressive. Inside Rex, prefer the extension: its children are tracked in the
-session, so they keep running while you switch tabs and their output lands
-somewhere a human can see.
+session, so their output lands somewhere a human can see.
+
+**Interrupting a turn kills every child it started.** The extension's
+`InterruptManager` subscribes to the turn's abort signal and calls `abortAll()`,
+so an interrupt reaches children whose own work was fine. A child reported as
+`stopped` is therefore *not* evidence of failure — check its branch and worktree
+before assuming it did nothing: work is often already committed, or sitting
+uncommitted on disk waiting to be resumed. Resume it with the same agent plus a
+note of where it left off, rather than restarting from scratch.
 
 ### Use project agents
 
