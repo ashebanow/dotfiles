@@ -93,7 +93,18 @@ add_to_path "$HOME/.lmstudio/bin"
 # quoting is the form both shells read identically. (The escaped form happens to
 # also work -- add_to_path's `eval echo` unescapes it and its export is quoted --
 # so this is consistency, not a fix.)
-add_to_path "/Applications/Rex.app/Contents/Helpers/Rex Server.rex/Contents/MacOS"
+# Guarded because Rex is prerelease: the bundle name has moved once already
+# (Rex Beta.app -> Rex.app) and may move again. -d, not -f: Rex.app is a bundle
+# directory, so `-f` never matches and the guard would silently never add the
+# path -- the same class of bug as the stale name it protects against.
+#
+# The guard is belt-and-braces rather than load-bearing: add_to_path already
+# returns early on a non-directory, which is why the wrong name was harmless
+# instead of an error. What it adds is visibility -- an `if` reading a real path
+# says "this is a thing that can promise to exist" where a bare call does not.
+if [ -d "/Applications/Rex.app" ]; then
+  add_to_path "/Applications/Rex.app/Contents/Helpers/Rex Server.rex/Contents/MacOS"
+fi
 
 # NixOS: /etc/set-environment puts /run/wrappers/bin (the setuid sudo
 # wrapper) on PATH, but the add_to_path calls above re-prepend
