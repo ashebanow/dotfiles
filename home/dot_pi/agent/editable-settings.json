@@ -32,7 +32,7 @@
     "outputDir": ".pi/images"
   },
   "extensionChangelogVersions": {
-    "{\"source\":\"npm:@ashebanow/pi-gotgenes-subagent\",\"scope\":\"user\"}": "18.2.0",
-    "{\"source\":\"npm:@feniix/pi-exa\",\"scope\":\"user\"}": "7.1.1"
+    "{\"source\":\"npm:@feniix/pi-exa\",\"scope\":\"user\"}": "7.1.1",
+    "{\"source\":\"npm:pi-rex-subagents\",\"scope\":\"user\"}": "0.1.0"
   }
 }
